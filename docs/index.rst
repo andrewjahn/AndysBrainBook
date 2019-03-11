@@ -8,7 +8,7 @@ Welcome to Andy's Brain Book!
 
 This book, *Andy's Brain Book*, is intended for both beginners and more advanced neuroimagers. We will start with a basic fMRI analysis, and work from there.
 
-Testing whether I can embed a YouTube video:
+Testing whether I can embed a YouTube video
 
 .. raw:: html
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
