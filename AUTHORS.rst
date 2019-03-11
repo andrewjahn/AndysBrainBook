@@ -1,4 +1,6 @@
 Authors
 -------
 
-* Andrew Jahn (www.andysbrainblog.com)
+* Andrew Jahn (website_) 
+
+.. _website: www.andysbrainblog.com
