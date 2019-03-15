@@ -1,4 +1,9 @@
+ROI Analysis
+============
+
+
 Background
+------------
 
 We’ve covered a lot of ground so far, and by this time you should be able to run a group-level analysis from start to finish: Processing the subjects, creating a model, and then fitting the model for each run for each subject. Group level analyses then allow you to determine whether an effect is consistent enough in the same area across subjects in order to pass a significance threshold that we define. We then used FSLeyes to view the results and get a sense for whether the results seem reasonable. Given previous studies and theory about what the prefrontal cortex does, looking at these maps seemed to lend evidence to our hypothesis that incongruent trials led to greater activity than congruent trials.
 
