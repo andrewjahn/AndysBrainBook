@@ -9,6 +9,7 @@ We’ve covered a lot of ground so far, and by this time you should be able to r
 
 .. image:: fslmaths_Atlas_Image.png
   :width: 500
+  :align: center
   :alt: Check out this image
 
 However, everything we’ve done so far is what we call whole-brain analysis. In a whole-brain analysis, we estimate a model at each voxel - that same “mass univariate” approach I discussed last week - and create contrast maps that cover the entire brain. However, we may not be interested in the whole brain. For example, we may not be interested in the cerebellum, and instead only have specific hypotheses about activation within the prefrontal areas. In that case we would gain more power by restricting our analysis to a subset of voxels. Furthermore, the whole-brain maps that we generate can hide important details about the effects that we’re studying. We may find a significant effect of incongruent-congruent, but the reason the effect is significant could be because incongruent is greater than congruent, or because congruent is much more negative than congruent, or some combination of the two. The only way to determine what is driving the effect is by ROI analysis, and this is especially important when dealing with interactions and more sophisticated designs.
