@@ -9,10 +9,9 @@ If you are completely new to fMRI analysis, I recommend starting with the instal
     
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Install
 
-   FSL
    installation/fsl_mac_install
 
 
