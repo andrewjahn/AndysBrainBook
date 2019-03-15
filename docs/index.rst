@@ -6,25 +6,17 @@
 Welcome to Andy's Brain Book!
 ==================================================
 
-This book, *Andy's Brain Book*, is intended for both beginners and more advanced neuroimagers. We will start with a basic fMRI analysis, and work from there.
+This book, *Andy's Brain Book*, is intended for both beginners and more advanced neuroimagers. 
+We will start with a basic fMRI analysis, and work from there.
 
-Testing whether I can embed a YouTube video
-
-.. raw:: html
-
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-    <iframe width="1280" height="720" src="https://www.youtube.com/embed/196ymIPMMww" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
+If you are completely new to fMRI analysis, I recommend starting with the installation page.
     
 
-
-Contents:
-
 .. toctree::
-   :maxdepth: 2
-   :glob:
+   :maxdepth: 1
+   :caption: Install
 
-   *
+   installation/fsl_mac_install
 
 
 
@@ -32,6 +24,4 @@ Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
