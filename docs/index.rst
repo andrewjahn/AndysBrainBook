@@ -13,6 +13,13 @@ If you are completely new to fMRI analysis, I recommend starting with the instal
    :caption: Install
 
    installation/fsl_mac_install
+   
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: ROI Analysis
+
+   Practicals/ROI_Analysis/Overview
 
 
 
