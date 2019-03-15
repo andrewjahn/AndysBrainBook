@@ -12,6 +12,7 @@ If you are completely new to fMRI analysis, I recommend starting with the instal
    :maxdepth: 2
    :caption: Install
 
+   FSL
    installation/fsl_mac_install
 
 
