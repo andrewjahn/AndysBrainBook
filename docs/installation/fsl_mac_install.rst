@@ -1,4 +1,6 @@
-MacOS installation for FSL
+.. _fsl_mac_install:
+
+Overview
 ==================
 
 
@@ -18,7 +20,7 @@ Installing FSL
 
 FSL can be installed on different operating systems, such as Windows, Macintosh, and Linux. The Windows version requires a virtual machine to run FSL. This course will assume that you have a Macintosh or Linux operating system, and the tutorials will be recorded using an iMac desktop.
 
-The instructions for installing FSL on different operating systems can be found here. 
+The instructions for installing FSL on different operating systems can be found `here <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FslInstallation>`__. 
 The instructions are detailed and will not be repeated here; but for those who are using a Macintosh computer, 
 a screencast can be found here to walk you through the installation and setup: 
 `FSL Installation Walkthrough <https://youtu.be/E9FwDCYAto8?t=16>`__
