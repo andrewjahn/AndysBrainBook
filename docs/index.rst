@@ -2,10 +2,10 @@ Welcome to Andy's Brain Book!
 ==================================================
 
 This book, *Andy's Brain Book*, is intended for both beginners and more advanced neuroimagers. 
-We will start with a basic fMRI analysis, and work from there. It is the ReadTheDocs companion
+We will start with basic fMRI analysis, with more advanced analyses being added later. It is the ReadTheDocs companion
 to `Andy's Brain Blog <https://www.andysbrainblog.com>`__.
 
-If you are completely new to fMRI analysis, I recommend starting with the installation page.
+If you are completely new to fMRI analysis, I recommend starting with the installation page :ref:`fsl_mac_install` to 
     
 
 .. toctree::
