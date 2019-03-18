@@ -10,11 +10,11 @@ First, you will need to download an fMRI analysis package. The three most popula
 * `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__ (FMRIB Software Library, from the University of Oxford)
 * `AFNI <https://afni.nimh.nih.gov/>`__ (Analysis of Functional Neuroimages, from the National Institutes of Health, USA)
 
-.. Add links?
 
 Most laboratories use one of these three packages to analyze fMRI data. Each package is developed and maintained by a team of professionals, and each is updated at least every few years or so. This website will focus on analyzing an online dataset using FSL. In the future, tutorials will be added for SPM and AFNI.
 
-This should link to itself :ref:`test <fsl_mac_install>`.
+This should link to itself 
+:ref:`test <fsl_mac_install>`.
 
 
 Installing FSL
