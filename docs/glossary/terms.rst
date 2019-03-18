@@ -12,6 +12,11 @@ Basic Terms
 **Library:** A directory that contains commands that are needed to run a program. Usually the library for Unix commands
 is found is /usr/bin.
 
+.. figure:: Library_Example.png
+    :scale: 50%
+
+    Some of the commands found in the FSL library
+
 Unix Terms
 -------------
 
@@ -80,3 +85,33 @@ for example,
     
 in this case would return "1".
 
+
+
+Imaging Terms
+-------------
+
+**Volume:** A three-dimensional image composed of **voxels**. Volumes can be concatenated together to create a 4-dimensional dataset (with *time* being the 4th dimension).
+
+**Voxel:** The smallest resolution element of a volume. In the following picture, voxels are stacked together to create 
+
+Experimental Design
+
+Run
+
+Session
+
+Counterbalance
+
+Presentation Software
+
+fMRI experiments are created with presentation software, which presents stimuli and records responses. Some of the most popular packages are E-Prime, Presentation, and PsychoPy
+
+E-Prime: Uses a graphical user interface (GUI) to allow the user to drag and drop objects - such as a slide presenting a picture or a video - onto a timeline. The objects are presented in order on the timeline, although the number and sequence of subsets of presentations are controlled by the List object. Users can program in E-Prime's object-oriented programming language (E-Basic) using the InLine object.
+
+Presentation
+
+PsychoPy
+
+Analysis
+
+Connectivity
