@@ -1,6 +1,6 @@
-==========
+#############
 Glossary
-==========
+#############
 
 As a neuroimager you will need to be fluent with the vocabulary of neuroimaging, coding, statistics, and a few other fields.
 This page is a list of some of the most common terms, and will be updated regularly.
@@ -8,7 +8,7 @@ This page is a list of some of the most common terms, and will be updated regula
 
 Basic Terms
 -------------
-
+    
 **Library:** A directory that contains commands that are needed to run a program. Usually the library for Unix commands
 is found is /usr/bin.
 
