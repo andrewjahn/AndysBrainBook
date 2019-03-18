@@ -15,7 +15,7 @@ Most laboratories use one of these three packages to analyze fMRI data. Each pac
 
 This should link to itself 
 
-:ref:`test <fsl_mac_install>`.
+:ref:`fsl_mac_install`
 
 
 Installing FSL
