@@ -26,5 +26,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 Glossary
 ==================
 
-* :ref:`glossary`
+* :ref:`terms`
 
