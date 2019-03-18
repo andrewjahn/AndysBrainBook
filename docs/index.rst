@@ -23,8 +23,8 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 
 
 
-Indices and tables
+Glossary
 ==================
 
-* :ref:`genindex`
+* :ref:`glossary`
 
