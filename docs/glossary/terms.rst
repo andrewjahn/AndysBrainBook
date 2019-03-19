@@ -15,7 +15,7 @@ Basic Terms
 is found is /usr/bin.
 
 .. figure:: Library_Example.png
-    :scale: 50 %
+    :scale: 10 %
 
     Some of the commands found in the FSL library
 
