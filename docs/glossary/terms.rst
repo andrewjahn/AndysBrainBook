@@ -11,11 +11,10 @@ This page is a list of some of the most common terms, and will be updated regula
 Basic Terms
 -------------
     
-**Library:** A directory that contains commands that are needed to run a program. Usually the library for Unix commands
-is found is /usr/bin.
+**Library:** A directory that contains commands that are needed to run a program. Usually the library for a program is found in the "bin" folder of that directory, such as $FSLDIR/bin.
 
 .. figure:: Library_Example.png
-    :scale: 10 %
+    :scale: 30 %
 
     Some of the commands found in the FSL library
 
