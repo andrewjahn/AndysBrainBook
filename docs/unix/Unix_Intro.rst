@@ -11,4 +11,4 @@ While this may seem intimidating and even tedious to the newcomer, using the com
 Video
 ------------
 
-Click `here <https://www.youtube.com/watch?v=Odn_Ti-tKzI>` to see a video introducing you to Unix. When you have finished watching the video, click the "Next" button down below to begin the Unix tutorial series.
+Click `here <https://www.youtube.com/watch?v=Odn_Ti-tKzI>`__ to see a video introducing you to Unix. When you have finished watching the video, click the "Next" button down below to begin the Unix tutorial series.
