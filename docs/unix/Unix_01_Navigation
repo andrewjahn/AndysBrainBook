@@ -1,4 +1,4 @@
-.. _01_Unix_Navigation:
+.. _Unix_01_Navigation:
 
 ==============
 Unix Tutorial #1: Navigating the directory tree
@@ -10,4 +10,4 @@ The first commands we will cover are “pwd”, “cd”, and “ls”. “Pwd�
 Video
 -------------
 
-Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=2>` to see a video overview of the commands cd, ls, and pwd. These are the basic commands you will need to navigate around your directory tree.
+Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=2>`__ to see a video overview of the commands cd, ls, and pwd. These are the basic commands you will need to navigate around your directory tree.
