@@ -26,7 +26,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Unix for Neuroimagers
     
     unix/Unix_Intro
-    unix/01_Unix_Navigation
+    unix/Unix_01_Navigation
 
 
 
