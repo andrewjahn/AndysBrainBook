@@ -28,6 +28,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     unix/Unix_Intro
     unix/Unix_01_Navigation
     unix/Unix_02_CopyRemove
+    unix/Unix_03_ReadingTextFiles
 
 
 
