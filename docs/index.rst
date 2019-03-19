@@ -20,6 +20,13 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    :caption: ROI Analysis
 
    Practicals/ROI_Analysis/Overview
+   
+.. toctree::
+    :maxdepth: 1
+    :caption: Unix for Neuroimagers
+    
+    unix/Unix_Intro
+    unix/01_Unix_Navigation
 
 
 
