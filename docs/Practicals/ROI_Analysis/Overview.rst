@@ -1,3 +1,5 @@
+.. _ROI_Analysis:
+
 ROI Analysis
 ============
 
@@ -10,7 +12,6 @@ We’ve covered a lot of ground so far, and by this time you should be able to r
 .. image:: fslmaths_Atlas_Image.png
   :width: 500
   :align: center
-  :alt: Check out this image
 
 However, everything we’ve done so far is what we call whole-brain analysis. In a whole-brain analysis, we estimate a model at each voxel - that same “mass univariate” approach I discussed last week - and create contrast maps that cover the entire brain. However, we may not be interested in the whole brain. For example, we may not be interested in the cerebellum, and instead only have specific hypotheses about activation within the prefrontal areas. In that case we would gain more power by restricting our analysis to a subset of voxels. Furthermore, the whole-brain maps that we generate can hide important details about the effects that we’re studying. We may find a significant effect of incongruent-congruent, but the reason the effect is significant could be because incongruent is greater than congruent, or because congruent is much more negative than congruent, or some combination of the two. The only way to determine what is driving the effect is by ROI analysis, and this is especially important when dealing with interactions and more sophisticated designs.
 
@@ -74,7 +75,8 @@ ROIs are also useful for testing double dissociations, or whether a condition ac
 
 ***CONCEPT: DOUBLE-DIPPING (AKA BIASED OR CIRCULAR ANALYSIS)***
 
-Before we go, I want to point out a potential pitfall with ROI analyses that you should avoid: non-independence, or biased ROI analyses. You may also hear them referred to as circular ROI analyses. This is a very important conceptual and statistical issue that has a long history going back a decade.
+One potential pitfall with ROI analyses that you should avoid is called non-independence, or biased ROI analyses. You may also hear them referred to as circular ROI analyses. This is a very important conceptual and statistical issue that has a long history going back a decade.
+
 The problem is this. Let’s say that you’ve just run a whole-brain analysis of Left-Right, and you get a contrast map that looks like this, nice and significant, thresholded at p < 0.001 and even doing all that stuff Eklund talked about. So you know you have an effect, but let’s say you didn’t have a hypothesis going into the experiment about where you would find the effect. What you may be tempted to do is use the voxels that passed your significance threshold as an ROI, and then run inferential statistics on parameters extracted from that ROI. This is a biased analysis because these voxels by definition are going to have significant results; and furthermore it is likely they will contain noise that biases their effect size to be artificially high, and it’s impossible to tell how much. Any inference you do in this ROI will therefore be invalid.
 There are a couple of ways to avoid this problem, such as creating an anatomical region or a sphere based on the peak coordinates from another study like we just did.
 
