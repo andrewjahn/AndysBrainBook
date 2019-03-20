@@ -7,11 +7,6 @@ Overview
 First, you will need to download an fMRI analysis package. The three most popular are:
 
 * `SPM <https://www.fil.ion.ucl.ac.uk/spm/>`__ (Statistical Parametric Mapping, from University College London)
-* You can find SPM |location|. 
-
-.. |location| raw:: html
-  <a href="https://www.fil.ion.ucl.ac.uk/spm/" target="_blank">here</a>
-  
 * `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__ (FMRIB Software Library, from the University of Oxford)
 * `AFNI <https://afni.nimh.nih.gov/>`__ (Analysis of Functional Neuroimages, from the National Institutes of Health, USA)
 
