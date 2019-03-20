@@ -11,14 +11,18 @@ Unix Tutorial #1: Navigating the directory tree
 
 Like other operating systems, Unix organizes folders and files using a directory tree - also known as a directory hierarchy, or directory structure. At the top of the hierarchy is a folder called ``root``, written as a forward slash (``/``). All other folders (also known as directories) are contained within the ``root`` folder, and those folders in turn can contain other folders.
 
-Think of the directory hierarchy as an upside-down tree: ``root`` is the base of the tree, and all of the other folders extend from it, just as branches extend from the trunk of a tree.
+Think of the directory hierarchy as an upside-down tree: ``root`` is the base of the tree, and all of the other folders extend from it, just as branches extend from the trunk.
 
 .. figure:: UnixTree.png
 
-    Root, symbolized by a forward slash ("/"), is the highest level of the directory tree; it contains folders such as ``bin`` (which contains binaries, or Unix commands such as pwd, cd, ls, and so on), ``mnt`` (which shows any currently mounted drives, such as external hard drives), and ``Users``. These directories in turn contain other directories - for example, ``Users`` contains the folder ``andrew``, which in turn contains the ``Desktop``, `Applications``, and ``Downloads`` directories. This is how a directory tree is constructed, and how folders and files are organized.
+    Root, symbolized by a forward slash (``/``), is the highest level of the directory tree; it contains folders such as ``bin`` (which contains binaries, or Unix commands such as pwd, cd, ls, and so on), ``mnt`` (which shows any currently mounted drives, such as external hard drives), and ``Users``. These directories in turn contain other directories - for example, ``Users`` contains the folder ``andrew``, which in turn contains the ``Desktop``, ``Applications``, and ``Downloads`` directories. This is how folders and files are organized within a directory tree.
     
 
-The first commands we will cover are ``pwd``, ``cd``, and ``ls``.``pwd`` stands for “print working directory”; ``cd`` stands for “change directory”; and ``ls`` stands for “list”, as in “list the contents of the current directory.” This is analogous to pointing and clicking on a folder on your Desktop, and then seeing what’s inside. Note that in these tutorials, the words “folder” and “directory” are used interchangeably.
+To navigate around your computer you will need to know the commands ``pwd``, ``cd``, and ``ls``.``pwd`` stands for “print working directory”; ``cd`` stands for “change directory”; and ``ls`` stands for “list”, as in “list the contents of the current directory.” This is analogous to pointing and clicking on a folder on your Desktop, and then seeing what’s inside. Note that in these tutorials, the words “folder” and “directory” are used interchangeably.
+
+.. figure:: Desktop_Folder.png
+
+    Navigation in Unix is the same thing as pointing and clicking in a typical graphical user interface. For example, if I have the folder ExperimentFolder on my Desktop, I can point double-click to open it. I can do the same thing by typing ``cd ~/Desktop/ExperimentFolder`` and then typing ``ls`` to see what's in the directory.
 
 
 Video
