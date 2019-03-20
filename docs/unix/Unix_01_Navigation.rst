@@ -30,6 +30,9 @@ Video
 
 Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=2>`__ to see a video overview of the commands cd, ls, and pwd - the basic commands you will need to navigate around your directory tree.
 
+
+-------------
+
 Exercises
 -------------
 
