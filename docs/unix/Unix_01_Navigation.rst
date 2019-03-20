@@ -9,6 +9,10 @@ Unix Tutorial #1: Navigating the directory tree
     
     Commands used: pwd, cd, ls
 
+
+Overview
+-------------
+
 Like other operating systems, Unix organizes folders and files using a directory tree - also known as a directory hierarchy, or directory structure. At the top of the hierarchy is a folder called ``root``, written as a forward slash (``/``). All other folders (also known as directories) are contained within the ``root`` folder, and those folders in turn can contain other folders.
 
 Think of the directory hierarchy as an upside-down tree: ``root`` is the base of the tree, and all of the other folders extend from it, just as branches extend from the trunk.
