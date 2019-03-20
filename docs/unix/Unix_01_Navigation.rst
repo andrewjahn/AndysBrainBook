@@ -22,7 +22,7 @@ To navigate around your computer you will need to know the commands ``pwd``, ``c
 
 .. figure:: Desktop_Folder.png
 
-    Navigation in Unix is the same thing as pointing and clicking in a typical graphical user interface. For example, if I have the folder ExperimentFolder on my Desktop, I can point double-click to open it. I can do the same thing by typing ``cd ~/Desktop/ExperimentFolder`` and then typing ``ls`` to see what's in the directory.
+    Navigation in Unix is the same thing as pointing and clicking in a typical graphical user interface. For example, if I have the folder "ExperimentFolder" on my Desktop, I can point double-click to open it. I can do the same thing by typing ``cd ~/Desktop/ExperimentFolder`` and then typing ``ls`` to see what's in the directory.
 
 
 Video
