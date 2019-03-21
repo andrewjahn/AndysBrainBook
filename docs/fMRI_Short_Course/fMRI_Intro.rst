@@ -7,7 +7,7 @@ Introduction
 This short course will show you how to analyze an fMRI dataset from start to finish. We will begin with a brief history of fMRI and how the datasets are created. If you instead want to start immediately with the practical section of the course, click on the "Next" button at the bottom of this page.
 
 .. note::
-    We will not be covering MRI physics in depth. For a review of that topic, I recommend chapters 1-5 of the book *Functional Magnetic Resonance Imaging*, by Huettel, Song, & McCarthy (3rd Edition). Also see Allen Elster's excellent `MRI Questions <http://mriquestions.com/index.html>__` website for useful illustrations of MRI concepts.
+    We will not be covering MRI physics in depth. For a review of that topic, I recommend chapters 1-5 of the book *Functional Magnetic Resonance Imaging*, by Huettel, Song, & McCarthy (3rd Edition). Also see Allen Elster's excellent `MRI Questions <http://mriquestions.com/index.html>`__ website for useful illustrations of MRI concepts.
 
 
 History
