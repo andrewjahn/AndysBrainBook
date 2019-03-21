@@ -4,11 +4,11 @@
 What is Unix?
 =============
 
-Unix is an operating system, just like Macintosh or Windows. The major difference between Unix and other operating systems is that it uses a command line interface, or **command line** for short - instead of pointing and clicking like you would in a Windows or Macintosh machine, you type the commands that you want to run.
+Unix is an operating system, just like Macintosh or Windows. The major difference between Unix and other operating systems is that it uses a command line interface, or **command line** for short: Instead of pointing and clicking like you would in a Windows or Macintosh machine, you type the commands that you want to run. The command line is typed in a **Terminal**, a graphical interface in which you can only type text. The Terminal emulates (i.e., reproduces the function of) a `console <https://en.wikipedia.org/wiki/System_console`__.
 
 .. note::
 
-    Although 
+    Linux operating systems (such as Ubuntu) come with a Terminal, as do recent versions of Macintosh operating systems. Windows users will need to download a Terminal emulator such as `Cygwin https://www.cygwin.com/`__.
 
 .. figure:: Terminal_Example.png
 
