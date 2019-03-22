@@ -31,6 +31,9 @@ The first line creates a copy of myFile.txt and labels it myFile2.txt; the secon
   An illustration of how commands typed in the Terminal have the same effect as copying and renaming files through the GUI.
 
 
+.. warning::
+  There is one important difference between the GUI and the command line when removing files and directories. A file that is removed using the GUI will first be put it in the Trash bin, and will only be permanently deleted if you choose to empty the Trash bin. Removing a file with ``rm``, on the other hand, permanently deletes the file right away; you will not be able to recover the file once you use ``rm``!
+
 Video
 ----------
 
