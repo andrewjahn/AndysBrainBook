@@ -8,6 +8,17 @@ As a neuroimager you will need to be fluent with the vocabulary of neuroimaging,
 This page is a list of some of the most common terms, and will be updated regularly.
 
 
+.. toctree::
+    :hidden:
+    terms/BOLD_Response
+    terms/Library
+    
+.. csv-table::
+    :header: "Term", "Definition"
+    
+    :ref:`BOLD Response <BOLD_Response>`
+    :ref:`Library`
+
 Basic Terms
 -------------
     
