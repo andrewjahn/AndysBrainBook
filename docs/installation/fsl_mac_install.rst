@@ -4,14 +4,14 @@ Overview
 ==================
 
 
-First, you will need to download an fMRI analysis package. The three most popular are:
+In order to analyze fMRI data, you will need to download an fMRI analysis package. The three most popular are:
 
 * `SPM <https://www.fil.ion.ucl.ac.uk/spm/>`__ (Statistical Parametric Mapping, from University College London)
 * `FSL <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__ (FMRIB Software Library, from the University of Oxford)
 * `AFNI <https://afni.nimh.nih.gov/>`__ (Analysis of Functional Neuroimages, from the National Institutes of Health, USA)
 
 
-Most laboratories use one of these three packages to analyze fMRI data. Each package is developed and maintained by a team of professionals, and each is updated at least every few years or so. This website will focus on analyzing an online dataset using FSL. In the future, tutorials will be added for SPM and AFNI.
+Most laboratories use one of these three packages to analyze fMRI data. Each package is updated and maintained by a team of professionals, and each is updated at least every few years or so. This course will focus on analyzing an online dataset using FSL. In the future, tutorials will be added for SPM and AFNI.
 
 
 
