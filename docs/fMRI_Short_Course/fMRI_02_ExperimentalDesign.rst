@@ -4,7 +4,7 @@ fMRI Tutorial #2: Overview of The Flanker Task
 
 This dataset uses the Flanker task, which is designed to tap into a mental process known as cognitive control. For this course, we’re going to define cognitive control as the ability to ignore irrelevant stimuli in order to do the task correctly.
 
-In the Flanker task, arrow point either to the left or the right, and the subject is instructed to press one of two buttons indicating the direction of the arrow in the middle. If it’s pointing to the left, the subject presses the “left” button; if it’s pointing to the right, the subject presses the “right” button. The middle arrow is flanked by other arrows which either point in the same direction as the middle arrow, or point in the opposite direction from the middle arrow.
+In the Flanker task, arrows point either to the left or the right, and the subject is instructed to press one of two buttons indicating the direction of the arrow in the middle. If it’s pointing to the left, the subject presses the “left” button; if it’s pointing to the right, the subject presses the “right” button. The middle arrow is flanked by other arrows which either point in the same direction as the middle arrow, or point in the opposite direction from the middle arrow.
 
 .. figure:: Flanker_Example.png
 
