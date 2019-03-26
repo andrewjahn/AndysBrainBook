@@ -3,4 +3,6 @@
 BOLD Response
 =============
 
-Stands for Blood Oxygenation-Level Dependent Signal. Nearby oxygenated blood interferes less with the signal emitted by Hydrogen atoms than does deoxygenated blood.
+.. figure:: BOLD_Response.png
+
+An acronym which stands for Blood Oxygenation-Level Dependent Signal. Nearby oxygenated blood interferes less with the signal emitted by Hydrogen atoms than does deoxygenated blood.
