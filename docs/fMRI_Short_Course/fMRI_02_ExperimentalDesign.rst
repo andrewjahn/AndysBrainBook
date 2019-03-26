@@ -12,7 +12,9 @@ In the Flanker task, arrows point either to the left or the right, and the subje
 
 You can imagine that the task is easier if the central arrow points in the same direction as the flanking arrow, and more difficult if it points in the opposite direction. We’ll call the former condition the “Congruent” condition and the latter the “Incongruent” condition. Subjects are typically slower and more inaccurate in the Incongruent condition, and faster and more accurate in the Congruent condition. Since the difference in reaction times is robust and reliable, it follows that in our fMRI data we should see a noticeable difference in the :ref:`BOLD response <BOLD_Response>` as well.
 
-.. Put a figure in here showing how the Flanker task looks in an fMRI setting; jitters, different conditions, etc
+.. figure:: Flanker_Design.png
+
+	The Flanker task for this study, adapted from Kelly et al. (2008). The subject is shown a fixation cross in order to focus on the center of the screen, and then either a Congruent or Incongruent Flanker stimulus is presented for 2000ms. When the Flanker is shown the subject presses either the left or right button. This is followed by a jittered interval lasting 8,000-14,000ms. Another fixation cross is presented to begin the next trial.
 
 Our goal is to estimate the size of the BOLD response to each condition, and then contrast (i.e., take the difference of) the two conditions to see whether they are significantly different from each other.
 
