@@ -14,7 +14,7 @@ You can imagine that the task is easier if the central arrow points in the same 
 
 .. figure:: Flanker_Design.png
 
-	The Flanker task for this study, adapted from Kelly et al. (2008). The subject is shown a fixation cross in order to focus on the center of the screen, and then either a Congruent or Incongruent Flanker stimulus is presented for 2000ms. When the Flanker is shown the subject presses either the left or right button. This is followed by a jittered interval lasting 8,000-14,000ms. Another fixation cross is presented to begin the next trial.
+	The Flanker task for this study, adapted from Kelly et al. (2008). The subject is shown a fixation cross in order to focus on the center of the screen, and then either a Congruent or Incongruent Flanker trial is presented for 2000ms. During the trial the subject presses either the left or right button. A jittered interval follows which lasts anywhere from 8,000ms to 14,000ms. Another fixation cross is presented to begin the next trial.
 
 Our goal is to estimate the size of the BOLD response to each condition, and then contrast (i.e., take the difference of) the two conditions to see whether they are significantly different from each other.
 
