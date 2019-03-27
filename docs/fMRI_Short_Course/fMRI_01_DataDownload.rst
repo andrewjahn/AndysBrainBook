@@ -20,8 +20,5 @@ Download the dataset by clicking on the "Download" button at the top of the page
 
 .. figure:: OpenNeuro_DownloadButton.png
 
-    
 
-Video
---------------
-Downloading the dataset should be straightforward, but if you would like to see a video about how to do it, click here.
+After you have downloaded and unzipped the dataset, click on the Next button to learn how to inspect your data using fsleyes.
