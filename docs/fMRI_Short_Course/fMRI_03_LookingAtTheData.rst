@@ -1,5 +1,7 @@
 .. _fMRI_03_LookingAtTheData:
 
+.. |movieIcon|  image:: movieIcon.png
+
 ================
 fMRI Tutorial #3: Looking at the Data
 ================
@@ -29,13 +31,14 @@ As you saw in the previous :ref:`Data Download page <fMRI_01_DataDownload>`, the
 
     Example of the BIDS format. Note that the ``func`` directory contains both the functional runs - in this case, two runs - and corresponding "events.tsv" files, which contains onsets, or timestamps of which condition happened at what time. You can open these up in a text editor or as a spreadsheet.
 
+--------
 
 Inspecting the Anatomical Image
 ----------
     
 Whenever you download imaging data, you should first check the anatomical and functional images to inspect them for any problems - scanner spikes, incorrect orientation, poor contrast, and so on. It will take some time to develop an eye for what these problems look like, but with practice it will become easier and quicker to check your data.
 
-Let's take a look at the anatomical image in the ``anat`` folder. Navigate to the folder and then type
+Let's take a look at the anatomical image in the ``anat`` folder for ``sub-08``. Navigate to the folder and then type
 
 ::
 
@@ -69,8 +72,27 @@ As you continue to inspect the image, here are two things you can watch out for:
 
 2. Abnormal intensity differences within the grey or the white matter. These may indicate pathologies such as aneurysms or cavernomas, and they should be reported to your radiologist right away; make sure you are familiar with your laboratory's protocols for reporting artifacts. For a gallery of pathologies you may see in an MRI image, click `here <http://www.mrishark.com/brain1.html>`__.
 
+----------
 
 Inspecting the Functional Images
 ----------
     
-    
+When you are done looking at the anatomical image, click on ``Overlay -> Remove All`` from the menu at the top of your screen. Then, click on ``File -> Add from File``, navigate to ``sub-08``'s func directory, and select the image ending in ``run-1_bold.nii.gz``. This image also looks like a brain, but it's not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image, and lower-resolution functional images, in part because we collect the functional images much more quickly.
+
+.. figure:: functional_firstLook.png
+
+
+Many of the quality checks for the functional image are the same as with the anatomical image: Watch out for extremely bright or extremely dark spots in the grey or white matter, as well as for image distortions such as abnormal stretching or warping. One place where it is common to see a little bit of distortion is in the orbitofrontal part of the brain, just above the eyeballs. There are ways to reduce this distortion, but for now we will ignore it.
+
+.. Reference the timeseries glossary
+
+Many of the quality checks for the functional image are the same as with the anatomical image: Watch out for extremely bright or extremely dark spots in the grey or white matter, as well as for image distortions such as abnormal stretching or warping. One place where it is common to see some distortion is in the orbitofrontal part of the brain, just above the eyeballs. There are ways to reduce this distortion, but for now we will ignore it.
+
+Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the |movieIcon| icon in fsleyes. Note any jerky, sudden movements in any of the viewing panes. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
+
+--------
+
+Video
+--------
+
+Follow along here for a demonstration of quality checking fMRI data. When you are finished, click on the Next button to learn about preprocessing the data.
