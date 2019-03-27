@@ -11,7 +11,7 @@ In order to analyze fMRI data, you will need to download an fMRI analysis packag
 * `AFNI <https://afni.nimh.nih.gov/>`__ (Analysis of Functional Neuroimages, created by the National Institutes of Health, USA)
 
 
-Most laboratories use one of these three packages to analyze fMRI data. Each package is updated and maintained by a team of professionals, and each is updated at least every few years or so. This course will focus on analyzing an online dataset using FSL. In the future, tutorials will be added for SPM and AFNI.
+Most laboratories use one of these three packages to analyze fMRI data. Each package is maintained by a team of professionals, and each is updated at least every few years or so. This course will focus on analyzing an online dataset using FSL; in the future, tutorials will be added for SPM and AFNI.
 
 
 
