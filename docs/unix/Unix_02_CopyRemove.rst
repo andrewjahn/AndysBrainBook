@@ -19,6 +19,7 @@ Now that you have experience getting around your directories with ``cd`` and ``l
 To see the similarities between using the graphical interface and using the command line, create a text file in an editor of your choice, such as TextEdit. Save the file to your Desktop - in this example, I'll call it myFile.txt - and try the following commands, remembering to press the Enter key after each line:
 
 .. code::
+
   cp myFile.txt myFile2.txt
   mv myFile.txt myNewFile.txt
   rm myFile2.txt
