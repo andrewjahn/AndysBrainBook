@@ -26,4 +26,9 @@ a screencast can be found here to walk you through the installation and setup:
 `FSL Installation Video Walkthrough <https://youtu.be/E9FwDCYAto8?t=16>`__
 
 
+Next Steps
+-----------
+
+If you have never used a command line before, click on the Next button to begin the Unix tutorials. If you do feel comfortable using Unix, then you can skip to the :ref:`fMRI Short Course <fMRI_Intro>`.
+
 
