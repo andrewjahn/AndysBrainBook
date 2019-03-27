@@ -16,7 +16,7 @@ Now that you've downloaded the dataset, let's see what it looks like. If the dat
 
     mv ~/Downloads/ds000102_0001/ Flanker
     
-Which will rename the folder to Flanker and put it on your Desktop.
+Which will rename the folder to ``Flanker`` and put it on your Desktop.
 
 
 .. figure:: Move_Flanker_Folder.png
