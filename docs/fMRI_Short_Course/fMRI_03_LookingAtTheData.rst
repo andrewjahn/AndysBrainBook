@@ -4,6 +4,10 @@
 fMRI Tutorial #3: Looking at the Data
 ================
 
+
+Overview
+---------
+
 Now that you've downloaded the dataset, let's see what it looks like. If the dataset has been downloaded to your Download directory, navigate to the Desktop and type the following:
 
 ::
@@ -20,6 +24,53 @@ Which will rename the folder to Flanker and put it on your Desktop.
     
 As you saw in the previous ref:`Data Download page <fMRI_01_DataDownload>`, the dataset has a standardized structure: Each subject folder contains an anatomical directory and a functional directory labeled ``anat`` and ``func``, and these in turn contain the anatomical and functional images, respectively. (The ``func`` directory also contains **onset times**, or timestamps for when the subject did either a Congruent or Incongruent task.) This format is known as `BIDS <http://bids.neuroimaging.io/>`__, or Brain Imaging Data Structure, which makes it easy to organize and find your data.
 
+
 .. figure:: Flanker_DataStructure.png
 
+    Example of the BIDS format. Note that the ``func`` directory contains both the functional runs - in this case, two runs - and corresponding "events.tsv" files, which contains onsets, or timestamps of which condition happened at what time. You can open these up in a text editor or as a spreadsheet.
+
+
+Inspecting the Anatomical Image
+----------
+    
+Whenever you download imaging data, you should first check the anatomical and functional images to inspect them for any problems - scanner spikes, incorrect orientation, poor contrast, and so on. It will take some time to develop an eye for what these problems look like, but with practice it will become easier and quicker to check your data.
+
+Let's take a look at the anatomical image in the ``anat`` folder. Navigate to the folder and then type
+
+::
+
+    fsleyes sub-01_T1w.nii.gz
+    
+This will open the anatomical image in ``fsleyes``, FSL's image viewer.
+
+
+.. figure:: anat_firstLook.png
+
+    The anatomical image displayed in fsleyes. The contrast seems low between the grey and white matter, but this is because the blood vessels of the neck (indicated by orange arrows) are much brighter than the rest of the brain.
+    
+.. figure:: anat_changeContrast.png
+
+    This can be fixed by changing the numbers in the contrast box. Here, the Maximum has been lowered to 800, capping the brightest signal at that value. This makes it easier to see the contrast between the tissues.
+    
+    
+    
+Inspect the image by clicking and dragging the mouse around. You can switch viewing panes by clicking in the corresponding window. Note that the other windows are updated in real time as you move your mouse around. This is because MRI data is collected as a three-dimensional image, and moving along one of the dimensions will change the other windows as well.
+
+.. note::
+
+    You may have noticed that this subject appears to be missing his face. That is because the data from OpenNeuro.org have been **deidentified**: Not only has information such as name and date of scanning been removed from the header, but the faces have also been erased. This is a common step in order to ensure the subject's anonymity.
+    
+
+As you continue to inspect the image, here are two things you can watch out for:
+
+1. Lines that look like ripples in a pond. These are called **Gibbs Ringing Artifacts**, and they may indicate an error in the reconstruction of the MR signal from the scanner. These ripples may also be caused by the subject moving too much during the scan. In either case, if the ripples are large enough, they may cause preprocessing steps like brain extraction or normalization to fail.
+
+.. Also include pictures from the QC talk?
+
+2. Abnormal intensity differences within the grey or the white matter. These may indicate pathologies such as aneurysms or cavernomas, and they should be reported to your radiologist right away; make sure you are familiar with your laboratory's protocols for reporting artifacts. For a gallery of pathologies you may see in an MRI image, click `here <http://www.mrishark.com/brain1.html>`__.
+
+
+Inspecting the Functional Images
+----------
+    
     
