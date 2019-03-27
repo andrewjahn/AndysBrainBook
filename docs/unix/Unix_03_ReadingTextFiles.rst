@@ -27,47 +27,49 @@ The ``cat`` command is useful for viewing the contents of smaller files, but if 
 
 ::
 
-head myFile.txt
+   head myFile.txt
 
 
 Would return the first five lines; whereas typing
 
 :: 
 
-tail myFile.txt
+   tail myFile.txt
 
 
 Would return the last five lines. Although the default is to return five lines, these commands have an option to display any amount of lines that you choose. For example,
 
 ::
 
-head -10 myFile.txt
-tail -10 myFile.txt
+   head -10 myFile.txt
+   tail -10 myFile.txt
 
 
 Would return the first ten lines and the last ten lines. Try these out yourself, changing the number of lines that are displayed.
 
+
+Redirection
 ----------
 
 In addition to displaying the results of a command, **stdout** can be used to move or append the output to a file, a concept known as **redirection**. For example, if you type 
 
 ::
 
-echo sixteen > tmp.txt
+   echo sixteen > tmp.txt
 
 
 The word “sixteen” goes into the file tmp.txt instead of being written to standard output. Notice that it creates the file tmp.txt even if it doesn’t exist. However, if we try that again with another string - for example,
 
 ::
 
-echo seventeen > tmp.txt
+   echo seventeen > tmp.txt
 
 
 It will overwrite the file with whatever we printed to standard output. If you want to append standard output to the end of a file without overwriting the other data in the file, use two greater-than signs. For example, type
 
 ::
 
-echo eighteen >> tmp.txt
+   echo eighteen >> tmp.txt
 
 
 If you type ``cat tmp.txt``, you will see both seventeen and eighteen.
