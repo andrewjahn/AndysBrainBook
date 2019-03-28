@@ -86,8 +86,6 @@ Many of the quality checks for the functional image are the same as with the ana
 
 .. Reference the timeseries glossary
 
-Many of the quality checks for the functional image are the same as with the anatomical image: Watch out for extremely bright or extremely dark spots in the grey or white matter, as well as for image distortions such as abnormal stretching or warping. One place where it is common to see some distortion is in the orbitofrontal part of the brain, just above the eyeballs. There are ways to reduce this distortion, but for now we will ignore it.
-
 Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the |movieIcon| icon in fsleyes. Note any jerky, sudden movements in any of the viewing panes. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
 
 --------
