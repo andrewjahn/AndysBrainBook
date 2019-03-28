@@ -4,6 +4,10 @@
 Glossary
 #############
 
+
+.. note::
+    This Glossary is under construction. Check back soon!
+
 As a neuroimager you will need to be fluent with the vocabulary of neuroimaging, coding, statistics, and a few other fields.
 This page is a list of some of the most common terms, and will be updated regularly.
 
