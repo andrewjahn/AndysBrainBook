@@ -6,7 +6,7 @@ Introduction
 
 This short course will show you how to analyze an fMRI dataset from start to finish. We will begin by downloading a sample dataset and inspecting the anatomical and functional images for each subject. We will then preprocess the data, which removes noise and enhances the signal in the images. Lastly, we will fit a model to each subject to measure the strength of the signal under different conditions - for example, we can take the difference of the signal between conditions A and B of the experiment to see which one leads to a larger :ref:`BOLD response <BOLD_Response>`.
 
-Once a model has been created for each subject and the magnitude of the signal calculated for each condition, we can do any kind of group analysis we like: Paired t-tests, between-group t-tests, interactions, and so on. The aim of this course is to calculate a simple within-subjects contrast between two conditions, and test whether it is significant across subjects. You will also learn how to create figures showing whole-brain analyses similar to what you see published in the neuroimaging journals, and how to do a region of interest (ROI) analysis.
+Once a model has been created for each subject and the magnitude of the signal calculated for each condition, we can do any kind of group analysis we like: Paired t-tests, between-group t-tests, interactions, and so on. The goal of this course is to calculate a simple within-subjects contrast between two conditions, and test whether it is significant across subjects. You will also learn how to create figures showing whole-brain analyses similar to what you see published in the neuroimaging journals, and how to do a region of interest (ROI) analysis.
 
 .. figure:: Final_Map.png
 
