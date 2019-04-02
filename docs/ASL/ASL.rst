@@ -12,7 +12,7 @@ Arterial Spin Labeling (ASL) is a neuroimaging technique that measures the perfu
 
 
 ASL Summary
-==============
+---------
 
 .. note::
   The following images are taken from Luis Hernandez-Garcia's `webpage <http://fmri.research.umich.edu/research/main_topics/asl.php>`__.
