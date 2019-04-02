@@ -1,6 +1,9 @@
 .. _fASL_Download:
 
 
+.. note::
+    You will need to have Matlab installed to run f-ASL. Most universities can give you a license for free; ask your local IT person for more information.
+
 Downloading f-ASL
 ===============
 
@@ -8,10 +11,6 @@ f-ASL (functional ASL) is a software package written by `Luis Hernandez-Garcia <
 
 .. figure:: Download_fASL.png
 
-
-.. note::
-    You will need to have Matlab installed to run f-ASL. Most universities can give you a license for free; ask your local IT person for more information.
-    
     
 After you have downloaded the LuisTools file, in your Downloads you should see a file called ``LuisTools.tgz``. Either expand this file by double-clicking on it, or navigating to it with a Terminal and typing the following:
 
@@ -36,6 +35,7 @@ In order to use f-ASL from anywhere on your computer, you will need to set a pat
 You will then be able to open up f-ASL by typing ``fasl01`` and pressing Enter.
 
 .. figure:: fASL_GUI.png
+    :width: 200px
 
     If you have downloaded and set the path to the f-ASL toolbox correctly, you should see this GUI when you type ``fasl01`` at the Matlab command line.
     
