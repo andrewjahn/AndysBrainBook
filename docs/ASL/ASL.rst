@@ -33,3 +33,7 @@ The following pictures illustrate a typical ASL analysis:
 .. figure:: asl_step5.jpg
 
   The difference between the Control Image and the Tag Image is then calculated to create a **Contrast Image** \(5\).
+  
+  
+  
+  Now that you have a basic understanding of how ASL works, click on the Next button to see examples of different approaches to ASL perfusion imaging.
