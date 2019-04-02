@@ -55,6 +55,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: ASL Analysis
     
     ASL/ASL
+    ASL/ASL_Techniques
 
 
 
