@@ -1,0 +1,38 @@
+.. _fMRI_04_Preprocessing.rst
+
+
+=============
+fMRI Tutorial #4: Preprocessing
+=============
+
+
+Overview
+-------------
+
+Now that we're familiar with where our data is located and what it looks like, we will do the first step of fMRI analysis: **Preprocessing**.
+
+Think of preprocessing as cleaning up images. When you take a photo with a camera, for example, there are several things you can do to make the image look better:
+
+* Remove red eye;
+* Increase color saturation;
+* Remove shadows.
+
+
+Similarly, when we preprocess fMRI data we are cleaning up the 3-dimensional images that we acquire every TR.
+
+
+Preprocessing Steps
+--------------
+
+The major preprocessing steps are:
+
+* Brain extraction (or "skull stripping")
+* Motion correction
+* Slice timing correction
+* Smoothing
+* Temporal Filtering
+* Registration
+* Normalization
+
+
+Different software packages will do these steps in slightly different order - for example, FSL will do normalization after the statistical model has been fit. There are also some analyses which omit certain steps - for example, people who do multi-voxel pattern analyses sometimes will not do smoothing. In any case, these represent the most common steps that are performed on a typical dataset.
