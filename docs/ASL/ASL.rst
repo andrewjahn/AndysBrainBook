@@ -27,10 +27,9 @@ The following pictures illustrate a typical ASL analysis:
 
 .. figure:: asl_step3_step4.jpg
 
-  3. Repeat the experiment without tagging any incoming arterial blood.
-  4. Acquire a **Control Image** in the same area as the previous Tag Image.
+  The experiment is repeated without tagging any incoming arterial blood \(3\). A **Control Image** is then acquired in the same area as the previous Tag Image \(4\).
   
 
 .. figure:: asl_step5.jpg
 
-  5. Take the difference between the Control Image and the Tag Image to create a **Contrast Image**.
+  The difference between the Control Image and the Tag Image is then calculated to create a **Contrast Image** \(5\).
