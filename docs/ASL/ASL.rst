@@ -21,14 +21,17 @@ The following pictures illustrate a typical ASL analysis:
 
 
 .. figure:: asl_step1_step2.jpg
+
   1. Incoming arterial blood to the brain is "tagged" by a radiofrequency pulse.
   2. A **Tag Image** is acquired that includes brain tissue. This can be a single slice, or a volume encompassing the entire brain.
   
 
 .. figure:: asl_step3_step4.jpg
+
   3. Repeat the experiment without tagging any incoming arterial blood.
   4. Acquire a **Control Image** in the same area as the previous Tag Image.
   
 
 .. figure:: asl_step5.jpg
+
   5. Take the difference between the Control Image and the Tag Image to create a **Contrast Image**.
