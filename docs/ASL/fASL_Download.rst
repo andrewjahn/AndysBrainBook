@@ -7,7 +7,7 @@ Downloading f-ASL
 .. note::
     You will need to have Matlab installed to run f-ASL. Most universities can give you a license for free; ask your local IT person for more information.
 
-f-ASL (functional ASL) is an ASL analysis package written by `Luis Hernandez-Garcia <http://web.eecs.umich.edu/~hernan/>`__. You can download the package by clicking `here <http://web.eecs.umich.edu/~hernan/Public/Programs/>`__ and clicking on the **LuisTools.tar** button.
+f-ASL (functional ASL) is an ASL analysis package written by `Luis Hernandez-Garcia <http://web.eecs.umich.edu/~hernan/>`__. You can download the package by clicking `here <http://web.eecs.umich.edu/~hernan/Public/Programs/>`__ and clicking on the **LuisTools.tar** button (see the image below).
 
 .. figure:: Download_fASL.png
 
