@@ -22,7 +22,7 @@ The following pictures illustrate a typical ASL analysis:
 
 .. figure:: asl_step1_step2.jpg
 
-  Incoming arterial blood to the brain is "tagged" by a radiofrequency pulse. A **Tag Image** is acquired that includes brain tissue. This can be a single slice, or a volume encompassing the entire brain.
+  Incoming arterial blood to the brain is "tagged" by a radiofrequency pulse \(1\). A **Tag Image** is acquired that includes brain tissue \(2\). This can be a single slice, or a volume encompassing the entire brain.
   
 
 .. figure:: asl_step3_step4.jpg
