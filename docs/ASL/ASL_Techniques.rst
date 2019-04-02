@@ -41,3 +41,9 @@ How do the results obtained from ASL experiments differ from those obtained with
     The top row shows 2-coil CASL images and the bottom one shows BOLD images. We used the same TR (4 seconds) and spiral acquisition in both ASL and BOLD. The left column of images were averaged over 4 minutes of rest. The middle column of images were averaged over four minutes of finger tapping. The right column is simply the difference of the other two columns - No modeling, filtering, regressing, or anything. Just subtraction.
     
 As you can see, ASL images are intrinsically a lot noisier, in fact, they look awful, you can barely see the white mater... but the change in ASL signal that results from activation is huge (we observe 50%, or even more).
+
+
+Next Steps
+---------
+
+Now that you've become familiar with different approaches to ASL analysis, click on the Next button to learn how to download ASL software and a sample dataset to analyze.
