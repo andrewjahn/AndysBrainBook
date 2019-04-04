@@ -51,7 +51,7 @@ We use the term **preprocessing** because we are trying to clean up the images a
 Brain Extraction (or "skull stripping")
 ^^^^^^^^^^
 
-Since fMRI studies focus on brain tissue, our first step is to remove the skull and non-brain areas from the image. FSL has a tool for brain extraction called **bet**, or the Brain Extraction Tool. It is the first button listed on the FSL GUI (window A, in the figure below). If you click on this button, another window opens that allows you to specify the Input image to skullstrip and the Output image that has been skullstripped (B), and a field an expandable sub-window that allows you to specify advanced options (C).
+Since fMRI studies focus on brain tissue, our first step is to remove the skull and non-brain areas from the image. FSL has a tool for this called **bet**, or the Brain Extraction Tool. It is the first button listed on the FSL GUI (window A, in the figure below). If you click on this button, another window opens that allows you to specify the Input image to skullstrip and the Output image that has been skullstripped (B), and an expandable sub-window that allows you to specify advanced options (C).
 
 .. figure:: FSL_BET_GUI.png
 
