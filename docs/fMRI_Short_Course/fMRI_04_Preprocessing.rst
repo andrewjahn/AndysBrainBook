@@ -57,6 +57,6 @@ Since fMRI studies focus on brain tissue, our first step is to remove the skull 
 
 
 .. note::
-  For BET and many of the other FSL tools, you are required to specify an input image and an output image: Some operation is operation on the input image (skullstripping, for example) and the output image is the result of that operation. Usually the other options are set to defaults that you can override.
+  For BET and many of the other FSL tools, you are required to specify an input image and an output image: Some operation is performed on the input image (skullstripping, for example) and the output image is the result of that operation. Usually the other options are set to defaults that work well for the majority of datasets, but which you can override if you want.
 
 
