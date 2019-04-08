@@ -75,9 +75,23 @@ When the Terminal says "Finished", ``bet2`` is done. Since you have created a ne
 
 Click on the ``FSLeyes`` button at the bottom of the GUI. When it opens, click on ``File -> Add from File`` and hold shift to select both the original anatomical image and the skullstripped image you just created. As you saw in the :ref:`previous chapter <fMRI_03_LookingAtTheData>`, you will want to change the contrast to clearly distinguish the grey matter from the white matter.
 
-By loading both images we can compare the image before and after the skull was removed. In the ``Overlay List`` panel in the lower left corner of FSLeyes, you can click the "eye" icon to hide the corresponding image. For example, if you click on the eye icon next to ``sub-08_T1w``, the original T1 anatomical image will become invisible, and you will only see the skullstripped brain. If you click on the eye again, you will see the original T1. Click around the image with your mouse and practice hiding and revealing the original T1. Observe where there is either too much brain or too little skull that was removed. Remember that we are trying to create an image that has had the skull and face stripped clean away, and with only the brain (e.g., cortex, subcortical structures, brainstem, and cerebellum) remaining.
+By loading both images we can compare the image before and after the skull was removed. In the ``Overlay List`` panel in the lower left corner of FSLeyes, you can click the "eye" icon to hide the corresponding image. For example, if you click on the eye icon next to ``sub-08_T1w``, the original T1 anatomical image will become invisible, and you will only see the skullstripped brain. If you click on the eye again, you will see the original T1. Click around the image with your mouse and practice hiding and revealing the original T1. Observe where there is either too much brain or too little skull that was removed. Remember that we are trying to create an image that has had the skull and face stripped clean away, with only the brain (e.g., cortex, subcortical structures, brainstem, and cerebellum) remaining.
 
 .. figure:: Before_After_BET.png
 
+  The anatomical image before skullstripping (Left) and after (Right). Note that in the frontal cortex, part of the brain has been stripped away. Make sure to check the brain before and after skullstripping in all three viewing panes to see where there are problems.
 
-If you're not happy with the skullstripping, what can you do about it? Recall that the BET window contained options that we could change if we liked. One of the fields, labeled ``Fractional intensity threshold``, is set to 0.5 as a default. The nearby text explains that smaller values give larger brain outline estimates (and, it is implied, larger values give smaller brain outline estimates). In other words, if we think that too much brain has been removed, we should set this to a smaller number, and vice versa if we think too little skull has been removed.
+If you're not happy with the skullstripping, what can you do about it? Recall that the BET window contained options that we could change if we liked. One of the fields, labeled ``Fractional intensity threshold``, is set to 0.5 as a default. The nearby text explains that smaller values give larger brain outline estimates (and, conversely, larger values give smaller brain outline estimates). In other words, if we think that too much brain has been removed, we should set this to a smaller number, and vice versa if we think too little skull has been removed.
+
+Since it appeared that BET had removed too much brain, try changing the fractional intensity threshold to 0.2. Also make sure to change the output name to something that will help you remember what you did - for example, ``sub-08_T1w_brain_f02``. Click the Go button to re-run skullstripping.
+
+.. figure:: BET_f02_GUI.png
+
+
+When it has finished, load the newest skullstripped image in FSLeyes. Click on the eye icon next to the original anatomical image, and also the eye icon next to the newest skullstripped image that we have just created. Note where more cortex has been preserved, especially in the frontal cortex and parietal cortex. You may also have noticed that more dura mater and bits of skull remain in this image. As a general rule, it is better to err on the side of leaving too much skull, as opposed to removing too much cortex - bits of skull here and there won't cause future preprocessing steps to fail (such as normalization), but once cortex is removed, you cannot recover it.
+
+
+Video
+*********
+
+Click here for a demonstration of how to do skullstripping and how to check the quality of the image afterwards.
