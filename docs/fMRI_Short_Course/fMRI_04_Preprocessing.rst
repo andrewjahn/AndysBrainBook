@@ -24,7 +24,7 @@ Think of preprocessing as cleaning up images. When you take a photo with a camer
 
   A picture we take with a camera may be dark, blurry, or noisy (left panel). After cleaning up the image by enhancing contrast, reducing blur, and increasing brightness, we end up with a more defined and clearer picture.
 
-Similarly, when we preprocess fMRI data we are cleaning up the 3-dimensional images that we acquire every :ref:`TR <TR>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (discussed later), whereas others can be reduced or removed by preprocessing.
+Similarly, when we preprocess fMRI data we are cleaning up the 3-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (discussed later), whereas others can be reduced or removed by preprocessing.
 
 
 Preprocessing Steps
@@ -57,7 +57,7 @@ Since fMRI studies focus on brain tissue, our first step is to remove the skull 
 
 
 .. note::
-  For BET and many of the other FSL tools, you are required to specify an input image and an output image: Some operation is performed on the input image (skullstripping, for example) and the output image is the result of that operation. Usually the other options are set to defaults that work well for the majority of datasets, but which you can override if you want.
+  For BET and many of the other FSL tools, you are required to specify an input image and an output image: Some operation is performed on the input image (skullstripping, for example) and the output image is the result of that operation. Usually the other options are set to defaults that work well for the majority of datasets, but you can override them if you want.
   
 
 If you launched the FSL GUI from the ``sub-08`` directory, click on the Folder icon next to the ``Input image`` field and navigate to the ``anat`` directory. Select the file ``sub-08_T1w.nii.gz`` and click the OK button. Notice that the ``Output image`` field is automatically filled in with the word ``brain`` appended to your Input image. This is FSL's default, but you can change the name if you like. For this tutorial, we will leave it as is.
@@ -83,15 +83,56 @@ By loading both images we can compare the image before and after the skull was r
 
 If you're not happy with the skullstripping, what can you do about it? Recall that the BET window contained options that we could change if we liked. One of the fields, labeled ``Fractional intensity threshold``, is set to 0.5 as a default. The nearby text explains that smaller values give larger brain outline estimates (and, conversely, larger values give smaller brain outline estimates). In other words, if we think that too much brain has been removed, we should set this to a smaller number, and vice versa if we think too little skull has been removed.
 
-Since it appeared that BET had removed too much brain, try changing the fractional intensity threshold to 0.2. Also make sure to change the output name to something that will help you remember what you did - for example, ``sub-08_T1w_brain_f02``. Click the Go button to re-run skullstripping.
+Since it appears that BET had removed too much brain, try changing the fractional intensity threshold to 0.2. Also make sure to change the output name to something that will help you remember what you did - for example, ``sub-08_T1w_brain_f02``. Click the Go button to re-run skullstripping.
 
 .. figure:: BET_f02_GUI.png
 
 
 When it has finished, load the newest skullstripped image in FSLeyes. Click on the eye icon next to the original anatomical image, and also the eye icon next to the newest skullstripped image that we have just created. Note where more cortex has been preserved, especially in the frontal cortex and parietal cortex. You may also have noticed that more dura mater and bits of skull remain in this image. As a general rule, it is better to err on the side of leaving too much skull, as opposed to removing too much cortex - bits of skull here and there won't cause future preprocessing steps to fail (such as normalization), but once cortex is removed, you cannot recover it.
 
+-------------
 
-Video
-*********
+Intermezzo: The FEAT GUI
+^^^^^^^^^^^
 
-Click here for a demonstration of how to do skullstripping and how to check the quality of the image afterwards.
+The rest of the preprocessing steps will be carried out in the FEAT GUI. It is the button in the middle of the FSL GUI, and it will open up a window with several tabs.
+
+.. figure:: FEAT_GUI.png
+
+  Clicking on the FEAT FMRI analysis button (A) opens up the FEAT GUI. For now we will focus on the ``Data``, ``Pre-stats``, and ``Registration`` tabs, which preprocess the data. From the upper-right dropdown menu (B), select ``Preprocessing``. This will grey out the Stats and Post-stats tabs, and only allow preprocessing. Click on the ``Select 4D data`` button (C) to load your imaging data. This will open up a new window (D), which has a folder icon that allows you to select a functional imaging run (E).
+  
+The next preprocessing steps (motion correction through normalization) are all done in the FEAT GUI. We will discuss each of the steps in turn, provide FEAT with the required inputs, and then run all of the steps in one go.
+
+-------------
+
+Motion Correction
+^^^^^^^^^^
+
+If you've ever tried to take a photo of a moving object, usually the image is blurry. If the object is motionless, by contrast, you will get a much clearer and sharply defined image.
+
+
+.. figure:: Hand_Motion.png
+
+  A moving target leads to a blurry image (Left), whereas a stationary target leads to a more clearly defined image (Right). 
+  
+The concept is the same when we take three-dimensional pictures using MRI. In the subject is moving, the images will look blurry; if they are relatively still, the images will look more defined. But that's not all: If the subject moves a lot, we also risk measuring signal from a voxel that moves. We are then in danger of measuring signal from the voxel for part of the experiment and, after he moves, from a different region or tissue type. (expand on this)
+
+Lastly, motion can introduce confounds into the imaging data because motion generates signal. If the subject moves every time in response to a stimulus - for example, if he jerks his head every time he feels an electrical shock - then it can become impossible to distinguish whether the signal we are measuring is in response to the stimulus, or because of the movement.
+
+One way to reduce the effects of motion on the data is through **rigid-body transformations**. To illustrate this, pick up a nearby object: a phone or a coffee cup, for example. Place it in front of you and mentally mark where it is. This is the **reference point**. Then move the object an inch to the left. If you want the object to come back to where it started, you would simply move it an inch to the right. Similarly, if you rotated the object to the left or right, you could undo that by rotating it an equal amount in the opposite direction.
+
+We do the same procedure with our volumes. Instead of the reference point we used in the example above, let's call the first volume in our time-series the **reference volume**. If at some point during the scan our subject moves his head an inch to the left, we can detect that movement and undo it by moving that volume an inch to the right. The goal is to detect movements in any of the volumes and **realign** them as closely as possible to the reference volume.
+
+.. figure:: MotionCorrection_Example.png
+
+  The reference volume (A) is typically the first volume of the time-series. If during the scan there a volume is acquired during which the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
+  
+In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's default is to use FSL's MCFLIRT tool, which you can see in the dropdown menu. You have the option to turn off motion correction, but unless you have a reason to do that, leave it as it is.
+
+.. figure:: FEAT_MCFLIRT.png
+
+
+Slice-Timing Correction
+^^^^^^^^^^
+
+Coming soon...
