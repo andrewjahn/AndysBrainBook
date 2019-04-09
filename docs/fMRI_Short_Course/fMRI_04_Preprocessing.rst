@@ -123,13 +123,9 @@ One way to reduce the effects of motion on the data is through **rigid-body tran
 
 We do the same procedure with our volumes. Instead of the reference point we used in the example above, let's call the first volume in our time-series the **reference volume**. If at some point during the scan our subject moves his head an inch to the left, we can detect that movement and undo it by moving that volume an inch to the right. The goal is to detect movements in any of the volumes and **realign** them as closely as possible to the reference volume.
 
-.. figure:: MotionCorrection_Example.png
-
 .. only:: html
 
    .. figure:: MotionCorrectionExample.gif
-   
-    Testing this out.
 
   The reference volume (A) is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
   
@@ -141,4 +137,4 @@ In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's
 Slice-Timing Correction
 ^^^^^^^^^^
 
-Coming soon...
+Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to ac
