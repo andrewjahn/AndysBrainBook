@@ -123,11 +123,13 @@ One way to reduce the effects of motion on the data is through **rigid-body tran
 
 We do the same procedure with our volumes. Instead of the reference point we used in the example above, let's call the first volume in our time-series the **reference volume**. If at some point during the scan our subject moves his head an inch to the left, we can detect that movement and undo it by moving that volume an inch to the right. The goal is to detect movements in any of the volumes and **realign** them as closely as possible to the reference volume.
 
-.. only:: html
+(Insert 
+
+.... only:: html
 
    .. figure:: MotionCorrectionExample.gif
 
-  *The reference volume (A) is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).*
+  The reference volume  is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
   
 In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's default is to use FSL's MCFLIRT tool, which you can see in the dropdown menu. You have the option to turn off motion correction, but unless you have a reason to do that, leave it as it is.
 
@@ -137,7 +139,7 @@ In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's
 Slice-Timing Correction
 ^^^^^^^^^^
 
-Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to acquire - anywhere from tens to hundreds of milliseconds. As you'll see later on, when we model the data at each voxel we assume that all of the slices were acquired simultaneously. To make this assumption valid, we (expand on this more)
+Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to acquire - anywhere from tens to hundreds of milliseconds. As you'll see later on, when we model the data at each voxel we assume that all of the slices were acquired simultaneously. To make this assumption valid, the :ref:`time-series <Time_Series>` 
 
 
 Smoothing
@@ -155,4 +157,10 @@ Registration
 Normalization
 ^^^^^^^^^^
 
-The last step of preprocessing is **Normalization**
+The last step of preprocessing is **Normalization**. Although most people's brains are similar - everyone has a cingulate gyrus and a corpus callosum, for example - there are also differences in brain size and shape. As a consequence, if we want to do a group analysis we need to ensure that each voxel for each subject corresponds to the same part of the brain. If we are measuring a voxel in the visual cortex, let's say, we would want to make sure that every subject's visual cortex is in alignment with each other.
+
+
+This is done through **warping** the brain. Just as you would fold clothes to fit them inside of a suitcase, each brain needs to be transformed to have the same size, shape, and dimensions. We do this by warping to a **template**, or a brain that has standard dimensions and coordinates - standard, because most researchers have agreed to use them. That way, if you warp your brains to that template and find an effect at coordinates X=3, Y=20, Z=42, someone else who has warped to the same template can check their results against yours.
+
+To warp the brain to a template, we will use an **affine transformation**. This is similar to the rigid-body transformation described above in Motion Correction, but it adds two more transformations: zooms and shears. Whereas translations and rotations are easy enough to do with an everyday object such as a pen, zooms and shears are more unusual - Zooms either shrink or enlarge the image, while shears take the diagonal corners of the image and stretch them away from each other. The animation below summarizes these four types of **linear transformations**.
+
