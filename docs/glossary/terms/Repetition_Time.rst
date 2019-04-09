@@ -1,4 +1,9 @@
-.. _Repetition_Time.rst
+.. _Repetition_Time.rst:
+
+===========
+TR (Repetition Time)
+===========
+
 
 TR is an acronym for Repetition Time (or Time to Repetition): The interval between acquiring volumes in an fMRI dataset. For example, a TR of 2 seconds means that one volume is acquired every 2 seconds.
 
