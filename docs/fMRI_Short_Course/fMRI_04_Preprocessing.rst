@@ -125,9 +125,7 @@ We do the same procedure with our volumes. Instead of the reference point we use
 
 (Insert 
 
-.... only:: html
-
-   .. figure:: MotionCorrectionExample.gif
+.. figure:: MotionCorrectionExample.gif
 
   The reference volume  is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
   
@@ -163,4 +161,7 @@ The last step of preprocessing is **Normalization**. Although most people's brai
 This is done through **warping** the brain. Just as you would fold clothes to fit them inside of a suitcase, each brain needs to be transformed to have the same size, shape, and dimensions. We do this by warping to a **template**, or a brain that has standard dimensions and coordinates - standard, because most researchers have agreed to use them. That way, if you warp your brains to that template and find an effect at coordinates X=3, Y=20, Z=42, someone else who has warped to the same template can check their results against yours.
 
 To warp the brain to a template, we will use an **affine transformation**. This is similar to the rigid-body transformation described above in Motion Correction, but it adds two more transformations: zooms and shears. Whereas translations and rotations are easy enough to do with an everyday object such as a pen, zooms and shears are more unusual - Zooms either shrink or enlarge the image, while shears take the diagonal corners of the image and stretch them away from each other. The animation below summarizes these four types of **linear transformations**.
+
+.. figure:: AffineTransformations.gif
+
 
