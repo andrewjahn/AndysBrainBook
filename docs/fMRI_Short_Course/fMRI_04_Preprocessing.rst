@@ -127,7 +127,7 @@ We do the same procedure with our volumes. Instead of the reference point we use
 
    .. figure:: MotionCorrectionExample.gif
 
-  The reference volume (A) is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
+  *The reference volume (A) is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).*
   
 In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's default is to use FSL's MCFLIRT tool, which you can see in the dropdown menu. You have the option to turn off motion correction, but unless you have a reason to do that, leave it as it is.
 
@@ -137,4 +137,22 @@ In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's
 Slice-Timing Correction
 ^^^^^^^^^^
 
-Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to ac
+Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in slices. Each of these slices takes time to acquire - anywhere from tens to hundreds of milliseconds. As you'll see later on, when we model the data at each voxel we assume that all of the slices were acquired simultaneously. To make this assumption valid, we (expand on this more)
+
+
+Smoothing
+^^^^^^^^^^
+
+
+Temporal Filtering
+^^^^^^^^^^
+
+
+Registration
+^^^^^^^^^^
+
+
+Normalization
+^^^^^^^^^^
+
+The last step of preprocessing is **Normalization**
