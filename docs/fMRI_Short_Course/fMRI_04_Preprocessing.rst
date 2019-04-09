@@ -125,7 +125,13 @@ We do the same procedure with our volumes. Instead of the reference point we use
 
 .. figure:: MotionCorrection_Example.png
 
-  The reference volume (A) is typically the first volume of the time-series. If during the scan there a volume is acquired during which the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
+.. only:: html
+
+   .. figure:: MotionCorrectionExample.gif
+   
+    Testing this out.
+
+  The reference volume (A) is typically the first volume of the time-series. If during the scan the subject moves to the right (B), that motion can be "undone" by realigning that volume to the reference volume with an equal and opposite movement to the left (C).
   
 In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's default is to use FSL's MCFLIRT tool, which you can see in the dropdown menu. You have the option to turn off motion correction, but unless you have a reason to do that, leave it as it is.
 
