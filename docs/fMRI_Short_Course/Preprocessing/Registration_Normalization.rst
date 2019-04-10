@@ -40,6 +40,6 @@ This alignment between the functional and anatomical images is called **Registra
 3. Once the best match has been found, then the same transformations that were used to warp the anatomical image to the template are applied to the functional images.
 
 
-.. figure:: Registraton_Normalization_Demo.gif
+.. figure:: Registration_Normalization_Demo.gif
 
 Registration and Normalization is the last step of the preprocessing pipeline for a single subject. Now that the functional images have been fully preprocessed, we are ready to begin the next step of our analysis: fitting the General Linear Model.
