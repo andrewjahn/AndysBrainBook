@@ -10,7 +10,8 @@ fMRI Tutorial #4: Preprocessing
   This chapter is much longer than the other chapters; to make it easier to read and to find what you need it is divided into sections detailing each preprocessing step. Many of the examples are run from the ``Flanker/sub-08`` directory; I recommend navigating to that directory with your Terminal before reading the rest of the chapter.
   
   
-  .. toctree::
+
+.. toctree::
    :maxdepth: 1
    :caption: Install
 
