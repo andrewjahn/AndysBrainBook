@@ -9,18 +9,6 @@ fMRI Tutorial #4: Preprocessing
 .. note::
   This chapter is much longer than the other chapters; to make it easier to read and to find what you need it is divided into sections detailing each preprocessing step. Many of the examples are run from the ``Flanker/sub-08`` directory; I recommend navigating to that directory with your Terminal before reading the rest of the chapter.
   
-  
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Install
-
-   Preprocessing/Skull_Stripping
-   Preprocessing/FEAT_GUI
-   Preprocessing/Motion_Correction
-   Preprocessing/Slice_Timing_Correction
-   Preprocessing/Smoothing
-   Preprocessing/Registration_Normalization
    
 Overview
 -------------
@@ -57,6 +45,18 @@ The major preprocessing steps are:
   
   
 We use the term **preprocessing** because we are trying to clean up the images as best we can before fitting a model to the data. Once it has been processed, we can fit a statistical model and make claims about which conditions lead to changes in oxygenated blood.
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Preprocessing Steps
+
+   Preprocessing/Skull_Stripping
+   Preprocessing/FEAT_GUI
+   Preprocessing/Motion_Correction
+   Preprocessing/Slice_Timing_Correction
+   Preprocessing/Smoothing
+   Preprocessing/Registration_Normalization
 
 
 Brain Extraction (or "skull stripping")
