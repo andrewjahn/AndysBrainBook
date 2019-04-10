@@ -170,5 +170,4 @@ To warp the brain to a template, we will use an **affine transformation**. This 
 .. figure:: AffineTransformations.gif
 
 .. note:: As with rigid-body transformations, zooms and shears each have three degrees of freedom: You can zoom or shear an image along the x-, y-, or z-axis. In total, then, affine transformations have twelve degrees of freedom. These are also called linear transformations because a transformation applied in one direction along an axis is accompanied by a transformation of equal magnitude in the opposite direction. A translation of one millimeter *to* the left, for example, implies that the image has been moved one millimeter *from* the right. Likewise, an enlargement of one millimeter along the z-axis means that the image is enlarged in both directions simultaneously. 
-  
 Transformations without these constraints are called **nonlinear transformations**. For example, a nonlinear transformation can enlarge the image in one direction while shrinking in the other direction, like squeezing a sponge. These types of transformations will be discussed later.
