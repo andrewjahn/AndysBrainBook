@@ -25,27 +25,9 @@ Think of preprocessing as cleaning up images. When you take a photo with a camer
 
   A picture we take with a camera may be dark, blurry, or noisy (left panel). After cleaning up the image by enhancing contrast, reducing blur, and increasing brightness, we end up with a more defined and clearer picture.
 
-Similarly, when we preprocess fMRI data we are cleaning up the 3-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (discussed later), whereas others can be reduced or removed by preprocessing.
+Similarly, when we preprocess fMRI data we are cleaning up the three-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (which will be discussed during the chapter on modeling fitting), whereas others can be reduced or removed by preprocessing.
 
-
-Preprocessing Steps
---------------
-
-The major preprocessing steps are:
-
-* Brain extraction (or "skull stripping")
-* Motion correction
-* Slice timing correction
-* Smoothing
-* Registration and Normalization
-
-
-.. note::
-  Different software packages will do these steps in slightly different order - for example, FSL will normalize the statistical maps after the model has been fit. There are also analyses which omit certain steps - for example, some people who do multi-voxel pattern analyses don't smooth their data. In any case, the list above represents the most common steps that are performed on a typical dataset.
-  
-  
-We use the term **preprocessing** because we are trying to clean up the images as best we can before fitting a model to the data. Once it has been processed, we can fit a statistical model and make claims about which conditions lead to changes in oxygenated blood.
-
+To begin preprocessing an individual subject, read the following chapters on each step. If instead you feel that you learn better through seeing the steps done in real time, click here for a screencast video.
 
 .. toctree::
    :maxdepth: 1
@@ -59,4 +41,7 @@ We use the term **preprocessing** because we are trying to clean up the images a
    Preprocessing/Registration_Normalization
 
 
-
+.. note::
+  Different software packages will do these steps in slightly different order - for example, FSL will normalize the statistical maps after the model has been fit. There are also analyses which omit certain steps - for example, some people who do multi-voxel pattern analyses don't smooth their data. In any case, the list above represents the most common steps that are performed on a typical dataset.
+  
+  
