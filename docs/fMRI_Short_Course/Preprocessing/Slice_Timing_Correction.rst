@@ -10,7 +10,7 @@ The two most commonly used methods for creating volumes are sequential and inter
 .. figure:: SliceTImingCorrection_Demo.gif
 
 
-Although slice-timing correction seems reasonable to use, there are some objections:
+Although slice-timing correction seems reasonable, there are some objections:
 
 1. In general, it is best to leave the data alone and not introduce additional interpolations;
 
