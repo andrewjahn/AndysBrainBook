@@ -27,4 +27,4 @@ We do the same procedure with our volumes. Instead of the reference point we use
 In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's default is to use FSL's MCFLIRT tool, which you can see in the dropdown menu. You have the option to turn off motion correction, but unless you have a reason to do that, leave it as it is.
 
 .. figure:: FEAT_MCFLIRT.png
-  :scale: 20 %
+  :scale: 60 %
