@@ -12,7 +12,7 @@ The two most commonly used methods for creating volumes are sequential and inter
 
 Although slice-timing correction seems reasonable, there are some objections:
 
-1. In general, it is best to leave the data alone and not introduce additional interpolations;
+1. In general, it is best to not interpolate (i.e., edit) the data unless you need to;
 
 2. For TRs of less than two seconds, slice-timing correction doesn't appear to lead to any significant gains in statistical power; and
 
