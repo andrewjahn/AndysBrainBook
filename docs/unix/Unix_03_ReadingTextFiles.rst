@@ -99,6 +99,6 @@ Exercises
 
 ::
 
-cat myFile.txt | sort
+   cat myFile.txt | sort
 
 In your own words, explain the difference between the two methods.
