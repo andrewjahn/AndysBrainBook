@@ -38,7 +38,7 @@ The first line creates a copy of myFile.txt and labels it myFile2.txt; the secon
 Video
 ----------
 
-Click `here <https://www.youtube.com/watch?v=2F0DLbP5ans&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=3>`__ to see a video walkthrough about copying and removing files. This video will also show you how to move, rename, and delete folders. When you've finished watching it, try these exercises to consolidate what you've learned.
+Click `here <https://www.youtube.com/watch?v=2F0DLbP5ans&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=3>`__ to see a video walkthrough about copying and removing files. This video will also show you how to move, rename, and delete folders. When you've finished watching it, try these exercises to retain what you've learned.
 
 -----------
 
