@@ -6,6 +6,7 @@ Unix Tutorial #3: Reading Text Files
 
 .. note::
    Topics covered: File manipulation, redirection, streams, stdin, stdout, stderr
+   
    Commands used: cat, less, head, wc
 
 The command line is useful for both viewing and manipulating text files. **Manipulation** means editing text - for example, replacing words in text files, or appending text from the command line to the end of a file (also known as **redirection**). This is useful for creating **scripts**, text files containing one or more commands that are run consecutively. In later tutorials, you will use these techniques to automate your analyses, which can save enormous amounts of time.
