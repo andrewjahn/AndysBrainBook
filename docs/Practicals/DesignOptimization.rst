@@ -1,4 +1,4 @@
-.. _Design_Optimization.rst
+.. _Design_Optimization:
 
 =============
 Design Optimization
