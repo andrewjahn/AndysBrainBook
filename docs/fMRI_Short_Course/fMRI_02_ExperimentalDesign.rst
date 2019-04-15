@@ -1,3 +1,5 @@
+.. _fMRI_02_ExperimentalDesign:
+
 ==============
 fMRI Tutorial #2: Overview of The Flanker Task
 ==============
