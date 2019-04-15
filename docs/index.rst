@@ -45,9 +45,10 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
        
 .. toctree::
    :maxdepth: 1
-   :caption: ROI Analysis
+   :caption: fMRI Concepts
 
    Practicals/ROI_Analysis/Overview
+   Practicals/DesignOptimization
    
    
 .. toctree::
