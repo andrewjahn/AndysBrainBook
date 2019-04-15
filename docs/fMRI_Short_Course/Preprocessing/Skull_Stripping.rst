@@ -27,7 +27,7 @@ When the Terminal says "Finished", ``bet2`` is done. Since you have created a ne
 
 Click on the ``FSLeyes`` button at the bottom of the GUI. When it opens, click on ``File -> Add from File`` and hold shift to select both the original anatomical image and the skullstripped image you just created. As you saw in the :ref:`previous chapter <fMRI_03_LookingAtTheData>`, you will want to change the contrast to clearly distinguish the grey matter from the white matter. 
 
-By loading both images you can compare the image before and after the skull was removed. In the ``Overlay List`` panel in the lower left corner of FSLeyes, click the "eye" icon to hide the corresponding image. For example, if you click on the eye icon next to ``sub-08_T1w``, the original T1 anatomical image will become invisible, and you will only see the skullstripped brain. If you click on the eye again, you will see the original T1. To make the differences between the brains more apparent, highlight the skullstripped image in the Overlay List panel, then change the contrast from Greyscale to Blue-Light blue. The animation below shows you how to do each of these steps.
+By loading both images you can compare the image before and after the skull was removed. In the ``Overlay List`` panel in the lower left corner of FSLeyes, click the "eye" icon to hide the corresponding image. For example, if you click on the eye icon next to ``sub-08_T1w``, the original T1 anatomical image will become invisible, and you will only see the skullstripped brain. If you click on the eye again, you will see the original T1. To make the differences between the brains more apparent, highlight the skullstripped image in the Overlay List panel, then change the contrast from ``Greyscale`` to ``Blue-Light blue``. The animation below shows you how to do each of these steps.
 
 Click around the image with your mouse and practice hiding and revealing the original T1. Observe where there is either too much brain or too little skull that was removed. Remember that we are trying to create an image that has had the skull and face stripped clean away, with only the brain (e.g., cortex, subcortical structures, brainstem, and cerebellum) remaining.
 
@@ -46,3 +46,14 @@ Since it appears that BET had removed too much brain, try changing the fractiona
 
 
 When it has finished, load the newest skullstripped image in FSLeyes. Click on the eye icon next to the original anatomical image, and also the eye icon next to the newest skullstripped image that we have just created. Note where more cortex has been preserved, especially in the frontal cortex and parietal cortex. You may also have noticed that more dura mater and bits of skull remain in this image. As a general rule, it is better to err on the side of leaving too much skull, as opposed to removing too much cortex - bits of skull here and there won't cause future preprocessing steps to fail (such as normalization), but once cortex is removed, you cannot recover it.
+
+
+--------------
+
+Exercises
+***********
+
+1. Change the fractional intensity threshold to 0.1 and rerun BET, making sure to choose an appropriate output name to keep your files organized. View the result in FSLeyes. Repeat these steps with a fractional intensity threshold of 0.9. What do you notice? What seems to be a good threshold?
+
+2. Experiment with different contrast colors to see which one you like the best. Use the Zoom tool (next to the magnifying glass icon) to focus on a region you think hasn't been stripped well. Take a photo of the montage (i.e., all three viewing panes) by clicking on the Camera icon in the toolbar above the montage. Share this picture on Instagram with the caption, "Andy's Brain Book Hooked me up!"
+
