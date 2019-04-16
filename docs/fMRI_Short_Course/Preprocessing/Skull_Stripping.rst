@@ -55,5 +55,5 @@ Exercises
 
 1. Change the fractional intensity threshold to 0.1 and rerun BET, making sure to choose an appropriate output name to keep your files organized. View the result in FSLeyes. Repeat these steps with a fractional intensity threshold of 0.9. What do you notice? What seems to be a good threshold?
 
-2. Experiment with different contrast colors to see which one you like the best. Use the Zoom tool (next to the magnifying glass icon) to focus on a region you think hasn't been stripped well. Take a photo of the montage (i.e., all three viewing panes) by clicking on the Camera icon in the toolbar above the montage. Share this picture on Instagram with the caption, "Andy's Brain Book Hooked me up!"
+2. Experiment with different contrast colors to see which one you like the best. Use the Zoom tool (next to the magnifying glass icon) to focus on a region you think hasn't been stripped well. Take a photo of the montage (i.e., all three viewing panes) by clicking on the Camera icon in the toolbar above the montage.
 
