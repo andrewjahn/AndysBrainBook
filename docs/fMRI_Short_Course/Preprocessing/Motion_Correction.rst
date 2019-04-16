@@ -18,6 +18,10 @@ One way to "undo" these motions is through **rigid-body transformations**. To il
 
 Similarly, if you rotated the object to the left or right, you could undo that by rotating it an equal amount in the opposite direction. These are called **rotations**, and like translations, they have three **degrees of freedom**, or ways that they can move: around the x-axis (also called **pitch**, or tilting forwards and backwards), around the y-axis (also known as **roll**, or tilting to the left and right), and around the z-axis (or **yaw**, as you would when shaking your head "no").
 
+.. note::
+
+  Experiment with these translations and rotations by moving your own head. First, move your head from side to side while looking straight ahead (translation along the x-axis). Then, move your head forward and back (y-axis) and up and down (z-axis). Try out the rotations as well.
+
 We do the same procedure with our volumes. Instead of the reference point we used in the example above, let's call the first volume in our time-series the **reference volume**. If at some point during the scan our subject moves his head an inch to the left, we can detect that movement and undo it by moving that volume an inch to the right. The goal is to detect movements in any of the volumes and **realign** those volumes to the reference volume.
 
 .. figure:: MotionCorrectionExample.gif
