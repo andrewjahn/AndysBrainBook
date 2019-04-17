@@ -18,6 +18,8 @@ It is true that smoothing does decrease the spatial resolution of your functiona
 
 .. figure:: Smoothing_Demo.gif
 
+  In this animation, two different smoothing kernels (4mm and 10mm) are applied to an fMRI scan. Notice that as we use larger smoothing kernels, the images become blurrier and the anatomical details become less distinct. Also note that, for the sake of simplicity, this animation uses a 2D slice of the brain to demonstrate this preprocessing step. In actual fMRI data, the kernel would be applied in all three dimensions.
+
 .. (Talk about an example here of how averaging works to give rise to a true signal? I'm thinking about the example in which ten students are asked the population of the city they are in; no individual estimate is right, but averaged together it is pretty close to the true population.)
 
 There is another benefit to smoothing. As you will see in the next chapter, our goal is to **normalize** every subject's brain to a template brain which has standardized coordinates. To make this normalization as smooth as possible, 
