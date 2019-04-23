@@ -16,4 +16,4 @@ These fields will be automatically entered into the corresponding fields of the 
 .. figure:: FEAT_GUI_Demonstration.gif
 
 
-To resume the tutorial on the preprocessing steps, click the ``Next`` button.
+The next two tabs, Pre-stats and Registration, will be discussed in the following chapters. To resume the tutorial on the preprocessing steps, click the ``Next`` button.
