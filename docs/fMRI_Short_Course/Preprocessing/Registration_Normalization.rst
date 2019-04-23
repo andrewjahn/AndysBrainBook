@@ -44,6 +44,20 @@ This alignment between the functional and anatomical images is called **Registra
 
 -----
 
+The Registration tab will do both registration and normalization. Click on the button next to ``Main structural image`` to expand the input field. Then select the subject's skull-stripped image - in this case, the one that we created using a fractional intensity threshold of 0.2.
+
+You will notice that there are dropdown menus below both the ``Main structural image`` and ``Standard space`` fields. The menus under the Main structural image field correspond to options for registering the functional to the anatomical image. The menus under the Standard space field are options for normalizing the anatomical image to the template image. Within these sets of menus, the dropdown menu on the left is the ``Search`` window, and the dropdown menu on the right is the ``Degrees of Freedom`` window.
+
+In the ``Search`` window, there are three options: 1) No search; 2) Normal search; and 3) Full search. This signifies to FSL how much to search for a good initial alignment between the functional and anatomical images (for registration) and between the anatomical and template images (for normalization). The Full search option takes longer, but is more thorough.
+
+In the ``Degrees of Freedom`` window, you have options to choose 3, 6, or 12 degrees of freedom to transform the images. Registration has an additional option, ``BBR``, which stands for Brain-Boundary Registration. This is a more advanced registration technique that uses the tissue boundaries to fine-tune the alignment between the functional and anatomical images. Similar to the Full search option above, it takes longer, but usually gives a better alignment.
+
+For now, I will set both Search options to Full search and both Degrees of Freedom options to 12 DOF. If you have already loaded your functional images in the Data tab, click on the Go button to run all of the preprocessing steps.
+
+.. figure:: Registration_ExampleOptions.png
+
+
+
 Video
 ********
 
