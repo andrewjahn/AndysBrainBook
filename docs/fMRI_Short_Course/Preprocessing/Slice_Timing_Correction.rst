@@ -19,3 +19,9 @@ Although slice-timing correction seems reasonable, there are some objections:
 3. Many of the problems addressed by slice-timing correction can be resolved by using a **temporal derivative** in the statistical model (discussed later in the chapter on model fitting).
 
 FSL's default is to not do slice-timing correction, and to include a temporal derivative instead. Later on, you will do an exercise comparing the data both with and without slice-timing correction to observe how much of a difference it makes.
+
+.. figure:: Prestats_STC.png
+  :scale: 60 %
+  
+
+The last preprocessing step that we will cover on the Pre-stats tab is Smoothing. To learn what smoothing is and how to use it, click on the ``Next`` button.
