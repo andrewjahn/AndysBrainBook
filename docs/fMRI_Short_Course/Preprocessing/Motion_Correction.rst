@@ -32,3 +32,6 @@ In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's
 
 .. figure:: FEAT_MCFLIRT.png
   :scale: 60 %
+
+
+This tab contains other preprocessing options, such as slice-timing correction and smoothing. For an overview of slice-timing correction, click on the ``Next`` button.
