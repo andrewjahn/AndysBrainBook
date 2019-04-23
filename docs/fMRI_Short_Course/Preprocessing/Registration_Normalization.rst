@@ -42,4 +42,9 @@ This alignment between the functional and anatomical images is called **Registra
 
 .. figure:: Registration_Normalization_Demo.gif
 
-Registration and Normalization is the last step of the preprocessing pipeline for a single subject. Now that the functional images have been fully preprocessed, we are ready to begin the next step of our analysis: fitting the General Linear Model.
+-----
+
+Video
+********
+
+Registration and Normalization is the last step of the preprocessing pipeline for a single subject. To see a screencast video demonstrating how to set up all of your preprocessing through the FEAT GUI, click `here <https://www.youtube.com/watch?v=nETfSWPKSes>`__.
