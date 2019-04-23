@@ -50,6 +50,14 @@ When it has finished, load the newest skullstripped image in FSLeyes. Click on t
 
 --------------
 
+
+Video
+*******
+
+To see a screencast demonstrating how to check your skullstripped image, click `here <https://youtu.be/VobRXk3ccNQ>`__. When you are done watching the video, try some of the exercises below.
+
+
+
 Exercises
 ***********
 
