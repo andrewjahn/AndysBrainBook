@@ -27,7 +27,7 @@ Think of preprocessing as cleaning up images. When you take a photo with a camer
 
 Similarly, when we preprocess fMRI data we are cleaning up the three-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (which will be discussed during the chapter on modeling fitting), whereas others can be reduced or removed by preprocessing.
 
-To begin preprocessing an individual subject, read the following descriptions of each step. If instead you feel that you learn better through seeing the steps done in real time, click `here <https://www.youtube.com/watch?v=VobRXk3ccNQ&list=PLIQIswOrUH6-rpwcmo2ewY2wi4Yoym9ft>`__ for a screencast playlist.
+To begin preprocessing an individual subject, read the following descriptions of each step.
 
 .. toctree::
    :maxdepth: 1
@@ -41,6 +41,12 @@ To begin preprocessing an individual subject, read the following descriptions of
    Preprocessing/Registration_Normalization
    Preprocessing/Checking_Preprocessing
 
+---------
+
+Video
+*********
+
+When you have finished all of the chapters, click `here <https://www.youtube.com/watch?v=VobRXk3ccNQ&list=PLIQIswOrUH6-rpwcmo2ewY2wi4Yoym9ft>`__ if you need to review each of the videos used to explain the preprocessing steps.
 
 .. note::
   Different software packages will do these steps in slightly different order - for example, FSL will normalize the statistical maps after the model has been fit. There are also analyses which omit certain steps - for example, some people who do multi-voxel pattern analyses don't smooth their data. In any case, the list above represents the most common steps that are performed on a typical dataset.
