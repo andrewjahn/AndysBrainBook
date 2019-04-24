@@ -39,6 +39,7 @@ To begin preprocessing an individual subject, read the following descriptions of
    Preprocessing/Slice_Timing_Correction
    Preprocessing/Smoothing
    Preprocessing/Registration_Normalization
+   Preprocessing/Checking_Preprocessing
 
 
 .. note::
