@@ -1,7 +1,7 @@
 .. _Checkpoint.rst
 
 
-Checkpoint: What have we done so far?
+Checkpoint: Preprocessing
 ==========
 
 Now is a good opportunity to review what we have done so far:
