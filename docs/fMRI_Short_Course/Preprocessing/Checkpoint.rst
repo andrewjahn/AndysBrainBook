@@ -27,7 +27,7 @@ Exercises
 
 1. Run BET on the anatomical image sub-08_T1w.nii.gz with gractional intensity thresholds of 0.1 and 0.9. Take a snapshopt of each output image with FSLeyes using the camera button (it is located in the upper middle part of the viewer). Note the differences between the two. Is the output what you expected? If you had to use one image or the other, which one would you choose?
 
-2. Preprocess run 2 of the functional data using teh FEAT GUI. To do this, select ``sub-08_task-flanker_run2.nii.gz`` from the ``func`` directory, change the output directory to ``run2``, and make sure ``Preprocessing`` is selected from the dropdown menu. Keep the other settings the same as when you analyzed run 1.
+2. Preprocess run 2 of the functional data using the FEAT GUI. To do this, select ``sub-08_task-flanker_run2.nii.gz`` from the ``func`` directory, change the output directory to ``run2``, and make sure ``Preprocessing`` is selected from the dropdown menu. Keep the other settings the same as when you analyzed run 1.
 
 3. Preprocess run 1 using a 3mm smoothing kernel, keeping the other preprocessing options the same. (Make sure, however, to change the output directory to a new name in order to keep the output organized.) What does the output ``filtered_func_data.nii.gz`` look like?
 
