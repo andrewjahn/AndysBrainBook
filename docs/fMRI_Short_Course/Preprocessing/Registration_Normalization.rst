@@ -54,7 +54,7 @@ In the ``Degrees of Freedom`` window, you have options to choose 3, 6, or 12 deg
 
 For now, I will set both Search options to Full search and both Degrees of Freedom options to 12 DOF. If you have already loaded your functional images in the Data tab, click on the Go button to run all of the preprocessing steps.
 
-.. figure:: Registration_ExampleOptions.png
+.. figure:: Registration_Setup.gif
 
 
 
