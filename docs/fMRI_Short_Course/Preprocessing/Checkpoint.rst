@@ -4,7 +4,7 @@
 Checkpoint: Preprocessing
 ==========
 
-Now is a good opportunity to review what we have done so far:
+Now is a good time to review what we have done so far:
 
 1. We have downloaded an fMRI dataset that has anatomical and functional images;
 
