@@ -18,7 +18,7 @@ Along the way you learned how to check the images before and after each preproce
 It may be confusing at first. But over time you will develop your judgment about what images are clearly good, which ones are obviously bad, and which ones you will need to think carefully about either keeping or discarding. The more you think about why the results of a preprocessing step look good or bad, the easier it will become to make your judgments quicker and more accurately.
 
 
-Try the following exercises to become more fluent with FSL and with judging the output from each preprocessing step.
+Try the following exercises to become more fluent with FSL and to improve your judgment about the output from each preprocessing step.
 
 -----------
 
