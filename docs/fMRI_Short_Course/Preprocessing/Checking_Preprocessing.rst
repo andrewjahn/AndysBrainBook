@@ -3,10 +3,12 @@
 Checking your Preprocessed Data
 ^^^^^^^^^^
 
-Just as we did with the skull-stripped images, we will check our data before and after we have processed them using the FEAT GUI. After you click the ``Go`` button, HTML pages will track the progress for each step.
+Just as we did with the skull-stripped images, we will check our data before and after we have processed them using the FEAT GUI. After you click the ``Go`` button, HTML pages like the one below will track the progress for each step.
 
 .. figure:: FEAT_HTML_Progress.png
 
+
+--------
 
 Checking Registration and Normalization
 *********
