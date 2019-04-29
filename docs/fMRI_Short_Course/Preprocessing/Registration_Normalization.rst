@@ -3,6 +3,8 @@
 Registration and Normalization
 ^^^^^^^^^^
 
+--------
+
 Overview
 ***************
 
