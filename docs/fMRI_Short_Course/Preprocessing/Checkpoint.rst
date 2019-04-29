@@ -18,7 +18,7 @@ Along the way you learned how to check the images before and after each preproce
 It may be confusing at first. But over time you will develop your judgment about what images are clearly good, which ones are obviously bad, and which ones you will need to think carefully about either keeping or discarding. The more you think about why the results of a preprocessing step look good or bad, the easier it will become to make your judgments quicker and more accurately.
 
 
-Try the following exercises to increase your fluency with FSL and to improve your judgment about the output from each step.
+Try the following exercises in order to increase your fluency with FSL and to improve your judgment about the output from each step.
 
 -----------
 
@@ -31,7 +31,7 @@ Exercises
 
 3. Preprocess run 1 using a 3mm smoothing kernel, keeping the other preprocessing options the same. (Make sure, however, to change the output directory to a new name in order to keep the output organized.) Before you look at the output, run another analysis with a 12mm smoothing kernel. Think about what you would expect the preprocessed functional data to look like, and then load the ``filtered_func_data.nii.gz`` images from each analysis into FSLeyes. How do they compare to your predictions?
 
-4. What do you see in the Registration tab of the FEAT output when you preprocess run 1 using ``3DOF`` for registration and normalization? How is it different from what you saw when you ran the preprocessing with ```12DOF``? Why? (Hint: Review the `Registration and Normalization <Registration_Normalization>`__ page for possible reasons.)
+4. Preprocess run 1 using ``3DOF`` for registration and normalization. How is the output different from what you saw when you ran the preprocessing with ```12DOF``? Why? (Hint: Review the `Registration and Normalization <Registration_Normalization>`__ page for possible reasons.)
 
 5. Rerun registration for run 1 using ``BBR`` instead of ``12DOF``. What difference does it make? How would you make a case to someone that you should use one instead of the other?
 
