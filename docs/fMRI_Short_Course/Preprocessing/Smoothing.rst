@@ -1,12 +1,9 @@
 .. _Smoothing.rst
-
-
-.. note::
-
-  This chapter is still under construction; please check back soon.
   
 Smoothing
 =============
+
+------
 
 Why Smooth?
 -----------
