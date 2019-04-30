@@ -14,7 +14,7 @@ After you have reviewed those concepts, you are then ready to run a 1st-level an
 
 .. toctree::
    :maxdepth: 1
-   :caption: Preprocessing Steps
+   :caption: 1st-Level Analysis
 
    Statistics/Stats_TimeSeries
    Statistics/The_BOLD_Response
