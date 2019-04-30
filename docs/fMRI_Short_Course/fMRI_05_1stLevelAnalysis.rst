@@ -5,12 +5,31 @@ fMRI Tutorial #5: Statistics and Modeling
 
 -----------
 
+Overview
+********
+
+Now that the first functional run has been preprocessed, we can **fit a model** to the data. To understanding how model fitting works, we need to review some fundamentals such as the General Linear Model, the BOLD response, and what a time-series is. Each of these topics are discussed in the following table of contents.
+
+After you have reviewed those concepts, you are then ready to run a 1st-level analysis using FEAT.
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Preprocessing Steps
+
+   Statistics/Stats_TimeSeries
+   Statistics/The_BOLD_Response
+   Statistics/General_Linear_Model
+   Statistics/Model_Fitting
+   Statistics/Running_1stLevel_Analysis
+   Statistics/1stLevel_Checkpoint
+
+
 The Time-Series
 ***********
 
-Now that the first functional run has been preprocessed, we can **fit a model** to the data. To understanding how model fitting works, we need to review how fMRI data is composed. Remember that fMRI datasets contain several **volumes** strung together like beads on a string - we call this concatenated string of volumes a **time-series**.
+ Remember that fMRI datasets contain several **volumes** strung together like beads on a string - we call this concatenated string of volumes a **time-series**.
 
-To illustrate what this looks like, open up the fsleyes viewer and load the dataset ``filtered_func_data.nii.gz``. In the lower right corner is a window labeled "Location", with a field called ``Volume``. This indicates the current volume in the time-series that is displayed in the viewing window. Click up the up arrow next to the field to display the next volume in the time-series, noting how there are small but noticeable changes from one volume to the next.
+To illustrate what this looks like, open up the fsleyes viewer and load the dataset ``filtered_func_data.nii.gz``. In the lower right corner is a window labeled "Location", with a field called ``Volume``. This indicates the current volume in the time-series that is displayed in the viewing window. Click on the up arrow next to the field to display the next volume in the time-series, noting how there are small but noticeable changes from one volume to the next.
 
 .. note::
   To see the time-series update at a quicker, continuous pace, click on the Movie Reel icon. The update rate can be changed by clicking on the Wrench icon.
