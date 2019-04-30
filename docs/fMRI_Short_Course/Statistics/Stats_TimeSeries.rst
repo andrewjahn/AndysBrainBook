@@ -10,9 +10,9 @@ To illustrate what this looks like, open up the fsleyes viewer and load the data
 .. note::
   To see the time-series update at a quicker, continuous pace, click on the Movie Reel icon. The update rate can be changed by clicking on the Wrench icon.
 
-Then, click on View menu at the top of the screen and select ``Time series``. This opens up another window that displays changes in signal across the entire time-series, with the volume number on the x-axis. The y-axis is measured in arbitrary units of fMRI signal that are collected by the scanner; they will be interpretable when we normalize them for each scan and compare this normalized signal between conditions.
+Then, click on View menu at the top of the screen and select ``Time series``. This opens up another window that displays changes in signal across the entire time-series, with the volume number on the x-axis. The y-axis is measured in arbitrary units of fMRI signal that are collected by the scanner; these units will be interpretable after we normalize them for each scan and compare this normalized signal between conditions.
 
 .. figure:: TimeSeriesDemo.gif
 
 
-Our goal is to create a model that will fit the time-series at each voxel. 
+Remember that our goal is to create a model that will fit the time-series at each voxel. To understand how this model is constructed, click the ``Next`` button.
