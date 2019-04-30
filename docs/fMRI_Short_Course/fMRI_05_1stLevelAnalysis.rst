@@ -10,7 +10,7 @@ Overview
 
 Now that the first functional run has been preprocessed, we can **fit a model** to the data. To understanding how model fitting works, we need to review some fundamentals such as the General Linear Model, the BOLD response, and what a time-series is. Each of these topics are discussed in the following table of contents.
 
-After you have reviewed those concepts, you are then ready to run a first-level analysis using FEAT. The figure below illustrates how we will be fitting amodel to the data.
+After you have reviewed those concepts, you are then ready to run a first-level analysis using FEAT. The figure below illustrates how we will be fitting a model to the data.
 
 .. figure:: 1stLevelAnalysis_Pipeline.png
 
@@ -21,7 +21,8 @@ After you have reviewed those concepts, you are then ready to run a first-level 
    :caption: First-Level Analysis
 
    Statistics/Stats_TimeSeries
-   Statistics/The_BOLD_Response
+   Statistics/HRF_History
+   Statistics/HRF_Overview
    Statistics/General_Linear_Model
    Statistics/Model_Fitting
    Statistics/Running_1stLevel_Analysis
