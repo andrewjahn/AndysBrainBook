@@ -1,10 +1,5 @@
 .. _HRF_History.rst
 
-The Hemodynamic Response Function (HRF)
-===========
-
-----------
-
 History of the HRF
 *********
 
@@ -16,5 +11,12 @@ Shortly afterwards, in 1992, a researcher at Massachusetts General Hospital name
 
 .. figure:: Kwong_fMRI_Video.gif
 
-This experiment was an important one, becoming the template for many functional neuroimaging experiments. Kwong had found a way to use blood inside the body as an endogenous tracer, eliminating the need for injections or radiation for most imaging studies. fMRI experiments became more popular, and by the early 2000's fMRI had become the dominant neuroimaging method.
+This experiment was an important one, becoming the template for many functional neuroimaging experiments. Kwong had found a way to use blood inside the body as an endogenous tracer for imaging brain activity in healthy subjects, eliminating the need for injections or radiation. As a result fMRI experiments became more popular, and by the early 2000's fMRI had become the dominant neuroimaging method.
 
+
+The BOLD Signal as an Indirect Measure of Neural Firing
+********
+
+Although the discoveries of Ogawa and Kwong were a boon for neuroimagers, there was a catch: This new method was an indirect measure of brain activity, a few steps removed from the actual neural firing. Whenever a stimulus is presented - such as a flash of light, or a sudden noise - that stimulus is transduced by the sensory organs into nerve impulses, which in turn stimulate neuronal firing in the brain. Neurons that fire require oxygen, and oxygen is delivered by the blood. That oxygenated blood in turn increases the signal from nearby hydrogen in the water in your body, which is what is measured in the scanner.
+
+Nevertheless, this is the measure used to infer whether a given region of the brain is "active" or not. And to make those inferences, we will need to take a closer look at how the BOLD signal is genereated by a stimulus, and how we model these with mathematical functions.
