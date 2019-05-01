@@ -3,14 +3,7 @@
 The Hemodynamic Response Function (HRF)
 =============
 
--------
-
-The BOLD Response as an Indirect Measure of Neural Firing
-********
-
-Whenever there is a stimulus - such as a flash of light, or a sudden noise - that stimulus is transduced by your sensory organs into nerve impulses, which in turn stimulate neuronal firing in the brain. Neurons that fire require oxygen, and oxygen is delivered by the blood. That oxygenated blood in turn increases the signal from the hydrogen in the water in your body, which can lead to inferences about which brain region is “active”. 
-
-The chain of reasoning is this: neural activity leads to a demand for oxygen, which in turn leads to greater oxygenated blood flow to the area with neurons that are firing, which in turn leads to greater signal in that area. Consequently, the BOLD response is an indirect measure of neural firing.
+--------------
 
 From the BOLD Response to the HRF
 *********
@@ -71,6 +64,6 @@ To help you understand what you have just read, watch the following animation a 
 
 .. note::
 
-  Be aware that the concepts you have just learned are probably more difficult to understand than what you have learned previously in this course. Even if you don't feel that you fully understand the HRF and convolution, go on with the rest of the module. After you have read the remaining chapters and have done the practical exercises, come back to this chapter and see if it makes more sense once you have had more experience.
+  Be aware that the concepts you have just learned are probably more difficult to understand than what you have learned previously in this course. Even if you don't feel that you fully understand the HRF and convolution, go on with the rest of the module. After you have read the remaining chapters and have done the practical exercises, come back to this chapter and then see if it makes more sense.
 
 
