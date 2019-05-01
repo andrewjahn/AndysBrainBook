@@ -1,6 +1,6 @@
 .. _01_Stats_TimeSeries.rst
 
-The Time-Series
+Chapter 1: The Time-Series
 ***********
 
 Now that the first functional run has been preprocessed, we can **fit a model** to the data. To understanding how model fitting works, we need to review how fMRI data is composed. Remember that fMRI datasets contain several **volumes** strung together like beads on a string - we call this concatenated string of volumes a **time-series**.
