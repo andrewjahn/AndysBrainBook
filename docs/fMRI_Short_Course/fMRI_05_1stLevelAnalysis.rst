@@ -20,13 +20,13 @@ After you have reviewed those concepts, you are then ready to run a first-level 
    :maxdepth: 1
    :caption: First-Level Analysis
 
-   Statistics/Stats_TimeSeries
-   Statistics/HRF_History
-   Statistics/HRF_Overview
-   Statistics/General_Linear_Model
-   Statistics/Model_Fitting
-   Statistics/Running_1stLevel_Analysis
-   Statistics/1stLevel_Checkpoint
+   Statistics/01_Stats_TimeSeries
+   Statistics/02_Stats_HRF_History
+   Statistics/03_Stats_HRF_Overview
+   Statistics/04_Stats_General_Linear_Model
+   Statistics/05_Stats_Model_Fitting
+   Statistics/06_Stats_Running_1stLevel_Analysis
+   Statistics/07_Stats_1stLevel_Checkpoint
 
 
 .. note::
