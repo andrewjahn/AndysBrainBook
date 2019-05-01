@@ -15,11 +15,11 @@ Introduction
 
 Now we come to the **General Linear Model**, or GLM. With a GLM, we can use one or more **regressors**, or independent variables, to predict some outcome measure, or **dependent variable**. We compute numbers called **beta weights**, which are the relative weights assigned to each regressor to best fit the data. Any discrepancies between the model and the data are called **residuals**.
 
-The symbols representing each of these terms are shown in the following equation, which can be shortened or expanded depending on the number of regressors that are in your model:
+The symbols representing each of these terms are shown in the following equation, which can be shortened or expanded depending on the number of regressors in your model:
 
 .. figure:: GLM_Equation.png
 
-Let's see how to apply this to a simple example. Let's say we want to predict GPA based on height, IQ, and number of drinks per week. We may find that IQ has a positive association with GPA, number of drinks has a negative association, and height has no association at all; and we assign each of these regressors beta weights to best fit the data. For example, maybe each additional IQ point is associated with an additional 0.05 increase in GPA, while each additional drink per week is associated with a -0.07 decrease in GPA. In that case our model and its beta weights would look something like this (in which asterisks represents beta weights that are significant):
+Let's see how to apply this to a simple example. Imagine that we want to predict GPA based on height, IQ, and number of drinks per week. We may find that IQ has a positive association with GPA, number of drinks has a negative association, and height has no association at all; and we assign each of these regressors beta weights to best fit the data. For example, maybe each additional IQ point is associated with an additional 0.05 increase in GPA, while each additional drink per week is associated with a -0.07 decrease in GPA. In that case our model and its beta weights would look something like this (in which asterisks represent beta weights that are significant):
 
 .. figure:: GLM_Example.png
 
