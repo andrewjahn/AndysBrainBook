@@ -1,6 +1,6 @@
 .. 02_Stats_HRF_History.rst
 
-History of the HRF
+Chapter 2: History of the BOLD Signal
 *********
 
 Throughout the 1980's and early 1990's, neuroimaging researchers would measure contrast between brain tissues using methods such as positron emission tomography, or PET. This uses a radioactive glucose tracer that is absorbed by neurons when they are firing. By taking images of the brain under conditions of activity, such as seeing a flashing checkerboard or doing a cognitively demanding problem, researchers could see which regions were more active compared to other regions.
