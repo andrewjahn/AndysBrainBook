@@ -1,6 +1,6 @@
 .. _03_Stats_HRF_Overview.rst
 
-The Hemodynamic Response Function (HRF)
+Chapter 3: The Hemodynamic Response Function (HRF)
 =============
 
 --------------
