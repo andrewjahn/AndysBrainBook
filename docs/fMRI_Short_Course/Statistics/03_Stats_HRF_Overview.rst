@@ -1,4 +1,4 @@
-.. _HRF_Overview.rst
+.. _03_Stats_HRF_Overview.rst
 
 The Hemodynamic Response Function (HRF)
 =============
