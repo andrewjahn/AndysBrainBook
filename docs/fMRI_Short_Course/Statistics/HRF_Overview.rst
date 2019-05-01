@@ -19,6 +19,6 @@ Another assumption we make is what the BOLD response looks like. This is also ve
 
 Empirical studies of the BOLD response demonstrated that, after a stimulus was presented, any part of the brain responsive to that stimulus - say, the visual cortex in response to a visual stimulus - will show a rise in the BOLD response, peaking around six seconds, and then falling back to baseline over the next several seconds. This can be modeled with a mathematical function called a **Gamma Distribution**. The Gamma Distribution constructed with parameters to best fit the BOLD response observed by most empirical studies is referred to as the canonical hemodynamic response function, or **HRF**.
 
-.. figure:: BOLD_Response_Demo.gif
+.. figure:: HRF_Demo.gif
 
 
