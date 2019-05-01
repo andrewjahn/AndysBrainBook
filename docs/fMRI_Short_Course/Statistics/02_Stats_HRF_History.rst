@@ -1,4 +1,4 @@
-.. _HRF_History.rst
+.. 02_Stats_HRF_History.rst
 
 History of the HRF
 *********
