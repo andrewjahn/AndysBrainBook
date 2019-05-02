@@ -14,7 +14,7 @@ In the animation below, the different colors of the BOLD responses indicate diff
 
 .. figure:: GLM_fMRI_Data.gif
 
-The Red and Green lines representing the HRFs are called the **ideal time-series**. This is the time-series that we expect, given the timing of each stimulus in our experiment. When we estimate beta weights to modulate this ideal time-series to fit the data, the result is called a **fitted time-series**, shown in the animation as a blue line. 
+The Red and Green lines representing the HRFs are called the **ideal time-series** (also known as the **model run file**). This is the time-series that we expect, given the timing of each stimulus in our experiment. When we estimate beta weights to modulate this ideal time-series to fit the data, the result is called a **fitted time-series**, shown in the animation as a blue line. 
 
 .. note::
 
