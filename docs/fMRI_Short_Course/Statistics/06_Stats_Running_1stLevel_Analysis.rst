@@ -29,7 +29,7 @@ To put this in mathematical terms, each voxel has a time series, which we’ll n
 
 The next part of this equation is the beta weights, which we’ll notate as B1 and B2, corresponding to the x1 and x2 regressors. These represent the amount that the HRF needs to be scaled to best match the original data in Y, and these weights are estimated - hence the name “beta weights”. The last term in this equation is E, which represents the residuals, or the difference between our ideal time series model and the data after estimating the beta weights.
 
-.. figure:: GLM_fMRI_Data.gif
+.. figure:: GLM_fMRI_Data_FSL.gif
 
 
 .. Examining the output
