@@ -1,6 +1,6 @@
-.. _05_Stats_Model_Fitting.rst
+.. _05_Creating_Timing_Files.rst
 
-Chapter 5: Fitting the Model to fMRI Data
+Chapter 5: Creating Timing Files
 ==========
 
 ---------
@@ -53,9 +53,9 @@ Each of these timing files will have same format consisting of three columns, in
   
   The Run-1_events.tsv file on OpenNeuro.org (A). When we download it and look at it in the Terminal, it looks like this (B). Our goal is to re-format the events file to create a timing file with three columns: Onset time, duration, and parametric modulation (C).
   
-To format the timing files, download this script. We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and type ``bash make_FSL_Timings.sh``. This will creating timing files for each run for each subject. To make sure it worked, type ``cat sub-08/func/incongruent_run1.txt``. You should see numbers similar to the ones in the figure above.
+To format the timing files, download `this script <https://github.com/andrewjahn/FSL_Scripts/blob/master/make_FSL_Timings.sh>`__. We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and type ``bash make_FSL_Timings.sh``. This will creating timing files for each run for each subject. To make sure it worked, type ``cat sub-08/func/incongruent_run1.txt``. You should see numbers similar to the ones in the figure above.
 
-
+Once you have created the timing files, you are now ready to use them to fit a model to the fMRI data. To see how to do that, click the ``Next`` button.
 
 
 To put this in mathematical terms, each voxel has a time series, which we’ll notate as Y. We also have our two regressors, which we’ll notate as x1 and x2. These regressors constitute our design matrix, which we’ll notate with a large X. So far, all of these variables are known - Y is measured from the data, and x1 and x2 are constructed from convolving the HRF and the timing onsets. Now, since the next part gets into matrix algebra, I’m going to switch the orientation of these timecourses: Normally we think of think of them as running from left to right, but now we’re going to depict them as going from top to bottom. 
