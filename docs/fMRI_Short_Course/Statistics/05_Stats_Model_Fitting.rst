@@ -8,7 +8,7 @@ Chapter 5: Fitting the Model to fMRI Data
 The Ideal Time-Series and the Fitted Time-Series
 *********
 
-We just saw how we can use several regressors, or independent variables, to estimate an outcome measure such as GPA. Conceptually, we’re doing the same thing when we use several regressors to estimate brain activity, which is our outcome mesure with fMRI data. Specifically, we estimate the average amplitude of the BOLD signal in response to each condition in our model.
+We just saw how we can use several regressors, or independent variables, to estimate an outcome measure such as GPA. Conceptually, we’re doing the same thing when we use several regressors to estimate brain activity, which is our outcome measure with fMRI data: We estimate the average amplitude of the BOLD signal in response to each condition in our model.
 
 In the animation below, the different colors of the BOLD responses indicate different conditions, and the gray line represents the timecourse of our preprocessed data. This shows how the amplitude of each condition is being estimated to best fit the data; for the condition on the left, it is relatively high, whereas for the condition on the right, it is relatively low. You can also imagine a condition's BOLD signal which is not significantly different from zero, or which is even negative.
 
