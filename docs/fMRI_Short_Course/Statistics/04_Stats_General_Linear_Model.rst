@@ -24,6 +24,9 @@ Let's see how to apply this to a simple example. Imagine that we want to predict
 .. figure:: GLM_Example.png
 
 
+This GLM can be expanded to include many regressors, but however many there are, the GLM assumes that the data can be modeled as a linear combination of each of the regressors - hence the name General Linear Model. We will see how to apply the GLM to fMRI data in the next chapter.
+
+
 Applying the GLM to fMRI data
 **********
 
