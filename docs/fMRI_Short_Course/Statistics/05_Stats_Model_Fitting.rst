@@ -1,0 +1,63 @@
+.. _05_Stats_Model_Fitting.rst
+
+Chapter 5: Fitting the Model to fMRI Data
+==========
+
+---------
+
+The Ideal Time-Series and the Fitted Time-Series
+*********
+
+We just saw how we can use several regressors, or independent variables, to estimate an outcome measure such as GPA. Conceptually, we’re doing the same thing when we use several regressors to estimate brain activity, which is our outcome mesure with fMRI data. Specifically, we estimate the average amplitude of the BOLD signal in response to each condition in our model.
+
+In the animation below, the different colors of the BOLD responses indicate different conditions, and the gray line represents the timecourse of our preprocessed data. This shows how the amplitude of each condition is being estimated to best fit the data; for the condition on the left, it is relatively high, whereas for the condition on the right, it is relatively low. You can also imagine a condition's BOLD signal which is not significantly different from zero, or which is even negative.
+
+.. figure:: GLM_fMRI_Data.gif
+
+The Red and Green lines representing the HRFs are called the **ideal time-series**. This is the time-series that we expect, given the timing of each stimulus in our experiment. When we estimate beta weights to modulate this ideal time-series to fit the data, the result is called a **fitted time-series**, shown in the animation as a blue line. 
+
+.. note::
+
+  Since every voxel has its own timecourse, we do the procedure above for every voxel in the brain. This is known as a **mass univariate** analysis, since we estimate beta weights for each voxel's time-series. As there are tens or hundreds of thousands of voxels in a typical fMRI dataset, later we will need to correct for all of the tests we have done. This will be covered in a later chapter on group analysis.
+
+
+Creating the Ideal Time-Series
+*********
+
+Our goal is to create the fitted time-series so that we can use the estimated beta weights in a group-level analysis. But to do that, we first need to create our ideal time-series.
+
+Let's take a look at the Flanker dataset. Within each subject's ``func`` directory are files that are labeled "events.tsv". These files contain three pieces of information that we need to create our **timing files** (also known as **onset files**):
+
+1. The name of the condition;
+2. When each trial of the condition occurred, in seconds, relative to the start of the scan; and
+3. The duration of each trial.
+
+These need to be extracted from the events.tsv files and formatted in a way that FSL understands. In this case, we will create a timing file for each condition, and within that a timing file for each run. In total, then, we will create four timing files: 
+
+1. Timings for the Incongruent trials that occurred during the first run (which we will call incongruent_run1.txt);
+2. Timings for the Incongruent trials that occurred during the second run (incongruent_run2.txt);
+3. Timings for the Congruent trials that occurred during the first run (congruent_run1.txt);
+4. Timings for the Congruent trials that occurred during the second run (congruent_run2.txt).
+
+Each of these timing files will have same format consisting of three columns, in the following order:
+
+1. Onset time in seconds relative to the start of the scan;
+2. Duration of the trial, in seconds;
+3. Parametric modulation.
+
+.. note::
+
+  We will discuss parameteric modulation in a future module. For now, all you need to know is that it is a required column, and unless you have parametrically modulated trials, set it to a value of "1" for each trial.
+  
+.. figure:: TimingFiles_Example.png
+  
+  The Run-1_events.tsv file on OpenNeuro.org (A). When we download it and look at it in the Terminal, it looks like this (B). Our goal is to re-format the events file to create a timing file with three columns: Onset time, duration, and parametric modulation (C).
+  
+To format the timing files, download this script. We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and type ``bash make_FSL_Timings.sh``. This will creating timing files for each run for each subject. To make sure it worked, type ``cat sub-08/func/incongruent_run1.txt``. You should see numbers similar to the ones in the figure above.
+
+
+
+
+To put this in mathematical terms, each voxel has a time series, which we’ll notate as Y. We also have our two regressors, which we’ll notate as x1 and x2. These regressors constitute our design matrix, which we’ll notate with a large X. So far, all of these variables are known - Y is measured from the data, and x1 and x2 are constructed from convolving the HRF and the timing onsets. Now, since the next part gets into matrix algebra, I’m going to switch the orientation of these timecourses: Normally we think of think of them as running from left to right, but now we’re going to depict them as going from top to bottom. 
+
+The next part of this equation is the beta weights, which we’ll notate as B1 and B2, corresponding to the x1 and x2 regressors. These represent the amount that the HRF needs to be scaled to best match the original data in Y, and these weights are estimated - hence the name “beta weights”. The last term in this equation is E, which represents the residuals, or the difference between our ideal time series model and the data after estimating the beta weights. This GLM can be expanded to include many regressors, but however many there are, the GLM assumes that the data can be modeled as a linear combination of each of the regressors - hence the name General Linear Model.
