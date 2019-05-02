@@ -17,7 +17,7 @@ When applied to fMRI data the Gamma Distribution is called a **basis function**.
 The HRF for a Single Impulse Stimulus
 ^^^^^^^
 
-If the duration of a stimulus is very short, such as a snap of the fingers, we can say that it is an **impulse stimulus** - in other words, it has no duration. As you can see in the following figure, the shape of the BOLD signal looks like a typical Gaussian Distribution, with a peak close to the beginning of the time axis (i.e., the x-axis) and a long tail to the right. 
+If the duration of a stimulus is very short, such as a snap of the fingers, we can say that it is an **impulse stimulus** - in other words, it has no duration. As you can see in the following figure, the shape of the BOLD signal looks like a typical Gamma Distribution, with a peak close to the beginning of the time axis (i.e., the x-axis) and a long tail to the right. 
 
 .. figure:: HRF_SingleStim.png
   :scale: 30%
