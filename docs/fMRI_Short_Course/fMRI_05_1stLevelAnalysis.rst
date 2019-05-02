@@ -24,7 +24,7 @@ After you have reviewed those concepts, you are then ready to run a first-level 
    Statistics/02_Stats_HRF_History
    Statistics/03_Stats_HRF_Overview
    Statistics/04_Stats_General_Linear_Model
-   Statistics/05_Stats_Model_Fitting
+   Statistics/05_Creating_Timing_Files
    Statistics/06_Stats_Running_1stLevel_Analysis
    Statistics/07_Stats_1stLevel_Checkpoint
 
