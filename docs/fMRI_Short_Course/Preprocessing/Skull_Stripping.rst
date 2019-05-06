@@ -1,6 +1,6 @@
 .. _Skull_Stripping.rst
 
-Brain Extraction (or "skullstripping")
+Chapter 1: Brain Extraction (also known as "skullstripping")
 ^^^^^^^^^^
 
 Since fMRI studies focus on brain tissue, our first step is to remove the skull and non-brain areas from the image. FSL has a tool for this called **bet**, or the Brain Extraction Tool. It is the first button listed on the FSL GUI (indicated by "A" in the figure below). If you click on this button, another window opens that allows you to specify the Input image to skullstrip and what to label the Output image that has been skullstripped (B), and an expandable sub-window that allows you to specify advanced options (C).
@@ -14,18 +14,18 @@ Since fMRI studies focus on brain tissue, our first step is to remove the skull 
 
 Open the FSL GUI from the ``sub-08`` directory, click on the Folder icon next to the ``Input image`` field, and navigate to the ``anat`` directory. Select the file ``sub-08_T1w.nii.gz`` and click the OK button. Notice that the ``Output image`` field is automatically filled in with the word ``brain`` appended to your Input image, which is FSL's default. You can change the name if you like, but for this tutorial we will leave it as is.
 
-Now click the ``Go`` button at the bottom of the window. You will see some text written to your Terminal showing which commands are being used to run ``bet2``. Take a moment to see how the GUI corresponds to the Terminal - later on we will take advantage of this by creating a template through the GUI and then modifying it in the Terminal to automatically preprocess all of the subjects in our dataset.
+Now click the ``Go`` button at the bottom of the window. You will see some text written to your Terminal showing which commands are being used to run a command called ``bet2``. Take a moment to see how the GUI corresponds to the Terminal - later on we will take advantage of this by creating a template through the GUI and then modifying it in the Terminal to automatically preprocess all of the subjects in our dataset.
 
 Looking at the data
 ********
 
 When the Terminal says "Finished", ``bet2`` is done. Since you have created a new image you should **look at your data**, which we will do after each preprocessing step.
 
-.. .. warning::
+.. warning::
   Newcomers often hear the phrase "Look at your data" intoned like a mantra. Without knowing *how* to look at one's data, the words become meaningless at best, a false comforter at worst. Each of the preprocessing steps in this chapter will be followed by recommendations of what to look for and concrete examples of what is OK and what is a problem - and what to do about it. Although we cannot cover every possible example, as you gain experience you will develop your judgment of what images are of good quality, and which ones need to be either fixed or removed.
   
 
-Click on the ``FSLeyes`` button at the bottom of the GUI. When it opens, click on ``File -> Add from File`` and hold shift to select both the original anatomical image and the skullstripped image you just created. As you saw in the :ref:`previous chapter <fMRI_03_LookingAtTheData>`, you will want to change the contrast to clearly distinguish the grey matter from the white matter.
+Click on the ``FSLeyes`` button at the bottom of the GUI. When it opens, click on ``File -> Add from File`` and hold shift to select both the original anatomical image and the skullstripped image you just created. As you saw in a :ref:`previous chapter <fMRI_03_LookingAtTheData>`, you will want to change the contrast to clearly distinguish the grey matter from the white matter.
 
 By loading both images you can compare the image before and after the skull was removed. In the ``Overlay List`` panel in the lower left corner of FSLeyes, click the "eye" icon to hide the corresponding image. For example, if you click on the eye icon next to ``sub-08_T1w``, the original T1 anatomical image will become invisible, and you will only see the skullstripped brain. If you click on the eye again, you will see the original T1. To make the differences between the brains more apparent, highlight the skullstripped image in the Overlay List panel, then change the contrast from ``Greyscale`` to ``Blue-Light blue``. The animation below shows you how to do this.
 
