@@ -13,7 +13,7 @@ Once a model has been created for each subject and the BOLD response has been es
     A figure showing group-level results from the data used in this course, represented as a z-statistic map. Brighter colors indicate larger z-scores. You will begin by preprocessing the raw data and end with creating a statistical map like this one.
     
 
-This course is designed to build your confidence in working with fMRI data, increase your fluency with the basic terms of fMRI analysis, and help you make educated choices during each step. Exercises at the end of each chapter will allow you consolidate what you've learned and prepare you for the next chapter. Once you have mastered these fundamentals, you will be able to apply them to other datasets of your choosing.
+This course is designed to build your confidence in working with fMRI data, increase your fluency with the basic terms of fMRI analysis, and help you make educated choices during each step. Some chapters have exercises for practicing what you've learned and to prepare you for the next chapter. Once you have mastered the fundamentals of this course, you will be able to apply them to other datasets of your choosing.
 
 
 .. note::
