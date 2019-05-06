@@ -12,6 +12,8 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     4.24.2019: Finished the sections Unix Tutorial #4, fMRI Short Course chapters on smoothing and quality checking FEAT output, and added a playlist covering all of the sections done in the Preprocessing module.
     
+    5.06.2019: Added sections to FAQ about resampling, biased analyses, and flipped orientations. Wrote the chapters for the Statistics part of the short course; videos coming soon.
+    
 
 .. toctree::
    :maxdepth: 1
