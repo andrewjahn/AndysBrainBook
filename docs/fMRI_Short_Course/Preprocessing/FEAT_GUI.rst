@@ -1,6 +1,6 @@
 .. _FEAT_GUI.rst
 
-Intermezzo: The FEAT GUI and loading the functional data
+Chapter 2: The FEAT GUI and loading the functional data
 ^^^^^^^^^^^
 
 The rest of the preprocessing steps (motion correction through normalization) will be carried out in the FEAT GUI. The FEAT button is located the middle of the FSL GUI menu, and clicking on it will open up a window with several tabs.
@@ -15,6 +15,6 @@ After loading the Input data these fields will be automatically entered into the
 
 .. figure:: FEAT_GUI_Demonstration.gif
 
-  Make sure to check whether the TR and number of volumes matches up with what you acquired at the scanner. If you have any questions about the parameters you used, ask your scan technician.
+  Make sure to check whether the TR and number of volumes matches what you acquired at the scanner. If you have any questions about the parameters you used, ask your scan technician.
 
-The next two tabs, Pre-stats and Registration, will be discussed in the following chapters. To resume the tutorial on the preprocessing steps, click the ``Next`` button.
+The next two tabs, Pre-stats and Registration, will be discussed in the following chapters. To resume the tutorial on the preprocessing steps, click the Next button.
