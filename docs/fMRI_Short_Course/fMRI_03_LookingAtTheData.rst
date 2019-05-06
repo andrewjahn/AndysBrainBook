@@ -10,7 +10,7 @@ fMRI Tutorial #3: Looking at the Data
 Overview
 ---------
 
-Now that you've downloaded the dataset, let's see what it looks like. If the dataset has been downloaded to your Download directory, navigate to the Desktop and type the following:
+Now that you've downloaded the dataset, let's see what it looks like. If the dataset has been downloaded to your Downloads directory, navigate to the Desktop and type the following:
 
 ::
 
@@ -24,25 +24,25 @@ Which will rename the folder to ``Flanker`` and put it on your Desktop.
     After downloading the Flanker dataset, type the command above to move it to your Desktop.
     
     
-As you saw in the previous :ref:`Data Download page <fMRI_01_DataDownload>`, the dataset has a standardized structure: Each subject folder contains an anatomical directory and a functional directory labeled ``anat`` and ``func``, and these in turn contain the anatomical and functional images, respectively. (The ``func`` directory also contains **onset times**, or timestamps for when the subject did either a Congruent or Incongruent task.) This format is known as `BIDS <http://bids.neuroimaging.io/>`__, or Brain Imaging Data Structure, which makes it easy to organize and find your data.
+As you saw in the previous :ref:`Data Download page <fMRI_01_DataDownload>`, the dataset has a standardized structure: Each subject folder contains an anatomical directory and a functional directory labeled ``anat`` and ``func``, and these in turn contain the anatomical and functional images, respectively. (The ``func`` directory also contains **onset times**, or timestamps for when the subject underwent either a Congruent or Incongruent trial.) This format is known as `BIDS <http://bids.neuroimaging.io/>`__, or Brain Imaging Data Structure, which makes it easy to organize and find your data.
 
 
 .. figure:: Flanker_DataStructure.png
 
-    Example of the BIDS format. Note that the ``func`` directory contains both the functional runs - in this case, two runs - and corresponding "events.tsv" files, which contains onsets, or timestamps of which condition happened at what time. You can open these up in a text editor or as a spreadsheet.
+    Example of the BIDS format. Note that the ``func`` directory contains functional data - in this case, two runs of functional data - and corresponding "events.tsv" files, which contain **onsets**, or timestamps of which condition happened at what time. You can open these as a text file or as a spreadsheet.
 
 --------
 
 Inspecting the Anatomical Image
 ----------
     
-Whenever you download imaging data, you should first check the anatomical and functional images to inspect them for any problems - scanner spikes, incorrect orientation, poor contrast, and so on. It will take some time to develop an eye for what these problems look like, but with practice it will become easier and quicker to check your data.
+Whenever you download imaging data, check the anatomical and functional images to inspect them for any problems - scanner spikes, incorrect orientation, poor contrast, and so on. It will take some time to develop an eye for what these problems look like, but with practice it will become quicker and easier to do.
 
-Let's take a look at the anatomical image in the ``anat`` folder for ``sub-08``. Navigate to the folder and then type
+Let's take a look at the anatomical image in the ``anat`` folder for ``sub-08``. Navigate to the sub-08 folder and then type
 
 ::
 
-    fsleyes sub-01_T1w.nii.gz
+    fsleyes anat/sub-01_T1w.nii.gz
     
 This will open the anatomical image in ``fsleyes``, FSL's image viewer.
 
@@ -61,7 +61,7 @@ Inspect the image by clicking and dragging the mouse around. You can switch view
 
 .. note::
 
-    You may have noticed that this subject appears to be missing his face. That is because the data from OpenNeuro.org have been **deidentified**: Not only has information such as name and date of scanning been removed from the header, but the faces have also been erased. This is a common step in order to ensure the subject's anonymity.
+    You may have noticed that this subject appears to be missing his face. That is because the data from OpenNeuro.org have been **deidentified**: Not only has information such as name and date of scanning been removed from the header, but the faces have also been erased. This is done in order to ensure the subject's anonymity.
     
 
 As you continue to inspect the image, here are two things you can watch out for:
@@ -77,7 +77,7 @@ As you continue to inspect the image, here are two things you can watch out for:
 Inspecting the Functional Images
 ----------
     
-When you are done looking at the anatomical image, click on ``Overlay -> Remove All`` from the menu at the top of your screen. Then, click on ``File -> Add from File``, navigate to ``sub-08``'s func directory, and select the image ending in ``run-1_bold.nii.gz``. This image also looks like a brain, but it's not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image, and lower-resolution functional images, in part because we collect the functional images much more quickly.
+When you are done looking at the anatomical image, click on ``Overlay -> Remove All`` from the menu at the top of your screen. Then, click on ``File -> Add from File``, navigate to ``sub-08``'s func directory, and select the image ending in ``run-1_bold.nii.gz``. This image also looks like a brain, but it is not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image, and lower-resolution functional images, in part because we collect the functional images much more quickly.
 
 .. figure:: functional_firstLook.png
 
@@ -86,7 +86,7 @@ Many of the quality checks for the functional image are the same as with the ana
 
 .. Reference the timeseries glossary
 
-Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the |movieIcon| icon in fsleyes. Note any jerky, sudden movements in any of the viewing panes. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
+Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the movie reel icon in fsleyes. Note any sudden, jerky movements in any of the viewing panes. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
 
 --------
 
