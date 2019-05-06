@@ -27,4 +27,4 @@ FSL's default is to not do slice-timing correction, and to include a temporal de
   :scale: 60 %
   
 
-The last preprocessing step that we will cover on the Pre-stats tab is Smoothing. To learn what smoothing is and how to use it, click on the ``Next`` button.
+The last preprocessing step that we will cover on the Pre-stats tab is Smoothing. To learn what smoothing is and how to use it, click on the Next button.
