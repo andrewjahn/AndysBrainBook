@@ -1,6 +1,6 @@
 .. _Motion_Correction.rst
 
-Motion Correction
+Chapter 3: Motion Correction
 ^^^^^^^^^^
 
 If you've ever tried to take a photo of a moving object, usually the image is blurry. If the object is motionless, by contrast, you will get a much clearer and sharply defined image.
