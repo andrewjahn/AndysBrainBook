@@ -33,14 +33,14 @@ Click around the image with your mouse and observe where there is either too muc
 
 .. figure:: BET_Demonstration.gif
 
-  A demonstration of using BET to examine the anatomical image before and after skullstripping. Note that in the frontal cortex, part of the brain has been stripped away. Make sure to check all three viewing panes to see where there are problems.
+  A demonstration of how to use BET to examine the anatomical image before and after skullstripping. Note that in the frontal cortex, part of the brain has been stripped away. Make sure to check all three viewing panes to see where there are problems.
 
 Fixing a bad skullstrip
 ***********
 
 If you're not happy with the skullstripping, what can you do about it? Recall that the BET window contains options that we could change if we liked. One of the fields, labeled ``Fractional intensity threshold``, is set to 0.5 as a default. The neighboring text explains that smaller values give larger brain outline estimates (and, conversely, larger values give smaller brain outline estimates). In other words, if we think that too much brain has been removed, we should set this to a smaller number, and vice versa if we think too little skull has been removed.
 
-Since it appears that BET has removed too much brain, try changing the fractional intensity threshold to 0.2. Also make sure to change the output name to something that will help you remember what you did - for example, ``sub-08_T1w_brain_f02``. Click the ``Go`` button to re-run skullstripping.
+Since it appears that BET has removed too much brain, try lowering the fractional intensity threshold to 0.2. Also make sure to change the output name to something that will help you remember what you did - for example, ``sub-08_T1w_brain_f02``. Click the ``Go`` button to re-run skullstripping.
 
 .. figure:: BET_f02_GUI.png
 
