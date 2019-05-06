@@ -1,11 +1,11 @@
 .. _Slice_Timing_Correction.rst
 
-Slice-Timing Correction
+Chapter 4: Slice-Timing Correction
 ^^^^^^^^^^
 
 Unlike a photograph, in which the entire picture is taken in a single moment, an fMRI volume is acquired in **slices**. Each of these slices takes time to acquire - from tens to hundreds of milliseconds. 
 
-The two most commonly used methods for creating volumes are sequential and interleaved slice acquisition. Sequential slice acquisition acquires each adjacent slice consecutively, either from bottom to top or top to bottom. Interleaved slice acquisition acquires every other slice, and then fills in the gaps on the second pass. Both of these methods are illustrated in the video below.
+The two most commonly used methods for creating volumes are sequential and interleaved slice acquisition. Sequential slice acquisition acquires each adjacent slice consecutively, either bottom-to-top or top-to-bottom. Interleaved slice acquisition acquires every other slice, and then fills in the gaps on the second pass. Both of these methods are illustrated in the video below.
 
 .. figure:: SliceTImingCorrection_Demo.gif
 
