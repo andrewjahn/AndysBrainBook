@@ -9,6 +9,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 
 .. note::
     This book is under construction. More chapters will be added in the coming weeks; my goal is to have a complete draft of the fMRI Short Course by the first week of June.
+    
     4.24.2019: Finished the sections Unix Tutorial #4, fMRI Short Course chapters on smoothing and quality checking FEAT output, and added a playlist covering all of the sections done in the Preprocessing module.
     
 
