@@ -27,7 +27,7 @@ Think of preprocessing as cleaning up the images. When you take a photo with a c
 
 Similarly, when we preprocess fMRI data we are cleaning up the three-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (which is discussed in the chapter on modeling fitting), and others can be reduced or removed by preprocessing.
 
-To begin preprocessing an individual subject, read the following descriptions of each step.
+To begin preprocessing sub-08's data, read the following descriptions of each step.
 
 .. toctree::
    :maxdepth: 1
