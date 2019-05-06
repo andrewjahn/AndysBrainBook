@@ -10,7 +10,9 @@ If you've ever tried to take a photo of a moving object, usually the image is bl
 
   A moving target leads to a blurry image (Left), whereas a stationary target leads to a more clearly defined image (Right). 
   
-The concept is the same when we take three-dimensional pictures of the brain. If the subject is moving, the images will look blurry; if he is still, the images will look more defined. But that's not all: If the subject moves a lot, we also risk measuring signal from a voxel that moves. We are then in danger of measuring signal from the voxel for part of the experiment and, after he moves, from a different region or tissue type. [Note: Need to expand on this, give a clear illustration of why this is a problem.]
+The concept is the same when we take three-dimensional pictures of the brain. If the subject is moving, the images will look blurry; if the subject is still, the images will look more defined. But that's not all: If the subject moves a lot, we also risk measuring signal from a voxel that moves. We are then in danger of measuring signal from the voxel for part of the experiment and, after the subject moves, from a different region or tissue type.
+
+.. Could include an animation here illustrating the above paragraph
 
 Lastly, motion can introduce confounds into the imaging data because motion generates signal. If the subject moves every time in response to a stimulus - for example, if he jerks his head every time he feels an electrical shock - then it can become impossible to determine whether the signal we are measuring is in response to the stimulus, or because of the movement.
 
@@ -26,7 +28,7 @@ We do the same procedure with our volumes. Instead of the reference point we use
 
 .. figure:: MotionCorrectionExample.gif
 
-  The reference volume is typically the first volume of the time-series. If during the scan the subject moves to the right, that motion can be "undone" with respect to the reference volume by an equal and opposite movement to the left.
+  The reference volume can be any volume of the time-series (although it is typically the first, middle, or last volume). If during the scan the subject moves to the right, that motion can be "undone" with respect to the reference volume by an equal and opposite movement to the left.
   
 In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's default is to use FSL's MCFLIRT tool, which you can see in the dropdown menu. You have the option to turn off motion correction, but unless you have a reason to do that, leave it as it is.
 
@@ -34,4 +36,4 @@ In the FEAT GUI, motion correction is specified in the ``Pre-stats`` tab. FEAT's
   :scale: 60 %
 
 
-The Pre-stats tab contains other preprocessing options, such as slice-timing correction and smoothing. For an overview of slice-timing correction, click on the ``Next`` button.
+The Pre-stats tab contains other preprocessing options, such as slice-timing correction and smoothing. For an overview of slice-timing correction, click on the Next button.
