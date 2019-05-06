@@ -58,7 +58,7 @@ Sometimes the orientations are flipped along one or more of the axes, resulting 
 This can be done with FSL's fslswapdim command. Let's demonstrate this with the `EUPD Cyberball <https://openneuro.org/datasets/ds000214/versions/00001>`__ dataset from Openneuro.org. If you download the anatomical and functional data for subject EESS001, you will notice that although the functional data looks OK, the anatomical data's orientations appear to be flipped: The coronal section is displayed as though it's on its side, and the other views look odd:
 
 .. figure:: anat_flipped.png
-  :scale: 40 %
+  :scale: 20 %
 
 To fix this, type the following command:
 
@@ -67,9 +67,8 @@ fslswapdim sub-EESS001_anat_sub-EESS001_T1w.nii.gz RL PA IS anat_reorient.nii
 When you open the reoriented image, it looks as though it's in the correct orientation. Overlay the functional image on top of it to make sure that all of the images are now in the same orientation.
 
 .. figure:: anat_reorient.png
-  :scale: 40 %
+  :scale: 20 %
 
-This should look correct.
 
 Other Questions
 **********
