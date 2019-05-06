@@ -5,9 +5,6 @@ Unix Tutorial #4: Shells and Path Variables
 =============
 
 .. note::
-  This section is under construction; the video is complete, however.
-
-.. note::
   Topics covered: paths, variables, shells, FSL, installation, syntax, redirection
   Commands covered: set, setenv, export, tcsh, bash
   
@@ -24,20 +21,18 @@ There are two shells you will come across: the Bourne shell, with a widely-used 
 
 **Setting a variable** means assigning a value to a string. Variables are used as shorthand for a value, which can be either a number or a string. They are called variables because the value can vary, or be udpated as needed. 
 
-For example, let’s assign the value 3 to the variable ``x``. If you are in the bash shell, which is the default on most computers, you can do this by typing ``x=3``. To check the value stored in the variable, type ``echo $x``. The dollar sign is a **reserved character** that has a special meaning and cannot be used as a variable. It indicates that what comes immediately after it - in this case, x - is a variable. The command returns 3, the value stored in the variable x.
+For example, let’s assign the value 3 to the variable ``x``. If you are in the bash shell, which is the default on most computers, you can do this by typing ``x=3``. To check the value stored in the variable, type ``echo $x``. The dollar sign is a **reserved character** that has a special meaning and cannot be used as a variable. A dollar sign indicates that what comes immediately after it - in this case, x - is a variable. The command returns 3, the value stored in the variable x.
 
-Compare this with a different shell - the t-shell. Switch your terminal to the t-shell by typing ``tcsh`` and pressing enter. If we typed the same command as before, you’ll get an error that says “command not found.” That’s because the syntax for assigning a variable is different in the t-shell. To do the same variable assignment, we have to type ``set x=3``; then type ``echo $x`` to make sure it set the correct value. If you ever get lost and want to know which shell you are currently in, type ``echo $0``.
+Compare this with a different shell - the t-shell. Switch your terminal to the t-shell by typing ``tcsh`` and pressing enter. If we typed the same command as before, you’ll get an error that says “command not found.” That’s because the syntax for assigning a variable is different in the t-shell. To do the same variable assignment, we have to type ``set x=3``; then type ``echo $x`` to make sure it set the correct value. If you become lost and want to know which shell you are currently in, type ``echo $0``.
 
 .. figure:: VariableAssignment.gif
 
 
 Right now we’re in what is called a subshell; we were initially in the bash shell, and then we switched to a t-shell. When you open up a new Terminal, think of that terminal as the Unix world; we call this “world” the **environment**. To keep the ``x`` variable constant same no matter which shell we’re in, we would type ``export x 3``; in tcsh, we would type ``setenv x 3``. Note that if you set this global variable, it’s available only to the current shell and to subshells; if you set a global variable in the current subshell and then return to a previous shell, you will not have access to it. To leave the current subshell and return to the previous shell, type ``exit`` and press enter. 
 
-[Insert a figure here illustrating shells and subshells]
-
 Now that we know what variables are, we can see how they are being used in the FSL setup. The code in the .bashrc file - which stands for “bash run commands”, and is the code that is run anytime you create a new shell in bash - updates something called the **path variable**. The path variable is a list of directories that are searched anytime you run a command; you can see this list of directories by typing ``echo $PATH``. Notice that there are several absolute paths pointing to different directories, with the colon acting as a separator between paths. When you type a command and press enter, the shell looks for that command within each directory in your path. If it’s not there, it returns an error saying that the command is not found.
 
-Paths allow you to use FSL commands from anywhere in the Terminal. FSL, like all the other software packages, has a **library**, or directory that contains all of the functions needed to run FSL - such as fslinfo, fslmaths, flirt, and so on. To run those commands, we would need to either be in that directory, or we’d need to specify the absolute path to the command that we want to run. To give us the flexibility to run FSL commands anywhere, we’ll set the path variable to indicate where the FSL library is.
+Paths allow you to use FSL commands from anywhere in the Terminal. FSL, like all the other software packages, has a **library**, or directory that contains all of the functions needed to run FSL - such as fslinfo, fslmaths, flirt, and so on. To run those commands, we would need to either be in that directory, or we would need to specify the absolute path to the command that we want to run. To give us the flexibility to run FSL commands anywhere, we’ll set the path variable to indicate where the FSL library is.
 
 .. figure:: FSL_Library.png
 
