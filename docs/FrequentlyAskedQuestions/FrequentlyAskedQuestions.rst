@@ -1,7 +1,5 @@
 .. _FrequentlyAskedQuestions.rst
 
-Frequently Asked Questions
-==============
 
 This is a list of common questions that I am asked. I have found that most questions can be organized into categories such as Resampling, Cluster Correction, Normalization, and so on. Some of these questions may eventually be folded into the fMRI Concepts section.
 
@@ -9,7 +7,7 @@ This list was created on April 23rd, 2019, and will be updated each week.
 
 
 Resampling
-=========
+**********
 
 Question: What is resampling? 
 
@@ -26,7 +24,7 @@ You can resample an image using several different methods. Let's start with the 
 
 
 Biased Analysis
-==========
+**********
 
 Question: What is a biased analysis? How do you avoid doing them?
 
@@ -44,7 +42,7 @@ We’ve only touched on a couple of different ways to do biased analyses, but th
 
 
 Orientation Problems
-===========
+**********
 
 Question: When I open my image in a viewer, the axes don't look right. How can I change it to a more reasonable orientation, such as LPI?
 
@@ -73,7 +71,7 @@ When you open the reoriented image, it looks as though it's in the correct orien
 
 
 Other Questions
-------
+**********
 
 1. What is the difference between a functional and a structural image?
 2. Where do the fMRI templates come from? When should one use a template other than the default?
