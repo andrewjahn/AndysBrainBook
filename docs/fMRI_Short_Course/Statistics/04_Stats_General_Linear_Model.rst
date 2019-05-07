@@ -13,7 +13,7 @@ Introduction
 **********
 
 
-Now we come to the **General Linear Model**, or GLM. With a GLM, we can use one or more **regressors**, or independent variables, to predict some outcome measure, or **dependent variable**. We compute numbers called **beta weights**, which are the relative weights assigned to each regressor to best fit the data. Any discrepancies between the model and the data are called **residuals**.
+We now come to the **General Linear Model**, or GLM. With a GLM, we can use one or more **regressors**, or independent variables, to fit a mdoel to some outcome measure, or **dependent variable**. To do this we compute numbers called **beta weights**, which are the relative weights assigned to each regressor to best fit the data. Any discrepancies between the model and the data are called **residuals**.
 
 The symbols representing each of these terms are shown in the following equation, which can be shortened or expanded depending on the number of regressors in your model:
 
