@@ -52,7 +52,7 @@ In that case, the individual HRFs are convolved. This creates a BOLD response th
 .. figure:: HRF_Sum.png
   :scale: 30%
   
-  Convolution of the HRFs for individual stimuli. The overall BOLD response (blue) is a moving average of the individual HRFs outlined in black, red, and green. The vertical black lines on the x-axis represent impulse stimuli.
+  Convolution of the HRFs for individual stimuli. The overall BOLD response (blue) is a moving average of the individual HRFs outlined in black, red, and green. The vertical black lines on the x-axis represent impulse stimuli. Figure created by Bob Cox of AFNI.
 
 Putting it all together: Animations of each Case
 *********
@@ -61,6 +61,7 @@ To help you understand what you have just read, watch the following animation a 
 
 .. figure:: HRF_Demo.gif
 
+  Animations originally created by Bob Cox of AFNI.
 ---------
 
 
@@ -69,7 +70,7 @@ Exercises
 
 1. In this chapter the words "hemodynamic response function" and "BOLD signal" were used to represent similar but distinct ideas. How would you define each of these terms in your own words?
 
-2. Use `this applet <https://www.fit.vutbr.cz/study/courses/ISS/public/demos/conv/>`__ to practice convolving different shapes together. To replicate the convolution of the impulse function with the HRF, for example, set one of the signals to "Dirac impulse," and the other to "custom," and trace out the shape of a gamma function with your mouse.
+2. Use `this applet <https://www.fit.vutbr.cz/study/courses/ISS/public/demos/conv/>`__ to practice convolving different shapes together. To replicate the convolution of the impulse function with the HRF, for example, set the input signal to "Dirac impulse," and the output signal to "custom," and trace out the shape of a gamma function with your mouse. Also try setting the input signal to "Rectangle," and experiment with widening and narrowing the shape.
 
 
 .. note::
