@@ -15,4 +15,4 @@ Then, click on View menu at the top of the screen and select ``Time series``. Th
 .. figure:: TimeSeriesDemo.gif
 
 
-Remember that our goal is to create a model that will fit the time-series at each voxel. To understand how this model is constructed, click the ``Next`` button.
+Remember that our goal is to create a model that will fit the time-series at each voxel. To understand how this model is constructed, click the Next button.
