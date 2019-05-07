@@ -1,6 +1,6 @@
 .. _Checking_Preprocessing.rst
 
-Checking your Preprocessed Data
+Chapter 7: Checking your Preprocessed Data
 ^^^^^^^^^^
 
 Just as we did with the skull-stripped images, we will check our data before and after we have processed them using the FEAT GUI. After you click the ``Go`` button, HTML pages like the one below will track the progress for each step.
@@ -13,13 +13,13 @@ Just as we did with the skull-stripped images, we will check our data before and
 Checking Registration and Normalization
 *********
 
-Recall that since we are only doing preprocessing, we will only have results for the Registration and Pre-stats tabs. Click on the Registration tab to examine the results of each registration and normalization step. If you scroll down the page, you should see images that look like this:
+Since we are only doing preprocessing, we will only have results for the Registration and Pre-stats tabs. Click on the Registration tab to examine the results of each registration and normalization step. If you scroll down the page, you should see images that look like this:
 
 .. figure:: FEAT_Registration_Page.png
 
-Each image overlays the red outline of a brain onto a greyscale image of another brain. The first image you see, ``Summary Registration``, shows a representative functional image - in this case, the median image in the fMRI time-series - as the underlay, and the template brain as the red lines. This image is shown first, because if there were any problems in any of the previous registration or normalization steps, there would be obvious errors in this image.
+Each image overlays the red outline of a brain onto a greyscale image of another brain. The first montage, ``Summary Registration``, shows a representative functional image - in this case, the median image in the fMRI time-series - as the underlay, and the template brain as the red lines. This image is shown first, because if there were any problems in any of the previous registration or normalization steps, there would be obvious errors in this image, such as the image being skewed or largely outside of the red outline.
 
-Look for whether the red outlines trace the outline of the greyscale image. Also check whether some of the internal structures of the images, such as the ventricles, are aligned. Do these same quality checks for the other alignments, such as the registration of the example functional image to the highres image (i.e., the anatomical image) and the normalization of the highres image to standard space template.
+Look for whether the red outlines approximately trace the outline of the greyscale image. Also check whether some of the internal structures of the images, such as the ventricles, are aligned. Do these same quality checks for the other alignments, such as the registration of the example functional image to the highres image (i.e., the anatomical image) and the normalization of the highres image to standard space template.
 
 
 Checking Motion
