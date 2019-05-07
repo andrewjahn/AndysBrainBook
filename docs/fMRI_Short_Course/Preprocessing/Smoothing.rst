@@ -1,6 +1,6 @@
 .. _Smoothing.rst
   
-Smoothing
+Chapter 5: Smoothing
 =============
 
 ------
@@ -19,7 +19,7 @@ It is true that smoothing does decrease the spatial resolution of your functiona
 
 .. (Talk about an example here of how averaging works to give rise to a true signal? I'm thinking about the example in which ten students are asked the population of the city they are in; no individual estimate is right, but averaged together it is pretty close to the true population.)
 
-There is another benefit to smoothing. As you will see in the next chapter, our goal is to **normalize** every subject's brain to a template brain which has standardized coordinates. Click on the ``Next`` button to learn more about Normalization, and how smoothing can help improve statistical power.
+There is another benefit to smoothing. As you will see in the next chapter, our goal is to **normalize** every subject's brain to a template brain which has standardized coordinates. Click on the Next button to learn more about Normalization, and how smoothing can help improve statistical power.
 
 
 
