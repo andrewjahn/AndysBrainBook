@@ -8,9 +8,9 @@ Chapter 3: The Hemodynamic Response Function (HRF)
 From the BOLD Response to the HRF
 *********
 
-Another assumption we make is what the BOLD response looks like. This is important not only for modeling the link between neural activity and blood flow, and from there to the observed signal - a phenomenon known as **neurovascular coupling** - but for how we define our statistical models for what brain regions are associated with which condition. 
+Another assumption we make is what the BOLD response looks like. This is important not only for modeling the link between neural activity and blood flow, and from there to the observed signal, but for how we define our model to test which brain regions are associated with which condition. 
 
-In the 1990's, empirical studies of the BOLD signal demonstrated that, after a stimulus was presented to the subject, any part of the brain responsive to that stimulus - say, the visual cortex in response to a visual stimulus - showed an increase in BOLD signal. The BOLD signal also appeared to follow a consistent pattern, peaking around six seconds and then falling back to baseline over the next several seconds. This pattern can be modeled with a mathematical function called a **Gamma Distribution**. When the Gamma Distribution is constructed with parameters to best fit the BOLD response observed by most empirical studies, we refer to it as the canonical Hemodynamic Response Function, or **HRF**.
+In the 1990's, empirical studies of the BOLD signal demonstrated that, after a stimulus was presented to the subject, any part of the brain responsive to that stimulus - say, the visual cortex in response to a visual stimulus - showed an increase in BOLD signal. The BOLD signal also appeared to follow a consistent pattern, peaking around six seconds and then falling back to baseline over the next several seconds. This pattern can be modeled with a mathematical function called a **Gamma Distribution**. When the Gamma Distribution is created with parameters to best fit the BOLD response observed by most empirical studies, we refer to it as the canonical Hemodynamic Response Function, or **HRF**.
 
 When applied to fMRI data the Gamma Distribution is called a **basis function**. We call it a basis function because it is the fundamental element, or basis, of the model we will create and fit to the time series of the data. Furthermore, if we know what the shape of the distribution looks like in response to a very brief stimulus, we can predict what it should look like in response to stimuli of varying durations. We now turn to examples of each to illustrate this concept.
 
@@ -29,7 +29,7 @@ The HRF for a Single Boxcar Stimulus
 
 Although many studies use stimuli lasting only a second or less, some studies present stimuli for longer periods of time. For example, imagine that the subject looks at a flashing checkerboard for fifteen seconds. In this case the shape of the HRF will be more spread out with a sustained peak proportional to the duration of the stimulus, falling back to baseline only after the stimulus has ended. This stimulus is called a **boxcar stimulus**, because it looks like a boxcar on a train.
 
-In this case the Gamma Distribution is **convolved** with the boxcar stimulus. Convolution is the averaging of two functions over time; as a result, the Gamma Distribution broadens as it is averaged with the boxcar stimulus, and returns to its previous state when the stimulus is removed. 
+In this case the Gamma Distribution is **convolved** with the boxcar stimulus. Convolution is the averaging of two functions over time; as a result, the Gamma Distribution broadens as it is averaged with the boxcar stimulus, and returns to baseline when the stimulus is removed. 
 
 .. note::
 
@@ -45,7 +45,7 @@ In this case the Gamma Distribution is **convolved** with the boxcar stimulus. C
 What if the HRFs overlap?
 ^^^^^^^
 
-We have seen what the BOLD response looks like after a stimulus is presented, and we have seen how to model this with an HRF. But what happens if another stimulus is presented before the BOLD response for the previous stimulus has returned to baseline?
+We have seen what the BOLD signal looks like after a stimulus is presented, and we have seen how to model this with an HRF. But what happens if another stimulus is presented before the BOLD response for the previous stimulus has returned to baseline?
   
 In that case, the individual HRFs are convolved. This creates a BOLD response that is a moving average of the individual HRFs, and it becomes more complex as more stimuli are presented.
 
@@ -60,6 +60,16 @@ Putting it all together: Animations of each Case
 To help you understand what you have just read, watch the following animation a couple of times. It will show how each of the cases described above unfolds over time, which will aid your comprehension. 
 
 .. figure:: HRF_Demo.gif
+
+---------
+
+
+Exercises
+**********
+
+1. In this chapter the words "hemodynamic response function" and "BOLD signal" were used to represent similar but distinct ideas. How would you define each of these terms in your own words?
+
+2. Use `this applet <https://www.fit.vutbr.cz/study/courses/ISS/public/demos/conv/>`__ to practice convolving different shapes together. To replicate the convolution of the impulse function with the HRF, for example, set one of the signals to "Dirac impulse," and the other to "custom," and trace out the shape of a gamma function with your mouse.
 
 
 .. note::
