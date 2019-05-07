@@ -3,7 +3,7 @@
 Chapter 1: The Time-Series
 ***********
 
-Now that the first functional run has been preprocessed, we can **fit a model** to the data. To understanding how model fitting works, we need to review how fMRI data is composed. Remember that fMRI datasets contain several **volumes** strung together like beads on a string - we call this concatenated string of volumes a **time-series**.
+Now that the first functional run has been preprocessed, we can **fit a model** to the data. To understanding how model fitting works, we need to review the composition of fMRI data. Remember that fMRI datasets contain several **volumes** strung together like beads on a string - we call this concatenated string of volumes a **time-series**.
 
 To illustrate what this looks like, open up the fsleyes viewer and load the dataset ``filtered_func_data.nii.gz``. In the lower right corner is a window labeled "Location", with a field called ``Volume``. This indicates the current volume in the time-series that is displayed in the viewing window. Click up the up arrow next to the field to display the next volume in the time-series, noting how there are small but noticeable changes from one volume to the next.
 
