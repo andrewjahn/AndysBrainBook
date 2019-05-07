@@ -14,7 +14,7 @@ After you have reviewed those concepts, you are then ready to run a first-level 
 
 .. figure:: 1stLevelAnalysis_Pipeline.png
 
-   After a model has been constructed indicating what the BOLD response should look like (A), that model is then fit to the time-series at each voxel (B). The goodness of fit can then be represented on the brain with as statistical maps, also known as "blobs" (C). Brighter intensities indicate a better model fit. These statistical maps can then be thresholded to show only the voxels with a statistically significant model fit.
+   After a model has been constructed indicating what the BOLD response should look like (A), that model is then fit to the time-series at each voxel (B). How well the model fits (also known as the **goodness of fit**) can then be represented on the brain with statistical maps, also known as "blobs" (C). Brighter intensities indicate a better model fit. These statistical maps can then be thresholded to show only the voxels with a statistically significant model fit.
 
 .. toctree::
    :maxdepth: 1
