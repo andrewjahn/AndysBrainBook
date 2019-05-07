@@ -93,4 +93,4 @@ Another quality check is to make sure there isn't excessive motion. Functional i
 Video
 --------
 
-Follow along `here <https://www.youtube.com/watch?v=WntLBPpnrbQ>`__ for a demonstration of quality checking fMRI data. When you are finished, click on the Next button to learn about preprocessing the data.
+Follow along `here <https://www.youtube.com/watch?v=eRDat10yGSs>`__ for a demonstration of quality checking fMRI data. When you are finished, click on the Next button to learn about preprocessing the data.
