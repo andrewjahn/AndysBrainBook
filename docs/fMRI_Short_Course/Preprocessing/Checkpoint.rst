@@ -6,7 +6,7 @@ Checkpoint: Preprocessing
 
 Now is a good time to review what we have done so far:
 
-1. We have downloaded an fMRI dataset that has anatomical and functional images;
+1. We downloaded an fMRI dataset that has anatomical and functional images;
 
 2. We looked at the data in FSLeyes, FSL's data viewer;
 
@@ -38,4 +38,4 @@ Exercises
 
 --------------
 
-When you have finished doing the exercises, click on the ``Next`` button to begin the chapter on Statistics and Modeling.
+When you have finished doing the exercises, click on the Next button to begin the chapter on Statistics and Modeling.
