@@ -31,6 +31,11 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     unix/Unix_02_CopyRemove
     unix/Unix_03_ReadingTextFiles
     unix/Unix_04_ShellsVariables
+    unix/Unix_05_ForLoops
+    unix/Unix_06_IfElse
+    unix/Unix_07_Scripts
+    unix/Unix_08_Sed
+    unix/Unix_09_AutomatingTheAnalysis
     
     
 .. toctree::
