@@ -77,6 +77,13 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Frequently Asked Questions
     
     FrequentlyAskedQuestions/FrequentlyAskedQuestions.rst
+    
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Statistics
+    
+    Statistics/GIMME
 
 
 
