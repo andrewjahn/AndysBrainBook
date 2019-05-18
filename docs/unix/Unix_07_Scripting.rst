@@ -1,4 +1,4 @@
-.. _Unix_07_Scripting.rst
+.. _Unix_07_Scripting:
 
 Unix Tutorial #7: Scripting
 ================
