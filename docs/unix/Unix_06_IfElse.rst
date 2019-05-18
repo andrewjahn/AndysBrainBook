@@ -1,4 +1,4 @@
-.. _Unix_06_IfElse.rst
+.. _Unix_06_IfElse:
 
 .. note
 
