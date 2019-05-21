@@ -44,3 +44,4 @@ For example, say that we have three variables: self-reported measures of anxiety
 
 .. figure:: GIMME_Data_Example.png
 
+  Figure created by Adriene Beltz & Peter Molenaar 
