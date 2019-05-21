@@ -35,6 +35,7 @@ In order to use GIMME you will have to first install R and then download the req
     :maxdepth: 1
     :caption: Start-to-Finish Tutorial with GIMME
     
+    GIMME_Tutorial/GIMME_00_InstallR
     GIMME_Tutorial/GIMME_01_Data
     GIMME_Tutorial/GIMME_02_Setup
     GIMME_Tutorial/GIMME_03_RunningGIMME
