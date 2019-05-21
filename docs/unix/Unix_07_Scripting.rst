@@ -4,8 +4,6 @@ Unix Tutorial #7: Scripting
 ================
 
 .. note::
- 
-  Began construction on 05.18.2019, still ongoing
   
   Topics covered: wildcards, scripting
   
