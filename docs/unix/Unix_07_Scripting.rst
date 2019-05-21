@@ -57,7 +57,7 @@ Let’s take a look at what this code does. Notice that we have a shebang indica
 Wildcards
 ^^^^^^^^^^^^^^^
 
-This brings up an important concept: **Wildcards**. There are two types of wildcards you will often use. The first is an asterisk, which looks for one or more characters. For example, navigate to the Flanker directory and type ``mkdir sub-100``. If you type ``ls -d sub-*`` It will return every directory that starts with sub-, whether it is sub-01 or sub-100. The asterisk wildcard doesn’t discriminate whether the directory is six characters long or six hundred; it will match and return all of them, as long as they start with sub-. The other type of wildcard is the question mark, which matches a single occurrence of any character. If you type ``ls -d sub-??``, it will only return directories with two integers after the dash - in other words, it will return sub-01 through sub-26, but not sub-100.
+This brings up an important concept: **Wildcards**. There are two types of wildcards you will often use. The first is an asterisk, which looks for one or more characters. For example, navigate to the Flanker directory and type ``mkdir sub-100``. If you type ``ls -d sub-*`` It will return every directory that starts with sub-, whether it is sub-01 or sub-100. The asterisk wildcard doesn’t discriminate whether the directory is six characters long or six hundred; it will match and return all of them, as long as they start with ``sub-``. The other type of wildcard is the question mark, which matches a single occurrence of any character. If you type ``ls -d sub-??``, it will only return directories with two integers after the dash - in other words, it will return sub-01 through sub-26, but not sub-100.
 
 .. figure:: Wildcards_Demo.gif
 
@@ -65,9 +65,11 @@ This brings up an important concept: **Wildcards**. There are two types of wildc
 Text Manipulation with Awk
 ^^^^^^^^^^^^^^^^
 
-The body of the for-loop contains something else that is new, a command called **awk***. Awk is a text processing command that prints columns from a text file. Here are the basics about how it works: If you go into a subjects’ func directory and type cat ``sub-08_task-flanker_run-1_events.tsv``, it will return all of the text in that file. For our fMRI analysis, we want the columns that specify the onset time and duration, as well as the number 1 as a placeholder in the last column. You can redirect the output of this command into the input for the awk command by using a vertical pipe. Then, you can use conditional statements in awk to print the onset times for specific experimental conditions, and redirect that output into a corresponding text file. This is discussed in more detail in the book chapter in the link below.
+The body of the for-loop contains something else that is new, a command called **awk**. Awk is a text processing command that prints columns from a text file. Here are the basics about how it works: If you go into a subjects’ func directory and type cat ``sub-08_task-flanker_run-1_events.tsv``, it will return all of the text in that file. For our fMRI analysis, we want the columns that specify the onset time and duration, as well as the number 1 as a placeholder in the last column. You can redirect the output of this command into the input for the awk command by using a vertical pipe. Then, you can use conditional statements in awk to print the onset times for specific experimental conditions, and redirect that output into a corresponding text file. This is discussed in more detail in the book chapter in the link below.
 
-Now navigate back to the directory containing all the subjects, remove the sub-100 directory and run the script. It will take a few moments, but it will create timing files for all of your subjects; you can inspect them using the cat command, and they should all look something like this.
+Now navigate back to the directory containing all the subjects, remove the sub-100 directory and run the script. It will take a few moments, and then create timing files for all of your subjects. You can inspect them using the cat command, and they should all look something like this:
+
+.. figure:: OnsetFile_Output.png
 
 Scripts and wildcards give you more flexibility with your code, and can save you countless hours of labor - just imagine typing out each of the commands in our script for each subject. Later on we will use these scripts to automate the analysis of an entire dataset - but to do that, we will need to learn about one more command for manipulating text - the sed command.
 
