@@ -110,11 +110,11 @@ Exercises
 Now replace the forward slash with some other character. Which separators (also known as delimiters) seem better than others? Why? When would a forward slash separator be problematic?
 
 
-2. You can delete a line in sed by changing the last ``g`` to a ``d``. For example, if you wanted to delete a line containing the string "name", you would type:
+2. You can delete a line in sed by changing the last ``g`` to a ``d``. When using sed to delete a line, you must 1) remove the initial ``s``, and 2) only use forward slashes as delimiters. For example, if you wanted to delete a line containing the string "name", you would type:
 
 ::
 
-  sed "|name|d" Hello.sh
+  sed "/name/d" Hello.sh
 
 Knowing this, download the `Make FSL Timings <https://github.com/andrewjahn/FSL_Scripts/blob/master/make_FSL_Timings.sh>`__ script, and use sed to delete any lines that contain the string ``run-1``. Compare the output to what was in the script before you ran sed.
 
