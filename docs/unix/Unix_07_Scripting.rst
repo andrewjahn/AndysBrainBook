@@ -85,3 +85,4 @@ Exercises
 Video
 ***********
 
+`This video https://www.youtube.com/watch?v=DQazIIIUXWo>`__ will walk you through how to write a script using TextWrangler, and how to execute the script in the Terminal.
