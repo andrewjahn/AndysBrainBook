@@ -96,7 +96,34 @@ Before you type this code and run it, think about what will happen. Visualize ho
 Now run the code. Do you get the output you expected? Why or why not?
 
 
-Summary
+----------
+
+Exercises
+*********
+
+1. The sed command can use any character for a file separator; for example, try this code with the Hello.sh script:
+
+::
+
+  sed "s/name/last name/g" Hello.sh
+  
+Now replace the forward slash with some other character. Which separators (also known as delimiters) seem better than others? Why? When would a forward slash separator be problematic?
+
+
+2. You can delete a line in sed by changing the last ``g`` to a ``d``. For example, if you wanted to delete a line containing the string "name", you would type:
+
+::
+
+  sed "|name|d" Hello.sh
+
+Knowing this, download the `Make FSL Timings <https://github.com/andrewjahn/FSL_Scripts/blob/master/make_FSL_Timings.sh>`__ script, and use sed to delete any lines that contain the string ``run-1``. Compare the output to what was in the script before you ran sed.
+
+---------
+
+Video
 ***********
 
-Sed is a simple but powerful command that completes the core of our text manipulation commands. In the next chapter, you will see how all of these commands and concepts that you learned - for-loops, conditional statements, awk, sed - can be combined to analyze an fMRI dataset.
+Click `here <https://www.youtube.com/watch?v=TkVhtWgim8M>`__ for an screencast overview of the sed command. 
+
+
+
