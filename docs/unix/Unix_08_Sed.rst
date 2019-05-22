@@ -29,7 +29,7 @@ To see how sed works, create a text file called ``Hello.sh`` that contains the f
   echo "Hello, my name is Andy. Here is the name Andy again."
   
 
-This is simply a text file that runs one line of code. If you wanted to swap the name Andy for Bill, you would type the following:
+This is simply a text file that runs one line of code. If you wanted to swap the name Andy with Bill, you would type the following:
 
 ::
 
