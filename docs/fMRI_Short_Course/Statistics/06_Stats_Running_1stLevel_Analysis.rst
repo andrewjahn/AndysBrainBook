@@ -1,4 +1,4 @@
-.. _06_Stats_Running_1stLevel_Analysis.rst
+.. _06_Stats_Running_1stLevel_Analysis:
 
 Chapter 6: Running the First-Level Analysis
 ================
@@ -33,6 +33,8 @@ Click the Done button, which will open a **Design Matrix** window. The leftmost 
 .. figure:: Design_Matrix.png
 
 The red line represents what we think the time-series of the voxel should look like if it is responsive to that regressor. You will notice that the white bars represent the HRF that is convolved with the onset of each trial for that condition. Take another look at the timing files for each condition and see if the correspondence between the onset times and the design matrix makes sense to you. Then, click Go to run the model.
+
+.. figure:: 1stLevelAnalysis_Demo.gif
 
 The Post-Stats Tab
 ***************
