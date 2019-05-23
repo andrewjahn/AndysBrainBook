@@ -38,19 +38,21 @@ If you open up the FEAT GUI, click on the ``Load`` button at the bottom of the s
 
 In the previous tutorials we ran FEAT separately for preprocessing and for model fitting. We will now create a template that combines both of these steps by selecting "Full Analysis" from the dropdown menu of the FEAT GUI.
 
-First, remove the current run1.feat directory by typing ``rm -r run1.feat``. Then open up the FEAT GUI by typing ``Feat_gui`` from the command line. Using the previous tutorials as a guide, fill in all of the required fields for both preprocessing and model fitting.
+First, remove the current run1.feat directory by typing ``rm -r run1.feat``. Then open up the FEAT GUI by typing ``Feat_gui`` from the command line. Using the previous tutorials as a guide, fill in all of the required fields for both preprocessing and model fitting. Instead of doing this as two separate sessions, we will run it as a single analysis by leaving the "Full Analysis" option selected from the dropdown menu.
 
 Once you have filled in all of the fields, instead of clicking the ``Go`` button, click ``Save`` and label the file ``design_run1``. This will save out several files with extensions such as "con", "mat", and "png", but it is the file design_run1.fsf that we will be using for our script.
 
+Now do the same procedure for run 2, loading the appropriate functional data and timing files. Save the file as design_run2.fsf.
+
 .. note::
 
-  The rest of the Scripting process assumes that you are already familiar with :ref:`for-loops <Unix_05_ForLoops>`, :ref:`conditional statements <Unix_06_IfElse>`, and the basics of :ref:`scripting <Unix_07_Scripting>` as well as sed (FILL IN WHEN SED TUTORIAL IS FINISHED). If not, review those tutorials before going on.
+  The rest of the Scripting process assumes that you are already familiar with :ref:`for-loops <Unix_05_ForLoops>`, :ref:`conditional statements <Unix_06_IfElse>`, and the basics of :ref:`scripting <Unix_07_Scripting>` as well as :ref:`sed <Unix_08_Sed>`. If not, review those tutorials before going on.
   
   
 
-Open design_run1.fsf in nano and take a look at all of the options that have been filled in. Our goal is to make this a template that can be run for any subject, with slight alterations that will be changed in a for-loop. In this case, the only thing we need to change is the subject name - the rest of the options will be the same for each subject.
+Open design_run1.fsf in a code editor such as `TextWrangler <https://www.barebones.com/products/textwrangler/>`__ and take a look at all of the options that have been filled in. (Note: If you do use TextWrangler, in order to open the .fsf file you need to click on the "Options" button and select "Show hidden items.") Our goal is to make this a template that can be run for any subject, with slight alterations that will be changed in a for-loop. In this case, the only thing we need to change is the subject name - the rest of the options will be the same for each subject.
 
 Running the Script
 **********
 
-Copy this design_run1.fsf file to the directory containing your subjects.
+Move the design_run1.fsf and design_run2.fsf files to the directory containing your subjects.
