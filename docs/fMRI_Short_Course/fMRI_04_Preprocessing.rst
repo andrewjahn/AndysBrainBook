@@ -1,4 +1,4 @@
-.. _fMRI_04_Preprocessing.rst
+.. _fMRI_04_Preprocessing:
 
 
 =============
