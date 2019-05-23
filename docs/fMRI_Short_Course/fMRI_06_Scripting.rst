@@ -2,11 +2,6 @@
 
 fMRI Tutorial #6: Scripting
 ===============
-
-
-.. note::
-
-  This section is under construction as of 05/14/2019. Check back soon!
   
 -----------
 
