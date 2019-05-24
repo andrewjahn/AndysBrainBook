@@ -1,4 +1,4 @@
-.. _fMRI_05_1stLevelAnalysis.rst
+.. _fMRI_05_1stLevelAnalysis:
 
 fMRI Tutorial #5: Statistics and Modeling
 ===============
