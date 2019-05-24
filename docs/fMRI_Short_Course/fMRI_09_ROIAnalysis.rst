@@ -25,14 +25,14 @@ One way to create a region for our ROI analysis is to use an **atlas**, or a map
 FSL has many atlases already installed, which you can access through fsleyes. If you click on Settings -> Ortho View 1 -> Atlas Panel, it will open a new window called ``Atlases``. By default, the Harvard-Oxford Cortical and Subcortical Atlases will be loaded. You can see how the atlas partitions the brain by clicking on the ``Show/Hide`` link next to the atlas name. The voxel at the center of the crosshairs in the viewing window will be assigned a probability of belonging to a brain structure.
 
 .. figure:: ROI_Analysis_Atlas_Example.png
-  :scale: 50%
+  :scale: 25%
 
   The Harvard-Oxford Cortical atlas, displayed on an MNI template brain. The Atlas window shows the probability that the voxel is located at a certain anatomical region.
   
 To save one of these regions as a file to extract data from, also known as a **mask**, click on the ``Show/Hide`` link next to the region you want to use as a mask - in our example, let's say that we want to use the Paracingulate Gyrus as a mask. Clicking on the link will show that region overlaid on the brain, as well as load it as an overlay in the Overlay List window. Click on the disk icon next to the image to save it as a mask. Save it to the Flanker directory and call it ``PCG.nii``.
 
 .. figure:: ROI_Analysis_PCG_Mask.png
-  :scale: 50%
+  :scale: 25%
 
 .. warning::
 
