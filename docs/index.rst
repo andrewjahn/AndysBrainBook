@@ -59,7 +59,6 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    :maxdepth: 1
    :caption: fMRI Concepts
 
-   Practicals/ROI_Analysis/Overview
    Practicals/DesignOptimization
    
    
