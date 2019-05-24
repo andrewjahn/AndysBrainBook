@@ -92,4 +92,4 @@ Today we covered the basics of for loops; later on, you’ll learn how to use th
 Video
 **********
 
-Click `here <https://tinyurl.com/y6297v4e>` for an example of how to code for-loops.
+Click `here <https://tinyurl.com/y6297v4e>`__ for an example of how to code for-loops.
