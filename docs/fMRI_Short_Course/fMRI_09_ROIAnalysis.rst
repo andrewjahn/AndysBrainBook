@@ -25,13 +25,14 @@ One way to create a region for our ROI analysis is to use an **atlas**, or a map
 FSL has many atlases already installed, which you can access through fsleyes. If you click on Settings -> Ortho View 1 -> Atlas Panel, it will open a new window called ``Atlases``. By default, the Harvard-Oxford Cortical and Subcortical Atlases will be loaded. You can see how the atlas partitions the brain by clicking on the ``Show/Hide`` link next to the atlas name. The voxel at the center of the crosshairs in the viewing window will be assigned a probability of belonging to a brain structure.
 
 .. figure:: ROI_Analysis_Atlas_Example.png
+  :scale: 50%
 
   The Harvard-Oxford Cortical atlas, displayed on an MNI template brain. The Atlas window shows the probability that the voxel is located at a certain anatomical region.
   
 To save one of these regions as a file to extract data from, also known as a **mask**, click on the ``Show/Hide`` link next to the region you want to use as a mask - in our example, let's say that we want to use the Paracingulate Gyrus as a mask. Clicking on the link will show that region overlaid on the brain, as well as load it as an overlay in the Overlay List window. Click on the disk icon next to the image to save it as a mask. Save it to the Flanker directory and call it ``PCG.nii``.
 
 .. figure:: ROI_Analysis_PCG_Mask.png
-
+  :scale: 50%
 
 .. warning::
 
@@ -63,6 +64,7 @@ Move the allZstats.nii.gz file up three levels so that it is in the main Flanker
 This will print 26 numbers, one per subject. Each number is the contrast estimate for that subject averaged across all of the voxels in the mask. 
 
 .. figure:: ROI_Analysis_FSLmeants_output.png
+  :scale: 50%
 
   Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
   
@@ -77,8 +79,7 @@ The following animation shows the difference between anatomical and spherical RO
 
 .. figure:: ROI_Analysis_Anatomical_Spherical.gif
 
-
-To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al. 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 22, 40.
+To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 22, 40.
 
 .. figure:: ROI_Analysis_Jahn_Study.png
 
@@ -110,7 +111,9 @@ This expands the single voxel into a sphere with a radius of 5mm, and calls the 
   
 This will binarize the sphere, so that it can be read by the FSL commands.
 
-In the steps that were just listed, note how the output from each command is used as input to the next command. You will change this for your own ROI, if you decide to create one.
+.. note::
+
+  In the steps that were just listed, notice how the output from each command is used as input to the next command. You will change this for your own ROI, if you decide to create one.
 
 5. Lastly, we will extract data from this ROI by typing:
 
