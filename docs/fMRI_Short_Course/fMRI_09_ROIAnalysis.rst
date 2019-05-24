@@ -47,7 +47,7 @@ Once you've created the mask, you can then extract each subject's contrast estim
 For the Incongruent-Congruent contrast estimate, for example, you can find each subjects' data maps in the directory ``Flanker_2ndLevel.gfeat/cope3.feat/stats``. The data maps have been calculated several different ways, including t-statistic maps, the cope images, and variance images. My preference is to extract data from the z-statistic maps, since these data have been converted to a form that is normally distributed and, in my opinion, is easier to plot and to interpret.
 
 
-We will need to merge all of the z-statistic maps into a single dataset. To do this, we will use a combination of FSL commands and Unix commands. Navigate into the ``Flanker_2ndLevel.gfeat/cope3.feat/stats``, and then type the following:
+We will need to merge all of the z-statistic maps into a single dataset. To do this, we will use a combination of FSL commands and Unix commands. Navigate into the ``Flanker_2ndLevel.gfeat/cope3.feat/stats`` directory, and then type the following:
 
 ::
 
