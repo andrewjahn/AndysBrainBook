@@ -3,7 +3,7 @@
 fMRI Tutorial #10: Summary
 ==================
 
-We have reached the end of our fMRI course. Now is a good time to take a break and relax. This may be for a few hours or a few weeks; but when you feel ready, come back and think about what you have learned.
+We have reached the end of our fMRI course. Now is a good time to take a break and relax. This may be for a few hours or a few weeks; but when you feel ready, come back and think on you have learned.
 
 Basic fMRI Concepts
 *********
