@@ -45,7 +45,7 @@ For example, if we leave our Z-threshold at 3.1 and our Cluster p-threshold at 0
 .. figure:: 3rdLevelAnalysis_PostStatsTab.png
 
 
-For most analyses, the default of a Cluster correction analysis with a CDT of z=3.1 and a cluster threshold of p=0.05 is appropriate. For a detailed comparison of the false positive rates among the different software packages and different cluster correction settings, see the original `Eklund et al. 2016 paper <https://www.pnas.org/content/113/28/7900>__; for a video overview, click `here <https://www.youtube.com/watch?v=bcoK3ZokPV8>`__.
+For most analyses, the default of a Cluster correction analysis with a CDT of z=3.1 and a cluster threshold of p=0.05 is appropriate. For a detailed comparison of the false positive rates among the different software packages and different cluster correction settings, see the original `Eklund et al. 2016 paper <https://www.pnas.org/content/113/28/7900>`__; for a video overview, click `here <https://www.youtube.com/watch?v=bcoK3ZokPV8>`__.
 
 Now click ``Go``. This will take about 5-10 minutes, depending on how powerful your computer is.
 
