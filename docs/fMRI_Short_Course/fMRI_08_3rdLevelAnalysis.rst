@@ -24,14 +24,15 @@ Creating the GLM
 
 Click on the ``Stats`` tab. For a 3rd-level analysis, we will used Mixed Effects. This models the variance so that our results are generalizable to the population our sample was drawn from. FLAME 1 (FSL’s Local Analysis of Mixed Effects) provides accurate parameter estimates by using information about both within-subject and between-subject variability; FLAME1+2 is considered even more accurate, but the additional benefit is usually minimal, and it takes much longer.
 
-The last option, ``Randomise``, uses a non-parametric approach, which is valid when the assumptions about normality do not hold. Later on, we’ll discuss why this might be particularly appropriate for fMRI data.
+The last option, ``Randomise``, uses a non-parametric approach, which is valid when the assumptions about normality do not hold. Later on, we’ll discuss why this is appropriate in some cases.
 
 .. figure:: 3rdLevelAnalysis_StatsTab.png
-
+  :scale: 50%
 
 Since we're using a simple design, we can quickly create a GLM using the ``Model setup wizard`` button. We've already taken the contrast for each subject, so we can select ``single group average``. This is known as a **summary statistics** approach, as we are calculating a t-statistic based on single numbers generated from each subject. When you click ``Process``, you should see a Model representation that looks like this:
 
 .. figure:: 3rdLevelAnalysis_Model.png
+  :scale: 50%
 
 
 The Post-Stats Tab
