@@ -5,7 +5,6 @@ Unix Tutorial #5: For-Loops
 ==============
 
 .. note::
-  This section is still under construction. Please come back soon!
 
   Topics covered: variables, for loops, zero padding, semicolons
   
@@ -76,8 +75,21 @@ This gets us closer to our goal, but it still isn’t exactly what we want. Noti
 
 This sets each number in this range (highlight 1 26) to have a width of two integers (highlight -w 2); if it’s a number less than ten, for example, it is zero-padded with one zero to the left of the number. This will be important later on when we use these loops to automate analyses over all of our subjects.
 
+-------
+
+Exercises
+**********
+
 Today we covered the basics of for loops; later on, you’ll learn how to use them in more sophisticated contexts, such as automating the analysis of an entire dataset. But no matter how complicated the analysis, every for-loop is built on the fundamentals you learned today. Try these exercises to develop your understanding:
 
 1. Type the following line of code: ``for i in `ls`; do echo $i; done``. Before you press Enter, think about what it will return. See if the output matches your prediction.
 2. Write a for-loop to do the following for the numbers 1 through 3: Print the first number in the list, and then print the present working directory. Then, go up one directory. Repeat for all of the other numbers in the list.
 3. Look up the syntax of a for-loop with tcsh, and use it to redo the examples above.
+
+
+--------
+
+Video
+**********
+
+Click `here <https://tinyurl.com/y6297v4e>` for an example of how to code for-loops.
