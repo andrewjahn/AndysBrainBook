@@ -36,11 +36,11 @@ Note that if you typed out the conditional statement above, nothing happened. Th
 
 ::
 
-if [[ -e sub-01_T1w_brain_f02.nii.gz ]]; then
-	echo “Skull-stripped brain exists”
-else
-	echo “Skull-stripped brain does not exist”
-fi
+	if [[ -e sub-01_T1w_brain_f02.nii.gz ]]; then
+		echo “Skull-stripped brain exists”
+	else
+		echo “Skull-stripped brain does not exist”
+	fi
 
 This means that if this conditional statement is true, then run this block of code (highlight). If it isn’t true, then run this block of code (highlight).
 
@@ -48,58 +48,58 @@ You can use multiple conditionals to give your if/else statement more flexibilit
 
 ::
 
-if [[ -e sub-01_T1w_brain_f02.nii.gz ]]; then
-	echo “Skull-stripped brain exists”
-elif [[ -e sub-01_T1w.nii.gz ]]; then
-	echo “Original anatomical brain exists”
-else
-	echo “Neither the skull-stripped nor the original brain exists”
-fi
+	if [[ -e sub-01_T1w_brain_f02.nii.gz ]]; then
+		echo “Skull-stripped brain exists”
+	elif [[ -e sub-01_T1w.nii.gz ]]; then
+		echo “Original anatomical brain exists”
+	else
+		echo “Neither the skull-stripped nor the original brain exists”
+	fi
 
 You can use other so-called logical expressions to evaluate whether statements are true or false. For example, within the brackets you can use a pair of ampersands to check whether both files exist:
 
 ::
 
-if [[ -e sub-01_T1w.nii.gz && -e sub-01_T1w_f02_brain.nii.gz ]]; then
-	echo “Both files exist”
-else
-	echo “One or more files do not exist”
-fi
+	if [[ -e sub-01_T1w.nii.gz && -e sub-01_T1w_f02_brain.nii.gz ]]; then
+		echo “Both files exist”
+	else
+		echo “One or more files do not exist”
+	fi
 
 Or you can use a pair of vertical pipes to check whether one file OR the other exists:
 
 ::
 
-if [[ -e sub-01_T1w.nii.gz || -e sub-01_T1w_f02_brain.nii.gz ]]; then
-	echo “At least one of the files exists”
-else
-	echo “Neither of the files exists”
-fi
+	if [[ -e sub-01_T1w.nii.gz || -e sub-01_T1w_f02_brain.nii.gz ]]; then
+		echo “At least one of the files exists”
+	else
+		echo “Neither of the files exists”
+	fi
 
 You can also check if a file DOESN’T exist by placing an exclamation mark before the -e option:
 
 ::
 
-if [[ ! -e sub-01_T1w_f02_brain.nii.gz ]]; then
-	echo “The skull-stripped brain doesn’t exist”
-else
-	echo “The skull-stripped brain does exist”
-fi
+	if [[ ! -e sub-01_T1w_f02_brain.nii.gz ]]; then
+		echo “The skull-stripped brain doesn’t exist”
+	else
+		echo “The skull-stripped brain does exist”
+	fi
 
 For now, we will end with a demonstration of how to combine a for-loop with an if/else statement. Let’s say that we want to check whether subjects 1, 2, and 3 have a skull-stripped anatomical image. If it doesn’t exist, strip the skull using bet2. Navigate to the directory containing all of your subjects, and then run the following code:
 
 ::
 
-for i in sub-01 sub-02 sub-03; do
-	cd ${i}/anat
-	if [[ ! -e ${i}_T1w_f02_brain.nii.gz ]]; then
-		echo “Skull-stripped brain doesn’t exist; stripping the brain with a fractional intensity threshold of 0.2”
-		bet2 ${i}_T1w.nii.gz ${i}_T1w_f02_brain.nii.gz -f 0.2
-	else
-		echo “Skull-Stripped brain already exists; doing nothing”
-	fi
-	cd ../..
-done
+	for i in sub-01 sub-02 sub-03; do
+		cd ${i}/anat
+		if [[ ! -e ${i}_T1w_f02_brain.nii.gz ]]; then
+			echo “Skull-stripped brain doesn’t exist; stripping the brain with a fractional intensity threshold of 0.2”
+			bet2 ${i}_T1w.nii.gz ${i}_T1w_f02_brain.nii.gz -f 0.2
+		else
+			echo “Skull-Stripped brain already exists; doing nothing”
+		fi
+		cd ../..
+	done
 
 This will navigate into each subject’s anatomical directory and check whether the skull-stripped image exists. If it doesn’t, then run bet to skull-strip the anatomical. The echo commands are optional; I like to include them so that the user knows what command is currently being run.
 
@@ -119,3 +119,5 @@ Exercises
 
 Video
 ********
+
+Click `here <https://tinyurl.com/yxrn3jmb>`__ for a video demonstrating how to write conditional statements.
