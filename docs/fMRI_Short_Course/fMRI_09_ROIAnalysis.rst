@@ -66,7 +66,80 @@ This will print 26 numbers, one per subject. Each number is the contrast estimat
 
   Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
   
-Extracting Data from an Anatomical Mask
+Extracting Data from an Sphere
 ************
 
+You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. Although from the whole-brain analysis it does appear that there is a significant effect in the dmPFC, the PCG mask also covers a very large region; although the PCG is a homogenous anatomical region at a gross scale, we may be extracting data from several distinct functional regions. As a result, this may not be the best ROI approach to take.
+
+Another technique is called the **spherical ROI** approach. In this case, a sphere of a given diameter is centered at a triplet of specified x-, y-, and z-coordinates. These coordinates are often based on the peak activation of another study that uses the same or a similar experimental design to what you are using. This is considered an **independent** analysis, since the ROI is defined based on a separate study.
+
+The following animation shows the difference between anatomical and spherical ROIs:
+
 .. figure:: ROI_Analysis_Anatomical_Spherical.gif
+
+
+To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al. 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 22, 40.
+
+.. figure:: ROI_Analysis_Jahn_Study.png
+
+The next few steps are complicated, so pay close attention to each one:
+
+1. Open fsleyes, and load an MNI template. In the fields under the label "Coordinates: MNI152" in the ``Location`` window, type ``0 20 44``. Just to the right of those fields, note the corresponding change in the numbers in the fields under ``Voxel location``. In this case, they are ``45 73 58``. Write down these numbers.
+
+2. In the terminal, navigate to the Flanker directory and type the following:
+
+::
+
+  fslmaths $FSLDIR/data/standard/MNI152_T1_2mm.nii.gz -mul 0 -add 1 -roi 45 1 73 1 58 1 0 1 Jahn_ROI.nii.gz -odt float
+
+This is a long, convoluted command, but for now just note where we have inserted the numbers 45, 73, and 58. When you create another spherical ROI based on different coordinates, these are the only numbers you will change. (When you create a new ROI you should change the label of the output file as well.) This will mark the center of those coordinates with a single voxel.
+
+3. Next, type:
+
+::
+
+  fslmaths Jahn_ROI.nii.gz -kernel sphere 5 -fmean Jahn_Sphere.nii.gz -odt float
+
+This expands the single voxel into a sphere with a radius of 5mm, and calls the resulting sphere "Jahn_Sphere.nii.gz". If you wanted to change the size of the sphere to 10mm, for example, you would change this section of code to ``-kernel sphere 10``.
+
+4. Now, type:
+
+::
+
+  fslmaths Jahn_Sphere.nii.gz -bin Jahn_Sphere_bin.nii.gz
+  
+This will binarize the sphere, so that it can be read by the FSL commands.
+
+In the steps that were just listed, note how the output from each command is used as input to the next command. You will change this for your own ROI, if you decide to create one.
+
+5. Lastly, we will extract data from this ROI by typing:
+
+::
+
+  fslmeants -i allZstats.nii.gz -m Jahn_Sphere_bin.nii.gz 
+  
+
+The numbers you get from this analysis should look much different from the ones you created using the anatomical mask. Copy and paste these commands into the statistical software package of your choice, and run a one-sample t-test on them. Are they significant? How would you describe them if you had to write up these results in a manuscript?
+
+
+-------
+
+Exercises
+********
+
+1. The mask used with fslmeants is **binarized**, meaning that any voxel containing a numerical value greater than zero will be converted to a "1", and then data will be extracted only from those voxels labeled with a "1". You will recall that the mask created with fsleyes is **probabilistic**. If you want to weight the extracted contrast estimates by the probability weight, you can do this by using the ``-w`` option with fslmeants. Try typing:
+
+::
+
+  fslmeants -i allZstats.nii.gz -m PCG.nii.gz -w
+  
+And observe how the numbers are different from the previous method that used a binarized mask. Is the difference small? Large? Is it what you would expect?
+
+2. Use the code given in the section on spherical ROI analysis to create a sphere located at MNI coordinates 36, -2, 48. Create a sphere with a 7mm radius.
+
+3. Use the Harvard-Oxford subcortical atlas to create an anatomical mask of the right amygdala. Label it whatever you want. Then, extract the z-statistics from cope1 (i.e., the contrast estimates for Incongruent compared to baseline).
+
+--------
+
+Video
+*********
