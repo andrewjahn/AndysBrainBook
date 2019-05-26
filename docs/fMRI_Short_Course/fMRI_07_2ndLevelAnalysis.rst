@@ -76,12 +76,9 @@ When you've finished setting up the GLM and contrasts and click ``Done``, you sh
 
 As with the 1st-level analysis, we will ignore the ``Post-stats`` tab for now, since we are not performing a population inference.
 
-----------
-
-Exercises
-*********
-
-----------
+---------
 
 Video
 *********
+
+For a screencast about how to create a 2nd-level analysis, click `here <https://www.youtube.com/watch?v=pT2Ry-mk_Ns>`__.
