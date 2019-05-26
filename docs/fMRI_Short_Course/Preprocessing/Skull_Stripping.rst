@@ -62,5 +62,4 @@ Exercises
 Video
 *******
 
-To see a screencast demonstrating how to check your skullstripped image, click `here <https://youtu.be/VobRXk3ccNQ>`__. When you are done watching the video, try the exercises below.
-
+To see a screencast demonstrating how to check your skullstripped image, click `here <https://youtu.be/VobRXk3ccNQ>`__. This may help you with the exercises above.
