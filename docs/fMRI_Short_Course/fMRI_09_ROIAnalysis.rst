@@ -12,7 +12,7 @@ You've just completed a group-level analysis, and identified which regions of th
 
 This kind of analysis is called a **whole-brain** or **exploratory** analysis. These types of analyses are useful when the experimenter doesn't have a hypothesis about where the difference may be located; the result will be used as the basis for future research.
 
-When a large number of studies have been run about a specific topic, however, we can begin to make more specific hypotheses about where we should find our results in the brain images. For example, cognitive control has been studied for many years, and many fMRI studies have been published about it using different paradigms that compare more cognitively demanding tasks to less cognitively demanding tasks. Often, significant changes in the BOLD signal are seen in a region of the brain known as the **dorsal medial prefrontal cortex**, or dmPFC for short. For the Flanker study, then, we could restrict our analysis to this region and only extract data from voxels within that region. This is known as a **region of interest** analysis, or ROI analysis for short. A general name for an analysis in which you choose to analyze a region selected before you analyze the results is called a **confirmatory analysis**.
+When a large number of studies have been run about a specific topic, however, we can begin to make more specific hypotheses about where we should find our results in the brain images. For example, cognitive control has been studied for many years, and many fMRI studies have been published about it using different paradigms that compare more cognitively demanding tasks to less cognitively demanding tasks. Often, significant increases in the BOLD signal during cognitively demanding conditions are seen in a region of the brain known as the **dorsal medial prefrontal cortex**, or dmPFC for short. For the Flanker study, then, we could restrict our analysis to this region and only extract data from voxels within that region. This is known as a **region of interest (ROI)** analysis. A general name for an analysis in which you choose to analyze a region selected before you analyze the results is called a **confirmatory analysis**.
 
 The whole-brain maps that we generate can hide important details about the effects that we’re studying. We may find a significant effect of incongruent-congruent, but the reason the effect is significant could be because incongruent is greater than congruent, or because congruent is much more negative than congruent, or some combination of the two. The only way to determine what is driving the effect is by ROI analysis, and this is especially important when dealing with interactions and more sophisticated designs.
 
@@ -71,7 +71,7 @@ This will print 26 numbers, one per subject. Each number is the contrast estimat
 Extracting Data from an Sphere
 ************
 
-You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. Although from the whole-brain analysis it does appear that there is a significant effect in the dmPFC, the PCG mask also covers a very large region; although the PCG is a homogenous anatomical region at a gross scale, we may be extracting data from several distinct functional regions. As a result, this may not be the best ROI approach to take.
+You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. Although from the whole-brain analysis it looks like there is a significant effect in the dmPFC, the PCG mask also covers a very large region; although the PCG is a homogenous anatomical region at a gross scale, we may be extracting data from several distinct functional regions. As a result, this may not be the best ROI approach to take.
 
 Another technique is called the **spherical ROI** approach. In this case, a sphere of a given diameter is centered at a triplet of specified x-, y-, and z-coordinates. These coordinates are often based on the peak activation of another study that uses the same or a similar experimental design to what you are using. This is considered an **independent** analysis, since the ROI is defined based on a separate study.
 
@@ -91,15 +91,15 @@ The next few steps are complicated, so pay close attention to each one:
 
 ::
 
-  fslmaths $FSLDIR/data/standard/MNI152_T1_2mm.nii.gz -mul 0 -add 1 -roi 45 1 73 1 58 1 0 1 Jahn_ROI.nii.gz -odt float
+  fslmaths $FSLDIR/data/standard/MNI152_T1_2mm.nii.gz -mul 0 -add 1 -roi 45 1 73 1 58 1 0 1 Jahn_ROI_dmPFC_0_20_44.nii.gz -odt float
 
-This is a long, convoluted command, but for now just note where we have inserted the numbers 45, 73, and 58. When you create another spherical ROI based on different coordinates, these are the only numbers you will change. (When you create a new ROI you should change the label of the output file as well.) This will mark the center of those coordinates with a single voxel.
+This is a long, dense command, but for now just note where we have inserted the numbers 45, 73, and 58. When you create another spherical ROI based on different coordinates, these are the only numbers you will change. (When you create a new ROI you should change the label of the output file as well.) This will mark the center of those coordinates with a single voxel.
 
 3. Next, type:
 
 ::
 
-  fslmaths Jahn_ROI.nii.gz -kernel sphere 5 -fmean Jahn_Sphere.nii.gz -odt float
+  fslmaths Jahn_ROI_dmPFC_0_20_44.nii.gz -kernel sphere 5 -fmean Jahn_Sphere_dmPFC_0_20_44.nii.gz -odt float
 
 This expands the single voxel into a sphere with a radius of 5mm, and calls the resulting sphere "Jahn_Sphere.nii.gz". If you wanted to change the size of the sphere to 10mm, for example, you would change this section of code to ``-kernel sphere 10``.
 
@@ -107,7 +107,7 @@ This expands the single voxel into a sphere with a radius of 5mm, and calls the 
 
 ::
 
-  fslmaths Jahn_Sphere.nii.gz -bin Jahn_Sphere_bin.nii.gz
+  fslmaths Jahn_Sphere_dmPFC_0_20_44.nii.gz -bin Jahn_Sphere_bin_dmPFC_0_20_44.nii.gz
   
 This will binarize the sphere, so that it can be read by the FSL commands.
 
@@ -119,7 +119,7 @@ This will binarize the sphere, so that it can be read by the FSL commands.
 
 ::
 
-  fslmeants -i allZstats.nii.gz -m Jahn_Sphere_bin.nii.gz 
+  fslmeants -i allZstats.nii.gz -m Jahn_Sphere_bin_dmPFC_0_20_44.nii.gz 
   
 
 The numbers you get from this analysis should look much different from the ones you created using the anatomical mask. Copy and paste these commands into the statistical software package of your choice, and run a one-sample t-test on them. Are they significant? How would you describe them if you had to write up these results in a manuscript?
