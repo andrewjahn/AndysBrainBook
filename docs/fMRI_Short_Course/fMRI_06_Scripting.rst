@@ -1,4 +1,4 @@
-.. _fMRI_06_Scripting.rst
+.. _fMRI_06_Scripting:
 
 fMRI Tutorial #6: Scripting
 ===============
