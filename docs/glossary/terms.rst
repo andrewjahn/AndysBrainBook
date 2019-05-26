@@ -1,8 +1,7 @@
 .. _terms:
 
-#############
 Glossary
-#############
+==========
 
 
 .. note::
@@ -115,25 +114,3 @@ at each voxel.
 
 .. figure:: Volume_Voxels.png
     :scale: 50 %
-
-Experimental Design
-
-Run
-
-Session
-
-Counterbalance
-
-Presentation Software
-
-fMRI experiments are created with presentation software, which presents stimuli and records responses. Some of the most popular packages are E-Prime, Presentation, and PsychoPy
-
-E-Prime: Uses a graphical user interface (GUI) to allow the user to drag and drop objects - such as a slide presenting a picture or a video - onto a timeline. The objects are presented in order on the timeline, although the number and sequence of subsets of presentations are controlled by the List object. Users can program in E-Prime's object-oriented programming language (E-Basic) using the InLine object.
-
-Presentation
-
-PsychoPy
-
-Analysis
-
-Connectivity
