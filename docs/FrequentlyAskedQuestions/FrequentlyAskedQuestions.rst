@@ -5,8 +5,6 @@ Frequently Asked Questions
 
 This is a list of common questions that I am asked. I have found that most questions can be organized into categories such as Resampling, Cluster Correction, Normalization, and so on. Some of these questions may eventually be folded into the fMRI Concepts section.
 
-This list was created on April 23rd, 2019, and will be updated each week. 
-
 
 Resampling
 **********
