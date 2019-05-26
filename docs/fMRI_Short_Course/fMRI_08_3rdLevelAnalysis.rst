@@ -69,10 +69,16 @@ Change the color scheme to "Red-Yellow", and change the "Min." value to 3.1. You
 
 ------
 
-Exercises
+Exercise
 *******
+
+1. In the ``Post-stats`` tab, set the Thresholding to ``None``, and re-run the analysis (changing the output directory to something that indicates that no threshold is being used). Examine the results in fsleyes. How do they compare to the cluster-corrected results?
+
+2. Do the same procedure in the previous exercise, this time using an ``Uncorrected`` threshold. Then, repeat the procedure with a ``Voxel`` threshold. Note any differences between these results and what you generated with the cluster-corrected results. In your own words, describe why the results are different.
 
 ------
 
 Video
 ********
+
+Click `here <https://www.youtube.com/watch?v=4_gJokjStgc>`__ for a demonstration of how to set up and analyze a group-level analysis in FSL.
