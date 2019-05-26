@@ -50,18 +50,17 @@ When it has finished, load the newest skullstripped image in FSLeyes. Click on t
 
 --------------
 
-
-Video
-*******
-
-To see a screencast demonstrating how to check your skullstripped image, click `here <https://youtu.be/VobRXk3ccNQ>`__. When you are done watching the video, try the exercises below.
-
-
-
 Exercises
 ***********
 
 1. Change the fractional intensity threshold to 0.1 and rerun BET, making sure to choose an appropriate output name to keep your files organized. View the result in FSLeyes. Repeat these steps with a fractional intensity threshold of 0.9. What do you notice? What seems to be a good threshold?
 
 2. Experiment with different contrast colors for the overlay image in FSLeyes to see which one you like the best. Use the Zoom slider (next to the magnifying glass icon) to focus on a region you think hasn't been stripped well. Take a photo of the montage (i.e., all three viewing panes) by clicking on the Camera icon in the toolbar above the montage.
+
+---------
+
+Video
+*******
+
+To see a screencast demonstrating how to check your skullstripped image, click `here <https://youtu.be/VobRXk3ccNQ>`__. When you are done watching the video, try the exercises below.
 
