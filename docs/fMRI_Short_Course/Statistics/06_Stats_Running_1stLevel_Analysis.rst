@@ -39,7 +39,7 @@ The red line represents what we think the time-series of the voxel should look l
 The Post-Stats Tab
 ***************
 
-The last tab in the FEAT GUI is called ``Post-stats``. Again, there are many options here, and the only ones you are likely to change are ones labeled "Z threshold" and "Cluster P threshold." These are thresholds that determine which voxels are statistically significant for each contrast - in other words, which contrasts are unlikely to have beta weights or contrasts between the beta weights (also known as **contrast weights**) due to chance. We will leave these alone for now, and come back to these options when doing a group-level analysis.
+The last tab in the FEAT GUI is called ``Post-stats``. Again, there are many options here, and the only ones you are likely to change are ones labeled "Z threshold" and "Cluster P threshold", which are the thresholds that determine which voxels are statistically significant for each contrast. We will leave these alone for now, and come back to these options when doing a `group-level analysis <https://andysbrainbook.readthedocs.io/en/latest/fMRI_Short_Course/fMRI_08_3rdLevelAnalysis.html#the-post-stats-tab>`__.
 
 The Ideal Time-Series and the GLM
 ***************
@@ -58,4 +58,13 @@ Examining the Output
 
 When the model estimation finishes, click on the Stats link to see the design matrix. This is the same as what we just reviewed; and there is another figure below that is labeled "Covariance matrix & design efficiency". For now, know that it is reasonable if the percentage signal changes necessary to detect each contrast are below 2%.
 
-Click on the Post-stats link to see a **thresholded map** for each contrast. This shows in each contrast map any voxels that passed the significance threshold specified in the Post-stats tab of the FEAT GUI. 
+Click on the Post-stats link to see a **thresholded map** for each contrast. This shows in each contrast map any voxels that passed the significance threshold specified in the Post-stats tab of the FEAT GUI.
+
+
+-------
+
+Exercises
+
+-------
+
+Video
