@@ -38,4 +38,4 @@ Exercises
 
 --------------
 
-When you have finished doing the exercises, click on the Next button to begin the chapter on Statistics and Modeling.
+When you have finished doing the exercises, click on the Next button to begin the module on Statistics and Modeling.
