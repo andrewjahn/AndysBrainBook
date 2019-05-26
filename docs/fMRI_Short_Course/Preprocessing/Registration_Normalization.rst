@@ -1,4 +1,4 @@
-.. _Registration_Normalization.rst
+.. _Registration_Normalization:
 
 Chapter 6: Registration and Normalization
 ^^^^^^^^^^
