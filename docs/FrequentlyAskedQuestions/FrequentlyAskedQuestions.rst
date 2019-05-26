@@ -1,5 +1,7 @@
-.. _FrequentlyAskedQuestions.rst
+.. _FrequentlyAskedQuestions:
 
+Frequently Asked Questions
+==============
 
 This is a list of common questions that I am asked. I have found that most questions can be organized into categories such as Resampling, Cluster Correction, Normalization, and so on. Some of these questions may eventually be folded into the fMRI Concepts section.
 
@@ -49,7 +51,7 @@ Question: When I open my image in a viewer, the axes don't look right. How can I
 First, let's define the acronyms often used when discussing orientation. Remember that fMRI data is three-dimensional, and that each image has an **origin** which specifies the coordinates of X=0, Y=0, and Z=0. Usually the **anterior commissure**, a bundle of connective fibers just below the fornix, is set as the origin.
 
 .. figure:: AnteriorCommissure.png
-  :scale: 40%
+  :scale: 10%
 
 The orientation of the image indicates which direction relative to the origin is positive or negative, and the orientation is specified by a triplet of letters. For example, LPI signifies that the direction is negative to the left of the anterior commissure, and positive to the right; negative behind, and positive forward; and negative below, positive above. In this orientation, coordinates of X=-3, Y=18, Z=34 would mean that the crosshair is centered on a voxel that is, relative to the anterior commisure, 3 millimeters to the left, 18 millimeters forward, and 34 millimeters above - approximately in the left dorsal anterior cingulate.
 
@@ -69,6 +71,9 @@ When you open the reoriented image, it looks as though it's in the correct orien
 .. figure:: anat_reorient.png
   :scale: 20 %
 
+
+What is Signal-to-Noise Ratio? How can I calculate it?
+****************
 
 Other Questions
 **********
