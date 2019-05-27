@@ -39,3 +39,7 @@ Exercises
 --------------
 
 When you have finished doing the exercises, click on the Next button to begin the module on Statistics and Modeling.
+
+.. warning::
+
+  Make sure you have preprocessed both ``run1`` and ``run2`` before proceeding; you will need both of them in order to run a higher-level analysis and use the scripts that are provided on `Github <https://github.com/andrewjahn/FSL_Scripts>`__.
