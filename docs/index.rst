@@ -6,13 +6,6 @@ We will start with basic fMRI analysis, with more advanced analyses being added 
 to `Andy's Brain Blog <https://www.andysbrainblog.com>`__.
 
 If you are completely new to fMRI analysis, I recommend starting with the :ref:`installation page <fsl_mac_install>`.
-
-.. note::
-    This book is under construction. More chapters will be added in the coming weeks; my goal is to have a complete draft of the fMRI Short Course by the first week of June.
-    
-    4.24.2019: Finished the sections Unix Tutorial #4, fMRI Short Course chapters on smoothing and quality checking FEAT output, and added a playlist covering all of the sections done in the Preprocessing module.
-    
-    5.06.2019: Added sections to FAQ about resampling, biased analyses, and flipped orientations. Wrote the chapters for the Statistics part of the short course; videos coming soon.
     
 
 .. toctree::
@@ -91,3 +84,11 @@ Glossary
 
 * :ref:`terms`
 
+.. note::
+    This book is under construction. More chapters will be added in the coming weeks; my goal is to have a complete draft of the fMRI Short Course by the first week of June.
+    
+    4.24.2019: Finished the sections Unix Tutorial #4, fMRI Short Course chapters on smoothing and quality checking FEAT output, and added a playlist covering all of the sections done in the Preprocessing module.
+    
+    5.06.2019: Added sections to FAQ about resampling, biased analyses, and flipped orientations. Wrote the chapters for the Statistics part of the short course; videos coming soon.
+    
+    5.25.2019: Finished the Unix Module, and added videos for 2nd and 3rd level analysis in the fMRI short course.
