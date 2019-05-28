@@ -20,6 +20,10 @@ An alternative is to **script** your analysis. Just as an actor has a script whi
 
 First we will create a template that contains the code needed to analyze a single run, and then we will use a for-loop to automate the analysis for all of the runs. The idea is simple; and although the code can be difficult to understand at first, once you become more comfortable with it you will see how you can apply it to any dataset.
 
+.. note::
+
+  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chaper if you need to review the Unix terms for scripting.
+
 Creating the Template
 *******
 
@@ -104,3 +108,10 @@ You can run the script by simply typing ``bash run_1stLevel_Analysis.sh``. The e
 .. note::
 
   The script will loop over all of the subjects in the Flanker dataset and do the preprocessing and statistical analysis for each run. The time this will take will depend on how fast your machine is, but it should take around 2-4 hours. Be sure to do quality checks for each subject just as you did during the :ref:`Preprocessing tutorials <fMRI_04_Preprocessing>`.
+  
+---------
+
+Video
+*********
+
+Click `here <https://www.youtube.com/watch?v=oXSHbRlogaA>`__ for a video showing you how to download and run the above script. It is the same video that summarizes the :ref:`final Unix chapter <Unix_09_AutomatingTheAnalysis>`, to show how the convergence between the two courses.
