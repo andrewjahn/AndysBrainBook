@@ -138,10 +138,19 @@ The design.fsf files, which are located in the main Flanker directory, are copie
                   
 You can run the script by simply typing ``bash run_1stLevel_Analysis.sh``. The echo commands will print text to the Terminal when a new step is run, and HTML pages will track the progress of the preprocessing and statistics.
 
+----------
 
 Summary
 ***********
 
 At this point you have learned all the necessary Unix commands and concepts to run an fMRI analysis script. If this is your first time using Unix, this may seem complicated; but with practice, you will be able to see why the script is composed the way it is, and how in relatively few lines is able to represent what can take dozens of hours of human labor. 
 
-By investing the time to learn Unix now, you will be able to make your analyses quicker, more efficient, and less prone to error. You will also, I hope, have become more confident in taking the first steps toward applying your new skills to writing analysis script of your own. 
+By investing the time to learn Unix now, you will be able to make your analyses quicker, more efficient, and less prone to error. You will also, I hope, have become more confident in taking the first steps toward applying your new skills to writing analysis script of your own.
+
+
+----------
+
+Video
+**********
+
+For a screencast demonstration of how to download and run the script above, click `here <https://www.youtube.com/watch?v=oXSHbRlogaA>`__. 
