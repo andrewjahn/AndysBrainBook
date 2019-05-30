@@ -10,9 +10,9 @@ From the BOLD Response to the HRF
 
 In the previous chapter you read about a number of assumptions that are made about what the BOLD signal represents; another assumption we make is what the BOLD response looks like. This is important not only for modeling the link between neural activity and blood flow, and from there to the observed signal, but for how we define a **model** to test which brain regions show a significant change in their BOLD response to a given stimulus. 
 
-In the 1990's, empirical studies of the BOLD signal demonstrated that, after a stimulus was presented to the subject, any part of the brain responsive to that stimulus - say, the visual cortex in response to a visual stimulus - showed an increase in BOLD signal. The BOLD signal also appeared to follow a consistent shape, peaking around six seconds and then falling back to baseline over the next several seconds. This shape can be modeled with a mathematical function called a **Gamma Distribution**. When the Gamma Distribution is created with parameters to best fit the BOLD response observed by most empirical studies, we refer to it as the canonical Hemodynamic Response Function, or **HRF**.
+In the 1990's, empirical studies of the BOLD signal demonstrated that, after a stimulus was presented to the subject, any part of the brain responsive to that stimulus - say, the visual cortex in response to a visual stimulus - showed an increase in BOLD signal. The BOLD signal also appeared to follow a consistent shape, peaking around six seconds and then falling back to baseline over the next several seconds. This shape can be modeled with a mathematical function called a **Gamma Distribution**. When the Gamma Distribution is created with parameters to best fit the BOLD response observed by the majority of empirical studies, we refer to it as the canonical Hemodynamic Response Function, or **HRF**.
 
-When applied to fMRI data the Gamma Distribution is called a **basis function**. We call it a basis function because it is the fundamental element, or basis, of the model we will create and fit to the time series of the data. Furthermore, if we know what the shape of the distribution looks like in response to a very brief stimulus, we can predict what it should look like in response to stimuli of varying durations. We now turn to examples of each to illustrate this concept.
+When applied to fMRI data, the Gamma Distribution is called a **basis function**. We call it a basis function because it is the fundamental element, or basis, of the model we will create and fit to the time series of the data. Furthermore, if we know what the shape of the distribution looks like in response to a very brief stimulus, we can predict what it should look like in response to stimuli of varying durations, as well as any combination of stimuli presented over time. We now turn to illustrations of each case.
 
 The HRF for a Single Impulse Stimulus
 ^^^^^^^
@@ -45,9 +45,9 @@ In this case the Gamma Distribution is **convolved** with the boxcar stimulus. C
 What if the HRFs overlap?
 ^^^^^^^
 
-We have seen what the BOLD signal looks like after a stimulus is presented, and we have seen how to model this with an HRF. But what happens if another stimulus is presented before the BOLD response for the previous stimulus has returned to baseline?
+We have seen what the BOLD signal looks like after a stimulus is presented and how the HRF models the shape of that signal. But what happens if another stimulus is presented before the BOLD response for the previous stimulus has returned to baseline?
   
-In that case, the individual HRFs are convolved. This creates a BOLD response that is a moving average of the individual HRFs, and it becomes more complex as more stimuli are presented.
+In that case, the individual HRFs are convolved. This creates a BOLD response that is a moving average of the individual HRFs, and the shape of the BOLD signal becomes more complex as more stimuli are presented close together.
 
 .. figure:: HRF_Sum.png
   :scale: 30%
@@ -68,13 +68,13 @@ To help you understand what you have just read, watch the following animation a 
 Exercises
 **********
 
-1. In this chapter the words "hemodynamic response function" and "BOLD signal" were used to represent similar but distinct ideas. How would you define each of these terms in your own words?
+1. In this chapter the terms "hemodynamic response function" and "BOLD signal" were used to represent similar but distinct ideas. How would you define each of these terms in your own words?
 
-2. Use `this applet <https://www.fit.vutbr.cz/study/courses/ISS/public/demos/conv/>`__ to practice convolving different shapes together. To replicate the convolution of the impulse function with the HRF, for example, set the input signal to "Dirac impulse," and the output signal to "custom," and trace out the shape of a gamma function with your mouse. Also try setting the input signal to "Rectangle," and experiment with widening and narrowing the shape.
+2. Use `this applet <https://www.fit.vutbr.cz/study/courses/ISS/public/demos/conv/>`__ to practice convolving different shapes together. To replicate the convolution of the impulse function with the HRF, for example, set the input signal to "Dirac impulse" and the output signal to "custom," and trace out the shape of a gamma function with your mouse. Also try setting the input signal to "Rectangle," and try both widening and narrowing the shape.
 
 
 .. note::
 
-  Be aware that the concepts you have just learned are probably more difficult to understand than what you have learned previously in this course. Even if you don't feel that you fully understand the HRF and convolution, go on with the rest of the module. After you have read the remaining chapters and have done the practical exercises, come back to this chapter and then see if it makes more sense.
+  The concepts you have just learned are probably more difficult to understand than what you have learned previously in this course. Even if you don't feel that you fully understand the HRF and convolution, go on with the rest of the module. After you have read the remaining chapters and have done the practical exercises, come back to this chapter and then see if it makes more sense.
 
 
