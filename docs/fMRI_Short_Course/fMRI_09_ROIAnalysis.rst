@@ -44,10 +44,10 @@ Extracting Data from an Anatomical Mask
 
 Once you've created the mask, you can then extract each subject's contrast estimates from it. Although you may think that we would extract the results from the 3rd-level analysis, we actually want the ones from the 2nd-level analysis; the 3rd-level analysis is a single image with a single number at each voxel, whereas in an ROI analysis our goal is to extract the contrast estimate for each subject individually.
 
-For the Incongruent-Congruent contrast estimate, for example, you can find each subjects' data maps in the directory ``Flanker_2ndLevel.gfeat/cope3.feat/stats``. The data maps have been calculated several different ways, including t-statistic maps, the cope images, and variance images. My preference is to extract data from the z-statistic maps, since these data have been converted to a form that is normally distributed and, in my opinion, is easier to plot and to interpret.
+For the Incongruent-Congruent contrast estimate, for example, you can find each subjects' data maps in the directory ``Flanker_2ndLevel.gfeat/cope3.feat/stats``. The data maps have been calculated several different ways, including t-statistic maps, cope images, and variance images. My preference is to extract data from the z-statistic maps, since these data have been converted into a form that is normally distributed and, in my opinion, is easier to plot and to interpret.
 
 
-We will need to merge all of the z-statistic maps into a single dataset. To do this, we will use a combination of FSL commands and Unix commands. Navigate into the ``Flanker_2ndLevel.gfeat/cope3.feat/stats`` directory, and then type the following:
+To make our ROI analysis easier, we will merge all of the z-statistic maps into a single dataset. To do this, we will use a combination of FSL commands and Unix commands. Navigate into the ``Flanker_2ndLevel.gfeat/cope3.feat/stats`` directory, and then type the following:
 
 ::
 
@@ -71,7 +71,7 @@ This will print 26 numbers, one per subject. Each number is the contrast estimat
 Extracting Data from an Sphere
 ************
 
-You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. Although from the whole-brain analysis it looks like there is a significant effect in the dmPFC, the PCG mask also covers a very large region; although the PCG is a homogenous anatomical region at a gross scale, we may be extracting data from several distinct functional regions. As a result, this may not be the best ROI approach to take.
+You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the PCG mask covers a very large region; although the PCG is labeled as a single anatomical region, we may be extracting data from several distinct functional regions. Consequently, this may not be the best ROI approach to take.
 
 Another technique is called the **spherical ROI** approach. In this case, a sphere of a given diameter is centered at a triplet of specified x-, y-, and z-coordinates. These coordinates are often based on the peak activation of another study that uses the same or a similar experimental design to what you are using. This is considered an **independent** analysis, since the ROI is defined based on a separate study.
 
@@ -93,7 +93,7 @@ The next few steps are complicated, so pay close attention to each one:
 
   fslmaths $FSLDIR/data/standard/MNI152_T1_2mm.nii.gz -mul 0 -add 1 -roi 45 1 73 1 58 1 0 1 Jahn_ROI_dmPFC_0_20_44.nii.gz -odt float
 
-This is a long, dense command, but for now just note where we have inserted the numbers 45, 73, and 58. When you create another spherical ROI based on different coordinates, these are the only numbers you will change. (When you create a new ROI you should change the label of the output file as well.) This will mark the center of those coordinates with a single voxel.
+This is a long, dense command, but for now just note where we have inserted the numbers 45, 73, and 58. When you create another spherical ROI based on different coordinates, these are the only numbers you will change. (When you create a new ROI you should change the label of the output file as well.) The output of this command is a single voxel marking the center of the coordinates specified above.
 
 3. Next, type:
 
@@ -101,7 +101,7 @@ This is a long, dense command, but for now just note where we have inserted the 
 
   fslmaths Jahn_ROI_dmPFC_0_20_44.nii.gz -kernel sphere 5 -fmean Jahn_Sphere_dmPFC_0_20_44.nii.gz -odt float
 
-This expands the single voxel into a sphere with a radius of 5mm, and calls the resulting sphere "Jahn_Sphere.nii.gz". If you wanted to change the size of the sphere to 10mm, for example, you would change this section of code to ``-kernel sphere 10``.
+This expands the single voxel into a sphere with a radius of 5mm, and calls the output "Jahn_Sphere.nii.gz". If you wanted to change the size of the sphere to 10mm, for example, you would change this section of code to ``-kernel sphere 10``.
 
 4. Now, type:
 
@@ -138,7 +138,7 @@ Exercises
   
 And observe how the numbers are different from the previous method that used a binarized mask. Is the difference small? Large? Is it what you would expect?
 
-2. Use the code given in the section on spherical ROI analysis to create a sphere located at MNI coordinates 36, -2, 48. Create a sphere with a 7mm radius.
+2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48.
 
 3. Use the Harvard-Oxford subcortical atlas to create an anatomical mask of the right amygdala. Label it whatever you want. Then, extract the z-statistics from cope1 (i.e., the contrast estimates for Incongruent compared to baseline).
 
