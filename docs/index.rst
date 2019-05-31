@@ -81,10 +81,10 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 
 
 
-Glossary
-==================
+.. Glossary
+.. ==================
 
-* :ref:`terms`
+.. * :ref:`terms`
 
 .. note::
     This book is under construction. More chapters will be added in the coming weeks; my goal is to have a complete draft of the fMRI Short Course by the first week of June.
@@ -94,3 +94,5 @@ Glossary
     5.06.2019: Added sections to FAQ about resampling, biased analyses, and flipped orientations. Wrote the chapters for the Statistics part of the short course; videos coming soon.
     
     5.25.2019: Finished the Unix Module, and added videos for 2nd and 3rd level analysis in the fMRI short course.
+    
+    5.31.2019: First draft of the Unix and fMRI courses are complete!
