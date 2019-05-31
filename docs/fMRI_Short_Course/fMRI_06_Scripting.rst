@@ -18,7 +18,7 @@ This attitude is admirable, and if you take this approach you will be able to an
 
 An alternative is to **script** your analysis. Just as an actor has a script which tells him what to say and where to stand and where to move, so can you write a script that tells your computer how to analyze your datasets. This has the double benefit of automating your analyses and being able to analyze datasets of any size - the code for analyzing two subjects or two hundred is virtually identical.
 
-First we will create a template that contains the code needed to analyze a single run, and then we will use a for-loop to automate the analysis for all of the runs. The idea is simple; and although the code can be difficult to understand at first, once you become more comfortable with it you will see how you can apply it to any dataset.
+First we will create a template that contains the code needed to analyze a single run, and then we will use a :ref:`for-loop  <Unix_05_ForLoops>` to automate the analysis for all of the runs. The idea is simple; and although the code can be difficult to understand at first, once you become more comfortable with it you will see how you can apply it to any dataset.
 
 .. note::
 
@@ -33,11 +33,11 @@ When you analyzed the first run of ``sub-08``, a directory called ``run1.feat`` 
 .. figure:: FEAT_Design_File.png
 
 
-If you open up the FEAT GUI, click on the ``Load`` button at the bottom of the screen, and select the design.fsf file in the run1.feat directory, it will change all of the settings to what you had used to run FEAT.
+If you open up the FEAT GUI, click on the ``Load`` button at the bottom of the screen, and select the design.fsf file in the run1.feat directory, it will change all of the settings to what you had entered into the GUI when you saved the script.
 
 In the previous tutorials we ran FEAT separately for preprocessing and for model fitting. We will now create a template that combines both of these steps by selecting "Full Analysis" from the dropdown menu of the FEAT GUI.
 
-First, remove the current run1.feat directory by typing ``rm -r run1.feat``. Then open up the FEAT GUI by typing ``Feat_gui`` from the command line. Using the previous tutorials as a guide, fill in all of the required fields for both preprocessing and model fitting. Instead of doing this as two separate sessions, we will run it as a single analysis by leaving the "Full Analysis" option selected from the dropdown menu.
+First, remove the current run1.feat directory by typing ``rm -r run1.feat``. Then open up the FEAT GUI by typing ``Feat_gui`` from the command line. Instead of doing this as two separate sessions, we will run it as a single analysis by leaving the "Full Analysis" option selected from the dropdown menu. Using the previous tutorials as a guide, fill in all of the required fields for both preprocessing and model fitting.
 
 Once you have filled in all of the fields, instead of clicking the ``Go`` button, click ``Save`` and label the file ``design_run1``. This will save out several files with extensions such as "con", "mat", and "png", but it is the file design_run1.fsf that we will be using for our script.
 
@@ -103,11 +103,11 @@ Move the design_run1.fsf and design_run2.fsf files to the directory containing y
 
 This script uses all of the commands and concepts you learned in the Unix tutorials. It begins with a shebang and some comments describing what exactly the script does; and then backticks are used to expand ``seq -w 1 26`` in order to create a loop that will run the body of the code over all of the subjects. The script uses a conditional to check whether the skull-stripped anatomical exists, and if it doesn't, the skull-stripped image is generated. Then the template design*.fsf file is edited to replace the string ``sub-08`` with the current subject's name. The *.fsf files are run with the command ``feat``, which is like running the FEAT GUI from the command line. Echo commands are used throughout the script to let the user know when a new step is being run.
 
-You can run the script by simply typing ``bash run_1stLevel_Analysis.sh``. The echo commands will print text to the Terminal when a new step is run, and HTML pages will track the progress of the preprocessing and statistics.
+You can run the script by simply typing ``bash run_1stLevel_Analysis.sh`` from the Flanker directory. The echo commands will print text to the Terminal when a new step is run, and HTML pages will track the progress of the preprocessing and statistics.
 
 .. note::
 
-  The script will loop over all of the subjects in the Flanker dataset and do the preprocessing and statistical analysis for each run. The time this will take will depend on how fast your machine is, but it should take around 2-4 hours. Be sure to do quality checks for each subject just as you did during the :ref:`Preprocessing tutorials <fMRI_04_Preprocessing>`.
+  The script will loop over all of the subjects in the Flanker dataset and do the preprocessing and statistical analysis for each run. The time this will take depends on how fast your machine is, but it should take around 2-4 hours. Be sure to do quality checks for each subject just as you did during the :ref:`Preprocessing tutorials <fMRI_04_Preprocessing>`.
   
 ---------
 
