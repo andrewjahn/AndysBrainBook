@@ -3,11 +3,10 @@ Welcome to Andy's Brain Book!
 
 .. figure:: ABB_HomePage.png
 
-This book, *Andy's Brain Book*, is intended for both beginners and more advanced neuroimagers. 
-We will start with basic fMRI analysis, with more advanced analyses being added later. It is the ReadTheDocs companion
-to `Andy's Brain Blog <https://www.andysbrainblog.com>`__.
+This book, *Andy's Brain Book*, is the ReadTheDocs companion
+to `Andy's Brain Blog <https://www.andysbrainblog.com>`__. It is intended for fMRI beginners, with more advanced imaging techniques being added later on. If this is your first time here, watch `this video <https://www.youtube.com/watch?v=zUxOdq3sAFU>`__ for a quick overview of the website.
 
-If you are completely new to fMRI analysis, I recommend starting with the :ref:`installation page <fsl_mac_install>`.
+If you are completely new to fMRI analysis, I recommend starting with the :ref:`installation page <fsl_mac_install>`. Good luck!
     
 
 .. toctree::
@@ -55,7 +54,11 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    :caption: fMRI Concepts
 
    Practicals/DesignOptimization
-   
+
+
+.. note::
+
+    The following modules are under construction. Check back soon for more updates!
    
 .. toctree::
     :maxdepth: 1
@@ -95,4 +98,4 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     5.25.2019: Finished the Unix Module, and added videos for 2nd and 3rd level analysis in the fMRI short course.
     
-    5.31.2019: First draft of the Unix and fMRI courses are complete!
+    5.31.2019: First draft of the Unix and fMRI courses are complete.
