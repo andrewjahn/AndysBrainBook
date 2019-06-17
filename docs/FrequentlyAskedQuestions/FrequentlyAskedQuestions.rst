@@ -73,6 +73,22 @@ When you open the reoriented image, it looks as though it's in the correct orien
 What is Signal-to-Noise Ratio? How can I calculate it?
 ****************
 
+
+How can I calculate the number of voxels in a mask?
+****************
+
+Let's say you have two masks in an image, labeled A and B. Mask A is composed of 1's, and Mask B is composed of 2's. If these masks are saved into one image called ``ROIs.nii.gz``, and they were created from a template called ``ROI_Template.nii.gz``, you can use the command:
+
+..
+
+  fslstats -K ROIs.nii.gz ROI_Template.nii.gz -V
+
+Which will return two numbers per mask. The first number is the number of voxels, and the second number is the volume, in cubic millimeters. For example, if one of my masks was 9 voxels large and the other one was 15 voxels, with a 2x2x2mm resolution (or 8 cubic millimeters per voxel), the output would look like this:
+
+..
+
+  9 72.000000 15 120.000000
+
 Other Questions
 **********
 
