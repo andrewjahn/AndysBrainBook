@@ -47,6 +47,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     fMRI_Short_Course/fMRI_08_3rdLevelAnalysis
     fMRI_Short_Course/fMRI_09_ROIAnalysis
     fMRI_Short_Course/fMRI_10_Summary
+    fMRI_Short_Course/fMRI_Appendices
    
        
 .. toctree::
