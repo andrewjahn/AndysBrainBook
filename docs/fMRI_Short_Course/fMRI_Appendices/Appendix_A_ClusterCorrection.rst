@@ -30,3 +30,16 @@ Problems with Bonferroni Correction
 
 Although Bonferroni correction will ensure that your false positive rate is no higher than 5%, it is also a very conservative test. Bonferroni correction is valid only when each test is independent - to take our fMRI dataset as an example, that would mean that each voxel is completely independent of every other voxel in the brain; knowing the value of one voxel doesn't give you any information about any other voxel.
 
+But are the voxels completely independent? Take a look at a typical fMRI image and zoom in on the voxels. Notice that a given voxel is similar to its neighbors: Bright voxels tend to be surrounded by brighter voxels, and darker voxels tend to have neighbors with lower signal intensity. Since we can guess with relatively high accuracy what the signal intensity will look like for a voxel given its neighbors, the voxels are not completely independent. (This same logic extends to the timecourse at each voxel as well.)
+
+.. figure:: ClusterCorrection_Autocorrelation_Example.png
+
+  A typical fMRI image (left) with inset showing the voxels at the center (right). Notice that the center voxel of A is surrounded by darker voxels, while the center voxel of B is surrounded by lighter voxels.
+  
+  
+Cluster Correction
+***************
+
+Bonferroni correction, then, is too severe of a correction. Although you are virtually guaranteed to keep your false positive rate below 5% using this method, this is likely to result in a relatively high false negative rate - that is, failing to reject the null hypothesis when there actually is an effect.
+
+An alternative is known as **cluster correction**, which is the most popular correction method in fMRI analysis (`Woo et al., 2014 <https://www.sciencedirect.com/science/article/pii/S1053811914000020>`__). This takes advantage of the fact that the voxels in a typical dataset are not completely independent: Instead of testing each voxel individually, 
