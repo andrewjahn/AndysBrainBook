@@ -100,3 +100,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     5.25.2019: Finished the Unix Module, and added videos for 2nd and 3rd level analysis in the fMRI short course.
     
     5.31.2019: First draft of the Unix and fMRI courses are complete.
+    
+    6.20.2019: Began work on appendices explaining cluster correction
