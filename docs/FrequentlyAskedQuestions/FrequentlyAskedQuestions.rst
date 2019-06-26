@@ -113,12 +113,14 @@ Then use topup to create a fieldmap:
   
 In which config is a file that is provided by default by FSL (e.g., you don't have to create it; you can type this command from anywhere), and acqparams is a text file that contains the following:
 
-0 -1 0 0.0665
-0 -1 0 0.0665
-0 -1 0 0.0665
-0 1 0 0.0665
-0 1 0 0.0665
-0 1 0 0.0665
+::
+
+  0 -1 0 0.0665
+  0 -1 0 0.0665
+  0 -1 0 0.0665
+  0 1 0 0.0665
+  0 1 0 0.0665
+  0 1 0 0.0665
 
 
 The way to read this file is, in columns from left to right:
@@ -128,7 +130,7 @@ The way to read this file is, in columns from left to right:
 3. +IS (This is a guess)
 4. Readout time, defined as the time from acquisition of the center of the first echo to the center of the last. You can also calculate it with the formula: ReadoutTime = [EchoSpacing (in ms)] * [EPI Factor] * 0.001
 
-This will createa a field map, which can be applied to the fMRI data with:
+This will create a field map, which can be applied to the fMRI data with:
 
 ::
 
