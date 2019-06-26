@@ -79,15 +79,60 @@ How can I calculate the number of voxels in a mask?
 
 Let's say you have two masks in an image, labeled A and B. Mask A is composed of 1's, and Mask B is composed of 2's. If these masks are saved into one image called ``ROIs.nii.gz``, and they were created from a template called ``ROI_Template.nii.gz``, you can use the command:
 
-..
+::
 
   fslstats -K ROIs.nii.gz ROI_Template.nii.gz -V
 
 Which will return two numbers per mask. The first number is the number of voxels, and the second number is the volume, in cubic millimeters. For example, if one of my masks was 9 voxels large and the other one was 15 voxels, with a 2x2x2mm resolution (or 8 cubic millimeters per voxel), the output would look like this:
 
-..
+::
 
   9 72.000000 15 120.000000
+  
+  
+How can I unwarp my data?
+****************
+
+note::
+
+  I will expand upon this in a more developed section; the following are some quick notes, so that I don't forget how I did this.
+
+Imaging data is often warped because of magnetic field inhomogeneities (also known as B0 inhomogeneities). The data can be unwarped using field maps, which detect where the inhomogeneities are located.
+
+Another way to unwarp the data is with **blip-up/blip-down** images. Usually these are acquired in the Anterior-to-Posterior (AP) and Posterior-to-Anterior (PA) directions, with one of the directions being used to acquire your functional runs. For example, let's say that you have two images labeled AP.nii.gz and PA.nii.gz: The former contains three volumes, and the latter contains three volumes. AP images typically look more "smushed" near the frontal pole, and PA images are more smeared outwards at the frontal areas.
+
+.. Insert figures of AP and PA examples
+
+You can use FSL's topup to fix these. (Apply motion correction before or after?) First, merge the two phase-encoded images together with ``fslmerge -t AP_PA_b0.nii.gz AP.nii.gz PA.nii.gz``.
+
+Then use topup to create a fieldmap:
+
+::
+
+  topup --imain=AP_PA_b0.nii.gz --datain=acqparams.txt --config=b02b0.cnf --out=topup_AP_PA_b0
+  
+In which config is a file that is provided by default by FSL (e.g., you don't have to create it; you can type this command from anywhere), and acqparams is a text file that contains the following:
+
+0 -1 0 0.0665
+0 -1 0 0.0665
+0 -1 0 0.0665
+0 1 0 0.0665
+0 1 0 0.0665
+0 1 0 0.0665
+
+
+The way to read this file is, in columns from left to right:
+
+1. +RL
+2. +PA
+3. +IS (This is a guess)
+4. Readout time, defined as the time from acquisition of the center of the first echo to the center of the last. You can also calculate it with the formula: ReadoutTime = [EchoSpacing (in ms)] * [EPI Factor] * 0.001
+
+This will createa a field map, which can be applied to the fMRI data with:
+
+::
+
+  applytopup --imain=fMRI.nii.gz --topup=topup_AP_PA_b0 --datain=acqparams.txt --inindex=1 --out=fMRI_unwarped --method=jac
 
 Other Questions
 **********
