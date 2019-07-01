@@ -23,6 +23,16 @@ You can resample an image using several different methods. Let's start with the 
 .. figure:: NearestNeighbor_Example.gif
 
 
+For example, let's say that you created a mask in FSL, and you would like to extract the data from a statistical map. You can use flirt to resample the mask to the statistical image:
+
+::
+
+  flirt -in mask.nii.gz -ref stats.nii.gz -out mask_RS.nii.gz
+  
+And you would then be able to use an ROI extraction command, such as 3dmaskave or fslstats, to extract data from the mask.
+
+For an overview of this topic, see `this video <https://www.youtube.com/watch?v=rvW-D5o3ALA>`__.
+
 Biased Analysis
 **********
 
