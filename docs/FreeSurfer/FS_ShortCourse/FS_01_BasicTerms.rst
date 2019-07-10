@@ -1,7 +1,7 @@
 .. _FS_01_BasicTerms:
 
 ===============
-Basic Terms 
+FreeSurfer Tutorial #1: Basic Terms
 ===============
 
 Overview
@@ -43,7 +43,7 @@ FreeSurfer uses the reconstructed surface, along with prior knowledge about the 
 
   Brain activity mapped onto the surface. The inflated pial surface is displayed here. Green: Gyri; Red: Sulci. The thresholded activation map is displayed in blue. Note that this type of rendering gives the viewer a better idea of where activity lies within the sulci, is otherwise hidden in a volumetric, 3D view.
   
-
+-------------
 
 Video
 *******
