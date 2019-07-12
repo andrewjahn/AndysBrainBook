@@ -21,21 +21,21 @@ Recon-all stands for **reconstruction**, as in reconstructing a two-dimensional 
 The Output of Recon-all
 *********
 
-Before discussing how to use the recon-all command, you should be acquainted with what it creates. Recon-all first strips the skull from the anatomical image to generate a dataset called **brainmask.mgz**. (The .mgz extension stands for a compressed, or zipped, Massachusetts General Hospital file; it is an extension specific to FreeSurfer, similar to AFNI's BRIK/HEAD extension.) Recon-all then makes an estimate of where the interface is between the white matter and grey matter (stored in a file called **orig.mgz**, which stands for **orig**inal estimate).
+Before discussing how to use the recon-all command, you should be acquainted with what it creates. Recon-all first strips the skull from the anatomical image to generate a dataset called **brainmask.mgz**. (The .mgz extension stands for a compressed, or zipped, Massachusetts General Hospital file; it is an extension specific to FreeSurfer, similar to AFNI's BRIK/HEAD extension.) Any files that are output as three-dimensional volumes are stored in a folder called **mri**. Recon-all then makes an estimate of where the interface is between the white matter and grey matter (stored in separate files for the left and right hemispheres called **lh.orig** and **rh.orig**, respectively).
 
-This initial estimate is refined and stored in a file called **white.mgz**. This boundary is used as a base from which recon-all extends feelers to search for the edge of the grey matter. Once this edge is reached, a third dataset is created: **pial.mgz**. This dataset represents the pial surface, which is like a thin, translucent plastic film wrapped around the edge of the grey matter. Each one of these datasets can be viewed as a surface.
+This initial estimate is refined and stored in a files called **lh.white** and **rh.white**. This boundary is used as a base from which recon-all extends feelers to search for the edge of the grey matter. Once this edge is reached, a third pair of datasets are created: **lh.pial** and **rh.pial**. These datasets represent the pial surface, which is like a plastic film wrapped around the edge of the grey matter. Each one of these datasets can be viewed as a surface.
 
 .. figure:: 03_Orig_White_Pial.png
 
   An illustration of how recon-all creates different surfaces. The original estimate of the location of the white-matter and grey-matter interface (yellow) is refined into a more accurate estimate (blue). This refined estimate is then used to assist with detecting the edge of the grey matter (red). These surfaces as seen in Freeview (FreeSurfer's viewer) are shown on the right.
 
-One of the advantages of using these surfaces is the ability to depict within the sulci measurements such as cortical thickness differences or BOLD signal. In a three-dimensional volume, it is possible for a single voxel to span two separate ridges of grey matter, which makes it impossible to determine which part of the cortex generates the observed signal. The surfaces created by FreeSurfer can be further expanded to create the datasets **lh.inflated** and **rh.inflated**. 
+One of the advantages of using these surfaces is the ability to depict within the sulci measurements such as cortical thickness differences or BOLD signal. In a three-dimensional volume, it is possible for a single voxel to span two separate ridges of grey matter, which makes it impossible to determine which part of the cortex generates the observed signal. To more easily see where the activation maps lie along the banks of the sulci and the ridges of the gyri, the surface datasets can be further expanded to create the datasets **lh.inflated** and **rh.inflated**. 
 
 .. figure:: 03_Pial_Inflated.png
 
   An illustration of converting the lh.pial file into lh.inflated.
   
-These inflated surfaces can be inflated yet again, this time into a sphere. This is not an image that you use to visualize results; it is an image that is instead normalized to a template image called **fsaverage**, which is an average of 40 subjects. Once the individual subject's surface map is normalized to this template, an atlas can be used to **parcellate** the brain into anatomically distinct regions. Recon-all will parcellate the individual subject's brain according to two atlases: The Desikan-Killiany atlas, and the Destrieux atlas. The Destrieux atlas contains more parcellations; which one you end up using for your analysis will depend on how fine-grained an analysis you wish to carry out.
+These inflated surfaces can be inflated yet again, this time into a sphere. This is not an image that you use to visualize your results; it is an image that is instead normalized to a template image called **fsaverage**, which is an average of 40 subjects. Once the individual subject's surface map is normalized to this template, an atlas can be used to **parcellate** the cortex into anatomically distinct regions. Recon-all will parcellate the individual subject's brain according to two atlases: The Desikan-Killiany atlas, and the Destrieux atlas. The Destrieux atlas contains more parcellations; which one you end up using for your analysis will depend on how fine-grained an analysis you wish to perform.
 
 .. figure:: 03_FreeSurfer_Atlases.png
 
@@ -45,7 +45,7 @@ These inflated surfaces can be inflated yet again, this time into a sphere. This
 Using the Recon-all command
 ********
 
-The recon-all command requires a T1-weighted anatomical image with good contrast between the white matter and the grey matter. If your anatomical image is called subj1_anat.nii, for example, you can run recon-all with the following command:
+All the recon-all command requires is a T1-weighted anatomical image with good contrast between the white matter and the grey matter. If your anatomical image is called subj1_anat.nii, for example, you can run recon-all with the following command:
 
 ::
 
@@ -55,15 +55,15 @@ Navigate to where your anatomical images are located. In this example, there are
 
 .. note::
 
-  If you get a permission error, type the following:
+  If you get a permission error when running recon-all, type the following:
   Sudo chmod -R a+w $SUBJECTS_DIR
-  And then rerun the recon-all 
+  And then rerun the recon-all command.
   
 I also recommend adding the qcache option, which will smooth the data at different levels and store them in the subject’s output directory. These will be useful for group level analyses, which we will cover in a future tutorial. If you’ve already run the recon-all preprocessing on your subjects, you can run qcache with the following command:
 
 ::
 
-  Recon-all -s <subjectName> -qcache
+  recon-all -s <subjectName> -qcache
   
 Which should take about 10 minutes per subject.
 
