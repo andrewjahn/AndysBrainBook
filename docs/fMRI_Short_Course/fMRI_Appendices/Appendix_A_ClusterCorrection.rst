@@ -20,7 +20,7 @@ To build your intution about what this means, imagine the following scenario: Wh
 
 Would it be reasonable to assume that my eating a raisin had some kind of effect on the game? No. (If it had worked ten times out of ten, then maybe I would be on to something.) By focusing only on the times that it was associated with Coco winning the point, however, I could convince myself that it did in fact have some kind of effect.
 
-It's a small jump to extend this manner of thinking to scientific tests; just substitute the performing of tests for the eating of raisins. The more tests that we do, the more likely we are to find an effect (e.g., more wins by Coco, or statistically significant results in our study) by chance alone - in other words, there isn't actually an effect, but we claim that there is one. The result is mistaken confidence and shoddy research.
+It's a small jump to extend this manner of thinking to scientific tests: just substitute the performing of tests for the eating of raisins. The more tests that we do, the more likely we are to find an effect (e.g., more wins by Coco, or statistically significant results in our study) by chance alone - in other words, there isn't actually an effect, but we claim that there is one. The result is mistaken confidence and shoddy research.
 
 
 Bonferroni Correction
@@ -40,9 +40,9 @@ But are the voxels completely independent? Let's take a look at a typical fMRI i
 
 .. figure:: ClusterCorrection_Autocorrelation_Example.png
 
-  A typical fMRI image (left) with inset showing the voxels at the center (right). Notice that the center voxel of A is surrounded mostly by darker voxels, while the center voxel of B is surrounded mostly by lighter voxels.
+  A typical fMRI image (left) with the inset showing an enlarged picture of the voxels at the center (right). Notice that the center voxel of region A is surrounded mostly by darker voxels, while the center voxel of region B is surrounded mostly by lighter voxels.
   
-Bonferroni correction, then, is too severe. Although you are virtually guaranteed to keep your false positive rate below 5%, this is likely to result in a high false negative rate - that is, failing to reject the null hypothesis when there actually is an effect. And although the debate goes on as to which type of false result is worse, it would be preferable to do without Bonferroni correction altogether.
+Bonferroni correction, then, is too severe. Although you are virtually guaranteed to keep your false positive rate below 5%, this is likely to result in a high false negative rate - that is, failing to reject the null hypothesis when there actually is an effect. And although the debate goes on as to which type of false result is worse, in our case it would be preferable to do without Bonferroni correction altogether.
   
   
 Cluster Correction
