@@ -24,15 +24,15 @@ How can we make this easier? You probably noticed that each time we ran the comm
 Here is an example of a for-loop to print the numbers 1, 2, and 3:
 ::
 
-  For i in 1 2 3
-  Do echo $i
+  for i in 1 2 3
+  do echo $i
   done
 
 Or, doing it in one line, with each section separated by semicolons:
 
 ::
 
-  For i in 1 2 3; do echo $i; done
+  for i in 1 2 3; do echo $i; done
 
 The for-loop has three sections, separated by semicolons. The first section is the Declaration: it begins by assigning the first item after “in” to the variable “i”; in this case, it would assign the value “1” to “i”. The numbers after “in” are called the “List”. The next section is the Body, which runs the commands written after “do,” replacing the variable with whichever value is currently assigned to the variable - for the first loop, this will be the number “1”. Since items remain in the list, the loop goes back to the declaration and assigns the next number in the list to the variable i; in this case, the number “2”. Then the body is run, and the process repeats until the end of the list is reached. The last section, called the End, contains only the word “done”, meaning to exit the loop after all of the items in the list have been run through the Body of the loop.
 
@@ -40,7 +40,7 @@ You can add more commands to the Body section, if they are separated with a semi
 
 ::
 
-  For i in 1 2 3; do echo $i; echo “You just printed the number $i”; done
+  for i in 1 2 3; do echo $i; echo “You just printed the number $i”; done
   
 And this is what the output would look like:
 
