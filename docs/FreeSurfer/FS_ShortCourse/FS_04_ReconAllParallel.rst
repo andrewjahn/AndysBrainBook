@@ -4,7 +4,9 @@
 FreeSurfer Tutorial #4: Running recon-all in Parallel
 =====================
 
-The Problem with FreeSurfer
+-----------
+
+Time Constraints with Recon-All
 *************
 
 As you will discover, FreeSurfer takes a long time to process an individual subject - around sixteen to twenty-four hours on a typical iMac, with some variation due to factors such as the quality of the input data. For many researchers, this can be a prohibitively long time to wait, especially if the study contains dozens or hundreds of subjects.
