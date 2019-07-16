@@ -7,11 +7,13 @@ FreeSurfer Tutorial #4: Running recon-all in Parallel
 The Problem with FreeSurfer
 *************
 
-As you will discover, FreeSurfer takes a long time to process an individual subject - around sixteen to twenty-four hours on a typical iMac, with some variation due to factors such as the quality of the input data. For many researchers, this can be prohibitively long, especially if the study contains dozens or hundreds of subjects.
+As you will discover, FreeSurfer takes a long time to process an individual subject - around sixteen to twenty-four hours on a typical iMac, with some variation due to factors such as the quality of the input data. For many researchers, this can be a prohibitively long time to wait, especially if the study contains dozens or hundreds of subjects.
+
+.. figure:: 04_Recon_all_Length.png
 
 One way to reduce the amount of time it takes to analyze so many subjects is to run the analyses in parallel. Modern computers typically have a central processing unit with several **cores**, which can be individually used for different tasks. To illustrate this, picture eight men and eight kitchens, with each kitchen only big enough for one man to prepare his meal. In this analogy, each computer core is a kitchen. Eight men cannot fit into one kitchen, but if the other kitchens are unlocked and made available for use, each man can make his own meal in each room.
 
-Further, assume that each meal takes one hour to make. Instead of each man waiting for the same kitchen to be available for use after one hour, everybody makes their meals simultaneously. What would otherwise take eight hours - that is, for all of the men to make their meal - now takes one hour. If we could bring about a similar state in our data analysis, we could finish processing the anatomical images in a more reasonable amount of time.
+Further, assume that each meal takes one hour to make. Instead of each man waiting his turn for the same kitchen every hour, everybody makes their meals simultaneously. What would otherwise take eight hours - that is, for all of the men to make their meal - now takes one hour. If we could bring about a similar state in our data analysis, we could finish processing the anatomical images in a more reasonable amount of time.
 
 
 Downloading the Parallel Command
@@ -34,7 +36,7 @@ The first entry is the number of physical cores, which is 4; and the second entr
 
 The parallel command doesn't come standard with the Macintosh operating system; you will need to download it. A prerequisite is to download the Xcode application, which can be found in the Macintosh App Store.
 
-.. figure:: AppStore.png
+.. figure:: 04_AppStore.png
 
 You will then need to go to `this website <https://brew.sh/>`__ and install Homebrew, a package installation manager. This allows you to quickly install packages using simple commands.
 
@@ -55,6 +57,8 @@ Using the Parallel Command
 
   You must be using the **bash** shell in order to use parallel. If you are unsure what shell you are using, type ``echo $0``. If you are not in the bash shell, simply type ``bash`` and press return.
   
+  To store the results in the directory from which you run parallel, type ``export SUBJECTS_DIR=`pwd```.
+  
   
 Parallel is run by **piping** the output of the ``ls`` command into the parallel command. For example, if you have six anatomical images labeled sub1.nii, sub2.nii ... sub6.nii, you can analyze them in parallel by typing the following:
 
@@ -73,6 +77,8 @@ Let's analyze what this command does:
 4. The ``-i`` option indicates to use the output of the ``ls`` command as input to the ``parallel`` command.
 
 5. The ``-all`` and ``-qcache`` options have the same meaning as what was discussed in the previous tutorial on recon-all.
+
+Now run the command and observe what happens. If a typical recon-all job takes 15 hours on your computer, come back in 15 hours and see how many subjects have been processed. If you have eight cores and eight subjects, it should finish in the same amount of time it takes to process one subject; and if you have more than eight subjects, a new one will be processed as soon as one of the cores is freed up after finishing a subject.
 
 --------------
 
