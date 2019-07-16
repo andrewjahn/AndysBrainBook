@@ -1,4 +1,4 @@
-.. _FS_ShortCourse/FS_05_OpenScienceGrid:
+.. _FS_05_OpenScienceGrid:
 
 =====================
 FreeSurfer Tutorial #5: Using the Open Science Grid
