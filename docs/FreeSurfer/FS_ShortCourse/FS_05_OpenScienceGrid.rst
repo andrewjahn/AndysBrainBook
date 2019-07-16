@@ -110,7 +110,7 @@ Once recon-all has finished, you can download the output by typing this code:
 
   fsurf output --id <subjID>
   
-In which ``subjID`` is the identifcation code assigned by the supercomputer. It is the number in the second column of the output of the command ``fsurf list``.
+In which ``subjID`` is the identifcation code assigned by the supercomputer. It is the number in the second column of the output of the command ``fsurf list``. The downloaded data will have . ``.bz2`` extension; you can unpack it by typing ``tar xvjf <subjName>``, replacing ``subjName`` with the name of the downloaded dataset.
 
 
 On the other hand, if you want to remove a job at any time for any reason, you can do so by typing:
