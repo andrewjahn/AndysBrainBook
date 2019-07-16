@@ -31,7 +31,9 @@ Each subject's directory contains two sub-directories labeled ``ses-BL``, signif
 Preparing Your Data for the Open Science Grid
 ********
 
-You will use a command called ``fsurf`` to submit recon-all jobs to the Open Science Grid supercomputer. To download this command, type:
+Before you can use any of the Open Science Grid resources, you must create an account. This can be filled out `here <https://support.opensciencegrid.org/support/solutions/articles/12000008488-set-up-fsurf-on-your-laptop>`__.
+
+You will also need a command called ``fsurf`` to submit recon-all jobs to the Open Science Grid supercomputer. To download this command, type:
 
 ::
 
