@@ -13,9 +13,34 @@ In 2009, a paper was published “Puzzlingly High Correlations in fMRI Studies,�
 
 Circular analysis occurs when data are selected based on some criteria, and then tested for significance on that same criteria. To give an example, imagine that we wanted to test whether drinking Four Loko helps undergraduates do better on their exams. Let’s say that we observed which students showed an improvement, and then ran our final group-level analysis on only those students. Obviously this would be a biased analysis, since we’re only focusing on those subjects that have the effect we’re looking for; it’s no longer a truly random sample.
 
-Circular analyses can also happen with imaging data, although it’s not as apparent when it happens. This was first pointed out in a study which examined activity in the fusiform face area in response to different stimuli. They extracted data from each condition’s significant voxels and discovered a pattern of selective activity. However, it was pointed out that if you chose an ROI outside of the brain which happened to contain significant voxels just by chance, and ran the same tests on those voxels, you would get the same pattern - which clearly shouldn’t happen. When they reran the analysis using independent ROIs, they found a pattern of noise - which you would expect with a non-brain ROI. When they ran an unbiased ROI analysis on the original data, they found that the original pattern disappeared.
 
-Let’s see how biased ROIs lead to inflated effect sizes. Here is a z-score map showing our group-level effects. If we zoom in, we can see the boundaries of each individual voxel, with a range of z-scores from 0 to 3. Assume that there is a real effect in the brain outlined in orange. If we extracted the parameter estimates for each subject from those voxels, the effect would be 0.3 – with some variation around that value. Now assume that we threshold our image at an uncorrected level of p<0.05, or a z-score of 1.65. The voxels highlighted in red are the only ones that pass that threshold. 
+Circular Analyses with fMRI Data
+*************
+
+Circular analyses can also happen with imaging data, although it’s not as apparent when it happens. This was first pointed out in a study which examined activity in the fusiform face area in response to different stimuli. They extracted data from each condition’s significant voxels and discovered a pattern of selective activity. 
+
+.. figure:: Grill-Spector_2006.png
+
+  Figure from Grill-Spector et al., 2006. The cortical surface on the right is a ventral view of the right hemisphere; significant voxels for each of the conditions (Faces, Animals, Cars, and Sculptures) are shown in five contiguous axial slices (top row). The histograms depict percent signal change for each condition, which in this case suggests that the fusiform face area contains voxels selective not just for faces, but for other types of stimuli as well.
+
+However, it was pointed out that if you chose an ROI outside of the brain which happened to contain significant voxels just by chance, and ran the same tests on those voxels, you would get the same pattern - which clearly shouldn’t happen. When they reran the analysis using independent ROIs, they found a pattern of noise - which you would expect with a non-brain ROI. When they ran an unbiased ROI analysis on the original data, they found that the original pattern disappeared.
+
+.. figure:: Baker_2007_nonBrainBiased.png
+
+  Results from an analysis by Baker et al. (2007) demonstrating that the same pattern of activity can be found in a region outside the brain. Although some voxels will contain large effects merely due to chance, these are the same voxels that are used in a biased analysis - suggesting that the results from the Grill-Spector paper may have been due to chance as well.
+  
+  
+.. figure:: Baker_2007_Unbiased.png
+
+  A cross-validated analysis of the original Grill-Spector 2006 data. This unbiased analysis shows that the fusiform face area appears to be responsive to faces, but not selectively responsive to any of the other categories used in the experiment.
+
+
+Biased Analyses and Inflated Effect Sizes
+**********
+
+Let’s see how biased ROIs lead to inflated effect sizes. The figure below shows a group-level z-score map, zoomed in on a region of the medial prefrontal cortex. We can see the boundaries of each individual voxel, with a range of z-scores from 0 to 3. Assume that there is a real effect in the brain outlined in orange. If we extracted the parameter estimates for each subject from those voxels, the effect would be 0.3 – with some variation around that value. Now assume that we threshold our image at an uncorrected level of p<0.05, or a z-score of 1.65. The voxels highlighted in red are the only ones that pass that threshold.
+
+.. figure:: AnalysisTypes_BiasedUnbiased.png
 
 Here’s the important part: notice that this region overlaps with some of the true effect voxels, but that it includes some noise voxels as well. Because the region by definition can only include voxels passing a certain threshold, it will only contain noise voxels that are above that threshold, which biases the effect to be larger than the true effect. If we used an independent ROI, for example with cross-validation, we would create a region that probably contains some true effect voxels, and also some noise voxels – but these noise voxels will not be biased to be artificially high or low. In this example the unbiased effect is slightly lower than the true effect, but in theory it could be higher or lower – it just won’t be biased either way.
 
