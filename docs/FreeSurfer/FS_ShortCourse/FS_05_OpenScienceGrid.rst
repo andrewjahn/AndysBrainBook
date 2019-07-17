@@ -1,5 +1,9 @@
 .. _FS_05_OpenScienceGrid:
 
+.. warning::
+
+  fsurf has been deprecated and is no longer supported; the Open Science Grid will no longer be creating accounts for new users. I have kept the following tutorial available in order to illustrate how jobs are submitted to a supercomputer - this may be superseded by a tutorial about using another supercomputer, such as Michigan's Flux computer.
+
 =====================
 FreeSurfer Tutorial #5: Using the Open Science Grid
 =====================
@@ -124,7 +128,7 @@ On the other hand, if you want to remove a job at any time for any reason, you c
 
 --------
 
-Video
-********
+.. Video
+.. ********
 
-To see how to download fsurf and run jobs on the Open Science Grid supercomputer, watch `this video <https://www.youtube.com/watch?v=30eIVOgr35A&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=5>`__.
+.. To see how to download fsurf and run jobs on the Open Science Grid supercomputer, watch `this video <https://www.youtube.com/watch?v=30eIVOgr35A&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=5>`__.
