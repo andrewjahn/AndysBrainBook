@@ -10,4 +10,4 @@ The `MRtrix download page <http://www.mrtrix.org/download/>`__ contains download
 
 .. figure::
 
-  MRtrix_Installation.png
+  01_MRtrix_Installation.png
