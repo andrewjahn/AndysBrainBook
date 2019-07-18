@@ -9,6 +9,10 @@ to `Andy's Brain Blog <https://www.andysbrainblog.com>`__. It is intended for fM
 This book, *Andy's Brain Book*, is intended for fMRI beginners, with more advanced imaging techniques being added later on.
 
 If you are completely new to fMRI analysis, I recommend starting with the :ref:`installation page <fsl_mac_install>`. Good luck!
+
+.. note::
+
+    Reading this book is easier with a slightly larger font size; I recommend using a zoom of 125%. You can do this on a Macintosh by holding down the ``Command`` key and pressing ``+``, or from the browser menu you can click on ``View -> Zoom In``.
     
 
 .. toctree::
