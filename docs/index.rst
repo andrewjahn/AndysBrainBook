@@ -68,6 +68,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: FreeSurfer
     
     FreeSurfer/FreeSurfer_Introduction
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Diffusion Analysis with MRtrix
+    
+    MRtrix/MRtrix_Introduction
    
 .. toctree::
     :maxdepth: 1
