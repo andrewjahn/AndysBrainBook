@@ -13,6 +13,7 @@ So far we have reviewed basic commands of FreeSurfer: recon-all and freeview. Re
 
 At this point, you may be thinking about how to compare structural measurements between groups, and represent those differences on the surface of the brain. The procedure is similar to fMRI analysis: Just as we compare voxels in fMRI, we compare vertices in FreeSurfer. If the vertices are in a common space such as MNI, we can calculate the difference in grey matter thickness at a particular vertex and test whether that difference is significant. This generates statistical maps that we can overlay on a template brain as a surface map.
 
+
 .. figure:: 07_Group_Analysis_FS.png
 
   Example of a group analysis result mapped on to the fsaverage template. Lighter blue colors represent more negative contrast estimates, and yellow colors represent more positive contrast estimates.
@@ -51,6 +52,7 @@ Creating the FSGD File
 **********
 
 The Cannabis dataset comes with a file called ``participants.tsv`` that contains labels and covariates for each subject: Group, gender, age, onset of cannabis use, and so on. To create a FreeSurfer Group Descriptor (FSGD) file, we will extract those covariates or group labels that we are interested in and format them in a way that FreeSurfer understands. The FSGD file will both contain the covariates that we want to contrast, and a separate contrast file will indicate which covariates to contrast, and which weight to give them.
+
 
 .. figure:: 07_Participant_File.png
 
