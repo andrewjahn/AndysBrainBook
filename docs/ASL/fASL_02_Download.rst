@@ -1,8 +1,13 @@
-.. _fASL_Download:
+.. _fASL_02_Download:
 
-
+=================
 Downloading f-ASL
-===============
+=================
+
+-----------
+
+Overview
+********
 
 .. note::
     You will need to have Matlab installed to run f-ASL. Most universities can give you a license for free; ask your local IT person for more information.
@@ -29,7 +34,7 @@ This will create a folder called ``Matlab_ASL_Repo-master``, which you can then 
 ---------
 
 Setting the Path
-----------------
+****************
 
 In order to use f-ASL from anywhere on your computer, you will need to set a path pointing to the f-ASL libraries. If LuisTools is in your Downloads directory, for example, open up Matlab and then type:
 
@@ -40,7 +45,7 @@ In order to use f-ASL from anywhere on your computer, you will need to set a pat
     
 You will then be able to open up f-ASL by typing ``fasl02`` and pressing Enter. The following GIF shows how to both download the package and how to set the path:
 
-.. figure:: fASL_Download_Install.gif
+.. figure:: 02_fASL_Download_Install.gif
 
 
 .. note::
@@ -52,12 +57,12 @@ You will then be able to open up f-ASL by typing ``fasl02`` and pressing Enter. 
 ---------
 
 Video
-----------
+*****
 
 Click here to see a video of how to download and install f-ASL (coming soon).
 
 
 Next Steps
----------
+**********
 
 Now that you have f-ASL installed, we will use it to analyze a sample ASL dataset. Click the ``Next`` button to learn more about the dataset that we will analyze.
