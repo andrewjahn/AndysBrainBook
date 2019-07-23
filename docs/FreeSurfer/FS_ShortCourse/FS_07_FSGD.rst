@@ -38,7 +38,7 @@ to copy the fsaverage template. When that has completed, set the SUBJECTS_DIR va
   
 .. note::
 
-  The backticks which bookend ``pwd`` will expand the current directory path; in other words, it will replace ```pwd``` with whatever the output is of typing the command ``pwd``. This kind of shorthand will be useful, so practice it whenever you have the chance.
+  The backticks which bookend ``pwd`` will display the absolute path to the current directory; in other words, it will replace ```pwd``` with whatever the output is of typing the command ``pwd``. This kind of shorthand will be useful, so practice it whenever you have the chance.
   
 We will also create two directories called ``FSGD`` and ``Contrasts``, which will contain the text files needed to run our analysis:
 
@@ -55,12 +55,85 @@ The Cannabis dataset comes with a file called ``participants.tsv`` that contains
 .. figure:: 07_Participant_File.png
 
   Screenshot of part of the participant file that comes with the Cannabis dataset. Note: HC = Healthy Controls. Farther down the participant file, the label CB stands for Cannabis User.
-  
+
+To keep our files organized, copy the participants.tsv file into the FSGD directory, and rename it ``CannabisStudy.tsv``:
+
 ::
 
   cp ../particpants.tsv FSGD/CannabisStudy.tsv.
+
+
+Now, open the file ``CannabisStudy.tsv`` in Excel. We will reformat it into an FSGD file, which is organized in such a way that can be understood by the group analysis commands we will run later. In the first column, type the following four lines:
+
+::
+
+  GroupDescriptorFile 1
+  Title CannabisStudy
+  Class HC
+  Class CB
   
+I call these lines the **header lines**, since they are needed at the top, or head, of the document in order to properly format the FSGD file. The first line, ``GroupDescriptorFile 1``, indicates that the file is in FSGD format; you will need this first line in any FSGD file that you create. The second line, ``Title CannabisStudy``, will prepend the string "CannabisStudy" to the directories which store the results of your analyses. The next two lines, ``Class HC`` and ``Class CB``, indicate that the subject name next to a column containing the string HC belongs to the HC group, and that the subject name next to a column containing the string CB belongs to the CB group. For example, after our header lines, we may see something like this:
+
+::
+
+  Input sub-202 HC
+  Input sub-206 HC
+  Input sub-207 HC
+  Input sub-101 CB
+  Input sub-103 CB
+  Input sub-104 CB
   
+The first column, ``Input``, signalizes that this row contains a subject; the next column, ``sub-202`` through ``sub-104``, specifies the subject name (which should correspond to the subject directories in the Cannabis folder); and the last column, ``HC`` and ``HB``, signalizes which group that subject belongs to. In this case, subjects 202, 206, and 207 belong to the HC group, and subjects 101, 103, and 104 belong to the CB group. Our goal is to contrast the structural measurements between the groups, which we will do in the next chapter. Later on, you will see how to add as many covariates as you like - one for each column. You can pick whichever ones you want from the participants.tsv file.
+
+For now, save the spreadsheet as a Tab Delimited Text file by clicking on ``File -> Save As``, and selecting Tab Delimited Text from the File Format field. This will create a file called ``CannabisStudy.txt``. Make sure this is saved into the FSGD directory. Then open a Terminal, navigate to the FSGD directory, and type the following:
+
+::
+
+  tr '\r' '\n' < CannabisStudy.txt > CannabisStudy.fsgd
+  
+This will remove any DOS carriage returns, which Unix doesn't know how to interpret, and replaces them with newline characters. This will prevent any errors when using the FSGD file with FreeSurfer commands.
+
+
+Creating the Contrast file
+***********
+
+Our next step is to create a contrast file that specifies the **contrast weights** for each regressor in our model. The "Class" variables that we specified in the FSGD file are group regressors: One for the Cannabis group, and one for the Control group. Since we have only two regressors, we only need to specify two contrast weights.
+
+Navigate to the ``Contrasts`` directory, and then type:
+
+::
+
+  echo "1 -1" > HC-CB.mtx
+  
+This enters the string ``1 -1`` into a file labeled ``HC-CB.mtx`` (.mxt stands for "matrix", as in, "contrast matrix"; in more complicated designs, the contrast file can be any size M x N matrix). The label of the contrast file can be anything you choose; I decided upon a label that is compact and easy to understand.
+
+
+Exercises
+*************
+
+Now that we have created the files necessary for a group analysis, the next step is to run the group analysis itself. Before you proceed, try the following exercises to test your understanding of what you just read.
+
+
+1. If you wanted to contrast The Cannabis group against the Control group, what contrast weights would you use? What would be a good label for the contrast file?
+
+2. When analyzing an open-access dataset designed to compare Old and Young groups, you come across this FSGD file:
+  
+::
+
+  GroupDescriptorFile 1
+  Title CannabisStudy
+  Class Old
+  Class Young
+  Input sub-202 HC
+  Input sub-206 HC
+  Input sub-207 HC
+  Input sub-101 CB
+  Input sub-103 CB
+  Input sub-104 CB
+  
+What is wrong with this file? Which parts would you change? (Hint: One sections you *must* change for the analysis to run without FreeSurfer throwing any errors; another section can be changed to better clarify and organize the data.)
+
+
 ------------
 
 
