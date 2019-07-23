@@ -15,7 +15,8 @@ At this point, you may be thinking about how to compare structural measurements 
 
 
 .. figure:: 07_Group_Analysis_FS.png
-
+  :scale: 50%
+  
   Example of a group analysis result mapped on to the fsaverage template. Lighter blue colors represent more negative contrast estimates, and yellow colors represent more positive contrast estimates.
   
   
@@ -133,7 +134,7 @@ Now that we have created the files necessary for a group analysis, the next step
   Input sub-103 CB
   Input sub-104 CB
   
-What is wrong with this file? Which parts would you change? (Hint: One sections you *must* change for the analysis to run without FreeSurfer throwing any errors; another section can be changed to better clarify and organize the data.)
+What is wrong with this file? Which parts would you change? (Hint: One section you *must* change for the analysis to run without FreeSurfer throwing any errors; another section can be changed to better clarify and organize the data.)
 
 
 ------------
