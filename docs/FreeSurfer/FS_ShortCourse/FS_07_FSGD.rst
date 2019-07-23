@@ -6,6 +6,10 @@ FreeSurfer Tutorial #7: The FSGD File
 
 ---------------
 
+.. note:: 
+
+  Before starting this tutorial, create a directory called ``FS`` within the ``Cannabis`` directory. The ``FS`` directory should contain all of the anatomical images that have been preprocessed with recon-all.
+
 Comparing Groups
 *****************
 
