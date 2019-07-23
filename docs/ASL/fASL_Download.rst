@@ -7,9 +7,11 @@ Downloading f-ASL
 .. note::
     You will need to have Matlab installed to run f-ASL. Most universities can give you a license for free; ask your local IT person for more information.
 
-f-ASL (functional ASL) is an ASL analysis package written by `Luis Hernandez-Garcia <http://web.eecs.umich.edu/~hernan/>`__. You can download the package by clicking `here <http://web.eecs.umich.edu/~hernan/Public/Programs/>`__ and clicking on the **LuisTools.tar** button (see the image below).
+f-ASL (functional ASL) is an ASL analysis package written by `Luis Hernandez-Garcia <http://web.eecs.umich.edu/~hernan/>`__. The package is available for download from Luis's github page located `here <https://github.com/HernandezGarciaLab>`__. Click on the ``Matlab_ASL_Repo`` repository, and click on the ``Clone or Download`` button; select ``Download ZIP``.
 
-.. figure:: Download_fASL.png
+.. note::
+
+    There are other ways to download a repository from github, such as from the command line. For now, we will focus on how to do it from a web browser.
 
     
 After you have downloaded the LuisTools file, in your Downloads you should see a file called ``LuisTools.tgz``. Either expand this file by double-clicking on it, or navigating to it with a Terminal and typing the following:
