@@ -11,9 +11,7 @@ Overview
 
 Navigate to the directory that contains ``run_1`` and ``run_2``. When you open the fASL GUI by typing ``fasl02`` from the command line in Matlab, you will see this window:
 
-.. figure::
-
-  04_fASL_GUI_Default.png
+.. figure:: 04_fASL_GUI_Default.png
   
 The GUI is divided into several windows, each of which deal with a different aspect of ASL processing. Certain steps are greyed out, and only become useable when a box is checked - for example, you won't be able to create a design matrix unless you check the box next to ``GLM estimation and stats``. We will walk through what each step does, and which options you may want to change in order to adapt them to your analysis.
 
