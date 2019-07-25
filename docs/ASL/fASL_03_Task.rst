@@ -2,7 +2,7 @@
 
 
 ==========================
-fASL Tutorial #3: The Task
+fASL Tutorial #3: The N-Back Task
 ==========================
 
 --------------
