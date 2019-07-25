@@ -52,15 +52,7 @@ You will then be able to open up f-ASL by typing ``fasl02`` and pressing Enter. 
     
     In order to run fASL from any directory, you will need to type the ``addpath`` command above each time you open a new instance of Matlab. An alternative is to open a Matlab window, then click on ``Set Path`` and then click on the ``Add with Subfolders`` button. Select the ``Matlab_ASL_repo-master`` directory, then click ``Save`` and ``Close``. Now you will be able to open fASL any time you open up a new Matlab window, without having to type the ``addpath`` command first.
     
-    
-    
 ---------
-
-Video
-*****
-
-Click here to see a video of how to download and install f-ASL (coming soon).
-
 
 Next Steps
 **********
