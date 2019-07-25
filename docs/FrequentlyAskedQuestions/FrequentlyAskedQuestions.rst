@@ -145,6 +145,15 @@ This will create a field map, which can be applied to the fMRI data with:
 ::
 
   applytopup --imain=fMRI.nii.gz --topup=topup_AP_PA_b0 --datain=acqparams.txt --inindex=1 --out=fMRI_unwarped --method=jac
+  
+Related Readings
+^^^^^^^^^^^^^^^^^
+
+See these websites for more details about field-map unwarping a functional image.
+
+1. `FSL topup guide <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/topup/TopupUsersGuide#Configuration_files>`__
+2. `More detailed topup guide <http://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/tutorial_packages/centos6/fsl_507/doc/wiki/topup(2f)TopupUsersGuide.html>`__
+3. `Lewis Center for neuroimaging: Using field maps <https://lcni.uoregon.edu/kb-articles/kb-0003>`__
 
 Other Questions
 **********
