@@ -13,7 +13,7 @@ Navigate to the directory that contains ``run_1`` and ``run_2``. When you open t
 
 .. figure:: 04_fASL_GUI_Default.png
   
-The GUI is divided into several windows, each of which deal with a different aspect of ASL processing. Certain steps are greyed out, and only become useable when a box is checked - for example, you won't be able to create a design matrix unless you check the box next to ``GLM estimation and stats``. We will walk through what each step does, and which options you may want to change in order to adapt them to your analysis.
+The GUI is divided into several windows, each responsible for a different aspect of ASL processing. Certain steps are greyed out, and only become useable when a box is checked - for example, you won't be able to create a design matrix unless you check the box next to ``GLM estimation and stats``. We will walk through what each step does, and which options you may want to change in order to adapt them to your analysis.
 
 
 .. note::
@@ -116,7 +116,7 @@ Then click ``Add to Matrix``. Lastly, in the field under ``Save Matrix as``, typ
   
   To keep everything in order, if you do have to remove a regressor, we recommend clearing everything and starting over. This will keep the regressors in the correct order for specifying the contrast weights, which we will now review.
   
-Click on ``Load Design Matrix`` and select the NBack_Matrix you just created. fASL will display a figure showing the matrix you just created; take a look to make sure it looks right, and then close the figure.
+Click on ``Load Design Matrix`` and select the NBack_Matrix you just created. fASL will display a figure showing the matrix you just created; make sure it looks right, and then close the figure.
 
 In the ``Contrasts of Interest (matrix)`` field, type the following:
 
