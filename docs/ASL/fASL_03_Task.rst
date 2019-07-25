@@ -29,7 +29,7 @@ To illustrate this, take the simplest rule: The 0-back task. In this case, the s
   An example of the 0-back task. In this example, the subject is told to respond whenever he sees the letter X. Perfect accuracy requires responding to the X with a button press, and not responding to any of the other letters.
   
 
-Using the 0-back task as a template, we can increase the number of items to be held in working memory. In a 1-back task, for example, the subject is required to respond to a letter if it matches the previous letter (i.e., the letter that was shown 1 stimulus ago). In the figure below, the subject would respond to the second and fourth letters that were presented, since they match the letter that was presented on the previous slide. The last letter matches one of the previous letters shown, but since that letter occurred two slides ago, the subject should withold his response.
+Using the 0-back task as a template, we can increase the number of items to be held in working memory. In a 1-back task, for example, the subject is required to respond to a letter if it matches the previous letter (i.e., the letter that was shown 1 stimulus ago). In the figure below, the subject would respond to the second and fourth letters that were presented, since they match the letter that was presented on the previous slide. The last letter matches one of the previous letters shown, but since that letter occurred two slides ago, the subject should withhold his response.
 
 .. figure:: 03_WorkingMemoryTask_1back.png
 
@@ -42,4 +42,4 @@ As the number of items increases, say in a 4-back task, the task becomes more di
 Next Steps
 **********
 
-In the task you will be analyzing, the subjects did both the 1-back and 4-back tasks. We will use ASL to compare differences in cerebral blood flow between the tasks. Click on the ``Next`` button to learn more about ASL, and how we will set up the analysis with fASL.
+In the task you will be analyzing, the subjects did both the 1-back and 4-back tasks. We will use ASL to compare differences in cerebral blood flow between them. Click on the ``Next`` button to learn how to set up the analysis with fASL.
