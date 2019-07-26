@@ -4,46 +4,46 @@
 fASL Tutorial #1: Background
 ============================
 
-There are several approaches to ASL perfusion imaging:
+-------------
 
 
-CASL
----------
+Overview
+***********
 
-CASL, or **continous ASL**, where the inversion of the arterial blood occurs continuously through the application of a continuous RF pulse. During the acquisition of the control image, an RF pulse is supplied above the image slice to account for magnetic distortions caused by the pulse itself, but the pulse itself will not label any blood. This method of inversion is also called flow-driven inversion.
+Throughout the 1980's and early 1990's, neuroimaging researchers would measure the contrast between brain tissues using methods such as positron emission tomography, or PET. This involves injecting a radioactive glucose tracer that is absorbed by neurons when they tfire. By taking images of the brain under different experimental conditions, such as seeing a flashing checkerboard or doing a cognitively demanding problem, researchers could see which regions were more active compared to other regions.
 
-.. figure:: CASL.jpg
+However, this method is invasive, and the idea of being injected with a radioactive tracer deterred many people from being subjects in such experiments. By the early 1990’s, an alternative imaging technique called magnetic resonance imaging (MRI) had become much faster and less expensive, and researchers were looking for a way to make it more widespread for clinical use. It was soon discovered that more deoxygenated blood leads to a decrease in the signal measured from a brain region. An increase in oxygenated blood, on the other hand, increases the signal - and this increase in oxygenated blood was later shown to be correlated with increased neural firing. This change in signal is known as blood oxygen level dependent signal (or BOLD signal).
 
+The concept of using blood as an endogenous tracer was soon extended to other techniques. One such method, **Pulsed Continuous Arterial Spin Labeling (PCASL)**, focuses a series of radiofrequency pulses at a single region - usually the neck - which "tags", or labels, the blood flowing through the arteries. After a couple of seconds, an image of the brain is acquired, which is sensitized to pick up signal from the labeled blood. In order to quantify how much of the labeled blood has perfused the tissue, a control image is acquired without any labeling to compare against the labeled image. 
 
-PASL
----------
+.. figure:: 01_ASL_Example_Diagram.jpg
 
-PASL, or **pulsed ASL**, where the inversion of the arterial blood occurs over a specific area. The RF pulse is applied in a spatially selective manner (slice-specific). Several versions exist, including EPISTAR (echo planar imaging and signal targeting with alternating radiofrequency) and FAIR (flow-sensitive alternating inversion recovery). Please refer to the image on the right. These methods of inversion are also referred to as spatial inversion.
+.. figure:: 01_ASL_Example_Label_Control.jpg
 
-.. figure:: PASL.jpg
+    Figures taken from Ferre et al., 2013.
 
 
 ASL vs. BOLD fMRI
----------------
+^^^^^^^^^^^
 
-How do the results obtained from ASL experiments differ from those obtained with BOLD? How do BOLD and ASL differ?
+Although both ASL and BOLD contrast are used to measure brain activity, there are several important differences between the two:
 
-* ASL noise is a lot whiter than BOLD noise (Wang 2003).
-* ASL does not require contrast agents.
+* ASL noise is whiter than BOLD noise (Wang 2003).
 * Changes in perfusion are more localized to the parenchyma, whereas BOLD changes are tied to the veins and venules (Duong 2002).
-* It does take longer to collect a single ASL image, though, but we can go as fast as 2.5 seconds for a subtraction pair with our methods. After sinc subtraction, we end up with an ASL image every 1.2 seconds. With BOLD we can get the images in less than 500 msec.
-* We get less slices at a time with ASL, and they tend to be thicker.
+* It takes longer to collect a single ASL image - around 1.2-2.5 seconds, versus 500ms for BOLD images acquired with multiband.
+* We acquire less slices at a time with ASL, and they tend to be thicker (i.e., the spatial resolution is lower compared to BOLD imaging).
 
-* In addition to the items mentioned above, it also turns out that the change in ASL signal that results from activation is cleaner than what is normally observed in utilizing your average BOLD technique. This is illustrated in the image given on the right which shows the results of an experiment that was first conducted using CASL and then repeated using BOLD.
+* ASL signal is cleaner than what is normally observed in BOLD data. This is illustrated in the image given on the right which shows the results of an experiment that was first conducted using ASL, and then repeated using BOLD.
 
 .. figure:: asl_vs_bold.jpg
 
-    The top row shows 2-coil CASL images and the bottom one shows BOLD images. We used the same TR (4 seconds) and spiral acquisition in both ASL and BOLD. The left column of images were averaged over 4 minutes of rest. The middle column of images were averaged over four minutes of finger tapping. The right column is simply the difference of the other two columns - No modeling, filtering, regressing, or anything. Just subtraction.
+    The top row shows ASL images and the bottom one shows BOLD images. Both used a TR of 4 seconds and were generated using spiral acquisition. The left column of images were averaged over 4 minutes of rest, while the middle column of images were averaged over four minutes of finger tapping. The right column shows the difference of the left two columns without modeling, filtering, or regressing. Just subtraction.
     
-As you can see, ASL images are intrinsically a lot noisier, in fact, they look awful, you can barely see the white mater... but the change in ASL signal that results from activation is huge (we observe 50%, or even more).
+As you can see, ASL images are noisier. [This was taken from the text listed on the fASL webpage; how does this make sense given the statement above about how ASL signal is cleaner than BOLD data?]  However, the change in ASL signal that results from activation is much larger than with other imaging techniques - changes of 50% or more are not uncommon.
 
+------------
 
 Next Steps
----------
+**********
 
 Now that you've become familiar with different approaches to ASL analysis, click on the Next button to learn how to download ASL software and a sample dataset to analyze.
