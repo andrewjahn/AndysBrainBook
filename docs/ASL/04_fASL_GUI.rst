@@ -62,9 +62,10 @@ Next, click on ``Normalise to Template``. Any normalized template can be used; i
 
 .. figure:: 04_SpatialTransformations.png
 
+----------
 
 FMRI
-^^^^^^^^^^^^^^
+********
 
 Now that we have all of the preprocessing steps ready to go, we will create a general linear model to analyze the data once it has been preprocessed. This will require creating a design matrix indicating which condition occurred at which time, and for what duration. We will also specify which conditions we want to contrast against each other - which in this example will be the 4-back compared to the 1-back task. The resulting image will show differences in cerebral blood flow between those conditions.
 
@@ -142,7 +143,7 @@ Make sure that the boxes are checked next to ``Data are already subtracted`` and
   04_ASL_FMRI.png
   
   
-When you have reviewed everything and it looks correct, press ``GO!`` to begin the analysis. It should take about 5-10 minutes. When it finishes, you will see several figures printed to the screen; we will explain what they are in the next section.
+When you have reviewed everything and it looks correct, press ``GO!`` to begin the analysis. It should take about 5-10 minutes. When it finishes, you will see several figures printed to the screen and several new files written to your directory; we will explain what they are in the next section.
   
 
   
