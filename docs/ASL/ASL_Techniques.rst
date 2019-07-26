@@ -14,13 +14,15 @@ Throughout the 1980's and early 1990's, neuroimaging researchers would measure t
 
 However, this method is invasive, and the idea of being injected with a radioactive tracer deterred many people from being subjects in such experiments. By the early 1990’s, an alternative imaging technique called magnetic resonance imaging (MRI) had become much faster and less expensive, and researchers were looking for a way to make it more widespread for clinical use. It was soon discovered that more deoxygenated blood leads to a decrease in the signal measured from a brain region. An increase in oxygenated blood, on the other hand, increases the signal - and this increase in oxygenated blood was later shown to be correlated with increased neural firing. This change in signal is known as blood oxygen level dependent signal (or BOLD signal).
 
-The concept of using blood as an endogenous tracer was soon extended to other techniques. One such method, **Pulsed Continuous Arterial Spin Labeling (PCASL)**, focuses a series of radiofrequency pulses at a single region - usually the neck - which "tags", or labels, the blood flowing through the arteries. After a couple of seconds, an image of the brain is acquired, which is sensitized to pick up signal from the labeled blood. In order to quantify how much of the labeled blood has perfused the tissue, a control image is acquired without any labeling to compare against the labeled image. 
+The concept of using blood as an endogenous tracer was soon extended to other techniques. One such method, **Pulsed Continuous Arterial Spin Labeling (PCASL)**, focuses a series of radiofrequency pulses at a single region - usually the neck - which "tags", or labels, the blood flowing through the arteries (Figure 1A). After a couple of seconds (1B), an image of the brain is acquired (1C), which is sensitized to pick up signal from the labeled blood. In order to quantify how much of the labeled blood has perfused the tissue, a control image is acquired without any labeling to compare against the labeled image (Figure 2). 
 
 .. figure:: 01_ASL_Example_Diagram.jpg
 
+    Figure 1
+
 .. figure:: 01_ASL_Example_Label_Control.jpg
 
-    Figures taken from Ferre et al., 2013.
+    Figure 2. Both figures are taken from Ferre et al., 2013.
 
 
 ASL vs. BOLD fMRI
