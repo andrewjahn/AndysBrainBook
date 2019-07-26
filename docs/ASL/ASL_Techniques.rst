@@ -18,6 +18,8 @@ The concept of using blood as an endogenous tracer was soon extended to other te
 
 .. figure:: 01_ASL_Demonstration.gif
 
+    Animation by Luis Hernandez-Garcia
+
 However, CASL is relatively slow, difficult to implement on clinical scanners, and is susceptible to **magnetization transfer** effects. An alternative method called **pseudo-Continuous Arterial Spin Labeling (p-CASL)** applies a series of short radiofrequency pulses at a target slice, which achieves the same efficiency as CASL, but with lower magnetiziation transfer effects and lower SAR.    
 
 .. figure:: 01_Luis_pCASL.png
