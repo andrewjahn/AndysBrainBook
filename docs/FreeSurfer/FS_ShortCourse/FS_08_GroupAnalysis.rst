@@ -29,7 +29,7 @@ mris_preproc
 
 In order to run a group analysis, we will need to combine all of our individual structural maps into a single dataset. This is a similar idea to combining consecutive volumes of an fMRI run into a one dataset, as though the volumes are daisy-chained together and laid end to end. (Or, to think of it another way, the structural images are stacked on top of each other, like pancakes; or layered like nachos. Use whatever food analogy is most helpful to remember this important point.) 
 
-.. figure:: mrispreproc_Concatenation.gif
+.. figure:: 08_mrispreproc_Concatenation.gif
 
 The data are also **resampled** to the fsaverage template, which is in MNI space. Whenever we do any kind of group analysis - comparing groups, region of interest analysis, and so on - each subject's data must have the same dimensions and voxel resolution. Forgetting to resample usually leads to errors during this step. (All of this applies to fMRI analysis as well.)
 
