@@ -14,15 +14,15 @@ Throughout the 1980's and early 1990's, neuroimaging researchers would measure t
 
 However, this method is invasive, and the idea of being injected with a radioactive tracer deterred many people from being subjects in such experiments. By the early 1990’s, an alternative imaging technique called magnetic resonance imaging (MRI) had become much faster and less expensive, and researchers were looking for a way to make it more widespread for clinical use. It was soon discovered that more deoxygenated blood leads to a decrease in the signal measured from a brain region. An increase in oxygenated blood, on the other hand, increases the signal - and this increase in oxygenated blood was later shown to be correlated with increased neural firing. This change in signal is known as blood oxygen level dependent signal (or BOLD signal).
 
-The concept of using blood as an endogenous tracer was soon extended to other techniques. One such method, **Pulsed Continuous Arterial Spin Labeling (PCASL)**, focuses a series of radiofrequency pulses at a single region - usually the neck - which "tags", or labels, the blood flowing through the arteries (Figure 1A). After a couple of seconds (1B), an image of the brain is acquired (1C), which is sensitized to pick up signal from the labeled blood. In order to quantify how much of the labeled blood has perfused the tissue, a control image is acquired without any labeling to compare against the labeled image (Figure 2). 
+The concept of using blood as an endogenous tracer was soon extended to other techniques. One such method, **Continuous Arterial Spin Labeling (CASL)**, uses a radiofrequency pulse to continuously excite a single slice - usually at the neck - which "tags", or labels, the blood flowing through the arteries. After a couple of seconds (an interval referred to as the **bolus arrival time**), a **labeled image** of the brain is acquired which is sensitized to pick up signal from the labeled blood. In order to quantify how much of the labeled blood has perfused the tissue, a **control image** is acquired without any labeling to compare against the labeled image.
 
-.. figure:: 01_ASL_Example_Diagram.jpg
+.. figure:: 01_ASL_Demonstration.gif
 
-    Figure 1
+However, CASL is relatively slow, difficult to implement on clinical scanners, and is susceptible to **magnetization transfer** effects. An alternative method called **pseudo-Continuous Arterial Spin Labeling (p-CASL)** applies a series of short radiofrequency pulses at a target slice, which achieves the same efficiency as CASL, but with lower magnetiziation transfer effects and lower SAR.    
 
-.. figure:: 01_ASL_Example_Label_Control.jpg
+.. figure:: 01_Luis_pCASL.png
 
-    Figure 2. Both figures are taken from Ferre et al., 2013.
+    An illustration of the pCASL method. A radiofrequency pulse inverts the spins of arterial water as it crosses a plane through the neck, after which a "label" image is acquired (A). A second “control” image is acquired without the label (B). The subtraction of these two images yields a perfusion weighted image (C). Figure created by Luis Hernandez-Garcia.
 
 
 ASL vs. BOLD fMRI
@@ -48,4 +48,4 @@ As you can see, ASL images are noisier. [This was taken from the text listed on 
 Next Steps
 **********
 
-Now that you've become familiar with different approaches to ASL analysis, click on the Next button to learn how to download ASL software and a sample dataset to analyze.
+Now that you've become familiar with different approaches to ASL analysis, click on the ``Next`` button to learn how to download ASL software and a sample dataset to analyze.
