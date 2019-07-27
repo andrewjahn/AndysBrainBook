@@ -124,14 +124,14 @@ If the scripts run without any errors, you should see the following directories 
   
 The directory name indicates the hemisphere, structural measurement, name of the study, and the smoothing kernel used in the analysis. Each directory contains the same structure; if we navigate into the ``lh.volume.CannabisStudy.10.glmdir`` directory and type ``ls``, we will see the following:
 
-.. figure:: FreeSurfer_GroupAnalysis_Directory.png
+.. figure:: 08_FreeSurfer_GroupAnalysis_Directory.png
 
 
 The directories ``CB-HC`` and ``HC-CB`` contain the contrast data for each contrast specified in ``mri_glmfit``, which we will review in the next section. Among the files in the current directory, ``y.fsgd`` is a copy of the FSGD file used to run the analysis; ``mri_glmfit.log`` contains the code that was run for the current analysis; ``mask.mgh`` is the mask used for the analysis; and ``beta.mgh`` is a concatenated dataset of the individual beta weights created by the analysis. You can read descriptions of the other outputs by typing ``mri_glmfit`` and examining the section under ``Command-Line Arguments``.
   
 Within each of the contrast directories you will see the following:
 
-.. figure:: ContrastDirectoryContents.png
+.. figure:: 08_ContrastDirectoryContents.png
 
 The file ``gamma.mgh`` is a contrast map - the beta dataset in the above directory multiplied by the contrast weights for this particular contrast. In the HC-CB directory, for example, ``gamma.mgh`` would show where the Control Group has greater volume than the Cannabis Group in the left hemisphere. ``z.mgh`` converts this contrast into a z-map, and ``sig.mgh`` converts the contrast into a map of p-values. As above, you can read descriptions of the other outputs in the ``mri_glmfit`` help manual.
 
@@ -147,7 +147,7 @@ To render the statistical maps on the ``fsaverage`` template, navigate to any of
   
 Which will load the left hemisphere of the fsaverage template, and map the ``sig.mgh`` overlay onto it. The threshold of the p-values can be changed by clicking on the ``Configure`` button and moving the sliders.
 
-.. figure:: sigMGH_Overlay.png
+.. figure:: 08_sigMGH_Overlay.png
 
 Now that we have the results, what do we do with them? Your first impulse might be to put them in a manuscript and try to publish it; but to ensure that our results aren't false positives, we will need to use **statistical correction**, described in the next tutorial.
 
