@@ -114,6 +114,14 @@ Navigate to the ``Contrasts`` directory, and then type:
   
 This enters the string ``1 -1`` into a file labeled ``HC-CB.mtx`` (.mxt stands for "matrix", as in, "contrast matrix"; in more complicated designs, the contrast file can be any size M x N matrix). The label of the contrast file can be anything you choose; I decided upon a label that is compact and easy to understand.
 
+Now create another contrast file for the opposite contrast, namely:
+
+::
+
+  echo "-1 1" > CB-HC.mtx
+  
+Which will create a contrast file subtracting the Control group from the Cannabis group.
+
 
 Exercises
 *************
@@ -121,7 +129,7 @@ Exercises
 Now that we have created the files necessary for a group analysis, the next step is to run the group analysis itself. Before you proceed, try the following exercises to test your understanding of what you just read.
 
 
-1. If you wanted to contrast The Cannabis group against the Control group, what contrast weights would you use? What would be a good label for the contrast file?
+1. If you wanted to create a contrast representing the average effect across groups, what contrast weights would you use? What would be a good label for the contrast file?
 
 2. When analyzing an open-access dataset designed to compare Old and Young groups, you come across this FSGD file:
   
