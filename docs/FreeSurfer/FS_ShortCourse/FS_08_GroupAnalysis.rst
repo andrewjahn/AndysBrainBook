@@ -66,7 +66,7 @@ Copy this code into a shell script and save it as ``runMrisPreproc.sh``. This co
 
 .. note::
 
-  If you need a refresher on Unix, variables, and for-loops, see :ref:`this tutorial <Unix_Intro>`__.
+  If you need a refresher on Unix, variables, and for-loops, see :ref:`this tutorial <Unix_Intro>`.
   
   
 
