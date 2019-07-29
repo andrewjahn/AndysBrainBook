@@ -75,13 +75,13 @@ Viewing the Results
 
 When the script has finished, navigate into one of the directories that it has analyzed, such as ``lh.volume.CannabisStudy.10.glmdir/HC-CB``. There are several new files that have been created:
 
-.. figure:: ClustSim_Output.png
+.. figure:: 09_ClustSim_Output.png
 
 Each part of the file is separated by periods. The first part, ``cache`` indicates that the cluster simulation was performed using cached simulations; ``th13`` means that a vertex-wise threshold of 1.3 was used; and ``pos`` indicates the direction of the test.
 
 Although there are many files that have been generated, we will only focus on two: The cluster.summary file, and the cluster.mgh file. If you open the cluser-summary file and scroll to the bottom, you will see a listing of each cluster that was determined to be statistically significant:
 
-.. figure:: clusterSummary_output.png
+.. figure:: 09_clusterSummary_output.png
 
 These clusters can then be rendered on the fsaverage template by typing the following from the cluster-corrected directory:
 
