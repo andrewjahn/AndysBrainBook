@@ -1,4 +1,4 @@
-.. _FS_ShortCourse/FS_09_ClusterCorrection:
+.. _FS_09_ClusterCorrection:
 
 ======================================
 FreeSurfer Tutorial #9: Cluster Correction
