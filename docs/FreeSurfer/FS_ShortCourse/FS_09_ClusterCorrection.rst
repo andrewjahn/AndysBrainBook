@@ -9,7 +9,7 @@ FreeSurfer Tutorial #9: Cluster Correction
 Overview
 *********
 
-After you have run your general linear model and created group-level contrast maps, you will need to correct for the amount of tests that you have run. For a more detailed overview of how cluster-correction works, see :doc:`this page <https://andysbrainbook.readthedocs.io/en/latest/fMRI_Short_Course/fMRI_Appendices/Appendix_A_ClusterCorrection.html>`__; although it uses fMRI data to illustrate the concept, the same idea applies to the vertices that we analyze in structural data.
+After you have run your general linear model and created group-level contrast maps, you will need to correct for the amount of tests that you have run. For a more detailed overview of how cluster-correction works, see :ref:`this page <Appendix_A_ClusterCorrection>`. Although it uses fMRI data to illustrate the concept, the same idea applies to the vertices that we analyze in structural data.
 
 
 Cluster Correction with mri_glmfit-sim
