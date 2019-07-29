@@ -13,7 +13,7 @@ In addition to creating a cortical surface and calculating structural measuremen
 
 Within each subject's ``stats`` directory, there is a table corresponding to the parcellations for each atlas. For example, the results for the parcellation of the left hemisphere are located in the file ``lh.aparc.annot`` for the Desikan-Killiany atlas, and in the file ``lh.aparc.a2009s.annot`` for the Destrieux atlas. The main difference between the two is that the Destrieux atlas contains more parcellations which can be used for finer-grained analyses.
 
-.. figure:: Atlas_Comparison.png
+.. figure:: 11_Atlas_Comparison.png
 
   The Desikan-Killiany and Destrieux atlases placed side by side. Note that the Destrieux atlas contains more parcellations of the cortex.
   
