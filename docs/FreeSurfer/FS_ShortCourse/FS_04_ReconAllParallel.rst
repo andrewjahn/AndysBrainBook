@@ -82,6 +82,30 @@ Let's analyze what this command does:
 
 Now run the command and observe what happens. If a typical recon-all job takes 15 hours on your computer, come back in 15 hours and see how many subjects have been processed. If you have eight cores and eight subjects, it should finish in the same amount of time it takes to process one subject; and if you have more than eight subjects, a new one will be processed as soon as one of the cores is freed up after finishing a subject.
 
+
+Analyzing the Cannabis Dataset
+**********
+
+If you have set up the directory correctly, all of the subjects should be in a folder called ``Cannabis``. Create another directory called ``FS``, and navigate into that directory. From a bash shell (simply type ``bash`` and press enter to create a new one), type the following code to run all of these subjects through the parallel command:
+
+::
+
+  ls | grep ^sub- > subjList.txt
+
+  for sub in `cat subjList.txt`; do
+  cp ../${sub}/ses-BL/anat/*.gz .
+  done
+  
+  ls *.nii | parallel --jobs 8 recon-all -s {.} -i {} -all -qcache
+  
+  rm *.nii
+  
+  for sub in `cat subjList.txt`; do
+  mv ${sub}_ses-BL_T1w.nii ${sub}
+  done
+  
+  
+
 --------------
 
 Video
