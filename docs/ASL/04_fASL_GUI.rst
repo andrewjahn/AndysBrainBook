@@ -6,7 +6,7 @@ fASL Tutorial #4: The GUI
 
 ----------
 
-Overview
+Overview of the GUI
 **********
 
 Navigate to the directory that contains ``run_1`` and ``run_2``. When you open the fASL GUI by typing ``fasl02`` from the command line in Matlab, you will see this window:
@@ -26,7 +26,7 @@ Input Data File (Required)
 
 .. figure:: 04_InputDataFile.png
 
-Click the button ``Input Data File`` to open a window that you can use to select your input data. The ASL data has already been reconstructed for you - that is, it has been converted to a format that can be analyzed with SPM's preprocessing tools. Navigate to the directory ``run_1``, select the file ``vol_e9632_02_21_119_0299.nii``, and then click ``Open``.
+Click the button ``Input Data File`` to open a window that you can use to select your input data. The ASL data has already been reconstructed for you - that is, it has been converted to a format that can be analyzed with SPM's preprocessing tools. Navigate to the directory ``run_2/func``, select the file ``run_2.nii``, and then click ``Open``.
 
 .. note::
 
@@ -46,7 +46,7 @@ Time Series Preprocessing
 
 These steps are similar to the preprocessing steps described in the :doc:`FSL Short Course <https://andysbrainbook.readthedocs.io/en/latest/fMRI_Short_Course/fMRI_04_Preprocessing.html>`__; review those steps for more details about what each one does.
 
-Since these reconstructed data have already been slice-time corrected, leave that box unchecked. We also do not have physiological regressors for this data set, so we will leave that box unchecked as well. Check the rest of the boxes: Realignment, Smoothing, Subtraction, CompCorr, and Spatial Normalization. After you have checked the box next to Subtraction, you will have two options to choose from: **Pairwise** and **Surround**. These refer to how the contrast images are created from subtracting the control images from the label images. Pairwise subtracts each image from its neighbor, while Surround takes a triplet of images, multiplies the middle one by two, and subtracts it from the surrounding images. In this experiment, we acquired the ASL images with a Surround paradigm; select that option by clicking on it with your mouse.
+Since these reconstructed data have already been slice-time corrected, leave that box unchecked. We also do not have physiological regressors for this data set, so we will leave that box unchecked as well. Check the rest of the boxes: Realignment, Smoothing, Subtraction, CompCorr, and Spatial Normalization. After you have checked the box next to Subtraction, you will have two options to choose from: **Pairwise** and **Surround**. These refer to how the contrast images are created from subtracting the control images from the label images. Pairwise subtracts each image from its neighbor, while Surround takes a triplet of images, multiplies the middle one by two, and subtracts it from the surrounding images. In this experiment, we acquired the ASL images with a Surround paradigm - select that option by clicking on it with your mouse.
 
 .. figure:: 04_TimeSeriesPreprocessing.png
 
@@ -56,9 +56,9 @@ Since these reconstructed data have already been slice-time corrected, leave tha
 Spatial Transformations
 ^^^^^^^^^^^^^^^
 
-Since we have decided to do Spatial Normalization by checking that box in the Time Series Preprocessing window, we will need to point to the location of the subject's anatomical image, and a template image to normalize the data to. Click on ``Coregister to Structural``, and navigate to the subject's ``anatomy`` directory. Select ``eht1spgr_124sl.nii``, which is a skull-stripped anatomical dataset.
+Since we have decided to do Spatial Normalization by checking that box in the Time Series Preprocessing window, we will need to point to the location of the subject's anatomical image, and a template image to normalize the data to. Click on ``Coregister to Structural``, and navigate to the subject's ``anatomy`` directory. Select ``anat_ss.nii``, which is a skull-stripped anatomical dataset.
 
-Next, click on ``Normalise to Template``. Any normalized template can be used; in this example, we will use one of SPM's standard templates. Navigate to ``~/spm12/canonical``, and select the image ``avg152_T1.nii``.
+Next, click on ``Normalise to Template``. Any normalized template can be used; in this example, we will use one of SPM's standard templates. Navigate to the ``ASL_Lab`` directory, and select the image ``avg152_T1.nii``.
 
 .. figure:: 04_SpatialTransformations.png
 
@@ -92,7 +92,7 @@ Next, in the ``durations (s.)`` field, type:
   
 These numbers represent the length of each block of the condition, with the beginning of the block specified by the onsets above. For example, the first block of the 1-back task started 65 seconds into the scan, and lasted for 149 seconds. Another block of 1-back trials occurred 355 seconds into the scan and lasted for 125 seconds, and so on.
 
-Now click the button ``Add to Matrix``. This will add a column to the matrix which contains bands of grey overlaying a column of black. The grey bands indicate when the 1-back condition was presented to the subject. In the design matrix, time is represented as starting at the time (i.e., timepoint 0) and ending at the bottom. You should see how the onsets and the durations correspond to the location and length of each of the grey bands.
+Now click the button ``Add to Matrix``. This will add a column to the matrix which contains bands of grey overlaying a column of black. The grey bands indicate when the 1-back condition was presented to the subject. In the design matrix, time is represented as starting at the top (i.e., timepoint 0) and ending at the bottom. You should see how the onsets and the durations correspond to the location and length of each of the grey bands.
 
 We will add another column for the 4-back task. Enter the following onsets:
 
@@ -117,7 +117,15 @@ Then click ``Add to Matrix``. Lastly, in the field under ``Save Matrix as``, typ
   
   To keep everything in order, if you do have to remove a regressor, we recommend clearing everything and starting over. This will keep the regressors in the correct order for specifying the contrast weights, which we will now review.
   
-Click on ``Load Design Matrix`` and select the NBack_Matrix you just created. fASL will display a figure showing the matrix you just created; make sure it looks right, and then close the figure.
+  
+Contrast weights
+^^^^^
+  
+Click on ``Load Design Matrix`` and select the NBack_Matrix you just created. fASL will display a figure showing the matrix you just created; make sure it looks like the matrix above, and then close the figure.
+
+.. note::
+
+  If you are having trouble creating the design matrix, we have already created one for you. Click on ``Load Design Matrix``, navigate to the main ``ASL_Lab`` directory, and select ``NBack_Matrix``.
 
 In the ``Contrasts of Interest (matrix)`` field, type the following:
 
@@ -125,7 +133,7 @@ In the ``Contrasts of Interest (matrix)`` field, type the following:
 
   [eye(3); 0 -1 1]
   
-This is Matlab syntax which creates a 3x3 identity matrix, and then adds another row (0 -1 1). Although you can't see it here, know that this line expands to:
+This is Matlab syntax which creates a 3x3 identity matrix, and then adds another row (0 -1 1). Although you can't see it here, keep in mind that this line expands to:
 
 ::
 
@@ -134,7 +142,7 @@ This is Matlab syntax which creates a 3x3 identity matrix, and then adds another
   0 0 1
   0 -1 1
   
-In other words, 4 contrasts will be created: One simple effect for each regressor in the model, and one contrast between the 4-back and 1-back tasks. Take a moment to think about why we specified the last line the way we did; do these contrast weights match up with what you see in the design matrix?
+In other words, 4 contrasts will be created: One simple effect for each regressor in the model, and one contrast between the 4-back and 1-back tasks. Take a moment to think about why we specified the last line the way we did; do these contrast weights make sense given the order of the regressors in the design matrix?
 
 Make sure that the boxes are checked next to ``Data are already subtracted`` and ``Display last Z map``. The FMRI window should look like this:
 
