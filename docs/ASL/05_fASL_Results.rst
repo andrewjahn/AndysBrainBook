@@ -5,6 +5,7 @@ fASL Tutorial #5: Examining the Results
 ===============
 
 
+
 ------------
 
 Overview
@@ -12,7 +13,7 @@ Overview
 
 After running the analysis, a series of figures will be displayed on your screen - in total, there are 12 figures that are generated. We will group them into the following categories to make it easier to understand them:
 
-* Figures 3 and 4 are the **Time-series** figures;
+* Figures 3 and 4 are the **Time-Series** figures;
 * Figures 2, 5, and 6 are the **CompCorr** figures;
 * Figures 1, 7, and 8 are the **Design Matrix** figures;
 * Figures 9, 10, 11, and 12 are the **Results** figures.
