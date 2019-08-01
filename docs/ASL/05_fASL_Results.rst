@@ -67,3 +67,21 @@ The contrasts that you created are shown in the right panel of Figure 8. (The le
 The Results Figures
 ***********
 
+The last group of figures show the results of your analysis, weighted by the contrasts specified above - one figure is generated for each contrast.
+
+Figure 9 depicts the first contrast, which compares the data to baseline. (This figure and the following ones are displayed in *lightbox view*, which shows a series of axial slices starting at the top of the brain in the top-right panel, and descending slice by slice to the left and down.) Virtually every voxel within the brain should be active, as represented by yellow and red colors; some of the voxels outside the brain will be blue.
+
+
+.. figure:: 05_Figure9_Baseline.png
+
+The activation of the 1-back and 4-back conditions, as compared to baseline, is shown in Figures 10 and 11:
+
+.. figure:: 05_Figure10_1Back.png
+
+.. figure:: 05_Figure11_4Back.png
+
+Lastly, the contrast between the 4-back and 1-back tasks is shown in the last figure, Figure 12:
+
+.. figure:: 05_Figure12_4-1Back.png
+
+Note the higher CBF values in the fronto-lateral regions, which is what we would expect in a working memory task.
