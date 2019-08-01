@@ -12,13 +12,13 @@ Overview of Working Memory
 
 Working memory refers to the ability to simultaneously hold multiple items in one's conscious attention. Think of a time when someone told you to write down an event on your calendar: You are given the date, time, and location, and then you need to write it down. Most likely you found yourself repeating those items, either mentally or aloud, as you tried to remember them. 
 
-In light of this example, let's refine our definition: Working memory is the ability to keep certain pieces of information in your awareness while suppressing irrelevant thoughts. These pieces of information - names, dates, numbers - can either be something you just read or heard, or they can be called up from longer-term memory; that is, they can be things you learned days or years ago. Working memory allows you to brings these items to the front of your thoughts and then juggle, manipulate, and rearrange them as needed.
+In light of this example, let's refine our definition: Working memory is the ability to keep certain pieces of information in your awareness while suppressing irrelevant thoughts. These pieces of information - names, dates, numbers - can either be something you just read or heard, or they can be retrieved from longer-term memory; that is, they can be things you learned days or years ago. Working memory is the maintaining of these items in the front of your thoughts and then juggling, manipulating, and rearranging them as needed.
 
 
 The N-Back Task
 ********************
 
-As we saw from the above example, working memory is used in all kinds of everyday situations. But how do we tap into it and measure it in a laboratory? The most popular versions of working memory tasks are the spatial memory working task and the letter working memory task. We will focus here on the letter working memory task, as that is the one that was used during the ASL scan.
+As we saw from the above example, working memory is used in all kinds of everyday situations. But how do we tap into it and measure it in a laboratory? The most popular versions of working memory tasks are the spatial memory working task and the letter working memory task. We will focus here on the letter working memory task, as that is the one that was used during the ASL scan you will analyze.
 
 Working memory tasks are usually **continuous**; that is, the subject will continuously monitor a stream of stimuli - such as letters shown at regular intervals - and keep in mind a rule for whether to respond or not. These rules often take the form of an **N-back** rule (also referred to as N-back tasks): respond to the letter on the screen if you saw that same letter N letters ago.
 
