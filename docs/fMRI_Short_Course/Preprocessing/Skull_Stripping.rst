@@ -1,7 +1,9 @@
-.. _Skull_Stripping.rst
+.. _Skull_Stripping:
 
 Chapter 1: Brain Extraction (also known as "skullstripping")
-^^^^^^^^^^
+==============================
+
+--------------------
 
 Since fMRI studies focus on brain tissue, our first step is to remove the skull and non-brain areas from the image. FSL has a tool for this called **bet**, or the Brain Extraction Tool. It is the first button listed on the FSL GUI (indicated by "A" in the figure below). If you click on this button, another window opens that allows you to specify the Input image to skullstrip and what to label the Output image that has been skullstripped (B), and an expandable sub-window that allows you to specify advanced options (C).
 
