@@ -109,7 +109,7 @@ And the following durations:
 Then click ``Add to Matrix``. Lastly, in the field under ``Save Matrix as``, type ``NBack_Matrix`` and click ``SAVE``. When you have done that, close out of the window.  If you have done everything correctly, your design matrix should look like this:
 
 .. figure:: 04_ASL_Design_Matrix.png
-
+  :scale: 50%
 
 .. note::
 
