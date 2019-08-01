@@ -4,8 +4,6 @@
 fASL Tutorial #5: Examining the Results
 ===============
 
-
-
 ------------
 
 Overview
