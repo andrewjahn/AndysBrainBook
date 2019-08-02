@@ -103,7 +103,7 @@ Which will return two numbers per mask. The first number is the number of voxels
 How can I unwarp my data?
 ****************
 
-note::
+.. note::
 
   I will expand upon this in a more developed section; the following are some quick notes, so that I don't forget how I did this.
 
