@@ -155,6 +155,19 @@ See these websites for more details about field-map unwarping a functional image
 2. `More detailed topup guide <http://ftp.nmr.mgh.harvard.edu/pub/dist/freesurfer/tutorial_packages/centos6/fsl_507/doc/wiki/topup(2f)TopupUsersGuide.html>`__
 3. `Lewis Center for neuroimaging: Using field maps <https://lcni.uoregon.edu/kb-articles/kb-0003>`__
 
+
+
+How do I merge multiple ROIs into a Single File?
+**************
+
+1. Merge all of the publication ROIs into one file using fslmaths to add them together (fslmerge, on the other hand, will concatenate the volumes in time, and each ROI will be in a separate volume);
+2. Merge the other ROIs using step 1 above;
+3. Multiply the merged theoretical ROI dataset by 2, using fslmaths (e.g., fslmaths theoretical_ROIs.nii -mul 2 theoretical_ROIs_2s.nii);
+4. Multiply the merge Neurosynth ROI dataset by 3 (fslmaths neurosynth_ROIs.nii -mul 3 neurosynth_ROIs_3s.nii);
+5. Merge all of the datasets together using fslmaths (e.g., fslmaths pub_ROIs.nii -add theoretical_ROIs_2s.nii -add neurosynth_ROIs_3s.nii all_ROIs.nii)
+
+View it in fsleyes and see if that is what you want.
+
 Other Questions
 **********
 
