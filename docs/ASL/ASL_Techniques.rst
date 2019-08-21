@@ -4,7 +4,32 @@
 fASL Tutorial #1: Background
 ============================
 
+.. note::
+    
+    This section is still under construction. Check back soon!
+
 -------------
+
+
+The brain’s metabolic activity requires nutrients to function.  As function goes up, so does the demand for oxygen and glucose and the brain tries to make up the demand by dilating the arterioles, which results in an increase in blood flow to the area.  There is a complicated chain of chemical signals that lead to this vasodilation but we will not talk about that here.  Importantly, though, the increase in blood flow tends to overcompensate the demand in the short term.
+
+This property of the brain’s vasculature is very useful in that it makes blood flow a very good marker of neuronal activity.  It is spatially coarse and a bit slow, but detecting changes in flow is a great way to detect changes in activity.  From a clinical point of view, this is very valuable as it tells you if brain tissue is healthy or not.   For example, tumors are very active and demand a lot of blood flow.  Some neurodegenerative diseases reduce the blood supply.
+
+From a cognitive neuroscience  point of view, blood flow is a great way to map brain function in the brain.  We can look for changes in blood flow during a mental task and those changes can tell us which regions of the brain were responsible for that mental task.  Neuroscientists have been using this sort of idea since the 80’s, primarily through PET scanning.
+
+So, how does one measure blood flow in the brain?
+
+One way is to measure the velocity of arterial blood with doppler ultrasound, or phase contrast MRI, but that’s not very good for brain mapping.  A better way to get images of blood flow is to inject some sort of tracer and then collect images of the tracer and see how much tracer accumulated int each region over time.  More tracer accumulation implies more flow to the area.
+
+At this point, let’s  take a moment to make a distinction between blood flow and perfusion.  Technically speaking, blood flow refers to the blood that is in the larger vasculature, whereas perfusion refers to the blood that gets into capillaries and exchanges nutrients and water into the tissue.  Perfusion is generally a finer indicator of where brain activity happens.
+
+At any rate, tracer injections were used since the fifties to measure perfusion in different organs.  PET scanners use radioactive water to measure perfusion, in addition to being able to trace radioactively labeled glucose or receptor binding molecules.  MRI offers exquisite spatial resolution and detail, and it can also be used to measure perfusion by injecting contrast agents that will affect the MR signal, typically different gadolinium compounds.
+
+However, injecting tracers is not very practical.  There is the obvious fact of having to stick a needle in a participant, then there is radiation or toxicity, and the fact that it takes time for the tracer to leave the body before we can repeat the experiment… and then there is the fact that that the injection’s contents (‘bolus’) spreads out before it gets to the brain and it makes it harder to calculate the perfusion rate.
+
+And that’s where arterial spin labeling (ASL) comes in.  Imagine that instead of injecting a tracer, we could create a tracer just upstream of the brain (or another organ) without actual injection.  ASL does exactly that by using radiofrequency pulses that change the magnetic state of the water molecules in the blood just before they get into the brain.  As they get into the brain, they will affect the signal intensity of the image.
+
+There are multiple schemes of pulses and image acquisitions that you can use, but the most popular and effective one at this time is the “pseudo-continuous” ASL technique, depicted in the cartoon.
 
 
 Overview
