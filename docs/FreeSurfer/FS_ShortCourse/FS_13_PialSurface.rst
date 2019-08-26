@@ -96,16 +96,35 @@ Pial Surface Errors
 
 A related problem is an inaccurate pial surface, which can be caused by failures in skull-stripping or removal of dura mater. As we've seen, however, the remedies for those failures can remove cortex, which can also result in an inaccurate estimate of the pial surface. A more accurate method is to manually remove those parts of the surface which trace parts of the nearby skull or dura mater.
 
-In this example, let's go back to subject 117. Load the subject's ``brainmask.mgz`` image and pial surfaces with this command:
+In this example, let's go back to subject 117 (``cd sub-117_ses-BL_T1w``). Load the subject's ``brainmask.mgz`` image and pial surfaces with this command:
 
 ::
 
   freeview -v mri/brainmask.mgz -f surf/lh.pial:edgecolor=red surf/rh.pial:edgecolor=red surf/lh.white:edgecolor=yellow surf/rh.white:edgecolor=yellow
   
-If you scroll to slice 92 in the Coronal viewing pane, you will notice that the pial surface (traced in red) appears to include 
+In slice 128 in the Coronal viewing pane, you will notice that the pial surface (traced in red) appears to include parts of the skull. Our goal is to remove these voxels using the ``Recon Edit`` tool, the icon in the upper left which shows the outline of a head with an "R" written on it. Make sure that the ``brainmask`` volume is highlighted in the sidebar, and then click on the Recon Edit button and make sure that the ``Recon editing`` box is checked. In the viewing pane, zoom in on the pial surface that contains skull, hold down the shift key, and then click and drag to remove any voxels that have been misclassified as pial surface.
+
+.. figure:: 13_PialSurface_Edits.png
+
+  Example of editing the pial surface. The area marked by the orange circle indicates a region where the pial surface includes skull; the skull voxels should be erased during the pial surface editing.
+
+.. note::
+
+  Although it can be difficult at times to determine what is skull and what is cortex, usually the voxels of the skull are slightly brighter than their neighbors. Be conservative with your edits, and judge whether the new outline is more anatomically correct than the previous one.
+
+
+The pial surface on this particular part of the skull will be shown from slices 128 through about 117. You will probably see other areas that need editing as well. When you have finished making your edits, rerun recon-all using this command:
+
+::
+
+  recon-all -s sub-117_ses-BL_T1w -autorecon-pial
+
+As always, check the regenerated surfaces to make sure that they are an improvement.
 
 ---------
 
 
 Video
 *********
+
+For a video overview of how to fix skull-stripping and pial surface errors, click `here <https://www.youtube.com/watch?v=WaPtktm2EX4&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=12>`__.
