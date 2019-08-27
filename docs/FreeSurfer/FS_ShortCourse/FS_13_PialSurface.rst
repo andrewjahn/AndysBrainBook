@@ -47,6 +47,8 @@ This will create a new brainmask.mgz file, which now has more of the skull remov
 
 .. figure:: 13_sub117_wsThresh_5.png
 
+  :scale: 50%
+
 
 Using the -gcut option
 ^^^^^^^
@@ -104,7 +106,7 @@ In this example, let's go back to subject 117 (``cd sub-117_ses-BL_T1w``). Load 
   
 In slice 128 in the Coronal viewing pane, you will notice that the pial surface (traced in red) appears to include parts of the skull. Our goal is to remove these voxels using the ``Recon Edit`` tool, the icon in the upper left which shows the outline of a head with an "R" written on it. Make sure that the ``brainmask`` volume is highlighted in the sidebar, and then click on the Recon Edit button and make sure that the ``Recon editing`` box is checked. In the viewing pane, zoom in on the pial surface that contains skull, hold down the shift key, and then click and drag to remove any voxels that have been misclassified as pial surface.
 
-.. figure:: 13_PialSurface_Edits.png
+.. figure:: 13_PialSurface_Edit.png
 
   Example of editing the pial surface. The area marked by the orange circle indicates a region where the pial surface includes skull; the skull voxels should be erased during the pial surface editing.
 
@@ -120,6 +122,10 @@ The pial surface on this particular part of the skull will be shown from slices 
   recon-all -s sub-117_ses-BL_T1w -autorecon-pial
 
 As always, check the regenerated surfaces to make sure that they are an improvement.
+
+.. figure:: 13_PialSurface_Edit_Before_After.png
+
+  Example of the surface reconstruction before (left panel) and after pial surface edits (right panel).
 
 ---------
 
