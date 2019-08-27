@@ -15,6 +15,8 @@ In any case, this tutorial will focus on E-Prime, since it is one of the most po
 
   The layout of a typical E-Prime experiment. The sidebars on the left contain a list of objects that can be placed on the experiment timeline (the "Toolbox" sidebar); a list of properties for the currently selected object, such as the name, duration, and color ("Properties"); a representation of the experiment from start to finish ("Structure"); and a space for the currently selected object.
   
+The backbone of an E-Prime experiment is the **procedure** object; each new E-Prime experiment starts with a procedure objects called **SessionProc**. If you double-click on the object to see its contents, you will see a window that contains a horizontal line - the **Procedural Timeline**. It depicts the timeline of the experiment going from left to right. As we construct our experiment with **objects**, the timeline will present each object in sequence as it appears on the timeline. How these objects are constructed and how we use them to build an experiment, we will turn to in the next chapter.
+  
   
 Video
 **********
