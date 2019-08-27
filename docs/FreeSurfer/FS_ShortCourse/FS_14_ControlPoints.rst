@@ -44,6 +44,8 @@ You can add control point by clicking with the left mouse button on voxels that 
 .. note::
 
   If you need to remove a control point, you can either undo it by pressing ``cmd+z``, or by holding ``Shift`` and left-clicking on the control point you want to remove.
+  
+  Also, for other considerations of where to set control points, see the `FreeSurfer intensity normalization tutorial <https://surfer.nmr.mgh.harvard.edu/fswiki/FsTutorial/ControlPointsV6.0>`__.
 
 When you are done setting the control points, click on ``File -> Save Point Set``, and save the file as ``control.dat`` in the subject's ``tmp`` directory. Then close freeview and type the following from the subject directory:
 
