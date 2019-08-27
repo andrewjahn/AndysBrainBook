@@ -1,7 +1,7 @@
-.. _EP_01_Overview:
+.. _EP_01_Introduction:
 
 =================
-E-Prime Tutorial #1: Overview of E-Prime
+E-Prime Tutorial #1: Introduction to E-Prime
 =================
 
 
