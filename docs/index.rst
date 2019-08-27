@@ -54,24 +54,32 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     fMRI_Short_Course/fMRI_09_ROIAnalysis
     fMRI_Short_Course/fMRI_10_Summary
     fMRI_Short_Course/fMRI_Appendices
-   
-       
-.. toctree::
-   :maxdepth: 1
-   :caption: fMRI Concepts
-
-   Practicals/DesignOptimization
-
-
-.. note::
-
-    The following modules are under construction. Check back soon for more updates!
+    
     
 .. toctree::
     :maxdepth: 1
     :caption: FreeSurfer
     
     FreeSurfer/FreeSurfer_Introduction
+    
+
+
+
+.. note::
+
+    The following modules are under construction. Check back soon for more updates!
+ 
+.. toctree::
+    :maxdepth: 1
+    :caption: E-Prime
+    
+    E-Prime/E-Prime_Introduction
+ 
+.. toctree::
+   :maxdepth: 1
+   :caption: fMRI Concepts
+
+   Practicals/DesignOptimization
     
 .. toctree::
     :maxdepth: 1
