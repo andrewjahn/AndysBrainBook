@@ -73,7 +73,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :maxdepth: 1
     :caption: E-Prime
     
-    E-Prime/E-Prime_Introduction
+    E-Prime/E-Prime_Overview
  
 .. toctree::
    :maxdepth: 1
