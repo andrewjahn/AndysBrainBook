@@ -10,7 +10,7 @@ E-Prime is a stimulus presentation software that is used in both behavioral and 
    :maxdepth: 1
    :caption: Preprocessing Steps
 
-   E-Prime_ShortCourse/EP_01_Overview
+   E-Prime_ShortCourse/EP_01_Introduction
    E-Prime_ShortCourse/EP_02_Objects
    E-Prime_ShortCourse/EP_03_Duration_Termination_Pre-Release
    E-Prime_ShortCourse/EP_04_Lists_Procedures_Attributes
