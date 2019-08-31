@@ -28,8 +28,8 @@ This new Procedure Object is similar to the Procedure Object at the top of the S
   This illustrates how E-Prime is organized **hierarchically**. The main Procedure Object determines the flow of the overall experiment, while the List Object allows you to specify Procedures nested within that Procedure. The experiment will run all of the Objects specified by the List Object before returning to the primary Experimental Timeline.
   
   
-Looping Over Stroop Trials
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+Creating a List of Stroop Trials
+********************************
 
 Instead of creating new Fixation and StroopSlide objects on the new Experimental Timeline (i.e., StroopProc), we can save time by simply clicking and dragging the Fixation and StroopSlide objects from the main Experimental Timeline onto the StroopProc timeline. Double-click on the StroopProc object to open a new timeline window, and then click and drag the above-mentioned objects onto the timeline. Notice that when an object is copied from one timeline onto another, it leaves the original copy in its place; the new copy has the same properties as the original. If you move an object around its own timeline, it is simply moved to a different place without making a copy.
 
@@ -43,4 +43,21 @@ We will now create each possible combination of trial types in our experiment. F
 
 .. figure:: 04_StroopList_Example.png
 
+Looping Over Stroop Trials
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+In the List Object above, there are a few lines below the word "Summary", which say:
+
+::
+
+  4 Samples (1 cycle x 4 samples/cycle)
+  1 Cycle equals 4 samples
+  Sequential Selection
+  
+This means that there are 4 samples in the current list, and that the list is run one time. "Sequential Selection" indicates that each of the rows of the list are run consecutively.
+
+To make our experiment more compact and to repeat the same list of trials that we have created in our List object, click on the "Properties" button (i.e., the icon with a hand pointing to a white card). There are several tabs in the window that opens, but we will focus here on the "Selection" and "Reset/Exit" tabs. 
+
+The "Selection" tab allows you to specify the order in which the trials are selected. The default is Sequential, but we can change the selection to "Random". This will randomly select a trial with the given attributes in our list, and then select each of the other trials until all of them have been selected; then the list will either exit or repeat, if we indicate it to do so. "Random with Replacement" allows the list to re-select a trial even after it has been selected on the current cycle.
+
+The "Reset/Exit" tab specifies how many trials are in a **cycle**, or how many trials are run before the List object either repeats or exits. The deafult of "All samples" will run through however many samples there are; or, you can only run a limited number of samples. The "Exit List" panel in the lower right allows you to specify how many cycles you want to run in the current List. In our case, since we want to run two trials of each condition type, we will change this to 2 cycles. Once you have finished making these changes, notice how the text in the summary panel is updated, and then click OK.
