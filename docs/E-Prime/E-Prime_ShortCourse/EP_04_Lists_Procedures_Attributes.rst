@@ -60,4 +60,46 @@ To make our experiment more compact and to repeat the same list of trials that w
 
 The "Selection" tab allows you to specify the order in which the trials are selected. The default is Sequential, but we can change the selection to "Random". This will randomly select a trial with the given attributes in our list, and then select each of the other trials until all of them have been selected; then the list will either exit or repeat, if we indicate it to do so. "Random with Replacement" allows the list to re-select a trial even after it has been selected on the current cycle.
 
-The "Reset/Exit" tab specifies how many trials are in a **cycle**, or how many trials are run before the List object either repeats or exits. The deafult of "All samples" will run through however many samples there are; or, you can only run a limited number of samples. The "Exit List" panel in the lower right allows you to specify how many cycles you want to run in the current List. In our case, since we want to run two trials of each condition type, we will change this to 2 cycles. Once you have finished making these changes, notice how the text in the summary panel is updated, and then click OK.
+The "Reset/Exit" tab specifies how many trials are in a **cycle**, or how many trials are run before the List object either repeats or exits. The deafult of "All samples" will run through however many samples there are; or, you can run a limited number of samples. The "Exit List" panel in the lower right allows you to specify how many cycles you want to run in the current List. In our case, since we want to run two trials of each condition type, we will change this to 2 cycles. Once you have finished making these changes, notice how the text in the summary panel is updated, and then click OK.
+
+Adding Congruent and Correct Response Attributes
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Later on, we will be comparing the reaction times for congruent compared to incongruent trials, as well as the accuracy between the conditions. From the StroopList object, add two more attributes: Condition and CorrectResp. If the StroopWord and StroopColor are the same, label that trial as "congruent"; else, label it as "incongruent". If the StroopColor attribute is blue, label the correct response as "f"; if the StroopColor is red, the correct response will be "j". When you are finished, the List object attributes should look like this:
+
+.. figure:: 04_List_Completed.png
+
+
+Using Attributes in other Objects
+********************************
+
+The attributes that you specified in the List object can be used in any of the objects that are within the Procedure timeline of that List object. For example, since we created a Procedure called "StroopProc" in our StroopList object, the attributes in that object can be used in either the Fixation or StroopSlide objects.
+
+In this case, open the StroopSlide object, click on the text object in the middle of the screen (i.e., the word "blue"), and then click on the sub-object property button. Replace the word "blue" with the string ``[StroopWord]``, and replace the word "red" after the ForeColor property with the string ``[StroopColor]``. When you are finished, the sub-object properties page should look like the following:
+
+.. figure:: 04_StroopSlide__subobject_Properties.png
+
+We can also use the CorrectResp attribute that we assigned in the List object. Open the Properties tab for the StroopSlide object, set the Allowable responses to ``fj`` and the Correct response to ``[CorrectResp]``, and change the End Action to ``(none)``. This allows the subject to make a response within the time that the object is presented without terminating the current object when a response is made.
+
+.. figure:: 04_StroopSlide_Properties.png
+
+When a trial from the List is selected, the corresponding attributes will then populate the object where they are indicated with brackets. For example, if trial number 3 is randomly selected from the List object, it will have the following properties:
+
+::
+
+  StroopWord = blue
+  StroopColor = red
+  Condition = incongruent
+  CorrectResp = j
+  
+In the StroopSlide object for that trial, the contents of each word on the left will be replaced by the value on the right. The following figure shows how the attributes are used in the StroopSlide object:
+
+.. figure:: 04_StroopSlide_Attributes.png
+
+You can set any attributes you want, using them in any object within the scope of the procedure timeline of the current List object. This allows you to create more flexible experiments and to be more economical with the amount of objects you use to loop over multiple trials.
+  
+  
+Video
+**********************
+
+For a video overview of Lists, Procedures, and Attributes, click `here <https://www.youtube.com/watch?v=JHhZZAGkElU&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=4>`__.
