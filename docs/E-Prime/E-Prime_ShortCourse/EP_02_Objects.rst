@@ -40,7 +40,7 @@ Click and drag some other objects onto the timeline, such as Slides and ImageDis
 
 The next tutorial will focus on the more versatile Slide object, as well as more advanced properties that give you greater control over your objects. Once these fundamentals are mastered, it becomes easier to build an experiment to more precisely reflect your tastes - a match between what you envision and what you create.
 
-
+----------------
 
 Video
 ***********
