@@ -31,11 +31,13 @@ Setting the Active State Field
 
 The Slide State that is presented depends on the ActiveState field, which is found in the property pages of the Slide. The Slide State names can be changed through the sub-object properties pages, and then the ActiveState can point to any one of the Slide States.
 
+.. figure:: 07_SlideStates.png
+
+  Example of Slide States. In this case, Stroop is the ActiveState. We can change this to an attribute, so that the ActiveState is changed depending on which trial is selected by the List object.
+
 You will first need to rename the Slide States of each sub-object. Click on the tab at the bottom of the StroopSlide object that says ``Default``, and select ``Default`` from the dropdown menu at the top of the toolbar. Then click on the sub-object properties button and rename ``Default`` to ``Stroop``. Do the same procedure for the Slide State that contains the Car image (in this case, the Slide State by default is named ``State1``). Change this to ``Car``.
 
 From the Car Slide State, click on the Car image and click on the sub-object properties button. Replace the string ``BlueCar`` with the string ``[Condition]``; this will display the car image that is indicated in the StroopList object. Lastly, click on the StroopSlide object's properties button (i.e., the white sheet of paper with a finger pointing to it), click on the ``General`` tab, and type ``[StateName]`` in the ActiveState field. This will activate either the Stroop or the Car Slide State, depending on which trial is selected from the List object.
-
-.. figure:: 07_SlideStates.png
 
 Lastly, remember to update the Instructions object so that the subject knows to respond to the color of either the word or the car that is presented:
 
