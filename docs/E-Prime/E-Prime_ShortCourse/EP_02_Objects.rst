@@ -1,11 +1,10 @@
 .. _EP_02_Objects:
 
 =============================================
-E-Prime Tutorial #2: Introduction to E-Prime
+E-Prime Tutorial #2: Objects
 =============================================
 
-
-Introduction to Objects
+Overview
 ***********************
 
 **Objects** are the building blocks of an experiment. Every E-Prime experiment is built upon the idea of **object-oriented programming**, which means that the user selects pre-designed objects from the E-Prime toolbox, and then arranges and modifies them to suit his experiment.
