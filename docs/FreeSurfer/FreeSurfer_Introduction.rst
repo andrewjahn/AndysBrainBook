@@ -20,7 +20,7 @@ This course will show you how to download and install FreeSurfer, and how to ana
 
 .. toctree::
    :maxdepth: 1
-   :caption: Preprocessing Steps
+   :caption: Start to Finish Analysis with FreeSurfer
 
    FS_ShortCourse/FS_01_BasicTerms
    FS_ShortCourse/FS_02_DownloadInstall
