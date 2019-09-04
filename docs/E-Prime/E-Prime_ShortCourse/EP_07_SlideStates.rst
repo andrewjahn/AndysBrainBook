@@ -1,4 +1,4 @@
-.. _07_SlideStates:
+.. _EP_07_SlideStates:
 
 =============================================
 E-Prime Tutorial #7: Slide States
