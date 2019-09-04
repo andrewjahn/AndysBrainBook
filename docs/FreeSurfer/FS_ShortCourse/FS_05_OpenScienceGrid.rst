@@ -2,7 +2,7 @@
 
 .. warning::
 
-  fsurf has been deprecated and is no longer supported; the Open Science Grid will no longer be creating accounts for new users. I have kept the following tutorial available in order to illustrate how jobs are submitted to a supercomputer - this may be superseded by a tutorial about using another supercomputer, such as Michigan's Flux computer.
+  fsurf has been deprecated and is no longer supported; the Open Science Grid will no longer be creating accounts for new users. I have kept the following tutorial available in order to illustrate how jobs are submitted to a supercomputer - this may be superseded by a tutorial about using another supercomputer, such as Michigan's "Great Lakes" supercomputer.
 
 =====================
 FreeSurfer Tutorial #5: Using the Open Science Grid
@@ -15,27 +15,13 @@ Time Constraints with Recon-All
 
 Even if you are able to run multiple jobs with the parallel command, it may not be practical for very large datasets - for example, a study that includes hundreds of subjects. You also may not want to have all of your processing cores tied up in running recon-all, and would prefer to have your computer free to use for other projects.
 
-One option is to use a supercomputer, which is available at most universities. If you don't have access to one, however, then you can use a publicly available supercomputer hosted by the `Open Science Grid <https://opensciencegrid.org/>`__, which uses processing cores across over a hundred sites - laboratories, universities, and other institutions. You can submit a recon-all command to the Open Science Grid, which is then distributed to one of the many cores that are available. For most imaging researchers, there is essentially no limit on how many jobs you can submit; one or two hundred isn't very large by supercomputer standards, and the entire batch can be finished in less than a week.
-
-
-Downloading the Example Dataset
-********
-
-For the rest of our tutorials, we will be using a `dataset from openneuro.org https://openneuro.org/datasets/ds000174/versions/1.0.1>`__ that contains anatomical scans from cannabis users and controls. It is a longitudinal study with two timepoints - one baseline scan and one follow-up scan - and individual difference measures such as age and sex. This will enable us to do several different types of analyses, such as group comparisons, longitudinal analyses, and individual difference correlations with grey matter measurements. Download the dataset, unpack it by typing ``tar xzf ds174_R1.0.0_all_data.gz``, and then rename the folder by typing ``mv ds174_R1.0.0 Cannabis``.
-
-The dataset contains one group of 20 cannabis smokers and one group of 22 controls (i.e., individuals who have never smoked cannabis). Subjects whose numerical ID begins with "1" belong to the cannabis group, and subjects whose numerical ID begins with a "2" or "3" belong to the control group. For example, sub-108 would belong to the cannabis group, and sub-320 would belong to the control group.
-
-Each subject's directory contains two sub-directories labeled ``ses-BL``, signifying the Baseline session, and ``ses-FU``, signifying the Follow-Up session. Within each of these folders is another sub-directory called anat, which contains the anatomical scan for that session. To explore how the dataset is organized, navigate to the Cannabis directory and type the following command:
-
-::
-
-  ls sub-112/ses-BL/anat
+One option is to use a **supercomputer**, which is available at most universities. If you don't have access to one, then you can use a publicly available supercomputer hosted by the `Open Science Grid <https://opensciencegrid.org/>`__, which uses processing cores on computers located across over a hundred sites - laboratories, universities, and other institutions. You can submit a recon-all command to the Open Science Grid, which is then distributed to one of the many cores that are available. For most imaging researchers there is essentially no limit on how many jobs you can submit; a batch containing one or two hundred jobs isn't very large by supercomputer standards, and the entire batch can usually be finished in less than a week.
 
 
 Preparing Your Data for the Open Science Grid
 ********
 
-Before you can use any of the Open Science Grid resources, you must create an account. This can be filled out `here <https://support.opensciencegrid.org/support/solutions/articles/12000008488-set-up-fsurf-on-your-laptop>`__.
+Before you can use any of the Open Science Grid resources, you must create an account `here <https://support.opensciencegrid.org/support/solutions/articles/12000008488-set-up-fsurf-on-your-laptop>`__.
 
 You will also need a command called ``fsurf`` to submit recon-all jobs to the Open Science Grid supercomputer. To download this command, type:
 
