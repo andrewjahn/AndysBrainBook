@@ -4,6 +4,9 @@
 E-Prime Tutorial #8: Inline Objects
 =============================================
 
+.. note::
+
+  This section is under construction.
 
 Overview of E-Basic
 ***********************
