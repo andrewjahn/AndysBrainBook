@@ -9,7 +9,7 @@ FreeSurfer Tutorial #6: Freeview
 Viewing Your Data
 *****************
 
-Each neuroimaging software package has a **data viewer**, or an application that allows you to look at your data. AFNI, SPM, and FSL all have data viewers which basically do the same thing: the user loads imaging data, usually anatomical or functional images, and can view them in three dimensions. More generally, you can load most any NIFTI file that contains any kind of imaging data - provided that it is a three-dimensional matrix of numbers.
+Each neuroimaging software package has a **data viewer**, or an application that allows you to look at your data. AFNI, SPM, and FSL all have data viewers which basically do the same thing: the user loads imaging data, usually anatomical or functional images, and can view them in three dimensions. Most viewers are able to load NIFTI files that contains any kind of imaging data.
 
 FreeSurfer has its own viewer called **Freeview**, which can by launched from the Terminal by typing ``freeview`` and pressing enter. It can load NIFTI images just like the other packages, and in addition it can load FreeSurfer-specific formats, such as data with ``.mgz`` and ``.inflated`` extensions. The image can be viewed in all three dimensions in the Viewing Panel, or you can change the layout so that only one viewing dimension is displayed.
 
@@ -23,7 +23,9 @@ The upper-left corner of Freeview contains the **Control Panel**, which shows th
 
 .. figure:: 06_Freeview_Demo.gif
 
-The **Toolbar** is underneath the Control Panel, and it contains options for changing the opacity, contrast, and color map of the images. When an image such as aseg.mgz is loaded, for example, the default is to color it as greyscale. A more informative color map, however, is the **FreeSurferColorLUT** (LUT = Look-Up Table), which color-codes each segment of the image according to a predefined table. Many of the images in FreeSurfer are encoded like this; it will take some time to find out which ones are, but a useful heuristic is to assume a look-up table for any image that is segmented (such as aseg.mgz) or parcellated (such as one of the atlases).
+The **Toolbar** is underneath the Control Panel, and it contains options for changing the opacity, contrast, and color map of the images. When an image such as aseg.mgz is loaded, for example, the default is to use a greyscale color palette. A more informative color map, however, is the **FreeSurferColorLUT** (LUT = Look-Up Table), which color-codes each segment of the image according to a predefined table. 
+
+Many of the images in FreeSurfer are encoded like this. It will take some time to find out which ones are, but a useful heuristic is to assume a look-up table for any image that is segmented (such as aseg.mgz) or parcellated (such as one of the atlases).
 
 Loading Volumes and Surfaces
 **********
@@ -35,7 +37,7 @@ Freeview can load both volumes and surfaces at the same time. To load a surface,
 Freeview Options from the Command Line
 **********
 
-Freeview has several command-line options you can use to save time. For example, if you wanted to create the same layout in the figure above - that is, load the orig.mgz file, the aseg.mgz file with the color look-up table, and the lh.pial file with a yellow edge color - you can type the following from the subject directory containing the ``mri`` and ``surf`` directories:
+Freeview has several command-line options you can use to save time. For example, if you wanted to create the same layout in the figure above - that is, load the orig.mgz file, the aseg.mgz file with the color look-up table, and the lh.pial file with a yellow edge color - you can type the following from the subject directory containing the ``mri`` and ``surf`` directories (e.g., navigate to the directory ``sub-101_ses_BL_T1w``):
 
 ::
 
