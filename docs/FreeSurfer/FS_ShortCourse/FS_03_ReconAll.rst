@@ -50,7 +50,7 @@ We will generate all of the images mentioned above with the command recon-all. A
 
   recon-all -s subj1 -i subj1_anat.nii -all
 
-Navigate to where your anatomical images are located. In this example, there are six anatomical scans from different subjects. If you want to process just one of them, type the following: 
+
 
 .. note::
 
@@ -60,11 +60,12 @@ Navigate to where your anatomical images are located. In this example, there are
   
   I also recommend adding the qcache option, which will smooth the data at different levels and store them in the subject’s output directory. These will be useful for :ref:`group level analyses <FS_08_GroupAnalysis>`, which we will cover in a future tutorial. If you’ve already run the recon-all preprocessing on your subjects, you can run qcache with the following command:
 
-  ::
+    ::
 
     recon-all -s <subjectName> -qcache
 
   Which should take about 10 minutes per subject.
+
 
 
 ---------
