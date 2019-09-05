@@ -11,7 +11,7 @@ Overview
 
 During preprocessing, FreeSurfer will perform a step called **intensity normalization**. This refers to a homogenization of the signal intensity of the white and grey matter, in order to better distinguish between the tissue types and make it easier to segment the brain.
 
-When intensity normalization fails, it is most obviously indicated by an inaccurate white matter surface. In that case, we will add **control points** to indicate which parts of cortex should be classified as white matter. These control points act like tiny lamps that illuminate their immediate surroundings; by increasing the signal intensity of nearby voxels, they increase the likelihood that the area will be classified as white matter.
+Intensity normalization failures are typically indicated by an inaccurate white matter surface. In that case, we will add **control points** to specify which parts of cortex should be classified as white matter. These control points act like tiny lamps that illuminate their immediate surroundings; by increasing the signal intensity of nearby voxels, they increase the likelihood that the area will be classified as white matter.
 
 Identifying Intensity Normalization Errors
 **********
@@ -29,6 +29,7 @@ In subject 128, we can see pockets of white matter that are not captured by the 
 In this particular case, parts of the frontal cortex have been removed. This isn't due to an over-aggressive skull-strip, as you might think; rather, the the subject has been de-identified by having its face removed, which unfortunately has removed areas of the frontal pole as well.
 
 .. figure:: 14_FaceRemoval.png
+  :scale: 50%
 
 Nevertheless, we will attempt to improve the surface estimates by setting control points and judge whether it is better or not.
 
@@ -37,7 +38,7 @@ Setting the Control Points
 
 Switch to the coronal view and zoom in on the frontal area of the brain. The intensity normalization errors start around slice 121. From the menu, click on ``File -> New Point Set``, and type the name ``control.dat``. Select the ``brainmask.mgz`` file as your template dataset.
 
-You can add control point by clicking with the left mouse button on voxels that seem to belong to the white matter, but which aren't encapsulated by the white matter surface. Be sparing with your placement of control points: do not place them inside the white matter surface, and do not place them in voxels that are clearly grey matter. Just two or three are enough to cover a moderate-sized area. Remember that they will extend their influence to nearby voxels as well.
+You can add a control point by clicking with the left mouse button on voxels that seem to belong to the white matter, but which aren't encapsulated by the white matter surface. Be sparing with your placement of control points: do not place them inside the yellow line, and do not place them in voxels that are clearly grey matter. Just two or three are enough to cover a moderate-sized area. Remember that they will extend their influence to nearby voxels as well.
 
 .. figure:: 14_ControlPoints.png
 
