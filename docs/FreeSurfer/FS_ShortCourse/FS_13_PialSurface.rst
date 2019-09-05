@@ -46,20 +46,19 @@ We can remove more of the skull by setting a lower watershed threshold, such as 
 This will create a new brainmask.mgz file, which now has more of the skull removed. You can examine the changes by using the same freeview command as above.
 
 .. figure:: 13_sub117_wsThresh_5.png
-
   :scale: 50%
 
 
 Using the -gcut option
 ^^^^^^^
 
-Even with a lower watershed threshold, there remain bits of skull and dura mater. You can use the -gcut option to remove the latter:
+Even with a lower watershed threshold, there are still bits of skull and dura mater that remain. You can use the -gcut option to remove the latter:
 
 ::
 
   recon-all -skullstrip -clean-bm -gcut -subjid sub-117_ses-BL_T1w
   
-This will take a few moments, and it will look as though the command is working; before it finishes, however, you will see this error message:
+If you run this command, however, after a few moments you will see this error message:
 
 ::
 
@@ -83,6 +82,7 @@ To examine how much dura was removed, load the ``brainmask.mgz``, ``T1.mgz``, an
 This will display the excised regions in fuschia; use the overlay slider to examine where the dura excision may have cut into the cortex, such as in the frontal area. In this subject the gcut option does a good job at removing dura mater, but has also removed small amounts of brain as well.
 
 .. figure:: 13_gcut_sub119.png
+  :scale: 50%
 
 
 .. note::
