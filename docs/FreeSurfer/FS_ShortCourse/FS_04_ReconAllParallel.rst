@@ -88,11 +88,15 @@ If you have set up the directory correctly, all of the subjects should be in a f
 
 ::
 
-  ls | grep ^sub- > subjList.txt
+  ls .. | grep ^sub- > subjList.txt
 
   for sub in `cat subjList.txt`; do
   cp ../${sub}/ses-BL/anat/*.gz .
   done
+  
+  gunzip *.gz
+  
+  SUBJECTS_DIR=`pwd`
   
   ls *.nii | parallel --jobs 8 recon-all -s {.} -i {} -all -qcache
   
