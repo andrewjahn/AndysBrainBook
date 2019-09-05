@@ -11,7 +11,7 @@ Overview
 
 The previous tutorials have focused on preparing the data for a group analysis: First, the data was preprocessed using recon-all, with different structural measurements calculated at each vertex; and second, we created an FSGD file and a contrast file indicating which groups we want to compare against each other.
 
-If you recall from a previous tutorial, I recommended using the ``qcache`` option when running recon-all. This will generate thickness, volume, and curvature maps at several different smoothing sizes, such as 0mm, 10mm, and 25mm full-width half-maximum kernels. One of the benefits of surface-based analysis is that you can use much larger smoothing kernels than you can in volumetric-based analyses, because there is no risk of smoothing across gyri. When you run the group analysis you can choose among any of these smoothing sizes.
+If you recall from a previous tutorial, I recommended using the ``qcache`` option when running recon-all. This will generate thickness, volume, and curvature maps at several different smoothing sizes, such as 0mm, 10mm, and 25mm full-width half-maximum kernels. One of the benefits of surface-based analysis is that you can use much larger smoothing kernels than you can in volumetric-based analyses, because there is no risk of smoothing across gyri. When you run the group analysis you can choose among any of the following smoothing sizes:
 
 
 .. figure:: 08_Qcache_Output.png
