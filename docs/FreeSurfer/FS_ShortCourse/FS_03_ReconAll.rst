@@ -44,13 +44,15 @@ These inflated surfaces can be inflated yet again, this time into a sphere. This
 Using the Recon-all command
 ********
 
-We will generate all of the images mentioned above with the command recon-all. All the command requires is a T1-weighted anatomical image with good contrast between the white matter and the grey matter. If your anatomical image is called subj1_anat.nii, for example, you can run recon-all with the following command:
+We will generate all of the images mentioned above with the command recon-all. All the command requires is a T1-weighted anatomical image with good contrast between the white matter and the grey matter. If you are in the Cannabis directory, navigate to sub-101's anatomical directory by typing ``cd sub-101/ses-BL/anat``. You can then run recon-all with the following command:
 
 ::
 
-  recon-all -s subj1 -i subj1_anat.nii -all
+  recon-all -s sub-101 -i sub-101_ses-BL_T1w.nii.gz -all
+  
+The ``-s`` option specifies the subject name, which you can set to whatever you want. The ``-i`` option points to the anatomical image that you will analyze; and the ``-all`` option will run all of the preprocessing steps on your data. Except for when you are rerunning a recon-all command after :ref:`editing the data <FS_12_FailureModes>`, you will always want to use the ``-all`` option.
 
-
+As the command runs, the output will be placed in a directory called SUBJECTS_DIR. By default, SUBJECTS_DIR is a variable that points to the directory $FREESURFER_HOME/subjects, in which FREESURFER_HOME is another variable pointing to the directory in which FreeSurfer was installed - such as ``/usr/local/freesurfer``. In other words, the output of this recon-all command will be in ``/usr/local/freesurfer/subjects``. 
 
 .. note::
 
@@ -58,15 +60,19 @@ We will generate all of the images mentioned above with the command recon-all. A
   Sudo chmod -R a+w $SUBJECTS_DIR
   And then rerun the recon-all command.
   
-  I also recommend adding the qcache option, which will smooth the data at different levels and store them in the subject’s output directory. These will be useful for :ref:`group level analyses <FS_08_GroupAnalysis>`, which we will cover in a future tutorial. If you’ve already run the recon-all preprocessing on your subjects, you can run qcache with the following command:
 
-    ::
+I also recommend adding the qcache option, which will smooth the data at different levels and store them in the subject’s output directory. These will be useful for :ref:`group level analyses <FS_08_GroupAnalysis>`, which we will cover in a future tutorial. If you’ve already run the recon-all preprocessing on your subjects, you can run qcache with the following command:
 
-    recon-all -s <subjectName> -qcache
+  ::
 
-  Which should take about 10 minutes per subject.
+  recon-all -s <subjectName> -qcache
 
+Which should take about 10 minutes per subject.
 
+Next Steps
+**********
+
+We could run recon-all for each of our subjects, one by one. You will soon find, however, that this is tedious and impractical for analyzing large datasets. We will learn how to speed up the process in the next chapter by using a command called ``parallel``.
 
 ---------
 
