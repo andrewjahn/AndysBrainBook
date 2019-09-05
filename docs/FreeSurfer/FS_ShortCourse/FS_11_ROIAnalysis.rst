@@ -34,7 +34,7 @@ Let's begin with ``asegstats2table``. A typical command would look like this:
 
 
 1. The ``--subjects`` option specifies a list of subject names; 
-2. ``--common-segs`` signalizes to output segmentations common to all of the subjects - in case one segmentation is different from the others, do not exit the common with errors; 
+2. ``--common-segs`` signalizes to output segmentations common to all of the subjects - in other words, if one subject's number of segmentations is different from the others, do not exit the command with errors; 
 3. ``--meas`` indicates which structural measurement to extract from the table ("volume" is the default; alternatives are "mean" and "std");
 4. ``--stats`` points to the stats file that the segmentation data will be extracted from; and
 5. ``--table`` writes the extracted measurement to a text file, organized by subject name.
@@ -46,7 +46,7 @@ The command ``aparcstats2table`` requires similar arguments. Here is a typical c
 
   aparcstats2table --subjects sub-101 sub-103 --hemi lh --meas thickness --parc=aparc --tablefile=aparc.txt
   
-In this command you can specify the hemisphere to analyze (``--hemi``), the measurement to extract (``--meas``, with the options of "thickness", "volume", "area", and "meancurv"), and which atlas to use for parcellation (``--parc``; you can choose either "aparc", the Desikan-Killinay atlas, or "aparc.a2009s", the Destrieux atlas). The label for the output file is specified with the ``--tablefile`` option. Include as many subjects as you like in your analysis.
+In this command you can specify the hemisphere to analyze (``--hemi``), the measurement to extract (``--meas``, with the options of "thickness", "volume", "area", and "meancurv"), and which atlas to use for parcellation (``--parc``; you can specify either "aparc", the Desikan-Killinay atlas, or "aparc.a2009s", the Destrieux atlas). The label for the output file is specified with the ``--tablefile`` option. Include as many subjects as you like in your analysis.
 
 
 Next Steps
