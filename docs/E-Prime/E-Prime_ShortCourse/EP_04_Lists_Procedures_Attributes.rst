@@ -4,6 +4,7 @@
 E-Prime Tutorial #4: Lists, Procedures, and Attributes
 ======================================================
 
+----------
 
 Expanding the Experiment
 ************************
@@ -97,7 +98,9 @@ In the StroopSlide object for that trial, the contents of each word on the left 
 .. figure:: 04_StroopSlide_Attributes.png
 
 You can set any attributes you want, using them in any object within the scope of the procedure timeline of the current List object. This allows you to create more flexible experiments and to be more economical with the amount of objects you use to loop over multiple trials.
-  
+
+
+-----------
   
 Video
 **********************
