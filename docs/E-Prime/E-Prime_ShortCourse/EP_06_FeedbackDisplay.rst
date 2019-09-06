@@ -4,6 +4,7 @@
 E-Prime Tutorial #6: The FeedbackDisplay Object and an Introduction to Slide States
 =============================================
 
+-------------
 
 Overview
 *********
