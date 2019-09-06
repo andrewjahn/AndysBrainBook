@@ -19,6 +19,8 @@ At this point you could run the experiment by clicking the **Run** icon - a tiny
 Advanced Properties
 ***********************
 
+----------
+
 Duration and Input Masks
 ^^^^^^^^^^^
 
