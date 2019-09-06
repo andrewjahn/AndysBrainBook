@@ -1,7 +1,7 @@
 .. _AFNI_fMRI_Intro:
 
 ==============
-Introduction
+Introduction to AFNI
 ==============
 
 ------------
