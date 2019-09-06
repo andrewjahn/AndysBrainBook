@@ -28,7 +28,3 @@ The following tutorials will show you how to analyze a sample dataset with AFNI.
     AFNI_Short_Course/AFNI_08_ROIAnalysis
     AFNI_Short_Course/AFNI_09_Summary
     AFNI_Short_Course/AFNI_Appendices
-
-
-
-*Probably.
