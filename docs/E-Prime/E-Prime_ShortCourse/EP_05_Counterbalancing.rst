@@ -4,6 +4,7 @@
 E-Prime Tutorial #5: Counterbalancing
 =============================================
 
+-------------
 
 Overview
 ***********************
@@ -54,6 +55,8 @@ We will do the same thing for the CorrectResp attribute of the StroopList object
 .. figure:: 05_CounterBalance_StroopList.png
 
 As an exercise, try placing the relevant windows side-by-side and see how the ``[StroopBlueResp]`` and ``[StroopRedResp]`` attributes correspond to the attributes specified in the Instructions and StroopList objects.
+
+-------------
 
 Video
 ********************
