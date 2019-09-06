@@ -4,6 +4,8 @@
 E-Prime Tutorial #3: Slides and Advanced Properties
 ===================================================
 
+----------
+
 Overview
 ***********************
 
@@ -91,6 +93,7 @@ Summary
 
 By expanding your tools to include Slide objects and more advanced options, you can create an entire Stroop experiment. In order to make this process more efficient, however, we next turn to Procedures and Lists to create larger-scale, more flexible experiments.
 
+-----------
 
 Video
 **********
