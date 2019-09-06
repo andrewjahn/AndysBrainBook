@@ -3,10 +3,6 @@
 =============================================
 E-Prime Tutorial #11: Making an fMRI Experiment
 =============================================
-
-.. note::
-
-  This section is under construction.
   
 .. note::
 
