@@ -4,6 +4,7 @@
 E-Prime Tutorial #9: The Startup Info Tab
 =============================================
 
+-------------
 
 Setting Variables when Starting the Experiment
 ***********************
