@@ -44,7 +44,7 @@ This window contains the parameters that were used to acquire the scan, such as 
 Time Series Preprocessing
 ^^^^^^^^^^^^^^
 
-These steps are similar to the preprocessing steps described in the :doc:`FSL Short Course <https://andysbrainbook.readthedocs.io/en/latest/fMRI_Short_Course/fMRI_04_Preprocessing.html>`__; review those steps for more details about what each one does.
+These steps are similar to the preprocessing steps described in the :ref:`FSL Short Course <fMRI_04_Preprocessing>`; review those steps for more details about what each one does.
 
 Since these reconstructed data have already been slice-time corrected, leave that box unchecked. We also do not have physiological regressors for this data set, so we will leave that box unchecked as well. Check the rest of the boxes: Realignment, Smoothing, Subtraction, CompCorr, and Spatial Normalization. After you have checked the box next to Subtraction, you will have two options to choose from: **Pairwise** and **Surround**. These refer to how the contrast images are created from subtracting the control images from the label images. Pairwise subtracts each image from its neighbor, while Surround takes a triplet of images, multiplies the middle one by two, and subtracts it from the surrounding images. In this experiment, we acquired the ASL images with a Surround paradigm - select that option by clicking on it with your mouse.
 
