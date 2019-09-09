@@ -4,12 +4,15 @@
 E-Prime Tutorial #1: Introduction to E-Prime
 =================
 
+-------------
 
-E-Prime is a stimulus presentation program that can display text, images, and videos; it is able to collect participant responses and calculate accuracy and response time.
+**E-Prime** is a stimulus presentation program that can display text, images, and videos, while recording the participant's responses, accuracy, and reaction time. The program's graphical user interface allows the user to quickly create a simple experiment by clicking and dragging **objects** onto the screen. Although this is enough for simple experiments, more advanced users can write **E-basic** code to perform more complex operations; this will be reviewed later in a tutorial on :ref:`Inline objects <EP_08_InlineObjects>`.
 
-There are several other stimulus presentation programs, such as `PsychoPy <https://www.psychopy.org/>`__ and `Presentation <https://www.neurobs.com/menu_presentation/menu_features/features_overview>`__. E-Prime is commercial software and costs around $1,000 for a single license; PsychoPy is free and has many of the same features, but may be more difficult to learn for students new to programming.
+When you open E-Prime on your computer, you will be prompted to select a **template**. The Standard templates will generate a basic experiment template with fixations, stimuli, and feedback slides. (Don't worry if you don't know what these terms mean right now; we will cover them in later tutorials.) If you select the Blank template, you will see the following screen:
 
-In any case, this tutorial will focus on E-Prime, since it is one of the most popular stimulus presentation packages. E-Prime has graphical user interface that can be used to quickly create a simple experiment, and also allows the user to insert **E-basic** code to perform more complex operations. This code will be reviewed in a later tutorial on **Inline objects**.
+.. There are several other stimulus presentation programs, such as `PsychoPy <https://www.psychopy.org/>`__ and `Presentation <https://www.neurobs.com/menu_presentation/menu_features/features_overview>`__. E-Prime is commercial software and costs around $1,000 for a single license; PsychoPy is free and has many of the same features, but may be more difficult to learn for students new to programming.
+
+.. note:: update this figure
 
 .. figure:: 01_EPrime_Layout.png
 
