@@ -4,6 +4,8 @@
 Overview of E-Prime
 ====================
 
+--------
+
 .. figure:: E-Prime_OverviewScreen.png
 
 E-Prime is a stimulus presentation software that is used in both behavioral and neuroimaging research. The goal of this module is to help you learn how to use E-Prime, as well as how to use basic object-oriented programming. Increased understanding of object-oriented programming and E-Basic - E-Prime's scripting language - lets you adapt your experiment to different situations, including fMRI experiments.
