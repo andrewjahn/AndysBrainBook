@@ -41,22 +41,16 @@ Let's take a look at the anatomical image in the ``anat`` folder for ``sub-08``.
 
 ::
 
-    fsleyes anat/sub-01_T1w.nii.gz
+    afni anat/sub-01_T1w.nii.gz
     
-This will open the anatomical image in ``fsleyes``, FSL's image viewer.
+This will open the anatomical image in AFNI's image viewer.
 
 
-.. figure:: anat_firstLook.png
+.. figure:: 03_AnatomicalInspection.png
 
-    The anatomical image displayed in fsleyes. The contrast seems low between the grey and white matter, but this is because the blood vessels of the neck (indicated by orange arrows) are much brighter than the rest of the brain.
-    
-.. figure:: anat_changeContrast.png
-
-    This can be fixed by changing the numbers in the contrast box. Here, the Maximum has been lowered to 800, capping the brightest signal at that value. This makes it easier to see the contrast between the tissues.
-    
-    
-    
-Inspect the image by clicking and dragging the mouse around. You can switch viewing panes by clicking in the corresponding window. Note that the other windows are updated in real time as you move your mouse around. This is because MRI data is collected as a three-dimensional image, and moving along one of the dimensions will change the other windows as well.
+    The anatomical image displayed in the AFNI viewer. By default, you will see the image in the axial, sagittal, and coronal views. You can close any of the windows if you only want to focus on a subset of the views.
+   
+Inspect the image by clicking around in one of the viewing windows. Notice how the other viewing windows and crosshairs change as a result - this is because MRI data is collected as a three-dimensional image, and moving along one of the dimensions will change the other windows as well. If you have highlighted a window by clicking on it, you can scroll continuously through that viewing plane by using the mouse wheel to scroll up or down. 
 
 .. note::
 
@@ -67,7 +61,10 @@ As you continue to inspect the image, here are two things you can watch out for:
 
 1. Lines that look like ripples in a pond. These are called **Gibbs Ringing Artifacts**, and they may indicate an error in the reconstruction of the MR signal from the scanner. These ripples may also be caused by the subject moving too much during the scan. In either case, if the ripples are large enough, they may cause preprocessing steps like brain extraction or normalization to fail.
 
-.. Also include pictures from the QC talk?
+.. figure:: 03_Gibbs.png
+
+    Photo credit: Sundar Amartur
+
 
 2. Abnormal intensity differences within the grey or the white matter. These may indicate pathologies such as aneurysms or cavernomas, and they should be reported to your radiologist right away; make sure you are familiar with your laboratory's protocols for reporting artifacts. For a gallery of pathologies you may see in an MRI image, click `here <http://www.mrishark.com/brain1.html>`__.
 
@@ -76,12 +73,18 @@ As you continue to inspect the image, here are two things you can watch out for:
 Inspecting the Functional Images
 ----------
     
-When you are done looking at the anatomical image, click on ``Overlay -> Remove All`` from the menu at the top of your screen. Then, click on ``File -> Add from File``, navigate to ``sub-08``'s func directory, and select the image ending in ``run-1_bold.nii.gz``. This image also looks like a brain, but it is not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image, and lower-resolution functional images, in part because we collect the functional images much more quickly.
+When you are done looking at the anatomical image, click on the ``Read`` from the menu at the top of your screen. In the "Directories" sidebar, double-click on the filepath that ends in two dots (e.g., ``..``, which indicates one directory above the current directory). Then double-click on the ``func`` directory in the "Sessions" sidebar. This loads all of the images in the ``func`` directory, which you can then browse in the AFNI viewer.
 
-.. figure:: functional_firstLook.png
+.. note::
+
+    Loading a new session into memory will allow you to look at any of the images in that session. If you want to switch to another session, click on ``Switch`` and select the session you want to load.
+
+A new image will be displayed in the orthogonal viewing windows. This image also looks like a brain, but it is not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image and lower-resolution functional images, which are lower resolution in part because they are collected at a very fast rate. One of the trade-offs in imaging research is between spatial resolution and temporal resolution: Images collected at higher temporal resolution will have lower spatial resolution, and vice versa.
+
+.. figure:: 03_Functional_Inspection.png
 
 
-Many of the quality checks for the functional image are the same as with the anatomical image: Watch out for extremely bright or extremely dark spots in the grey or white matter, as well as for image distortions such as abnormal stretching or warping. One place where it is common to see a little bit of distortion is in the orbitofrontal part of the brain, just above the eyeballs. There are ways to reduce this distortion, but for now we will ignore it.
+Many of the quality checks for the functional image are the same as with the anatomical image: Watch out for extremely bright or extremely dark spots in the grey or white matter, as well as for image distortions such as abnormal stretching or warping. One place where it is common to see a little bit of distortion is in the orbitofrontal part of the brain, just above the eyeballs. There are ways to `reduce this distortion <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#how-can-i-unwarp-my-data>`, but for now we will ignore it.
 
 .. Reference the timeseries glossary
 
@@ -92,4 +95,4 @@ Another quality check is to make sure there isn't excessive motion. Functional i
 Video
 --------
 
-Follow along `here <https://www.youtube.com/watch?v=eRDat10yGSs>`__ for a demonstration of quality checking fMRI data. When you are finished, click on the Next button to learn about preprocessing the data.
+.. Replace with the video when it is complete Follow along `here <https://www.youtube.com/watch?v=eRDat10yGSs>`__ for a demonstration of quality checking fMRI data. When you are finished, click on the Next button to learn about preprocessing the data.
