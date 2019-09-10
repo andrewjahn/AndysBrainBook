@@ -1,7 +1,7 @@
 .. _AFNI_01_DataDownload:
 
 ==============
-fMRI Tutorial #1: Downloading the Data
+AFNI Tutorial #1: Downloading the Data
 ==============
 
 
