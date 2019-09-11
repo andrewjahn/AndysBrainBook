@@ -33,14 +33,13 @@ To begin preprocessing sub-08's data, read the following descriptions of each st
    :maxdepth: 1
    :caption: Preprocessing Steps
 
-   Preprocessing/Skull_Stripping
-   Preprocessing/AFNI_GUI
-   Preprocessing/Motion_Correction
-   Preprocessing/Slice_Timing_Correction
-   Preprocessing/Smoothing
-   Preprocessing/Registration_Normalization
-   Preprocessing/Checking_Preprocessing
-   Preprocessing/Checkpoint
+   AFNI_Preprocessing/Skull_Stripping
+   AFNI_Preprocessing/Motion_Correction
+   AFNI_Preprocessing/Slice_Timing_Correction
+   AFNI_Preprocessing/Smoothing
+   AFNI_Preprocessing/Registration_Normalization
+   AFNI_Preprocessing/Checking_Preprocessing
+   AFNI_Preprocessing/Checkpoint
 
 ---------
 
