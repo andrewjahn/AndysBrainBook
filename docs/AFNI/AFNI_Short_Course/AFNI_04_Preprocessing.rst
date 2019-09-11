@@ -2,10 +2,9 @@
 
 =============
 AFNI Tutorial #4: Preprocessing
-============
+=============
 
 -----------
-
 
 .. note::
   Many of the examples are run from the ``Flanker/sub-08`` directory; I recommend navigating to that directory with your Terminal before reading the rest of the chapter.
@@ -35,7 +34,7 @@ To begin preprocessing sub-08's data, read the following descriptions of each st
    :caption: Preprocessing Steps
 
    Preprocessing/Skull_Stripping
-   Preprocessing/FEAT_GUI
+   Preprocessing/AFNI_GUI
    Preprocessing/Motion_Correction
    Preprocessing/Slice_Timing_Correction
    Preprocessing/Smoothing
