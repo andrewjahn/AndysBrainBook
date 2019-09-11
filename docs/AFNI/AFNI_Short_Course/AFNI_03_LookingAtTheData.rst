@@ -55,7 +55,7 @@ and press return, which will open the AFNI graphical user interface. By default,
     afni sub-08_T1w.nii.gz
 
 
-.. figure:: 03_AnatomicalInspection.png
+.. figure:: 03_Anatomical_Inspection.png
 
     The anatomical image displayed in the AFNI viewer in axial, sagittal, and coronal views. You can close any of the windows if you only want to focus on a subset of the views. 
     
