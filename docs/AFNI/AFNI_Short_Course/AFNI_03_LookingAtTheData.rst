@@ -6,7 +6,7 @@ AFNI Tutorial #3: Looking at the Data
 
 ----------------
 
-Overview
+Overview: The AFNI Graphical User Interface
 ---------
 
 Now that you've downloaded the dataset, you will want to **look at your data** - for example, you will want to know if there are any artifacts or problems with your data, and whether these can be alleviated by :ref:`preprocessing <AFNI_04_Preprocessing>`. 
@@ -30,6 +30,8 @@ As you saw in the previous :ref:`Data Download page <AFNI_01_DataDownload>`, the
 .. figure:: 03_Flanker_DataStructure.png
 
     Example of the BIDS format. Note that the ``func`` directory contains functional data - in this case, two runs of functional data - and corresponding "events.tsv" files, which contain **onsets**, or timestamps of which condition happened at what time. You can open these as a text file or as a spreadsheet. We will use these later when we build our :ref:`General Linear Model <AFNI_GLM>`.
+    
+To look at and inspect the data, we will be using the **AFNI Graphical User Interface**, or GUI for short. You can open the GUI by opening a Terminal and typing ``afni`` from the command line and pressing enter. This will open a **Controller Window** and three **viewing windows**. Note that if the GUI is run from a directory that doesn't contain any images, a 
     
 .. Fix the above link when that page is complete
 
