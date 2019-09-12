@@ -26,5 +26,6 @@ The following tutorials will show you how to analyze a sample dataset with AFNI.
    AFNI_Short_Course/AFNI_06_Scripting
    AFNI_Short_Course/AFNI_07_GroupAnalysis
    AFNI_Short_Course/AFNI_08_ROIAnalysis
-   AFNI_Short_Course/AFNI_09_Summary
+   AFNI_Short_Course/AFNI_09_SurfaceAnalysis
+   AFNI_Short_Course/AFNI_10_Summary
    AFNI_Short_Course/AFNI_Appendices
