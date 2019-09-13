@@ -20,3 +20,15 @@ Once you have prepared the surfaces with @SUMA_Make_Spec_FS and @SUMA_AlignToExp
 5. Add the option ``-surf_spec`` which points to the spec files in the SUMA directory.
 
 
+Loading the First-Level Results
+********************************
+
+After the preprocessing script has finished, you will see a list of files output that have names similar to the ones you saw during the volumetric analysis. In this case, however, some of the files end in suffixes such as ``niml.dset``. These are datasets that can be loaded into SUMA using the ``-input`` option.
+
+to load the statistics for the left hemisphere, for example, type the following:
+
+::
+
+  suma -spec ${FS_DIR}/sub-01_T1w/surf/SUMA/test_lh.spec -sv sub01_SurfVol_Alnd_Exp+tlrc.HEAD -input stats.sub01.lh.niml.dset
+  
+You can then select the statistic sub-brik you would like to display, and change the p-value threshold accordingly.
