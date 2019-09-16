@@ -12,7 +12,7 @@ When you open E-Prime on your computer, you will be prompted to select a **templ
 
 .. There are several other stimulus presentation programs, such as `PsychoPy <https://www.psychopy.org/>`__ and `Presentation <https://www.neurobs.com/menu_presentation/menu_features/features_overview>`__. E-Prime is commercial software and costs around $1,000 for a single license; PsychoPy is free and has many of the same features, but may be more difficult to learn for students new to programming.
 
-.. note:: update this figure
+.. note update this figure
 
 .. figure:: 01_EPrime_Layout.png
 
