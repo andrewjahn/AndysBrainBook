@@ -81,6 +81,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: AFNI
 
     AFNI/AFNI_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: SPM
+
+    SPM/SPM_Overview
  
 .. toctree::
    :maxdepth: 1
