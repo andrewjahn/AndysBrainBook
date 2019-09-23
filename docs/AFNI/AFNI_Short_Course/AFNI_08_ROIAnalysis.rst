@@ -1,9 +1,8 @@
 .. _AFNI_08_ROIAnalysis:
 
-.. _fMRI_09_ROIAnalysis:
-
-fMRI Tutorial #9: ROI Analysis
-=====================
+==============================
+fMRI Tutorial #8: ROI Analysis
+==============================
 
 ---------
 
