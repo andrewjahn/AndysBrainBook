@@ -23,21 +23,31 @@ Using Atlases
 
 One way to create a region for our ROI analysis is to use an **atlas**, or a map that partitions the brain into anatomically distinct regions.
 
-FSL has many atlases already installed, which you can access through fsleyes. If you click on Settings -> Ortho View 1 -> Atlas Panel, it will open a new window called ``Atlases``. By default, the Harvard-Oxford Cortical and Subcortical Atlases will be loaded. You can see how the atlas partitions the brain by clicking on the ``Show/Hide`` link next to the atlas name. The voxel at the center of the crosshairs in the viewing window will be assigned a probability of belonging to a brain structure.
+AFNI comes with several atlases in both Talairach and MNI space, which can be accessed through the AFNI GUI. Finding the atlases can be difficult - you must first click on ``Define Datamode``, and then click on ``Plugins``, and from the dropdown menu select ``Draw Dataset``. The figure below shows the Draw Dataset window.
 
-.. figure:: ROI_Analysis_Atlas_Example.png
-  :scale: 25%
+.. figure:: 08_DrawDataSetWindow.png
 
-  The Harvard-Oxford Cortical atlas, displayed on an MNI template brain. The Atlas window shows the probability that the voxel is located at a certain anatomical region.
+  After opening up the AFNI GUI, click on the buttons in the order shown in the figure (1, 2, and 3).
   
-To save one of these regions as a file to extract data from, also known as a **mask**, click on the ``Show/Hide`` link next to the region you want to use as a mask - in our example, let's say that we want to use the Paracingulate Gyrus as a mask. Clicking on the link will show that region overlaid on the brain, as well as load it as an overlay in the Overlay List window. Click on the disk icon next to the image to save it as a mask. Save it to the Flanker directory and call it ``PCG.nii``.
+Once you have opened the Draw Dataset window, you will first need to click on the button ``Choose dataset for copying``. Since all of our data has been normalized to the MNI_avg152T1 template, we have two options:
 
-.. figure:: ROI_Analysis_PCG_Mask.png
-  :scale: 25%
+1. Select the MNI_avg152T1+tlrc template from the ``abin`` directory; or
+2. Select one of the normalized anatomical images from the Flanker dataset.
+
+In both cases, the images will be in MNI space and will have the same dimensions and voxel resolution. The purpose of making a copy of that dataset is to create a "clean" dataset with the same dimensions as the other images, but which we can write on by marking whichever voxels we want to belong to our ROI. In this case, navigate to the ``sub-01/sub-01.results`` directory, open the AFNI GUI, and open the Draw Dataset window. For the image to copy, select the file ``anat_file.sub-01``.
+
+Once you have done that, you have several different atlases to select from. For the current tutorial, select the atlas ``DD_Desai_MPM``, and then click on the dropdown menu below it. You have many different regions to choose from, and the voxels represented by each label can be guessed at by the name; for example, ``ctx_lh_G_and_S_frontomargin`` probably refers to the cortical voxels of the gyrus and sulcus of the frontomarginal region of the left hemisphere.
+
+Select ``ctx_lh_G_and_S_cingul_-Mid_Ant``, and then click on the button ``Load: InFill``. This will highlight in red all of the voxels belonging to that region of the atlas. You can undo this by clicking on the ``Undo`` button, which keeps several steps in memory. Now right-click the area to the left of the label dropdown menu to open a more compact view of the atlas regions, and select ``ctx_rh_G_and_S_cingul-Mid-Ant``. Click on ``Load: InFill`` to add that region to the current mask, and then click ``SaveAs``. Call the output ``midACC``. This will create a new file that contains values of "1" in the voxels that belong to the region, and zeros everywhere else; this is also known as a **mask**. When you are finished, click ``Done``.
+
+.. figure:: 08_AtlasMask.png
+
+  You can choose an atlas from the dropdown menu (1), and then choose a corresponding label from the atlas (2). Clicking on Load: InFill (3) will highlight those voxels within that label, and you can save the mask by clicking on SaveAs (4).
+
 
 .. warning::
 
-  Your results will have the same resolution as the template you used for normalization. The default in FSL is the MNI_152_T1_2mm_brain, which has a resolution of 2x2x2mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, use the same template to create the mask that you used to normalize your data.
+  Your results will have the same resolution as the template you used for normalization. The AFNI atlas we used is the MNI_avg152T1+tlrc file, which has a resolution of 3x3x3mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, use the same template to create the mask that you used to normalize your data.
   
 
 Extracting Data from an Anatomical Mask
