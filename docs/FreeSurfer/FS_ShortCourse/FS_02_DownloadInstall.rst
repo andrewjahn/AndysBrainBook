@@ -34,7 +34,7 @@ Each subject's directory contains two sub-directories labeled ``ses-BL``, signif
 Next Steps
 ***********
 
-Now that you have downloaded FreeSurfer and some example data, you are ready to learn about FreeSurfer's 
+Now that you have downloaded FreeSurfer and some example data, you are ready to learn about FreeSurfer's **recon-all** command, which will process a dataset from start to finish. Click on the ``Next`` button to learn more about how it works. 
 
 -------
   
