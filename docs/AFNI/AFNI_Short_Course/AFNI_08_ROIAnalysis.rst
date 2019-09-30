@@ -47,10 +47,12 @@ Select ``ctx_lh_G_and_S_cingul_-Mid_Ant``, and then click on the button ``Load: 
 
 .. warning::
 
-  Your results will have the same resolution as the template you used for normalization. The AFNI atlas we used is the MNI_avg152T1+tlrc file, which has a resolution of 3x3x3mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, either use one of your normalized anatomical images, or the template that you normalized to.
+  Your results will have the same resolution as the template you used for normalization. The AFNI atlas we used is the MNI_avg152T1+tlrc file, which has a resolution of 2x2x2mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, either use one of your normalized anatomical images, or the template that you normalized to.
   
+  
+  [Add text about resampling with 3dresample]
 
-Extracting Data from an Anatomical Mask
+Extracting Data from the Anatomical Mask
 ************
 
 Once you've created the mask, you can then extract each subject's contrast estimates from it. There are two ways that we could extract our contrast of interest Incongruent-Congurent:
@@ -93,6 +95,12 @@ When it finishes, you will have generated two new datasets: Congruent_betas and 
 
   Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
   
+You can now extract data from the anatomical mask by using the ``3dmaskave`` command:
+
+::
+
+	3dmaskave -mask midACC+tlrc -quiet 
+  
 Extracting Data from an Sphere
 ************
 
@@ -104,37 +112,35 @@ The following animation shows the difference between anatomical and spherical RO
 
 .. figure:: 08_ROI_Analysis_Anatomical_Spherical.gif
 
-To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 22, 40.
+To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 20, 40.
 
 .. figure:: 08_ROI_Analysis_Jahn_Study.png
 
-The next few steps are complicated, so pay close attention to each one:
-
-1. Open fsleyes, and load an MNI template. In the fields under the label "Coordinates: MNI152" in the ``Location`` window, type ``0 20 44``. Just to the right of those fields, note the corresponding change in the numbers in the fields under ``Voxel location``. In this case, they are ``45 73 58``. Write down these numbers.
-
-2. In the terminal, navigate to the Flanker directory and type the following:
+We will create a **spherical mask** centered at these coordinates by using the command ``3dUndump``. The following code will place a 5mm sphere around the coordinates 0, 20, 44: 
 
 ::
 
-  fslmaths $FSLDIR/data/standard/MNI152_T1_2mm.nii.gz -mul 0 -add 1 -roi 45 1 73 1 58 1 0 1 Jahn_ROI_dmPFC_0_20_44.nii.gz -odt float
+	#!/bin/bash
 
-This is a long, dense command, but for now just note where we have inserted the numbers 45, 73, and 58. When you create another spherical ROI based on different coordinates, these are the only numbers you will change. (When you create a new ROI you should change the label of the output file as well.) The output of this command is a single voxel marking the center of the coordinates specified above.
+	# This script creates a 5mm sphere around a coordinate
+	# Change the x,y,z, coordinates on the left side to select a different peak
+	# Radius size can be changed with the -srad option
 
-3. Next, type:
+	echo "0 20 44" | 3dUndump -orient LPI -srad 5 -master Incongruent_betas+tlrc -prefix ConflictROI+tlrc -xyz -
+
+The ``-srad`` option specifies how large the radius of the sphere will be, while the ``-master`` option creates a mask dataset with the same resolution and voxel size as the master dataset. The ``-prefix`` option labels the output file, and ``-xyz`` specifies the coordinates around which to center the sphere. the ``-`` after the -xyz option indicates that the output on the left side of the pipe - i.e., ``echo "0 20 44" - should be used as the input for that option.
+	
+.. note::
+	
+	The coordinates reported in most papers are in ``LPI`` orientation - that is, the coordinates increase in magnitude from negative to positive going from Left to Right, Posterior to Anterior, and Inferior to Superior. The letters in LPI correspond to the first letter in each of these pairings. The default orientation for AFNI datasets, on the other hand, is ``RAI`` - negative to positive going from Right to Left, Anterior to Posterior, and Inferior to Superior. For example, the coordinates 10, -14, 38 in LPI orientation would be -10, 14, 38 in RAI orientation. We use the -orient LPI option to convert the AFNI RAI coordinates to LPI coordinates.
+	
+The result of this command will be a file called ``ConflictROI``, which you can then use for an ROI analysis. We will use the same 3dmaskave command as above:
 
 ::
 
-  fslmaths Jahn_ROI_dmPFC_0_20_44.nii.gz -kernel sphere 5 -fmean Jahn_Sphere_dmPFC_0_20_44.nii.gz -odt float
+	3dmaskave -quiet -mask ConflictROI+tlrc Congruent_betas+tlrc
 
-This expands the single voxel into a sphere with a radius of 5mm, and calls the output "Jahn_Sphere.nii.gz". If you wanted to change the size of the sphere to 10mm, for example, you would change this section of code to ``-kernel sphere 10``.
-
-4. Now, type:
-
-::
-
-  fslmaths Jahn_Sphere_dmPFC_0_20_44.nii.gz -bin Jahn_Sphere_bin_dmPFC_0_20_44.nii.gz
-  
-This will binarize the sphere, so that it can be read by the FSL commands.
+The output will be 26 rows, one number per row, representing the average beta estimate across the voxels of the mask that we extracted from. Use the same command to extract the beta estimates for the Incongruent_betas file, and then copy and paste both sets of numbers into a statistical software package.
 
 .. note::
 
@@ -172,4 +178,3 @@ And observe how the numbers are different from the previous method that used a b
 Video
 *********
 
-Click `here <https://www.youtube.com/watch?v=p70utwa-NkU>`__ for a demonstration of how to use both anatomical and spherical masks for an ROI analysis.
