@@ -79,7 +79,7 @@ The following animation shows the difference between anatomical and spherical RO
 
 .. figure:: ROI_Analysis_Anatomical_Spherical.gif
 
-To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 22, 40.
+To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 20, 40.
 
 .. figure:: ROI_Analysis_Jahn_Study.png
 
