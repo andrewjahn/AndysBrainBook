@@ -47,52 +47,66 @@ Select ``ctx_lh_G_and_S_cingul_-Mid_Ant``, and then click on the button ``Load: 
 
 .. warning::
 
-  Your results will have the same resolution as the template you used for normalization. The AFNI atlas we used is the MNI_avg152T1+tlrc file, which has a resolution of 3x3x3mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, use the same template to create the mask that you used to normalize your data.
+  Your results will have the same resolution as the template you used for normalization. The AFNI atlas we used is the MNI_avg152T1+tlrc file, which has a resolution of 3x3x3mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, either use one of your normalized anatomical images, or the template that you normalized to.
   
 
 Extracting Data from an Anatomical Mask
 ************
 
-Once you've created the mask, you can then extract each subject's contrast estimates from it. Although you may think that we would extract the results from the 3rd-level analysis, we actually want the ones from the 2nd-level analysis; the 3rd-level analysis is a single image with a single number at each voxel, whereas in an ROI analysis our goal is to extract the contrast estimate for each subject individually.
+Once you've created the mask, you can then extract each subject's contrast estimates from it. There are two ways that we could extract our contrast of interest Incongruent-Congurent:
 
-For the Incongruent-Congruent contrast estimate, for example, you can find each subjects' data maps in the directory ``Flanker_2ndLevel.gfeat/cope3.feat/stats``. The data maps have been calculated several different ways, including t-statistic maps, cope images, and variance images. My preference is to extract data from the z-statistic maps, since these data have been converted into a form that is normally distributed and, in my opinion, is easier to plot and to interpret.
+1. Extract the contrast estimate Incongruent-Congruent from our stats file; or
+2. Extract the individual beta weights for Incongruent and Congruent separately, and then take the difference between the two.
 
+As we will see, option #2 allows you to determine what is driving the effect; in other words, whether a significant effect is due to both beta weights being positive but the Incongruent beta weights being more positive, both weights being negative but the Congruent betas more negative, or a combination of the two. It is only by extracting both sets of beta weights that we can determine this.
 
-To make our ROI analysis easier, we will merge all of the z-statistic maps into a single dataset. To do this, we will use a combination of FSL commands and Unix commands. Navigate into the ``Flanker_2ndLevel.gfeat/cope3.feat/stats`` directory, and then type the following:
-
-::
-
-  fslmerge -t allZstats.nii.gz `ls zstat* | sort -V`
-  
-This will merge all of the z-statistic images into a single dataset along the time dimension (specified with the ``-t`` option); this simply means to daisy-chain the volumes together into a single larger dataset. The first argument is what the output dataset will be called (``allZstats.nii.gz``), and the code in backticks uses an asterisk wildcard to list each file beginning with "zstat", and then sorts them numerically from smallest to largest with the ``-V`` option.
-
-Move the allZstats.nii.gz file up three levels so that it is in the main Flanker directory (i.e., type ``mv allZstats.nii.gz ../../..``). Then use the fslmeants command to extract the data from the PCG mask:
+First, from the subjects directory type:
 
 ::
 
-  fslmeants -i allZstats.nii.gz -m PCG.nii.gz
+  3dinfo -verb sub-01/sub-01.results/stats.sub-01+tlrc.
   
-This will print 26 numbers, one per subject. Each number is the contrast estimate for that subject averaged across all of the voxels in the mask. 
 
-.. figure:: ROI_Analysis_FSLmeants_output.png
-  :scale: 50%
+This will return a list of all the beta weights and contrast weights contained in the stats file. 
+
+.. figure:: 08_stats_weights.png
+
+The sub-briks index which beta weight belongs to which volume in the dataset. In this example, the beta weight for the Congruent condition is sub-brik 1, the beta weight for the Incongruent condition is sub-brik 4, and the contrast weight for Incongruent-Congruent is sub-brik 7. For this tutorial, we will extract sub-briks 1 and 4 and store them in separate files, and then extract the values for each subject from an ROI.
+
+The individual sub-briks can be extracted using the following code, `extractBetas.sh <https://github.com/andrewjahn/AFNI_Scripts/blob/master/extractBetas.sh>`__:
+
+::
+
+#!/bin/bash
+
+for subj in `cat subjList.txt`; do
+
+	3dbucket -aglueto Congruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[1]'
+	3dbucket -aglueto Incongruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[4]'
+  
+done
+
+
+When it finishes, you will have generated two new datasets: Congruent_betas and Incongruent_betas. Open up one of the datasets in your viewer, and click on the ``Graph`` button of the AFNI GUI to scroll through the different volumes. How is this "time-series" different from the time-series you viewed in the raw imaging data? As another exercise, from the command line type ``3dinfo -nt Congruent_betas+tlrc``, in which the "-nt" option returns the number of volumes (or time-points) in the dataset. What number is returned, and what does it represent? Does it make sense?
+
+.. note::
 
   Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
   
 Extracting Data from an Sphere
 ************
 
-You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the PCG mask covers a very large region; although the PCG is labeled as a single anatomical region, we may be extracting data from several distinct functional regions. Consequently, this may not be the best ROI approach to take.
+You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the ACC mask covers a very large region; although the ACC is labeled as a single anatomical region, we may be extracting data from several distinct functional regions. Consequently, this may not be the best ROI approach to take.
 
 Another technique is called the **spherical ROI** approach. In this case, a sphere of a given diameter is centered at a triplet of specified x-, y-, and z-coordinates. These coordinates are often based on the peak activation of another study that uses the same or a similar experimental design to what you are using. This is considered an **independent** analysis, since the ROI is defined based on a separate study.
 
 The following animation shows the difference between anatomical and spherical ROIs:
 
-.. figure:: ROI_Analysis_Anatomical_Spherical.gif
+.. figure:: 08_ROI_Analysis_Anatomical_Spherical.gif
 
 To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 22, 40.
 
-.. figure:: ROI_Analysis_Jahn_Study.png
+.. figure:: 08_ROI_Analysis_Jahn_Study.png
 
 The next few steps are complicated, so pay close attention to each one:
 
