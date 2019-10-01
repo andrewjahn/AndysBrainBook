@@ -1,7 +1,7 @@
 .. _AFNI_04_Preprocessing:
 
 =============
-AFNI Tutorial #4: Preprocessing
+AFNI Tutorial #4: AFNI Commands and Preprocessing
 =============
 
 -----------
@@ -25,21 +25,22 @@ Think of preprocessing as cleaning up the images. When you take a photo with a c
 
   A picture we take with a camera may be dark, blurry, or noisy (left panel). After editing the image by enhancing contrast, reducing blur, and increasing brightness, we end up with a more defined and clearer picture.
 
-Similarly, when we preprocess fMRI data we are cleaning up the three-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also signals that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other signals **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (which is discussed in the chapter on modeling fitting), and others can be reduced or removed by preprocessing.
+Similarly, when we preprocess fMRI data we are cleaning up the three-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also fluctuations that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other fluctuations **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (which is discussed in the chapter on modeling fitting), and others can be reduced or removed by preprocessing.
 
-To begin preprocessing sub-08's data, read the following descriptions of each step.
+To begin preprocessing sub-08's data, read through the following chapters. We will begin with an overview of how to use AFNI commands, and then introduce ``uber_subject.py``, which allows you to write a script that will do all of the preprocessing for you. You will then learn about why each of these preprocessing steps are done, and how to check the data quality before and after each step.
 
 .. toctree::
    :maxdepth: 1
    :caption: Preprocessing Steps
-
-   AFNI_Preprocessing/Skull_Stripping
-   AFNI_Preprocessing/Motion_Correction
-   AFNI_Preprocessing/Slice_Timing_Correction
-   AFNI_Preprocessing/Smoothing
-   AFNI_Preprocessing/Registration_Normalization
-   AFNI_Preprocessing/Checking_Preprocessing
-   AFNI_Preprocessing/Checkpoint
+   
+   AFNI_Preprocessing/01_AFNI_Commands_uber_subject
+   AFNI_Preprocessing/02_AFNI_Skull_Stripping
+   AFNI_Preprocessing/03_AFNI_Motion_Correction
+   AFNI_Preprocessing/04_AFNI_Slice_Timing_Correction
+   AFNI_Preprocessing/05_AFNI_Smoothing
+   AFNI_Preprocessing/06_AFNI_Registration_Normalization
+   AFNI_Preprocessing/07_AFNI_Checking_Preprocessing
+   AFNI_Preprocessing/08_AFNI_Checkpoint
 
 ---------
 
