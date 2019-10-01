@@ -55,7 +55,7 @@ We can match the resolutions of our mask dataset and our statistics dataset by u
 
 	3dresample -master stats.sub-01+tlrc -input midACC+tlrc -prefix midACC_rs+tlrc
 	
-This will create a new file, midACC_rs (in which **rs** stands for re-sampled). Move this mask to the subject directory by typing ``mv midACC_rs+tlrc ../..``. We can then use it to extract data for our ROI analysis.
+This will create a new file, midACC_rs (in which **rs** stands for re-sampled). Move this mask to the subject directory by typing ``mv midACC_rs+tlrc* ../..``. We can then use it to extract data for our ROI analysis.
   
   
 
@@ -87,14 +87,14 @@ The individual sub-briks can be extracted using the following code, `extractBeta
 
 ::
 
-#!/bin/bash
+	#!/bin/bash
 
-for subj in `cat subjList.txt`; do
+	for subj in `cat subjList.txt`; do
 
-	3dbucket -aglueto Congruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[1]'
-	3dbucket -aglueto Incongruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[4]'
-  
-done
+		3dbucket -aglueto Congruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[1]'
+		3dbucket -aglueto Incongruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[4]'
+
+	done
 
 
 When it finishes, you will have generated two new datasets: Congruent_betas and Incongruent_betas. Open up one of the datasets in your viewer, and click on the ``Graph`` button of the AFNI GUI to scroll through the different volumes. How is this "time-series" different from the time-series you viewed in the raw imaging data? As another exercise, from the command line type ``3dinfo -nt Congruent_betas+tlrc``, in which the "-nt" option returns the number of volumes (or time-points) in the dataset. What number is returned, and what does it represent? Does it make sense?
