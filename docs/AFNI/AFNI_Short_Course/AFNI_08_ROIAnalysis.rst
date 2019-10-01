@@ -47,10 +47,18 @@ Select ``ctx_lh_G_and_S_cingul_-Mid_Ant``, and then click on the button ``Load: 
 
 .. warning::
 
-  Your results will have the same resolution as the template you used for normalization. The AFNI atlas we used is the MNI_avg152T1+tlrc file, which has a resolution of 2x2x2mm. When you create a mask, it will have the same resolution as the template that it is overlaid on. When we extract data from the mask, the data and the mask need to have the same resolution. To avoid any errors due to different image resolutions, either use one of your normalized anatomical images, or the template that you normalized to.
+  The default in AFNI is for the results dataset to have a different resolution than both the normalized anatomical image and the template used for normalization. The AFNI template we used was the MNI_avg152T1+tlrc file, which has a resolution of 2x2x2mm; our statistics dataset, on the other hand, has a resolution of 3x3x3mm. In order to use a mask for an ROI analysis, it needs to be the same resolution as the dataset you are extracting from.
+
+We can match the resolutions of our mask dataset and our statistics dataset by using AFNI's ``3dresample`` command. This command requires both a "master" dataset, which we will be resampling to, and an "input" dataset, which will have its dimensions and resolution changed to match the master datset:
+
+::
+
+	3dresample -master stats.sub-01+tlrc -input midACC+tlrc -prefix midACC_rs+tlrc
+	
+This will create a new file, midACC_rs (in which **rs** stands for re-sampled). Move this mask to the subject directory by typing ``mv midACC_rs+tlrc ../..``. We can then use it to extract data for our ROI analysis.
   
   
-  [Add text about resampling with 3dresample]
+
 
 Extracting Data from the Anatomical Mask
 ************
@@ -91,15 +99,22 @@ done
 
 When it finishes, you will have generated two new datasets: Congruent_betas and Incongruent_betas. Open up one of the datasets in your viewer, and click on the ``Graph`` button of the AFNI GUI to scroll through the different volumes. How is this "time-series" different from the time-series you viewed in the raw imaging data? As another exercise, from the command line type ``3dinfo -nt Congruent_betas+tlrc``, in which the "-nt" option returns the number of volumes (or time-points) in the dataset. What number is returned, and what does it represent? Does it make sense?
 
-.. note::
-
-  Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
-  
 You can now extract data from the anatomical mask by using the ``3dmaskave`` command:
 
 ::
 
-	3dmaskave -mask midACC+tlrc -quiet 
+	3dmaskave -quiet -mask midACC_rs+tlrc Congruent_betas+tlrc
+	
+Run the same command for the incongruent betas as well:
+
+::
+
+	3dmaskave -quiet -mask midACC_rs+tlrc Incongruent_betas+tlrc
+
+.. note::
+
+  Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
+  	
   
 Extracting Data from an Sphere
 ************
@@ -128,7 +143,7 @@ We will create a **spherical mask** centered at these coordinates by using the c
 
 	echo "0 20 44" | 3dUndump -orient LPI -srad 5 -master Incongruent_betas+tlrc -prefix ConflictROI+tlrc -xyz -
 
-The ``-srad`` option specifies how large the radius of the sphere will be, while the ``-master`` option creates a mask dataset with the same resolution and voxel size as the master dataset. The ``-prefix`` option labels the output file, and ``-xyz`` specifies the coordinates around which to center the sphere. the ``-`` after the -xyz option indicates that the output on the left side of the pipe - i.e., ``echo "0 20 44" - should be used as the input for that option.
+The ``-srad`` option specifies how large the radius of the sphere will be, while the ``-master`` option creates a mask dataset with the same resolution and voxel size as the master dataset. (Note that this means we won't have to resample the ROI created with this command.) The ``-prefix`` option labels the output file, and ``-xyz`` specifies the coordinates around which to center the sphere. the ``-`` after the -xyz option indicates that the output on the left side of the pipe - i.e., ``echo "0 20 44" - should be used as the input for that option.
 	
 .. note::
 	
@@ -141,16 +156,6 @@ The result of this command will be a file called ``ConflictROI``, which you can 
 	3dmaskave -quiet -mask ConflictROI+tlrc Congruent_betas+tlrc
 
 The output will be 26 rows, one number per row, representing the average beta estimate across the voxels of the mask that we extracted from. Use the same command to extract the beta estimates for the Incongruent_betas file, and then copy and paste both sets of numbers into a statistical software package.
-
-.. note::
-
-  In the steps that were just listed, notice how the output from each command is used as input to the next command. You will change this for your own ROI, if you decide to create one.
-
-5. Lastly, we will extract data from this ROI by typing:
-
-::
-
-  fslmeants -i allZstats.nii.gz -m Jahn_Sphere_bin_dmPFC_0_20_44.nii.gz 
   
 
 The numbers you get from this analysis should look much different from the ones you created using the anatomical mask. Copy and paste these commands into the statistical software package of your choice, and run a one-sample t-test on them. Are they significant? How would you describe them if you had to write up these results in a manuscript?
@@ -161,17 +166,11 @@ The numbers you get from this analysis should look much different from the ones 
 Exercises
 ********
 
-1. The mask used with fslmeants is **binarized**, meaning that any voxel containing a numerical value greater than zero will be converted to a "1", and then data will be extracted only from those voxels labeled with a "1". You will recall that the mask created with fsleyes is **probabilistic**. If you want to weight the extracted contrast estimates by the probability weight, you can do this by using the ``-w`` option with fslmeants. Try typing:
-
-::
-
-  fslmeants -i allZstats.nii.gz -m PCG.nii.gz -w
+1. Create an anatomical mask of a region of your choosing. For the copy dataset, select the "stats" dataset. Will you have to resample this mask in order to use it for an ROI analysis? Why or why not?
   
-And observe how the numbers are different from the previous method that used a binarized mask. Is the difference small? Large? Is it what you would expect?
 
 2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48.
 
-3. Use the Harvard-Oxford subcortical atlas to create an anatomical mask of the right amygdala. Label it whatever you want. Then, extract the z-statistics from cope1 (i.e., the contrast estimates for Incongruent compared to baseline).
 
 --------
 
