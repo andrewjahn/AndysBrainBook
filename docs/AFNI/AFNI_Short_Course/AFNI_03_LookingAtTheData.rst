@@ -31,7 +31,7 @@ As you saw in the previous :ref:`Data Download page <AFNI_01_DataDownload>`, the
 
     Example of the BIDS format. Note that the ``func`` directory contains functional data - in this case, two runs of functional data - and corresponding "events.tsv" files, which contain **onsets**, or timestamps of which condition happened at what time. You can open these as a text file or as a spreadsheet. We will use these later when we build our :ref:`General Linear Model <AFNI_GLM>`.
     
-To look at and inspect the data, we will be using the **AFNI Graphical User Interface**, or GUI for short. You can open the GUI by opening a Terminal and typing ``afni`` from the command line and pressing enter. This will open a **Controller Window** and three **viewing windows**. Note that if the GUI is run from a directory that doesn't contain any images, a 
+To look at and inspect the data, we will be using the **AFNI Graphical User Interface**, or GUI for short. You can open the GUI by opening a Terminal and typing ``afni`` from the command line and pressing enter. This will open a **Controller Window** and three **viewing windows**. Note that if the GUI is run from a directory that doesn't contain any images, AFNI will search any folders in the current directory. If there are no images there either, AFNI will load a dummy dataset.
     
 .. Fix the above link when that page is complete
 
@@ -100,7 +100,7 @@ Many of the quality checks for the functional image are the same as with the ana
 
 Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the movie reel icon in fsleyes. Note any sudden, jerky movements in any of the viewing panes. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
 
-When you are finished looking at the data, click on the red "x" button in the top left of the Controller window. This will closer the Controller window and all of the viewer windows. 
+When you are finished looking at the data, click on the red "x" button in the top left of the Controller window. This will close the Controller window and all of the viewer windows. 
 
 --------
 
