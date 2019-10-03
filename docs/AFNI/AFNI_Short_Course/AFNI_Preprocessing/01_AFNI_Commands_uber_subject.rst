@@ -27,7 +27,7 @@ Usually, just typing the command without any arguments would print the help file
 
 If, on the other hand, you would like to see the help file in a format that is easier to read, type ``3dSkullStrip -h | less``. The vertical bar indicates that the output from the command to the left of the bar - that is, "3dSkullStrip -h" - should be piped into the ``less`` command, which allows you to page up and down through the help file. When you are in this "paging window", type "d" to go down one page; "u" to go up one page; and the up and down arrows to go up or down by one line. To search the help file, type a forward slash (``/``) followed by the text you want to find, and press enter. To exit the paging window, press "q".
 
-.. figure:: 04_01_AFNI_HelpFile.png
+.. figure:: 04_01_AFNI_HelpFile.gif
 
 The documentation and help files are some of AFNI's greatest strengths. The usage of each command is clearly outlined, and the reasons for using different options are explained in detail. Sample commands are given to cover different scenarios - for example, if the skull-strip leaves too much skull in the output image, you are encouraged to use an option such as "-push_to_edge".
 
