@@ -35,8 +35,8 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
    
    AFNI_Preprocessing/01_AFNI_Commands_uber_subject
    AFNI_Preprocessing/02_AFNI_Slice_Timing_Correction
-   AFNI_Preprocessing/03_AFNI_Alignment
-   AFNI_Preprocessing/04_AFNI_Registration_Normalization
+   AFNI_Preprocessing/03_AFNI_Registration_Normalization
+   AFNI_Preprocessing/04_AFNI_Alignment
    AFNI_Preprocessing/05_AFNI_Smoothing
    AFNI_Preprocessing/06_AFNI_Masking_Scaling
    AFNI_Preprocessing/07_AFNI_Checking_Preprocessing
