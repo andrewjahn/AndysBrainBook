@@ -5,12 +5,6 @@
 Chapter 3: Registration and Normalization
 =====================
 
-
-.. _Registration_Normalization:
-
-Chapter 6: Registration and Normalization
-^^^^^^^^^^
-
 --------
 
 Overview
