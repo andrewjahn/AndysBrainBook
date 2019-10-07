@@ -12,13 +12,19 @@ When you open E-Prime on your computer, you will be prompted to select a **templ
 
 .. There are several other stimulus presentation programs, such as `PsychoPy <https://www.psychopy.org/>`__ and `Presentation <https://www.neurobs.com/menu_presentation/menu_features/features_overview>`__. E-Prime is commercial software and costs around $1,000 for a single license; PsychoPy is free and has many of the same features, but may be more difficult to learn for students new to programming.
 
-.. note update this figure
+[Insert picture of Blank template]
+
+
+The 
+
+As we learn more about E-Prime, you will be
+
 
 .. figure:: 01_EPrime_Layout.png
 
   The layout of a typical E-Prime experiment. The sidebars on the left contain a list of objects that can be placed on the experiment timeline (the "Toolbox" sidebar); a list of properties for the currently selected object, such as the name, duration, and color ("Properties"); a representation of the experiment from start to finish ("Structure"); and a space for the currently selected object.
   
-The backbone of an E-Prime experiment is the **procedure** object; each new E-Prime experiment starts with a procedure objects called **SessionProc**. If you double-click on the object to see its contents, you will see a window that contains a horizontal line - the **Procedural Timeline**. It depicts the timeline of the experiment going from left to right. As we construct our experiment with **objects**, the timeline will present each object in sequence as it appears on the timeline. How these objects are constructed and how we use them to build an experiment, we will turn to in the next chapter.
+The backbone of an E-Prime experiment is the **procedure** object; each new E-Prime experiment starts with a procedure object called **SessionProc**. If you double-click on the object to see its contents, you will see a window that contains a horizontal line - the **Procedural Timeline**. It depicts the timeline of the experiment going from left to right. As we construct our experiment with **objects**, the timeline will present each object in sequence as it appears on the timeline. How these objects are constructed and how we use them to build an experiment, we will turn to in the next chapter.
   
   
 Video
