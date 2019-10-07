@@ -1,7 +1,7 @@
 .. _AFNI_08_ROIAnalysis:
 
 ==============================
-fMRI Tutorial #8: ROI Analysis
+AFNI Tutorial #8: ROI Analysis
 ==============================
 
 ---------
