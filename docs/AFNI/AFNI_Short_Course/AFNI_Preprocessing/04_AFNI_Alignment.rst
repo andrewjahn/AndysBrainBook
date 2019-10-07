@@ -52,7 +52,7 @@ You will see several options used with this command. The ``-base`` option is the
 ::
 
   # register and warp
-foreach run ( $runs )
+  foreach run ( $runs )
     # register each volume to the base image
     3dvolreg -verbose -zpad 1 -base vr_base_min_outlier+orig    \   
              -1Dfile dfile.r$run.1D -prefix rm.epi.volreg.r$run \
@@ -66,7 +66,7 @@ This affine transformation matrix is then concatenated with the affine transform
 ::
 
       # catenate volreg/epi2anat/tlrc xforms
-    cat_matvec -ONELINE                                         \   
+      cat_matvec -ONELINE                                         \   
                {$subj}_T1w_ns+tlrc::WARP_DATA -I                 \   
                {$subj}_T1w_al_junk_mat.aff12.1D -I               \   
                mat.r$run.vr.aff12.1D > mat.r$run.warp.aff12.1D
@@ -77,7 +77,7 @@ This concatenated affine matrix is used with the ``3dAllineate`` command to crea
 ::
 
       # warp the all-1 dataset for extents masking
-    3dAllineate -base {$subj}_T1w_ns+tlrc                        \
+      3dAllineate -base {$subj}_T1w_ns+tlrc                        \
                 -input rm.epi.all1+orig                         \
                 -1Dmatrix_apply mat.r$run.warp.aff12.1D         \
                 -mast_dxyz 3 -final NN -quiet                   \
