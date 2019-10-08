@@ -39,7 +39,7 @@ The most basic usage of 3dSkullStrip is to use an "-input" flag to specify the a
   
 After about a minute, a new file called ``skull_strip_out+orig`` will be generated. This is the skull-stripped anatomical image, which you can view by opening up the AFNI viewer. Look in all three viewing panes to see how well the skull-stripping worked; you will probably notice a few voxels of cortex being removed in the frontal lobes and some bits of dura mater left around the top and the back of the skull, but overall the skull-stripping did very well.
 
-.. figure:: 04_01_SkullStrip.png
+.. figure:: 04_01_Skullstrip.png
 
 Another way to view the quality of the strip is to load the original anatomical image ``sub-08_T1w.nii.gz`` as an Underlay, and the skull-stripped image ``skull_strip_out`` as an Overlay. You can alternately view and hide the overlay by clicking anywhere in the viewing windows and then pressing the "o" key; another option is to press the "u" key to toggle between each image as an underlay. These viewing options will be helpful in any scenario in which you have to examine the data before and after a preprocessing step.
 
