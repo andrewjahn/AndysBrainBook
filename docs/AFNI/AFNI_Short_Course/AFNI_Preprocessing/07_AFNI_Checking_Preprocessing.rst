@@ -68,7 +68,7 @@ Viewing the Smoothed Data
 
 The following preprocessing step is **smoothing**, which averages the signal of nearby voxels together in order to boost any signal that is there, and to cancel out noise. These images will look more blurry as a function of the size of the smoothing kernel that you apply to the data; in this case, a smoothing kernel of 4mm will blur the data slightly, but not by much. Look at the images to make sure that the blurring looks reasonable, as in the figure below.
 
-... figure:: 04_07_Blur_Output.png
+.. figure:: 04_07_Blur_Output.png
 
 .. note::
 
