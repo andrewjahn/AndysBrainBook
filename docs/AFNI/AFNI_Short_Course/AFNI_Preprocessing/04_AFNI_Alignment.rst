@@ -13,7 +13,7 @@ Overview
 If you've ever tried to take a photo of a moving object, usually the image is blurry. If, on the other hand, the object remains still when the photo is taken, you will get a much clearer and sharply defined image.
 
 
-.. figure:: Hand_Motion.png
+.. figure:: 04_04_Hand_Motion.png
 
   A moving target leads to a blurry image (Left), whereas a stationary target leads to a more clearly defined image (Right). 
   
@@ -37,7 +37,7 @@ Similarly, if you rotated the object to the left or right, you could undo that b
 
 We do the same procedure with our volumes. Instead of the reference point we used in the example above, let's call the first volume in our time-series the **reference volume**. If at some point during the scan our subject moves his head an inch to the right, we can detect that movement and undo it by moving that volume an inch to the left. The goal is to detect movements in any of the volumes and **realign** those volumes to the reference volume.
 
-.. figure:: MotionCorrectionExample.gif
+.. figure:: 04_04_MotionCorrectionExample.gif
 
   The reference volume can be any volume of the time-series (although it is typically the first, middle, or last volume). If during the scan the subject moves to the right, that motion can be "undone" with respect to the reference volume by an equal and opposite movement to the left.
 
