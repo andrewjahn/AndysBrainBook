@@ -40,6 +40,7 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
    AFNI_Preprocessing/05_AFNI_Smoothing
    AFNI_Preprocessing/06_AFNI_Masking_Scaling
    AFNI_Preprocessing/07_AFNI_Checking_Preprocessing
+   AFNI_Preprocessing/AFNI_Intermezzo_Uber_Subject
    AFNI_Preprocessing/08_AFNI_Checkpoint
 
 ---------
