@@ -25,4 +25,13 @@ Although slice-timing correction seems reasonable, there are some objections:
 3. Many of the problems addressed by slice-timing correction can be resolved by using a **temporal derivative** in the statistical model (discussed later in the chapter on model fitting).
 
 
-For now, we will do slice-timing correction, using the first slice as the reference. (This is specified by the ``-tzero 0`` option of the 3dTshift command.)
+For now, we will do slice-timing correction, using the first slice as the reference. (This is specified by the ``-tzero 0`` option of the 3dTshift command.) The code for running slice-timing correction will be found in lines 97-100 of your ``proc`` script:
+
+::
+
+  foreach run ( $runs )
+    3dTshift -tzero 0 -quintic -prefix pb01.$subj.r$run.tshift \
+             pb00.$subj.r$run.tcat+orig
+  end
+
+This will slice-time correct each run with the first slice as a reference. (Keep in mind that in AFNI, everything is indexed starting at 0 - i.e., in this case 0 represents the first slice of the volume). The command also uses an option called ``-quintic``, which resamples each slice using a 5th-degree polynomial. In other words, since we need to replace the values of the voxels within a slice, we can make it more accurate by using information from a larger number of other slices. This does introduce some degree of correlation between the slices, which we will attempt to correct for later by using ``3dREMLfit`` to pre-whiten (i.e., de-correlate) the data.
