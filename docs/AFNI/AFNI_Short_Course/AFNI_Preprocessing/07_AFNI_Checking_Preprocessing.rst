@@ -125,7 +125,13 @@ Another Warning, related to our current problem, occurred during the normalizati
 
 .. figure:: 04_07_Normalization_Warning.png
 
-Apparently the centers of the anatomical and template images are very far apart. The output says that "if parts of the orignal anatomy gets cropped [sic]" (which is our current problem), "try adding option -init_xform AUTO_CENTER to your @auto_tlrc command." We can do so by navigating to one directory above the preprocessing directory (``cd ..``), removing the preprocessing directory (``rm -r sub_08.results``), and editing the file ``proc.sub_08`` to include the string ``-init_xform AUTO_CENTER`` after the @auto_tlrc command. Save the file, and rerun it by typing ``tcsh proc.sub_08``. Wait a few minutes for it to finish, and then navigate into the preprocessing directory and load the same set of images as before. You should now see that the problem is fixed:
+Apparently the centers of the anatomical and template images are very far apart. The output says that "if parts of the orignal anatomy gets cropped [sic]" (which is our current problem), "try adding option -init_xform AUTO_CENTER to your @auto_tlrc command." We can do so by navigating to one directory above the preprocessing directory (``cd ..``), removing the preprocessing directory (``rm -r sub_08.results``), and editing the file ``proc.sub_08`` to include the string ``-init_xform AUTO_CENTER`` after the @auto_tlrc command, which should be line 119 in your proc file:
+
+::
+
+  @auto_tlrc -base MNI_avg152T1+tlrc -input sub-08_T1w_ns+orig -no_ss -init_xform AUTO_CENTER
+
+Save the file, and rerun it by typing ``tcsh proc.sub_08``. Wait a few minutes for it to finish, and then navigate into the preprocessing directory and load the same set of images as before. You should now see that the problem is fixed:
 
 .. figure:: 04_07_Normalization_Fixed.png
 
