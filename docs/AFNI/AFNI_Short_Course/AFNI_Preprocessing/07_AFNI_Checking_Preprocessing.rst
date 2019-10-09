@@ -73,4 +73,72 @@ The following preprocessing step is **smoothing**, which averages the signal of 
 .. note::
 
   Open the "Graph" window and make sure your crosshairs are on the same voxel as you switch from the "volreg" image to the "blur" image. What do you notice about the time-series? Has it changed in any noticeable way? How would you describe the change, and why do you think it has changed the way it has?
-  
+ 
+ 
+Viewing the Scaled Data
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+The last preprocessing step generates scaled images, in which each voxel has a mean signal intensity of 100. This allows us to specify any changes relative to the mean as percent signal change; i.e., a value of 101 could be interpreted as a signal change of 1%.
+
+Due to the greyscale of the images being more uniform in the brain voxels as compared to greater variability in the signal outside of the brain, these images will have less anatomical definition than the previous images. Nevertheless, you should still be able to see the outline of the brain, and the time-series values of the brain voxels should all be close to 100:
+
+.. figure:: 04_07_Scaling_Output.png
+
+Viewing the Masks
+^^^^^^^^^^^^^^^^^
+
+Because we are interested only in the voxels covering the brain, we created a mask that we can use to exclude any non-brain voxels. The mask will be binary: 1's in the voxels that are determined to be within the skull, and 0's outside of the skull. (More rigorous masks can be created which will also exclude cerebrospinal fluid and even white matter, but we are not considering those here.)
+
+There are two masks that you can choose between: ``full_mask`` and ``mask_group``. The ``full_mask`` image is a union of all of the individual functional image masks, which have been determined to belong to the brain based on their signal intensity. Voxels with very low signal intensity are not considered brain voxels. As you can see with the ``full_mask`` image, this also excludes voxels in the orbitofrontal area, which is notorious for being susceptible to signal dropout:
+
+.. figure:: 04_07_Full_Mask_Output.png
+
+The other mask, ``mask_group``, is a more liberal mask that has been dilated to more closely match the template that you have warped to - in this case, the MNI152 brain:
+
+.. figure:: 04_07_Mask_Group_Output.png
+
+
+.. note::
+
+  What do you notice about the time-series for the mask images? Click both inside the mask and outside. Do these values make sense?
+
+Viewing the Anatomical Images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+When viewing the results of the anatomical preprocessing, we will want to make sure that both the skull-stripping looks reasonable and that the images were normalized properly.
+
+First, open the image ``anat_w_skull_warped``. If you have copied the MNI152 image into the ``aglobal`` directory, load it as an overlay image. (You can also copy it into the current directory by typing from the Terminal: ``cp ~/abin/MNI_avg152T1+tlrc* .``.) You may notice that while the sagittal view looks fine, the axial and coronal views look worse. In particular, it looks as though the image is slightly shifted to the right. Although it is common to have some variability in normalization, and that the anatomical and the template will never match perfectly, this is beyond the margin of error we are willing to extend to normalization.
+
+.. figure:: 04_07_Normalization_AnatWithSkull.png
+
+The ``anat_w_skull_warped`` image, it should be noted, is the result of a warp being applied to the raw anatomical image. The warp itself was computed by normalizing the skull-stripped anatomical to a template. If that normalization was off somehow, it would have propagated to the other images. To check this, load as an underlay the iamge ``anat_final``:
+
+.. figure:: 04_07_Normalization_AnatFinal.png
+
+We have found the source of the error: Part of the brain on the left has been removed during normalization. But how do we fix this?
+
+When you detect an error in the preprocessed images, you should examine the output of your preprocessing script. If you started the script from the uber_subject.py GUI, the output will be printed to the "Processing Command" window; a copy of the text will also be stored in a file called ``output.proc.<subjID``, which is located one directory above the preprocessed data.
+
+This text will contain both Warnings and Errors. Errors indicate that either a file is missing, or a command was not able to run successfully. Usually the script will exit after an error is encountered. Warnings, on the other hand, point out something that *may* be a problem. An example of a warning is the "dataset already aligned in time" notification that we received during slice-timing correction.
+
+Another Warning, related to our current problem, occurred during the normalization step. This can be found slightly after halfway down the output, after the command ``@auto_tlrc``:
+
+.. figure:: 04_07_Normalization_Warning.png
+
+Apparently the centers of the anatomical and template images are very far apart. The output says that "if parts of the orignal anatomy gets cropped [sic]" (which is our current problem), "try adding option -init_xform AUTO_CENTER to your @auto_tlrc command." We can do so by navigating to one directory above the preprocessing directory (``cd ..``), removing the preprocessing directory (``rm -r sub_08.results``), and editing the file ``proc.sub_08`` to include the string ``-init_xform AUTO_CENTER`` after the @auto_tlrc command. Save the file, and rerun it by typing ``tcsh proc.sub_08``. Wait a few minutes for it to finish, and then navigate into the preprocessing directory and load the same set of images as before. You should now see that the problem is fixed:
+
+.. figure:: 04_07_Normalization_Fixed.png
+
+
+Next Steps
+**********
+
+Now that we have reviewed the preprocessing, we can move on to creating a **General Linear Model**, which will allow us to determine which conditions lead to greater BOLD signal compared to other conditions - which is the point of the experiment. To see how this is done, click the ``Next`` button.
+
+
+Exercises
+**********
+
+1. Rerun the analysis, using a smoothing kernel of 10mm. What part of the preprocessing steps will be affected? Think about what the output will look like before running the script.
+
+2. Overlay the ``full_mask`` and ``mask_group`` images on the normalized anatomical image (or overlay them on the template that you warped to, i.e. the MNI152 image). What differences do you notice between the mask? Where is there the most difference in the coverage of the masks? Why?
