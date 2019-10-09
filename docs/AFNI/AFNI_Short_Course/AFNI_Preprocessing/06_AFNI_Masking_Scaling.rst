@@ -79,3 +79,16 @@ In order to make the comparison of signal intensity meaningful between studies a
              -expr 'c * min(200, a/b*100)*step(a)*step(b)'       \
              -prefix pb04.$subj.r$run.scale
   end
+  
+  
+These changes will be reflected in the time-series; the first image below represents the time-series before scaling, and the next image shows the time-series after scaling. Note that the values in the first image are relatively high - in the 800s - and that they are arbitrary; they could just as easily be around 500 or 900 in another subject. By scaling each subject's data to the same mean, as in the second image, we can place each run of each subject's data on the same scale.
+
+.. figure:: 04_06_Scaling_Before.png
+  
+  Before Scaling
+
+.. figure:: 04_06_Scaling_After.png
+
+  After Scaling
+
+Now that we have completed our preprocessing steps, it is time to review each step and check the data quality. In the next chapter, we will walk through how this is done.
