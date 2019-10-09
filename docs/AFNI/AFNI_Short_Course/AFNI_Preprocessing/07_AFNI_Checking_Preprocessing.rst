@@ -23,7 +23,7 @@ In which GroupName and subjName are assigned in the subject ID and group ID fiel
   
 .. note::
 
-  Later on when we discuss **scripting** the analysis, or automating it over all of the subjects in our dataset, we will simplify the directory tree by pruning it of unnecessary sub-directories.
+  Later on when we discuss **scripting** the analysis, or automating it over all of the subjects in our dataset, we will simplify the directory tree by pruning unnecessary sub-directories.
   
 This directory contains different versions of the images after each step of preprocessing. For example, the files that contain the string ``pb01`` (i.e., Processing Block 01), and the string ``tshift``, means that these images have been slice-time corrected using the 3dTshift command.
 
