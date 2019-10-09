@@ -60,6 +60,18 @@ The rest of the code within the "mask" block creates a union of masks that repre
               -prefix mask_group
 
 
+The output of this code, which you will examine in greater detail in the next chapter, is the creation of a
+mask which traces the outline of the signal detected by the image:
+
+.. figure:: 04_06_Mask_Example.png
+
+  Example of a masked image. The original image is on the left, while the mask is on the right. The mask consists of 1's for that voxels it determines to be within the skulll, and 0's everywhere else.
+  
+
+.. warning::
+
+  From the above image, you can see that there appears to be some parts of the orbitofrontal cortex excluded by the mask. Since the signal is relatively low in these regions to begin with (due to a phenomenon known as the **magnetic susceptibility artifact** which leads to signal droput), the mask assumes that this region does not contain any brain voxels. This can be remedied by using a technique called **field map unwarping**. It is beyond the scope of the current tutorial, but if you are interested, you can read about one such method `here <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#how-can-i-unwarp-my-data>`__.
+
 Scaling
 *******
 
