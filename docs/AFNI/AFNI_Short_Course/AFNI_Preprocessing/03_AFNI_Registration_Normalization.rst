@@ -50,19 +50,36 @@ This alignment between the functional and anatomical images is called **Registra
 -----
 
 Registration with AFNI's align_epi_anat.py
-*******
+******************************************
 
-Registration and Normalization, although distinct, are packaged together as a single step in the FEAT GUI's ``Registration`` tab. Once you have selected this tab, click on the button next to ``Main structural image`` to expand the input field. Then select the subject's skull-stripped image - in this case, the one that we created using a fractional intensity threshold of 0.2.
+The command ``align_epi_anat.py`` can do several preprocessing steps at once - registration, aligning the volumes of the functional images together, and slice-timing correction. In this example, however, we will just use it for registration. The code for this step will be found in lines 110-115 of your proc script:
 
-You will notice that there are dropdown menus below both the ``Main structural image`` and ``Standard space`` fields. The menus under the Main structural image field correspond to options for registering the functional to the anatomical image. The menus under the Standard space field are options for normalizing the anatomical image to the template image. Within these sets of menus, the dropdown menu on the left is the ``Search`` window, and the dropdown menu on the right is the ``Degrees of Freedom`` window.
+::
 
-In the ``Search`` window, there are three options: 1) No search; 2) Normal search; and 3) Full search. This signifies to FSL how much to search for a good initial alignment between the functional and anatomical images (for registration) and between the anatomical and template images (for normalization). The Full search option takes longer, but is more thorough and therefore more likely to produce better registration and normalization.
+  align_epi_anat.py -anat2epi -anat sub-08_T1w+orig \
+       -save_skullstrip -suffix _al_junk          \   
+       -epi vr_base_min_outlier+orig -epi_base 0  \
+       -epi_strip 3dAutomask                      \   
+       -giant_move                                \   
+       -volreg off -tshift off 
+       
+The first option, ``-anat2epi``, indicates that the anatomical image will be aligned to the functional images - not vice versa. As a general rule, we want to introduce as few changes and interpolations to our functional data as possible. Therefore, if an image has to be moved and slightly deformed, we choose to do it to the anatomical image.
 
-In the ``Degrees of Freedom`` window, you can use 3, 6, or 12 degrees of freedom to transform the images. Registration has an additional option, ``BBR``, which stands for Brain-Boundary Registration. This is a more advanced registration technique that uses the tissue boundaries to fine-tune the alignment between the functional and anatomical images. Similar to the Full search option above, it takes longer, but often gives a better alignment.
+The ``-suffix`` command appends the string "_al_junk" to some of the intermediate stages of the registration, which we will use later for normalizing the functional images. The "epi" options (i.e., ``-epi``, ``-epi_base``, and ``-epi_strip``) signalize that the functional volume with the least variability will be used as a reference image, and that non-brain tissue should be stripped using 3dAutomask, an alternative to 3dSkullStrip. ``-giant_move`` attempts to find a good initial starting alignment between the anatomical and functional images; and the last two options indicate that we do not want to include alignment and slice-timing correction in the current command.
 
+Normalization with AFNI's @auto_tlrc
+************************************
 
-Video
-********
+Once we have aligned the anatomical and functional images, we will first normalize the anatomical image to a template. These warps, as you will see in the next chapter, will be applied to the functional images as well. To normalize the anatomical image, we will use the ``@auto_tlrc`` command; this and a following command, ``cat_matvec``, are found in lines 118-122 of your proc script:
 
-Registration and Normalization is the last step of the preprocessing pipeline for a single subject. To see a screencast video demonstrating how to set up all of your preprocessing through the FEAT GUI, click `here <https://www.youtube.com/watch?v=nETfSWPKSes>`__.
+::
 
+  # warp anatomy to standard space
+  @auto_tlrc -base MNI_avg152T1+tlrc -input sub-08_T1w_ns+orig -no_ss
+
+  # store forward transformation matrix in a text file
+  cat_matvec sub-08_T1w_ns+tlrc::WARP_DATA -I > warp.anat.Xat.1D
+
+The first command indicates to use the image MNI_avg152T1 as a template, and the skull-stripped anatomical image as a **source image**, or the image to be moved around to best match the base, or reference, image. The ``-no_ss`` option indicates that the anatomical image has already been skull-stripped.
+
+In order to align the template and the anatomical image, the anatomical image needs to be moved and transformed using the transformations described above. This creates a series of numbers organized in an **affine transformation matrix** which is stored in the header of the anatomical image. The second command, ``cat_matvec``, extracts this matrix and copies it into a file called ``warp.anat.Xat.1D``. How this matrix is used to bring the functional images to the same normalized space will be seen in the next chapter.
