@@ -65,7 +65,7 @@ mask which traces the outline of the signal detected by the image:
 
 .. figure:: 04_06_Mask_Example.png
 
-  Example of a masked image. The original image is on the left, while the mask is on the right. The mask consists of 1's for that voxels it determines to be within the skulll, and 0's everywhere else.
+  Example of a masked image. The original image is on the left, while the mask is on the right. The mask consists of 1's for that voxels it determines to be within the skull, and 0's everywhere else.
   
 
 .. warning::
