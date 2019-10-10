@@ -9,12 +9,12 @@ SUMA Tutoral #1: Reconstructing the Cortical Surface
 Introduction
 *************
 
-The first step of a surface-based analysis is to reconstruct the cortical surface from a three-dimensional volume. This is discussed in detail in the `FreeSurfer Short Course <FS_01_BasicTerms>`. Here, we will run a script to process each of our subject's anatomical datasets using FreeSurfer's `recon-all command <FS_03_ReconAll>`.
+The first step of a surface-based analysis is to reconstruct the cortical surface from a three-dimensional volume. This is discussed in detail in the :ref:`FreeSurfer Short Course <FS_01_BasicTerms>`. Here, we will run a script to process each of our subject's anatomical datasets using FreeSurfer's :ref:`recon-all command <FS_03_ReconAll>`.
 
 Running recon-all
 *****************
 
-If you have FreeSurfer and the `parallel command <FS_04_ReconAllParallel>` installed, you will be able to loop the recon-all command over all of your subjects. First, navigate to the ``Flanker`` directory containing all of your subjects, and type the following:
+If you have FreeSurfer and the :ref:`parallel command <FS_04_ReconAllParallel>` installed, you will be able to loop the recon-all command over all of your subjects. First, navigate to the ``Flanker`` directory containing all of your subjects, and type the following:
 
 ::
 
