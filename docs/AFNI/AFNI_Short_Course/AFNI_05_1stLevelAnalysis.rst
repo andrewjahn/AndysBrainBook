@@ -21,13 +21,13 @@ After you have reviewed those concepts, you are then ready to run a first-level 
    :maxdepth: 1
    :caption: First-Level Analysis
 
-   AFNI_Statistics/01_Stats_TimeSeries
-   AFNI_Statistics/02_Stats_HRF_History
-   AFNI_Statistics/03_Stats_HRF_Overview
-   AFNI_Statistics/04_Stats_General_Linear_Model
-   AFNI_Statistics/05_Creating_Timing_Files
-   AFNI_Statistics/06_Stats_Running_1stLevel_Analysis
-   AFNI_Statistics/07_Stats_1stLevel_Checkpoint
+   AFNI_Statistics/AFNI_01_Stats_TimeSeries
+   AFNI_Statistics/AFNI_02_Stats_HRF_History
+   AFNI_Statistics/AFNI_03_Stats_HRF_Overview
+   AFNI_Statistics/AFNI_04_Stats_General_Linear_Model
+   AFNI_Statistics/AFNI_05_Creating_Timing_Files
+   AFNI_Statistics/AFNI_06_Stats_Running_1stLevel_Analysis
+   AFNI_Statistics/AFNI_07_Stats_1stLevel_Checkpoint
 
 
 .. note::
