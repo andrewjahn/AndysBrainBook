@@ -111,7 +111,7 @@ First, open the image ``anat_w_skull_warped``. If you have copied the MNI152 ima
 
 .. figure:: 04_07_Normalization_AnatWithSkull.png
 
-The ``anat_w_skull_warped`` image, it should be noted, is the result of a warp being applied to the raw anatomical image. The warp itself was computed by normalizing the skull-stripped anatomical to a template. If that normalization was off somehow, it would have propagated to the other images. To check this, load as an underlay the iamge ``anat_final``:
+The ``anat_w_skull_warped`` image, it should be noted, is the result of a warp being applied to the raw anatomical image. The warp itself was computed by normalizing the skull-stripped anatomical to a template. If that normalization was off somehow, it would have propagated to the other images. To check this, load as an underlay the image ``anat_final``:
 
 .. figure:: 04_07_Normalization_AnatFinal.png
 
