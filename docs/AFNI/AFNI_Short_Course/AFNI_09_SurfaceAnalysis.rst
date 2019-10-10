@@ -12,7 +12,7 @@ Our analyses so far have been **volume-based** - that is, we have preprocessed a
 
 We will run this analysis with **SUMA**, a package that comes with your AFNI installation. Technically, SUMA is a separate package that can be run on its own, but we will be using it in conjunction with the AFNI viewer and with AFNI commands.
 
-.. figure:: SUMA.png
+.. figure:: 09_SUMA.png
 
   SUMA! Photo taken from the `AFNI website <https://afni.nimh.nih.gov/pub/dist/doc/SUMA/suma/SUMA_do1.htm>`__.
 
