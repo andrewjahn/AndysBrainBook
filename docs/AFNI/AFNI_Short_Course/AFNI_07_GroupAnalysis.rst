@@ -56,7 +56,7 @@ When you have finished, your GUI should look like the one below:
 
 .. note::
 
-  If you receive an error saying that one of the fields hasn't been filled in - but you can clearly see that it has been filled in - click on another field, and try clicking the "Go" icon again.
+  If you receive an error saying that one of the fields hasn't been filled in - but you can clearly see that it has been filled in - click on another field, and then try clicking the "Go" icon again.
   
   
 Generating the Results
@@ -71,7 +71,7 @@ When it has finished, go back to your Terminal and type ``ls``. You will see a n
 Using 3dMEMA
 *************
 
-Close the AFNI view, and then use the Terminal to navigate back to the directory containing your subjects. Go back to the uber_ttest.py GUI (or open a new one), and make the following changes:
+Close the AFNI viewer, and then use the Terminal to navigate back to the directory containing your subjects. Go back to the uber_ttest.py GUI (or open a new one), and make the following changes:
 
 1. Change the "program" from 3dttest++ to 3dMEMA.
 2. Change the "script name" and "dset prefix" to ``Flanker_Inc-Con_MEMA``.
