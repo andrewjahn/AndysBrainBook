@@ -11,7 +11,7 @@ Cognitive Control
 
 **Cognitive Control** refers to the ability to focus on one thing - an idea, an object, a sound  - and to filter out or suppress irrelevant thoughts and stimuli. Think of a time when someone told you to write down an event on your calendar: You are given the date, time, and location, and then you need to write it down. Most likely you found yourself repeating those items, either mentally or aloud, as you tried to remember them.
 
-Or, to take another example: Let's say that you are writing a check shortly after the beginning of the new year in 2019. When writing in the year of the date, you find yourself writing 2018 - an error that comes about from the habit of having seen and written it so many times in the past fifty-two weeks. The next time you find yourself needing to write the year of the date, you take more time to consciously override your habit of writing in the wrong year. In both cases, this effort to do a task correctly by suppressing your habits is an act of cognitive control, referred to in everyday speech as willpower.
+Or, to take another example: Let's say that you are writing a check shortly after the beginning of the new year in 2019. When writing in the year of the date, you find yourself writing 2018 - an error that comes about from the habit of having seen and written it so many times in the past fifty-two weeks. The next time you find yourself needing to write the year of the date, you take more time to consciously override your habit of writing in the wrong year. In both cases, this effort to do a task correctly by suppressing your habits is an act of cognitive control, sometimes referred to in everyday speech as willpower.
 
 
 The Stroop Task
