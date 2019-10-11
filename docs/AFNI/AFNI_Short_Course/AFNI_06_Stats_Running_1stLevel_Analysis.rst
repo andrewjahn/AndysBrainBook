@@ -85,9 +85,32 @@ Examining the Output
 
 When the script finishes, navigate into the folder ``sub-08/subject_results/group.Flanker/subj.sub08/sub08.results``. In addition to the preprocessed blocks you saw previously, you will also see statistical datasets: The one labeled ``stats.sub_08+tlrc`` has been analyzed using the traditional 3dDeconvolve approach; the dataset ``stats.sub_08_REML+tlrc`` has accounted for temporal autocorrelation.
 
+.. figure:: 06_FirstLevel_Output.png
+
 You will also see a few files beginning with an "X", such as ``X.xmat.1D``. These represent different parts of the design matrix. For example, you can view the design matrix by typing ``aiv X.jpg``:
 
 .. figure:: 06_GLM.png
 
-For a different view, looking at all of the regressors in separate rows, type ``1dplot -sepscl X.xmat.1D``.
+For a different view, looking at all of the regressors in separate rows, type ``1dplot -sepscl X.xmat.1D``:
+
+.. figure:: 06_GLM_1dplot.png
+
+  If you rotate this figure by 90 degrees, you will see that it is a different representation of the same design matrix above.
+  
+.. note::
+
+  Make sure the design matrix looks reasonable. Are the lower-frequency drifts modeled as you would expect them to be? Do the onsets for the trials in each condition match up with the timing files that you created in the last chapter?
+
+Viewing the Statistics Files
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We are now ready to look at the **contrast maps** of our data. Type ``afni`` to open up the GUI, and select ``anat_file.sub_08`` as the Underlay. (You can also use the MNI152 template if you've copied it into your current directory, or if you have placed it in the ``aglobal`` directory.) For the Overlay, select ``stats.sub_08``. You should see something like this:
+
+.. figure:: 06_ViewingStats.png
+
+This may look overwhelming at first; but although the AFNI viewer can seem to have too many options, once you become more familiar with them you will be able to customize how you view your results. If this is your first time viewing statistics in AFNI, the most noticeable features of the "Define Overlay" panel will appear to be the **slider bar** (allowing you to threshold the images to only see values above a certain number), and the "ULay", "OLay", and "Thr" menus, corresponding to the Underlay, Overlay, and Threshold sub-briks.
+
+Let's begin with the slider bar. If you move it up and down, you will see voxels either disappear or re-appear. That is because we are **thresholding**, or removing, voxels that fall below the Threshold number to the left of the bar. This number will be based on the sub-brik that is selected in the "Thr" menu; in this case, the sub-brik that was selected for us when we opened the viewer was volume #2, the T-statistic map of the beta weights for the Congruent condition. As you move the slider to a value of, say, 1.9753, you will also notice that the number below the slider bar, ``p=``, changes as well, to a value of 0.493. This represents the **uncorrected p-value threshold** for the currently selected Threshold map; in other words, any colored voxels pass an individual p-value threshold of 0.493.
+
+We haven't corrected for multiple comparisons yet, so we can't say whether any one of the individual voxels is statistically significant. However, viewing the data at an uncorrected p-value threshold can give you a general idea of the spatial layout of the statistics, and indicate whether the results are trending in the direction that you would predict, or if there appears to be something wrong. For example, highly correlated regressors would have very large parameter estimates and correspondingly high variability. You should also make sure that the activation, for a relatively high uncorrected p-value threshold (e.g., p=0.01 or higher), generally falls within the gray matter. If you find large numbers of "active" voxels within the ventricles, for example, it may indicate a problem with the data quality.
 
