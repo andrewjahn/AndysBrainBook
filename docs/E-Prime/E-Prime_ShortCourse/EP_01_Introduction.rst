@@ -12,7 +12,7 @@ When you open E-Prime on your computer, you will be prompted to select a **templ
 
 .. There are several other stimulus presentation programs, such as `PsychoPy <https://www.psychopy.org/>`__ and `Presentation <https://www.neurobs.com/menu_presentation/menu_features/features_overview>`__. E-Prime is commercial software and costs around $1,000 for a single license; PsychoPy is free and has many of the same features, but may be more difficult to learn for students new to programming.
 
-.. figure:: 01_Blank_Template.png
+.. figure:: 01_Blank_Experiment.png
 
   The layout of a typical E-Prime experiment. The sidebars on the left contain a list of objects that can be placed on the experiment timeline (the "Toolbox" sidebar); ; a representation of the experiment from start to finish ("Structure"); and a space for the currently selected object ("Workspace"). When you create objects on the experimental timeline (discussed below), you will also have access to a list of properties for the currently selected object, such as the name, duration, and color (which will be called the "Properties" window). 
 
