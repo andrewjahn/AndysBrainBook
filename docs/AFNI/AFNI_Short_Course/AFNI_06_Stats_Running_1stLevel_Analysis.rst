@@ -112,5 +112,21 @@ This may look overwhelming at first; but although the AFNI viewer can seem to ha
 
 Let's begin with the slider bar. If you move it up and down, you will see voxels either disappear or re-appear. That is because we are **thresholding**, or removing, voxels that fall below the Threshold number to the left of the bar. This number will be based on the sub-brik that is selected in the "Thr" menu; in this case, the sub-brik that was selected for us when we opened the viewer was volume #2, the T-statistic map of the beta weights for the Congruent condition. As you move the slider to a value of, say, 1.9753, you will also notice that the number below the slider bar, ``p=``, changes as well, to a value of 0.493. This represents the **uncorrected p-value threshold** for the currently selected Threshold map; in other words, any colored voxels pass an individual p-value threshold of 0.493.
 
+.. note::
+
+  If you want to set a specific uncorrected p-value threshold, right-click on the ``p=`` text, select "set p-threshold", and type the threshold you want (e.g., 0.001).
+
 We haven't corrected for multiple comparisons yet, so we can't say whether any one of the individual voxels is statistically significant. However, viewing the data at an uncorrected p-value threshold can give you a general idea of the spatial layout of the statistics, and indicate whether the results are trending in the direction that you would predict, or if there appears to be something wrong. For example, highly correlated regressors would have very large parameter estimates and correspondingly high variability. You should also make sure that the activation, for a relatively high uncorrected p-value threshold (e.g., p=0.01 or higher), generally falls within the gray matter. If you find large numbers of "active" voxels within the ventricles, for example, it may indicate a problem with the data quality.
+
+Now, change the OLay sub-brik to ``incongruent-congruent#0_Coef`` and the Thr sub-brik to ``incongruent-congruent#0_Tstat``, and set the uncorrected p-value threshold to 0.05. Click around the brain, observing where the statistics are positive and where they are negative. Where do you notice significant "clusters" of activated voxels? Are they where you would expect them to be?
+
+Later on, you will learn about a multiple correction technique called **cluster correction**. This method looks for clusters composed of voxels that pass a given uncorrected threshold, and then determines whether the cluster is significant or not. In this chapter we won't go into how to calculate how large the cluster needs to be, but for now click the "*Clusterize" button and change the number of voxels to ``45``. As a result, you will only see those clusters that are composed of 45 or more voxels that each pass an uncorrected p-value threshold of 0.05. You can click on the "Rpt" button to see a report of each cluster that passes this threshold, which lists the voxel size, the location of the peak voxel of teh cluster, and options to move the crosshairs to the cluster and make it flash. All of these operations are summarized in the GIF below.
+
+.. figure:: 06_ViewingClusters.gif
+
+
+Next Steps
+**********
+
+When you have finished running the preprocessing and first-level analyses, we will then need to run this for each subject in our study. To speed up the process, we will learn about **scripting**, to which we now turn.
 
