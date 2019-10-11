@@ -24,12 +24,12 @@ The ordering doesn't matter though, because right now the TextDisplay objects do
 
 .. figure:: 02_Rename.png
 
-If you want to remove an object from the timeline, but still have it at hand in case you need it later, right-click on the object and select "Delete". This will move the object to the **Unreferenced E-Objects** part of the Structure sidebar. If you want to replace it on the timeline, simply click and drag it; otherwise, you can permanently delete the object by right-clicking on it again and selecting "Delete".
+If you want to remove an object from the timeline, but still have it at hand in case you need it later, right-click on the object and select "Delete". This will move the object to the **Unreferenced E-Objects** part of the Structure sidebar. If you want to replace it on the timeline, simply click and drag it back; otherwise, you can permanently delete the object by right-clicking on it again and selecting "Delete".
 
 Changing the Text
 ^^^^^^^^^
 
-To change what the "Welcome" object will display to the subject, simply double-click on it and type in the textbox - in this example, let's write "Welcome to the experiment!" An introduction like this let's the subject know that the experiment is about to start, and can remain at this stage until he is ready to proceed.
+To change what the "Welcome" object will display to the subject, simply double-click on it and type in the textbox - in this example, let's write "Welcome to the experiment!" An introduction like this lets the subject know that the experiment is about to start, and can remain at this stage until he is ready to proceed.
 
 What if we want to change other aspects of the text, such as font size or color? More options can be found in the Properties tab, which is the icon with the hand pointing to a card. Click on it, and then select the "Font" tab. The Point Size can be changed from a default of 18 to something else, such as 24. You can also try out different font types, although you should be careful not to choose a type that is distracting or annoying.
 
@@ -38,14 +38,18 @@ What if we want to change other aspects of the text, such as font size or color?
   Example of the Properties page of an object. There are several tabs that allow you to change properties such as font color, font size, and the background color of the object.
 
 
-Next Steps
+Exercises
 *************
 
-Click on different tabs and see whether changing them leads to any observable changes in the Text Object. What do you think the "Frame" tab contains? What about "General"?
+1. Click on different tabs and see whether changing them leads to any observable changes in the Text Object. What do you think the "Frame" tab contains? What about "General"?
 
-Click and drag some other objects onto the timeline, such as Slides and ImageDisplay Objects, and examine what properties you can change. As you use E-Prime more, you will use some objects and properties more than others; for now, though, see what commonalities there are between the objects, and which properties you think you will be changing the most often.
+2. Click and drag some other objects onto the timeline, such as Slides and ImageDisplay Objects, and examine what properties you can change. As you use E-Prime more, you will use some objects and properties more than others; for now, though, see what commonalities there are between the objects, and which properties you think you will be changing the most often.
 
-The next tutorial will focus on the more versatile **Slide** object, as well as more advanced properties that give you greater control over your objects. Once these fundamentals are mastered, it becomes easier to build an experiment to more precisely reflect your tastes - a match between what you envision and what you create.
+
+Next Steps
+**********
+
+The next tutorial will focus on the more versatile **Slide** object, as well as more advanced properties that give you greater control over your objects. Once these fundamentals are mastered, it becomes easier to build an experiment that more precisely suits your needs.
 
 ----------------
 
