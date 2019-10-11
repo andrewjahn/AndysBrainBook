@@ -63,7 +63,7 @@ Next, we will need to replace any absolute paths with a :ref:`relative path <Uni
 Automating the Analysis
 ***********************
 
-We will now use this updated preprocessing script in a for-loop to analyze all of the subject in our dataset. Use this code:
+We will now use this updated preprocessing script in a for-loop to analyze all of the subjects in our dataset. Use this code:
 
 ::
 
