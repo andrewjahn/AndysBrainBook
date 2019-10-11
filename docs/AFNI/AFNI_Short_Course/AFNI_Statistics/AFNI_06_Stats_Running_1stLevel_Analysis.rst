@@ -125,6 +125,14 @@ Later on, you will learn about a multiple correction technique called **cluster 
 .. figure:: 06_ViewingClusters.gif
 
 
+Exercises
+*********
+
+1. In the lower right corner of the "Define Overlay" panel, you will see text that says ``OLay =`` and ``Thr =``, and certain numbers on the right side of the equals sign. These indicate the value of the Overlay and Threshold datasets at the voxel where the crosshair is located; in other words, the parameter (or contrast) estimate, and the associated t-statistic. Select sub-brik #4 (incongruent#0_Coef) as an overlay, and write down the corresponding number that shows up in the ``OLay =`` field. Do the same thing for sub-brik #1 (congruent#0_Coef). Now select sub-brik #7 (incongruent-congruent_GLT#0_Coef), but before you do, think about what you would expect the value to be. Now select the sub-brik. Does it match what you predicted? Why or why not?
+
+2. Do the same procedure in Exercise #1, looking at the contrasts of sub-briks #7 and #10. What do you notice about the value of the Overlay? Does this make sense given the contrast weights?
+
+
 Next Steps
 **********
 
