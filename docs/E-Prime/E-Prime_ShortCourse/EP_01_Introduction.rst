@@ -23,7 +23,7 @@ As we learn more about E-Prime, you will be creating more complex experiments th
 
   
   
-The backbone of an E-Prime experiment is the **procedure** object; each new E-Prime experiment starts with a procedure object called **SessionProc**. If you double-click on the object to see its contents, you will see a window that contains a horizontal line - the **Procedural Timeline**. It depicts the timeline of the experiment going from left to right. As we construct our experiment with **objects**, the timeline will present each object in sequence as it appears on the timeline. How these objects are constructed and how we use them to build an experiment, we will turn to in the next chapter.
+The backbone of an E-Prime experiment is the **procedure** object; each new E-Prime experiment starts with a procedure object called **SessionProc**. If you double-click on the object to see its contents, you will see a window that contains a horizontal line - the **Procedural Timeline**. It depicts the timeline of the experiment going from left to right. As we construct our experiment with **objects**, the timeline will present each object in sequence as it appears on the timeline. In the next chapter, we will learn how these objects are constructed and how we use them to build an experiment.
   
   
 Video
