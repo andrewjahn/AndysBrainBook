@@ -77,7 +77,7 @@ So far, all of these variables are known - Y is measured from the data, and x1 a
 
 The next part of the GLM equation is the beta weights, which we represent with B1 and B2. These represent our estimate of the amount the HRF needs to be scaled for each regressor to best match the original data in Y - hence the name “beta weights”. The last term in this equation is E, which represents the residuals, or the difference between our ideal time series model and the data after estimating the beta weights. If the model is a good fit, the residuals will decrease, and one or more of the beta weights are more likely to be statistically significant. The correspondence of the GLM to the fMRI model you created is illustrated in the animation below.
 
-.. figure:: GLM_fMRI_Data_FSL.gif
+.. figure:: 05_05_GLM_fMRI_Data_FSL.gif
 
 
 Examining the Output
