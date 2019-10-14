@@ -36,7 +36,7 @@ Instead of creating new Fixation and StroopSlide objects on the new Experimental
 
 .. note::
 
-  Since we don't need the original Objects on the original timeline, we can right click on them and delete them in turn.
+  Since we don't need the original Objects on the original timeline, we can delete them.
   
 Let's say that we want to use two colors, red and blue; and that we want to create both congruent and incongruent stimuli. This leads to four different trial types. If we wanted two trials of each possible type, this results in eight trials total. To create these, double-click on the StroopList object and click on the button ``Add Multiple Levels`` (represented by two downward-facing arrows). Enter a value of "3" and press OK. Next, click on the ``Add Multiple Attributes`` button (represented by two rightward-facing arrows) and enter a value of "2" when prompted. If you double-click on the column header ``Attribute1``, you can rename the Attribute; let's call it "StroopWord". Do the same thing for ``Attribute2``, renaming it "StroopColor".
 
@@ -59,9 +59,9 @@ This means that there are 4 samples in the current list, and that the list is ru
 
 To make our experiment more compact and to repeat the same list of trials that we have created in our List object, click on the "Properties" button (i.e., the icon with a hand pointing to a white card). There are several tabs in the window that opens, but we will focus here on the "Selection" and "Reset/Exit" tabs. 
 
-The "Selection" tab allows you to specify the order in which the trials are selected. The default is Sequential, but we can change the selection to "Random". This will randomly select a trial with the given attributes in our list, and then select each of the other trials until all of them have been selected; then the list will either exit or repeat, if we indicate it to do so. "Random with Replacement" allows the list to re-select a trial even after it has been selected on the current cycle.
+The "Selection" tab allows you to specify the order in which the trials are selected. The default is Sequential, but we can change the selection to "Random". This will randomly select a trial with the given attributes in our list, and then select each of the other trials until all of them have been selected; then the list will either exit or repeat, depending on what we specify. "Random with Replacement" allows the list to re-select a trial even after it has been selected on the current cycle.
 
-The "Reset/Exit" tab specifies how many trials are in a **cycle**, or how many trials are run before the List object either repeats or exits. The deafult of "All samples" will run through however many samples there are; or, you can run a limited number of samples. The "Exit List" panel in the lower right allows you to specify how many cycles you want to run in the current List. In our case, since we want to run two trials of each condition type, we will change this to 2 cycles. Once you have finished making these changes, notice how the text in the summary panel is updated, and then click OK.
+The "Reset/Exit" tab specifies how many trials are in a **cycle**, or how many trials are run before the List object either repeats or exits. The default of "All samples" will run through however many samples there are; or, you can run a limited number of samples. The "Exit List" panel in the lower right allows you to specify how many cycles you want to run in the current List. In our case, since we want to run two trials of each condition type, we will change this to 2 cycles. Once you have finished making these changes, notice how the text in the summary panel is updated, and then click OK.
 
 Adding Congruent and Correct Response Attributes
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -78,7 +78,7 @@ The attributes that you specified in the List object can be used in any of the o
 
 In this case, open the StroopSlide object, click on the text object in the middle of the screen (i.e., the word "blue"), and then click on the sub-object property button. Replace the word "blue" with the string ``[StroopWord]``, and replace the word "red" after the ForeColor property with the string ``[StroopColor]``. When you are finished, the sub-object properties page should look like the following:
 
-.. figure:: 04_StroopSlide__subobject_Properties.png
+.. figure:: 04_StroopSlide_subobject_Properties.png
 
 We can also use the CorrectResp attribute that we assigned in the List object. Open the Properties tab for the StroopSlide object, set the Allowable responses to ``fj`` and the Correct response to ``[CorrectResp]``, and change the End Action to ``(none)``. This allows the subject to make a response within the time that the object is presented without terminating the current object when a response is made.
 
