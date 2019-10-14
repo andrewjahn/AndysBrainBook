@@ -9,7 +9,7 @@ E-Prime Tutorial #2: Objects
 Overview
 ***********************
 
-**Objects** are the building blocks of an experiment. Every E-Prime experiment is built upon the idea of **object-oriented programming**, which means that the user selects pre-designed objects from the E-Prime toolbox, and then arranges and modifies them to suit his experiment.
+**Objects** are the building blocks of an experiment. Every E-Prime experiment is built upon the idea of **object-oriented programming**, which means that the user selects pre-designed objects from the E-Prime toolbox, and then arranges and modifies them to create an experiment.
 
 In computer programming, the concept of objects is similar to the objects you hold and manipulate in everyday life. The keyboard I use to type this tutorial is an object: It is white, rectangular, made of plastic, contains several keys, and weighs only a couple of pounds. By itself, the keyboard doesn't do anything, but pressing the keys makes text appear on the screen.
 
@@ -29,7 +29,7 @@ If you want to remove an object from the timeline, but still have it at hand in 
 Changing the Text
 ^^^^^^^^^
 
-To change what the "Welcome" object will display to the subject, simply double-click on it and type in the textbox - in this example, let's write "Welcome to the experiment!" An introduction like this lets the subject know that the experiment is about to start, and can remain at this stage until he is ready to proceed.
+To change what the "Welcome" object will display to the subject, simply double-click on it and type in the textbox. In this example, let's write "Welcome to the experiment!" An introduction like this lets the subject know that the experiment is about to start, and that he can wait here until he is ready to proceed.
 
 What if we want to change other aspects of the text, such as font size or color? More options can be found in the Properties tab, which is the icon with the hand pointing to a card. Click on it, and then select the "Font" tab. The Point Size can be changed from a default of 18 to something else, such as 24. You can also try out different font types, although you should be careful not to choose a type that is distracting or annoying.
 
