@@ -6,7 +6,7 @@ E-Prime Tutorial #1: Introduction to E-Prime
 
 -------------
 
-**E-Prime** is a stimulus presentation program that can display text, images, and videos, while recording the participant's responses, accuracy, and reaction time. The program's graphical user interface allows the user to quickly create a simple experiment by clicking and dragging **objects** onto the screen. Although this is enough for simple experiments, more advanced users can write **E-basic** code to perform more complex operations; this will be reviewed later in a tutorial on :ref:`Inline objects <EP_08_InlineObjects>`.
+**E-Prime** enables the experimenter to display text, images, and videos, while recording the participant's responses, accuracy, and reaction time. The program's graphical user interface allows the user to quickly create a simple experiment by clicking and dragging **objects** onto the screen. Although this is enough for simple experiments, more advanced users can write **E-basic** code to perform more complex operations; this will be reviewed later in a tutorial on :ref:`Inline objects <EP_08_InlineObjects>`.
 
 When you open E-Prime on your computer, you will be prompted to select a **template**. The Standard templates will generate a basic experiment template with fixations, stimuli, and feedback slides. (Don't worry if you don't know what these terms mean right now; we will cover them in later tutorials.) If you select the Blank template, you will see the following screen:
 
