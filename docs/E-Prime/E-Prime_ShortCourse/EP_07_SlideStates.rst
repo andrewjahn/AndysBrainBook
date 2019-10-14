@@ -41,7 +41,7 @@ You will first need to rename the Slide States of each sub-object. Click on the 
 
 From the Car Slide State, click on the Car image and click on the sub-object properties button. Replace the string ``BlueCar`` with the string ``[Condition]``; this will display the car image that is indicated in the StroopList object. Lastly, click on the StroopSlide object's properties button (i.e., the white sheet of paper with a finger pointing to it), click on the ``General`` tab, and type ``[StateName]`` in the ActiveState field. This will activate either the Stroop or the Car Slide State, depending on which trial is selected from the List object.
 
-Lastly, remember to update the Instructions object so that the subject knows to respond to the color of either the word or the car that is presented:
+Remember to update the Instructions object so that the subject knows to respond to the color of either the word or the car that is presented:
 
 .. figure:: 07_SlideStates_UpdatedInstructions.png
 
