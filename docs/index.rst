@@ -62,18 +62,17 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     FreeSurfer/FreeSurfer_Introduction
     
-
-
-
-.. note::
-
-    The following modules are under construction. Check back soon for more updates!
- 
 .. toctree::
     :maxdepth: 1
     :caption: E-Prime
     
     E-Prime/E-Prime_Overview
+    
+
+
+.. note::
+
+    The following modules are under construction. Check back soon for more updates!
     
     
 .. toctree::
@@ -149,3 +148,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     5.25.2019: Finished the Unix Module, and added videos for 2nd and 3rd level analysis in the fMRI short course.
     
     5.31.2019: First draft of the Unix and fMRI courses are complete.
+    
+    10.14.2019: E-Prime module is complete.
