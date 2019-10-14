@@ -15,20 +15,20 @@ Overview
 
 Once you have created a behavioral experiment, you may think that all you need to do is present it to the subjects while they are in the MRI scanner. However, there are certain aspects of the experiment that we need to change, such as inserting **jitters** between the trials that we are interested in.
 
-Another point: You should make sure that you are detecting a behavioral effect before you scan the subject. fMRI data is very noisy, and the odds are small that you will detect a neural effect without a corresponding behavioral effect.
+Before going on, you should make sure that you are detecting a behavioral effect before you scan the subject. fMRI data is very noisy, and the odds are small that you will detect a neural effect without a corresponding behavioral effect.
 
 
 The Trigger Pulse
 ************************
 
-When a scanner begins to collect images, it sends a trigger pulse, more commonly known as a **trigger**, to the experimental computer. (The setup for this varies between laboratories - for example, you may need to bring your own laptop to the control room and plug in the cable yourself - so you'll need to ask what the procedure is where you work.) In order to ensure that all of our timings are aligned to a common reference point - in other words, that we have a point in our experiment representing the start of our timings at zero seconds - we will need to include an object whose purpose is to wait for the trigger, and then begin the experiment when the trigger is detected.
+When a scanner begins to collect images, it sends a pulse, commonly known as a **trigger**, to the experimental computer. (The setup for this varies between laboratories - for example, you may need to bring your own laptop to the control room and plug in the cable yourself - so you'll need to ask what the procedure is where you work.) In order to ensure that all of our timings are aligned to a common reference point - in other words, that we have a point in our experiment representing the start of our timings at zero seconds - we will need to include an object whose purpose is to wait for the trigger and then, when the trigger is detected, begin the experiment.
 
 .. figure:: 11_PulseOverview.png
 
 
 .. warning::
 
-  It is becoming more common for scanners to run a few "dummy" scans before sending the pulse. During these dummy acquisitions no data is collected. Make sure to ask your scanner technician whether these dummy scans are part of your sequence; if they aren't, you may need to discard the first few images during your analysis.
+  It is becoming more common for scanners to run a few "dummy" scans before sending the trigger. During these dummy scans no data is collected. Make sure to ask your scanner technician whether these dummy scans are part of your sequence; if they aren't, you may need to discard the first few images during your analysis.
   
 The first step is to synchronize the pulse with the onset of your experiment. The pulse is typically a number (such as "5") or a special keyboard character (such as the backtick, " ` ", found in the upper left corner of the keyboard, or an equals sign, `=`). We can create an object that listens for this special character, and which executes a block of InLine code to timestamp when the pulse was sent.  
 
@@ -39,7 +39,7 @@ The first step is to synchronize the pulse with the onset of your experiment. Th
 Jitter
 ^^^^^^
 
-Another feature of many fMRI experiments is "Jitter", or variable duration between trials. Adding jitter to experiments with conditions that are relatively close to each other (e.g., less than 10-15 seconds apart) allows the independent estimation of the hemodynamic response to each condition. We can add this by creating a nested List object called JitterList. This is created through the Nested attribute in a List, and Lists can be nested recursively (e.g., nested Lists can contain nested Lists, with no theoretical upper limit).
+Another feature of many fMRI experiments is "Jitter", or variable duration between trials. Adding jitter to experiments with conditions that are relatively close to each other (e.g., less than 10-15 seconds apart) allows the independent estimation of the hemodynamic response to each condition. We can add this by creating a nested List object called JitterList. This is created through the Nested attribute in a List, and Lists can be nested recursively (e.g., nested Lists can contain nested Lists, with no upper limit).
 
 .. figure:: 11_Jitter.png
 
