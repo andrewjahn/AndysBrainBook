@@ -74,7 +74,7 @@ When means to compare the data in rows D11 to D16 (in this case, our incongruent
 Next Steps
 **********
 
-At this point, you have learned everything you need to analyze a simple experiment with two conditions. You can use what you've learned as a template for more complex experimental designs, but the basic ideas are the same: comparing conditions in order to detect whether there is a significant behavioral effect, usually measured by reaction time.
+At this point, you have learned everything you need to analyze a simple experiment with two conditions. You can use what you've learned as a template for more complex experimental designs, but the basic idea is the same: we compare conditions in order to detect whether there is a significant behavioral effect, which is usually measured by reaction time.
 
 In the last tutorial, we will learn how to format our experiment so that it can be run in an MRI experiment. The basic structure of the experiment will remain the same, but we will need to make some adjustments in order to use it in a specialized environment.
 
