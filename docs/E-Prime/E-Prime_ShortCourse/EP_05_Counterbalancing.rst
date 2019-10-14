@@ -13,7 +13,7 @@ An important aspect of experimental design is **counterbalancing**: making sure 
 
 Consider our Stroop experiment. What if the first four trials were congruent, and the last four trials were incongruent? If we were testing for a difference between the congruent and incongruent trials, this difference would be confounded with **ordering effects**. If we found that incongruent conditions require longer reaction times than congruent conditions, it could be because the incongruent trials really are more difficult than the congruent trials; but it could also be that the subject is more fatigued when he gets to the latter half of the experiment. (In our example with only eight trials this explanation is implausible, but it becomes more plausible in a scenario in which the first hundred trials are congruent and the last hundred are incongruent.)
 
-Strict counterbalancing would require that every subject be presented with a different order of the stimuli. Since that is not practical in our experiment, we chose to randomize the order of the stimuli, which serves the same purpose - it is unlikely that two subjects would get the same order of stimuli, especially with large numbers of trials. Although this is not guaranteeed by randomizing, it is virtually the same.
+Strict counterbalancing would require that every subject be presented with a different ordering of the stimuli. Instead, we chose to randomize the order of the stimuli, which serves the same purpose - it is unlikely that two subjects would get the same ordering of stimuli, especially with large numbers of trials. Although this is not guaranteeed by randomizing, it is virtually the same.
 
 
 Counterbalancing Responses
