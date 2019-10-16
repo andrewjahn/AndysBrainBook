@@ -11,7 +11,9 @@ As with our :ref:`group analysis of the volumetric data <AFNI_07_GroupAnalysis>`
 We can adapt the same uber_ttest.py script we created during the volumetric group analyses to analyze the surface data, making sure to append the string ``.niml.dset`` to the output in order to indicate that it is a surface file that can be read by SUMA. The framework of the t-test is the same: We load each subject's statistics file and specify the sub-brik that we want to contrast. (If you recall from viewing the individual subject results, sub-brik #10 represents the contrast estimate for Incongruent-Congruent.) We then do this for both the left and right hemispheres, since we have run separate GLMs for each side of the brain:
 
 ::
-
+	
+  #Left Hemisphere
+  
   set dirA = $PWD
 
   # specify and possibly create results directory
@@ -48,8 +50,10 @@ We can adapt the same uber_ttest.py script we created during the volumetric grou
              24 "$dirA/sub-24/sub-24.results_SUMA/stats.sub-24.lh.niml.dset[10]" \
              25 "$dirA/sub-25/sub-25.results_SUMA/stats.sub-25.lh.niml.dset[10]" \
              26 "$dirA/sub-26/sub-26.results_SUMA/stats.sub-26.lh.niml.dset[10]" 
-             
-3dttest++ -prefix $results_dir/Flanker_Inc-Con_ttest.rh.niml.dset               \
+	
+  #Right Hemisphere
+
+   3dttest++ -prefix $results_dir/Flanker_Inc-Con_ttest.rh.niml.dset               \
           -setA Inc-Con                                            \
 	     01 "$dirA/sub-01/sub-01.results_SUMA/stats.sub-01.rh.niml.dset[10]" \
              02 "$dirA/sub-02/sub-02.results_SUMA/stats.sub-02.rh.niml.dset[10]" \
