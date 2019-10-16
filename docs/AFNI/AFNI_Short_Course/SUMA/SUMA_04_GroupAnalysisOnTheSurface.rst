@@ -121,6 +121,7 @@ This script can take a while; it may be 10-20 minutes, depending on the speed of
 This script will generate z max images. To find the corresponding alpha p=0.05 value for an cluster-defining p-value of p=0.001, for example, type:
 
 ::
+
 	quick.alpha.vals.py -niter 1000 z.max.area.0.001
 	
 Which will return the number of vertices, in square millimeters, needed for the cluster to be considered statistically significant.
