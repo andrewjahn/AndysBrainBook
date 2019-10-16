@@ -81,3 +81,28 @@ We can adapt the same uber_ttest.py script we created during the volumetric grou
              24 "$dirA/sub-24/sub-24.results_SUMA/stats.sub-24.rh.niml.dset[10]" \
              25 "$dirA/sub-25/sub-25.results_SUMA/stats.sub-25.rh.niml.dset[10]" \
              26 "$dirA/sub-26/sub-26.results_SUMA/stats.sub-26.rh.niml.dset[10]" 
+
+
+Once this code has been run, you can view the results on the surface template, opening a new viewer for each hemisphere (and making sure that the ``-spec`` file matches the hemisphere you are viewing):
+
+::
+
+	suma -spec suma_MNI_N27/std.141.MNI_N27_rh.spec -sv suma_MNI_N27/MNI_N27_SurfVol.nii -input Flanker_Inc-Con_ttest.rh.niml.dset 
+	
+	suma -spec suma_MNI_N27/std.141.MNI_N27_lh.spec -sv suma_MNI_N27/MNI_N27_SurfVol.nii -input Flanker_Inc-Con_ttest.lh.niml.dset 
+	
+	
+If you compare the surface results to the volumetric results, you will see that a significant effect of Inc-Con is in roughly the same area: The pre-supplementary motor area, or pre-SMA. However, the surface results are stronger (a peak t-statistic in the right hemisphere of 5.079 compared to 4.44 for the volumetric results, for example), and you are able to see where the activation traces the gyri and sulci of the brain. The surface-based figures not only look better, but allow you to see more nuances in the data as well.
+
+.. figure:: 09_04_Surface_Volumetric_Results.png
+
+
+
+Exercises
+*********
+
+1. Switch between the different surface views using the ``,`` and ``.`` keys. In the right hemisphere, it appears that there is a significant cluster in the pre-SMA, and also in the cingulate sulcus; take a screenshot of a view that is oriented to best capture both of these effects.
+
+2. Re-run the t-tests, this time using 3dMEMA with the REML results from the surface analysis. How do they differ from the non-REML analysis? Is it similar to the difference you observed between the REML and non-REML analyses with the volumetric data?
+
+3. Re-run the surface analyses using a larger smoothing kernel, such as 10mm or 15mm. How do the results change? Do you think it is appropriate to use a larger smoothing kernel in this case?
