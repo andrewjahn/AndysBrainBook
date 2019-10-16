@@ -15,7 +15,7 @@ FreeSurfer is a software package that enables you to analyze **structural MRI** 
   An example of a typical group-level map created by FreeSurfer. This is from a group-level contrast between two groups, with the red and blue colors indicating where there are differences in cortical thickness between the groups. Typically these results are depicted on inflated brains; darker grey represents sulci, and lighter grey represents gyri.
   
 
-This course will show you how to download and install FreeSurfer, and how to analyze a dataset from start to finish. Along the way, you'll learn the FreeSurfer's vocabulary, and other considerations for setting up and analyzing a dataset.
+This course will show you how to download and install FreeSurfer, and how to analyze a dataset from start to finish. Along the way you'll learn the basic FreeSurfer vocabulary and how to do preprocessing, volume editing, and region of interest analysis.
 
 
 .. toctree::
