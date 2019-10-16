@@ -97,6 +97,33 @@ If you compare the surface results to the volumetric results, you will see that 
 .. figure:: 09_04_Surface_Volumetric_Results.png
 
 
+Multiple Comparisons Correction
+******************
+
+As with the volumetric analysis, we will need to correct for the number of vertices in our dataset (as opposed to the number of voxels). The commands needed to run a cluster simulation on the surface are more involved; similar to how we created an entire preprocessing script with uber_subject.py, we will create a cluster correction script with ``slow_surf_clustsim.py``:
+
+::
+
+	slow_surf_clustsim.py -save_script surf.clustsim -uvar spec_file suma_MNI_N27/std.141.MNI_N27_lh.spec -uvar surf_vol suma_MNI_N27/MNI_N27_SurfVol.nii -uvar blur 4.0 -on_surface yes
+	
+And then run the output script:
+
+::
+
+	tcsh surf.clustsim
+	
+This script can take a while; it may be 10-20 minutes, depending on the speed of your machine.
+
+.. note::
+
+	Does the Eklund et al. 2016 paper apply to surface results? According to the FreeSurfer developers, analyses of the structural data also showed the same bias towards higher smoothness than was expected by their cluster simulations, indicating the need for a cluster-defining threshold of p=0.001 or stricter in order for the cluster simulations to be accurate. It is unclear whether the same problems apply to the functional data used with SUMA, but to be on the safe side, use a cluster-defining p-threshold of p=0.001.
+	
+This script will generate z max images. To find the corresponding alpha p=0.05 value for an cluster-defining p-value of p=0.001, for example, type:
+
+::
+	quick.alpha.vals.py -niter 1000 z.max.area.0.001
+	
+Which will return the number of vertices, in square millimeters, needed for the cluster to be considered statistically significant.
 
 Exercises
 *********
