@@ -150,3 +150,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     5.31.2019: First draft of the Unix and fMRI courses are complete.
     
     10.14.2019: E-Prime module is complete.
+
+    10.16.2019: FreeSurfer module complete.
