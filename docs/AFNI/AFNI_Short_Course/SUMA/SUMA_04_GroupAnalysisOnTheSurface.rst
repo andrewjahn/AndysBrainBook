@@ -100,11 +100,13 @@ If you compare the surface results to the volumetric results, you will see that 
 Multiple Comparisons Correction
 ******************
 
-As with the volumetric analysis, we will need to correct for the number of vertices in our dataset (as opposed to the number of voxels). The commands needed to run a cluster simulation on the surface are more involved; similar to how we created an entire preprocessing script with uber_subject.py, we will create a cluster correction script with ``slow_surf_clustsim.py``:
+As with the volumetric analysis, we will need to correct for the number of vertices in our dataset (as opposed to the number of voxels). The commands needed to run a cluster simulation on the surface are more involved; similar to how we created an entire preprocessing script with uber_subject.py, we will create a cluster correction script with ``slow_surf_clustsim.py`` (note that this should be done for both hemispheres):
 
 ::
 
-	slow_surf_clustsim.py -save_script surf.clustsim -uvar spec_file suma_MNI_N27/std.141.MNI_N27_lh.spec -uvar surf_vol suma_MNI_N27/MNI_N27_SurfVol.nii -uvar blur 4.0 -on_surface yes
+	slow_surf_clustsim.py -save_script surf.clustsim.001 -uvar spec_file suma_MNI_N27/std.141.MNI_N27_lh.spec \
+	 -uvar surf_vol suma_MNI_N27/MNI_N27_SurfVol.nii -uvar blur 4.0 -on_surface yes -uvar pthr_list 0.001 \
+	 -uvar results_dir clust.results.001
 	
 And then run the output script:
 
@@ -112,11 +114,11 @@ And then run the output script:
 
 	tcsh surf.clustsim
 	
-This script can take a while; it may be 10-20 minutes, depending on the speed of your machine.
+This script can take a while; the total processing time may be 60-90 minutes, depending on the speed of your machine.
 
 .. note::
 
-	Does the Eklund et al. 2016 paper apply to surface results? According to the FreeSurfer developers, analyses of the structural data also showed the same bias towards higher smoothness than was expected by their cluster simulations, indicating the need for a cluster-defining threshold of p=0.001 or stricter in order for the cluster simulations to be accurate. It is unclear whether the same problems apply to the functional data used with SUMA, but to be on the safe side, use a cluster-defining p-threshold of p=0.001.
+	Does the Eklund et al. 2016 paper apply to surface results? According to the FreeSurfer developers, analyses of the structural data also showed the same bias towards higher smoothness than was expected by their cluster simulations, indicating the need for a cluster-defining threshold of p=0.001 or stricter in order for the cluster simulations to be accurate. I haven't read whether the same problems apply to the functional data used with SUMA, but to be on the safe side, use a cluster-defining p-threshold of p=0.001.
 	
 This script will generate z max images. To find the corresponding alpha p=0.05 value for an cluster-defining p-value of p=0.001, for example, type:
 
@@ -124,7 +126,13 @@ This script will generate z max images. To find the corresponding alpha p=0.05 v
 
 	quick.alpha.vals.py -niter 1000 z.max.area.0.001
 	
-Which will return the number of vertices, in square millimeters, needed for the cluster to be considered statistically significant.
+Which will return two columns: the number of vertices, in square millimeters, on the left; and the corresponding corrected p-threshold on the right. Scroll down until you find the number of vertices corresponding to a corrected p-threshold of 0.05, and then threshold this number of vertices in the SUMA viewer. Whichever clusters remain will be statistically significant.
+
+You can then view these clusters in the SUMA viewer by loading the statistics dataset onto the template, and setting the p-threshold slider to your cluster-defining p-threshold. (Note: You can set the p-threshold exactly by clicking in the field above the p-threshold slider and entering ``0.001p`` to set a vertex-wise p-threshold of p=0.001, for example.) In the fields next to ``Clst`` in the bottom right of the control panel, enter the cluster-corrected threshold in the box underneath ``Area``. For example, if we found that we need at least 110 contiguous vertices to be a statistically significant cluster, you would enter this into the field. 
+
+Then click on the ``Clst`` string to activate the interactive Clusterize feature, which will leave in the image only those clusters that pass the threshold. A table of the significant clusters will be printed to your Terminal; right click on the clusters in the viewing window to see which cluster is centered at your cross-hairs, and match this up with the cluster "# Rank" in the table. You should see something like the figure below:
+
+.. figure:: 09_04_ClusterCorrection.png
 
 Exercises
 *********
@@ -133,4 +141,6 @@ Exercises
 
 2. Re-run the t-tests, this time using 3dMEMA with the REML results from the surface analysis. How do they differ from the non-REML analysis? Is it similar to the difference you observed between the REML and non-REML analyses with the volumetric data?
 
-3. Re-run the surface analyses using a larger smoothing kernel, such as 10mm or 15mm. How do the results change? Do you think it is appropriate to use a larger smoothing kernel in this case?
+3. Re-run the surface analyses using a larger smoothing kernel, such as 10mm or 15mm. How do the results change? Do you think it is appropriate to use a larger smoothing kernel in this case? Why or why not?
+
+4. See `this page <https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/SUMA/Controllers.html#suma-controllers>`__ for a summary of what all the different SUMA buttons do, noting the similarity between them and the AFNI controller. Experiment with different color maps, opacities, and viewing options.
