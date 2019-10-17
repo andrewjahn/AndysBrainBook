@@ -9,7 +9,7 @@ Introduction to Multi-Voxel Pattern Analysis (MVPA)
 Overview
 ********
 
-This contains notes on a sample MVPA dataset I am currently analyzing; this is still under construction.
+This contains notes on a sample MVPA dataset I am currently analyzing; this is still under construction. The following is based on a template I found on a Brown University website `here <https://www.brown.edu/carney/mri/researchers/analysis-pipelines/mvpa>`__.
 
 
 Setting up the Script
