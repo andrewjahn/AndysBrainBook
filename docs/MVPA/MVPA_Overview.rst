@@ -24,6 +24,15 @@ Create the script with uber_subject.py, as in the :ref:`AFNI tutorials <AFNI_Int
 
 Run the script, which may take 2-3 hours. The regression for the LipRead dataset will take a long time, since it is a large dataset with many regressors being estimated.
 
+
+.. note::
+
+  If the functional or anatomical files are labeled as though they are in TLRC space, although they haven't been normalized, use the following command to put them in ORIG space:
+  
+  3drefit -space ORIG run_01.nii
+  
+  And so on, for all of the images that need to be reformatted.
+
 Extracting the Individual Betas
 *******************************
 
