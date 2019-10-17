@@ -63,7 +63,7 @@ As the command is running, the output will be placed in a directory called $SUBJ
 
 I also recommend adding the qcache option, which will smooth the data at different levels and store them in the subject’s output directory. These will be useful for :ref:`group level analyses <FS_08_GroupAnalysis>`, which we will cover in a future tutorial. If you’ve already run the recon-all preprocessing on your subjects, you can run qcache with the following command:
 
-  ::
+::
 
   recon-all -s <subjectName> -qcache
 
