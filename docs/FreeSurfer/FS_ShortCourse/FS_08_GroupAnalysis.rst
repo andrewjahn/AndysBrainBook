@@ -149,7 +149,7 @@ Which will load the left hemisphere of the fsaverage template, and map the ``sig
 
 .. figure:: 08_sigMGH_Overlay.png
 
-Now that we have the results, what do we do with them? Your first impulse might be to put them in a manuscript and try to publish it; but to ensure that our results aren't false positives, we will need to use **statistical correction**, described in the next tutorial.
+Now that we have the results, what do we do with them? Your first impulse might be to put them in a manuscript and try to publish it; but to ensure that our results aren't false positives, we will need to use a form of multiple comparisons correction known as **cluster correction**, described in the next tutorial.
 
 --------------
 
