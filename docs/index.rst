@@ -130,6 +130,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Miscellaneous
     
     Miscellaneous/ConvertingDICOMs
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Multi-Voxel Pattern Analysis (MVPA)
+    
+    MVPA/MVPA_Overview
 
 
 
