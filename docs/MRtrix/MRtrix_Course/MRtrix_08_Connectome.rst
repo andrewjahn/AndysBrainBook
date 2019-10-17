@@ -52,5 +52,7 @@ To make these associations more obvious, you can change the scaling of the color
 ::
 
   imagesc(connectome, [0 1])
+  
+.. figure:: 08_ViewingConnectome_Scaled.png
 
 [Will need to annotate the figure to indicate what I am talking about.]
