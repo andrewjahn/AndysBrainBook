@@ -19,7 +19,7 @@ In the subject ID field, type ``sub_08``, and in the group ID field, type ``Flan
 
 .. figure:: Intermezzo_uber_subject_1.png
 
-We will skip over the "simtulus timing files" and "symbolic GLTs" sections, as we are not yet doing regression. The default values in the "expected options" field are fine as they are - No TRs will be removed, the volume with the least amount of variability will be used as the reference image for alignment, a smoothing kernel of 4mm will be applied to the data, and any volumes that have a combined movement of 0.3mm from TR to TR will be flagged in a censor file (which will be used later, during regression).
+We will skip over the "stimulus timing files" and "symbolic GLTs" sections, as we are not yet doing regression. The default values in the "expected options" field are fine as they are - No TRs will be removed, the volume with the least amount of variability will be used as the reference image for alignment, a smoothing kernel of 4mm will be applied to the data, and any volumes that have a combined movement of 0.3mm from TR to TR will be flagged in a censor file (which will be used later, during regression).
 
 Skip over the "extra regress options", and check the boxes next to "extra align options" and "extra tlrc options". The default cost function of ``lpc+ZZ`` is fine; however, I recommend checking the box next to ``align: use giant_move``. In case the functional and anatomical images are far away from each other (which can happen sometimes, due to the unforeseen changes in the scanner acquisition), an option called ``-giant_move`` will be used with the ``align_epi_anat.py`` command in order to bring them into a closer initial alignment.
 
