@@ -46,7 +46,7 @@ Similarly, the ``pb01`` images should be the same as the ``pb00`` images. If you
 
 .. note::
 
-  The Underlay menu has two columns: The left column is the file name, and the right column contains header informatino about the file. "epan" indicates that it is an echo-planar image (i.e., a functional image), whereas "anat" indicates that the file is an anatomical image. (For most purposes, "anat" is synonymous with "abuc".) Next to the "epan" string, "3D+t:146" indicates that it is a 3-dimensional image, plus a time dimension with 146 volumes, or time-points.
+  The Underlay menu has two columns: The left column is the file name, and the right column contains header information about the file. "epan" indicates that it is an echo-planar image (i.e., a functional image), whereas "anat" indicates that the file is an anatomical image. (For most purposes, "anat" is synonymous with "abuc".) Next to the "epan" string, "3D+t:146" indicates that it is a 3-dimensional image, plus a time dimension with 146 volumes, or time-points.
   
   
 Viewing the Aligned and Co-Registered Data
