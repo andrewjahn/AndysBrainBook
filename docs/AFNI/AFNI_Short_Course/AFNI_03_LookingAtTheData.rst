@@ -98,7 +98,7 @@ Many of the quality checks for the functional image are the same as with the ana
 
 .. Reference the time-series glossary
 
-Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the movie reel icon in fsleyes. Note any sudden, jerky movements in any of the viewing panes. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
+Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. You can rapidly flip through all of the volumes like pages of a book by clicking on the "Graph" button and then pressing the "v" key; you can stop at any time by pressing the space bar. During preprocessing, we will quantify how much motion there was in order to decide whether to keep or to discard that subject's data.
 
 When you are finished looking at the data, click on the red "x" button in the top left of the Controller window. This will close the Controller window and all of the viewer windows. 
 
