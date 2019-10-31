@@ -83,3 +83,9 @@ As before, click on the script generator icon, and then click on the green "Go" 
 .. figure:: 07_3dMEMA_setup.png
 
 When it has finished, you will see a new directory in the group_results folder called ``test.002.3dMEMA``, with a sub-directory called ``test.results``. Navigate to that folder, and overlay the results as before. Are the effects in the same location? Do these effects look stronger or weaker? Why?
+
+
+Video
+*****
+
+Click `here <https://www.youtube.com/watch?v=JdgjeUTG-fc>`__ for a walkthrough of how to do group-level analysis in AFNI.
