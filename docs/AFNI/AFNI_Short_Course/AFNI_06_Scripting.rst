@@ -76,3 +76,9 @@ This will run the script "proc_Flanker.sh" for each subject in the file "subjLis
 
 
 This will run the preprocessing and regression for each subject, storing the output in a folder called ``<subjID>/<subjID>.results``, in which "subjID" stands for the subject name. Each analysis will take 5-10 minutes, depending on the speed of your computer.
+
+
+Video
+*****
+
+For a video overview of scripting, click `here <https://www.youtube.com/watch?v=dEfyJBElN8E>`__.
