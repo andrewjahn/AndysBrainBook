@@ -33,3 +33,9 @@ If you do not have any of the prerequisite packages, such as R or Homebrew, the 
 
 .. note::
     This course will not be covering MRI physics in depth. For a review of that topic, I recommend chapters 1-5 of the book *Functional Magnetic Resonance Imaging*, by Huettel, Song, & McCarthy (3rd Edition). Also see Allen Elster's excellent `MRI Questions <http://mriquestions.com/index.html>`__ website for useful illustrations of MRI concepts.
+
+
+Video
+******
+
+For a brief video introduction to AFNI and a walkthrough of how to download it, click `here <https://www.youtube.com/watch?v=r2pVrk_ieQU>`__.
