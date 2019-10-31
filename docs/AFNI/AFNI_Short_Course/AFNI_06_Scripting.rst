@@ -69,6 +69,7 @@ We will now use this updated preprocessing script in a for-loop to analyze all o
 
   for i in `cat subjList.txt`; do
     tcsh proc_Flanker.sh $i;
+    mv ${i}.results $i;
   done
   
 This will run the script "proc_Flanker.sh" for each subject in the file "subjList.txt", using each consecutive line in the subjList.txt file as an argument each time the script runs.
