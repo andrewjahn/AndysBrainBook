@@ -76,3 +76,9 @@ As you become more proficient, you will be better able to change the details abo
 .. note::
 
   The following chapters will contain snippets of code demonstrating how each of the processing steps are run using AFNI commands. These snippets are, for the most part, taken from a preprocessing script that is created in a :ref:`later chapter <07_AFNI_Checking_Preprocessing>`, and it is referred to as the **proc script**. If you like, review that chapter first, and then read the intervening chapters while the data is being processed; or, proceed with the following chapters, with the previous remarks in mind.
+  
+  
+Video
+*****
+
+For an overview of AFNI commands using 3dSkullStrip as an example, click `here <https://www.youtube.com/watch?v=78lGrdmC9fg>`__.
