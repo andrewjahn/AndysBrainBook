@@ -23,3 +23,8 @@ Download the dataset by clicking on the "Download" button at the top of the page
 
 After you have downloaded and unzipped the dataset, click on the Next button for an overview of the experimental task used in this study.
 
+
+Video
+******
+
+For a video tutorial of how to download the data, click `here <https://www.youtube.com/watch?v=4Y0LfKNj8Ns>`__.
