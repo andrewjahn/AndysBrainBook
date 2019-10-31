@@ -40,7 +40,7 @@ These need to be extracted from the events.tsv files and formatted in a way that
 3. Timings for the Congruent trials that occurred during the first run (congruent_run1.txt);
 4. Timings for the Congruent trials that occurred during the second run (congruent_run2.txt).
 
-Each of these timing files will have same format consisting of three columns, in the following order:
+Each of these timing files will have the same format consisting of three columns, in the following order:
 
 1. Onset time, in seconds, relative to the start of the scan;
 2. Duration of the trial, in seconds;
@@ -56,7 +56,7 @@ The timing files for each run will be condensed into a single timing file for ea
   
   The Run-1_events.tsv file on OpenNeuro.org (A). When we download it and look at it in the Terminal, it looks like the text in window (B). We then re-format the events file to create a timing file for each run with three columns: Onset time, duration, and parametric modulation (C), and use AFNI's timing_tool.py to convert this to a timing format that AFNI understands (D).
   
-To format the timing files, download `this script <https://github.com/andrewjahn/AFNI_Scripts/blob/master/make_Timings.sh>`__. (You can download it by clicking on the ``Raw`` button, then right-clicking in the newly-opened window and selecting "Save As".) We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and type ``bash make_FSL_Timings.sh``. This will creating timing files for each run for each subject and store them in each subject's corresponding ``func`` directory. To check the output, type ``cat sub-08/func/incongruent.1D``. You should see numbers similar to the ones in the figure above.
+To format the timing files, download `this script <https://github.com/andrewjahn/AFNI_Scripts/blob/master/make_Timings.sh>`__. (You can download it by clicking on the ``Raw`` button, then right-clicking in the newly-opened window and selecting "Save As".) We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and type ``bash make_FSL_Timings.sh``. This will create timing files for each run for each subject and store them in each subject's corresponding ``func`` directory. To check the output, type ``cat sub-08/func/incongruent.1D``. You should see numbers similar to the ones in the figure above.
 
 Once you have created the timing files, you are now ready to use them to fit a model to the fMRI data. To see how to do that, click the Next button.
 
