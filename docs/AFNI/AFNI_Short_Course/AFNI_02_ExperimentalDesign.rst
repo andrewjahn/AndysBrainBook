@@ -25,3 +25,7 @@ Our goal is to estimate the magnitude of the BOLD signal to each condition, and 
 .. note::
 	This description of the task brings up an important point about good practice for designing fMRI studies: If you can design a behavioral task that produces a strong and reliable effect, you will increase your odds of finding an effect in your imaging data. fMRI data is notoriously noisy - if you don’t see a behavioral effect in your study, you most likely will not find an effect in your imaging data either.
 
+Video
+*****
+
+For a video overview of the Flanker task, click `here <https://www.youtube.com/watch?v=r2pVrk_ieQU`__.
