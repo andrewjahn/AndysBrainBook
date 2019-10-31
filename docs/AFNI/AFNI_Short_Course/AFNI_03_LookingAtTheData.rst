@@ -114,4 +114,4 @@ Exercises
 Video
 --------
 
-.. Replace with the video when it is complete Follow along `here <https://www.youtube.com/watch?v=eRDat10yGSs>`__ for a demonstration of quality checking fMRI data. When you are finished, click on the Next button to learn about preprocessing the data.
+For a video walkthrough of how to look at the data, click `here <https://www.youtube.com/watch?v=r0NYdToePKM>`__.
