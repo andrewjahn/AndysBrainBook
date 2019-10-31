@@ -148,3 +148,9 @@ Exercises
 1. Rerun the analysis, using a smoothing kernel of 10mm. What part of the preprocessing steps will be affected? Think about what the output will look like before running the script.
 
 2. Overlay the ``full_mask`` and ``mask_group`` images on the normalized anatomical image (or overlay them on the template that you warped to, i.e. the MNI152 image). What differences do you notice between the mask? Where is there the most difference in the coverage of the masks? Why?
+
+
+Video
+******
+
+For a video review of how to check your preprocessing, click `here <https://www.youtube.com/watch?v=r5GF_E03ClU>`__.
