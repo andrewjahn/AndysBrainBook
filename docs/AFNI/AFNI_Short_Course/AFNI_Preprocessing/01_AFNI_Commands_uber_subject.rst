@@ -71,9 +71,9 @@ From the command line, type ``uber_subjec.py`` and press return. You should see 
 
 We will examine each part of this GUI in detail as we work through the following chapters. For now, pay attention to the first check box, "Analysis Initialization". By default, the data analysis type will be "task" (as opposed to "rest", when there is no task for the subject to do), and the domain is "volume" (as opposed to "surface", which we will discuss in a later chapter on a related program called SUMA). The words in the field after "processing blocks" - tshift, align, tlrc, volreg, blur, mask, scale, and regress - may seem unintelligible to you. (If this is your first time using AFNI, I would expect that they would look strange.) Our task is to learn about what each of these words mean, what preprocessing step they correspond to, and why we do them. 
 
-As you become more proficient, you will be better able to change the details about the analysis to suit your needs; but for now, we turn to examining each of these processing steps in turn.
+As you become more proficient, you will be better able to change the details about the analysis to suit your needs; but for now, we turn to an example of how to create a preprocessing script with uber_subject.py.
 
-.. note::
+.. note
 
   The following chapters will contain snippets of code demonstrating how each of the processing steps are run using AFNI commands. These snippets are, for the most part, taken from a preprocessing script that is created in a :ref:`later chapter <07_AFNI_Checking_Preprocessing>`, and it is referred to as the **proc script**. If you like, review that chapter first, and then read the intervening chapters while the data is being processed; or, proceed with the following chapters, with the previous remarks in mind.
   
