@@ -9,7 +9,9 @@ Intermezzo: Running the Uber Subject Script
 Setting up the Analysis
 ***********************
 
-Now that you are familiar with each of the preprocessing steps, we are ready to run these steps using the ``uber_subject.py`` graphical user interface. From the Terminal, navigate to the ``sub-08`` directory and type ``uber_subject.py &``.
+We are ready to run these preprocessing steps using the ``uber_subject.py`` graphical user interface. For now we will simply set up the script and run it; while it is running, you will read the following chapters which describe what each preprocessing step does. We will end by reviewing the output from each step and determining whether any steps need to be changed.
+
+To begin, open a Terminal, navigate to the ``sub-08`` directory and type ``uber_subject.py &``.
 
 .. note::
 
@@ -59,4 +61,4 @@ We are now ready to run this script. You can either type the code that was liste
 Next Steps
 **********
 
-The preprocessing will take about five minutes, depending on the speed your machine. When it has completed, we will review the output of the preprocessing in the next chapter.
+The preprocessing will take about five minutes, depending on the speed your machine. While it is running, review the preprocessing steps in the following chapters.
