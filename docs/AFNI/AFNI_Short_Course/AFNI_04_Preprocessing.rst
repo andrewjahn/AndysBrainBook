@@ -43,6 +43,9 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
    AFNI_Preprocessing/07_AFNI_Checking_Preprocessing
    AFNI_Preprocessing/08_AFNI_Checkpoint
 
+.. note::
+  Different software packages will do these steps in slightly different order - for example, FSL will normalize the statistical maps after model fitting. There are also analyses which omit certain steps - for example, some people who do multi-voxel pattern analyses don't smooth their data. In any case, the list above represents the most common steps that are performed on a typical dataset.
+
 ---------
 
 Video
@@ -50,7 +53,6 @@ Video
 
 .. When you have finished all of the chapters, click `here <https://www.youtube.com/watch?v=VobRXk3ccNQ&list=PLIQIswOrUH6-rpwcmo2ewY2wi4Yoym9ft>`__ for a playlist containing all of the videos used to demonstrate the preprocessing steps.
 
-.. note::
-  Different software packages will do these steps in slightly different order - for example, FSL will normalize the statistical maps after model fitting. There are also analyses which omit certain steps - for example, some people who do multi-voxel pattern analyses don't smooth their data. In any case, the list above represents the most common steps that are performed on a typical dataset.
+
   
   
