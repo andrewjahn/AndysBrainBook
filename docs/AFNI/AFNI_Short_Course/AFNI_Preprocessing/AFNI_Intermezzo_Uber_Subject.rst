@@ -62,3 +62,8 @@ Next Steps
 **********
 
 The preprocessing will take about five minutes, depending on the speed your machine. While it is running, review the preprocessing steps in the following chapters.
+
+Video
+******
+
+A video demonstration of uber_subject.py can be found `here <https://www.youtube.com/watch?v=rmnObBi98zI>`__.
