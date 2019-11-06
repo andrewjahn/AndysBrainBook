@@ -177,3 +177,5 @@ Exercises
 Video
 *********
 
+For a video demonstration of how to do an ROI analysis, click `here <https://www.youtube.com/watch?v=7CvoaaFI32Y>`__.
+
