@@ -140,5 +140,5 @@ When you have finished running the preprocessing and first-level analyses, we wi
 Video
 *****
 
-A video walkthrough of how to set up and review the first-level analysis can be found `here <https://www.youtube.com/watch?v=mFsVD7lRRmY`__.
+A video walkthrough of how to set up and review the first-level analysis can be found `here <https://www.youtube.com/watch?v=mFsVD7lRRmY>`__.
 
