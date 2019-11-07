@@ -20,7 +20,7 @@ If you have FreeSurfer and the :ref:`parallel command <FS_04_ReconAllParallel>` 
 
   mkdir FS
   
-We will be running all of our FreeSurfer analyses in this directory, and storing the output there as well. To do that, navigate into the FS directory and run the following code:
+We will be running all of our FreeSurfer analyses in this directory, and storing the output there as well. To do that, navigate into the FS directory (i.e., type ``cd FS``), and run the following code:
 
 ::
 
