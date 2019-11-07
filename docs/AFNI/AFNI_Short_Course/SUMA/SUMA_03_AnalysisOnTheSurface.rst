@@ -64,7 +64,7 @@ To create the preprocessing script, a typical ``afni_proc.py`` script would look
   -gltsym 'SYM: congruent -incongruent' -glt_label 1 Con-Inc \
   -gltsym 'SYM: incongruent -congruent' -glt_label 2 Inc-Con \
   -regress_reml_exec                                             \
-  -regress_make_ideal_sum sum_ideal.1D                           \
+  -regress_make_ideal_sum sum_ideal.1D                           
 
 
 This script would work for analyzing ``sub-08``. To make it generalizable, 
