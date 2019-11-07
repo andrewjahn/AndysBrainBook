@@ -81,4 +81,4 @@ This will run the preprocessing and regression for each subject, storing the out
 Video
 *****
 
-For a video overview of scripting, click `here <https://www.youtube.com/watch?v=dEfyJBElN8E>`__.
+For a video overview of scripting, click `here <https://www.youtube.com/watch?v=8M9repfRObc>`__.
