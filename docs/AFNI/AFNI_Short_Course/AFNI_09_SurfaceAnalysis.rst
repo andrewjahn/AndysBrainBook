@@ -16,7 +16,7 @@ We will run this analysis with **SUMA**, a package that comes with your AFNI ins
 
   SUMA! Photo taken from the `AFNI website <https://afni.nimh.nih.gov/pub/dist/doc/SUMA/suma/SUMA_do1.htm>`__.
 
-Before going on, review the :ref:`FreeSurfer tutorials <FreeSurfer_Introduction>` to make sure you have FreeSurfer installed. You will also want to install the command `parallel <FS_04_ReconAllParallel>` to speed up your analysis. 
+Before going on, review the :ref:`FreeSurfer tutorials <FreeSurfer_Introduction>` to make sure you have FreeSurfer installed. You will also want to install the command :ref:`parallel <FS_04_ReconAllParallel>` to speed up your analysis. 
 
 
 .. toctree::
