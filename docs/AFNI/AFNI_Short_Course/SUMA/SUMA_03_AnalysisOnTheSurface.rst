@@ -67,7 +67,7 @@ To create the preprocessing script, a typical ``afni_proc.py`` script would look
   -regress_make_ideal_sum sum_ideal.1D                           
 
 
-This script would work for analyzing ``sub-08``. To make it generalizable, 
+This script would work for analyzing ``sub-08``. To make it generalizable, we will make the same edits to the path as we did during the :ref:`volumetric analysis <AFNI_06_Scripting>`.
 
 We will also cut this code (which should be found around lines 218-219):
 
