@@ -52,7 +52,7 @@ You can then view the alignment by typing:
 ::
 
   afni -niml &
-  suma -spec suma -spec std.141.sub-01_both.spec -sv sub-01_SurfVol+orig.HEAD
+  suma -spec std.141.sub-01_both.spec -sv sub-01_SurfVol+orig.HEAD
   
 This will open both the volumetric anatomical image in the AFNI viewer, and the surfaces in the SUMA viewer. Once both viewers are open, click on the SUMA viewer and press ``t`` (for the viewers to "talk" to each other). If you left-click around the volumetric viewer you should see the cursor on the surface viewer update with the location where you are currently pointing, and vice-versa if you right-click on the surface image in the SUMA viewer.
 
