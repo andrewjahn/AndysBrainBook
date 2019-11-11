@@ -99,6 +99,10 @@ to load the statistics for the left hemisphere, for example, type the following:
 
 ::
 
-  suma -spec ${FS_DIR}/sub-01_T1w/surf/SUMA/sub-01_lh.spec -sv sub-01_SurfVol_Alnd_Exp+tlrc.HEAD -input stats.sub-01.lh.niml.dset
+  suma -spec suma -spec ../../suma_MNI_N27/std.141.MNI_N27_lh.spec -sv sub-01_SurfVol_Alnd_Exp+tlrc -input stats.sub-01.lh.niml.dset
   
 You can then select the statistic sub-brik you would like to display, and change the p-value threshold accordingly.
+
+.. note::
+
+  If the results have been normalized to MNI space, then use the code specified above. If you have processed the data in the subject's native space and have not normalized the data, then you could use the subject's spec file located in his corresponding surf directory, and change the surface volue to <subjName>_SurfVol_Alnd_Exp+orig.
