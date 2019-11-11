@@ -55,7 +55,7 @@ Lastly, we will need to extract the data. It is easiest to do this by concatenat
 
 ::
 
-  for hemi in ${hemi} rh; do
+  for hemi in lh rh; do
   3dTcat -prefix ${hemi}_Congruent_Betas.niml.dset sub-01/sub-01.results_SUMA/stats.sub-01.${hemi}.niml.dset'[1]' \
     sub-02/sub-02.results_SUMA/stats.sub-02.${hemi}.niml.dset'[1]' \
     sub-03/sub-03.results_SUMA/stats.sub-03.${hemi}.niml.dset'[1]' \
