@@ -99,6 +99,6 @@ to load the statistics for the left hemisphere, for example, type the following:
 
 ::
 
-  suma -spec ${FS_DIR}/sub-01_T1w/surf/SUMA/test_lh.spec -sv sub01_SurfVol_Alnd_Exp+tlrc.HEAD -input stats.sub01.lh.niml.dset
+  suma -spec ${FS_DIR}/sub-01_T1w/surf/SUMA/sub-01_lh.spec -sv sub-01_SurfVol_Alnd_Exp+tlrc.HEAD -input stats.sub-01.lh.niml.dset
   
 You can then select the statistic sub-brik you would like to display, and change the p-value threshold accordingly.
