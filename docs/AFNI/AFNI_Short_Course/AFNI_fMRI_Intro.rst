@@ -25,7 +25,7 @@ Depending on your computer's operating system, you have several different option
 
 For Macintosh users, an installation app has been created that will streamline the process. Once you have downloaded it `here <https://afni.nimh.nih.gov/pub/dist/doc/htmldoc/background_install/install_instructs/steps_mac_app.html>`__, simply unpack the app and follow the instructions; I recommend keeping the default boxes checked.
 
-If you do not have any of the prerequisite packages, such as R or Homebrew, the entire installation can take 1-2 hours. When it has completed, open a Terminal, type “afni”, and then press return. You should see the graphical user interface open. Close it, and from the same terminal type “uber_subject.py” and press return. You should see this window, which indicates that any Python-based programs should run without errors.
+If you do not have any of the required packages, such as R or Homebrew, the entire installation can take 1-2 hours. When it has completed, open a Terminal, type ``afni``, and then press return. You should see the graphical user interface open. Close it, and from the same terminal type ``uber_subject.py`` and press return. You should see this window, which indicates that any Python-based programs should run without errors.
 
 .. figure:: Intro_AFNI_GUI.png
 
