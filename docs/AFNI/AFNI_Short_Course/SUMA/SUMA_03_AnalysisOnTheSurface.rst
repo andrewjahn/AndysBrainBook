@@ -78,7 +78,14 @@ We will also cut this code (which should be found around lines 218-219):
   
 And paste it around line 35, before we ``cd`` into the output directory.
 
-To download the script that already has these edits, click `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/SUMA/SUMA_proc_MNI.sh>`__.
+To download the script that already has these edits, click `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/SUMA/SUMA_proc_MNI.sh>`__. You can then loop it over all of your subjects with the following code:
+
+::
+
+  for i in `cat subjList.txt`; do
+    tcsh SUMA_proc_MNI.sh $i;
+    mv ${i}.results_SUMA $i;
+  done
 
 Downloading the Surface Template
 *********************************
