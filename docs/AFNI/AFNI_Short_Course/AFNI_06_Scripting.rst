@@ -55,6 +55,8 @@ This is a :ref:`conditional statement <Unix_06_IfElse>` using tcsh syntax. The f
 
 Next, we will need to replace any absolute paths with a :ref:`relative path <Unix_04_ShellsVariables>`. As you can see in the script, there are several lines of code that contain paths starting with ``/Users/ajahn/Desktop/Flanker``. We will replace this with the $PWD variable, which is a shorthand for the path to the current working directory. This will ensure that the script will be adapted to the current computer's directory structure, and that no errors will be thrown due to the script being unable to locate where certain files are. From the TextWrangle Search and Replace screen, "Find" the string ``/Users/ajahn/Desktop/Flanker`` (or whatever the name of the path is which points to the directory containing your subjects), and "Replace" it with ``${PWD}``. Also replace on line 255 ``/Users/ajahn/aglobal`` (or whatever your username is) with ``~/abin``.
 
+The template script with all of the edits can be found `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/proc_Flanker.sh>`__.
+
 .. note::
 
   To speed up the analysis, I prefer to use the ``-mask`` option with the 3dDeconvolve command. For example, I would change line 299 of the script to: ``3dDeconvolve -input pb04.$subj.r*.scale+tlrc.HEAD  -mask mask_group+tlrc``.
