@@ -107,9 +107,13 @@ When you are finished looking at the data, click on the red "x" button in the to
 Exercises
 -----------
 
-1. If the AFNI viewer cannot find any images in the current directory, it will look in the directories lower in the hierarchy. What happens, for example, if you navigate to the folder ``sub-08`` and type ``afni``? From the same folder, what happens if you type ``afni func``? What happens when you navigate to the ``Flanker`` folder and type ``afni``?
+1. Use either the ``-no_avoid_eyes`` or ``-use_skull`` options with 3dSkullStrip. Look at the help file to learn about what they do, and predict how it would affect your skull strip. Does your prediction match what you see in the output?
 
-2. AFNI includes many shortcuts and keyboard commands that allow you to manipulate the image viewer. Look at `this page <https://afni.nimh.nih.gov/pub/dist/src/html/afnigui.html>`__ and try some of the commands listed in the "Keyboard Shortcuts" section.
+2. Load an anatomical image into the AFNI viewer and press the "Graph" button. How is it different from when you looked at the "Graph" output with a functional image? Why?
+
+3. If the AFNI viewer cannot find any images in the current directory, it will look in the directories lower in the hierarchy. What happens, for example, if you navigate to the folder ``sub-08`` and type ``afni``? From the same folder, what happens if you type ``afni func``? What happens when you navigate to the ``Flanker`` folder and type ``afni``?
+
+4. AFNI includes many shortcuts and keyboard commands that allow you to manipulate the image viewer. Look at `this page <https://afni.nimh.nih.gov/pub/dist/src/html/afnigui.html>`__ and try some of the commands listed in the "Keyboard Shortcuts" section.
 
 Video
 --------
