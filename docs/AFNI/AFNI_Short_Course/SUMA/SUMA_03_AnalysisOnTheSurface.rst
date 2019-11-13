@@ -104,7 +104,7 @@ Loading the First-Level Results
 
 After the preprocessing script has finished, you will see a list of files output that have names similar to the ones you saw during the volumetric analysis. In this case, however, some of the files end in suffixes such as ``niml.dset``. These are datasets that can be loaded into SUMA using the ``-input`` option.
 
-to load the statistics for the left hemisphere, for example, type the following:
+To load the statistics for the left hemisphere for sub-01, for example, navigate to the directory ``sub-01/sub-01.results_SUMA`` and type the following:
 
 ::
 
