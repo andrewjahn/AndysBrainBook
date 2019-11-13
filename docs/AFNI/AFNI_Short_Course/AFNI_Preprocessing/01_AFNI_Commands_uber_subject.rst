@@ -65,7 +65,7 @@ In the following chapters, we will describe the rest of the preprocessing steps 
 
 Technically, uber_subject.py is a graphical user interface that serves as a **wrapper** - that is, it takes all of the GUI input specified by the user and directs it into another wrapper called ``afni_proc.py``. This latter command then generates a large script that contains each of the individual AFNI commands needed to run each step of the preprocessing.
 
-From the command line, type ``uber_subjec.py`` and press return. You should see something like this:
+From the command line, type ``uber_subject.py`` and press return. You should see something like this:
 
 .. figure:: 04_01_uber_subject_GUI.png
 
