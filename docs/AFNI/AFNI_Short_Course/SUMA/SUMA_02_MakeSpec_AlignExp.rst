@@ -47,7 +47,7 @@ The ``-align_centers`` option is useful if the volume and the surfaces start out
 Viewing the Alignment
 ***************
 
-You can then view the alignment by typing:
+If you are in the directory ``FS/sub-01_T1w/surf/SUMA``, You can then view the alignment by typing:
 
 ::
 
