@@ -59,6 +59,35 @@ You may think that's all we need to do; but a cluster-defining threshold is not 
 To answer this we run simulations - in other words, we create artifical datasets with the same dimensions and smoothness as our task dataset, but which are composed of pure noise. We then write down the size of the largest cluster, and repeat the process with another simulated dataset. If we do this thousands of times, we can create a distribution of maximum cluster sizes - and from this, we can calculate the percentage of the time we would observe a cluster as large as the one we generated from our task dataset.  If that percentage is lower than our alpha level of 5%, we can reject the null hypothesis.
 
 
+AFNI 3dFWHMx and 3dClustSim
+***************************
+
+To find statistically significant cluster sizes, you will first need to run 3dFWHMx on a subject's errts file. This file contains the residuals of everything that wasn't modeled, which we will treat as noise. For example, from sub-01's sub-01.results directory, type:
+
+::
+
+  3dFWHMx -mask mask_group+tlrc -input errts.sub-01_REML+tlrc -acf
+  
+
+Which will output numbers like the following:
+
+::
+
+  0.827124 2.9802 5.31313    7.16512
+  
+The first three numbers are the parameters needed to create the autocorrelation function; the last number is the estimated smoothness of the data, in millimeters. Note that it will be higher than the smoothing kernel that you use, since the kernel is applied to smoothness that is already in the data.
+
+These numbers can then be used with 3dClustSim, e.g.:
+
+::
+
+  3dClustSim -mask mask_group+tlrc -acf 0.827 2.980 5.313 -athr 0.05 -pthr 0.001
+  
+In which ``athr`` indicates the overall alpha threshold for the clusters, which we will leave at the conventional level of 0.05, and ``pthr`` indicates the uncorrected cluster-forming p-threshold.
+
+3dFWHM
+
+
 ------------
 
 Video
