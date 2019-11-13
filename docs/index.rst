@@ -68,6 +68,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     E-Prime/E-Prime_Overview
     
+.. toctree::
+    :maxdepth: 1
+    :caption: AFNI
+
+    AFNI/AFNI_Overview
+    
 
 
 .. note::
@@ -75,11 +81,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     The following modules are under construction. Check back soon for more updates!
     
     
-.. toctree::
-    :maxdepth: 1
-    :caption: AFNI
 
-    AFNI/AFNI_Overview
     
 .. toctree::
     :maxdepth: 1
