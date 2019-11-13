@@ -77,6 +77,13 @@ As you become more proficient, you will be better able to change the details abo
 
   The following chapters will contain snippets of code demonstrating how each of the processing steps are run using AFNI commands. These snippets are, for the most part, taken from a preprocessing script that is created in a :ref:`later chapter <07_AFNI_Checking_Preprocessing>`, and it is referred to as the **proc script**. If you like, review that chapter first, and then read the intervening chapters while the data is being processed; or, proceed with the following chapters, with the previous remarks in mind.
   
+Exercises
+*********
+
+1. Use either the ``-no_avoid_eyes`` or ``-use_skull`` options with 3dSkullStrip. Look at the help file to learn about what they do, and predict how it would affect your skull strip. Does your prediction match what you see in the output?
+
+2. Load an anatomical image into the AFNI viewer and press the "Graph" button. How is it different from when you looked at the "Graph" output with a functional image? Why?
+  
   
 Video
 *****
