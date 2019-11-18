@@ -13,6 +13,10 @@ Among all of the fMRI analysis packages, AFNI has the reputation of being the mo
 
 Before we discuss those commands, however, we will review the basics of a typical AFNI command. The "uber" scripts, after all, simply compile large numbers of commands together in an order that processes the data. You will also be using individual AFNI commands to perform more advanced analyses, such as region of interest analysis.
 
+.. note::
+
+  If uber_subject.py isn't working, you can download the output script `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/sub_08_afni_proc.sh>`__. This will run both preprocessing and :ref:`regression <AFNI_06_Stats_Running_1stLevel_Analysis>`.
+
 
 AFNI Commands
 *************
