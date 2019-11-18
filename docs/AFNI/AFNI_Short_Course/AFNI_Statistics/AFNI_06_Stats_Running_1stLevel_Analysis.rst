@@ -15,7 +15,9 @@ Let's create a new script for the same subject, ``sub-08``. First, remove the pr
 
 Fill in the anatomical and functional images :ref:`as you did for preprocessing <AFNI_Intermezzo_Uber_Subject>`, and keep make the same changes to the "extra align options" and "extra tlrc options". The sections of the GUI we will focus on in this chapter are: stimulus timing files; symbolic GLTs; and extra regress options.
 
-.. note:: If uber_subject.py isn't working, you can download the output script `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/sub_08_afni_proc.sh>`__.
+.. note:: 
+
+  If uber_subject.py isn't working, you can download the output script `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/sub_08_afni_proc.sh>`__.
 
 Stimulus Timing Files
 ^^^^^^^^^^^^^^^^^^^^^
