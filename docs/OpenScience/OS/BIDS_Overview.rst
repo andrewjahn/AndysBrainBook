@@ -1,7 +1,7 @@
 .. _BIDS_Overview:
 
 =============
-BIDS Overview
+BIDS Overview and Tutorial
 =============
 
 -------------
@@ -58,14 +58,15 @@ You will then want to add dcm2niix to your $PATH
 
   export PATH="$HOME/dcm2niix/build/bin/:$PATH"
   
-You can check to see whether it is now in your $PATH, by typing the following
+You can check to see whether it is now in your $PATH, by typing the following, which should return the path to dcm2niix
 
 ::
 
 
   which dcm2niix
-  which should return the path to dcm2niix
   
+
+Regardless of which BIDS conversion software you choose, most run dcm2niix under the hood, so it is worthwhile to have. If you are working on your university/institution’s HPC, you may have access to dcm2niix; however, you will want to check to ensure that you are using the most current version, as newer versions are most up to date with the BIDS specifications.
   
 dcm2bids Installation
 *********************
@@ -85,10 +86,10 @@ If you are working on your university/institution’s HPC, then you likely do no
   
   export PATH="$HOME/.local/bin/:$PATH"
   
-..note::
+pigz Installation (optional)
+*********************
 
-  Regardless of which BIDS conversion software you choose, most run dcm2niix under the hood, so it is good to have. If you are working on your university/institution’s HPC, you may have access to dcm2niix; however, you will want to check to ensure that you are using the most current version, as newer versions are most up to date with the BIDS specifications.
-  
+You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to work. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from the `_website <https://zlib.net/pigz/>`__
 
 Setting Up Your Configuration File
 **********************************
@@ -285,7 +286,7 @@ To run dcm2bids, you will need to build a Javascript Object Notation (JSON) file
               "SidecarFilename": "017*"
            }
         },
-        {Th
+        {
            "dataType": "dwi",
            "modalityLabel": "dwi",
            "criteria": {
@@ -317,16 +318,16 @@ Let us refer back to our mock protocol, which contains two acquisitions that are
   fmap-SE-AP (1)
   fmap-SE-PA (2)
   func_task-bart_SBRef (3)
-  **func_task-bart (4)**
+  func_task-bart (4)**
   func_task-rest_SBRef (5)
-  **func_task-rest (6)**
+  func_task-rest (6)**
   anat-T2w (7)
   gre-field-mapping (8)
   gre-field-mapping (9)
   func_task-bart_SBRef (10)
-  **func_task-bart (11)**
+  func_task-bart (11)**
   func_task-rest_SBRef (12)
-  **func_task-rest (13)**
+  func_task-rest (13)**
   anat-FLAIR (14)
   dwi-dir80-AP (15)
   dwi-dir80-PA (16)
