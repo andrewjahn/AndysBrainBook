@@ -93,7 +93,7 @@ Add dcm2bids to your $PATH
 pigz Installation (optional)
 *********************
 
-You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to run. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from the `_website <https://zlib.net/pigz/>`__ 
+You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to run. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from their `website <https://zlib.net/pigz/>`__.
 
 Once downloaded and unzipped, place the folder in your $HOME directory and add it to your $PATH with the following
 
