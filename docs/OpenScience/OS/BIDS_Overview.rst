@@ -65,7 +65,7 @@ You can check to see whether it is now in your $PATH, by typing the following, w
   which dcm2niix
   
 
-Regardless of which BIDS conversion software you choose, most run dcm2niix under the hood, so it's worthwhile to have. If you are working on your university/institution’s HPC, you may have access to dcm2niix; however, you will want to check to ensure that you are using the most current version, as newer versions are more up to date with the BIDS specifications.
+Regardless of which BIDS conversion software you choose, most run dcm2niix under the hood, so it's worthwhile to have. If you are working on your university/institution’s High Perfomance Computing supercomputer (HPC), you may have access to dcm2niix; however, you will want to check to ensure that you are using the most current version, as newer versions are more up to date with the BIDS specifications.
 
 Disclaimer regarding dcm2niix: Running dcm2niix on a HPC can potentially take much longer (~6-10 min/session) than running on a local machine (~0.5-1.5 min/session), due to the poor disk I/O of HPCs. If this is the case for you, it may be worthwhile reaching out to your university/institution's HPC admin to see if there is an easy workaround.   
   
