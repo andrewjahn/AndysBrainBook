@@ -353,6 +353,7 @@ Finally, we've created the configuration file; now the BIDS conversion can be pe
 ::
 
   dcm2bids_scaffold -o $ouput_dir
+  echo "study imaging data" > $output_dir/README
   dcm2bids -d $dicom_dir -p $subjID -c $configuration_file_dir/$config_file_name.json -o $output_dir --forceDcm2niix
   
 The variables, signified with a $ sign will need to be renamed to apply to your system.
@@ -362,6 +363,7 @@ If you have multi-session data (i.e. participant was scanned more than once), th
 ::
 
   dcm2bids_scaffold -o $ouput_dir
+  echo "study imaging data" > $output_dir/README
   dcm2bids -d $dicom_dir -p $subjID -s $sessionID -c $configuration_file_dir/$config_file_name.json -o $output_dir --forceDcm2niix
   
 Validating your BIDS data
