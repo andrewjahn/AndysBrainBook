@@ -22,4 +22,4 @@ Once you have finished analyzing the Flanker dataset in FSL, you may still have 
    fMRI_Appendices/Appendix_A_ClusterCorrection
    fMRI_Appendices/Appendix_B_BiasedAnalysis
    fMRI_Appendices/Appendix_C_Figures
-   fMRI_Appendices/Appendix_D_OtherMultipleComparisons
+   fMRI_Appendices/Appendix_D_Dissociations
