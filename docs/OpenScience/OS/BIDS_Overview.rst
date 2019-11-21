@@ -62,7 +62,6 @@ You can check to see whether it is now in your $PATH, by typing the following, w
 
 ::
 
-
   which dcm2niix
   
 
@@ -99,6 +98,7 @@ You can install pigz to reduce time during the file compression portion of dcm2n
 Once downloaded and unzipped, place the folder in your $HOME directory and add it to your $PATH with the following
 
 ::
+
   export PATH="$HOME/pigz-2.4/:$PATH"
 
 Setting Up Your Configuration File
