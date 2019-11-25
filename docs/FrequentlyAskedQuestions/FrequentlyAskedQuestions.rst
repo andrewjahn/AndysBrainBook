@@ -168,6 +168,20 @@ How do I merge multiple ROIs into a Single File?
 
 View it in fsleyes and see if that is what you want.
 
+
+How do I extract the voxel coordinates for an ROI?
+**************************************************
+
+If the atlas is in MNI space, you can use a command like AFNI's 3dmaskdump. First, save the mask using the methods shown here: https://www.youtube.com/watch?v=Vaj7BBxqXt0
+
+Then type the following:
+
+::
+
+  3dmaskdump -noijk -xyz -nozero -mask yourMask.nii yourMask.nii
+
+It should generate a series of numbers, with the first 3 representing the MNI coordinates of each voxel. Note that these are in RAI orientation, so you will have to multiply the first two columns by -1 in order to convert it to LPI orientation (which is the standard used by most people).
+
 Other Questions
 **********
 
