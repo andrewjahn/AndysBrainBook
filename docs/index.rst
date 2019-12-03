@@ -40,7 +40,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
 .. toctree::
     :maxdepth: 1
-    :caption: fMRI Short Course
+    :caption: fMRI Short Course with FSL
     
     fMRI_Short_Course/fMRI_Intro
     fMRI_Short_Course/fMRI_01_DataDownload
