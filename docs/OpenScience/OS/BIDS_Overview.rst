@@ -348,28 +348,66 @@ The starred acquistions show the functional data corresponding to the field maps
 Running the dcm2bids command
 ****************************
 
-Finally, we've created the configuration file; now the BIDS conversion can be performed as follows on the command line
+Finally, we've created the configuration file; now the BIDS conversion can be performed. For this, we'll assume that the subject ID is 01 and that this is a single session study. Type the on the command line
 
 ::
 
-  dcm2bids_scaffold -o $ouput_dir
-  echo "study imaging data" > $output_dir/README
-  dcm2bids -d $dicom_dir -p $subjID -c $configuration_file_dir/$config_file_name.json -o $output_dir --forceDcm2niix
+  mkdir $HOME/BIDS_tutorial
+  dcm2bids_scaffold -o $HOME/BIDS_tutorial
+  echo "study imaging data" > $HOME/BIDS_tutorial/README
+  dcm2bids -d $dicom_dir -p 01 -c $HOME/dcm2bids_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
   
-The variables, signified with a $ sign will need to be renamed to apply to your system.
-
-If you have multi-session data (i.e. participant was scanned more than once), the dcm2bids command will look like this
+If however this were multi-session data (i.e. participant was scanned more than once), the dcm2bids command will look like this
 
 ::
 
-  dcm2bids_scaffold -o $ouput_dir
-  echo "study imaging data" > $output_dir/README
-  dcm2bids -d $dicom_dir -p $subjID -s $sessionID -c $configuration_file_dir/$config_file_name.json -o $output_dir --forceDcm2niix
+  mkdir $HOME/BIDS_tutorial
+  dcm2bids_scaffold -o $HOME/BIDS_tutorial
+  echo "study imaging data" > $HOME/BIDS_tutorial/README
+  dcm2bids -d $dicom_dir -p 01 -s 01 -c $HOME/dcm2bids_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
+
+where the ``-s 01`` indicates that this is the first session. ``-s 02`` would indicate the second session, and so on.
+  
+PyDeface
+********
+Although not required for BIDS compliance, it is highly recommended that users deface their anatomical image(s), such that facial features are removed from the image(s) to ensure a greater degree of anonymity for data sharing purposes. Since PyDeface is a python package, we recommend that users have one of the newer python 3 releases. To install PyDeface, type the following into your command line
+
+::
+
+  pip install pydeface
+  
+If you are working on an HPC and do not have sudo privileges the you will want to type the following
+
+::
+
+  pip install pydeface --user
+  
+Add PyDeface to your $PATH
+
+::
+
+  export PATH="$HOME/.local/bin/:$PATH"
+  
+Check out the github page of `PyDeface <https://github.com/poldracklab/pydeface>`__ for additional information. 
+
+In our mock protocol we have three separate anatomical acquisitions: T1w, T2w, and FLAIR. We will therefore need to run pydeface on each of these anatomicals. To deface the T1w we would do the following
+
+::
+
+  pydeface $HOME/BIDS_tutorial/sub-01/anat/sub-01_T1w.nii.gz --outfile $HOME/BIDS_tutorial/sub-01/anat/sub-01_T1w.nii.gz --force
+  
+For multi-session data, the command would look like this
+
+::
+
+  pydeface $HOME/BIDS_tutorial/sub-01/ses-01/anat/sub-01_ses-01_T1w.nii.gz --outfile $HOME/BIDS_tutorial/sub-01/ses-01/anat/sub-01_ses-01_T1w.nii.gz --force
+  
+PyDeface can sometimes takes upwards of 10 minutes to complete; however, the defaced image will have potentially identifying facial features removed without cutting into the brain. Defacing anatomical data will also in no way aversely affect the data. Tools such as MRIQC and fMRIPrep were developed using defaced anatomical data, and the removed features would be stripped away regardless during the skull-stripping step of pre-processing. 
   
 Validating your BIDS data
-***********************************
+*************************
 
-Once the BIDS conversion is complete, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to absolutely be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
+Once the BIDS conversion is complete and the anatomicals defaced, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to absolutely be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
 
 Final Thoughts
 **************
