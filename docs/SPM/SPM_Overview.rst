@@ -13,9 +13,12 @@ SPM Overview
 What is SPM?
 *****************
 
-SPM (Statistical Parametric Mapping) is a suite of programs designed to fMRI data analysis. 
+`SPM <https://www.fil.ion.ucl.ac.uk/spm/>`__ (Statistical Parametric Mapping) is an fMRI analysis software package that is run in `Matlab <https://www.mathworks.com/products/matlab.html>`__. In addition to fMRI analysis, SPM contains toolboxes for performing volume based morphometry and effective connectivity.
 
-The following tutorials will show you how to analyze a sample dataset with SPM. Currently I am only including text on how to do a psychophysiological interaction (PPI) in SPM; other tutorials will be created soon.
+.. figure:: spm12_logo.png
+
+
+The following tutorials will show you how to analyze a sample dataset with SPM. You will begin by learning the fundamentals of fMRI preprocessing, and then proceed to create a model.. We will finish by learning about different types of group analyses, and how to do region of interest (ROI) analyses.
 
 .. toctree::
    :maxdepth: 1
