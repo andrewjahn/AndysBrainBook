@@ -1,7 +1,7 @@
 .. _SPM_04_Preprocessing:
 
 =============
-AFNI Tutorial #4: AFNI Commands and Preprocessing
+SPM Tutorial #4: AFNI Commands and Preprocessing
 =============
 
 -----------
