@@ -1,7 +1,7 @@
 .. _SPM_fMRI_Intro:
 
 ==============
-Introduction to AFNI
+Introduction to SPM
 ==============
 
 ------------
