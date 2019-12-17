@@ -44,7 +44,7 @@ When you are finished, click ``Done``. Do the same procedure for the second sess
 
 Now that you have filled in all of the fields that had a ``<-X`` next to them, the "Play" button in the top left corner of the screen has changed from grey to green. Click on the button to begin the Realignment preprocessing step.
 
-.. figure:: Realign_Demo.gif
+.. figure:: 01_Realign_Demo.gif
 
 
 Next Steps
