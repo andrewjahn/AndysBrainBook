@@ -7,7 +7,7 @@ SPM Tutorial #4: AFNI Commands and Preprocessing
 -----------
 
 .. note::
-  Many of the examples are run from the ``Flanker/sub-08`` directory; I recommend navigating to that directory with your Terminal before reading the rest of the chapter.
+  Many of the examples are run from the ``Flanker/sub-08`` directory; I recommend navigating to that directory in the Matlab Terminal before reading the rest of the chapter.
   
    
 Overview
@@ -27,7 +27,9 @@ Think of preprocessing as cleaning up the images. When you take a photo with a c
 
 Similarly, when we preprocess fMRI data we are cleaning up the three-dimensional images that we acquire every :ref:`TR <Repetition_Time>`. An fMRI volume contains not only the signal that we are interested in - changes in oxygenated blood - but also fluctuations that we are not interested in, such as head motion, random drifts, breathing, and heartbeats. We call these other fluctuations **noise**, since we want to separate them from the signal that we are interested in. Some of these can be regressed out of the data by modeling them (which is discussed in the chapter on modeling fitting), and others can be reduced or removed by preprocessing.
 
-To begin preprocessing sub-08's data, read through the following chapters. We will begin with an overview of how to use AFNI commands, and then introduce ``uber_subject.py``, which allows you to write a script that will do all of the preprocessing for you. You will then learn about why each of these preprocessing steps are done, and how to check the data quality before and after each step.
+To begin preprocessing sub-08's data, read through the following chapters. We will begin with **Realignment** and **Slice-Timing Correction**, which correct misalignments and timing errors in the functional images, before moving on to **Coregistration** and **Normalization**, which align the functional and structural images and move them both to a standardized space. The typical sequence of preprocessing steps is numbered in the image below:
+
+.. figure:: SPM_GUI_Steps.png
 
 .. toctree::
    :maxdepth: 1
