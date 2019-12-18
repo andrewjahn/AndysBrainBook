@@ -18,7 +18,7 @@ What is SPM?
 .. figure:: spm12_logo.png
 
 
-The following tutorials will show you how to analyze a sample dataset with SPM. You will begin by learning the fundamentals of fMRI preprocessing, and then proceed to create a model.. We will finish by learning about different types of group analyses, and how to do region of interest (ROI) analyses.
+The following tutorials will show you how to analyze a sample dataset with SPM. You will begin by learning the fundamentals of fMRI preprocessing, and then proceed to create a model. We will finish by learning about different types of group analyses, and how to do region of interest (ROI) analyses.
 
 .. toctree::
    :maxdepth: 1
