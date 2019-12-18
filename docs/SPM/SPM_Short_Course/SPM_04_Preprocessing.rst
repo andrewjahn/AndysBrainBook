@@ -36,6 +36,11 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
    :caption: Preprocessing Steps
    
    SPM_04_Preprocessing/01_Realign_Unwarp
+   SPM_04_Preprocessing/02_SPM_SliceTiming
+   SPM_04_Preprocessing/03_SPM_Coregistration
+   SPM_04_Preprocessing/04_SPM_Segmentation
+   SPM_04_Preprocessing/05_SPM_Normalize
+   SPM_04_Preprocessing/06_SPM_Smoothing
 
 .. note::
   Different software packages will do these steps in slightly different order - for example, FSL will normalize the statistical maps after model fitting. There are also analyses which omit certain steps - for example, some people who do multi-voxel pattern analyses don't smooth their data. In any case, the list above represents the most common steps that are performed on a typical dataset.
