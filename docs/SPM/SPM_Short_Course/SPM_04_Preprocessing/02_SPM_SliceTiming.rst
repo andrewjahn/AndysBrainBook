@@ -72,3 +72,7 @@ This means that the first volume of the time-series has the dimensions of 64x64x
 
 Now go back to the Batch Editor window, double-click on ``Number of Slices``, enter a value of ``40``, and click ``OK``. 
 
+For the TR, enter 2; for the TA, follow the formula provided in the help window and enter ``2-(2/40)``. For Slice order enter ``[1:2:40 2:2:40]``, and for the Reference Slice enter a value of ``1``. Leave the filename prefix as is, which will prepend an ``a`` to the files that are generated.
+
+
+
