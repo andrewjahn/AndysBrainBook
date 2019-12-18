@@ -1,4 +1,4 @@
-.. _01_SPM_RealignUnwarp.rst:
+.. _01_SPM_Realign_Unwarp.rst:
 
 ============================================
 Chapter 1: Realigning and Unwarping the Data
