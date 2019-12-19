@@ -1,7 +1,7 @@
 .. _05_SPM_Normalize:
 
 =========================
-Chapter #5: Normalization
+Chapter 5: Normalization
 =========================
 
 ---------------
