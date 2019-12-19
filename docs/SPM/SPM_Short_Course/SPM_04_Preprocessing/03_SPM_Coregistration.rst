@@ -55,6 +55,10 @@ The Reference Image is the image that will remain stationary; the Source Image, 
 
 Double-click on the Reference Image, and select the ``meansub-08_task-flanker_run-1_bold.nii``. For the source image, navigate to the ``anat`` directory and select the file ``sub-08_T1w.nii``. Then click the green Go button. This step should only take a few moments.
 
+When it finishes, another window will be generated showing the coregistration results with the mean functional image on the left and the anatomical image on the right. Click and drag the crosshairs in either image to see how well the images are aligned - in addition to the outlines of the brains being matched, you should also check to make sure that internal structures such as the ventricles are aligned as well. Remember that the intensities will be flipped: Darker areas in the anatomical image (such as the ventricles) will appear brighter in the functional image.
+
+.. figure:: 03_Coregistration_Check.png
+
 Next Steps
 **********
 
