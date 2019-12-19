@@ -6,8 +6,8 @@ Chapter 6: Running the First-Level Analysis
 
 ---------
 
-First-Level Analysis in SPM
-***************************
+Specifying the Model
+********************
 
 Having created the timing files in the :ref:`previous chapter <SPM_05_Creating_Timing_Files>`, we can use them in conjunction with our imaging data to create statistical parametric maps. These maps indicate the strength of the correlation between our ideal time-series (which consists of our onset times convolved with the HRF) and the time-series that we collected during the experiment. The amount of modulation of the HRF is represented by a beta weight, and this in turn is converted into a t-statistic when we create contrasts using the SPM contrast manager.
 
@@ -46,6 +46,15 @@ When you are done, click the green Go button. The model estimation should only t
 .. figure:: 05_06_Design_Review.png
 
   The General Linear Model for a single subject. The first two columns shows the ideal time-series for the Incongruent and Congruent conditions for the first session, while the next two show the ideal time-series for the conditions of run 2. The last two columns are basline regressors capturing the mean signal for each run. In this representation, time runs from top to bottom, and lighter colors represent more activity.
+  
+  
+Estimating the Model
+********************
+
+Now that we have created our GLM, we will need to **estimate** the beta weights for each condition. From the SPM GUI click ``Estimate``, and then double-click on the field ``Select SPM.mat``. Navigate to the ``1stLevel`` directory and select the SPM.mat file, and then click the green Go button. This will take a few minutes to run.
+
+The Contrast Manager (Save this for another chapter?)
+*********************
 
 The Ideal Time-Series and the GLM
 ***************
