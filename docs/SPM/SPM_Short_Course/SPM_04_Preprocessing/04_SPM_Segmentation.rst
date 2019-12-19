@@ -1,7 +1,7 @@
 .. _04_SPM_Segmentation:
 
 ========================
-Chapter #4: Segmentation
+Chapter 4: Segmentation
 ========================
 
 -------------
