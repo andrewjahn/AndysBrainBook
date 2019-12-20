@@ -60,7 +60,7 @@ When you have finished estimating the model, you are ready to create **contrasts
 
 To create these contrasts, click on the ``Results`` button of the SPM GUI, and select the SPM.mat file that was generated after estimating the model. You will see the design matrix on the right side of the panel. Click on ``Define New Contrast``, and in the ``Name`` field type ``Inc-Con``. In the contrast vector window, type ``0.5 -0.5 0.5 -0.5``, and then click ``submit``. If the contrast is valid, you should see green text at the bottom of the window saying "name defined, contrast defined". Make sure that you contrast manager looks like the figure below, and then click ``OK`` to create the contrast.
 
-.. figure:: 06_Contrast_Inc-Con.png
+.. figure:: 05_06_Contrast_Inc-Con.png
 
 .. note::
 
@@ -83,13 +83,13 @@ When you have finished specifying the options, you will see your results display
 
 If you left-click on the coordinates for a cluster, the coordinates will be highlighted in red and the cursor in the glass brain view will jump to those coordinates. You can click and drag the red arrow header in the glass brain if you like, and then right-click on the brain and select any of the options for jumping to the nearest suprathreshold voxel or the nearest local maximum.
 
-.. figure:: 06_SPM_Results_Window.png
+.. figure:: 05_06_SPM_Results_Window.png
 
 To view the results on an image other than the glass brain, in the results window in the lower left (which contains the fields "p-values", "Multivariate", and "Display"), click on ``overlays`` and then select ``sections``. Navigate to the ``spm12/canonical`` directory, and choose any of the T1 brains that you like. In this case, I will select the avg152 brain.
 
 You will now see the results displayed as a heatmap on the template, and you can click and drag the crosshairs as you do in the Display window. If you place the crosshairs over a particular cluster and click the "current cluster" button in the Results window, the statistical table will reappear, highlighting the coordinates of the cluster you have selected.
 
-.. figure:: 06_SPM_Results_Template.png
+.. figure:: 05_06_SPM_Results_Template.png
 
 .. note::
 
