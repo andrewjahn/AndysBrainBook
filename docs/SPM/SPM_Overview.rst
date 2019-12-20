@@ -29,5 +29,6 @@ The following tutorials will show you how to analyze a sample dataset with SPM. 
    SPM_Short_Course/SPM_02_Flanker
    SPM_Short_Course/SPM_03_LookingAtData
    SPM_Short_Course/SPM_04_Preprocessing
+   SPM_Short_Course/SPM_05_1stLevelAnalysis
    SPM_Short_Course/SummaryStatistics
    SPM_Short_Course/SPM_PPI
