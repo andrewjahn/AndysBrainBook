@@ -53,67 +53,53 @@ Estimating the Model
 
 Now that we have created our GLM, we will need to **estimate** the beta weights for each condition. From the SPM GUI click ``Estimate``, and then double-click on the field ``Select SPM.mat``. Navigate to the ``1stLevel`` directory and select the SPM.mat file, and then click the green Go button. This will take a few minutes to run.
 
-The Contrast Manager (Save this for another chapter?)
-*********************
+The Contrast Manager
+********************
 
-The Ideal Time-Series and the GLM
-***************
+When you have finished estimating the model, you are ready to create **contrasts**. If we estimate a beta weight for the Incongruent condition and a beta weight for the Congruent condition, for example, we can take the difference between them to calculate a **contrast estimate** at each voxel in the brain. Doing so for each voxel will create a **contrast map**.
 
-While you're waiting for the analysis to finish, let's take a look at how the model we just created relates to the GLM. Remember that each voxel has a BOLD time-series (our outcome measure), which we represent with Y. We also have our two regressors, which we will represent with x1 and x2. These regressors constitute our design matrix, which we represent with a large X. 
+To create these contrasts, click on the ``Results`` button of the SPM GUI, and select the SPM.mat file that was generated after estimating the model. You will see the design matrix on the right side of the panel. Click on ``Define New Contrast``, and in the ``Name`` field type ``Inc-Con``. In the contrast vector window, type ``0.5 -0.5 0.5 -0.5``, and then click ``submit``. If the contrast is valid, you should see green text at the bottom of the window saying "name defined, contrast defined". Make sure that you contrast manager looks like the figure below, and then click ``OK`` to create the contrast.
 
-So far, all of these variables are known - Y is measured from the data, and x1 and x2 are made by convolving the HRF and the timing onsets. Since matrix algebra is used to set up the design matrix and estimate the beta weights, the orientations are turned ninety degrees: Normally we think of the time axis as going from left to right, but instead it is depicted as going from top to bottom. In other words, the onset of the run begins at the top of the timecourse.
+.. figure:: 06_Contrast_Inc-Con.png
 
-The next part of the GLM equation is the beta weights, which we represent with B1 and B2. These represent our estimate of the amount the HRF needs to be scaled for each regressor to best match the original data in Y - hence the name “beta weights”. The last term in this equation is E, which represents the residuals, or the difference between our ideal time series model and the data after estimating the beta weights. If the model is a good fit, the residuals will decrease, and one or more of the beta weights are more likely to be statistically significant.
+.. note::
 
+  If you forgot which column corresponds to which condition, hold down the right click button while hovering over one of the columns. You should see text that specifies which condition that column belongs to.
+  You may have also noted that we used **contrast weights** of 0.5 and -0.5. Why those numbers, instead of the traditional 1 and -1? In this case, we are accounting for the number of runs in our study - To make our results comparable to other subjects or other studies that may have different amounts of runs, we will divide our contrast weights of 1 and -1 by the number of runs that we have: e.g., 1/2 = 0.5, and -1/2 = 0.5. If we used a contrast vector of [1 -1 1 -1], the resulting t-statistic would be the same, but the contrast estimate would be inflated in proportion to the number of runs in our study.
 
 Examining the Output
-**************
+********************
 
-When the script finishes, navigate into the folder ``sub-08/subject_results/group.Flanker/subj.sub08/sub08.results``. In addition to the preprocessed blocks you saw previously, you will also see statistical datasets: The one labeled ``stats.sub_08+tlrc`` has been analyzed using the traditional 3dDeconvolve approach; the dataset ``stats.sub_08_REML+tlrc`` has accounted for temporal autocorrelation.
+Double-click on the contrast ``Inc-Con`` to open the Results window. You will first need to set a few options:
 
-.. figure:: 06_FirstLevel_Output.png
+::
 
-You will also see a few files beginning with an "X", such as ``X.xmat.1D``. These represent different parts of the design matrix. For example, you can view the design matrix by typing ``aiv X.jpg``:
-
-.. figure:: 06_GLM.png
-
-For a different view, looking at all of the regressors in separate rows, type ``1dplot -sepscl X.xmat.1D``:
-
-.. figure:: 06_GLM_1dplot.png
-
-  If you rotate this figure by 90 degrees, you will see that it is a different representation of the same design matrix above.
+  apply masking: Set this to "none", as we want to examine all of the voxels in the brain, and we do not want to restrict our analysis to a mask.
+  p value adjustment to control: Click on "none", and set the uncorrected p-value to 0.01. This will test each voxel individually at a p-threshold of 0.01.
+  & extent threshold {voxels}: Set this to 10 for now, which will only show clusters of 10 or more contiguous voxels. Right now we're doing this to eliminate specks of voxels most likely found in noisy regions, such as the ventricles; later on we will learn how to do **cluster correction** at the group level to appropriately control for the number of individual statistical tests.
   
-.. note::
 
-  Make sure the design matrix looks reasonable. Are the lower-frequency drifts modeled as you would expect them to be? Do the onsets for the trials in each condition match up with the timing files that you created in the last chapter?
+When you have finished specifying the options, you will see your results displayed on a **glass brain**. This shows your results in standardized space in three orthogonal planes, with the dark spots representing clusters of voxels that passed our statistical threshold. In the top-right corner is a copy of your design matrix and the contrast that you are currently looking at, and at the bottom is a table listing the coordinates and statistical significance of each cluster. The first column, **set-level**, indicates the probability of seeing the current number of clusters, *c*. The **cluster-level** column shows the significance for each cluster (measured in number of voxels, or *kE*) using different correction methods. The **peak-level** column shows the t- and z-statistics of the peak voxel within each cluster, with the main clusters marked in bold and any sub-clusters listed below the main cluster marked in lighter font. Lastly, the MNI coordinates of the peak for each cluster and sub-cluster is listed in the rightmost column.
 
-Viewing the Statistics Files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+If you left-click on the coordinates for a cluster, the coordinates will be highlighted in red and the cursor in the glass brain view will jump to those coordinates. You can click and drag the red arrow header in the glass brain if you like, and then right-click on the brain and select any of the options for jumping to the nearest suprathreshold voxel or the nearest local maximum.
 
-We are now ready to look at the **contrast maps** of our data. Type ``afni`` to open up the GUI, and select ``anat_file.sub_08`` as the Underlay. (You can also use the MNI152 template if you've copied it into your current directory, or if you have placed it in the ``aglobal`` directory.) For the Overlay, select ``stats.sub_08``. You should see something like this:
+To view the results on an image other than the glass brain, in the results window in the lower left (which contains the fields "p-values", "Multivariate", and "Display"), click on ``overlays`` and then select ``sections``. Navigate to the ``spm12/canonical`` directory, and choose any of the T1 brains that you like. In this case, I will select the avg152 brain.
 
-.. figure:: 06_ViewingStats.png
 
-This may look overwhelming at first; but although the AFNI viewer can seem to have too many options, once you become more familiar with them you will be able to customize how you view your results. If this is your first time viewing statistics in AFNI, the most noticeable features of the "Define Overlay" panel will appear to be the **slider bar** (allowing you to threshold the images to only see values above a certain number), and the "ULay", "OLay", and "Thr" menus, corresponding to the Underlay, Overlay, and Threshold sub-briks.
-
-Let's begin with the slider bar. If you move it up and down, you will see voxels either disappear or re-appear. That is because we are **thresholding**, or removing, voxels that fall below the Threshold number to the left of the bar. This number will be based on the sub-brik that is selected in the "Thr" menu; in this case, the sub-brik that was selected for us when we opened the viewer was volume #2, the T-statistic map of the beta weights for the Congruent condition. As you move the slider to a value of, say, 1.9753, you will also notice that the number below the slider bar, ``p=``, changes as well, to a value of 0.493. This represents the **uncorrected p-value threshold** for the currently selected Threshold map; in other words, any colored voxels pass an individual p-value threshold of 0.493.
-
-.. note::
-
-  If you want to set a specific uncorrected p-value threshold, right-click on the ``p=`` text, select "set p-threshold", and type the threshold you want (e.g., 0.001).
-
-We haven't corrected for multiple comparisons yet, so we can't say whether any one of the individual voxels is statistically significant. However, viewing the data at an uncorrected p-value threshold can give you a general idea of the spatial layout of the statistics, and indicate whether the results are trending in the direction that you would predict, or if there appears to be something wrong. For example, highly correlated regressors would have very large parameter estimates and correspondingly high variability. You should also make sure that the activation, for a relatively high uncorrected p-value threshold (e.g., p=0.01 or higher), generally falls within the gray matter. If you find large numbers of "active" voxels within the ventricles, for example, it may indicate a problem with the data quality.
-
-Now, change the OLay sub-brik to ``incongruent-congruent#0_Coef`` and the Thr sub-brik to ``incongruent-congruent#0_Tstat``, and set the uncorrected p-value threshold to 0.05. Click around the brain, observing where the statistics are positive and where they are negative. Where do you notice significant "clusters" of activated voxels? Are they where you would expect them to be?
-
-Later on, you will learn about a multiple correction technique called **cluster correction**. This method looks for clusters composed of voxels that pass a given uncorrected threshold, and then determines whether the cluster is significant or not. In this chapter we won't go into how to calculate how large the cluster needs to be, but for now click the "*Clusterize" button and change the number of voxels to ``45``. As a result, you will only see those clusters that are composed of 45 or more voxels that each pass an uncorrected p-value threshold of 0.05. You can click on the "Rpt" button to see a report of each cluster that passes this threshold, which lists the voxel size, the location of the peak voxel of the cluster, and options to move the crosshairs to the cluster and make it flash. All of these operations are summarized in the GIF below.
-
-.. figure:: 06_ViewingClusters.gif
 
 
 Exercises
 *********
 
+1. Open the contrast manager window again by clicking the ``Results`` button, and create contrasts of "Con-Inc", "Inc", and "Con". Try figuring out the contrast vectors on your own before reading the correct ones provided below:
+
+::
+
+  Con-Inc: [-0.5 0.5 -0.5 0.5]
+  Inc: [0.5 0 0.5 0]
+  Con: [0 0.5 0 0.5]
+  
+Estimating the beta weight for each condition individually will be important later on when we do Region of Interest analysis to determine what is driving our contrasts.
 
 Next Steps
 **********
