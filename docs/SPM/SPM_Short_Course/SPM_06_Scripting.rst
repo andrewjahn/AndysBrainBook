@@ -34,12 +34,14 @@ To begin, open up the SPM GUI and click on the ``Batch`` button. From the top of
 
 ::
 
+  SPM -> BasicIO -> File/Dir Operations -> File Operations -> Named File Selector
   SPM -> Spatial -> Realign -> Estimate & Reslice
   SPM -> Temporal -> Slice Timing
   SPM -> Spatial -> Coregister: Estimate & Reslice
   SPM -> Spatial -> Segment
   SPM -> Spatial -> Normalise -> Write
   SPM -> Spatial -> Smooth
+  SPM -> BasicIO -> File/Dir Operations -> File Operations -> File Set Split
   SPM -> Stats -> fMRI Model Specification
   SPM -> Stats -> Model Estimation
   SPM -> Stats -> Contrast Manager
