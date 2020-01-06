@@ -5,28 +5,27 @@ Appendix A: Cluster Correction
 
 -------------
 
-Overview
-*************
+The Problem of Multiple Comparisons
+***********************************
 
-In the fMRI tutorial you just completed, you learned that group-level contrast maps are created through what is termed a mass univariate analysis: in other words, we carry out as many statistical tests as there are voxels. Given that a typical fMRI dataset contains hundreds of thousands of voxels, this can lead to a large number of false positives. To control for the number of false positives, therefore, and to keep them at the conventional level of 5%, we will need to do something called **multiple comparisons correction**.
+In the fMRI tutorial you just completed, you learned that group-level contrast maps are created through a **mass univariate analysis**: in other words, we carry out as many statistical tests as there are voxels. Given that a typical fMRI dataset contains hundreds of thousands of voxels, this can lead to a large number of false positives. To control for the number of false positives, therefore, and to keep them at the conventional level of 5%, we will need to do something called **multiple comparisons correction**.
 
 .. note::
 
-  For most statistical tests, we set a **false positive rate**, also known as the **alpha level**, to 0.05, or 5%. This is the probability that we will reject the null hypothesis if the null hypothesis is true; in other words, it is the probability that we will observe a false positive.
+  For most statistical tests, we set the **false positive rate**, also known as the **alpha level**, to 0.05, or 5%. This is the probability that we will reject the null hypothesis if the null hypothesis is true; in other words, it is the probability that we will observe a false positive.
   
-  This approach is known as **Null Hypothesis Significance Testing**, and a full treatment of it is outside the scope of this book. There are many introductory textbooks and online tutorials which you should be able to find on your own, although I don't have any specific recommendations.
 
-To build your intution about what this means, imagine the following scenario: When I watched the Wimbeldon match between Coco Gauff and Polona Hercog, I became convinced that if I ate a raisin every time Coco served, she would win the point. I tried this out several times, and found that it worked six times out of ten. 
+Failing to correct for multiple comparisons can lead to results that are unreliable and sometimes absurd. To illustrate this, and to make a point that presumably could not be made any other way, a researcher named Craig Bennet put a dead salmon into a scanner, showed it pictures of humans talking, playing, and socializing, and then analyzed the data as if it were any other study - only without correcting for multiple comparisons. The significant voxels consequently found in the salmon's brain were clearly artifacts caused by noise; the message being that a certain number of voxels will pass a significance threshold regardless of whether there is a true effect or not.
 
-Would it be reasonable to assume that my eating a raisin had some kind of effect on the game? No. (If it had worked ten times out of ten, then maybe I would be on to something.) By focusing only on the times that it was associated with Coco winning the point, however, I could convince myself that it did in fact have some kind of effect.
+.. figure:: Bennet_2009.png
 
-It's a small jump to extend this manner of thinking to scientific tests: just substitute the performing of tests for the eating of raisins. The more tests that we do, the more likely we are to find an effect (e.g., more wins by Coco, or statistically significant results in our study) by chance alone - in other words, there isn't actually an effect, but we claim that there is one. The result is mistaken confidence and shoddy research.
+  The famous "Dead Salmon" picture from Bennet et al. (2009). 
 
 
 Bonferroni Correction
 ************
 
-If we want to carry out several tests - as is commonly done in many studies - then what can be done to protect ourselves from mistaking false positives for true effects? The most straightforward method is called **Bonferroni Correction**, named after the Italian mathematician Carlo Bonferroni. Simply take your alpha level, or the false positive rate you’re willing to live with - traditionally set at 5% - and divide it by the number of tests that you carry out. 
+If we want to carry out several tests - as is commonly done in many studies - then what can be done to protect ourselves from mistaking false positives for true effects? The most straightforward method is called **Bonferroni Correction**, named after the Italian mathematician Carlo Bonferroni. Simply take your alpha level - traditionally set at 5% - and divide it by the number of tests.
 
 This works well enough for behavioral studies consisting of a handful of tests, but quickly becomes unreasonable when applied to imaging data. For example, if your group-level contrast map contains 100,000 voxels and your alpha level is 0.05, an individual voxel will have to pass a corrected alpha level of 0.05/100,000 = 0.0000005 in order to be judged statistically significant. Either the effect must be phenomenally strong, or the study highly powered, for a voxel to reach this threshold; but effects are often not that strong, and imaging studies are usually not that highly powered. But if we want to use another correction method, first we will need to make the case for why Bonferroni Correction isn't appropriate for imaging studies.
 
@@ -34,7 +33,7 @@ This works well enough for behavioral studies consisting of a handful of tests, 
 Problems with Bonferroni Correction
 *************
 
-One of the assumptions of Bonferroni correction is that each test is independent. To take our fMRI dataset as an example, that would mean that each voxel is completely independent of every other voxel in the brain; knowing the value of one voxel doesn't give you any information about any other voxel.
+One of the assumptions of Bonferroni correction is that each test is independent. To take our fMRI dataset as an example, that would mean that each voxel is completely independent of every other voxel in the brain; knowing the value of one voxel doesn't tell you anything about any other voxel.
 
 But are the voxels completely independent? Let's take a look at a typical fMRI image. Notice that a given voxel is similar to its neighbors: Bright voxels tend to be surrounded by brighter voxels, and darker voxels tend to be surrounded by darker voxels. Since we can make a relatively close estimate about what the signal intensity will look like for a voxel given its neighbors, the voxels are not completely independent. (The same logic extends to the timecourse at each voxel as well.)
 
@@ -59,10 +58,12 @@ You may think that's all we need to do; but a cluster-defining threshold is not 
 To answer this we run simulations - in other words, we create artifical datasets with the same dimensions and smoothness as our task dataset, but which are composed of pure noise. We then write down the size of the largest cluster, and repeat the process with another simulated dataset. If we do this thousands of times, we can create a distribution of maximum cluster sizes - and from this, we can calculate the percentage of the time we would observe a cluster as large as the one we generated from our task dataset.  If that percentage is lower than our alpha level of 5%, we can reject the null hypothesis.
 
 
-AFNI 3dFWHMx and 3dClustSim
-***************************
+AFNI's 3dFWHMx and 3dClustSim
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-To find statistically significant cluster sizes, you will first need to run 3dFWHMx on a subject's errts file. This file contains the residuals of everything that wasn't modeled, which we will treat as noise. For example, from sub-01's sub-01.results directory, type:
+AFNI's cluster correction method requires the user to estimate the smoothness of the data, and to then use those smoothness estimates to determine a threshold for significant clusters.
+
+To do this, you will first need to run 3dFWHMx on a subject's errts file, which contains the residuals of everything that wasn't modeled - in other words, noise. For example, from sub-01's sub-01.results directory, type:
 
 ::
 
@@ -75,7 +76,7 @@ Which will output numbers like the following:
 
   0.827124 2.9802 5.31313    7.16512
   
-The first three numbers are the parameters needed to create the autocorrelation function; the last number is the estimated smoothness of the data, in millimeters. Note that it will be higher than the smoothing kernel that you use, since the kernel is applied to smoothness that is already in the data.
+The first three numbers are the parameters needed to create the **autocorrelation function**, a model of how correlated a given voxel is with its neighbors; the last number is the estimated smoothness of the data, in millimeters. Note that it will be higher than the smoothing kernel that you use, since the kernel is applied to smoothness that is already in the data.
 
 These numbers can then be used with 3dClustSim, e.g.:
 
@@ -85,10 +86,28 @@ These numbers can then be used with 3dClustSim, e.g.:
   
 In which ``athr`` indicates the overall alpha threshold for the clusters, which we will leave at the conventional level of 0.05, and ``pthr`` indicates the uncorrected cluster-forming p-threshold.
 
+This will generate a table that shows the number of contiguous voxels that are neeeded for a cluster to be deemed statistically significant. For example, the output may look like this:
+
+.. figure:: 3dClustSim_Table.png
+
+Which indicates that, for a cluster-defining threshold of p=0.001, a cluster is significant if it is composed of 8.6 or more voxels. (To be safe, round up to the next highest integer, even if the determined cluster size is 8.1. In this example, we would only include those clusters of 9 or more voxels.)
+
+In addition, the table includes permutations of different "NN" and "N-sided" values. Below is a glossary of what these abbreviations mean:
+
+::
+
+  NN1 - Voxels are contiguous (i.e., part of the same cluster) if the faces touch
+  NN2 - Faces OR edges need to touch
+  NN3 - Faces OR edges OR corners need to touch
+
+  1-sided - Voxels are contiguous if they have the same sign (e.g., only looking at voxels where A>B)
+  2-sided - Voxels are contiguous if they are either positive or negative
+  bi-sided - Separate the clusters if the voxels have different signs
 
 
-Randomise
-**********
+
+FSL's Randomise
+^^^^^^^^^^^^^^^
 
 FSL has a command called ``Randomise``, which creates a distribution from the data by randomly permuting the signs of the contrasts that are specified. For example, if you had a between-subjects design with 20 subjects in each group, and you had created the design matrix through the FEAT GUI, you could run something like this:
 
@@ -99,9 +118,17 @@ FSL has a command called ``Randomise``, which creates a distribution from the da
 "allZs.nii.gz" is a file of the combined zstat images from both groups, created using fslmerge. The .mat and .con files are created using the Setup Model Wizard from the FEAT GUI. Usually about 5000 permutations or more should be selected in order to create a robust distribution.
 
 
+SPM's Cluster Correction
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+SPM will automatically calculate whether a given cluster is significant, given the cluster-defining threshold you specify in the "Results" window. 
+
+.. figure:: SPM_ClusterTable.png
+
+
 ------------
 
 Video
 *************
 
-To see what each of these ideas looks like unfolding over time, watch `this video <https://www.youtube.com/watch?v=hM0dC4OTCvU>`__.
+For an overview of cluster correction and how it works, watch `this video <https://www.youtube.com/watch?v=hM0dC4OTCvU>`__.
