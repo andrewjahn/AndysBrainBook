@@ -70,7 +70,11 @@ Filling in the Preprocessing Modules
 
 You will now need to fill in each of the required fields, just like we did in the previous chapters. This will be the most tedious part of the tutorial, but remember: If you don't script your analysis, you would have to do this manually for *every subject in your study*. The amount of time that would take, coupled with the fact that the odds of making a mistake increase with each subject you analyze by hand, should make this part seem worth the effort.
 
-As you go along, at some point you may wonder what you are supposed to input for a later preprocessing step if the required data hasn't been created yet. The Batch Editor allows you to use **Dependencies** from earlier steps, indicating that the input should come from the output of the previous step. For example, in the Slice Timing module for the first Session if you click the ``Dependency`` button, you can select the option "Realign: Estimate & Reslice: Resliced Images (Sess 1)". (We select the resliced images, since that is the last output from the Realignment step.) For example, the Slice Timing step should look like this once you have filled it in:
+As you go along, at some point you may wonder what you are supposed to input for a later preprocessing step if the required data hasn't been created yet. The Batch Editor allows you to use **Dependencies** from earlier steps, indicating that the input should come from the output of the previous step. For example, in the Realign module for the first Session if you click the ``Dependency`` button, you can select the option "Named File Selector: run1run2Files(1)", and likewise for the second Session. It should look like this once you have filled it in:
+
+.. figure:: 06_RealignDependency.png
+
+And the same with the Slice Timing module:
 
 .. figure:: 06_SliceTimingDependency.png
 
