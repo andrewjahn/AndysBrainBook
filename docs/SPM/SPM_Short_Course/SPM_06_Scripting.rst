@@ -101,7 +101,7 @@ And lastly, the contrast manager will load the SPM.mat file created by the Model
 For the contrast module, we select the "Replicate&Scale" option. This will replicate the contrast weights across all of the sessions for that subject, and scale them in inverse proportion to the number of sessions. In this example, since there are two sessions, each contrast weight will be scaled to 0.5 and -0.5, respectively.
 
 
-Creating the Matlab file
+Editing the Matlab file
 ************************
 
 The Batch module we have just created is specific to ``sub-08``: We have used sub-08's images and timing files, and the results will only apply to sub-08. If you clicked on the green Go button, it would run all of the preprocessing and model estimation steps in one go. With a few adjustments, however, we can adapt this module to all of the other subjects in our study.
@@ -112,53 +112,134 @@ From the Matlab terminal, navigate to the Flanker directory which contains the R
 
 ::
 
-  open RunPreproc_1stLevel.m
+  open RunPreproc_1stLevel_job.m
   
+To adapt this file so that it can analyze any subject, we will need to make the following edits:
 
+1. Replace the number "08" with a variable containing a different subject number on each instance of a for-loop; and 
+2. Replace the username (in this case, "ajahn") with a variable pointing to the username of whichever machine is currently being used.
 
+These two changes will allow us to place the existing code in a for-loop which will run over a set of numbers indicating each subject in the study.
 
-
+At the beginning of the script, type the following code:
 
 ::
 
-  cp sub-08/subject_results/group.Flanker/subj.sub_08/proc.sub_08 proc_Flanker.sh
-  
-We will make the following changes to the script:
+  subjects = [01 02]; % Replace with a list of all of the subjects you wish to analyze
 
-1. We will remove every reference to ``sub-08``, and turn those strings into a variable that is taken from an argument given to the script. For example, we will change the script so that if we execute it by typing ``tcsh proc_Flanker.sh sub-01``, it will replace the variable in our script with the string ``sub-01``, and analyze that subject's data.
+  user = getenv('USER'); % Will return the username for OSX operating systems
 
-2. We will replace the paths to be more generalizable.
+  for subject=subjects
 
-To begin, open the proc_Flanker.sh file in a text editor such as TextWrangler. Scroll to lines 26-31, which contains the following code:
+  subject = num2str(subject, '%02d');
 
-::
-
-  # the user may specify a single subject to run with
-  if ( $#argv > 0 ) then
-      set subj = $argv[1]
+  if exist(['/Users/' user '/Desktop/Flanker/sub-' subject '/func/sub-' subject '_task-flanker_run-1_bold.nii']) == 0
+      display('Run 1 has not been unzipped; unzipping now')
+      gunzip(['/Users/' user '/Desktop/Flanker/sub-' subject '/func/sub-' subject '_task-flanker_run-1_bold.nii.gz'])
   else
-      set subj = sub_08
-  endif
+      display('Run 1 is already unzipped; doing nothing')
+  end
+
+  if exist(['/Users/' user '/Desktop/Flanker/sub-' subject '/func/sub-' subject '_task-flanker_run-2_bold.nii']) == 0
+      display('Run 2 has not been unzipped; unzipping now')
+      gunzip(['/Users/' user '/Desktop/Flanker/sub-' subject '/func/sub-' subject '_task-flanker_run-2_bold.nii.gz'])
+  else
+      display('Run 2 is already unzipped; doing nothing')
+  end
+
+  if exist(['/Users/' user '/Desktop/Flanker/sub-' subject '/anat/sub-' subject '_T1w.nii']) == 0
+      display('Anatomical image has not been unzipped; unzipping now')
+      gunzip(['/Users/' user '/Desktop/Flanker/sub-' subject '/anat/sub-' subject '_T1w.nii.gz'])
+  else
+      display('Anatomical image is already unzipped; doing nothing')
+  end
   
-This is a :ref:`conditional statement <Unix_06_IfElse>` using tcsh syntax. The first few lines state that if the user provides an argument (i.e., an input), then set the variable "subj" to whatever the argument is (see the above text about making changes to the script, #1). If you look through the rest of the script, you will see numerous lines that contain the variable "$subj", which will be replaced by the argument. However, there are many instances - usually involving paths - that still have the string ``sub-08`` hard-coded into them. In order to make the script more flexibile and have it analyze the subject that we specify, we will need to replace these with the "$subj" variable. If you are using TextWrangler, click on "Search" from the menu at the top of the screen, and select "Find". In the "Find" field, type ``sub-08``, and in the "Replace" field, type ``${subj}``. 
+  
+You should also type the word ``end`` at the last line of the script to indicate that all of the code that comes before is part of the for-loop.
 
-Next, we will need to replace any absolute paths with a :ref:`relative path <Unix_04_ShellsVariables>`. As you can see in the script, there are several lines of code that contain paths starting with ``/Users/ajahn/Desktop/Flanker``. We will replace this with the $PWD variable, which is a shorthand for the path to the current working directory. This will ensure that the script will be adapted to the current computer's directory structure, and that no errors will be thrown due to the script being unable to locate where certain files are. From the TextWrangle Search and Replace screen, "Find" the string ``/Users/ajahn/Desktop/Flanker`` (or whatever the name of the path is which points to the directory containing your subjects), and "Replace" it with ``${PWD}``. Also replace on line 255 ``/Users/ajahn/aglobal`` (or whatever your username is) with ``~/abin``.
+The above code does the following: 
 
-The template script with all of the edits can be found `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/proc_Flanker.sh>`__.
+* First, an **array** of numbers is created and stored in the variable **subjects**. The values are ``01`` and ``02``; later on, we will expand this array to include all of the subject identification numbers in our experiment. 
+
+* Next, the variable ``user`` takes the value returned from the command ``getenv('USER')``. This should return the username of the current user of the computer - in the current example, "ajahn".
+
+* We then begin a for-loop that is initialized with the code ``for subject=subjects``. This means that a new variable, "subject", will assume the value of each consecutive entry in the array "subjects". In other words, the first instance of the loop will assign the value "01" to subject; on the second instance, it will assign the value "02", and so on, until the loop reaches the end of the array.
+
+* Since an array will strip any leading zeros, and since we need to convert the numbers in our array to a string, the "subject" variable is converted using the ``num2str`` command. The text ``'%02d'`` is **string-formatting code** indicating that the current value being converted from a number to a string should be **zero-paddded** with as many zeros as needed until the number is two characters long. (Details about string formatting can be found `here <https://www.mathworks.com/help/matlab/matlab_prog/formatting-strings.html>`__.)
+
+* The :ref:`conditional statements <Unix_06_IfElse>` look for whether the unzipped functional and anatomical files exist, and if they don't, the files are unzipped using Matlab's ``gunzip`` command.
+
+
+Concatenating strings
+^^^^^^^^^^^^^^^^^^^^^
+
+Throughout the rest of the code that was generated when we saved the Batch module as a Matlab script, we will need to replace each instance of ``08`` with the string ``subject``, and each instance of ``ajahn`` (or whatever your username is) with the variable ``user`` that was defined above. This can be done using search and replace, but be careful that there aren't other instances of the string "08" that aren't attached to the string "sub-".
+
+In the example code above, we used brackets to **horizontally concatenate** strings with variables. A line of code like the following:
+
+::
+
+  ['/Users/' user '/Desktop/Flanker/sub-' subject '/anat/sub-' subject '_T1w.nii']
+  
+will concatenate the strings surrounded by single apostrophes with the variables. If the variable "user" contains the value "ajahn" and the variable "subject" contains the value "08", then the above code would expand to the following:
+
+::
+
+  '/Users/ajahn/Desktop/Flanker/sub-08/anat/sub-08_T1w.nii'
+  
+You will need to perform these substitutions for the rest of the script, taking care to use single apostrophes to set off the strings from the variables. Brackets will be required for this concatenation, even within the **cells** denoted by curly braces. (Cells are arrays that can contain several different data types, such as strings and numbers.)
+
+
+Loading the Onset Files
+^^^^^^^^^^^^^^^^^^^^^^^
+
+The last part of the script we have to edit is the onset times. In this experiment, each subject had different onset times for each condition. If the timing files have already been converted to a different format, then you can create a variable that contains the timing information and insert it into the "onset" field for the stats module. For example, the following code found around line 107 of the Matlab script can be changed from this, which contains onset times specific to sub-08:
+
+::
+
+  matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(1).onset = [0
+                                                            10
+                                                            20
+                                                            52
+                                                            88
+                                                            130
+                                                            144
+                                                            174
+                                                            248
+                                                            260
+                                                            274];
+                                                            
+To this:
+
+::
+
+  data_incongruent_run1 = load(['/Users/' user '/Desktop/Flanker/sub-' subject '/func/incongruent_run1.txt']);
+
+  matlabbatch{9}.spm.stats.fmri_spec.sess(1).cond(1).onset = data_incongruent_run1(:,1);
+  
+In which the variable ``data_incongruent_run1`` stores the onset times for the subject in the current loop, and then enters those numbers into the onset field. Note that the code (:,1) indicates that only the first column of the variable should be read, which contains the onset times.
 
 .. note::
 
-  To speed up the analysis, I prefer to use the ``-mask`` option with the 3dDeconvolve command. For example, I would change line 299 of the script to: ``3dDeconvolve -input pb04.$subj.r*.scale+tlrc.HEAD  -mask mask_group+tlrc``.
-  There are reasons against this, such as the fact that there may be systematic variations outside of the brain that you will miss by masking out the non-brain voxels. Nevertheless, using a mask speeds up the regression block considerably; and I would argue that if there are any "problem" voxels outside of the brain, they would be detected by inspecting the output of each of the preprocessing blocks.
-
-Automating the Analysis
-***********************
-
-We will now use this updated preprocessing script in a for-loop to analyze all of the subjects in our dataset. Save this code in a file called ``1stLevelAnalysis.m``:
+  You will need to read the onset times for each session and each condition separately - i.e., you will need to create variables for the Incongruent and Congruent conditions for both run 1 and run 2.
+  
+  
+Running the Script
+******************
+  
+When you have finished editing the script, save it and return to the Matlab terminal. You can then execute the script by typing:
 
 ::
 
+  RunPreproc_1stLevel_job
+  
+You will then see windows pop up as each preprocessing and statistical module is run, similar to what you would see if you executed each module manually through the GUI.
 
+
+Next Steps
+**********
+
+The script should only take a few minutes to run for both sub-01 and sub-02. When you are finished, we will examine the output; and as you will see, there are still some issues that need to be resolved. To see what the problems are, and how to fix them, click the ``Next`` button.
 
 
 Video
