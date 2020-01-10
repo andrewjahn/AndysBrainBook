@@ -245,6 +245,8 @@ Next Steps
 
 The script should only take a few minutes to run for both sub-01 and sub-02. When you are finished, we will examine the output; and as you will see, there are still some issues that need to be resolved. To see what the problems are, and how to fix them, click the ``Next`` button.
 
+A copy of this script can be found on Andy's github page located `here <https://github.com/andrewjahn/SPM_Scripts/blob/master/RunPreproc_1stLevel_job.m>`__. Note that the script is set up to analyze all 26 subjects in the dataset.
+
 
 Video
 *****
