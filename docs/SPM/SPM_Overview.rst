@@ -33,6 +33,7 @@ The following tutorials will show you how to analyze a sample dataset with SPM. 
    SPM_Short_Course/SPM_06_Scripting
    SPM_Short_Course/SPM_07_SettingTheOrigin
    SPM_Short_Course/SPM_08_GroupAnalysis
+   SPM_Short_Course/SPM_Intermezzo_Toolboxes
    SPM_Short_Course/SPM_09_ROIAnalysis
    SPM_Short_Course/SummaryStatistics
    SPM_Short_Course/SPM_PPI
