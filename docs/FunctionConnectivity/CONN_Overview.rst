@@ -1,5 +1,3 @@
-.. _CONN_Overview:
-
 ============================================
 Functional Connectivity and the CONN Toolbox
 ============================================
