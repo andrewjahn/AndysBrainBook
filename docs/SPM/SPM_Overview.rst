@@ -4,10 +4,6 @@
 SPM Overview
 ================================
 
-.. note::
-
-  This page is under construction
-
 ---------------
 
 What is SPM?
