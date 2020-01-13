@@ -18,51 +18,23 @@ When a large number of studies have been run about a specific topic, however, we
 Whole-brain maps can hide important details about the effects that we’re studying. We may find a significant effect of incongruent-congruent, but the reason the effect is significant could be because incongruent is greater than congruent, or because congruent is much more negative than congruent, or some combination of the two. The only way to determine what is driving the effect is with ROI analysis, and this is especially important when dealing with interactions and more sophisticated designs.
 
 
-.. note::
-
-  The following is under construction!
-
 Using Atlases
 *******
 
 One way to create a region for our ROI analysis is to use an **atlas**, or a map that partitions the brain into anatomically distinct regions.
 
-SPM comes with several atlases in both Talairach and MNI space, which can be accessed through the AFNI GUI. Finding the atlases can be difficult - you must first click on ``Define Datamode``, and then click on ``Plugins``, and from the dropdown menu select ``Draw Dataset``. The figure below shows the Draw Dataset window.
+The WFU PickAtlas toolbox that you installed in the :ref:`last tutorial <SPM_Intermezzo_Toolboxes>` contains several different atlases: Two human atlases, two monkey atlases, and a mouse atlas. Select the ``HUMAN ATLAS`` option to open up an atlas of **Brodmann Areas**, cortical parcellations based on their tissue structure and cell organization. From previous studies of cognitive control we would expect our study to show significant BOLD activity in the **dorsal anterior cingulate** (dACC) region, corresponding to Brodmann Area 32. Click on the region ``brodmann area 32`` in the left menu, and then click the ``ADD->`` button near the top of the screen. The axial slices that you see in the middle of the screen represent a template brain, and voxels that belong to the working region you selected will be highlighted in red. Click the up and down arrows to the right of the brain to see the extent of the region that you selected.
 
-.. figure:: 08_DrawDataSetWindow.png
+You may think that the default voxels of that region are painted on too thin a slice of cortex to adequately capture your region of interest. In that case, you can enter a number in the ``DILATE`` field, and click either the ``2D`` or ``3D`` buttons to dilate the mask by the number of voxels you specify in either two dimensions or three dimensions. Enter a value of "1" and click ``3D``; observe how the size and extent of the mask changes.
 
-  After opening up the AFNI GUI, click on the buttons in the order shown in the figure (1, 2, and 3).
+.. figure:: 09_WFU_PickAtlas.png
+
+.. note::
+
+	You can add as many regions as you want to your ROI. For example, if you wanted to cover the entire anterior cingulate region, you could select both brodmann areas 32 and 24. Both sets of voxels would be highlighted in red, and both would belong to the same mask when you save it.
+
+When you are satisfied with the mask you have generated, click the ``SAVE MASK`` button near the bottom of the screen. Label the mask "BA_32", and save it to the Flanker directory that contains all of your subjects. (If you wanted to better organize your data, you could create another directory called "Masks", and save the mask into that folder.)
   
-Once you have opened the Draw Dataset window, you will first need to click on the button ``Choose dataset for copying``. Since all of our data has been normalized to the MNI_avg152T1 template, we have two options:
-
-1. Select the MNI_avg152T1+tlrc template from the ``abin`` directory; or
-2. Select one of the normalized anatomical images from the Flanker dataset.
-
-In both cases, the images will be in MNI space and will have the same dimensions and voxel resolution. The purpose of making a copy of that dataset is to create a "clean" dataset with the same dimensions as the other images, but which we can write on by marking whichever voxels we want to belong to our ROI. In this case, navigate to the ``sub-01/sub-01.results`` directory, open the AFNI GUI, and open the Draw Dataset window. For the image to copy, select the file ``anat_file.sub-01``.
-
-Once you have done that, you have several different atlases to select from. For the current tutorial, select the atlas ``DD_Desai_MPM``, and then click on the dropdown menu below it. You have many different regions to choose from, and the voxels represented by each label can be guessed at by the name; for example, ``ctx_lh_G_and_S_frontomargin`` probably refers to the cortical voxels of the gyrus and sulcus of the frontomarginal region of the left hemisphere.
-
-Select ``ctx_lh_G_and_S_cingul_-Mid_Ant``, and then click on the button ``Load: InFill``. This will highlight in red all of the voxels belonging to that region of the atlas. You can undo this by clicking on the ``Undo`` button, which keeps several steps in memory. Now right-click the area to the left of the label dropdown menu to open a more compact view of the atlas regions, and select ``ctx_rh_G_and_S_cingul-Mid-Ant``. Click on ``Load: InFill`` to add that region to the current mask, and then click ``SaveAs``. Call the output ``midACC``. This will create a new file that contains values of "1" in the voxels that belong to the region, and zeros everywhere else; this is also known as a **mask**. When you are finished, click ``Done``.
-
-.. figure:: 08_AtlasMask.png
-
-  You can choose an atlas from the dropdown menu (1), and then choose a corresponding label from the atlas (2). Clicking on Load: InFill (3) will highlight those voxels within that label, and you can save the mask by clicking on SaveAs (4).
-
-
-.. warning::
-
-  The default in AFNI is for the results dataset to have a different resolution than both the normalized anatomical image and the template used for normalization. The AFNI template we used was the MNI_avg152T1+tlrc file, which has a resolution of 2x2x2mm; our statistics dataset, on the other hand, has a resolution of 3x3x3mm. In order to use a mask for an ROI analysis, it needs to be the same resolution as the dataset you are extracting from.
-
-We can match the resolutions of our mask dataset and our statistics dataset by using AFNI's ``3dresample`` command. This command requires both a "master" dataset, which we will be resampling to, and an "input" dataset, which will have its dimensions and resolution changed to match the master datset:
-
-::
-
-	3dresample -master stats.sub-01+tlrc -input midACC+tlrc -prefix midACC_rs+tlrc
-	
-This will create a new file, midACC_rs (in which **rs** stands for re-sampled). Move this mask to the subject directory by typing ``mv midACC_rs+tlrc* ../..``. We can then use it to extract data for our ROI analysis.
-  
-  
-
 
 Extracting Data from the Anatomical Mask
 ************
@@ -74,56 +46,48 @@ Once you've created the mask, you can then extract each subject's contrast estim
 
 As we will see, option #2 allows you to determine what is driving the effect; in other words, whether a significant effect is due to both beta weights being positive but the Incongruent beta weights being more positive, both weights being negative but the Congruent betas more negative, or a combination of the two. It is only by extracting both sets of beta weights that we can determine this.
 
-First, from the subjects directory type:
+First, click the Results button from the SPM GUI, and load the SPM.mat file from the folder ``2ndLevel_Incongruent``. Select the ``Incongruent`` contrast, and for ``apply masking``, select ``image``. Load the BA_32.nii image you created using the WFU PickAtlas toolbox, and choose ``inclusive`` when it asks you the nature of the mask; this will restrict our analysis to the voxels inside the mask, as opposed to analyzing only those voxels that are excluded by the mask. (The latter option can be useful if you have a mask of a lesioned area, for example.) Select ``No`` for ``ROI Analysis``, and ``none`` for the p-value adjustment. 
+
+For the uncorrected p-value threshold, set the value to ``1`` and the extent threshold to 0 - this will in effect do no thresholding at all, for reasons we will see in just a moment.
+
+The glass brain now shows highlighted voxels in the BA_32 mask that we selected. Right click in any of the glass brain panels and select ``goto global maximum``. This will highlight the current ROI that you have created. Then right-click again, and select ``Extract data -> whitened and filtered y -> This cluster``. This will output to the Matlab terminal a list of each contrast estimate for each subject, for each voxel in the mask. To make this list of numbers more manageable and easier to interpret, type the following:
 
 ::
 
-  3dinfo -verb sub-01/sub-01.results/stats.sub-01+tlrc.
-  
+	Inc = mean(y,2)
 
-This will return a list of all the beta weights and contrast weights contained in the stats file. 
-
-.. figure:: 08_stats_weights.png
-
-The sub-briks index which beta weight belongs to which volume in the dataset. In this example, the beta weight for the Congruent condition is sub-brik 1, the beta weight for the Incongruent condition is sub-brik 4, and the contrast weight for Incongruent-Congruent is sub-brik 7. For this tutorial, we will extract sub-briks 1 and 4 and store them in separate files, and then extract the values for each subject from an ROI.
-
-The individual sub-briks can be extracted using the following code, `extractBetas.sh <https://github.com/andrewjahn/AFNI_Scripts/blob/master/extractBetas.sh>`__:
+This returns a set of 26 numbers representing the contrast estimate for each subject averaged over all of the voxels in the ROI. We will then do the same procedure for the Congruent contrasts, loading the SPM.mat file from the ``2ndLevel_Congruent`` directory and selecting the same options as above. When you have displayed the results within the BA_32 ROI, extract the data, and then type:
 
 ::
 
-	#!/bin/bash
-
-	for subj in `cat subjList.txt`; do
-
-		3dbucket -aglueto Congruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[1]'
-		3dbucket -aglueto Incongruent_betas+tlrc.HEAD ${subj}/${subj}.results/stats.${subj}+tlrc'[4]'
-
-	done
-
-
-When it finishes, you will have generated two new datasets: Congruent_betas and Incongruent_betas. Open up one of the datasets in your viewer, and click on the ``Graph`` button of the AFNI GUI to scroll through the different volumes. How is this "time-series" different from the time-series you viewed in the raw imaging data? As another exercise, from the command line type ``3dinfo -nt Congruent_betas+tlrc``, in which the "-nt" option returns the number of volumes (or time-points) in the dataset. What number is returned, and what does it represent? Does it make sense?
-
-You can now extract data from the anatomical mask by using the ``3dmaskave`` command:
-
-::
-
-	3dmaskave -quiet -mask midACC_rs+tlrc Congruent_betas+tlrc
+	Con = mean(y,2)
 	
-Run the same command for the incongruent betas as well:
+We now have a pair of 26 numbers, one pair per subject. We can enter this pair into a paired-samples t-test with the following:
+
+::
+	
+	[h, c, pi, stats] = ttest(Inc,Con)
+	
+This will return four variables, representing different parts of the hypothesis test:
 
 ::
 
-	3dmaskave -quiet -mask midACC_rs+tlrc Incongruent_betas+tlrc
+	h: Is the result significant? (0 = No; 1 = Yes)
+	p: The p-value for the hypothesis test
+	ci: The confidence interval for the contrast estimate
+	stats: Additional statistics, including the t-statistic, degrees of freedom, and the standard deviation
+	
+.. figure:: 09_Ttest_results.png
 
 .. note::
 
-  Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
+	As an exercise, do the same procedure for the 2ndLevel_Inc-Con results. After you have extracted the data and put it into a variable labeled ``Inc_Con``, compare the values to the output from typing "Inc-Con". What do you notice? Does it make sense?
   	
   
 Extracting Data from an Sphere
 ************
 
-You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the ACC mask covers a very large region; although the ACC is labeled as a single anatomical region, we may be extracting data from several distinct functional regions. Consequently, this may not be the best ROI approach to take.
+You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the ACC mask covers a very large region; although the ACC is labeled as a single anatomical region, we may be extracting data from several distinct functional areas. Consequently, this may not be the best ROI approach to take.
 
 Another technique is called the **spherical ROI** approach. In this case, a sphere of a given diameter is centered at a triplet of specified x-, y-, and z-coordinates. These coordinates are often based on the peak activation of another study that uses the same or a similar experimental design to what you are using. This is considered an **independent** analysis, since the ROI is defined based on a separate study.
 
@@ -133,36 +97,30 @@ The following animation shows the difference between anatomical and spherical RO
 
 To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 20, 40.
 
-.. figure:: 08_ROI_Analysis_Jahn_Study.png
+To create the sphere, we will be using the **Marsbar** toolbox that we installed in the :ref:`last chapter <SPM_Intermezzo_Toolboxes>`. From the SPM GUI, click on ``Toolbox -> marsbar``.
 
-We will create a **spherical mask** centered at these coordinates by using the command ``3dUndump``. The following code will place a 5mm sphere around the coordinates 0, 20, 44: 
+Marsbar allows you to create an ROI using several different methods, such as:
 
-::
+1. A sphere (which we will do in this tutorial);
+2. The cluster from a result that you generate;
+3. A box with dimensions that you specify.
 
-	#!/bin/bash
+To create a sphere, click on ``ROI definition -> Build``. From the ``Type of ROI`` dropdown menu, select ``Sphere`` and enter the coordinates ``0 20 40``. Enter a Sphere radius of 5, and for both the Description of ROI and Label for ROI fields, enter ``dACC_Sphere``. Save the file to your Flanker directory as ``dACC_Sphere_roi``.
 
-	# This script creates a 5mm sphere around a coordinate
-	# Change the x,y,z, coordinates on the left side to select a different peak
-	# Radius size can be changed with the -srad option
+Now we have a .mat file that contains the necessary information to build our spherical ROI. Before we generate the ROI as a NIFTI file, click on ``ROI definition`` and select ``View``. Click on your newly created ``dACC_Sphere_roi.mat`` file, and make sure that it is located in the region where it should be.
 
-	echo "0 20 44" | 3dUndump -orient LPI -srad 5 -master Incongruent_betas+tlrc -prefix ConflictROI+tlrc -xyz -
+.. figure:: 09_Check_ROI.png
 
-The ``-srad`` option specifies how large the radius of the sphere will be, while the ``-master`` option creates a mask dataset with the same resolution and voxel size as the master dataset. (Note that this means we won't have to resample the ROI created with this command.) The ``-prefix`` option labels the output file, and ``-xyz`` specifies the coordinates around which to center the sphere. the ``-`` after the -xyz option indicates that the output on the left side of the pipe - i.e., ``echo "0 20 44" - should be used as the input for that option.
+	Examining the ROI created by marsbar.
 	
+If the sphere is in the right place, go back to the marsbar ROI and select ``ROI definition -> Export``. In the ``Export ROI(s) to`` dropdown menu, select ``image``; from the selection menu, click on the ``dACC_Sphere_roi.mat`` file. Leave the ``Space for ROI image`` as the default (i.e., Base space for ROIs), and select the Flanker directory as the output folder. Label the image as ``dACC_Sphere``.
+
+We now have a mask that we can use for our ROI analysis, and we can use the same method as we did in the above section on extracting data from the anatomical mask. If you do it correctly, you should get a p-value of 0.04 for a t-test of the Incongruent-Congruent contrast.
+
 .. note::
 	
-	The coordinates reported in most papers are in ``LPI`` orientation - that is, the coordinates increase in magnitude from negative to positive going from Left to Right, Posterior to Anterior, and Inferior to Superior. The letters in LPI correspond to the first letter in each of these pairings. The default orientation for AFNI datasets, on the other hand, is ``RAI`` - negative to positive going from Right to Left, Anterior to Posterior, and Inferior to Superior. For example, the coordinates 10, -14, 38 in LPI orientation would be -10, 14, 38 in RAI orientation. We use the -orient LPI option to convert the AFNI RAI coordinates to LPI coordinates.
-	
-The result of this command will be a file called ``ConflictROI``, which you can then use for an ROI analysis. We will use the same 3dmaskave command as above:
+	Marsbar is also capable of ROI analyses using the marsbar GUI. This procedure involves many steps, and will not be covered in this tutorial. For those interested in learning more about it, see `this blog post <http://andysbrainblog.blogspot.com/2012/11/parameter-extraction-with-marsbar.html>`__.
 
-::
-
-	3dmaskave -quiet -mask ConflictROI+tlrc Congruent_betas+tlrc
-
-The output will be 26 rows, one number per row, representing the average beta estimate across the voxels of the mask that we extracted from. Use the same command to extract the beta estimates for the Incongruent_betas file, and then copy and paste both sets of numbers into a statistical software package.
-  
-
-The numbers you get from this analysis should look much different from the ones you created using the anatomical mask. Copy and paste these commands into the statistical software package of your choice, and run a one-sample t-test on them. Are they significant? How would you describe them if you had to write up these results in a manuscript?
 
 
 -------
@@ -170,10 +128,10 @@ The numbers you get from this analysis should look much different from the ones 
 Exercises
 ********
 
-1. Create an anatomical mask of a region of your choosing. For the copy dataset, select the "stats" dataset. Will you have to resample this mask in order to use it for an ROI analysis? Why or why not?
+1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of contrasts goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.
   
 
-2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48.
+2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48, and extract the data from this region.
 
 
 --------
