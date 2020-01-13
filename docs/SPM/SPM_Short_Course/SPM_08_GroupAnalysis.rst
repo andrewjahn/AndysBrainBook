@@ -17,11 +17,11 @@ To test this, we will run a **group-level analysis** (also known as a **second-l
 Specifying the 2nd-Level Analysis
 *********************************
 
-Once all of the 1st-level analyses have finished, create a new directory in which to store your 2nd-level results. From the Matlab terminal, navigate to the Flanker directory containing all of your subjects, and type ``mkdir 2ndLevel_Flanker``.
+Once all of the 1st-level analyses have finished, create a new directory in which to store your 2nd-level results. From the Matlab terminal, navigate to the Flanker directory containing all of your subjects, and type ``mkdir 2ndLevel_Inc-Con``.
 
 From the SPM GUI, click on the button ``Specify 2nd-level``. The default test that will be conducted is a one-sample t-test, and there are only two fields that need to be filled in: The output directory for the results, and the scans that you will conduct the test on - in other words, the contrast images that were created during each 1st-level analysis.
 
-Double-click on the ``Directory`` field, and select the 2ndLevel_Flanker folder you just created. For the ``Scans`` field, navigate to sub-01's 1stLevel directory, and select the Incongruent-Congruent contrast image, ``con_0001.nii``. Navigate into all of the other subject's 1stLevel directories, and select the con_0001.nii image for each subject. The animation below shows a couple of ways to make this process quicker. When you have finished selecting the con_0001.nii image for all 26 subjects, click the green "Go" button.
+Double-click on the ``Directory`` field, and select the 2ndLevel_Inc-Con folder you just created. For the ``Scans`` field, navigate to sub-01's 1stLevel directory, and select the Incongruent-Congruent contrast image, ``con_0001.nii``. Navigate into all of the other subject's 1stLevel directories, and select the con_0001.nii image for each subject. The animation below shows a couple of ways to make this process quicker. When you have finished selecting the con_0001.nii image for all 26 subjects, click the green "Go" button.
 
 .. figure:: 08_SelectConImages.gif
 
@@ -39,7 +39,7 @@ Specifying the model will only take a second. When it has finished, you will nee
 Viewing the Results
 *******************
 
-As with the 1st-level analyses, we can now view the results by clicking on the ``Results`` button from the SPM GUI. Select the SPM.mat file from the 2ndLevel_Flanker directory, and click Done. You will see another contrasts window, with a slight difference: Whereas the 1st-level analyses had a design matrix that contained all of the regressors in the model, this design matrix looks like a white box. That indicates that there is only one regressor to test, namely the mean activation across all of the individual contrast images that went into the model.
+As with the 1st-level analyses, we can now view the results by clicking on the ``Results`` button from the SPM GUI. Select the SPM.mat file from the 2ndLevel_Inc-Con directory, and click Done. You will see another contrasts window, with a slight difference: Whereas the 1st-level analyses had a design matrix that contained all of the regressors in the model, this design matrix looks like a white box. That indicates that there is only one regressor to test, namely the mean activation across all of the individual contrast images that went into the model.
 
 Click ``Define new contrast...``, call the contrast "Inc-Con", and give it a contrast weight of ``1``. When you are finished, it should look like this:
 
@@ -61,6 +61,24 @@ When you are finished, you should see output like this, showing a significant cl
 
 .. figure:: 08_GroupLevelResult_Inc-Con.png
 
+
+2nd-Level Results for Incongruent and Congruent
+***********************************************
+
+If you are only interested in where there are significant differences between the Incongruent and Congruent conditions, then the above steps are all that you need to do. As you will see in a later chapter on :ref:`ROI Analysis <SPM_09_ROIAnalysis>`, however, it is useful to examine the activity in each condition separately to see what drives the effect of Incongruent-Congruent.
+
+To prepare for that analysis, create two new 2nd-level directories, one for the simple effect of each contrast:
+
+::
+
+  mkdir 2ndLevel_Incongruent
+  mkdir 2ndLevel_Congruent
+  
+Using the same procedure above for determining which contrast is located in the SPM.mat file, we find out that the Incongruent contrasts are located in the con_0003.nii file for each subject, and the Congruent contrast are located in the con_0004.nii file for each subject. Starting with the Incongruent contrast images, click on the ``Specify 2nd-Level`` button on the SPM GUI, and for the Directory input, select the ``2ndLevel_Incongruent`` folder. Using a similar method as above, select the ``con_0003.nii`` images for each subject. Estimate the model, and load the SPM.mat file into the Results GUI. Label the contrast ``Incongruent``, and assign it a contrast weight of 1. Use the same options as you did for the Inc-Con contrast.
+
+As an exercise, create a second-level result for the Congruent contrasts. If you examine the Incongruent and Congruent results at the same threshold, do you see what you would expect given the Inc-Con contrast that you viewed above?
+
+When you have finished creating all of the second-level analyses, try the remaining exercises to test your understanding of what you have just learned.
 
 
 Exercises
