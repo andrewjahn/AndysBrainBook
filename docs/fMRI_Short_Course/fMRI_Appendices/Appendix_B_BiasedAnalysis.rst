@@ -46,7 +46,7 @@ Here’s the important part: notice that this region overlaps with some of the t
 
 In 2009, the Voodoo Correlations paper claimed that many studies were using biased analyses which led to inflated correlations - and also claimed that if they used unbiased analyses, the distribution of effects would be lower. In response, other researchers argued that if you correct for multiple comparisons, the effect does indeed exist. Also, if you’re doing an exploratory analysis to see where an effect is located, what’s the harm in looking within the significant voxels to see what is driving the effect? Isn’t it good to know what’s going on?
 
-There are two problems with those arguments. First, the magnitude of the effect is just as important as detecting whether the effect is there, and biased analyses will systematically overestimate it. Why? Because small studies by definition can only detect large effects. The second is that if you publish a biased analysis, the reader may assume that it is an inferential analysis, even if it includes caveats about how it was done. If you absolutely insist on presenting them in a figure, at least don’t include error bars.
+There are two problems with those arguments. First, the magnitude of the effect is just as important as detecting whether the effect is there, and biased analyses will systematically overestimate it. Why? Because small studies by definition can only detect large effects. The second is that if you publish a biased analysis, the reader may assume that it is an inferential analysis, even if it includes caveats about how it was done. If you insist on presenting them in a figure, at least don’t include error bars.
 
 
 Other Types of Biased Analysis
@@ -59,7 +59,7 @@ We’ve only touched on a couple of different ways to do biased analyses, but th
 Exercises
 *********
 
-1. Do a biased analysis by extracting the contrast estimates from a cluster in a statistical map defined by that contrast and thresholded at p<0.05. Compare this against doing an unbiased analysis, e.g. with an independent mask. 
+1. Do a biased analysis in a software package of your choice by extracting the contrast estimates from a cluster in a statistical map defined by that contrast and thresholded at p<0.05. Compare this against doing an unbiased analysis, e.g. with an independent mask. 
 
 2. Do the same thing as above, but with a map threshold at p<0.01. Does the effect get bigger? Smaller? Why?
 
