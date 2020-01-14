@@ -12,7 +12,7 @@ fMRI Short Course: Appendices
 Introduction
 *********
 
-Once you have finished analyzing the Flanker dataset in FSL, you may still have a few questions about why the analyses were done the way that you did them. These appendices review some of these concepts.
+Once you have finished analyzing the Flanker dataset in any of the software packages (FSL, SPM, or AFNI), you may still have a few questions about why the analyses were done the way that you did them. These appendices review some of these concepts.
 
 
 .. toctree::
