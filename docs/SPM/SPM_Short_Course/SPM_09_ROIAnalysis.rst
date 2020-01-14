@@ -81,7 +81,7 @@ This will return four variables, representing different parts of the hypothesis 
 
 .. note::
 
-	As an exercise, do the same procedure for the 2ndLevel_Inc-Con results. After you have extracted the data and put it into a variable labeled ``Inc_Con``, compare the values to the output from typing "Inc-Con". What do you notice? Does it make sense?
+	As an exercise, do the same procedure for the 2ndLevel_Inc-Con results. After you have extracted the data and put it into a variable labeled ``Inc_Con``, compare the values to the output from typing "Inc-Con" (note the difference between the underscore character and the dash character). What do you notice? Does it make sense?
   	
   
 Extracting Data from an Sphere
@@ -93,7 +93,7 @@ Another technique is called the **spherical ROI** approach. In this case, a sphe
 
 The following animation shows the difference between anatomical and spherical ROIs:
 
-.. figure:: 08_ROI_Analysis_Anatomical_Spherical.gif
+.. figure:: 09_ROI_Analysis_Anatomical_Spherical.gif
 
 To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 20, 40.
 
