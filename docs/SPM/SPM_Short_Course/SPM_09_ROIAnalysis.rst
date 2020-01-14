@@ -120,6 +120,20 @@ We now have a mask that we can use for our ROI analysis, and we can use the same
 .. note::
 	
 	Marsbar is also capable of ROI analyses using the marsbar GUI. This procedure involves many steps, and will not be covered in this tutorial. For those interested in learning more about it, see `this blog post <http://andysbrainblog.blogspot.com/2012/11/parameter-extraction-with-marsbar.html>`__.
+	
+	
+Biased Analyses
+***************
+
+When performing an ROI analysis, make sure that the ROI isn't **biased**, or artificially inflating the parameter estimates that you extract. In a nutshell, a biased analysis uses an ROI that is defined by the data that you are analyzing - for example, it only consists of voxels that pass a high statistical threshold. An unbiased ROI (also known as an **independent ROI**) is not defined by the data in your study, and can either be created from an atlas or by the results of another study. For more details on the difference between the two types of analyses, see :ref:`Appendix B <Appendix_B_BiasedAnalysis>`.
+
+A demonstration of how to do a biased analysis in SPM may help you better understand this concept. Load the 2nd-level results for the Inc-Con contrast, and use the previous thresholds of an uncorrected voxel-wise threshold of p=0.001 and a cluster threshold of 20. When the results are displayed, drag the crosshair to the cluster in the dACC and click the ``current cluster`` button. (This will snap the crosshairs to the peak voxel within this cluster; if you did it correctly, the peak coordinates should be about ``6, 23, 53``.) Click on the ``save`` dropdown menu, and select ``current cluster``. Call the output file ``dACC_001``.
+
+Now use this file as a mask for an ROI analysis, following the steps you completed earlier. How does the significance of the contrast estimates from this cluster compare to the significance of the data you extracted using an anatomical approach? A spherical ROI approach? Why? To help you with articulating the reason for the large difference in the results, reread Appendix B and also watch `this video <https://www.youtube.com/watch?v=nVLeMY6TLkk>`__.
+
+.. note::
+
+	The same biased ROI approach can be done without creating a mask; you can simply threshold the contrast as you normally would when performing a whole-brain analysis, highlight the cluster you are interested in, and extract the data as usual. The purpose of saving out the thresholded cluster as a mask was to familiarize you with SPM's "save" functions, and to have the masks in case you want to use them with another software package, such as AFNI.
 
 
 
@@ -130,8 +144,9 @@ Exercises
 
 1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of contrasts goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.
   
-
 2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48, and extract the data from this region.
+
+3. Do a biased ROI analysis by creating a dorsal anterior cingulate mask from the Inc-Con contrast, using a voxel-wise threshold of p=0.0005 and a cluster threshold of 20. Save the mask as ``dACC_0005``. When you extract the data, how does it compare to your earlier biased analysis using a mask with a threshold of p=0.001? Why?
 
 
 --------
