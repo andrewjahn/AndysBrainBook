@@ -51,7 +51,7 @@ When you are done, click the green Go button. The model estimation should only t
 Estimating the Model
 ********************
 
-Now that we have created our GLM, we will need to **estimate** the beta weights for each condition. From the SPM GUI click ``Estimate``, and then double-click on the field ``Select SPM.mat``. Navigate to the ``1stLevel`` directory and select the SPM.mat file, and then click the green Go button. This will take a few minutes to run.
+Now that we have created our GLM, we will need to **estimate** the beta weights for each condition. From the SPM GUI click ``Estimate``, and then double-click on the field ``Select SPM.mat``. Change the ``Write residuals`` option to ``Yes``. Navigate to the ``1stLevel`` directory and select the SPM.mat file, and then click the green Go button. This will take a few minutes to run.
 
 The Contrast Manager
 ********************
