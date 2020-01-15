@@ -78,6 +78,12 @@ Using the same procedure above for determining which contrast is located in the 
 
 As an exercise, create a second-level result for the Congruent contrasts. If you examine the Incongruent and Congruent results at the same threshold, do you see what you would expect given the Inc-Con contrast that you viewed above?
 
+.. note::
+
+  How can you determine what the cluster threshold needs to be in order to determine whether a cluster is significant? The table underneath the glass brain shows a list of clusters that pass the thresholds you specified, and the column ``pFWE-corr`` displays the p-value associated with that cluster ("cluster-level") or individual voxel ("peak-level"). In other words, any clusters that have a corresponding pFWE-corr value of 0.05 or less can be considered statistically significant.
+  The actual threshold for determining the p=0.05 cluster threshold is at the very bottom of the table, next to the string ``FWEc:``. Write down the number in that field, and then rerun your Results using that threshold. The cluster that remain should all be statistically significant.
+  For alternative methods of estimating a cluster threshold, see :ref:`Appendix A <Appendix_A_ClusterCorrection>`, specifically the section "SPM's Cluster Correction".
+
 When you have finished creating all of the second-level analyses, try the remaining exercises to test your understanding of what you have just learned.
 
 
