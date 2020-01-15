@@ -125,6 +125,22 @@ SPM will automatically calculate whether a given cluster is significant, given t
 
 .. figure:: SPM_ClusterTable.png
 
+If you want to use AFNI's 3dClustSim on the preprocessed SPM data - for example, because you `trust AFNI's cluster correction threshold more than SPM's <https://www.pnas.org/content/113/28/7900.short>`__ - you will need to `save the residuals <https://andysbrainbook.readthedocs.io/en/latest/SPM/SPM_Short_Course/SPM_Statistics/SPM_06_Stats_Running_1stLevel_Analysis.html#estimating-the-model`__ when running the 1st-level analysis.
+
+When you have created the residuals, using the following code to concatenate the residuals into a single dataset:
+
+::
+
+  3dTcat -prefix allRes.nii Res*
+  
+Then run 3dFWHMx on the concatenated residual dataset:
+
+::
+
+  3dFWHMx -mask mask.nii -acf -input allRes.nii
+  
+Then following the steps above for running 3dClustSim on the resulting ACF values.
+
 
 ------------
 
