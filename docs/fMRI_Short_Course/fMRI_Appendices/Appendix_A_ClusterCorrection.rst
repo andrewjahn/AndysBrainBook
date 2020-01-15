@@ -125,6 +125,17 @@ SPM will automatically calculate whether a given cluster is significant, given t
 
 .. figure:: SPM_ClusterTable.png
 
+You can see the threshold at the very bottom of the results screen, next to FWEc. In this case, using a voxel-wise threshold of p=0.001, a cluster of 79 voxels or more is needed to be statistically significant. Here's a breakdown of what the different labels mean:
+
+::
+
+  FWEp: 6.132 -> an individual voxel needs a z-value of 6.132 or greater to pass a Bonferroni-corrected p=0.05 alpha threshold
+  FDRp: 6.085 -> an individual voxel needs a z-value of 6.085 or greater to pass an FDR-corrected p=0.05 alpha threshold
+  FWEc: 79 -> For the currently selected cluster-forming threshold (e.g., p=0.001), a cluster needs to be composed of 79 or more contiguous voxels to pass an FWE correction of p=0.05
+  FDRc: 44 -> For the currently selected cluster-forming threshold (e.g., p=0.001), a cluster needs to be composed of 44 or more contiguous voxels to pass an FDR correction of p=0.05
+
+.. figure:: SPM_ClusterThr.png
+
 If you want to use AFNI's 3dClustSim on the preprocessed SPM data - for example, because you `trust AFNI's cluster correction threshold more than SPM's <https://www.pnas.org/content/113/28/7900.short>`__ - you will need to `save the residuals <https://andysbrainbook.readthedocs.io/en/latest/SPM/SPM_Short_Course/SPM_Statistics/SPM_06_Stats_Running_1stLevel_Analysis.html#estimating-the-model`__ when running the 1st-level analysis.
 
 When you have created the residuals, using the following code to concatenate the residuals into a single dataset:
