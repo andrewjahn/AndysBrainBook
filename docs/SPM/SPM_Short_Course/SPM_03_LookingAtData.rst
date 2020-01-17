@@ -102,7 +102,7 @@ Many of the quality checks for the functional image are the same as with the ana
 
 .. Reference the time-series glossary
 
-Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. EXPAND ON THIS, TALK ABOUT HOW YOU CAN LOOK AT IT IN THE SPM VIEWER.
+Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. In the AFNI and FSL viewers, you are able to view the individual volumes of the time-series in rapid succession; unfortunately, there is no easy way to do this in SPM. Instead, during the :ref:`Realignment preprocessing step <01_SPM_Realign_Unwarp>` you will generate a movement parameter file showing how much motion there was between each volume. To begin learning about the preprocessing steps, click the `Next` button.
 
 
 --------
