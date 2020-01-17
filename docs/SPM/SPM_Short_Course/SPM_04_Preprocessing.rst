@@ -35,7 +35,7 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
    :maxdepth: 1
    :caption: Preprocessing Steps
    
-   SPM_04_Preprocessing/01_Realign_Unwarp
+   SPM_04_Preprocessing/01_SPM_Realign_Unwarp
    SPM_04_Preprocessing/02_SPM_SliceTiming
    SPM_04_Preprocessing/03_SPM_Coregistration
    SPM_04_Preprocessing/04_SPM_Segmentation
