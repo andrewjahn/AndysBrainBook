@@ -11,20 +11,18 @@ Overview: The SPM Graphical User Interface
 
 Now that you've downloaded the dataset, you will want to **look at your data** - for example, you will want to know if there are any artifacts or problems with your data, and whether these can be alleviated by :ref:`preprocessing <SPM_04_Preprocessing>`. 
 
-Let's first rename the dataset to something that is clear and informative. If the dataset has been downloaded to your Downloads directory, navigate to the Desktop and type the following:
+Let's first rename the dataset to something that is clear and informative. If the dataset has been downloaded to your Downloads directory, use the Matlab terminal to navigate to the Desktop and type the following:
 
 ::
 
-    mv ~/Downloads/ds000102_0001/ Flanker
+    movefile('~/Downloads/ds000102_0001/', 'Flanker')
     
 Which will rename the folder to ``Flanker`` and put it on your Desktop.
 
-.. figure:: 03_Move_Flanker_Folder.png
 
-    After downloading the Flanker dataset, type the command above to move it to your Desktop. Note: If you need to review Unix commands such as ``mv``, see :ref:`this tutorial <Unix_02_CopyRemove>`.
     
     
-As you saw in the previous :ref:`Data Download page <AFNI_01_DataDownload>`, the dataset has a standardized structure: Each subject folder contains an anatomical directory and a functional directory labeled ``anat`` and ``func``, and these in turn contain the anatomical and functional images collected during the experiment. (The ``func`` directory also contains **onset times**, or timestamps for when the subject underwent either a Congruent or Incongruent trial.) This format is known as `BIDS <http://bids.neuroimaging.io/>`__, or Brain Imaging Data Structure, which makes it easy to organize and analyze your data.
+As you saw in the previous :ref:`Data Download page <SPM_01_DataDownload>`, the dataset has a standardized structure: Each subject folder contains an anatomical directory and a functional directory labeled ``anat`` and ``func``, and these in turn contain the anatomical and functional images collected during the experiment. (The ``func`` directory also contains **onset times**, or timestamps for when the subject underwent either a Congruent or Incongruent trial.) This format is known as `BIDS <http://bids.neuroimaging.io/>`__, or Brain Imaging Data Structure, which makes it easy to organize and analyze your data.
 
 
 .. figure:: 03_Flanker_DataStructure.png
