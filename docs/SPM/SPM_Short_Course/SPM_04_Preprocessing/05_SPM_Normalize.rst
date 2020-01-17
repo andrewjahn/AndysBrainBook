@@ -25,7 +25,7 @@ Once the functional images have been normalized, check the output to make sure t
 
 .. note::
 
-  The template ``single_subj_T1.nii`` will have the clearest spatial resolution - i.e., you will be able to see each of the individual gyri and sulci. However, visualizing your results on this template may be slightly misleading, since each subject's anatomy has been warped and blurred; activation that appears to be in a specific location on the single_subj_T1 template may not be as specific as it appears. For this reason, it is recommended to visualize your activation on one of the averaged templates, or on an aveage image consisting of your subject's normalized anatomical images. We will discuss this in more detail when we cover statistical modeling.
+  The template ``single_subj_T1.nii`` will have the clearest spatial resolution - i.e., you will be able to see each of the individual gyri and sulci. However, visualizing your results on this template may be slightly misleading, since each subject's anatomy has been warped and blurred; activation that appears to be in a specific location on the single_subj_T1 template may not be as specific as it appears. For this reason, it is recommended to visualize your activation on one of the averaged templates, or on an aveage image consisting of your subject's normalized anatomical images. We will discuss this in more detail when we cover statistical modeling in the next chapter.
   
 .. figure:: 04_05_CheckNormalization.gif
 
