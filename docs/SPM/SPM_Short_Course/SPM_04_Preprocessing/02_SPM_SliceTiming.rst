@@ -35,7 +35,7 @@ For now, we will do slice-timing correction, using the first slice as the refere
 Doing Slice-Timing Correction in SPM
 ************************************
 
-Similar to what we did with :ref:`Realignment <01_SPM_RealignUnwarp>`, we will first click on the ``Slice Timing`` button in the SPM GUI. Click on the ``Data`` field and create two new Sessions. Double-click on the first Session, and in the Filter column type ``rsub-08_task-flanker_run-1.*``. In the Frames field, enter ``1:146`` and press enter; select all of the frames that are displayed, and click ``Done``. Do the same procedure for the run-2 files for the second session.
+Similar to what we did with :ref:`Realignment <01_SPM_RealignUnwarp>`, we will first click on the ``Slice Timing`` button in the SPM GUI. Click on the ``Data`` field and create two new Sessions. Double-click on the first Session, and in the Filter column type ``^rsub-08_task-flanker_run-1.*``. In the Frames field, enter ``1:146`` and press enter; select all of the frames that are displayed, and click ``Done``. Do the same procedure for the run-2 files for the second session.
 
 For the ``Number of Slices`` field, we will need to find out how many slices there are in each of the volumes in our dataset. From the Matlab terminal navigate to the directory ``sub-08/func`` and type:
 
@@ -72,7 +72,11 @@ This means that the first volume of the time-series has the dimensions of 64x64x
 
 Now go back to the Batch Editor window, double-click on ``Number of Slices``, enter a value of ``40``, and click ``OK``. 
 
-For the TR, enter 2; for the TA, follow the formula provided in the help window and enter ``2-(2/40)``. For Slice order enter ``[1:2:40 2:2:40]``, and for the Reference Slice enter a value of ``1``. Leave the filename prefix as is, which will prepend an ``a`` to the files that are generated.
+For the TR, enter 2; for the TA, follow the formula provided in the help window and enter ``2-(2/40)``. For Slice order enter ``[1:2:40 2:2:40]``, and for the Reference Slice enter a value of ``1``. Leave the filename prefix as is, which will prepend an ``a`` to the files that are generated. Do this same procedure for run-2 as well. When you are finished, the preprocessing window should look like this:
+
+.. figure:: 04_02_SliceTimingWindow.png
+
+When the images have been slice-time corrected, you are ready to **coregister** the functional data to the anatomical data; in other words, we will align the two sets of images as best we can.
 
 
 
