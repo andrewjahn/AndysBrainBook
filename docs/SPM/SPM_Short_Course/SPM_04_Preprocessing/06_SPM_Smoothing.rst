@@ -1,7 +1,7 @@
 .. _06_SPM_Smoothing:
 
 ==================
-Chapter 5: Smoothing
+Chapter 6: Smoothing
 ==================
 
 
