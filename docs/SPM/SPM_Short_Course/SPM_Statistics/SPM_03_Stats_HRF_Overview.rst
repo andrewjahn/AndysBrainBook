@@ -65,6 +65,7 @@ To help you understand what you have just read, watch the following animation a 
 .. figure:: 05_03_HRF_Demo.gif
 
   Animations originally created by Bob Cox of AFNI.
+  
 ---------
 
 
