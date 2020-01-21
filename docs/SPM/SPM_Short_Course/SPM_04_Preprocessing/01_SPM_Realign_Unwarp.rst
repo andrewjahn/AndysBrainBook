@@ -22,7 +22,7 @@ If you click on the button ``Realign (Estimate & Reslice)``, a window opens up s
 Loading the Images
 ******************
 
-In this experiment, there were two runs of data per subject. In SPM terms, we have two **sessions** per subject. If you click on the ``Data`` field, you will see an option to add more sessions. Click on ``New: Session`` to add another session. You will see an ``<-X`` to the right of each Session field, indicating that this field needs to be filled in before the program can be run.
+In this experiment, there were two runs of data per subject (SPM refers to each run as a **session**). If you click on the ``Data`` field, you will see an option to add more sessions. Click on ``New: Session`` to add another session. You will see an ``<-X`` to the right of each Session field, indicating that this field needs to be filled in before the program can be run.
 
 Double-click on the first session to open up the Image Selection window. Navigate to the ``func`` directory and select the file ``sub-08_task-flanker_run-1_bold.nii,1``. The ``,1`` at the end of the file name indicates that only the first **frame**, or volume, is available for selection. In order to select all of the volumes for that run, we will need to **expand** the number of frames available for selection. In the ``Frames`` field (underneath the ``Filter`` field), type ``1:146`` and press enter.
 
@@ -31,7 +31,7 @@ Double-click on the first session to open up the Image Selection window. Navigat
   If you don't know how many frames are in the current dataset, you can set the upper bound to an arbitrarily high number - e.g., ``1:10000``. This command will max out at the number of available frames, and will ensure that you do not miss any.
 
 
-However, you will notice that all of the frames for both run-1 and run-2 have been selected, even though we only want the frames for run-1. You could simply click and drag from frame 1 to frame 146 for run-1, but you risk accidentally including other frames by mistake. To restrict our file selection to only the frames we are interseted in, on the other hand, we can use the ``Filter`` field. This field uses **regular expressions**, a type of coding shorthand to indicate which characters to inclue in a string. In this case, to the left of the ``.*`` characters that are already in the field, type ``run-1`` and press return. This will refresh the screen to display only those frames which include the string ``run-1``. Either click and drag to select all of the images, or right click in the selection window and click ``Select All``.
+However, you will notice that all of the frames for both run-1 and run-2 have been selected, even though we only want the frames for run-1. You could simply click and drag from frame 1 to frame 146 for run-1, but you risk accidentally including other frames by mistake. To restrict our file selection to only the frames we are interseted in, on the other hand, we can use the ``Filter`` field. This field uses **regular expressions**, a type of coding shorthand to indicate which characters to include in a string. In this case, to the left of the ``.*`` characters that are already in the field, type ``run-1`` and press return. This will refresh the screen to display only those frames which include the string ``run-1``. Either click and drag to select all of the images, or right click in the selection window and click ``Select All``.
 
 
 .. figure:: 01_SelectFrames.png
@@ -45,6 +45,11 @@ When you are finished, click ``Done``. Do the same procedure for the second sess
 Now that you have filled in all of the fields that had a ``<-X`` next to them, the "Play" button in the top left corner of the screen has changed from grey to green. Click on the button to begin the Realignment preprocessing step.
 
 .. figure:: 01_Realign_Demo.gif
+
+
+.. note::
+
+  Regular expressions can be used to create very specific filters. For example, if you type the string ``^run-1.*`` in the Filter field, the file window will only return those files that **begin** with the string "run-1" (signalized by the carat symbol, ``^``).
 
 
 Next Steps
