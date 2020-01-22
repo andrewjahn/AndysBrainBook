@@ -1,8 +1,8 @@
 .. _CONN_01_FSL_Demo:
 
-===========================================================
-Chapter #1: Functional Connectivity Demonstration with FSL
-===========================================================
+=================================================
+Chapter #1: Functional Connectivity Demonstration
+=================================================
 
 ------------------
 
@@ -16,8 +16,8 @@ Before we begin using the CONN toolbox, a short demonstration of functional conn
   This tutorial will use a sample dataset that you can download `here <https://www.andysbrainblog.com/s/TimeSeries_ExampleDatanii.gz>`__. The file is about 20MB large.
 
 
-Extracting the Time-Series with AFNI
-************************************
+Functional Connectivity Analysis with FSL
+*****************************************
 
 As you saw in the FSL tutorial, each voxel of an fMRI dataset contains a **time-series**, or sequence of BOLD activation measurements that are concatenated together. The sampling rate of the time-series is the **Time to Repetition (TR)**, which for most fMRI studies is around 2-3 seconds. For each voxel, therefore, the BOLD activiation is measured at each TR, and this continues for a period of time specified by the user. This period of time encompassing when the scanner is measuring the BOLD signal is called a **run** (or **session**, in SPM), and several runs of data are usually acquired for a typical experiment. 
 
@@ -48,3 +48,11 @@ You will also notice that a new file in the Overlay list has been created, ``Tim
 Now let's see whether we can replicate one of the most well-known functional connectivity networks, the so-called **Default Mode Network**. This network is a pattern of correlated regions, primarily the ventromedial prefrontal cortex and the posterior cingulate cortex. Use the "Voxel location" fields to enter values of X=32, Y=53, and Z=16, and use this voxel as a seed for another functional connectivity analysis. What do you notice about the resulting correlation map?
 
 .. figure:: 01_FSL_DMN.png
+
+  The Default Mode Network, showing high correlation between the ventromedial prefrontal cortex and posterior cingulate cortex nodes. This map can be saved as its own image by clicking on the disk icon next to the correlation map that has been generated. You can then convert this to a z-score using Fisher's r-to-z transform, and use those transformed images as input into a group-level analysis.
+  
+  
+Next Steps
+**********
+
+Now that you have an idea of what functional connectivity is and how we generate correlation maps, you are ready to begin learning about the CONN toolbox. Click ``Next`` to learn about how to first download the data we will be analyzing with CONN.
