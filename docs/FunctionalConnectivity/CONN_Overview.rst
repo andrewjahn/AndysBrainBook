@@ -27,15 +27,15 @@ Before going on, you may want to work through the :ref:`SPM tutorials <SPM_Overv
    :maxdepth: 1
    :caption: Start to Finish Analysis with SPM
 
-   CONN_Short_Course/CONN_00_History
-   CONN_Short_Course/CONN_01_FSL_Demo
-   CONN_Short_Course/CONN_02_DataDownload
-   CONN_Short_Course/CONN_03_LookingAtData
-   CONN_Short_Course/CONN_04_GUI_Overview
-   CONN_Short_Course/CONN_05_QA_Checks
-   CONN_Short_Course/CONN_06_Preprocessing
-   CONN_Short_Course/CONN_07_1stLevel_Analysis
-   CONN_Short_Course/CONN_08_2ndLevel_Analysis
-   CONN_Short_Course/CONN_09_GraphTheory_Basics
-   CONN_Short_Course/CONN_10_Viewing_Results
-   CONN_Short_Course/CONN_11_Scripting
+   CONN_ShortCourse/CONN_00_History
+   CONN_ShortCourse/CONN_01_FSL_Demo
+   CONN_ShortCourse/CONN_02_DataDownload
+   CONN_ShortCourse/CONN_03_LookingAtData
+   CONN_ShortCourse/CONN_04_GUI_Overview
+   CONN_ShortCourse/CONN_05_QA_Checks
+   CONN_ShortCourse/CONN_06_Preprocessing
+   CONN_ShortCourse/CONN_07_1stLevel_Analysis
+   CONN_ShortCourse/CONN_08_2ndLevel_Analysis
+   CONN_ShortCourse/CONN_09_GraphTheory_Basics
+   CONN_ShortCourse/CONN_10_Viewing_Results
+   CONN_ShortCourse/CONN_11_Scripting
