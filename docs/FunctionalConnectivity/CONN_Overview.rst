@@ -22,10 +22,9 @@ Prerequisites
 
 Before going on, you may want to work through the :ref:`SPM tutorials <SPM_Overview>`. These will introduce you to Matlab and SPM, which you will need to run the CONN toolbox. The course will also cover what toolboxes are, and how to install some of the most widely used ones, including Marsbar and the WFU PickAtlas toolboxes. When you have finished doing the SPM tutorials, come back to this page to being the CONN walkthrough.
 
-
 .. toctree::
    :maxdepth: 1
-   :caption: Start to Finish Analysis with SPM
+   :caption: Start to Finish Analysis with CONN
 
    CONN_ShortCourse/CONN_00_History
    CONN_ShortCourse/CONN_01_FSL_Demo
@@ -39,3 +38,5 @@ Before going on, you may want to work through the :ref:`SPM tutorials <SPM_Overv
    CONN_ShortCourse/CONN_09_GraphTheory_Basics
    CONN_ShortCourse/CONN_10_Viewing_Results
    CONN_ShortCourse/CONN_11_Scripting
+
+
