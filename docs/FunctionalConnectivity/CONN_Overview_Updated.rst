@@ -27,7 +27,11 @@ Before going on, you may want to work through the :ref:`SPM tutorials <SPM_Overv
    :caption: Start to Finish Analysis with CONN
 
    CONN_ShortCourse/CONN_00_History
-   CONN_ShortCourse/CONN_01_FSL_Demo
+
+
+
+
+.. CONN_ShortCourse/CONN_01_FSL_Demo
    CONN_ShortCourse/CONN_02_DataDownload
    CONN_ShortCourse/CONN_03_LookingAtData
    CONN_ShortCourse/CONN_04_GUI_Overview
