@@ -28,4 +28,4 @@ Our goal is to estimate the magnitude of the BOLD signal to each condition, and 
 Video
 *****
 
-For a video overview of the Flanker task, click `here <https://www.youtube.com/watch?v=SKuYVFgyWf8>`__.
+For a video overview of the Flanker task, click `here <https://www.youtube.com/watch?v=SKuYVFgyWf8>`__. (The title of the video says "AFNI Tutorial #2", but the principles of the Flanker task are the same no matter which package you use.)
