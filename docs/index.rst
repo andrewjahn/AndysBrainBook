@@ -91,7 +91,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :maxdepth: 1
     :caption: Functional Connectivity with the CONN Toolbox
     
-    FunctionalConnectivity/CONN_Overview_Updated
+    FunctionalConnectivity/CONN_Overview
  
 .. toctree::
    :maxdepth: 1
