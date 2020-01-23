@@ -89,10 +89,6 @@ Inspecting the Functional Images
     
 When you are done looking at the anatomical image, click on the ``Display`` button again, navigate to the ``func`` directory, and select one the ``run-1`` functional image.
 
-.. note::
-
-    Loading a new session into memory will allow you to look at any of the images in that session. If you want to switch to another session, click on ``Switch`` and select the session you want to load.
-
 A new image will be displayed in the orthogonal viewing windows. This image also looks like a brain, but it is not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image and lower-resolution functional images, which are lower resolution in part because they are collected at a very fast rate. One of the trade-offs in imaging research is between spatial resolution and temporal resolution: Images collected at higher temporal resolution will have lower spatial resolution, and vice versa.
 
 .. figure:: 03_Functional_Inspection.png
