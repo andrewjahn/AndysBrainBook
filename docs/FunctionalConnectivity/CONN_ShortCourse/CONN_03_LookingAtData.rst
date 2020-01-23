@@ -33,3 +33,5 @@ If the path has been set correctly, CONN should load. After a few moments, you w
 
 .. figure:: 03_CONN_Default_Screen.png
   
+
+If you see the CONN home screen, then you have both successfully installed CONN and you have installed SPM. We are now ready to begin our tour of the CONN GUI and explore some of the options in more detail.
