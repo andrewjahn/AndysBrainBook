@@ -16,6 +16,11 @@ The two most commonly used methods for creating volumes are sequential and inter
 
 .. figure:: 04_02_SliceTimingCorrection_Demo.gif
 
+
+.. note::
+
+  For another illustration of how slice-timing works using **linear interpolation**, see `Matthew Brett's page <https://matthew-brett.github.io/teaching/slice_timing.html>`__.
+
 As you'll see later on, when we model the data at each voxel we assume that all of the slices were acquired simultaneously. To make this assumption valid, the :ref:`time-series <Time_Series>` for each slice needs to be shifted back in time by the duration it took to acquire that slice. `Sladky et al. (2011) <https://www.sciencedirect.com/science/article/pii/S1053811911007245>`__ also demonstrated that slice-timing correction can lead to significant increases in statistical power for studies with longer TRs (e.g., 2s or longer), and especially in the dorsal regions of the brain.
 
 
