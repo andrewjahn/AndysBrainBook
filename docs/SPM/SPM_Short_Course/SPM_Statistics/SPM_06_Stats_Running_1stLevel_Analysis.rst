@@ -75,7 +75,9 @@ Double-click on the contrast ``Inc-Con`` to open the Results window. You will fi
 ::
 
   apply masking: Set this to "none", as we want to examine all of the voxels in the brain, and we do not want to restrict our analysis to a mask.
+  
   p value adjustment to control: Click on "none", and set the uncorrected p-value to 0.01. This will test each voxel individually at a p-threshold of 0.01.
+  
   & extent threshold {voxels}: Set this to 10 for now, which will only show clusters of 10 or more contiguous voxels. Right now we're doing this to eliminate specks of voxels most likely found in noisy regions, such as the ventricles; later on we will learn how to do **cluster correction** at the group level to appropriately control for the number of individual statistical tests.
   
 
