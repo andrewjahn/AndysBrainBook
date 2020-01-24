@@ -51,7 +51,7 @@ Co-registration with SPM
 
 To co-register the functional and anatomical images, go back to the SPM GUI and click on ``Coregister (Estimate & Reslice)``. This will open up a batch editor window with only two fields that need to be filled in - a **Reference Image** and a **Source Image**.
 
-The Reference Image is the image that will remain stationary; the Source Image, on the other hand, is moved around until a best fit is found between the Reference and the Source image, using the cost functions described above. For most experimnents, you will want to use a representative of the functional data as the Reference Image, and the anatomical data as the Source Image, since we generally want to introduce as few edits as possible to the functional data.
+The Reference Image is the image that will remain stationary; the Source Image, on the other hand, is moved around until a best fit is found between the Reference and the Source image, using the cost functions described above. For most experiments, you will want to use a representative of the functional data as the Reference Image, and the anatomical data as the Source Image, since we generally want to introduce as few edits as possible to the functional data.
 
 Double-click on the Reference Image, and select the ``meansub-08_task-flanker_run-1_bold.nii``. For the source image, navigate to the ``anat`` directory and select the file ``sub-08_T1w.nii``. Then click the green Go button. This step should only take a few moments.
 
