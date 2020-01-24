@@ -23,3 +23,4 @@ Once you have finished analyzing the Flanker dataset in any of the software pack
    fMRI_Appendices/Appendix_B_BiasedAnalysis
    fMRI_Appendices/Appendix_C_Figures
    fMRI_Appendices/Appendix_D_OtherStats
+   fMRI_Appendices/Appendix_E_Meta_Analyses
