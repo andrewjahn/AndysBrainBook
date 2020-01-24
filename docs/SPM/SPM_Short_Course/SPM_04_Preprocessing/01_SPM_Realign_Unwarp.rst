@@ -8,7 +8,7 @@ Chapter 1: Realigning and Unwarping the Data
 
 The first step of preprocessing is to **realign** the functional images. If you think of a time-series as a deck of cards, with each volume as a separate card, realignment will put all the cards in the same orientation and make the sides line up - similar to what you do after you shuffle a deck of cards. 
 
-If you click on the button ``Realign (Estimate & Reslice)``, a window opens up showing the options for realigning and reslicing the data. The ``Estimate`` part refers to estimating the amount that each volume is out of alignment with a **reference volume**, and ``Reslice`` indicates that these estimates will be used to nudge each of the volumes into alignment with the reference volume. The reference volumes is set in the field "Num Passes", which allows you to specify whether the volumes will be aligned to the mean of all of the volumes, or to the first volume. For this tutorial, leave it as the default, and leave the rest of the defaults alone, as well.
+If you click on the button ``Realign (Estimate & Reslice)``, a window opens up showing the options for realigning and reslicing the data. The ``Estimate`` part refers to estimating the amount that each volume is out of alignment with a **reference volume**, and ``Reslice`` indicates that these estimates will be used to nudge each of the volumes into alignment with the reference volume. The reference volume is set in the field "Num Passes", which allows you to specify whether the volumes will be aligned to the mean of all of the volumes, or to the first volume. For this tutorial, leave it as the default, and leave the rest of the defaults alone, as well.
 
 .. figure:: 01_Realign_Menu.png
 
