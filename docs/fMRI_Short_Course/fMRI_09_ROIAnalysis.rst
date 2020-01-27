@@ -24,7 +24,7 @@ One way to create a region for our ROI analysis is to use an **atlas**, or a map
 
 AFNI has many atlases already installed, which you can access through the AFNI viewer. If you click on Settings -> Ortho View 1 -> Atlas Panel, it will open a new window called ``Atlases``. By default, the Harvard-Oxford Cortical and Subcortical Atlases will be loaded. You can see how the atlas partitions the brain by clicking on the ``Show/Hide`` link next to the atlas name. The voxel at the center of the crosshairs in the viewing window will be assigned a probability of belonging to a brain structure.
 
-.. figure:: 09_ROI_Analysis_Atlas_Example.png
+.. figure:: ROI_Analysis_Atlas_Example.png
   :scale: 25%
 
   The Harvard-Oxford Cortical atlas, displayed on an MNI template brain. The Atlas window shows the probability that the voxel is located at a certain anatomical region.
