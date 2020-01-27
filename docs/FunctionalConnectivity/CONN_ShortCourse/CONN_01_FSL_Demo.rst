@@ -52,6 +52,13 @@ Now let's see whether we can replicate one of the most well-known functional con
   The Default Mode Network, showing high correlation between the ventromedial prefrontal cortex and posterior cingulate cortex nodes. This map can be saved as its own image by clicking on the disk icon next to the correlation map that has been generated. You can then convert this to a z-score using Fisher's r-to-z transform, and use those transformed images as input into a group-level analysis.
   
   
+Functional Connectivity Analysis with Neurosynth
+************************************************
+
+Another useful tool to learn about functional connectivity is `Neurosynth <neurosynth.org>`__. Neurosynth is primarily a meta-analysis tool, but it can also be used to quickly generate functional connectivity maps for seed regions in a template brain. If you click on the "Locations" tab, you will open a new window that says "Functional connectivity and coactivation maps". Click on any coordinate in the brain, and then click on "What's here?" After a few moments, a correlation map will be generated. You can threshold the image to only show correlations above a certain value, and you can also download the correlation map to use as a mask.
+
+.. figure:: 01_Neurosynth_FuncConn_Demo.gif
+  
 Next Steps
 **********
 
