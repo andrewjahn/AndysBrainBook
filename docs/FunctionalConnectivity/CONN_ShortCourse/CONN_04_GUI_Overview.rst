@@ -65,4 +65,35 @@ The "Acquisition type" field provides two choices: ``Continuous`` and ``Sparse``
 
 .. figure:: 04_Basic.png
 
-We now move down the left side of the GUI to the "Structural" tab. Click on it, 
+The Structural Tab
+^^^^^^^^^^^^^^^^^^
+
+We now move down the left side of the GUI to the "Structural" tab. Click on it, and then use the menu on the right-hand side of the GUI to select the file ``sub-01_anat_sub-01_T1w.nii``. A pop-up window will say that "1 file has been assigned to 1 subject". Click OK, and the structural image will be loaded in the center window. The slider to the right of the image can be used to flip through different slices, and the "o" button at the top of the slider will change the viewing montage between axial, coronal, and sagittal slices. Clicking on the slices will open up another display window that allows you to look at the slices in combinations of planes by clicking multiple checkboxes.
+
+.. figure:: 04_Anatomical_Display.png
+
+  Clicking on the structural slices in the CONN GUI will open another display window that allows you to view the slices in three dimensions.
+  
+
+The Functional Tab
+^^^^^^^^^^^^^^^^^^
+
+The Functional tab is similar to the structural tab - select the file ``sub-01_func_sub-01_task-rest_bold.nii``, and it will load the image's slices into the center window. The first volume in the time-series is displayed on the left, and the last volume in the time-series is displayed on the right; if there was any major movement or artifacts between the beginning and the end of the time-series, it would show up in this side-by-side comparison. If there was little or no motion or artifacts, on the other hand, the two images should look virtually identical.
+
+As with the Structural tab, you can switch between viewing planes and flip between different slices of the functional data. There is a difference, however: Instead of opening up a new viewing window, clicking on the slices will open up a time-series plot, extracted from the voxel that you clicked on. Since these data haven't been preprocessed yet, you may notice trends in the direction of the time-series either upwards or downwards; these represent **scanner drift** artifacts which are corrected by filtering out linear and higher-order trends from the data.
+
+.. figure:: 04_Functional_Display.png
+
+A useful QA check to do at this stage is to click on the ``- functional tools:`` menu in the bottom left corner of the Functional data window, and select ``Slice viewer with anatomical overlay (QA_REG)``. This displays the functional data and anatomical image simultaneously, and traces out the major sulcal and gyral curves in yellow. Check this to make sure that the boundaries of the gyri and sulci of the functional data roughly match up with those of the anatomical image.  Selecting both the coronal and axial planes is a good way to check that the ventricles and other internal structures are aligned.
+
+.. figure:: 04_Functional_Anatomical_CheckReg.png
+
+If you like, you can do the same QA check with the SPM Check Reg function by clicking the ``- functional tools:`` menu and selecting ``Display functional/anatomical coregistration (SPM)``. This will open the Check Reg window, similar to what you used in the :ref:`SPM tutorial <SPM_07_SettingTheOrigin>`.
+
+.. note::
+
+  There are other options in the ``- functional tools:`` menu; look at each of them and guess what they do. Why would it not make sense at this time to look at the coregistration with the MNI boundaries?
+  
+
+  
+  
