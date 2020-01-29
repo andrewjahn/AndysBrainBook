@@ -33,6 +33,9 @@ You will next be prompted to select the sampling resolution of the anatomical an
 
 You will lastly be asked to specify a smoothing kernel. The default is 8mm, but I will set it to 6mm for this tutorial. Click ``OK``, and the preprocessing will begin, calling upon SPM tools as needed. For this subject, it will take about 5 minutes total.
 
+.. note::
+
+  For more details on what each of these steps do, see the :ref:`SPM preprocessing module <SPM_04_Preprocessing>`.
 
 Next Steps
 **********
