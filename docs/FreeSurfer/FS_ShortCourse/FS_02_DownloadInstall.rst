@@ -30,6 +30,10 @@ Each subject's directory contains two sub-directories labeled ``ses-BL``, indica
 ::
 
   ls sub-112/ses-BL/anat
+  
+.. warning::
+
+  When testing your installation by running the mri_convert command, you may get an error like this: ``mir_convert.bin: error while loading shared libraries: libgomp.so.1: cannot open shared object file``. In that case, try manually installing libgomp with this command: ``sudo apt-get install libgomp1``. Also, if you receive this error: ``/home/$USERNAME/freesurfer/license.txt exists but you do not have read permission``, try typing: ``chmod a+r /home/$USERNAME/freesurfer/license.txt``.
 
 Next Steps
 ***********
