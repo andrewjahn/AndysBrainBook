@@ -94,6 +94,10 @@ If you like, you can do the same QA check with the SPM Check Reg function by cli
 
   There are other options in the ``- functional tools:`` menu; look at each of them and guess what they do. Why would it not make sense at this time to look at the coregistration with the MNI boundaries?
   
+  
+Next Steps
+**********
 
+There are other options in the GUI, such as ROIs, Conditions, and Covariates. We will leave those for now, coming back to them after we have preprocessed our data - which we turn to in the next chapter.
   
   
