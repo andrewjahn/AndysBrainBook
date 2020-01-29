@@ -32,3 +32,9 @@ For our current tutorial, we will leave it at the intermediate settings.
 You will next be prompted to select the sampling resolution of the anatomical and functional output. The defaults of 1mm^3 for the anatomical image and 2mm^3 for the functional images should be fine; if you want to take up less space on your hard drive, you can lower the resolution (i.e., increase the numbers in the fields), at the expense of lower spatial resolution.
 
 You will lastly be asked to specify a smoothing kernel. The default is 8mm, but I will set it to 6mm for this tutorial. Click ``OK``, and the preprocessing will begin, calling upon SPM tools as needed. For this subject, it will take about 5 minutes total.
+
+
+Next Steps
+**********
+
+If everything has run without error, you should see a pop-up window saying that everything has finished without any problems. When the preprocessing has finished, we will need to inspect the images for any artifacts or other problems - in other words, we will do **Quality Assurance (QA) checks**. To learn more about how to do them, click the ``Next`` button.
