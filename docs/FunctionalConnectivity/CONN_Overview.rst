@@ -33,10 +33,12 @@ Before going on, you may want to work through the :ref:`SPM tutorials <SPM_Overv
    CONN_ShortCourse/CONN_04_GUI_Overview
    CONN_ShortCourse/CONN_05_Preprocessing
    CONN_ShortCourse/CONN_06_QA_Checks
-   CONN_ShortCourse/CONN_07_1stLevel_Analysis
-   CONN_ShortCourse/CONN_08_2ndLevel_Analysis
-   CONN_ShortCourse/CONN_09_GraphTheory_Basics
-   CONN_ShortCourse/CONN_10_Viewing_Results
-   CONN_ShortCourse/CONN_11_Scripting
+   CONN_ShortCourse/CONN_07_Denoising
+   CONN_ShortCourse/CONN_08_1stLevel_Analysis
+   CONN_ShortCourse/CONN_09_2ndLevel_Analysis
+   CONN_ShortCourse/CONN_10_ROIs_Conditions_Covariates
+   CONN_ShortCourse/CONN_11_GraphTheory_Basics
+   CONN_ShortCourse/CONN_12_Viewing_Results
+   CONN_ShortCourse/CONN_13_Scripting
 
 
