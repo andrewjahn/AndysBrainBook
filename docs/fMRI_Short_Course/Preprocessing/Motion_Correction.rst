@@ -1,4 +1,4 @@
-.. _Motion_Correction.rst
+.. _Motion_Correction:
 
 Chapter 3: Motion Correction
 ^^^^^^^^^^
