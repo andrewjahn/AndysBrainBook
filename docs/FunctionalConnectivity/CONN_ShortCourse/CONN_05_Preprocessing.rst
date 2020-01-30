@@ -35,7 +35,7 @@ You will lastly be asked to specify a smoothing kernel. The default is 8mm, but 
 
 .. note::
 
-  For more details on what each of these steps do, see the :ref:`SPM preprocessing module <SPM_04_Preprocessing>`.
+  For more details on what each step does, see the :ref:`SPM preprocessing module <SPM_04_Preprocessing>`.
 
 Next Steps
 **********
