@@ -79,3 +79,11 @@ You can summarize all of the QA check we did above by clicking the ``QA plots`` 
 .. figure:: 06_QA_Plots.png
 
 As series of figures will be generated, one for each QA check that you selected. You can then click on the ``Export`` button to generate an HTML file that contains everything in a convenient file that can be accessed at any time.
+
+.. figure:: 06_QA_HTML.png
+
+
+Next Steps
+**********
+
+If you are satisfied with your QA checks, you are now ready to begin **Denoising** the data. This will further clean up the data using processing specific to resting-state, and prepare it for statistical analysis.
