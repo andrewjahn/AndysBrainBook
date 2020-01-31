@@ -19,7 +19,7 @@ BIDS (Brain Imaging Data Structure) is a standarized format for the organization
 Benefits of BIDS
 ****************
 
-1. Reproducibility and Data Sharing: One of the more common issues that can arise for imaging researchers is receiving data from a colleague and not being able to make heads or tails of it: how the data are named and organized do not make intuitive sense to you, finding pertinent information (e.g. Repetition Time) is time-consuming, etc. What transpires is time wasted trying to make sense of the data, leading to needless back and forth with your colleague. Thanks to the standarized format of BIDS however, the hassles of data sharing are largely alleviated. By extension, improved data sharing allows researchers to better assess and reproduce others’ experimental findings.
+1. Reproducibility and Data Sharing: One of the more common issues that can arise for imaging researchers is receiving data from a colleague and not being able to make heads or tails of it: how the data are named and organized do not make intuitive sense to you, finding pertinent information (e.g. Repetition Time) is time-consuming, etc. What transpires is time wasted trying to make sense of the data, leading to needless back and forth with colleague(s). Thanks to the standarized format of BIDS however, the hassles of data sharing are largely alleviated. By extension, improved data sharing allows researchers to better assess and reproduce others’ experimental findings.
 
 2. Access to “BIDS-apps”: Once converted to BIDS format, data can be applied to software packages that take BIDS-formatted datasets as their input, colloquially referred to as “BIDS-apps”. Two of the most common and used apps are MRIQC (a quality control pipeline that generates metrics of your data), and fMRIPrep (a standarized pre-processing pipeline). Having access to fMRIPrep is incredibly useful, as labs (and even individuals within a single lab) typically have their own idiosyncratic pre-processing pipelines, which can influence findings in subsequent analyses, and create confusion for others when attempting to re-process the data. By having a standarized pipeline such as fMRIPrep, which incorporates different sofware packages (such as FSL, AFNI, ANTs, FreeSurfer, and nipype), datasets across labs/institutions can be pre-processed in a highly reproducible and transparent manner.
 
@@ -36,7 +36,7 @@ BIDS Tutorial
 
 For this tutorial we will be using the dcm2bids converter; however, as you become familiarized with BIDS you may find a different converter that suits your fancy.
 
-Before we dive into the tutorial, we first need to get the data, set up a project folder for this tutorial, and install some software packages.
+Before diving into the tutorial, we first need to get the data, set up a project folder for this tutorial, and install some software packages.
 
 Create Project folder
 *********************
@@ -48,20 +48,17 @@ Throughout this tutorial we will be using the command line, so you will need to 
   cd $HOME
   mkdir BIDS_tutorial
   
-We have now created our project folder (BIDS_tutorial) in our home directory.
+You have now created our project folder (BIDS_tutorial) in your home directory.
   
 Download data
 *************
-The data can be found `here.<https://drive.google.com/drive/folders/1vVW3jPfYdvh52juiHTUnkmY6bjvxZQcR?usp=sharing>`__ Be sure to download the entire folder and not individual files. Due to the size of the folder, it will take several minutes to zip and download everything. Once downloaded, type the following into the command line, line by line:
+The data can be found `here <https://drive.google.com/drive/folders/1vVW3jPfYdvh52juiHTUnkmY6bjvxZQcR?usp=sharing>`__. Be sure to download the entire folder and not individual files. Due to the size of the folder, it will take several minutes to zip and download everything. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files (in your Downloads folder), and type the following into the command line, line by line:
 
 ::
 
-  cd ~/Downloads
-  unzip BIDS_tutorial_data*.zip
-  mv BIDS_tutorial_data $HOME/BIDS_tutorial
-  cd
+  mv ~/Downloads/BIDS_tutorial_data $HOME/BIDS_tutorial
   
-The data is now unzipped and has been moved into our project folder
+The data has now been moved into your project folder
 
 CMake and pip Installation
 **************************
@@ -73,7 +70,7 @@ Depending on your computer or server, you may already have CMake and/or pip; how
   which cmake
   which pip
   
-If these packages are in your $PATH, it should list where they're located, otherwise we need to install them. To install CMake, go `here<https://cmake.org/download/>`__ and click the tar.gz file for your MacOS or Linux. The type the following into your command line, line by line:
+If these packages are in your $PATH, it should list where they're located, otherwise you will need to install them. To install CMake, go `here <https://cmake.org/download/>`__ and click the tar.gz file for your MacOS or Linux. Then type the following into your command line, line by line:
 
 ::
 
@@ -94,7 +91,7 @@ You will see a warning message that lists where pip is installed. Copy that path
 
 ::
 
-  export PATH="Users/dlevitas/Library/Python/2.7/bin/:$PATH
+  export PATH="/Users/dlevitas/Library/Python/2.7/bin/:$PATH"
   
   
 At this point, CMake and pip should now be installed and in your $PATH
@@ -134,10 +131,11 @@ Disclaimer regarding dcm2niix: Running dcm2niix on a HPC can potentially take mu
 dcm2bids Installation
 *********************
 
-Dcm2bids is a package that takes the output from dcm2niix and organizes/renames files to meet the BIDS specification. To install, type the following on the command line:
+Dcm2bids is a package that takes the output from dcm2niix and organizes/renames files to meet the BIDS specification. To install, type the following on the command line, line by line:
 
 ::
 
+  pip uninstall dcm2bids --user
   pip install dcm2bids --user
   
 This should automatically add dcm2bids to your $PATH
@@ -145,13 +143,12 @@ This should automatically add dcm2bids to your $PATH
 pigz Installation (optional)
 ****************************
 
-You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to run. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from their `website <https://zlib.net/pigz/>`__. Then type the following onto the command line, line by line:
+You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to run. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from their `website <https://zlib.net/pigz/>`__. Make sure the file is extracted/unzipped and in your Downloads folder. Then type the following onto the command line, line by line:
 
 
 ::
 
-  cd ~/Downloads
-  tar -zxvf pigz-2.4.tar.gz -C $HOME
+  mv ~/Downloads/pigz-2.4.tar.gz $HOME
   cd $HOME/pigz-2.4
   make
   export PATH="$HOME/pigz-2.4/:$PATH"
@@ -383,7 +380,7 @@ To get the information into the file, you can type the following onto the comman
   cd $HOME
   vim BIDS_config.json
 
-Paste the contents to the file. To save and close the file, press the Escape button, and type the following: :wq
+Press the "i" key, and paste the contents into the file. To save and close the file, press the Escape button, and type the following: :wq
 To ensure that the information was added and saved to the json file, you can type the following onto the command line:
 
 ::
@@ -430,7 +427,6 @@ Finally, we've created the configuration file; now the BIDS conversion can be pe
 
 ::
 
-  mkdir $HOME/BIDS_tutorial
   dcm2bids_scaffold -o $HOME/BIDS_tutorial
   echo "study imaging data" > $HOME/BIDS_tutorial/README
   dcm2bids -d $HOME/BIDS_tutorial/BIDS_tutorial_data -p 01 -c $HOME/BIDS_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
@@ -439,14 +435,24 @@ If however this were multi-session data (i.e. participant was scanned more than 
 
 ::
 
-  mkdir $HOME/BIDS_tutorial
   dcm2bids_scaffold -o $HOME/BIDS_tutorial
   echo "study imaging data" > $HOME/BIDS_tutorial/README
   dcm2bids -d $HOME/BIDS_tutorial/BIDS_tutorial_data -p 01 -s 01 -c $HOME/BIDS_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
 
 where the ``-s 01`` indicates that this is the first session. ``-s 02`` would indicate the second session, and so on.
+
+Clean project folder
+********************
+
+Type the following onto the command line, line by line:
+
+::
+
+  mv $HOME/BIDS_tutorial/BIDS_tutorial_data $HOME/BIDS_tutorial/sourcedata
+  rm -rf $HOME/BIDS_tutorial/tmp_dcm2bids
   
-PyDeface
+  
+PyDeface (optional)
 ********
 Although not required for BIDS compliance, it is highly recommended that users deface their anatomical image(s), such that facial features are removed from the image(s) to ensure a greater degree of anonymity for data sharing purposes. Since PyDeface is a python package, we recommend that users have one of the newer python 3 releases. To install PyDeface, type the following into your command line
 
@@ -457,13 +463,13 @@ Although not required for BIDS compliance, it is highly recommended that users d
   
 Check out the github page of `PyDeface <https://github.com/poldracklab/pydeface>`__ for additional information. 
 
-In our mock protocol we have three separate anatomical acquisitions: T1w, T2w, and FLAIR. We will therefore need to run pydeface on each of these anatomicals. To deface the T1w we would type the following
+In the mock protocol there are three separate anatomical acquisitions: T1w, T2w, and FLAIR. You would therefore need to run pydeface on each of these anatomicals. To deface the T1w you would type the following:
 
 ::
 
   pydeface $HOME/BIDS_tutorial/sub-01/anat/sub-01_T1w.nii.gz --outfile $HOME/BIDS_tutorial/sub-01/anat/sub-01_T1w.nii.gz --force
   
-For multi-session data, the command would look like this
+For multi-session data, the command would look like this:
 
 ::
 
@@ -474,7 +480,9 @@ PyDeface can sometimes takes upwards of 10 minutes to complete; however, the def
 Validating your BIDS data
 *************************
 
-Once the BIDS conversion is complete and the anatomicals defaced, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to absolutely be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
+Once the BIDS conversion is complete and the anatomicals defaced, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
+
+NOTE: You will likely get an error when performing the BIDS validation due to a minor format issue in the dataset_description.json file. This is not important and can be ignored. 
 
 Final Thoughts
 **************
