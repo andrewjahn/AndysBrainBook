@@ -6,9 +6,9 @@ Open Science
 
 -----------
 
-What is open science? [Add text here]
+This module contains chapters on different aspects of open science - method of sharing data that make analyses more transparent and reproducible.
 
-Many of these articles are contributed by graduate students, postdocs, and other members of the Open Science community. Each has been given credit where they've written the article.
+We are looking for graduate students, postdocs, and other members of the Open Science community to contribute articles about how to perform different open science techniques. Although the articles are hosted on this site, full credit will be given to those who contribute their writing.
 
 
 .. toctree::
