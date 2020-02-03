@@ -77,5 +77,3 @@ Exercises
 *********
 
 1. Search for the term "conflict", and create a 5mm sphere around the peak coordinates of the Association mask that you download.
-
-2. 
