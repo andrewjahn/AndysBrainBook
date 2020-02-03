@@ -52,7 +52,7 @@ You have now created our project folder (BIDS_tutorial) in your home directory.
   
 Download data
 *************
-The data can be found `here <https://drive.google.com/drive/folders/1vVW3jPfYdvh52juiHTUnkmY6bjvxZQcR?usp=sharing>`__. Be sure to download the entire folder and not individual files. Due to the size of the folder, it will take several minutes to zip and download everything. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files (in your Downloads folder), and type the following into the command line, line by line:
+The data can be found `here <drive.google.com/drive/folders/1vVW3jPfYdvh52juiHTUnkmY6bjvxZQcR?usp=sharing>`__. Be sure to download the entire folder and not individual files. Due to the size of the folder, it will take several minutes to zip and download everything. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files (in your Downloads folder), and type the following into the command line, line by line:
 
 ::
 
