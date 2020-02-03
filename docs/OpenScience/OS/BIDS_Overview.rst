@@ -424,7 +424,7 @@ The starred acquistions show the functional data corresponding to the field maps
 Running the dcm2bids command
 ****************************
 
-Finally, we've created the configuration file; now the BIDS conversion can be performed. For this, we'll assume that the subject ID is 01 and that this is a single session study. Type the on the command line
+Finally, we've created the configuration file; now the BIDS conversion can be performed. For this, we'll assume that the subject ID is 01 and that this is a single session study. Type the following on the command line
 
 ::
 
