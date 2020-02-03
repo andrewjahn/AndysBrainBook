@@ -107,7 +107,8 @@ dcm2niix is the standard for converting raw data to NIFTI/JSON file format. It i
   cd ~
   git clone https://github.com/rordenlab/dcm2niix.git
   cd dcm2niix
-  mkdir build && cd build
+  mkdir build 
+  cd build
   cmake ..
   make
   
