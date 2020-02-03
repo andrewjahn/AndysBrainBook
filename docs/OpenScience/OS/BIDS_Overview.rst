@@ -149,7 +149,7 @@ You can install pigz to reduce time during the file compression portion of dcm2n
 
 ::
 
-  mv ~/Downloads/pigz-2.4.tar.gz $HOME
+  mv ~/Downloads/pigz-2.4 $HOME
   cd $HOME/pigz-2.4
   make
   export PATH="$HOME/pigz-2.4/:$PATH"
