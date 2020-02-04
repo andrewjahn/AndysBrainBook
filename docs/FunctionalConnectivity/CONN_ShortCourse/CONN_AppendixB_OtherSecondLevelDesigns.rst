@@ -1,8 +1,8 @@
-.. _CONN_10_ROIs_Conditions_Covariates:
+.. _CONN_AppendixB_OtherSecondLevelDesigns:
 
-===================================================================
-Chapter #10: ROIs, Conditions, and Covariates: Setting up Contrasts
-===================================================================
+=======================================
+Appendix B: Other Second-Level Analyses
+=======================================
 
 ------------------
 
