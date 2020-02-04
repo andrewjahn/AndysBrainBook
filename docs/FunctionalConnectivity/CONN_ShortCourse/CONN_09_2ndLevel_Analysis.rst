@@ -56,4 +56,79 @@ If you have already analyzed subject 1, you may notice that the data in the ``RO
 Preprocesing the Subjects
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Click on the ``Preprocessing`` button to begin preprocessing all of the subjets in a single batch. This will take about 5-6 minutes per subject, or around 30-40 minutes total.
+Click on the ``Preprocessing`` button to begin preprocessing all of the subjets in a single batch. This will take about 5-6 minutes per subject, or around 30-40 minutes total. When it has finished, check the ``ROIs`` and ``Covariates (1st-level)`` tabs, this time scrolling through each subject. Note any differences bewteen the subjects: Which masks (i.e., tissue types) look different? What do the covariates look like? Subject 2, for example, now has 10 volumes that have been marked as outliers. Each of these marked volumes will be inserted as a regressor in the 1st-level design matrix, which removes their variance from the rest of the time-series.
+
+.. figure:: 09_ScrubbedVolumes.png
+
+.. warning::
+
+  In the CONN toolbox, this procedure of removing a volume via regression is called **scrubbing**. There is some debate about what the term actually refers to, since in other contexts it can mean simply removing the volume from the time-series (e.g., Caballero-Gaudes & Reynolds, 2017). Any time you come across the term being used, look at the context to see which method it refers to.
+  
+Denoising and 1st-level analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The rest of the steps will be done the same way as when we processed the individual subject. Click on ``Done`` to begin denoising. To save time, uncheck the ``Voxel-to-Voxel`` analysis, and click ``Start``. This will take a few minutes per subject.
+
+When Denoising has finished, click on the ``Denoising (1st-level)`` tab to review the effect of accounting for different confound regressors. The layout is the same; the only difference is that you can now click through all of the subjects. Review them using the same criteria as in the denoising chapter, and then click the ``Done`` button to proceed with the 1st-level modeling. 
+
+.. figure:: 09_Denoising_Group.png
+
+This will only take a few minutes, but to save time, uncheck the box next to ``Voxel-to-Voxel`` connectivity.
+
+The preview window of the tab ``Analyses (1st-level)`` will be the same as for the individual subject analysis, but now with all of the subjects listed. Click through all of them to review their connectivity maps after the denoising has been performed. 
+
+.. figure:: 09_1stLevel_Group.png
+
+If you are satisfied with the quality check, click on ``Done`` to begin the 2nd-level analysis. Make sure that "All Subjects" and "All conditions" are checked, and then click ``Start``. This will only take a few minutes.
+
+
+Group-Level Analysis
+********************
+
+When you have finished the group analysis, you will have access to the last tab, ``Results (2nd-level)``. This will display a whole-brain map of the correlation for the contrasts that you specified in the ``Setup`` tab.
+
+You may wonder what contrasts we specified. The default that has already been created for you is a condition called "rest" which is the correlation map generated for each subject at each ROI. These are then averaged over all of the subjects by using a **contrast vector** in the Covariates (2nd-level) tab of the ``Setup`` screen. If you click on the 2nd-level covariates button, you will see a list of all the covariates that will be entered into the 2nd-level; the covariate "AllSubjects" has a contrast vector of ``[1 1 1 1 1 1]``, representing an average taken over all of the subjects. (The other covariates that have a "QA" prefix are nuisance regressors, and are not able to be selected at the group level.) Click back and forth between the ``Setup`` and ``Results (2nd-level)`` tab to see the correspondence between how the experiment is set up, and the results that are generated.
+
+.. figure:: 09_GroupLevel_Results_Setup.png
+
+What if we want to create another contrast - for example, compare the first three and the last three subjects, as though they are different groups? We first need to create two separate contrast vectors: One for the first three subjects, and one for the last three. From the ``Setup`` tab, click on ``Covariates (2nd-level)`` and hover your mouse over the bottom left corner of the "Covariates" menu. Click on the ``+`` sign, and label the covariate "Group A". In the "Values" field, enter the following vector:
+
+::
+
+  [1 1 1 0 0 0]
+  
+And do the same for another covariate, labeling it "Group B" and entering this vector:
+
+::
+
+  [0 0 0 1 1 1]
+  
+Observe how the red dots change according to which contrast vector you have selected; the dots will be positive for the first three subjects for Group A, and positive for the last three subjects for Group B.
+
+.. figure:: 09_GroupA_ContrastVector.png
+
+Now when you click on the ``Results (2nd-level)`` tab, there will be two new "Subject effects": Group A and Group B. Highlighting either group separately will show results for just that group; to take a contrast between the two, on the other hand, we will hold shift and click to highlight both groups, and enter a Between-subjects contrast of [1 -1]:
+
+.. figure:: 09_GroupA-GroupB_Contrast.png
+
+.. note::
+
+  Another way to generate the same contrast is to highlight both groups with your mouse, and then click on the string that says "Any effects (F-test)". You will see options for looking at either each group's average separately, a contrast of GroupA-GroupB, or a contrast of GroupB-GroupA.
+  
+  
+Adding Nuisance Covariates
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+If you want to account for other sources of variance, such as age or sex, these can also be entered in the ``Covariates (2nd-level)`` tab. Create a new contrast (e.g., "Age"), and enter the values for each subject, making sure that they match. For example, the first Age covariate that you enter should be the age of the first subject. The following figure shows an Age covariate created for these subjects:
+
+.. figure:: 09_Age_Covariate.png
+
+If you want to mean-center any of your covariates, click on the ``-covariate tools:`` menu, select ``Orthogonalize selected covariate(s)``, and highlight the "All Subjects" covariate:
+
+.. figure:: 09_Age_Covariate_MeanCentered.png
+
+
+Next Steps
+**********
+
+Now that we have created out second-level contrasts, we will go on to interpret the results - which requires another chapter in itself. Click the ``Next`` button to learn more about how to look at the figures and determine what they mean.
