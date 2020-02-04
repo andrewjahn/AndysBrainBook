@@ -54,8 +54,8 @@ and press return, which will open the SPM graphical user interface. If you click
 
   ::
 
-    !gunzip *.gz
-
+    gunzip('*.gz')
+    
   Which will expand the images and remove the ``.gz`` extension.
 
 
@@ -98,7 +98,13 @@ Many of the quality checks for the functional image are the same as with the ana
 
 .. Reference the time-series glossary
 
-Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. In the AFNI and FSL viewers, you are able to view the individual volumes of the time-series in rapid succession; unfortunately, there is no easy way to do this in SPM. Instead, during the :ref:`Realignment preprocessing step <01_SPM_Realign_Unwarp>` you will generate a movement parameter file showing how much motion there was between each volume. To begin learning about the preprocessing steps, click the `Next` button.
+Another quality check is to make sure there isn't excessive motion. Functional images are often collected as a time-series; that is, multiple volumes are concatenated together into a single dataset. To view the time-series of volumes in rapid succession, click the ``Check Reg`` button and load the ``sub-01_task-flanker_run-1_bold.nii`` data. This will display a single volume in three planes: Coronal, Sagittal, and Axial. Right click on any of the planes and click the ``Browse`` button. You will be prompted to select an image; click on the currently selected file to remove it, and then enter the string ``run-1`` in the Filter field, and ``1:146`` in the Frames field. Select all of the resulting images, and click ``Done``.
+
+You will now see a horizontal scrolling bar at the bottom of the display window. Clicking on the right or left arrows will advance or go back one volume; you can also click and drag the scrolling bar to view the volumes more rapidly. Clicking on the ``>`` button in the bottom right will start **movie mode**, which flips through the volumes at a rapid pace. Clicking on the button again will stop the movie. To see a plot of the time-series activation at the voxel under the crosshairs, right-click again on any of the planes, select "Browse", and then select "Display profile". This opens up another figure that you can view simultaneously as you flip through the volumes.
+
+.. figure:: 03_SPM_ViewTimeSeries.gif
+
+Also, during the :ref:`Realignment preprocessing step <01_SPM_Realign_Unwarp>` you will generate a movement parameter file showing how much motion there was between each volume. To begin learning about the preprocessing steps, click the `Next` button.
 
 
 --------
@@ -106,6 +112,7 @@ Another quality check is to make sure there isn't excessive motion. Functional i
 Exercises
 -----------
 
+1. View the time-series of the ``run-2`` data, using the steps outlined above. Do you notice any sudden changes in movement?
 
 Video
 --------
