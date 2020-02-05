@@ -46,7 +46,7 @@ The Threshold Panel allows you to set a **threshold**, or value that determines 
 
 The menus next to the voxel threshold and cluster threshold fields specify which kind of correction mechanism to use. For example, switching from "p-uncorrected" to "F/T/X stat" allows you to specify a t-statistic threshold instead of a p-threshold. Likewise, the cluster threshold can be changed from an FDR threshold to FWE or uncorrected.
 
-The last pair of menus specify whether the tests are one-sided or two-sided, and whether to use parametric or non-parametric methods for correction. Unless your hypothesis is concerned with only one direction of the result, leave the default of "two-sided"; and if you want to use a correction method that does not depend on parameteric assumptions such as normality, change "parametric stats" to "non-parametric stats". Selecting "non-parametric stats" will prompt you to selec tthe number of simulations; usually around 5000 simulations is recommended, although this can be unwieldy for large samples. 
+The last pair of menus specify whether the tests are one-sided or two-sided, and whether to use parametric or non-parametric methods for correction. Unless your hypothesis is concerned with only one direction of the result, leave the default of "two-sided"; and if you want to use a correction method that does not depend on parameteric assumptions such as normality, change "parametric stats" to "non-parametric stats". Selecting "non-parametric stats" will prompt you to select the number of simulations; usually around 5000 simulations is recommended, although this can be unwieldy for large samples. 
 
 For now, run a non-parametric simulation with 1000 simulations, and observe how the results change. (You can always change it back to parametric statistics to see the original results.) Are there new clusters that appear? Clusters that disappear? Why do you think that is?
 
@@ -88,8 +88,45 @@ ROI-to-ROI Results
 
 Close the Results explorer window, and then click on the ``ROI-to-ROI`` tab. This also displays functional connectivity results, but at a different resolution: instead of a whole-brain connectivity map, we only see ROIs that are significantly correlated with other ROIs. 
 
+The options for selecting different contrasts are the same as for the seed-to-voxel results; highlighting any combination of regressors allows you to test for main effects, contrasts, or interactions. The red lines indicate which ROIs are significantly correlated with the selected seed, and blue lines indicate significantly negative correlations. More or fewer axial slices can be displayed by clicking on the up or down arrows next to the results display window.
+
+Clicking on each of the nodes in the results pane will display a bar chart showing the size of the effect for that ROI-to-ROI correlation, and clicking on the ``display 3D`` button will show a transparent brain with the nodes overlaid on it.
+
+.. figure:: 10_Display3D.png
+
+The ROI-to-ROI results allows you to see in more detail how nodes of certain networks are correlated with other nodes in the brain. Scroll down the ``Seeds/Sources`` menu, and select the seed "networks.Salience.ACC". This uses a node within the anterior cingulate cortex as a seed, and correlates it with all of the other ROIs in the brain.
+
+Click on the ``Results explorer`` button to open a new results window. This will display the significant connections between the nodes as a **connectome ring**. The Salience.ACC node in the lower-right corner is connected through curved lines to other nodes, grouped together as networks. For example, the cluster of nodes right next to the Salience.ACC node all belong to the Salience network; it is therefore unsurprising that there is a high concentration of positively connected nodes within that group.
+
+.. figure:: 10_ROItoROI_ResultsExplorer.png
+
+The coordinates table in the lower right displays all of the significant correlations between the seed node and other ROIs. If you want, you can restrict the number of nodes you are testing by going to the menu "Define connectivity matrix" and selecting "manually-deinfed subset of ROIs". You can then select only those ROIs that you are interested in testing.
+
+Regardless of how many ROIs you test, you will need to correct for the number of tests performed. "Seed-level correction" will correct for the number of seeds that you use; "analysis-level correction" will correct for the total number of connections that are tested.
+
+
+Using the Results Outside of the CONN Toolbox
+*********************************************
+
+Each time you pressed the ``Results explorer`` button, results were generated and output in the directory structure that CONN automatically created as part of your project. From the Matlab terminal, navigate to ``conn_Arithmetic_Project/results/secondlevel/SBC_01/AllSubjects/rest/FP_r`` and type ``ls``. You should see the following:
+
+.. figure:: 10_SBC_Results.png
+
+The results that CONN displays in its GUI are also written out here. The file ``spmT_0001.nii``, for example, shows the correlation-to-t-statistic map that was created for the node that you selected. You can open it up in any other viewer, such as AFNI:
+
+.. figure:: 10_SBC_AFNI.png
+
+You may also want to use the ROI-to-ROI matrix to test for an ROI-by-ROI interaction. If so, use the following steps:
+
+1. After you've run your first and second-level analysis, you will have a directory called results/firstlevel. This contains several *.mat files, one per subject, which in turn contain a connectivity matrix for each ROI-to-ROI z-score (transformed from the pearson's r correlation). You can load this by typing in Matlab, e.g., "load resultsROI_Subject001_Condition001.mat" to load the connectivity matrix for the first subject. (Alternatively, you could just load "resultsROI_Condition001.mat", which contains all of the subjects' individual *.mat files concatenated together.)
+
+2. After doing that, you will have a variable "Z" containing the Z connectivity matrix. You can find out which column corresponds to which ROI by typing "names" and pressing enter.
+
+3. Extract the values that you are interested in (e.g., the z-scores for Amygdala -> dMPFC and Amygdala -> ACC)
+
+4. Enter these values into a statistical software program such as SPSS or R, note which subject belongs to which group, and carry out an interaction analysis.
 
 Exercises
 *********
 
-1. Try running through each of the steps above for both seed-to-voxel and ROI-to-ROI analyses, but using a different seed.
+1. Try running through each of the steps above for both seed-to-voxel and ROI-to-ROI analyses, but using a different seed. Use the terminal to locate the output from the new seed that you used.
