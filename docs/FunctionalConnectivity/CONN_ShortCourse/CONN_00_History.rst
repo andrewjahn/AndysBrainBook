@@ -17,11 +17,11 @@ To his surprise, even after regressing out the physiological sources of noise fr
 
 .. note::
 
-  In this example, Biswal had used the left motor cortex as a **seed region**, which was then correlated with all of the other voxels in the brain. This type of correlation analysis is common, although some researchers may choose to restrict their correlation analysis between the seed region and a region of interest. For more information about regions of interest and how to extract data from them, see either the :ref:`AFNI <AFNI_08_ROIAnalysis>`, :ref:`FSL <FSL_09_ROIAnalysis>`, or :ref:`SPM <SPM_09_ROIAnalysis>` tutorials.
+  In this example, Biswal had used the left motor cortex as a **seed region**, which was then correlated with all of the other voxels in the brain - also called a **whole-brain** analysis. This type of correlation analysis is common, although some researchers may choose to restrict their correlation analysis between the seed region and a region of interest. For more information about regions of interest and how to extract data from them, see either the :ref:`AFNI <AFNI_08_ROIAnalysis>`, :ref:`FSL <FSL_09_ROIAnalysis>`, or :ref:`SPM <SPM_09_ROIAnalysis>` tutorials.
 
 .. figure:: 00_Biswal_1995.png
 
-  Result from the original Biswal et al. 1995 paper. Panel (a) shows task-related activity in the motor cortices, while panel (b) shows functional connectivity during a resting-state scan, using the left motor cortex as a seed region. Although the resting-state analysis does reveal correlations with regions other than the right motor cortex, note the high degree of overlap between the task and the resting-state images.
+  Result from the original Biswal et al. 1995 paper. Panel (a) shows task-related activity in the motor cortices, while panel (b) shows functional connectivity during a resting-state scan, using the left motor cortex as a seed region. Note the high degree of overlap between the task and the resting-state images.
 
 A few years after Biswal's discovery, several other researchers examined whether these resting-state patterns could be observed in other regions of the brain. Since the motor cortices seemed to be highly correlated, it was assumed that other bilateral structures would show high correlations as well - such as the visual cortex and auditory cortex. And if these functionally similar regions were correlated, it was argued, then even other functionally similar regions should also be functionally connected, not just bilateral structures. For example, if the dorsal anterior cingulate and the anterior insula are both active during a cognitively demanding task, then perhaps they should be correlated during rest as well.
 
