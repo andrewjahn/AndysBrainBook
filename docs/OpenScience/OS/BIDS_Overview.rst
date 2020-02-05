@@ -9,6 +9,10 @@ BIDS Overview and Tutorial
 .. note::
 
   This article was contributed by `Daniel Levitas <https://perceptionandneuroimaging.psych.indiana.edu/people/daniellevitas.html>`__ of the Perception and Neuroimaging Lab at Indiana University.
+  
+.. note::
+
+  Another good introduction to BIDS can be found `here <http://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__.
 
 What is BIDS?
 *************
