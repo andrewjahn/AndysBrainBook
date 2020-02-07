@@ -9,7 +9,7 @@ Chapter #1: Functional Connectivity Demonstration
 Overview
 ********
 
-Before we begin using the CONN toolbox, a short demonstration of functional connectivity using a basic method may help prepare you for using a more sophisticated package. I prefer to use the fMRI analysis package FSL for this demonstration, although both AFNI and SPM are able to do functional connectivity analyses as well. Before going on, I recommend that you work through the :ref:`FSL tutorials <fMRI_Intro>` to familiarize yourself with how AFNI works, what a time-series is, and how to extract data from regions of interest (ROIs). If you already know how to do a functional connectivity analysis in FSL, or if you simply want to get started with the CONN toolbox, click the ``Next`` button down below.
+Before we begin using the CONN toolbox, a short demonstration of functional connectivity using a basic method may help prepare you for using a more sophisticated package. I prefer to use the fMRI analysis package FSL for this demonstration, although both AFNI and SPM are able to do functional connectivity analyses as well. Before going on, I recommend that you work through the :ref:`FSL tutorials <fMRI_Intro>` to familiarize yourself with how FSL works, what a time-series is, and how to extract data from regions of interest (ROIs). If you already know how to do a functional connectivity analysis in FSL, or if you simply want to get started with the CONN toolbox, click the ``Next`` button down below.
 
 .. note::
 
