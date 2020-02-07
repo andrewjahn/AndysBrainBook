@@ -55,9 +55,14 @@ Now let's see whether we can replicate one of the most well-known functional con
 Functional Connectivity Analysis with Neurosynth
 ************************************************
 
-Another useful tool to learn about functional connectivity is `Neurosynth <neurosynth.org>`__. Neurosynth is primarily a meta-analysis tool, but it can also be used to quickly generate functional connectivity maps for seed regions in a template brain. If you click on the "Locations" tab, you will open a new window that says "Functional connectivity and coactivation maps". Click on any coordinate in the brain, and then click on "What's here?" After a few moments, a correlation map will be generated. You can threshold the image to only show correlations above a certain value, and you can also download the correlation map to use as a mask.
+Another useful tool to learn about functional connectivity is `Neurosynth <neurosynth.org>`__. Neurosynth is primarily a meta-analysis tool, but it can also be used to quickly generate functional connectivity maps for seed regions in a template brain. If you click on the "Locations" tab, you will open a new window that says "Functional connectivity and coactivation maps". Click on any coordinate in the brain, and then click on "What's here?" After a few moments, a correlation map will be generated. 
+
+For example, let's say that we wanted to generate a functional connectivity map for the default mode network (described above). If you click on the coordinates [0, 44, -14] and click the "What's here?" button, you should see significant clusters in both the region that you clicked, and also in the posterior cingulate cortex. These maps are generated based on a sample of a thousand subjects collected by `Yeo et al. (2011) <https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3174820/>`__, and contain the typical networks you would see in any sample. Try setting the coordinates to one of the nodes of the salience network, for example - [0 26 32], which is roughly within the anterior cingulate cortex - and see whether it correlates with the bilateral insula. Try setting the seed in other regions, such as the motor cortex or auditory cortex. What other regions would you expect would correlate with those seed regions? Why?
+
 
 .. figure:: 01_Neurosynth_FuncConn_Demo.gif
+
+  Demonstration of how to generate functional connectivity maps with Neurosynth. Note that you can threshold the image to only show correlations above a certain value, and you can also download the correlation map to use as a mask.
   
 Next Steps
 **********
