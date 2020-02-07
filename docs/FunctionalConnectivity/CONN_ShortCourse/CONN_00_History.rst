@@ -6,6 +6,10 @@ History of Functional Connectivity
 
 --------------
 
+.. note::
+
+  This section is still under construction. Check back soon!
+
 Bharat Biswal and the Discovery of Resting-State Correlations
 *************************************************************
 
