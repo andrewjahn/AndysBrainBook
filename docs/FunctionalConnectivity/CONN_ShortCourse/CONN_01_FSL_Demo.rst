@@ -13,7 +13,7 @@ Before we begin using the CONN toolbox, a short demonstration of functional conn
 
 .. note::
 
-  This tutorial will use a sample dataset that you can download `here <https://www.andysbrainblog.com/s/TimeSeries_ExampleDatanii.gz>`__. The file is about 20MB large.
+  This tutorial will use a sample dataset that you can download `here <https://www.andysbrainblog.com/s/TimeSeries_ExampleDatanii.gz>`__. The file size is about 20MB.
 
 
 Functional Connectivity Analysis with FSL
