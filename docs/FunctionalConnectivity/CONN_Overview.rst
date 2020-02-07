@@ -22,7 +22,7 @@ Recommended Tutorials
 
 Before going on, you may want to work through the :ref:`SPM tutorials <SPM_Overview>`. These will introduce you to Matlab and SPM, which you will need to run the CONN toolbox. That course will also cover what toolboxes are, and how to install some of the most widely used ones, including Marsbar and the WFU PickAtlas toolboxes. When you have finished doing the SPM tutorials, come back to this page to being the CONN walkthrough.
 
-Note that this is not required, but a better understanding of how SPM preprocesses fMRI data will make CONN's preprocessing stream more understandable.
+Note that SPM is a prerequisite for the CONN toolbox, meaning that you will need to :ref:`download and install SPM <SPM_fMRI_Intro>` before you can use CONN. The rest of the tutorials in the SPM module aren't required, although a better understanding of how SPM preprocesses fMRI data will prepare you to use the CONN toolbox. 
 
 .. toctree::
    :maxdepth: 1
