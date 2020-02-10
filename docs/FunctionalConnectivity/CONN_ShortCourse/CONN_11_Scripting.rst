@@ -51,8 +51,8 @@ In other words, the variable that we will pass as an argument to the ``conn_batc
   
 specifies that the RT for this experiment is 3.56 seconds.
 
-Creating a Template Script
-^^^^^^^^^^^^^^^^^^^^^^^^^^
+The CONN_x Structure
+^^^^^^^^^^^^^^^^^^^^
 
 The other fields and sub-fields can be found on the CONN scripting page, along with explanations about what each value and option means. But the easiest way to create and modify a structure is by generating one through the GUI.
 
@@ -63,3 +63,33 @@ In fact, you already have created such a structure, even if you weren't aware of
   load conn_Arithmetic_Project.mat
   
 This returns a structure in your workspace called ``CONN_x``. When you type ``CONN_x``, you will see the following text returned:
+
+.. figure:: 11_CONN_x.png
+
+Each of these fields contain the values that you entered into each tab. For example, we can display the values that were entered in the ``Setup`` tab by typing ``CONN_x.Setup``, which returns several fields (only the first few are displayed in the figure below):
+
+.. figure:: 11_CONN_x_Setup.png
+
+Note the correspondence between the values entered in these fields, and the values that are entered when you load the ``conn_Arithmetic_Project.mat`` file. If we want, we can edit the values within the CONN_x structure from the Matlab terminal, save it as a .mat file, and then load it into the CONN toolbox. The edits we make in the Matlab terminal should then be reflected in the GUI.
+
+Try this by typing the following line of code in the Matlab terminal:
+
+::
+
+  CONN_x.Setup.RT = 1
+  
+This replaces the original value of 3.56 with a value of 1. We can then save the updated CONN_x structure into our .mat file by typing:
+
+::
+
+  save('conn_Arithmetic_Project.mat', 'CONN_x')
+  
+This uses the Matlab ``save`` command, which requires two arguments: The .mat file to be written, and any values or structures to be saved into it. In this case, we save the CONN_x structure into the .mat file. If you now load it from the CONN GUI (by clicking on ``Project -> Open`` and selecting the file), the Basic Information tab should be updated with the new Repetition Time that you specified in the Matlab terminal.
+
+The CONN_x structure also specifies menu options. For example, the Batch.Setup section of the CONN help page says about the field ``acquisitiontype``:
+
+::
+
+  acquisitiontype : 1/0: Continuous acquisition of functional volumes [1] 
+  
+This is a binary variable, with 1 signalizing a continuous acquisition of functional volumes (which is the default, as indicated by the brackets). If we set this to 0, then it will be the other option that is available, which is spare sampling. As an exercise, set the field ``CONN_x.Setup.acquisitiontype`` to 0, save the CONN_x structure into the .mat file, and reload the .mat file. What do you observe has changed?
