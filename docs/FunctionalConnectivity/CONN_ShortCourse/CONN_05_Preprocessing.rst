@@ -12,7 +12,7 @@ Overview
 
 Preprocessing a resting-state dataset is similar to how you preprocessing a task-related dataset: We have the same preprocessing steps of realignment, normalization, smoothing, and so on. The major difference between analyzing the two types of datasets is the threshold that we allow for motion. Resting-state datasets are notoriously susceptible to motion-related artifacts - even small movements can introduce spurious correlations. These artifacts are particularly problematic for laboratories studying disorders such as schizophrenia, or for researchers who scan very old or very young subjects. 
 
-There is no simple way to address this problem, aside from adequately training the subjects to move as little as possible. That said, CONN uses several methods for mitigating movements artifacts, including ART (Artifact Removal Toolbox) and principal component filtering of signal from the white matter and cerebrospinal fluid. To perform all of the classical preprocessing steps as well as removal of movement artifacts, click on the ``Preprocessing`` button at the bottom left of the screen. 
+There is no simple way to address this problem, aside from training the subjects to move as little as possible. That said, CONN uses several methods for mitigating movements artifacts, including ART (Artifact Removal Toolbox) and principal component filtering of signal from the white matter and cerebrospinal fluid. To perform all of the classical preprocessing steps as well as removal of movement artifacts, click on the ``Preprocessing`` button at the bottom left of the screen. 
 
 .. figure:: 05_Preprocessing_Menu.png
 
