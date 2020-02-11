@@ -56,7 +56,39 @@ The output from these commands are tab-delimited text files that can be read int
 
 .. note::
 
-  In the future, I will add sections on how to resample a volumetric ROI to the surface, and then extract structural measurements from that ROI.
+  In the future, I will add sections on how to resample a volumetric ROI to the surface, and then extract structural measurements from that ROI. The code below was created some time ago, but it will 
+
+
+::
+  
+  #!/bin/tcsh
+
+  setenv SUBJECTS_DIR `pwd`
+
+  #Create 5mm sphere ROI with 3dUndump; ROI_file.txt contains x-, y-, and z-coordinates for center of sphere (e.g., 0 30 20)
+  3dUndump -srad 5 -prefix S2.nii -master MNI_caez*+tlrc.HEAD -orient LPI -xyz ROI_file.txt
+
+  #View in tkmedit
+  tkmedit -f MNI_caez_N27.nii -overlay S2.nii -fthresh 0.5
+
+  #Register anatomical template to fsaverage (FreeSurfer template)
+  fslregister --s fsaverage --mov MNI_caez_N27.nii --reg tmp.dat
+
+  #View ROI on fsaverage
+  tkmedit fsaverage T1.mgz -overlay S2.nii -overlay-reg tmp.dat -fthresh 0.5 -surface lh.white -aux-surface rh.white
+
+
+  #Map ROI to fsaverage surface
+  mri_vol2surf --mov S2.nii \
+          --reg tmp.dat \
+          --projdist-max 0 1 0.1 \
+          --interp nearest \
+          --hemi lh \
+          --out lh.fsaverage.S2.mgh \
+          --noreshape
+
+  #Check how well the ROI maps onto the inflated surface
+  tksurfer fsaverage lh inflated -overlay lh.fsaverage.S2.mgh -fthresh 0.5
 
 
 -----------
