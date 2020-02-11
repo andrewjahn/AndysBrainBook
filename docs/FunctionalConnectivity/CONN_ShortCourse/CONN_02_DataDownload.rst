@@ -25,14 +25,14 @@ This navigates to your Desktop and creates a new folder called ``CONN_Demo``. Th
 ::
 
   cd CONN_Demo
-  mkdir func
-  mkdir anat
+  mkdir sub-01/func
+  mkdir sub-01/anat
   
-Which will create the folders ``func`` and ``anat`` within the CONN_Demo directory. To move your downloaded files into their corresponding directories, type the following:
+Which will create the folders ``func`` and ``anat`` within a folder called ``sub-01``. To move your downloaded files into their corresponding directories, type the following:
 
 ::
 
-  movefile('~/Downloads/sub-01_task-rest_bold.nii.gz', 'func')
-  movefile('~/Downloads/sub-01_T1w.nii', 'anat')
+  movefile('~/Downloads/sub-01_func_sub-01_task-rest_bold.nii.gz', 'sub-01/func')
+  movefile('~/Downloads/sub-01_anat_sub-01_T1w.nii', 'sub-01/anat')
   
-Type ``ls anat`` and ``ls func`` to make sure that the functional data is now located in the func directory, and that the anatomical data is located in the anat directory. If so, you are now ready to begin using the CONN toolbox, which we now turn to.
+Type ``ls sub-01/anat`` and ``ls sub-01/func`` to make sure that the functional data is now located in the func directory, and that the anatomical data is located in the anat directory. If so, you are now ready to begin using the CONN toolbox, which we now turn to.
