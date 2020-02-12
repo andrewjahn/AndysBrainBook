@@ -41,3 +41,43 @@ A couple of years after the Biswal et al. 1995 paper, Gordon Shulman and a team 
 
 .. figure:: 00_Shulman_1997.png
 
+It wasn't until nearly a decade later, in 2005, that Michael Fox and his colleagues demonstrated that these regions were anti-correlated with one another: An increase in activity in the task-activated regions, for example, was associated with a decrease in activity in the rest-related regions. The three major nodes of these task-activated regions were identified as the intraparietal sulcus, the frontal eye fields, and the middle temporal cortex, whereas the three major nodes of the rest-activated regions were the medial prefrontal cortex, posterior cingulate cortex, and lateral parietal cortex. These opposing sets of nodes were dubbed the **task-positive** and **task-negative** networks, respectively.
+
+.. figure:: 00_Fox_2005.png
+
+One implication from this study was that in order to do a task effectively, there had to be coordination between each of the task-positive nodes, as indexed by the amount of correlation between the nodes - and, as important, that there had to be a coordinated decrease in activity in the task-negative nodes. Disruptions in this coordination could then be linked to different mental disorders, such as schizophrenia and bipolar disorder.
+
+
+Resting-State Artifacts and The Debate over Global Signal Regression
+********************************************************************
+
+Motion Artifacts
+^^^^^^^^^^^^^^^^
+
+As resting-state studies became more widespread in the mid-2000's, there was more scrutiny over the proper methods for doing so. Although Biswal had demonstrated that the BOLD signal fluctuations underlying resting-state signals were not artifacts, it became increasingly apparent that resting-state data was highly susceptible to certain types of artifacts - in particular, motion. 
+
+Although from the beginning motion had been identified as an artifact and potential confound for task-related studies, researchers later demonstrated that it could lead to spurious correlations between different parts of the brain. Many resting-state studies of elderly populations, for example, found that correlations between spatially distant nodes such as the posterior and anterior regions of the cingulate cortex were lower compared to younger adults. These differences were thought to reflect a deterioration of the brains of the older subjects, similar to how the screws and pins of a machine are worn down over time.
+
+.. figure:: 00_AndrewsHanna_Fig1.png
+
+Although these studies either controlled for motion as a covariate or only included subjects with low levels of motion, Van Dijk and colleagues (2011) demonstrated that even miniscule levels of motion could lead to significant differences between groups. Grouping subjects according to how much they moved showed differences even between groups with mean motions of 0.044 and 0.048. Averaged across large groups of subjects, very subtle differences in motion can become the dominant source of variance.
+
+.. figure:: 00_VanDijk_Figure4.png
+
+  Figure 4 from the Van Dijk et al. (2011) paper. The two groups on the right differ by only a few thousandths of a millimeter of average motion - an extremely small difference, but one that can still lead to significant differences between the groups.
+
+
+Physiological Noise
+^^^^^^^^^^^^^^^^^^^
+
+Motion artifacts are often thought to be caused by the subject's deliberate movements: Adjusting the head or scratching an itch, for example. While those types of motion are the most conspicuous, other involuntary motions can have as large of an effect, and are often more insidious. Respiration and heart rate are the two main causes of small, involuntary motions that can have an effect on between-group differences. Measuring these physiological signals and regressing them out can account for spurious correlations that take place near the arteries or at the edges of the brain, where these artifacts are most prominent.
+
+.. figure:: 00_Kasper_2017.png
+
+
+Global Signal Regression
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Although movement artifacts have always been considered a source of noise that needs to be accounted for, one method of analyzing the data has caused controversy since it was first introduced: **Global Signal Regression**, or GSR. One of the earliest uses of GSR was by Fox et al. (2005, discussed above), which examined anti-correlations between the resting-state and task-positive networks. However, it was later shown by Murphy et al. (2007) that GSR causes spurious negative correlations in voxels.
+
+The rationale for including GSR is that it captures several sources of noise not related to neural activity: Respiration, head movement, scanner drift, and so on.
