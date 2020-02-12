@@ -17,16 +17,26 @@ To test this, we will run a **group-level (or 2nd-level) analysis**: we calculat
 Setting up the Group-Level Analysis
 ***********************************
 
-In the last chapter, we analyzed a single run for a single subject - in other words, we ran a 1st-level analysis. This is appropriate for determining whether there are significant correlations within a single subject, but we cannot do any group inference. To load more subjects, we will first have to download more subjects. Go back to the Arithmetic study (insert link), and download the functional and anatomical data for subjects 2-6.
+In the last chapter, we analyzed a single run for a single subject - in other words, we ran a 1st-level analysis. This is appropriate for determining whether there are significant correlations within a single subject, but we cannot do any group inference. To load more subjects, we will first have to download more subjects. Go back to the `Arithmetic study <https://openneuro.org/datasets/ds002422/versions/1.0.0>`__ and download the functional and anatomical data for subjects 2-6.
 
 .. note::
 
-  If your Downloads folder is the default, you can move all of the downloaded images to their respective folders by typing:
+  If your Downloads folder is the default, you can move all of the downloaded images to their respective folders by using the following code, typed from the CONN_Demo directory:
   
   ::
   
-    movefile('~/Downloads/*T1w*', 'anat')
-    movefile('~/Downloads/*task-rest_bold*', 'func')
+    subjects = [02 03 04 05 06];
+    
+    for subject=subjects
+    
+      subject=num2str(subject, '%02d');
+      mkdir(['sub-' num2str(subject) '/anat'])
+      mkdir(['sub-' num2str(subject) '/func'])
+      movefile(['~/Downloads/sub-' num2str(subject) '_anat_sub-' num2str(subject) '_T1w.nii'], ['sub-' num2str(subject) '/anat'])
+      movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-rest_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
+      
+    end
+      
  
 
 From the CONN GUI, click on the Setup tab and click ``Basic``. Change the number of subjects from 1 to 6, and observe how the number of sessions and the repetition time expands to reflect the total number of participants. Each number corresponds to each subject; for example, the third number in the "Number of sessions or runs" field corresponds to the third subject that we will load. If the parameters are different for any of the subjects, make sure that the edits match the subject.
