@@ -122,6 +122,37 @@ We now have a mask that we can use for our ROI analysis, and we can use the same
 	Marsbar is also capable of ROI analyses using the marsbar GUI. This procedure involves many steps, and will not be covered in this tutorial. For those interested in learning more about it, see `this blog post <http://andysbrainblog.blogspot.com/2012/11/parameter-extraction-with-marsbar.html>`__.
 	
 	
+Using the Command Line for ROI Analysis
+***************************************
+
+If you already have a mask and a contrast that you are extracting from, you can do an ROI analysis using Matlab code and SPM's spm_get_data command. The following script (which can also be downloaded `here <https://github.com/andrewjahn/SPM_Scripts/blob/master/Extract_ROI_Data.m>`__) requires an ROI and a contrast as arguments:
+
+::
+
+	function ROI_data = Extract_ROI_Data(ROI, Contrast)
+
+	    Y = spm_read_vols(spm_vol(ROI),1);
+	    indx = find(Y>0);
+	    [x,y,z] = ind2sub(size(Y),indx);
+
+	    XYZ = [x y z]';
+
+	    mean(spm_get_data(Contrast, XYZ),2)
+
+	end
+	
+The ``Contrast`` argument can be a path pointing to a contrast, such as "con_0001.nii" that was generated during either the 1st- or 2nd-level analysis. Alternatively, you can navigate into a 2nd-level directory and type ``load SPM``. This will load the SPM structure, and it contains a field called ``SPM.xY.P``: a cell array with paths to each of the contrasts that went into the 2nd-level analysis.
+
+In our current example, navigate to the folder ``2ndLevel_Inc-Con``. Save the above code into a .m file and call it ``Extract_ROI_Data``. Then type the following:
+
+::
+
+	load SPM
+	Extract_ROI_Data('BA24.nii', SPM.xY.P)
+	
+It should return the same values as when you did the anatomical ROI analysis above for the BA24 mask.
+	
+	
 Biased Analyses
 ***************
 
