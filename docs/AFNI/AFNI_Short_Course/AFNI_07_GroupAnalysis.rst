@@ -183,7 +183,7 @@ Non-Parametric Tests with 3dClustSim
 
 .. note::
 
-  For details on cluster thresholding and the terms that are used in this section, see :ref:`Appendix A <Appendix_A_ClusterCorrection>` of the fMRI Course.
+  For details on cluster thresholding and the terms that are used in this section, see :ref:`Appendix A <Appendix_A_ClusterCorrection>` of the fMRI Course, focusing on the section "AFNI's 3dFWHMx and 3dClustSim".
 
 Newer versions of AFNI (from about 2019 onwards) have a new option, ``-3dClustSim``. This carries out a **non-parametric** test which doesn't make any assumptions about the shape of the null distribution; instead, a null distribution is created from the data itself, and statistical significance is determined by comparing the data to its own null distribution.
 
