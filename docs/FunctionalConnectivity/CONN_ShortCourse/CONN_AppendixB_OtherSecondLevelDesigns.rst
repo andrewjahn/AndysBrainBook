@@ -24,11 +24,11 @@ In the CONN GUI, open a new project, calling it ``PrePost_CONN``. In the Basic t
 
 The Functional tab will display a menu containing one subject, and two sessions for that subject. Hold shift and click to select both sessions, navigate to the folder containing the functional data, and hold control and click to select both the session 1 and session 2 data. Click ``Import``, and CONN will load each functional run into its corresponding session. Note that there is now a bar beneath the functional images displayed in the middle window: If Session 1 is highlighted, then the left-hand part of the bar is highlighted in orange, and the right-hand part of the bar is grey; if Session 2 is highlighted, the color-coding is reversed. The orange highlighting indicates that there are two sessions, and each is assigned its corresponding volumes.
 
-.. figure:: 10_Functional_prepost.png
+.. figure:: B_Functional_prepost.png
 
 Now we will click on the ``Conditions`` tab. When we were analyzing one session from one subject, the default was to generate a condition called ``rest`` that represented the time-series across the entire session. Now that we have two sessions, it will be more helpful to label them Pre and Post. Rename ``rest`` to ``Pre``, making sure that Session 1 for Subject 1 is highlighted. Then click on the ``+`` sign at the bottom of the Conditions menu to add a new Condition, rename that condition to ``Post``, highlight Session 2 for subject 1, and use the "Condition interval" menu to specify that the ``condition spans entire session``. This will highlight the second session in orange:
 
-.. figure:: 10_Conditions_prepost.png
+.. figure:: B_Conditions_prepost.png
 
 .. note::
 
