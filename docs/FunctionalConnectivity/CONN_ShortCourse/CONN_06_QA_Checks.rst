@@ -45,7 +45,7 @@ The two side-by-side axial slices illustrate how the grey matter mask looks both
   
   For both computing the average time-series and doing PCA, you can choose to do a weighted version of either one. In this case, more weight will be given to voxels determined by the Segmentation step to more likely belong to one tissue type as opposed to any of the others.
   
-  Also note that there is another indicator, labeled ``from secondary dataset #1 (unsmoothed)``, that signalizes for the time-series to be extracted from the unsmoothed data. The smoothing step is performed to assist with spatial normalization, but the extracted data is unsmoothed - the idea being that there is less mixing of signal between different tissue types in the unsmoothed data.
+  Also note that there is another indicator, labeled ``from secondary dataset #1 (unsmoothed)``, that signalizes for the time-series to be extracted from the unsmoothed data. The smoothing step is performed in case you want those images, but the extracted data is unsmoothed - the idea being that there is less mixing of signal between different tissue types in the unsmoothed data.
 
 Atlases and Networks
 ^^^^^^^^^^^^^^^^^^^^
