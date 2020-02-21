@@ -11,7 +11,7 @@ Overview
 
 Until now, we have analyzed **resting-state** data, in which the subject does nothing except remain still and awake. However, it is also common for studies to collect task-related data as well, in which the subject does some kind of activity; such as doing the :ref:`Flanker Task <fMRI_02_ExperimentalDesign>`, for example. In this chapter we will cover how to analyze task-related data by using a technique called **Psychophysiological Interactions (PPI)**, which reveals whether the functional connectivity between two nodes depends on what task the subject is currently doing.
 
-.. figure:: 11_gPPI_Example.png
+.. figure:: 11_gPPI_Example.jpg
 
   Example of a PPI analysis, taken from Outhred et al. (2015). The functional connectivity between the left amygdala seed region and the right IFG changes depending on which condition the subject is in.
 
