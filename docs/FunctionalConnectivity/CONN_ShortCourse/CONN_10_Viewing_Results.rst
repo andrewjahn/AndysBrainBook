@@ -80,7 +80,7 @@ The bottom panel shows coordinates for each cluster that passes the thresholds s
 
 Before leaving this section, highlight a cluster that is significant in the column labeled "size p-FDR", but not "size p-FWE". What do you think would happen to that cluster if you switched your threshold from "cluster-size p-FDR corrected" to "cluster-size p-FWE corrected"?
 
-10_Coordinates.png
+.. figure:: 10_Coordinates.png
 
 
 ROI-to-ROI Results
