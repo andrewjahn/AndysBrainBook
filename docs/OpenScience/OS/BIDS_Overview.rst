@@ -12,7 +12,7 @@ BIDS Overview and Tutorial
   
 .. note::
 
-  The Stanford Center for Reproducibility (which created BIDS) has their own tutorial `here <http://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__.
+  The Stanford Center for Reproducible Neuroscience (which created BIDS) has their own tutorial `here <http://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__.
 
 What is BIDS?
 *************
