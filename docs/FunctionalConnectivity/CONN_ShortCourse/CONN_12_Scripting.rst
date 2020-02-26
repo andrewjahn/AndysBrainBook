@@ -64,11 +64,11 @@ In fact, you already have created such a structure, even if you weren't aware of
   
 This returns a structure in your workspace called ``CONN_x``. When you type ``CONN_x``, you will see the following text returned:
 
-.. figure:: 11_CONN_x.png
+.. figure:: 12_CONN_x.png
 
 Each of these fields contain the values that you entered into each tab. For example, we can display the values that were entered in the ``Setup`` tab by typing ``CONN_x.Setup``, which returns several fields (only the first few are displayed in the figure below):
 
-.. figure:: 11_CONN_x_Setup.png
+.. figure:: 12_CONN_x_Setup.png
 
 Note the correspondence between the values entered in these fields, and the values that are entered when you load the ``conn_Arithmetic_Project.mat`` file. If we want, we can edit the values within the CONN_x structure from the Matlab terminal, save it as a .mat file, and then load it into the CONN toolbox. The edits we make in the Matlab terminal should then be reflected in the GUI.
 
@@ -93,3 +93,130 @@ The CONN_x structure also specifies menu options. For example, the Batch.Setup s
   acquisitiontype : 1/0: Continuous acquisition of functional volumes [1] 
   
 This is a binary variable, with 1 signalizing a continuous acquisition of functional volumes (which is the default, as indicated by the brackets). If we set this to 0, then it will be the other option that is available, which is spare sampling. As an exercise, set the field ``CONN_x.Setup.acquisitiontype`` to 0, save the CONN_x structure into the .mat file, and reload the .mat file. What do you observe has changed?
+
+
+Creating the conn Batch Variable
+********************************
+
+Having seen how CONN creates a Matlab structure from the GUI, we will now create our own structure using Matlab code. The structure will be called **batch**, and it will contain fields indicating which files to load and which options to run.
+
+.. note::
+
+  The following code is adapted from the file ``conn_batch_workshop_nyudataset.m``, which you can download from Alfonso Nieto-Castanon's ``NITRC website <https://www.nitrc.org/frs/?group_id=279>``. The CONN website also contains examples of how to modify your batch script.
+
+
+Loading the files
+^^^^^^^^^^^^^^^^^
+
+The first block of code in the script will load the anatomical and functional files. It uses a **recursive search** to look into every directory below the current directory to find the files matching the file you specified. This is done by the command **conn_dir**, which takes a string as an argument; if you want to load several subjects, you can use a regular expression such as an asterisk (see the "wildcard" section of :ref:`this tutorial <Unix_07_Scripting>` for more details). 
+
+Whichever method you choose, make sure that the ``NSUBJECTS`` variable matches the total number of subjects that will be selected. For example, if there are six subjects in the current directory and you are using a wildcard to select the resting-state data, you would set NSUBJECTS to 6:
+
+::
+
+  NSUBJECTS=1;
+  cwd=pwd;
+  FUNCTIONAL_FILE=cellstr(conn_dir('sub-01_func_sub-01_task-rest_bold.nii.gz'));
+  STRUCTURAL_FILE=cellstr(conn_dir('sub-01_anat_sub-01_T1w.nii'));
+  if rem(length(FUNCTIONAL_FILE),NSUBJECTS),error('mismatch number of functional files %n', length(FUNCTIONAL_FILE));end
+  if rem(length(STRUCTURAL_FILE),NSUBJECTS),error('mismatch number of anatomical files %n', length(FUNCTIONAL_FILE));end
+  nsessions=length(FUNCTIONAL_FILE)/NSUBJECTS;
+  FUNCTIONAL_FILE=reshape(FUNCTIONAL_FILE,[NSUBJECTS,nsessions]);
+  STRUCTURAL_FILE={STRUCTURAL_FILE{1:NSUBJECTS}};
+  disp([num2str(size(FUNCTIONAL_FILE,1)),' subjects']);
+  disp([num2str(size(FUNCTIONAL_FILE,2)),' sessions']);
+  TR=3.56; % Repetition time
+  
+Executing this block of code will return both the number of subjects and the number of sessions per subject.
+
+
+The Setup Field
+^^^^^^^^^^^^^^^
+
+Each field after the ``batch`` structure will be one of the tabs listed in the CONN GUI: Setup, Denoising, and Analysis.
+
+
+::
+
+  %% CONN-SPECIFIC SECTION: RUNS PREPROCESSING/SETUP/DENOISING/ANALYSIS STEPS
+  %% Prepares batch structure
+  clear batch;
+  batch.filename=fullfile(cwd,'Arithmetic_Scripted.mat');            % New conn_*.mat experiment name
+
+  %% SETUP & PREPROCESSING step (using default values for most parameters, see help conn_batch to define non-default values)
+  % CONN Setup                                            % Default options (uses all ROIs in conn/rois/ directory); see conn_batch for additional options 
+  % CONN Setup.preprocessing                               (realignment/coregistration/segmentation/normalization/smoothing)
+  batch.Setup.isnew=1;
+  batch.Setup.nsubjects=NSUBJECTS;
+  batch.Setup.RT=TR;                                        % TR (seconds)
+  batch.Setup.functionals=repmat({{}},[NSUBJECTS,1]);       % Point to functional volumes for each subject/session
+  for nsub=1:NSUBJECTS,for nses=1:nsessions,batch.Setup.functionals{nsub}{nses}{1}=FUNCTIONAL_FILE{nsub,nses}; end; end %note: each subject's data is defined by three sessions and one single (4d) file per session
+  batch.Setup.structurals=STRUCTURAL_FILE;                  % Point to anatomical volumes for each subject
+  nconditions=nsessions;                                  % treats each session as a different condition (comment the following three lines and lines 84-86 below if you do not wish to analyze between-session differences)
+  if nconditions==1
+      batch.Setup.conditions.names={'rest'};
+      for ncond=1,for nsub=1:NSUBJECTS,for nses=1:nsessions,              batch.Setup.conditions.onsets{ncond}{nsub}{nses}=0; batch.Setup.conditions.durations{ncond}{nsub}{nses}=inf;end;end;end     % rest condition (all sessions)
+  else
+      batch.Setup.conditions.names=[{'rest'}, arrayfun(@(n)sprintf('Session%d',n),1:nconditions,'uni',0)];
+      for ncond=1,for nsub=1:NSUBJECTS,for nses=1:nsessions,              batch.Setup.conditions.onsets{ncond}{nsub}{nses}=0; batch.Setup.conditions.durations{ncond}{nsub}{nses}=inf;end;end;end     % rest condition (all sessions)
+      for ncond=1:nconditions,for nsub=1:NSUBJECTS,for nses=1:nsessions,  batch.Setup.conditions.onsets{1+ncond}{nsub}{nses}=[];batch.Setup.conditions.durations{1+ncond}{nsub}{nses}=[]; end;end;end
+      for ncond=1:nconditions,for nsub=1:NSUBJECTS,for nses=ncond,        batch.Setup.conditions.onsets{1+ncond}{nsub}{nses}=0; batch.Setup.conditions.durations{1+ncond}{nsub}{nses}=inf;end;end;end % session-specific conditions
+  end
+  batch.Setup.preprocessing.steps='default_mni';
+  batch.Setup.preprocessing.sliceorder='interleaved (Siemens)';
+  batch.Setup.done=1;
+  batch.Setup.overwrite='Yes';
+  
+  
+If you want, you can also load your custom atlas, discussed more in :ref:`Appendix C <CONN_AppendixC_ImportingROIs>`. For example, if I have a folder called ``ROIs`` which contains the atlas ``AndyROIs.nii`` and the header text file ``AndyROIs.txt``, I could add the following code:
+
+::
+
+  batch.Setup.rois.files{1}='ROIs/AndyROIs.nii';
+  batch.Setup.rois.multiplelabels = 1;
+  
+The ``multiplelabels`` field, set to ``1``, indicates that there is a text file in the folder where the ROIs are located. This file provides a label for each ROI in the atlas. Note that this will overwrite the default of files ``atlas.nii`` and ``networks.nii``; if you want to include them in addition to your custom ROIs, you will need to add them in the script; e.g.,
+
+::
+
+  batch.Setup.rois.files{2}='~/conn/rois/atlas.nii';
+  batch.Setup.rois.files{3}='~/conn/rois/networks.nii';
+  
+  
+The Denoising Field
+^^^^^^^^^^^^^^^^^^^
+
+::
+
+  %% DENOISING step
+  % CONN Denoising                                    % Default options (uses White Matter+CSF+realignment+scrubbing+conditions as confound regressors); see conn_batch for additional options 
+  batch.Denoising.filter=[0.01, 0.1];                 % frequency filter (band-pass values, in Hz)
+  batch.Denoising.done=1;
+  batch.Denoising.overwrite='Yes';
+
+The Analysis Field
+^^^^^^^^^^^^^^^^^^
+
+::
+
+  %% FIRST-LEVEL ANALYSIS step
+  % CONN Analysis                                     % Default options (uses all ROIs in conn/rois/ as connectivity sources); see conn_batch for additional options 
+  batch.Analysis.done=1;
+  batch.Analysis.overwrite='Yes';
+
+Running the Batch
+*****************
+
+You can run the batch from the Terminal by using the command ``conn_batch``:
+
+::
+
+  conn_batch(batch);
+  
+All of the steps you specified earlier will be run. You can then open up the CONN GUI as you did in the previous tutorials, or load it from the command line:
+
+::
+
+  conn
+  conn('load',fullfile(cwd,'Arithmetic_Scripted.mat'));
+  conn gui_results
