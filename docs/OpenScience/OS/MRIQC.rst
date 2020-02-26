@@ -76,16 +76,16 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
     echo ""
     echo "Running mriqc on participant $s"
     echo ""
-    unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg 	\
-    $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${s} 		\
-    participant 													\
-    --participant-label $s 											\
-    --n_proc $nthreads												\
-    --hmc-fsl														\
-    --correct-slice-timing											\
-    --mem_gb $mem 													\
-    --float32 														\
-    --dry-run 														\
+    unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
+    $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${s} \
+    participant \
+    --participant-label $s \
+    --n_proc $nthreads \
+    --hmc-fsl \
+    --correct-slice-timing \
+    --mem_gb $mem \
+    --float32 \
+    --dry-run \
     -w $bids_root_dir/derivatives/mriqc/sub-${s}
   done
 
