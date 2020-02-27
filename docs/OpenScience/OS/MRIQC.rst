@@ -68,18 +68,18 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
 
   #Make mriqc directory and participant directory in derivatives folder
   if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
-    mkdir $bids_root_dir/derivatives/mriqc
+  mkdir $bids_root_dir/derivatives/mriqc
   fi
 
   if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${subj} ]; then
-    mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
+  mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
   fi
 
   #Run MRIQC
   echo ""
   echo "Running mriqc on participant $s"
   echo ""
-  
+
   if [ $container == singularity ]; then
     unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
     $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${subj} \
@@ -92,7 +92,7 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
     --ants-nthreads $nthreads \
     -w $bids_root_dir/derivatives/mriqc/sub-${subj}
   else
-  	docker run -it --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives/mriqc/sub-${subj}:/out 
+    docker run -it --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives/mriqc/sub-${subj}:/out 
     poldracklab/mriqc:0.15.1 /data /out participant \
     --n_proc $nthreads \
     --hmc-fsl \
