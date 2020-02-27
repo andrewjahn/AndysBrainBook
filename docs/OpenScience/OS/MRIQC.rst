@@ -49,43 +49,41 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
 ::
 
   #!/bin/bash
-  
+
   #User inputs:
   bids_root_dir=$HOME/BIDS_tutorial
-  subj=01
+  s=01
   nthreads=1
-  
-  #Begin:
-  for s in ${subj[*]}
-  do
-    echo ""
-    echo $s
-    echo ""
 
-    #Make mriqc directory and participant directory in derivatives folder
-    if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
-      mkdir $bids_root_dir/derivatives/mriqc
-    fi
+  #Make mriqc directory and participant directory in derivatives folder
+  if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
+    mkdir $bids_root_dir/derivatives/mriqc
+  fi
 
-    if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${s} ]; then
-      mkdir $bids_root_dir/derivatives/mriqc/sub-${s}
-    fi
+  if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${s} ]; then
+    mkdir $bids_root_dir/derivatives/mriqc/sub-${s}
+  fi
 
-    #Run MRIQC
-    echo ""
-    echo "Running mriqc on participant $s"
-    echo ""
-    unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
-    $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${s} \
-    participant \
-    --n_proc $nthreads \
-    --hmc-fsl \
-    --correct-slice-timing \
-    --float32 \
-    --dry-run \
-    -w $bids_root_dir/derivatives/mriqc/sub-${s}
-  done
+  #Run MRIQC
+  echo ""
+  echo "Running mriqc on participant $s"
+  echo ""
+  unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
+  $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${s} \
+  participant \
+  --n_proc $nthreads \
+  --hmc-fsl \
+  --correct-slice-timing \
+  --float32 \
+  -w $bids_root_dir/derivatives/mriqc/sub-${s}
 
 
-It's worth noting that the MRIQC command is rather bare-bones; if you're interested in applying additional or differnt features to your MRIQC command, refer to the options `here <https://mriqc.readthedocs.io/en/stable/running.html>`__.
+To run the script type the following into the command line, line by line:
+
+::
+
+  bash
+  source $HOME/BIDS_tutorial/code/mriqc.sh
+
+MRIQC will take awhile to run to completion, so you can leave the terminal window aside. It's worth noting that the MRIQC command is rather bare-bones; if you're interested in applying additional or differnt features to your MRIQC command, refer to the options `here <https://mriqc.readthedocs.io/en/stable/running.html>`__. The time it takes MRIQC to finish is contingent on the size of your data, the amount of processing power you're feeding MRIQC, and the feature options selected. 
 
