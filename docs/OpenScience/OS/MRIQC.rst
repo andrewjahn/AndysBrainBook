@@ -57,38 +57,37 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
 
 ::
 
-#!/bin/bash
+  #!/bin/bash
 
-#User inputs:
-bids_root_dir=$HOME/BIDS_tutorial
-subj=01
-nthreads=2
-mem=10 #gb
- 
-#Make mriqc directory and participant directory in derivatives folder
-if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
-  mkdir $bids_root_dir/derivatives/mriqc
-fi
+  #User inputs:
+  bids_root_dir=$HOME/BIDS_tutorial
+  subj=01
+  nthreads=2
+  mem=10 #gb
 
-if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${subj} ]; then
-  mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
-fi
+  #Make mriqc directory and participant directory in derivatives folder
+  if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
+    mkdir $bids_root_dir/derivatives/mriqc
+  fi
 
-#Run MRIQC
-echo ""
-echo "Running mriqc on participant $s"
-echo ""
-unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
-$bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${subj} \
-participant \
---n_proc $nthreads \
---hmc-fsl \
---correct-slice-timing \
---mem_gb $mem \
---float32 \
---ants-nthreads $nthreads \
--w $bids_root_dir/derivatives/mriqc/sub-${subj}
+  if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${subj} ]; then
+    mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
+  fi
 
+  #Run MRIQC
+  echo ""
+  echo "Running mriqc on participant $s"
+  echo ""
+  unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
+  $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${subj} \
+  participant \
+  --n_proc $nthreads \
+  --hmc-fsl \
+  --correct-slice-timing \
+  --mem_gb $mem \
+  --float32 \
+  --ants-nthreads $nthreads \
+  -w $bids_root_dir/derivatives/mriqc/sub-${subj}
 
 To run the script type the following into the command line, line by line:
 
