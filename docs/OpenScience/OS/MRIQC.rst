@@ -54,7 +54,6 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
   bids_root_dir=$HOME/BIDS_tutorial
   subj=01
   nthreads=1
-  mem=20gb
   
   #Begin:
   for s in ${subj[*]}
@@ -79,11 +78,9 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
     unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
     $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${s} \
     participant \
-    --participant-label $s \
     --n_proc $nthreads \
     --hmc-fsl \
     --correct-slice-timing \
-    --mem_gb $mem \
     --float32 \
     --dry-run \
     -w $bids_root_dir/derivatives/mriqc/sub-${s}
