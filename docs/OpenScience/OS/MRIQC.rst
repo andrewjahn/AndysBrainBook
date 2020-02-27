@@ -1,7 +1,7 @@
 .. _MRIQC:
 
 =============
-BIDS App Part 1: MRIQC tutorial
+BIDS App Tutorial Part 1: MRIQC
 =============
 
 -------------
@@ -25,14 +25,23 @@ This tutorial will demonstrate how to install MRIQC and run it on a dataset. The
   mv ~/Downloads/BIDS_data $HOME/BIDS_tutorial
   
   
-MRIQC Installation
-******************
+MRIQC Installation (Singularity)
+*******************************
 
-MRIQC runs as a Docker or Singularity container, so we'll first need to build the container. For this tutorial we will be building a Singularity container because Docker containers are not permitted on HPC systems due to required root access permissions that no HPC admin is going to allow. If you are working on a university HPC, you may already have the Singularity software available (just make sure you have version >= 2.5). Once ready, type the following into the command line to build the container:
+MRIQC runs as a Docker or Singularity container, so we'll first need to build the container. If you're on a Linux system then you'll want to build a Singularity container because Docker containers are not permitted on HPC systems due to required root access permissions that no HPC admin is going to allow. If you're using MacOS or Windows, skip this and review the Docker installation section instead. If you are working on a university HPC, you may already have the Singularity software available (just make sure you have version >= 2.5). Once ready, type the following into the command line to build the container:
 
 ::
 
   singularity build $HOME/mriqc-0.15.1.simg docker://poldracklab/mriqc:0.15.1
+  
+MRIQC Installation (Docker)
+***************************
+
+Go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Then go through the steps to install Docker. Once finished, type the following into the command line to build the container. 
+
+::
+
+  docker run -it poldracklab/mriqc:0.15.1 --version
   
 
 Making a script to run MRIQC
