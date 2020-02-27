@@ -108,5 +108,25 @@ If you're working on a personal laptop or something else then you can right-clic
 Now, regardless of which html report you open, you'll quickly notice that there is A LOT of information provided. A lot. While parsing and trying to understand all the diagnostics can be daunting, there are several ones that I would recommend you absolutely check. If you're viewing any of the participant level reports, these can be found towards the bottom of the report in the *Extracted Image Quality Metrics (IQMs)* tab.
 
 T1w amd T2w reports: Contrast-to-Noise Ratio (CNS)
+
 functional reports: motion parameters (fd mean, fd num, fd perc), and Signal-to-Noise Ratio (SNR)
+
+For the plots in the functional reports, I'd highly recommend examinig the *fMRI summary plot* to assess the motion across the acqusition period. 
+
+The group html reports will take the values from the *Extracted Image Quality Metrics (IQMs)* in the participant files and plot them together. This provides a wonderful visualization of your data, based on different diagnostics. Since we only have one participant, the group reports aren't particularily meaningful, but with a dataset set containing many subjects you can visually inspect for outliers. In addition to the visual reports, there are also corresponding .tsv files that contain the diagnostics, which are tremendously useful for excluding data based on pre-determined thresholds. 
+
+For additional information on the many diagnostics MRIQC provides, check out their documentation `here<https://mriqc.readthedocs.io/en/stable/measures.html>`__. 
+
+Final Thoughts
+**************
+
+In this tutorial we went over how to set up and run MRIQC on a BIDS dataset containing one subject. The purpose was to become familiar with how to run the software and assess the QA reports. If you found this useful and would like to apply MRIQC to your own data, you may want to include additional features in the script. Since this tutorial was an extrememly simplified implentation of MRIQC, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars<https://neurostars.org/>`__ or MRIQC's `github page<https://github.com/poldracklab/mriqc/issues>`__
+
+Additional MRIQC links
+**********************
+
+This is far from the only page detailing how to use MRIQC, so if you're interested I'd recommend you check out these other links.
+
+`Saren Seeley's BIDS, MRIQC, and fMRIPrep Tutorial<https://rpubs.com/sarenseeley/bids-fmriprep-mriqc>`__
+
 
