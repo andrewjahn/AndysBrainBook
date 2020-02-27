@@ -48,34 +48,37 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
 
 ::
 
-  #!/bin/bash
+#!/bin/bash
 
-  #User inputs:
-  bids_root_dir=$HOME/BIDS_tutorial
-  s=01
-  nthreads=1
+#User inputs:
+bids_root_dir=$HOME/BIDS_tutorial
+subj=01
+nthreads=2
+mem=10 #gb
+ 
+#Make mriqc directory and participant directory in derivatives folder
+if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
+  mkdir $bids_root_dir/derivatives/mriqc
+fi
 
-  #Make mriqc directory and participant directory in derivatives folder
-  if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
-    mkdir $bids_root_dir/derivatives/mriqc
-  fi
+if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${subj} ]; then
+  mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
+fi
 
-  if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${s} ]; then
-    mkdir $bids_root_dir/derivatives/mriqc/sub-${s}
-  fi
-
-  #Run MRIQC
-  echo ""
-  echo "Running mriqc on participant $s"
-  echo ""
-  unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
-  $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${s} \
-  participant \
-  --n_proc $nthreads \
-  --hmc-fsl \
-  --correct-slice-timing \
-  --float32 \
-  -w $bids_root_dir/derivatives/mriqc/sub-${s}
+#Run MRIQC
+echo ""
+echo "Running mriqc on participant $s"
+echo ""
+unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
+$bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${subj} \
+participant \
+--n_proc $nthreads \
+--hmc-fsl \
+--correct-slice-timing \
+--mem_gb $mem \
+--float32 \
+--ants-nthreads $nthreads \
+-w $bids_root_dir/derivatives/mriqc/sub-${subj}
 
 
 To run the script type the following into the command line, line by line:
@@ -96,7 +99,7 @@ To access the reports, go to the output directory by typing the following into t
 
   cd $HOME/BIDS_tutorial/derivatives/mriqc/sub-01
   
-MRIQC performs two analysis stages: participants and group. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated html file report. You'll need to use a browser to view these html reports. If you're on an HPC, you may already have a browser installed. For example, mine contains firefox, so in order to open the T1w html report via the command line I would type this:
+MRIQC performs two analysis stages: participant and group. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated html file report. You'll need to use a browser to view these html reports. If you're on an HPC, you may already have a browser installed. For example, mine contains firefox, so in order to open the T1w html report via the command line I would type this:
 
 ::
 
