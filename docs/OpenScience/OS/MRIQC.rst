@@ -133,8 +133,9 @@ If you're working on a personal laptop or equivalent else then you can right-cli
 
 Regardless of which HTML report you open, you will quickly notice that there is **A LOT** of information provided. A lot. While parsing and trying to understand all the diagnostics can be daunting, there are several ones that I would recommend you absolutely check. If you're viewing any of the participant level reports, these can be found towards the bottom of the report in the *Extracted Image Quality Metrics (IQMs)* tab.
 
-T1w amd T2w reports: Contrast-to-Noise Ratio (CNS)
-task reports: motion parameters (fd mean, fd num, fd perc), and Signal-to-Noise Ratio (SNR)
+*T1w and T2w reports*: Contrast-to-Noise Ratio (CNS)
+
+*task reports*: motion parameters (fd mean, fd num, fd perc), and Signal-to-Noise Ratio (SNR)
 
 For the plots in the functional reports, I'd highly recommend examining the *fMRI summary plot* to assess the motion across the functional acquisition period. 
 
