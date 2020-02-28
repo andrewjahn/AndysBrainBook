@@ -22,7 +22,7 @@ This tutorial will demonstrate how to install MRIQC and run it on a dataset. The
 
 ::
 
-  mv ~/Downloads/BIDS_data $HOME/BIDS_tutorial
+  mv ~/Downloads/BIDS_data/* $HOME/BIDS_tutorial
   
   
 MRIQC Installation Option #1: Singularity
@@ -47,7 +47,7 @@ Go to the Docker `installation page <https://docs.docker.com/install/>`__ and se
 Making a script to run MRIQC
 ****************************
 
-Running MRIQC entails specifying different command line options in order to properly run. Rather than doing this directly on the command line, we will make a script to run it. Firstly, tpye the following into the command line:
+Running MRIQC entails specifying different command line options in order to properly run. Rather than doing this directly on the command line, we will make a script to run it. Firstly, type the following into the command line:
 
 ::
 
