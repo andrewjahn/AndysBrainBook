@@ -18,9 +18,10 @@ MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform q
 MRIQC Tutorial
 **************
 
-This tutorial will demonstrate how to install MRIQC and run it on a dataset. The data that we'll be using is the BIDS-ified output from the `BIDS Overview and Tutorial <https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__. If you haven't checked out the BIDS tutorial, or aren't familiar with BIDS conversion, I'd highly recommend completing that before getting started here. If however you fancy yourself a BIDS god (or goddess) and/or are looking to take the path of least resistance, you can download the BIDS output data `here <https://drive.google.com/drive/folders/13NmGGaRxqgSaqs8zUOGLxlcj1I6BrNle?usp=sharing>`__. Be sure to download the entire folder and not just the subfolders or files. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files (presumably from your Downloads folder), and type the following into the command line, line by line:
+This tutorial will demonstrate how to install MRIQC and run it on a dataset. The data that we'll be using is the BIDS-ified output from the `BIDS Overview and Tutorial <https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__. If you haven't checked out the BIDS tutorial, or aren't familiar with BIDS conversion, I'd highly recommend completing that before getting started here. If however you fancy yourself a BIDS god (or goddess) and/or are looking to take the path of least resistance, you can download the BIDS output data `here <https://drive.google.com/drive/folders/13NmGGaRxqgSaqs8zUOGLxlcj1I6BrNle?usp=sharing>`__. Be sure to download the entire folder and not just the subfolders or files. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files (presumably from your Downloads folder), and type the following into the terminal, line by line:
 
 ::
+
   mkdir $HOME/BIDS_tutorial
   mv ~/Downloads/BIDS_data/* $HOME/BIDS_tutorial
   
