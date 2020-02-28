@@ -49,7 +49,7 @@ Go to the Docker `installation page <https://docs.docker.com/install/>`__ and se
 Making a script to run MRIQC
 ****************************
 
-Running MRIQC entails specifying different command line options in order to properly run. Rather than doing this directly on the command line, we will make a script to run it. Firstly, type the following into the terminal:
+Running MRIQC entails specifying different command line options in order to properly run. Rather than doing this directly through the terminal, we will make a script to run it. Firstly, type the following into the terminal:
 
 ::
 
