@@ -160,7 +160,7 @@ For additional information on the many diagnostics MRIQC provides, check out the
 Final Thoughts
 **************
 
-In this tutorial we went over how to set up and run MRIQC on a BIDS dataset containing one subject. The purpose was to become familiar with how to run the software and assess the QA reports. If you found this useful and would like to apply MRIQC to your own data, you may want to include additional features in the script. Since this tutorial was an extrememly simplified implentation of MRIQC, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org/>`__ or MRIQC's `github page <https://github.com/poldracklab/mriqc/issues>`__
+In this tutorial we went over how to set up and run MRIQC on a BIDS dataset containing one subject. The purpose was to become familiar with how to run the software and assess the QA reports. If you found this useful and would like to apply MRIQC to your own data, you may want to include additional features in the script, or make your own. Since this tutorial was an extrememly simplified implentation of MRIQC, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org/>`__ or MRIQC's `github page <https://github.com/poldracklab/mriqc/issues>`__
 
 Additional MRIQC links
 **********************
