@@ -64,51 +64,53 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
 Press the “i” key, and paste the contents below into the file. To save and close the file, press the Escape button, and type the following: :wq
 
 ::
-#!/bin/bash
 
-#User inputs:
-bids_root_dir=$HOME/BIDS_tutorial
-subj=01
-nthreads=2
-mem=10 #gb
-container=docker #docker or singularity
+  #!/bin/bash
 
-#Make mriqc directory and participant directory in derivatives folder
-if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
-mkdir $bids_root_dir/derivatives/mriqc
-fi
+  #User inputs:
+  bids_root_dir=$HOME/BIDS_tutorial
+  subj=01
+  nthreads=2
+  mem=10 #gb
+  container=docker #docker or singularity
 
-if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${subj} ]; then
-mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
-fi
+  #Make mriqc directory and participant directory in derivatives folder
+  if [ ! -d $bids_root_dir/derivatives/mriqc ]; then
+  mkdir $bids_root_dir/derivatives/mriqc
+  fi
 
-#Run MRIQC
-echo ""
-echo "Running MRIQC on participant $s"
-echo ""
+  if [ ! -d $bids_root_dir/derivatives/mriqc/sub-${subj} ]; then
+  mkdir $bids_root_dir/derivatives/mriqc/sub-${subj}
+  fi
 
-if [ $container == singularity ]; then
-  unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
-  $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${subj} \
-  participant \
-  --n_proc $nthreads \
-  --hmc-fsl \
-  --correct-slice-timing \
-  --mem_gb $mem \
-  --float32 \
-  --ants-nthreads $nthreads \
-  -w $bids_root_dir/derivatives/mriqc/sub-${subj}
-else
-  docker run -it --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives/mriqc/sub-${subj}:/out poldracklab/mriqc:0.15.1 /data /out \
-  participant \
-  --n_proc $nthreads \
-  --hmc-fsl \
-  --correct-slice-timing \
-  --mem_gb $mem \
-  --float32 \
-  --ants-nthreads $nthreads \
-  -w $bids_root_dir/derivatives/mriqc/sub-${subj}
-fi   
+  #Run MRIQC
+  echo ""
+  echo "Running MRIQC on participant $s"
+  echo ""
+
+  if [ $container == singularity ]; then
+    unset PYTHONPATH; singularity run $HOME/mriqc_0.15.1.simg \
+    $bids_root_dir $bids_root_dir/derivatives/mriqc/sub-${subj} \
+    participant \
+    --n_proc $nthreads \
+    --hmc-fsl \
+    --correct-slice-timing \
+    --mem_gb $mem \
+    --float32 \
+    --ants-nthreads $nthreads \
+    -w $bids_root_dir/derivatives/mriqc/sub-${subj}
+  else
+    docker run -it --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives/mriqc/sub-${subj}:/out poldracklab/mriqc:0.15.1 /data /out \
+    participant \
+    --n_proc $nthreads \
+    --hmc-fsl \
+    --correct-slice-timing \
+    --mem_gb $mem \
+    --float32 \
+    --ants-nthreads $nthreads \
+    -w $bids_root_dir/derivatives/mriqc/sub-${subj}
+  fi   
+  
 To ensure that the information was added and saved to the json file, you can type the following onto the command line:
 
 ::
