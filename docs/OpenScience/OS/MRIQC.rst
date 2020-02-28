@@ -136,7 +136,7 @@ To access the reports, go to the output directory by typing the following into t
 
   cd $HOME/BIDS_tutorial/derivatives/mriqc/sub-01
   
-MRIQC performs two analysis stages: participant and group. In a nutshell, the participant level analysis stage computes the various diagnoistics and visualizations per subject, and the group level merges the diagnostics. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated HTML report; you will need to use a browser to view them. If you are on an HPC, you may already have a browser installed. For example, mine contains Firefox, so in order to open the T1w HTML report via the terminal I would type this:
+MRIQC performs two analysis stages: participant and group. In a nutshell, the participant level analysis stage computes the various diagnoistics and visualizations per subject, and the group level merges the diagnostics across all subejcts, sessions, and runs. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated HTML report; you will need to use a browser to view them. If you are on an HPC, you may already have a browser installed. For example, mine contains Firefox, so in order to open the T1w HTML report via the terminal I would type this:
 
 ::
 
