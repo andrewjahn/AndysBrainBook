@@ -24,6 +24,7 @@ This tutorial will demonstrate how to install MRIQC and run it on a dataset. The
 
   mkdir $HOME/BIDS_tutorial
   mv ~/Downloads/BIDS_data/* $HOME/BIDS_tutorial
+  rm -rf ~/Downloads/BIDS_data
   
   
 MRIQC Installation Option #1: Singularity
