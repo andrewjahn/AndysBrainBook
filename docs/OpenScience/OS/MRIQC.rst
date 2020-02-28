@@ -104,7 +104,7 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
   fi
    
 
-Before running, change the container variable to either *docker* or *singularity*, depending on which container you installed. To run the script type the following into the command line, line by line:
+Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script type the following into the command line, line by line:
 
 ::
 
