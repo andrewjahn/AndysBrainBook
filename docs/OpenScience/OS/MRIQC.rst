@@ -13,7 +13,7 @@ BIDS App Tutorial #1: MRIQC
 What is MRIQC?
 *************
 
-MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform quality assessments (QA) on T1w, T2w, and/or functional MRI acqusitions. Assessments come in the form of handy HTML reports that can be used to assess the quality of the collected data, and determine whether the quality is sufficient for processing and analysis. For a more in-depth (and better) overview of MRIQC, check out their homepage `here <https://mriqc.readthedocs.io/en/stable/>`__.
+MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform quality assessments (QA) on T1w, T2w, and/or functional MRI acqusitions. Assessments come in the form of handy HTML reports that can be used to assess the quality of the collected data, and determine whether the data quality is sufficient for processing and analysis. For a more in-depth (and better) overview of MRIQC, check out their homepage `here <https://mriqc.readthedocs.io/en/stable/>`__.
 
 MRIQC Tutorial
 **************
