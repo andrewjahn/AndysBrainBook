@@ -55,7 +55,13 @@ Running MRIQC entails specifying different command line options in order to prop
 
   touch $HOME/BIDS_tutorial/code/mriqc.sh
   
-This creates a blank bash script file to run MRIQC. Below, I've provided a mock script that you can copy and paste into the mriqc.sh file. 
+This creates a blank bash script file to run MRIQC. Below, I've provided a mock script that you can copy and paste into the mriqc.sh file. To do this you will first need to open the mriqc.sh file, by typing the following into the terminal:
+
+::
+
+  vim $HOME/BIDS_tutorial/code/mriqc.sh
+  
+Press the “i” key, and paste the contents below into the file. To save and close the file, press the Escape button, and type the following: :wq
 
 ::
 
@@ -105,6 +111,11 @@ This creates a blank bash script file to run MRIQC. Below, I've provided a mock 
     -w $bids_root_dir/derivatives/mriqc/sub-${subj}
   fi
    
+To ensure that the information was added and saved to the json file, you can type the following onto the command line:
+
+::
+
+  cat $HOME/BIDS_tutorial/code/mriqc.sh
 
 Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script type the following into the command line, line by line:
 
