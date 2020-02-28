@@ -118,7 +118,7 @@ To ensure that the information was added and saved to the json file, you can typ
 
   cat $HOME/BIDS_tutorial/code/mriqc.sh
 
-Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script type the following into the command line, line by line:
+Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script type the following into the terminal, line by line:
 
 ::
 
