@@ -37,7 +37,7 @@ MRIQC runs as a Docker or Singularity container, so we'll first need to build th
 MRIQC Installation Option #2: Docker
 ***************************
 
-Go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Then go through the steps to install Docker. Once finished, type the following into the command line to build the container. 
+Go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Once downloaded, drag the Docker icon into your Applications (you may need your computer's admin password for this). At this point the docker command should now be in your $PATH. Once finished, type the following into the command line to build the container. 
 
 ::
 
