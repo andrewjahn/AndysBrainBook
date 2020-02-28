@@ -100,7 +100,8 @@ Press the “i” key, and paste the contents below into the file. To save and c
     --ants-nthreads $nthreads \
     -w $bids_root_dir/derivatives/mriqc/sub-${subj}
   else
-    docker run -it --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives/mriqc/sub-${subj}:/out poldracklab/mriqc:0.15.1 /data /out \
+    docker run -it --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives/mriqc/sub-${subj}:/out \
+    poldracklab/mriqc:0.15.1 /data /out \
     participant \
     --n_proc $nthreads \
     --hmc-fsl \
