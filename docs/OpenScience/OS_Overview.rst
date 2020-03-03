@@ -16,3 +16,4 @@ We are looking for graduate students, postdocs, and other members of the Open Sc
    :caption: Open Science Topics
 
    OS/BIDS_Overview
+   OS/MRIQC
