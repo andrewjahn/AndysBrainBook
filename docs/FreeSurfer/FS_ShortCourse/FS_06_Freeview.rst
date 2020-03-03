@@ -43,7 +43,7 @@ Freeview has several command-line options you can use to save time. For example,
 
   freeview -v mri/orig.mgz mri/aseg.mgz:colormap=LUT -f surf/lh.pial:edgecolor=yellow
   
-The ``-v`` option signalizes that the following files are volumes, and the ``-f`` option signalizes the the following file is a surface. The colons indicate an option for the file they are attached to; for example, ``aseg.mgz:colormap=LUT`` means to assign a look-up table colormap to the aseg.mgz file. Likewise, the ``edgecolor=yellow`` option means to set the edgecolor for the lh.pial file to yellow. Other options for freeview can be found by typing ``freeview -h`` from the command line.
+The ``-v`` option signalizes that the following files are volumes, and the ``-f`` option signalizes the the following file is a surface. The colons indicate an option for the file they are attached to; for example, ``aseg.mgz:colormap=LUT`` means to assign a look-up table colormap to the aseg.mgz file. Likewise, the ``edgecolor=yellow`` option means to set the edgecolor for the lh.pial file to yellow. Other options for freeview can be found by typing ``freeview -h`` from the command line; you can also find a good summary of other command-line options and shortcuts by visiting Ines Periera's `Freeview demo <https://inespereira.com/post/freeview/>`__.
 
 --------
 
