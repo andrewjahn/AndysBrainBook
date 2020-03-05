@@ -8,7 +8,7 @@ fMRI Tutorial #1: Downloading the Data
 Overview
 --------------
 
-For this course we will be analyzing an fMRI dataset that used the Flanker task. The dataset can be found `here <https://openneuro.org/datasets/ds000102/versions/00001>`__ on the `OpenNeuro <https://openneuro.org>`__ website, an online repository for neuroimaging data.
+For this course we will be analyzing an fMRI dataset that used the Flanker task. The dataset can be found `here <https://openneuro.org/datasets/ds000102/versions/00001>`__ on the `OpenNeuro <https://openneuro.org>`__ website, an online repository for neuroimaging data. (In case the download link on that webpage doesn't work, go `here <https://legacy.openfmri.org/dataset/ds000102/>`__ and click on the "all data for subjects" link.)
 
 
 .. figure:: OpenNeuro_Flanker.png
