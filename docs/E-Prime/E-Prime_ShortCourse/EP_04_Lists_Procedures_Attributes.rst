@@ -100,6 +100,15 @@ In the StroopSlide object for that trial, the contents of each word on the left 
 You can set any attributes you want, using them in any object within the scope of the procedure timeline of the current List object. This allows you to create more flexible experiments and to be more economical with the amount of objects you use to loop over multiple trials.
 
 
+Exercises
+*********
+
+1. Change the Selection Order of the List object to "Random with Replacement." Run the experiment, and notice whether the order of these stimuli differ from the ones that were selected with Replacement.
+
+2. Add a level to the StroopList Object, and for this level replace the StroopProc string with the text "HelloProc". Add a TextDisplay Object to this procedural timeline, call it "HelloDisplay", and enter the text "Hello". Run the experiment, and observe how two separate procedures can be called upon by the same List object.
+
+3. Select the sub-object properties tab for the text of the Stroop Object. What other attributes could we control from the List object? Select one of them (such as "BackStyle" or "AlignVertical"), note the options that you have, and then add an attribute to the StroopList Object to set them to another value when you run the experiment.
+
 -----------
   
 Video
