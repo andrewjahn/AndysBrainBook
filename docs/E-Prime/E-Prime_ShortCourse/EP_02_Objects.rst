@@ -41,9 +41,11 @@ What if we want to change other aspects of the text, such as font size or color?
 Exercises
 *************
 
-1. Click on different tabs and see whether changing them leads to any observable changes in the Text Object. What do you think the "Frame" tab contains? What about "General"?
+1. Click on different tabs and see whether changing them leads to any observable changes in the Text Object. What do you think the "Frame" tab contains? What about "General"? Select the Frame tab from the Welcome TextDisplay Object, and change the Width and Height to 10%. What happens when you run the experiment?
 
 2. Click and drag some other objects onto the timeline, such as Slides and ImageDisplay Objects, and examine what properties you can change. As you use E-Prime more, you will use some objects and properties more than others; for now, though, see what commonalities there are between the objects, and which properties you think you will be changing the most often.
+
+3. Right click on any object in the Toolbox sidebar, and select "Toolbox Defaults". Select the TextDisplay Object and change the BackColor property to Black and the ForeColor property to White. Click Save. What happens when you click and drag a new TextDisplay object onto the timeline?
 
 
 Next Steps
