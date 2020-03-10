@@ -95,6 +95,15 @@ Summary
 
 By expanding your tools to include Slide objects and more advanced options, you can create an entire Stroop experiment. In order to make this process more efficient, however, we next turn to Procedures and Lists to create larger-scale, more flexible experiments.
 
+Exercises
+*********
+
+1. Add a new device to the TextDisplay Welcome object, and select "Mouse". Note the Allowable responses that are selected by default. Now run the experiment, and see if you can advance the slide by simply left-clicking on the screen.
+
+2. Note that the Data Logging for the Stroop slide will ask you whether it shoudl be set to default. When you select the default settings, what do you see in the "Logging" tab? We will revisit this in a later tutorial, but for now, look at some of the attributes that can be written, and think about which ones might be useful for your experiment.
+
+3. Create two new Stroop objects, each one separated by a Fixation object. (Remember that you can copy and paste objects by right clicking on them, selecting Copy, and then right-clicking and selecting Paste.) Make each Stroop object a different combination of a word and color, either congruent or incongruent, and then run the experiment.
+
 -----------
 
 Video
