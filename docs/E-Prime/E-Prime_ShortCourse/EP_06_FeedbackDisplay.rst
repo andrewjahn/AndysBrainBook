@@ -32,9 +32,16 @@ Since the subjects are already focusing on color for this experiment, perhaps it
 
 .. figure:: 06_StroopFeedback_Color.png
 
-It may also help to align the text in the center of the FeedbackDisplay object. This is a personal preference; the final decision is up to you.
 
 Now run the experiment and see how the feedback slide states are triggered based on your performance. If everything is programmed correctly, you should get correct feedback displays when a correct response is made, incorrect displays when you press the wrong key, and a "No Response" slide if you don't make a response. Try to trigger all three states, and see how your accuracy changes as the experiment progresses.
+
+
+Exercises
+*********
+
+1. To keep the subject fixated on the center of the screen in preparation for the next trial, align the text to be in the center of the FeedbackDisplay object. 
+
+2. At the bottom of this E-Prime help page (https://tinyurl.com/rvepnqc), you will see variables with an "@" symbol preceding them. These are called **macros**, which are shorthand pieces of code that represent a longer, more sophisticated piece of code. The macro ``@RT``, for example, calculates the subject's reaction time for the current trial, and is used in the display for the Correct slide state of the StroopFeedback object. Try inserting other macros into either the Correct or Incorrect slide states, such as ``@CorrectRT.MEAN`` or ``@IncorrectRT.MEAN``. Which would be more useful for the subject to see in which slide state?
 
 -----------------
 
