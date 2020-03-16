@@ -54,7 +54,13 @@ We will do the same thing for the CorrectResp attribute of the StroopList object
 
 .. figure:: 05_CounterBalance_StroopList.png
 
-As an exercise, try placing the relevant windows side-by-side and see how the ``[StroopBlueResp]`` and ``[StroopRedResp]`` attributes correspond to the attributes specified in the Instructions and StroopList objects.
+
+Exercises
+*********
+
+1. Try placing the relevant windows side-by-side and see how the ``[StroopBlueResp]`` and ``[StroopRedResp]`` attributes correspond to the attributes specified in the Instructions and StroopList objects.
+
+2. Switch the counter-balancing from "Subject" to "Session". Recall that so far we have set the Session to "1" for each subject. What would you predict happens if you run the experiment twice, using the same subject number but a different session number? Are these changes reflected in the Instructions screen?
 
 -------------
 
