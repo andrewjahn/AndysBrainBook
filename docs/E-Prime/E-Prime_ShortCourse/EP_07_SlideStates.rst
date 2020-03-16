@@ -20,6 +20,10 @@ Creating the Slide State
 
 You can create Slide States by clicking on the Add Slide State button (which looks like a green plus sign in the Slide object toolbar). Once you create a Slide State, it will look like a default Slide object with a white background. Change the background color to black, and click and drag an Image object to the center of the workspace. Double-click on the Image object, and click on the folder next to the Filename field. Navigate to the ``My Experiments`` folder that comes as a default with E-Prime, and then navigate to the ``Tutorials`` folder. Select the ``BlueCar.bmp`` image. From the Image sub-object's properties window, set the BackColor to Black, then click on the ``Frame`` tab and set the Width and Height to 100% to make the image take up the entire canvas.
 
+.. note::
+
+  If you do not have access to a ``My Experiments`` folder that contains the RedCar and BlueCar images, you can download them `here <https://github.com/andrewjahn/E-Prime_Scripts>`__.
+
 To activate a particular Slide State, go back to the StroopList object and add another Attribute, labeling it "StateName". Also add two more levels, with the additional StroopColor attributes being ``red`` and ``blue``. Label the last two conditions as ``redCar`` and ``blueCar`` and the last two CorrectResp attributes as ``[StroopRedResp]`` and ``[StropBlueResp]``. Fill in the first four StateName attributes as ``Stroop``, and the last two as ``Car``. This will indicate which Slide State to activate for that trial, as shown in the following figure:
 
 
