@@ -78,6 +78,14 @@ At this point, you have learned everything you need to analyze a simple experime
 
 In the last tutorial, we will learn how to format our experiment so that it can be run in an MRI experiment. The basic structure of the experiment will remain the same, but we will need to make some adjustments in order to use it in a specialized environment.
 
+
+Exercises
+*********
+
+1. Run the experiment on yourself or some friends for a total of 5 sessions. Use E-Merge to merge the sessions into a single file called "Stroop_Merge".
+
+2. Use the filter to only select the blueCar and redCar conditions instead of the incongruent and congruent Stroop conditions. Run the same analysis in E-Data Aid to compare the reaction times between the blueCar and redCar conditions. Do you observe any significant difference between the two when you run a paired t-test in Excel? Why do you think you get the result that you do?
+
 ----------------
 
 Video
