@@ -46,3 +46,5 @@ You are now ready to download the Flanker dataset, which we now turn to.
 
 Video
 ******
+
+For an overview of SPM and how to download and install it, see `this video <https://www.youtube.com/watch?v=qbcBLXJhzZg>`__.
