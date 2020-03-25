@@ -112,8 +112,8 @@ Press the “i” key, and paste the contents below into the file. To save and c
       participant \
       --skip-bids-validation \
       --md-only-boilerplate \
-      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt
       --participant-label $subj \
+      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
@@ -126,8 +126,8 @@ Press the “i” key, and paste the contents below into the file. To save and c
       participant \
       --skip-bids-validation \
       --md-only-boilerplate \
-      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt
       --participant-label $subj \
+      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
