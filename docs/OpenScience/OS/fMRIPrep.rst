@@ -54,9 +54,9 @@ As of the time of writing this tutorial (March 24, 2020), the most recent versio
 
 Installing TemplateFlow
 ***********************
-`TemplateFlow<https://github.com/templateflow>`__ is a repository containing various standardized templates to normalize your data to in fMRIPrep. If for example you have a pediatric dataset, there is a pediatric template in TemplateFlow at your disposal. 
+`TemplateFlow <https://github.com/templateflow>`__ is a repository containing various standardized templates to normalize your data to in fMRIPrep. If for example you have a pediatric dataset, there is a pediatric template in TemplateFlow at your disposal. 
 
-If you do not have pip installed (or in your $PATH), refer back to the `BIDS Overview and Tutorial< https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__ for guidance. 
+If you do not have pip installed (or in your $PATH), refer back to the `BIDS Overview and Tutorial < https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__ for guidance. 
 
 To install TemplateFlow, type the following into the terminal, line by line:
 
@@ -115,4 +115,4 @@ Press the “i” key, and paste the contents below into the file. To save and c
     --nthreads $nthreads \
     --stop-on-first-crash \
     --mem_mb $mem_mb \
-    -w $HOME
+    -w $bids_root_dir/derivatives
