@@ -89,7 +89,7 @@ Running fMRIPrep entails specifying different command line options in order to p
 
   touch $HOME/BIDS_tutorial/code/fmriprep.sh
   
-This creates a blank bash script file to run fMRIPrep. Below, I've provided a mock script that you can copy and paste into the fmriprep.sh file. To do this you will first need to open the fmriprep.sh file, by typing the following into the terminal:
+This creates a blank bash script file to run fMRIPrep. Below, a mock script is provided that can be copied and pasted into the fmriprep.sh file. To do this, first copy the mock script below and then open the fmriprep.sh file, by typing the following into the terminal:
 
 ::
 
@@ -154,11 +154,40 @@ To ensure that the information was added and saved to the script, you cna type t
 
   cat $HOME/BIDS_tutorial/code/fmriprep.sh
   
-Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script, type the following into the terminal, line by line:
+**Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. You may also increase the *mem* and *nthreads* variables if your computer/system has greater computing power, which will decrease the time needed for fMRIPrep to complete.**
+
+Once you're set, run the script by typing the following into the terminal, line by line:
 
 ::
 
   bash
   source $HOME/BIDS_tutorial/code/fmriprep.sh
   
-fMRIPrep will take several hours to run.
+fMRIPrep will take several hours to run. Do not that the fMRIPrep command we've run is quite bare-bones; there are many additional flag options that can (and should) be used, so it's recommended that you check out the documentation for them `here <https://fmriprep.readthedocs.io/en/stable/usage.html>`__. Be aware that if in the future you run fMRIPrep with additional options, it will likely increase the time needed to run to completition.
+
+
+Understanding fMRIPrep output
+*****************************
+
+Once complete, there are two main things that fMRIPrep generates that will be of interest: the pre-processed data itself, and an HTML report. Regarding the data itself, the fMRIPrep developers & contributors have already provided excellent documentation on where files are and what the mean; the documentation can be found `here <https://fmriprep.readthedocs.io/en/stable/outputs.html>`__. 
+
+This tutorial will instead focus more on the HTML report itself, which provides handy visualizations to better determine how well pre-processing went. 
+
+
+
+
+
+
+Final Thoughts
+**************
+
+In this tutorial we went over how to set up and run fMRIPrep on a BIDS dataset containing one subject. The purpose was to become familiar with how to set up and run fMRIPrep and understand the output. If you found this useful and would like to use fMRIPrep on your own data, you may want to include additional features in the script, or make your own. Since this tutorial was an extrememly simplified implentation of fMRIPrep, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org>`__ or fMRIPrep’s `github page <https://github.com/poldracklab/fmriprep>`__.
+
+Additional fMRIPrep Resources
+*****************************
+
+Here are some additional fMRIPrep resources/links that you may find helpful
+
+`Stanford tutorial by Franklin Feingold <http://reproducibility.stanford.edu/fmriprep-tutorial-running-the-docker-image/>`__
+`Tutorial by Gelana Tostaeva <https://medium.com/@gelana/using-fmriprep-for-fmri-data-preprocessing-90ce4a9b85bd>`__
+
