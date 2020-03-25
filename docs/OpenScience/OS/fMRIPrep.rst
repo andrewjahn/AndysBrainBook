@@ -48,8 +48,13 @@ Assuming that you do not have Docker installed, go to the Docker `installation p
 
   docker run -it poldracklab/fmriprep:20.1.0rc1 --version
   
-Be aware that this will likely take ~15 minutes.
+Be aware that this will likely take ~15 minutes. Once that's finished, install fmriprep-docker by typing the following into the terminal:
 
+::
+
+  python -m pip install --user --upgrade fmriprep-docker
+  
+  
 As of the time of writing this tutorial (March 24, 2020), the most recent version of fMRIPrep is 20.1.0rc1, which is what we are using in this tutorial. Unlike MRIQC, fMRIPrep has more releases, normally for bug fixes and feature additions/modifications. Oftentimes, the changes from version to version are minor and do not require upgrading to the latest version, unless the changes in the newest version are pertinent to you. Regardless, **you should preprocess your dataset using the same fMRIPrep version**. 
 
 Installing TemplateFlow
@@ -64,7 +69,7 @@ To install TemplateFlow, type the following into the terminal, line by line:
 
   mkdir $HOME/templateflow
   pip install templateflow --target $HOME/.cache
-  unzip $HOME/.cache/templateflow/conf/templateflow-skel.zip -d $HOME/templateflow
+  unzip $HOME/.cache/templateflow/conf/templateflow-skel.zip -d $HOME/.cache/templateflow
   
 Once finished, you should see multiple template options in the $HOME/templateflow folder.
 
