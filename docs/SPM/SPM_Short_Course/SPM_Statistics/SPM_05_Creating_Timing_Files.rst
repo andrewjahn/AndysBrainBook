@@ -33,29 +33,24 @@ Let's take a look at the Flanker dataset. Within each subject's ``func`` directo
 2. When each trial of the condition occurred, in seconds, relative to the start of the scan; and
 3. The duration of each trial.
 
-These need to be extracted from the events.tsv files and formatted in a way that the AFNI software can read. In this case, we will create a timing file for each condition, and then split that file according to which run the condition was in. In total, then, we will create four timing files: 
+These need to be extracted from the events.tsv files and formatted in a way that the SPM software can read. In this case, we will create a timing file for each condition, and then split that file according to which run the condition was in. In total, then, we will create four timing files: 
 
 1. Timings for the Incongruent trials that occurred during the first run (which we will call incongruent_run1.txt);
 2. Timings for the Incongruent trials that occurred during the second run (incongruent_run2.txt);
 3. Timings for the Congruent trials that occurred during the first run (congruent_run1.txt);
 4. Timings for the Congruent trials that occurred during the second run (congruent_run2.txt).
 
-Each of these timing files will have the same format consisting of three columns, in the following order:
+Each of these timing files will have the same format consisting of two columns, in the following order:
 
-1. Onset time, in seconds, relative to the start of the scan;
-2. Duration of the trial, in seconds;
-3. Parametric modulation.
+1. Onset time, in seconds, relative to the start of the scan; and
+2. Duration of the trial, in seconds.
 
-
-.. note::
-
-  We will discuss parameteric modulation in a future module. For now, all you need to know is that it is a required column, and unless you have parametrically modulated trials (which we do not have in this dataset), set it to a value of "1" for each trial.
   
 .. figure:: 05_05_TimingFiles_Example.png
   
-  The Run-1_events.tsv file on OpenNeuro.org (A). When we download it and look at it in the Terminal, it looks like the text in window (B). We then re-format the events file to create a timing file for each run with three columns: Onset time, duration, and parametric modulation (C), and use AFNI's timing_tool.py to convert this to a timing format that SPM understands (D).
+  The Run-1_events.tsv file on OpenNeuro.org (A). When we download it and look at it in the Matlab Terminal, it looks like the text in window (B). We then re-format the events file to create a timing file for each run with two columns: Onset time and duration.
   
-To format the timing files, download `this script <https://github.com/andrewjahn/AFNI_Scripts/blob/master/make_Timings.sh>`__. (You can download it by clicking on the ``Raw`` button, then right-clicking in the newly-opened window and selecting "Save As".) We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and type ``bash make_Timings.sh``. This will create timing files for each run for each subject and store them in each subject's corresponding ``func`` directory. To check the output, type ``cat sub-08/func/incongruent.1D``. You should see numbers similar to the ones in the figure above.
+To format the timing files, download `this script <https://github.com/andrewjahn/SPM_Scripts/blob/master/convertOnsetTimes.m>`__. (You can download it by clicking on the ``Raw`` button, then right-clicking in the newly-opened window and selecting "Save As".) We won't go into detail about how it works, but all you need to do is place it in the experimental folder containing the subjects, and from that directory type ``convertOnsetTimes``. This will create timing files for each run for each subject and store them in each subject's corresponding ``func`` directory. To check the output of an individual file - for exmaple, the onset times for the incongruent trials for run 1 - type ``importdata(sub-08/func/incongruent_run1.txt)``. You should see numbers similar to the ones in the figure above.
 
 Once you have created the timing files, you are now ready to use them to fit a model to the fMRI data. To see how to do that, click the Next button.
 
