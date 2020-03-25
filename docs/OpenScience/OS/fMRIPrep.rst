@@ -189,5 +189,6 @@ Additional fMRIPrep Resources
 Here are some additional fMRIPrep resources/links that you may find helpful
 
 `Stanford tutorial by Franklin Feingold <http://reproducibility.stanford.edu/fmriprep-tutorial-running-the-docker-image/>`__
+
 `Tutorial by Gelana Tostaeva <https://medium.com/@gelana/using-fmriprep-for-fmri-data-preprocessing-90ce4a9b85bd>`__
 
