@@ -118,7 +118,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
       --stop-on-first-crash \
       --mem_mb $mem_mb \
       -w $bids_root_dir/derivatives
-  else:
+  else
     unset PYTHONPATH; docker run -ti --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives:/out \
       poldracklab/fmriprep:20.1.0.rc1 /data /out/out \
       participant \
