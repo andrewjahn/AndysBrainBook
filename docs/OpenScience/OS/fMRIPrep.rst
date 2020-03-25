@@ -94,25 +94,56 @@ Press the “i” key, and paste the contents below into the file. To save and c
   subj=01
   nthreads=2
   mem=10 #gb
+  container=docker #docker or singularity
 
   #Begin:
   
   #Convert virtual memory from gb to mb
   mem=`echo "${mem//[!0-9]/}"` #remove gb at end
-  mem_mb=`echo $(((mem*1000)-5000))` #remove a little less than what was required in job (buffer space)
+  mem_mb=`echo $(((mem*1000)-5000))` #reduce some memory for buffer space during pre-processing
 
   export TEMPLATEFLOW_HOME=$HOME/templateflow
 
   #Run fmriprep
-  unset PYTHONPATH; singularity run -B $HOME/templateflow:/opt/templateflow $HOME/fmriprep-20.1.0rc1.simg \
-    $bids_root_dir $bids_root_dir/derivatives \
-    participant \
-    --skip-bids-validation \
-    --md-only-boilerplate \
-    --participant-label $s \
-    --fs-no-reconall \
-    --output-spaces MNI152NLin2009cAsym:res-2 \
-    --nthreads $nthreads \
-    --stop-on-first-crash \
-    --mem_mb $mem_mb \
-    -w $bids_root_dir/derivatives
+  if [ $container == singularity ]; then
+    unset PYTHONPATH; singularity run -B $HOME/templateflow:/opt/templateflow $HOME/fmriprep-20.1.0rc1.simg \
+      $bids_root_dir $bids_root_dir/derivatives \
+      participant \
+      --skip-bids-validation \
+      --md-only-boilerplate \
+      --participant-label $subj \
+      --fs-no-reconall \
+      --output-spaces MNI152NLin2009cAsym:res-2 \
+      --nthreads $nthreads \
+      --stop-on-first-crash \
+      --mem_mb $mem_mb \
+      -w $bids_root_dir/derivatives
+  else:
+    unset PYTHONPATH; docker run -ti --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives:/out \
+      poldracklab/fmriprep:20.1.0.rc1 /data /out/out \
+      participant \
+      --skip-bids-validation \
+      --md-only-boilerplate \
+      --participant-label $subj \
+      --fs-no-reconall \
+      --output-spaces MNI152NLin2009cAsym:res-2 \
+      --nthreads $nthreads \
+      --stop-on-first-crash \
+      --mem_mb $mem_mb \
+      -w $bids_root_dir/derivatives
+  fi
+  
+To ensure that the information was added and saved to the script, you cna type the following into the terminal:
+
+::
+
+  cat $HOME/BIDS_tutorial/code/fmriprep.sh
+  
+Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script, type the following into the terminal, line by line:
+
+::
+
+  bash
+  source $HOME/BIDS_tutorial/code/fmriprep.sh
+  
+fMRIPrep will take several hours to run.
