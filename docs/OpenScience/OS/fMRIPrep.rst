@@ -103,6 +103,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
   mem_mb=`echo $(((mem*1000)-5000))` #reduce some memory for buffer space during pre-processing
 
   export TEMPLATEFLOW_HOME=$HOME/templateflow
+  export FS_LICENSE=$HOME/BIDS_tutorial/derivatives/license.txt
 
   #Run fmriprep
   if [ $container == singularity ]; then
@@ -111,6 +112,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
       participant \
       --skip-bids-validation \
       --md-only-boilerplate \
+      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt
       --participant-label $subj \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
@@ -124,6 +126,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
       participant \
       --skip-bids-validation \
       --md-only-boilerplate \
+      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt
       --participant-label $subj \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
