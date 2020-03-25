@@ -21,7 +21,7 @@ We will now need the onset times for each occurrence of the Incongruent conditio
 
 ::
 
-  IncRun1 = importdata('incongruent_run1.txt', ' ');
+  IncRun1 = importdata('incongruent_run1.txt');
   IncRun1(:,1)
   
 Which will return the onset times for the Incongruent condition of run 1. Double-click on the ``Onsets`` field, and copy and paste the onset times into the window. Click ``Done``. 
@@ -32,11 +32,11 @@ Now do the same procedure for the Congruent condition for run 1, and the Incongr
 
 ::
 
-  ConRun1 = importdata('congruent_run1.txt', ' ');
+  ConRun1 = importdata('congruent_run1.txt');
   ConRun1(:,1)
-  IncRun2 = importdata('incongruent_run2.txt', ' ');
+  IncRun2 = importdata('incongruent_run2.txt');
   IncRun2(:,1)
-  ConRun2 = importdata('congruent_run2.txt', ' ');
+  ConRun2 = importdata('congruent_run2.txt');
   ConRun2(:,1)
 
 You can use the names "Inc" and "Con" for both runs if you want; the names will be stored in a file called ``SPM.mat`` which we will look at later in more detail.
@@ -72,13 +72,11 @@ Examining the Output
 
 Double-click on the contrast ``Inc-Con`` to open the Results window. You will first need to set a few options:
 
-::
-
-  apply masking: Set this to "none", as we want to examine all of the voxels in the brain, and we do not want to restrict our analysis to a mask.
+1. **apply masking**: Set this to "none", as we want to examine all of the voxels in the brain, and we do not want to restrict our analysis to a mask.
   
-  p value adjustment to control: Click on "none", and set the uncorrected p-value to 0.01. This will test each voxel individually at a p-threshold of 0.01.
+2. **p value adjustment to control**: Click on "none", and set the uncorrected p-value to 0.01. This will test each voxel individually at a p-threshold of 0.01.
   
-  & extent threshold {voxels}: Set this to 10 for now, which will only show clusters of 10 or more contiguous voxels. Right now we're doing this to eliminate specks of voxels most likely found in noisy regions, such as the ventricles; later on we will learn how to do **cluster correction** at the group level to appropriately control for the number of individual statistical tests.
+3. **extent threshold {voxels}**: Set this to 10 for now, which will only show clusters of 10 or more contiguous voxels. Right now we're doing this to eliminate specks of voxels most likely found in noisy regions, such as the ventricles; later on we will learn how to do **cluster correction** at the group level to appropriately control for the number of individual statistical tests.
   
 
 When you have finished specifying the options, you will see your results displayed on a **glass brain**. This shows your results in standardized space in three orthogonal planes, with the dark spots representing clusters of voxels that passed our statistical threshold. In the top-right corner is a copy of your design matrix and the contrast that you are currently looking at, and at the bottom is a table listing the coordinates and statistical significance of each cluster. The first column, **set-level**, indicates the probability of seeing the current number of clusters, *c*. The **cluster-level** column shows the significance for each cluster (measured in number of voxels, or *kE*) using different correction methods. The **peak-level** column shows the t- and z-statistics of the peak voxel within each cluster, with the main clusters marked in bold and any sub-clusters listed below the main cluster marked in lighter font. Lastly, the MNI coordinates of the peak for each cluster and sub-cluster is listed in the rightmost column.
