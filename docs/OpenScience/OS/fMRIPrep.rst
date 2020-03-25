@@ -111,7 +111,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
     --md-only-boilerplate \
     --participant-label $s \
     --fs-no-reconall \
-    --output-spaces MNI152NLin2009cAsym:res-2	\
+    --output-spaces MNI152NLin2009cAsym:res-2 \
     --nthreads $nthreads \
     --stop-on-first-crash \
     --mem_mb $mem_mb \
