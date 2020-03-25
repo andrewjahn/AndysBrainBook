@@ -46,16 +46,10 @@ Assuming that you do not have Docker installed, go to the Docker `installation p
 
 ::
 
-  docker run -it poldracklab/fmriprep:20.1.0rc1 --version
-  
-Be aware that this will likely take ~15 minutes. Once that's finished, install fmriprep-docker by typing the following into the terminal:
-
-::
-
   python -m pip install --user --upgrade fmriprep-docker
   
   
-As of the time of writing this tutorial (March 24, 2020), the most recent version of fMRIPrep is 20.1.0rc1, which is what we are using in this tutorial. Unlike MRIQC, fMRIPrep has more releases, normally for bug fixes and feature additions/modifications. Oftentimes, the changes from version to version are minor and do not require upgrading to the latest version, unless the changes in the newest version are pertinent to you. Regardless, **you should preprocess your dataset using the same fMRIPrep version**. 
+What we've just installed is a wrapper that will create a Docker command to download the latest fMRIPrep container to run. Unlike MRIQC, fMRIPrep has more releases, normally for bug fixes and feature additions/modifications. Oftentimes, the changes from version to version are minor and do not require upgrading to the latest version, unless the changes in the newest version are pertinent to you. Regardless, **you should preprocess your dataset using the same fMRIPrep version**. 
 
 Installing TemplateFlow
 ***********************
@@ -71,12 +65,12 @@ To install TemplateFlow, type the following into the terminal, line by line:
   pip install templateflow --target $HOME/.cache
   unzip $HOME/.cache/templateflow/conf/templateflow-skel.zip -d $HOME/.cache/templateflow
   
-Once finished, you should see multiple template options in the $HOME/templateflow folder.
+Once finished, you should see multiple template options in the $HOME/.cache/templateflow folder.
 
 Installing FreeSurfer license
 ******************************
 
-fMRIprep leans heavily on FreeSurfer for certain parts of the pre-processing. Although the entire FreeSurfer package is not required in order to use fMRIPrep, you will need FreeSurfer's license text file, which is free. If you are on your university/institution's HPC then FreeSurfer (and the license file) is likely already available for you, and you can skip this step. If you need to get the license file, the assumption is that you are working on a personal computer, and by extension, also using Docker.
+fMRIprep leans heavily on FreeSurfer for certain parts of the pre-processing. Although the entire FreeSurfer package is not required in order to use fMRIPrep, you will need FreeSurfer's license text file, which is free. If you are on your university/institution's HPC then FreeSurfer (and the license) is likely already available for you, and you can skip this step. If you need to get the license, the assumption is that you are working on a personal computer, and by extension, also using Docker.
 
 To get the license, go to the `registration page <https://surfer.nmr.mgh.harvard.edu/registration.html>`__ and complete the form. **Be sure to choose the correct operating system that you're using**. Once complete, an email will be sent that contains the license.txt. Download the file, and then we'll move it to our BIDS_tutorial stuff using the following command in the terminal:
 
@@ -119,7 +113,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
   mem=`echo "${mem//[!0-9]/}"` #remove gb at end
   mem_mb=`echo $(((mem*1000)-5000))` #reduce some memory for buffer space during pre-processing
 
-  export TEMPLATEFLOW_HOME=$HOME/templateflow
+  export TEMPLATEFLOW_HOME=$HOME/.cache/templateflow
   export FS_LICENSE=$HOME/BIDS_tutorial/derivatives/license.txt
 
   #Run fmriprep
@@ -148,10 +142,53 @@ Press the “i” key, and paste the contents below into the file. To save and c
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
-      --stop-on-first-crash \
-      --mem_mb $mem_mb \
-      -w $bids_root_dir/derivatives
-  fi
+      --stop-on#!/bin/bash
+
+#User inputs:
+bids_root_dir=$HOME/BIDS_tutorial
+subj=01
+nthreads=2
+mem=10 #gb
+container=docker #docker or singularity
+
+#Begin:
+
+#Convert virtual memory from gb to mb
+mem=`echo "${mem//[!0-9]/}"` #remove gb at end
+mem_mb=`echo $(((mem*1000)-5000))` #reduce some memory for buffer space during pre-processing
+
+export TEMPLATEFLOW_HOME=$HOME/.cache/templateflow
+export FS_LICENSE=$HOME/BIDS_tutorial/derivatives/license.txt
+
+#Run fmriprep
+if [ $container == singularity ]; then
+  unset PYTHONPATH; singularity run -B $HOME/.cache/templateflow:/opt/templateflow $HOME/fmriprep-20.1.0rc1.simg \
+    $bids_root_dir $bids_root_dir/derivatives \
+    participant \
+    --participant-label $subj \
+    --skip-bids-validation \
+    --md-only-boilerplate \
+    --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
+    --fs-no-reconall \
+    --output-spaces MNI152NLin2009cAsym:res-2 \
+    --nthreads $nthreads \
+    --stop-on-first-crash \
+    --mem_mb $mem_mb \
+    -w $HOME
+else
+  fmriprep-docker $bids_root_dir $bids_root_dir/derivatives \
+    participant \
+    --participant-label $subj \
+    --skip-bids-validation \
+    --md-only-boilerplate \
+    --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
+    --fs-no-reconall \
+    --output-spaces MNI152NLin2009cAsym:res-2 \
+    --nthreads $nthreads \
+    --stop-on-first-crash \
+    --mem_mb $mem_mb \
+    -w $HOME
+fi
   
 To ensure that the information was added and saved to the script, you cna type the following into the terminal:
 
