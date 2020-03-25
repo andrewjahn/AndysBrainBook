@@ -68,6 +68,19 @@ To install TemplateFlow, type the following into the terminal, line by line:
   
 Once finished, you should see multiple template options in the $HOME/templateflow folder.
 
+Installing FreeSurfer license.txt
+*********************************
+
+fMRIprep leans heavily on FreeSurfer for certain parts of the pre-processing. Although the entire FreeSurfer package is not required in order to use fMRIPrep, you will need FreeSurfer's license text file, which is free. If you are on your university/institution's HPC then FreeSurfer (and the license file) is likely already available for you, and you can skip this step. If you need to get the license file, the assumption is that you are working on a personal computer, and by extension, also using Docker.
+
+To get the license, go to the `registration page <https://surfer.nmr.mgh.harvard.edu/registration.html>`__ and complete the form. **Be sure to choose the correct operating system that you're using**. Once complete, an email will be sent that contains the license.txt. Download the file, and then we'll move it to our BIDS_tutorial stuff using the following command in the terminal:
+
+::
+
+  mv ~/Downloads license.txt $HOME/BIDS_tutorial/derivatives
+  
+
+
 Making a script to run fMRIPrep
 *******************************
 
@@ -97,7 +110,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
   container=docker #docker or singularity
 
   #Begin:
-  
+
   #Convert virtual memory from gb to mb
   mem=`echo "${mem//[!0-9]/}"` #remove gb at end
   mem_mb=`echo $(((mem*1000)-5000))` #reduce some memory for buffer space during pre-processing
@@ -121,13 +134,13 @@ Press the “i” key, and paste the contents below into the file. To save and c
       --mem_mb $mem_mb \
       -w $bids_root_dir/derivatives
   else
-    unset PYTHONPATH; docker run -ti --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives:/out \
-      poldracklab/fmriprep:20.1.0rc1 /data /out/out \
+    docker run -ti --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives:/out -v $bids_root_dir/derivatives:/opt/freesurfer/license.txt \
+      poldracklab/fmriprep:20.1.0rc1 /data /out \
       participant \
       --skip-bids-validation \
       --md-only-boilerplate \
       --participant-label $subj \
-      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
+      --fs-license-file /opt/freesurfer/license.txt \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
