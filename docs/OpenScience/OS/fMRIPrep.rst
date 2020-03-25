@@ -28,7 +28,7 @@ If you haven't looked through and completed the previous tutorials in this OpenS
 
   mkdir $HOME/BIDS_tutorial
   mv ~/Downloads/BIDS_data/* $HOME/BIDS_tutorial
-  rm -rf ~/Downloads/BIDS_data
+  rm -rf ~/Downloads/BIDS_data*
 
 fMRIPrep Installation Option #1: Singularity
 *******************************
@@ -37,18 +37,36 @@ fMRIPrep runs as a Docker or Singularity container, so we'll first need to build
 
 ::
 
-  singularity build $HOME/fmriprep-20.0.1.simg docker://poldracklab/fmriprep:20.0.1
+  singularity build $HOME/fmriprep-20.1.0rc1.simg docker://poldracklab/fmriprep:20.1.0rc1
 
 fMRIPrep Installation Option #2: Docker
 ***************************
 
-Assuming that you don not have Docker installed, go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Once downloaded, click on the Docker.dmg installer and drag the Docker icon into your Applications (you may need your computer's admin password for this). **Be sure to click the Docker icon to open it**. At this point the docker command should now be in your $PATH, and you can type the following into the terminal to build the container. 
+Assuming that you do not have Docker installed, go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Once downloaded, click on the Docker.dmg installer and drag the Docker icon into your Applications (you may need your computer's admin password for this). **Be sure to click the Docker icon to open it**. At this point the docker command should now be in your $PATH, and you can type the following into the terminal to build the container: 
 
 ::
 
-  docker run -it poldracklab/fmriprep:20.0.1 --version
+  docker run -it poldracklab/fmriprep:20.1.0rc1 --version
   
-As of the time of writing this tutorial (March 6, 2020), the most recent version of fMRIPrep is 20.0.1, which is what we are using in this tutorial. Unlike MRIQC, fMRIPrep has more releases, normally for bug fixes and feature additions/modifications. Oftentimes, the changes from version to version are minor and do not require you to install the latest version, unless the changes in the newest version are pertinent to you. Regardless, **you should preprocess your dataset using the same fMRIPrep version**. 
+Be aware that this will likely take ~15 minutes.
+
+As of the time of writing this tutorial (March 24, 2020), the most recent version of fMRIPrep is 20.1.0rc1, which is what we are using in this tutorial. Unlike MRIQC, fMRIPrep has more releases, normally for bug fixes and feature additions/modifications. Oftentimes, the changes from version to version are minor and do not require upgrading to the latest version, unless the changes in the newest version are pertinent to you. Regardless, **you should preprocess your dataset using the same fMRIPrep version**. 
+
+Installing TemplateFlow
+***********************
+`TemplateFlow<https://github.com/templateflow>`__ is a repository containing various standardized templates to normalize your data to in fMRIPrep. If for example you have a pediatric dataset, there is a pediatric template in TemplateFlow at your disposal. 
+
+If you do not have pip installed (or in your $PATH), refer back to the `BIDS Overview and Tutorial< https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__ for guidance. 
+
+To install TemplateFlow, type the following into the terminal, line by line:
+
+::
+
+  mkdir $HOME/templateflow
+  pip install templateflow --target $HOME/.cache
+  unzip $HOME/.cache/templateflow/conf/templateflow-skel.zip -d $HOME/templateflow
+  
+Once finished, you should see multiple template options in the $HOME/templateflow folder.
 
 Making a script to run fMRIPrep
 *******************************
@@ -71,7 +89,6 @@ Press the “i” key, and paste the contents below into the file. To save and c
 
   #!/bin/bash
 
-
   #User inputs:
   bids_root_dir=$HOME/BIDS_tutorial
   subj=01
@@ -84,21 +101,10 @@ Press the “i” key, and paste the contents below into the file. To save and c
   mem=`echo "${mem//[!0-9]/}"` #remove gb at end
   mem_mb=`echo $(((mem*1000)-5000))` #remove a little less than what was required in job (buffer space)
 
-  #Add templateflow, required for fmriprep versions >= 1.3.0
-  if [ ! -d $HOME/templateflow ]; then
-    mkdir $HOME/templateflow
-
-    if [ -z `command -v python` ]; then
-      module load python/3.6.8
-    fi
-
-    pip install templateflow --user
-    unzip $HOME/.local/lib/python3.6/site-packages/templateflow/conf/templateflow-skel.zip -d /N/dcwan/projects/irf/templateflow
-  fi
   export TEMPLATEFLOW_HOME=$HOME/templateflow
 
   #Run fmriprep
-  unset PYTHONPATH; singularity run -B $HOME/templateflow:/opt/templateflow $HOME/fmriprep-20.0.1.simg \
+  unset PYTHONPATH; singularity run -B $HOME/templateflow:/opt/templateflow $HOME/fmriprep-20.1.0rc1.simg \
     $bids_root_dir $bids_root_dir/derivatives \
     participant \
     --skip-bids-validation \
