@@ -154,7 +154,7 @@ To ensure that the information was added and saved to the script, you cna type t
 
   cat $HOME/BIDS_tutorial/code/fmriprep.sh
   
-**Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. You may also increase the *mem* and *nthreads* variables if your computer/system has greater computing power, which will decrease the time needed for fMRIPrep to complete.**
+**Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed.** You may also increase the *mem* and *nthreads* variables if your computer/system has greater computing power, which will decrease the time needed for fMRIPrep to complete.
 
 Once you're set, run the script by typing the following into the terminal, line by line:
 
