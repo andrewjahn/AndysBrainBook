@@ -128,7 +128,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
       --participant-label $subj \
       --skip-bids-validation \
       --md-only-boilerplate \
-      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
+      --fs-license-file $FREESURFER_HOME/license.txt \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
@@ -156,7 +156,7 @@ To ensure that the information was added and saved to the script, you can type t
 
   cat $HOME/BIDS_tutorial/code/fmriprep.sh
   
-**Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed.** You may also want to increase the *mem* and *nthreads* variables if your computer/system has greater computing power, which will decrease the time needed for fMRIPrep to complete.
+**Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed.** You may also want to increase the *mem* and *nthreads* variables if your computer/system has greater computing power, which will decrease the time needed for fMRIPrep to complete. You can make these edits using vim.
 
 Once you're set, run the script by typing the following into the terminal, line by line:
 
