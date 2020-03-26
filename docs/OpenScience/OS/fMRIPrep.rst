@@ -29,6 +29,9 @@ If you haven't looked through and completed the previous tutorials in this OpenS
   mkdir $HOME/BIDS_tutorial
   mv ~/Downloads/BIDS_data/* $HOME/BIDS_tutorial
   rm -rf ~/Downloads/BIDS_data*
+  
+.. note::
+  fMRIPrep is computationally expensive, therefore it is recommened that this tutorial be completed on your university/institution's HPC or a personal computer with enhanced processing power and memory. While you may use a computer with standard processing power, doing so will increase the time needed for fMRIPrep to run to completion.
 
 fMRIPrep Installation Option #1: Singularity
 *******************************
@@ -37,12 +40,16 @@ fMRIPrep runs as a Docker or Singularity container, so we'll first need to build
 
 ::
 
-  singularity build $HOME/fmriprep-20.1.0rc1.simg docker://poldracklab/fmriprep:20.1.0rc1
+  singularity build $HOME/fmriprep.simg docker://poldracklab/fmriprep:latest
 
 fMRIPrep Installation Option #2: Docker
 ***************************
 
-Assuming that you do not have Docker installed, go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Once downloaded, click on the Docker.dmg installer and drag the Docker icon into your Applications (you may need your computer's admin password for this). **Be sure to click the Docker icon to open it**. At this point the docker command should now be in your $PATH, and you can type the following into the terminal to build the container: 
+Assuming that you do not have Docker installed, go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Once downloaded, click on the Docker.dmg installer and drag the Docker icon into your Applications (you may need your computer's admin password for this). **Be sure to click the Docker icon to open it**. 
+
+Click on the Docker icon and select *Preferences*, followed by *Advanced*. You will want to increase the CPUs and Memory, as fMRIPrep is quite computationally expensive. Once selected, click on the *Apply & Restart* button. 
+
+At this point the docker command should now be in your $PATH, and you can type the following into the terminal to build the container: 
 
 ::
 
@@ -103,8 +110,8 @@ Press the “i” key, and paste the contents below into the file. To save and c
   #User inputs:
   bids_root_dir=$HOME/BIDS_tutorial
   subj=01
-  nthreads=2
-  mem=10 #gb
+  nthreads=4
+  mem=20 #gb
   container=docker #docker or singularity
 
   #Begin:
@@ -118,77 +125,33 @@ Press the “i” key, and paste the contents below into the file. To save and c
 
   #Run fmriprep
   if [ $container == singularity ]; then
-    unset PYTHONPATH; singularity run -B $HOME/templateflow:/opt/templateflow $HOME/fmriprep-20.1.0rc1.simg \
+    unset PYTHONPATH; singularity run -B $HOME/.cache/templateflow:/opt/templateflow $HOME/fmriprep.simg \
       $bids_root_dir $bids_root_dir/derivatives \
       participant \
+      --participant-label $subj \
       --skip-bids-validation \
       --md-only-boilerplate \
-      --participant-label $subj \
       --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
       --stop-on-first-crash \
       --mem_mb $mem_mb \
-      -w $bids_root_dir/derivatives
+      -w $HOME
   else
-    docker run -ti --rm -v $bids_root_dir:/data:ro -v $bids_root_dir/derivatives:/out -v $bids_root_dir/derivatives/license.txt:/opt/freesurfer/license.txt \
-      poldracklab/fmriprep:20.1.0rc1 /data /out \
+    fmriprep-docker $bids_root_dir $bids_root_dir/derivatives \
       participant \
+      --participant-label $subj \
       --skip-bids-validation \
       --md-only-boilerplate \
-      --participant-label $subj \
-      --fs-license-file /opt/freesurfer/license.txt \
+      --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
       --fs-no-reconall \
       --output-spaces MNI152NLin2009cAsym:res-2 \
       --nthreads $nthreads \
-      --stop-on#!/bin/bash
-
-#User inputs:
-bids_root_dir=$HOME/BIDS_tutorial
-subj=01
-nthreads=2
-mem=10 #gb
-container=docker #docker or singularity
-
-#Begin:
-
-#Convert virtual memory from gb to mb
-mem=`echo "${mem//[!0-9]/}"` #remove gb at end
-mem_mb=`echo $(((mem*1000)-5000))` #reduce some memory for buffer space during pre-processing
-
-export TEMPLATEFLOW_HOME=$HOME/.cache/templateflow
-export FS_LICENSE=$HOME/BIDS_tutorial/derivatives/license.txt
-
-#Run fmriprep
-if [ $container == singularity ]; then
-  unset PYTHONPATH; singularity run -B $HOME/.cache/templateflow:/opt/templateflow $HOME/fmriprep-20.1.0rc1.simg \
-    $bids_root_dir $bids_root_dir/derivatives \
-    participant \
-    --participant-label $subj \
-    --skip-bids-validation \
-    --md-only-boilerplate \
-    --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
-    --fs-no-reconall \
-    --output-spaces MNI152NLin2009cAsym:res-2 \
-    --nthreads $nthreads \
-    --stop-on-first-crash \
-    --mem_mb $mem_mb \
-    -w $HOME
-else
-  fmriprep-docker $bids_root_dir $bids_root_dir/derivatives \
-    participant \
-    --participant-label $subj \
-    --skip-bids-validation \
-    --md-only-boilerplate \
-    --fs-license-file $HOME/BIDS_tutorial/derivatives/license.txt \
-    --fs-no-reconall \
-    --output-spaces MNI152NLin2009cAsym:res-2 \
-    --nthreads $nthreads \
-    --stop-on-first-crash \
-    --mem_mb $mem_mb \
-    -w $HOME
-fi
+      --stop-on-first-crash \
+      --mem_mb $mem_mb \
+      -w $HOME
+  fi
   
 To ensure that the information was added and saved to the script, you cna type the following into the terminal:
 
@@ -205,20 +168,43 @@ Once you're set, run the script by typing the following into the terminal, line 
   bash
   source $HOME/BIDS_tutorial/code/fmriprep.sh
   
-fMRIPrep will take several hours to run. Do not that the fMRIPrep command we've run is quite bare-bones; there are many additional flag options that can (and should) be used, so it's recommended that you check out the documentation for them `here <https://fmriprep.readthedocs.io/en/stable/usage.html>`__. Be aware that if in the future you run fMRIPrep with additional options, it will likely increase the time needed to run to completition.
-
+fMRIPrep may take several hours to run on this data, depending on processing power and memory at your disposal. Do note that the fMRIPrep command we are running is relatively bare-bones; there are many additional flag options that can (and should) be used, so it's recommended that you read the documentation for them `here <https://fmriprep.readthedocs.io/en/stable/usage.html>`__. Be aware that if in the future you run fMRIPrep with additional options, it will likely increase the time needed to run to completition.
 
 Understanding fMRIPrep output
 *****************************
 
-Once complete, there are two main things that fMRIPrep generates that will be of interest: the pre-processed data itself, and an HTML report. Regarding the data itself, the fMRIPrep developers & contributors have already provided excellent documentation on where files are and what the mean; the documentation can be found `here <https://fmriprep.readthedocs.io/en/stable/outputs.html>`__. 
+Once complete, there are two main things that fMRIPrep generates that will be of interest: the pre-processed data itself, and an HTML report. Regarding the data itself, the fMRIPrep developers & contributors have already provided excellent documentation on where files are and what the mean; that documentation can be found `here <https://fmriprep.readthedocs.io/en/stable/outputs.html>`__. 
 
-This tutorial will instead focus more on the HTML report itself, which provides handy visualizations to better determine how well pre-processing went. 
+This tutorial will instead focus more on the HTML report itself, which provides handy visualizations to better determine how well the pre-processing went. If you have a browswer built in, you can open the report by typing the following into the terminal (assuming firefox):
+
+::
+
+  firefox $HOME/BIDS_tutorial/derivatives/fmriprep/sub-01.html
+  
+If this option isn't available to you, open a browser and type *Command + O* and then select the sub-01.html file. Once opened, you should see several tabs listed at the top:
+1). Summary
+2). Anatomical
+3). Function
+4). About
+5). Methods
+6). Errors
+
+You can click on these tabs to jump to that specific section in the report.
+
+The first you should check is the Errors tab. Make sure that it says "No errors to report!"; otherwise, it will list an error that will require further examination. So long as the section reads "No errors to report!", the pre-processing ran to completion without issue.
+
+The Summary tab will direct you to the section that provides some brief information on the anatomical and functional acquisitions.
+
+The Anatomical tab will direct you to the anatomical section of the report (shocking, I know). The first image you should see is *Brain mask and brain tissue segmentation of the T1w*, where the red line encompasses the entire brain, the blue line encompasses white matter, and magenta is the cerebral spinal fluid (CSF). The second image you should see is *Spatial normalization of the anatomical T1w reference*; if you hover your mouse over the image, you will see the back and forth between the anatomical and standard template. This allows you to assess the quality of the normalization step.
 
 
 
+The Functional tab can be broken down into the individual runs. Each run section will begin with a quick summary. The first image is *Susceptibility distortion correction*, which demonstrates how well the spin echo field maps were applied to the functional run. Hover the mouse over the image to see the *before* SDC and *after* SDC. The second image is *Alignment of functional and anatomical MRI data (surface driven)* and shows the quality of the co-registration step. The third image is *Brain mask and (temporal/anatomical) CompCor ROIs*, which shows the brain tissue ROIs used to generate the CompCor confounds. The fourth image is *Variance explained by t/aCompCor components*, which can be used to determine the number of CompCor confounds to include in your design matrix during future analysis. The fifth image is *BOLD Summary*, the common Power plot that provides information regarding the level of motion present in the run. **The BOLD Summary visualization is only generated if one of the standard output spaces is the MNI152NLin2009cAsym template.** The sixth image is *Correlations among nuisance regressors*, which can be used to choose confounds for the design matrix that don't exhibit high levels of correlations. Note that for the seconds runs of the bart and rest tasks, there is another image called *Estimated fieldmap and alignment to the corresponding EPI reference*. This is because those runs had the magnitude/phasediff field maps applied to them, as opposed to spin echo.
 
+The About tab specifies the fMRIPrep version and command used for this subject's pre-processing.
 
+The Methods tab details the pre-processing steps taken in greater detail. 
+ 
 
 Final Thoughts
 **************
