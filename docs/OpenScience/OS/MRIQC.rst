@@ -13,24 +13,24 @@ BIDS App Tutorial #1: MRIQC
 What is MRIQC?
 *************
 
-MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform quality assessments (QA) on T1w, T2w, and/or functional MRI acqusitions. Assessments come in the form of handy HTML reports that can be used to assess the quality of the collected data, and determine whether the data quality is sufficient for processing and analysis. For a more in-depth (and better) overview of MRIQC, check out their homepage `here <https://mriqc.readthedocs.io/en/stable/>`__.
+MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform quality assessments (QA) on T1w, T2w, and/or functional MRI acqusitions. These assessments come in the form of handy HTML reports that can be used to examine the quality of the collected data, and determine whether the data quality is sufficient for subsequent pre-processing and analysis. For a more in-depth (and better) overview of MRIQC, check out their homepage `here <https://mriqc.readthedocs.io/en/stable/>`__.
 
 MRIQC Tutorial
 **************
 
-This tutorial will demonstrate how to install MRIQC and run it on a dataset. The data that we'll be using is the BIDS-ified output from the `BIDS Overview and Tutorial <https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__. If you haven't checked out the BIDS tutorial, or aren't familiar with BIDS conversion, I'd highly recommend completing that before getting started here. If however you fancy yourself a BIDS god (or goddess) and/or are looking to take the path of least resistance, you can download the BIDS output data `here <https://drive.google.com/drive/folders/11qNNVmD-T8OoZy9NFqHjcleWIcso6ZDI?usp=sharing>`__. Be sure to download the entire folder and not just the subfolders or files. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files if they haven't been already (presumably from your Downloads folder), and type the following into the terminal, line by line:
+This tutorial will demonstrate how to install MRIQC and run it on a dataset. The data that we'll be using is the BIDS-ified output from the `BIDS Overview and Tutorial <https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__. If you haven't checked out the BIDS tutorial, or aren't familiar with BIDS conversion, I'd highly recommend completing that before getting started here. If however you fancy yourself a BIDS god (or goddess) and/or are looking to take the path of least resistance, you can download the BIDS output data `here <https://drive.google.com/drive/folders/11qNNVmD-T8OoZy9NFqHjcleWIcso6ZDI?usp=sharing>`__. Be sure to download the entire folder and not just the subfolders or files. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files if they haven't been already (presumably to your Downloads folder), and type the following into the terminal, line by line:
 
 ::
 
   mkdir $HOME/BIDS_tutorial
   mv ~/Downloads/BIDS_data/* $HOME/BIDS_tutorial
-  rm -rf ~/Downloads/BIDS_data
+  rm -rf ~/Downloads/BIDS_data*
   
   
 MRIQC Installation Option #1: Singularity
 *******************************
 
-MRIQC runs as a Docker or Singularity container, so we'll first need to build the container. If you're on a High Performance Computing (HPC) cluster then you'll want to build a Singularity container because Docker containers are not permitted on HPC systems due to required root access permissions that no HPC admin is going to allow. If you're using MacOS or Windows, skip this and review the Docker installation section instead. If you are working on a university HPC, you may already have the Singularity software available (just make sure you have version >= 2.5). Once ready, type the following into the terminal to build the container:
+MRIQC runs as a Docker or Singularity container, so we'll first need to build the container. If you're on a High Performance Computing (HPC) cluster then you'll want to build a Singularity container because Docker containers are not permitted on HPC systems due to required root access permissions that no HPC admin is going to allow (don't they trust us?). If you're using MacOS or Windows, skip this and review the Docker installation section instead. If you are working on a university HPC, you may already have the Singularity software available (just make sure you have version >= 2.5). Once ready, type the following into the terminal to build the container:
 
 ::
 
@@ -55,7 +55,7 @@ Running MRIQC entails specifying different command line options in order to prop
 
   touch $HOME/BIDS_tutorial/code/mriqc.sh
   
-This creates a blank bash script file to run MRIQC. Below, I've provided a mock script that you can copy and paste into the mriqc.sh file. To do this you will first need to open the mriqc.sh file, by typing the following into the terminal:
+This creates a blank bash script file to run MRIQC. Below, a mock script is providfed that you can copy and paste into the mriqc.sh file. To do this, first copy the mock script below and then open the mriqc.sh file by typing the following into the terminal:
 
 ::
 
@@ -112,20 +112,20 @@ Press the “i” key, and paste the contents below into the file. To save and c
     -w $bids_root_dir/derivatives/mriqc/sub-${subj}
   fi   
   
-To ensure that the information was added and saved to the json file, you can type the following onto the command line:
+To ensure that the information was added and saved to the mriqc.sh file, you can type the following into the terminal:
 
 ::
 
   cat $HOME/BIDS_tutorial/code/mriqc.sh
 
-Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed. To run the script type the following into the terminal, line by line:
+**Before running, change the container variable in the script to either *docker* or *singularity*, depending on which container you installed.** To run the script type the following into the terminal, line by line:
 
 ::
 
   bash
   source $HOME/BIDS_tutorial/code/mriqc.sh
 
-MRIQC will take awhile to run to completion (**approximately 40 min**), so you can leave the terminal window aside until then. It's worth noting that the example MRIQC command is rather bare-bones; if you're interested in applying additional or different options to your MRIQC command, refer to them `here <https://mriqc.readthedocs.io/en/stable/running.html>`__. The time it takes MRIQC to finish is contingent on the size of your data, the amount of processing power you're feeding MRIQC, and the feature options selected, so running MRIQC on a different dataset with different options may result in a longer (or shorter) completition time. 
+MRIQC will take a little awhile to run to completion (**approximately 40 min**), so you can leave the terminal window aside until then. It's worth noting that the example MRIQC command is rather bare-bones; if you're interested in applying additional or different options to your MRIQC command, refer to them `here <https://mriqc.readthedocs.io/en/stable/running.html>`__. The time it takes MRIQC to finish is contingent on the size of your data, the amount of processing power you're feeding MRIQC, and the feature options selected, so running MRIQC on a different dataset with different options may result in a longer (or shorter) completition time. 
 
 Assessing MRIQC QA Reports
 **************************
@@ -136,7 +136,7 @@ To access the reports, go to the output directory by typing the following into t
 
   cd $HOME/BIDS_tutorial/derivatives/mriqc/sub-01
   
-MRIQC performs two analysis stages: participant and group. In a nutshell, the participant level analysis stage computes the various diagnoistics and visualizations per subject, and the group level merges the diagnostics across all subejcts, sessions, and runs. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated HTML report; you will need to use a browser to view them. If you are on an HPC, you may already have a browser installed. For example, mine contains Firefox, so in order to open the T1w HTML report via the terminal I would type this:
+MRIQC performs two analysis stages: participant and group. In a nutshell, the participant level analysis stage computes the various diagnoistics and visualizations per subject, and the group level merges the diagnostics across all subjects, sessions, and runs. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated HTML report; you will need to use a browser to view them. If you are on an HPC, you may already have a browser installed. For example, mine contains Firefox, so in order to open the T1w HTML report via the terminal I would type this:
 
 ::
 
