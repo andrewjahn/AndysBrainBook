@@ -11,7 +11,7 @@ Performing Normalization in SPM
 
 After the anatomical image has been segmented, we can use those segmentations to **normalize** the image. From the SPM GUI, click on ``Normalize (Write)``, click on the ``Data`` field in the Batch Editor, and create a new Subject. Select the Deformation Field that you created in the ``anat`` directory (it should be called "y_rsub-08_T1w.nii"), and for ``Images to Write`` select all of the realigned and slice-time corrected images. (You can do this more efficiently by typing ``^ar.*`` in the Filter field, and entering ``1:146`` in the Frames field).
 
-In the ``Writing Options`` section, you can change the voxel resolution of the images that are warped. The default of 2x2x2 will create higher-resolution images, but the files will take up more space. If you want to create smaller files with lower resolution, change this to ``3 3 3``.
+In the ``Writing Options`` section, you can change the voxel resolution of the images that are warped. The default of 2x2x2 will create higher-resolution images, but the files will take up more space on your computer. If you want to create smaller files with lower resolution, change this to ``3 3 3``.
 
 .. note::
 
