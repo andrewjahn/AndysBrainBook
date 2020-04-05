@@ -49,7 +49,19 @@ Now that you have filled in all of the fields that had a ``<-X`` next to them, t
 
 .. note::
 
-  Regular expressions can be used to create very specific filters. For example, if you type the string ``^run-1.*`` in the Filter field, the file window will only return those files that **begin** with the string "run-1" (signalized by the carat symbol, ``^``).
+  **Regular expressions** can be used to create very specific filters. For example, if you type the string ``run-1.*`` in the Filter field, the file window will return only those files that contain the string "run-1" anywhere in their name. Typing the string ``^sub-08_task-flanker_run-1`` will return any files that *begin* with the string "run-1" (signalized by the carat symbol, ``^``).
+  
+  
+-----------
+
+Exercises
+*********
+
+1. In the Filter field, the dollar sign (``$``) can be used to return files that *end* with a particular string. For example, typing ``run-1_bold.*$`` would return those files that end with the string "run-1_bold". Use the filter field to return only those files that end with ``run-2_bold``. If you've run the realignment step, use the filter to field to return those files that begin with ``rsub-08``. Use the Frames field to select the frames 10-20.
+
+2. Re-run the realignment step on just the run-1 images, changing the Quality field from 0.9 to 0.5. When you highlight the Quality field, read the help text at the bottom of the window. What do you think this change will do to the quality of your realignment? To keep these files separate from the other output, change the Filename Prefix to ``qual_05``. Check the output in the Check Reg window, loading a representative image from the rsub-08_task-flanker_run-1 files, and an image from the qual_05 files you just created. Do you notice any difference between them? Why or why not?
+
+3. Re-run the realignment step by changing the Num Passes from "Register to mean" to "Register to first". Read the help file and determine what the tradeoffs are. Which one would you prefer to use as the default for your analysis, and why?
 
 
 Next Steps
