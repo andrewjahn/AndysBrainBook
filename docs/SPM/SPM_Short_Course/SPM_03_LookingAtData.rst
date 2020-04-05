@@ -114,5 +114,17 @@ Exercises
 
 1. View the time-series of the ``run-2`` data, using the steps outlined above. Do you notice any sudden changes in movement?
 
+2. Examine a few of the other anatomical and functional scans for some of the other subjects, making sure to unzip the images before loading them into the viewer. How does the contrast and the brightness change as you drag the crosshair through different slices of the image? What do you think affects the brightness of a given slice?
+
+3. Open the anatomical image for sub-08 in the Display Image viewer, and right click on any of the three window panes. Select ``Overlay -> Add Image -> This Image``, and select the functional file ``sub-08_task-flanker_run-1_bold.nii``. The functional image will be overlaid on the anatomical image and displayed in a red-orange heatmap, showing a relatively good initial alignment between the images:
+
+.. figure:: 03_ImageOverlay.png
+
+Now do the same procedure for the anatomical and functional images for sub-01, which should give you a figure like the following:
+
+.. figure:: 03_ImageOverlay_sub01.png
+
+What do you notice? This misalignment between the images will be addressed in a later chapter on :ref:`Setting the origin <SPM_07_SettingTheOrigin>`.
+
 Video
 --------
