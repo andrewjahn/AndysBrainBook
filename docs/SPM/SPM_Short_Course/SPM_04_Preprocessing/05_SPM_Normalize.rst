@@ -29,3 +29,9 @@ Once the functional images have been normalized, check the output to make sure t
   
 .. figure:: 04_05_CheckNormalization.gif
 
+-----------------
+
+Exercises
+*********
+
+1. While the most recent version of SPM's normalization is recommended, you also have the option of using an older version of normalize - one that doesn't require input from the Segmentation step. This can be found from the SPM GUI by clicking on the ``Batch`` button, and from the top of the window selecting ``SPM -> Tools -> Old Normalise: Estimate and Write``.  Click on the Data button and create a new Subject, and select the resliced anatomical image as the Source Image and all 292 volumes of your coregistered functional data as the Images to Write. For the Template Image, select ``T1.nii``. If you compare these results to the results obtained with SPM 12's default normalization, you may not see any noticeable differences; however, there are subtle but important differences in how the internal structures are aligned during normalization.
