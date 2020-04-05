@@ -37,7 +37,7 @@ This alignment between the functional and anatomical images is called **Registra
 
 1. Assume that the functional and anatomical images are in roughly the same location. If they are not, align the outlines of the images.
 
-2. Take advantage of the fact that the anatomical and functional images have different contrast weightings - that is, areas where the image is dark on the anatomical image (such as cerebrospinal fluid) will appear bright on the functional image, and vice versa. This is called **mutual information**. The registration algorithm moves the images around to test different overlays of the anatomical and functional images, matching the bright voxels on one image with the dark voxels of another image, and the dark with the bright, until it finds a match that cannot be improved upon. (AFNI's preferred approach is a method called **LPC**, or Local Pearson Correlation, which gives greater weight to those regions of the functional image that are brighter: see `this paper <https://www.sciencedirect.com/science/article/pii/S1053811908010409>`__ for more details.)
+2. Take advantage of the fact that the anatomical and functional images have different contrast weightings - that is, areas where the image is dark on the anatomical image (such as cerebrospinal fluid) will appear bright on the functional image, and vice versa. This is called **mutual information**. The registration algorithm moves the images around to test different overlays of the anatomical and functional images, matching the bright voxels on one image with the dark voxels of another image, and the dark with the bright, until it finds a match that cannot be improved upon. This procedure is also known as a **cost function**.
 
 3. Once the best match has been found, then the same transformations that were used to warp the anatomical image to the template are applied to the functional images.
 
@@ -57,7 +57,21 @@ Double-click on the Reference Image, and select the ``meansub-08_task-flanker_ru
 
 When it finishes, another window will be generated showing the coregistration results with the mean functional image on the left and the anatomical image on the right. Click and drag the crosshairs in either image to see how well the images are aligned - in addition to the outlines of the brains being matched, you should also check to make sure that internal structures such as the ventricles are aligned as well. Remember that the intensities will be flipped: Darker areas in the anatomical image (such as the ventricles) will appear brighter in the functional image.
 
+.. note::
+
+  Open the resliced anatomical image by itself using the Display Image button (i.e.,load the image ``rsub-08_T1w.nii``). What do you notice about the image as compared to the original anatomical image? (Hint: Compare the numbers in the "Dimension" and "Vox size" fields.)
+
 .. figure:: 03_Coregistration_Check.png
+
+
+--------------
+
+Exercises
+*********
+
+1. As with the :ref:`Realignment step <01_SPM_Realign_Unwarp>`, we have the option of making the coregistration step faster but lower quality, or slower but higher quality. Use the "Interpolation" field to examine the differences between the different options that are aviailable, and set it to "Nearest Neighbour". Change the Filename prefix to "NN", and run the coregistration. What do you notice about the output? How does it compare to the default interpolation of "4th Degree B-Spline"? (You can also test how using the option of "7th Degree B-Spline" changes the output.)
+
+2. Try swapping the Reference and the Source Images - that is, make the anatomical image the Reference, and the functional image the Source. (Remember to change the Filename prefix to something that makes sense to you, in order to keep the outputs organized.) How have the dimensions and resolution of the functional data changed? Keeping in mind that we have a total of 292 functional volumes as compared to 1 anatomical volume, and knowing that a higher resolution dataset takes up more space on the computer, what reasons would you give for keeping the anatomical image as the Source, and the functional data as the Reference?
 
 Next Steps
 **********
