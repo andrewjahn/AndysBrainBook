@@ -36,3 +36,21 @@ Checking the Smoothed Images
 As before, use the ``Check Reg`` button to load a representative volume from the output you just created, and view it side by side with a warped functional image that hasn't been smoothed. Does it look like the image has been smoothed the amount that you wanted?
 
 .. figure:: 05_06_Smoothed_Output.png
+
+
+---------------
+
+Exercises
+**********
+
+1. Try smoothing kernels of these different sizes (to save time, select just one volume from your preprocessed functional data):
+
+* 0 0 0
+* 3 3 3
+* 30 30 30
+
+Again, making sure to give each one a distinct Filename Prefix.
+
+Before you look at the output, predict what it will look like. Does the result match your predictions?
+
+2. Try smoothing in only one direction, e.g., by supplying a triplet of ``[0 0 10]`` - which will smooth by 10mm in the z-direction. What do you notice about the results?
