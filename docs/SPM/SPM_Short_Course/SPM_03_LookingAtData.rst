@@ -128,3 +128,5 @@ What do you notice? This misalignment between the images will be addressed in a 
 
 Video
 --------
+
+For a video overview of how to check the quality of your data, click `here <https://www.youtube.com/watch?v=j0AEAOghD7w>`__.
