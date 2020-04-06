@@ -37,6 +37,20 @@ Or in AFNI:
   
 And you would then be able to use an ROI extraction command, such as 3dmaskave or fslstats, to extract data from the mask.
 
+In order to resample an image to an isotropic voxel size, such as 3x3x3, you can use the following options with flirt:
+
+::
+
+  flirt -in volume.nii -ref volume.nii -applyisoxfm 3.0 -nosearch -out volume_3x3x3.nii
+  
+To resample to an anisotropic voxel resolution, you can use AFNI's 3dresample command, e.g.:
+
+::
+
+  3dresample -input volume.nii -out output_volume.nii -dxyz 1 0.8 1.5
+  
+Which will resample the voxels to have a size of 1x0.8x1.5mm, in this example.
+
 For an overview of this topic, see `this video <https://www.youtube.com/watch?v=rvW-D5o3ALA>`__.
 
 
