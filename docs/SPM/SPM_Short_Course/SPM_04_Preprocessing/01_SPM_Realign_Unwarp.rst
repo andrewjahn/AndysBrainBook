@@ -64,6 +64,11 @@ Exercises
 3. Re-run the realignment step by changing the Num Passes from "Register to mean" to "Register to first". Read the help file and determine what the tradeoffs are. Which one would you prefer to use as the default for your analysis, and why?
 
 
+Video
+******
+
+For a video introduction to preprocessing and how to do realignment, click `here <https://www.youtube.com/watch?v=i39j-t7eRiY>`__.
+
 Next Steps
 **********
 
