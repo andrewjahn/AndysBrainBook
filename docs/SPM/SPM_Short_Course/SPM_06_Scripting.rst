@@ -250,3 +250,5 @@ A copy of this script can be found on Andy's github page located `here <https://
 
 Video
 *****
+
+For a video tutorial of how to script your analysis in SPM, click `here <https://www.youtube.com/watch?v=-1m8nriF11I>`__.
