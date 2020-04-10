@@ -16,7 +16,7 @@ Overview
 
 Although SPM comes with an extensive library for analyzing fMRI data, it doesn't have some of the tools you will need for more advanced analyses, such as the **region of interest** analyses covered in the next chapter. To meet this need, programmers and researchers have created SPM **extensions** (also known as **toolboxes**) which enable the user to do specific analyses.
 
-For example, most fMRI researchers use some kind of **atlas**, or partitioning of the brain into distinct functional or anatomical regions. fMRI data can then be extracted from a specified partition, or region of interest, and then statistics are performed to determine whether there is a significan effect in that region. To create these anatomical regions of interest, we will download and install the **WFU Pickatlas** toolbox, a popular atlas and region of interest generator.
+For example, most fMRI researchers use some kind of **atlas**, or partitioning of the brain into distinct functional or anatomical regions. fMRI data can then be extracted from a specified partition, or region of interest, and then statistics are performed to determine whether there is a significant effect in that region. To create these anatomical regions of interest, we will download and install the **WFU Pickatlas** toolbox, a popular atlas and region of interest generator.
 
 To download this toolbox, click on `this link <https://www.nitrc.org/projects/wfu_pickatlas/>`__, and then click the Download button - an arrow pointing downwards, just underneath the selection menu. If you do not already have an account with the NITRC (Neuroimaging Tools and Research Collaboratory, a repository for code and toolboxes), you will need to create one. Agree to the terms, and proceed with the download. 
 
