@@ -51,6 +51,10 @@ And then move the required files from the marsbar download into the marsbar fold
   
 The next time you open SPM, you should see "marsbar" as an option when you click on the Toolbox menu.
 
+Video
+******
+
+For a video overview of toolboxes and how to install them, click `here <https://www.youtube.com/watch?v=uO945o3yuL0>`__.
 
 Next Steps
 **********
