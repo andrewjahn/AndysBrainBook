@@ -184,3 +184,5 @@ Exercises
 
 Video
 *********
+
+For a video walkthrough of ROI analysis in SPM, click `here <https://www.youtube.com/watch?v=zVuSHTJLJj4>`__.
