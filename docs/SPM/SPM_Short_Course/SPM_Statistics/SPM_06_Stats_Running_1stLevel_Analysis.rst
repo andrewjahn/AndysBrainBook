@@ -118,3 +118,5 @@ When you have finished running the preprocessing and first-level analyses, we wi
 
 Video
 *****
+
+For a video demonstration of how to do a 1st-level analysis in SPM, click `here <https://www.youtube.com/watch?v=xO0j6JMoN0M>`__.
