@@ -70,6 +70,10 @@ Should the Origin be Reset for Each Subject?
 
 If you attempted to analyze all of your subjects using the script mentioned in the previous chapter, you may have noticed that the preprocessing succeeded for the majority of the subjects, and failed for about a fourth of the subjects. This raises the question of whether the origin should be reset to each subject's anterior commissure. The conservative approach would be to do it for each subject; although you should still check the output of the preprocessing to make sure that there were no errors.
 
+Video
+*****
+
+For a video demonstration of how to set the origin in SPM12, click `here <https://www.youtube.com/watch?v=19gvTytjBUU>`__.
 
 Next Steps
 **********
