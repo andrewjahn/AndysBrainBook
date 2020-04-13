@@ -74,6 +74,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 
     AFNI/AFNI_Overview
     
+.. toctree::
+    :maxdepth: 1
+    :caption: SPM
+
+    SPM/SPM_Overview
+    
 
 
 .. note::
@@ -81,11 +87,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     The following modules are under construction. Check back soon for more updates!
     
        
-.. toctree::
-    :maxdepth: 1
-    :caption: SPM
 
-    SPM/SPM_Overview
     
 .. toctree::
     :maxdepth: 1
@@ -172,3 +174,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     10.16.2019: FreeSurfer module complete.
     
     1.13.2020: SPM written module complete (videos not up yet)
+    
+    4.13.2020: SPM videos uploaded
