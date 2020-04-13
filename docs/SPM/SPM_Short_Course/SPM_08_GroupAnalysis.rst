@@ -98,3 +98,5 @@ Exercises
 
 Video
 *****
+
+For a video overview of group-level analysis, click `here <https://www.youtube.com/watch?v=lSIi-aeZO5M>`__.
