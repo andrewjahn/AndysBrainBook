@@ -95,7 +95,7 @@ The following animation shows the difference between anatomical and spherical RO
 
 .. figure:: 09_ROI_Analysis_Anatomical_Spherical.gif
 
-To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 20, 40.
+To create this ROI, we will need to find peak coordinates from another study; let's randomly pick a paper, such as Jahn et al., 2016. In the Results section, we find that there is a Conflict effect for a Stroop task - a distinct but related experimental design also intended to tap into cognitive control - with a peak t-statistic at MNI coordinates 0, 20, 44.
 
 To create the sphere, we will be using the **Marsbar** toolbox that we installed in the :ref:`last chapter <SPM_Intermezzo_Toolboxes>`. From the SPM GUI, click on ``Toolbox -> marsbar``.
 
@@ -105,7 +105,7 @@ Marsbar allows you to create an ROI using several different methods, such as:
 2. The cluster from a result that you generate;
 3. A box with dimensions that you specify.
 
-To create a sphere, click on ``ROI definition -> Build``. From the ``Type of ROI`` dropdown menu, select ``Sphere`` and enter the coordinates ``0 20 40``. Enter a Sphere radius of 5, and for both the Description of ROI and Label for ROI fields, enter ``dACC_Sphere``. Save the file to your Flanker directory as ``dACC_Sphere_roi``.
+To create a sphere, click on ``ROI definition -> Build``. From the ``Type of ROI`` dropdown menu, select ``Sphere`` and enter the coordinates ``0 20 44``. Enter a Sphere radius of 5, and for both the Description of ROI and Label for ROI fields, enter ``dACC_Sphere``. Save the file to your Flanker directory as ``dACC_Sphere_roi``.
 
 Now we have a .mat file that contains the necessary information to build our spherical ROI. Before we generate the ROI as a NIFTI file, click on ``ROI definition`` and select ``View``. Click on your newly created ``dACC_Sphere_roi.mat`` file, and make sure that it is located in the region where it should be.
 
