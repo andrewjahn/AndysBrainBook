@@ -29,6 +29,7 @@ This course will teach you the basics of diffusion - how it is collected, and ho
    :maxdepth: 1
    :caption: Preprocessing Steps
    
+   MRtrix_Course/MRtrix_00_Diffusion_Overview
    MRtrix_Course/MRtrix_01_Download_Install
    MRtrix_Course/MRtrix_02_DataDownload
    MRtrix_Course/MRtrix_03_DataFormats
