@@ -7,7 +7,7 @@ SUMA Tutoral #1: Reconstructing the Cortical Surface
 -------------
 
 Introduction
-*************
+************
 
 The first step of a surface-based analysis is to reconstruct the cortical surface from a three-dimensional volume. This is discussed in detail in the :ref:`FreeSurfer Short Course <FS_01_BasicTerms>`. Here, we will run a script to process each of our subject's anatomical datasets using FreeSurfer's :ref:`recon-all command <FS_03_ReconAll>`.
 
