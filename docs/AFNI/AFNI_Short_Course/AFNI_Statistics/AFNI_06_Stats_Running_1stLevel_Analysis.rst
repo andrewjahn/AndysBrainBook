@@ -7,7 +7,7 @@ Chapter 6: Running the First-Level Analysis
 ---------
 
 uber_subject.py Revisited
-***************
+*************************
 
 Previously, we used the command ``uber_subject.py`` to :ref:`set up the preprocessing script for a single subject <AFNI_Intermezzo_Uber_Subject>`. You may recall that we removed one of the processing blocks, called "regress", because we were not focusing on regression at the time. Now, however, we will add the regress block back into our uber_subject.py script, and combine both preprocessing and 1st-level analysis into a single script.
 
@@ -73,7 +73,7 @@ Now, click the top three icons in succcession (the sheet of paper, the magnifyin
 
 
 The Ideal Time-Series and the GLM
-***************
+*********************************
 
 While you're waiting for the analysis to finish, let's take a look at how the model we just created relates to the GLM. Remember that each voxel has a BOLD time-series (our outcome measure), which we represent with Y. We also have our two regressors, which we will represent with x1 and x2. These regressors constitute our design matrix, which we represent with a large X. 
 
@@ -83,7 +83,7 @@ The next part of the GLM equation is the beta weights, which we represent with B
 
 
 Examining the Output
-**************
+********************
 
 When the script finishes, navigate into the folder ``sub-08/subject_results/group.Flanker/subj.sub08/sub08.results``. In addition to the preprocessed blocks you saw previously, you will also see statistical datasets: The one labeled ``stats.sub_08+tlrc`` has been analyzed using the traditional 3dDeconvolve approach; the dataset ``stats.sub_08_REML+tlrc`` has accounted for temporal autocorrelation.
 
