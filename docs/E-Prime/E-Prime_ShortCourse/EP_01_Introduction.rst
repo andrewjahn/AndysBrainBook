@@ -1,8 +1,8 @@
 .. _EP_01_Introduction:
 
-=================
+============================================
 E-Prime Tutorial #1: Introduction to E-Prime
-=================
+============================================
 
 -------------
 
@@ -27,6 +27,6 @@ The backbone of an E-Prime experiment is the **procedure** object; each new E-Pr
   
   
 Video
-**********
+*****
 
 For a video overview of what E-Prime is and what it looks like, click `here <https://www.youtube.com/watch?v=t3hZHveUVE8&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM>`__.
