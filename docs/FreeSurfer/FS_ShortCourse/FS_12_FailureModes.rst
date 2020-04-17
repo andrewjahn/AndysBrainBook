@@ -1,13 +1,13 @@
 .. _FS_12_FailureModes:
 
-======================================
+======================================================
 FreeSurfer Tutorial #12: Introduction to Failure Modes
-======================================
+======================================================
 
 ---------------
 
 Overview
-*********
+********
 
 If your anatomical data is of good quality - strong contrast between the tissue types, no movement, high resolution - then recon-all will likely run without errors, and will generate surfaces that accurately track the borders of the different tissue types. You may observe small discrepancies between the borders that are drawn by FreeSurfer, and the actual borders between the grey and white matter; but as long as the discrepancies are relatively small and infrequent, it's best to leave them alone. In those cases, sometimes editing the surfaces can make the problem worse, not better.
 
@@ -18,7 +18,7 @@ Nevertheless, for some subjects recon-all won't be able to finish reconstructing
 
 
 Hard Failures vs. Soft Failures
-*********
+*******************************
 
 Failure modes can be divided into two categories: **Hard Failures** and **Soft Failures**. Hard failures occur when recon-all exits its preprocessing stream due to one of these scenarios:
 
@@ -36,7 +36,7 @@ Soft Failures, on the other hand, occur when recon-all has finished without any 
   
 
 Soft Failure Types
-**********
+******************
 
 As soft failures are more common, you should be familiar with their different types. Soft failures can be divided into the following categories:
 
@@ -57,7 +57,7 @@ White matter segmentation errors, on the other hand, occur in the *volume* of th
 
 
 Viewing the Other Errors
-************
+************************
 
 The remaining soft failures - skullstripping, pial surface, and intensity normalization errors - are the most common ones you will encounter, even in high-quality data. To begin looking for these errors, we will load the T1 and brainmask images as underlays in freeview, and overlay the white and pial surfaces for both hemispheres. Here is a sample command that you can use (replacing "[subject]" with the name of the subject you are looking at):
 
@@ -89,7 +89,7 @@ Also note that the surfaces drawn in the medial wall near the ventricles and cor
 
 
 Next Steps
-********
+**********
 
 Any other edits will be done with one or more of the following steps:
 
@@ -104,6 +104,6 @@ We will see how to use each of these tools, and when they are needed, in the nex
 -----------
 
 Video
-**********
+*****
 
 For a video overview of failure modes, click `here <https://www.youtube.com/watch?v=8n5_XE-OH0E&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=11>`__.
