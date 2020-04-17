@@ -1,13 +1,13 @@
 .. _FS_11_ROIAnalysis:
 
-======================================
+====================================================
 FreeSurfer Tutorial #11: Region of Interest Analysis
-======================================
+====================================================
 
 ---------------
 
 Overview
-*********
+********
 
 In addition to creating a cortical surface and calculating structural measurements at each vertex, FreeSurfer parcellates and segments the brain - the parcellations outlining anatomically distinct regions of the cortex, and the segmentations dividing the sub-cortical nuclei into distinct structures. These parcellations are created along the lines of two atlases that come with FreeSurfer: The Destrieux atlas, and the Desikan-Killiany atlas.
 
@@ -22,7 +22,7 @@ The segmentations, on the other hand, are contained within one file called ``ase
 
 
 Extracting data with asegstats2table and aparcstats2table
-*********
+*********************************************************
 
 Both the command ``asegstats2table`` and ``aparcstats2table`` require a list of subjects and the structural measurement you wish to extract from the table.
 
@@ -50,7 +50,7 @@ In this command you can specify the hemisphere to analyze (``--hemi``), the meas
 
 
 Next Steps
-*********
+**********
 
 The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. You would perform the statistical tests just like you would any other t-test: Select the structural measurements from the groups you wish to compare, and then contrast the two groups against each other.
 
@@ -94,6 +94,6 @@ The output from these commands are tab-delimited text files that can be read int
 -----------
 
 Video
-**********
+*****
 
 For a video overview of how to do region of interest analysis in FreeSurfer, click `here <https://www.youtube.com/watch?v=ho_cFxkXS5E&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=10>`__.
