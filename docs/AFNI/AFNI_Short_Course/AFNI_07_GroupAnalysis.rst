@@ -1,13 +1,13 @@
 .. _AFNI_07_GroupAnalysis:
 
-=====================
+================================
 AFNI Tutorial #7: Group Analysis
-=====================
+================================
 
 --------
 
 Overview
-***************
+********
 
 Our goal in analyzing this dataset is to generalize the results to the population that the sample was drawn from. In other words, if we see changes in brain activity in our sample, can we say that these changes would likely be seen in the population as well?
 
@@ -228,7 +228,7 @@ The output of this command will be a z-statistic image which you can threshold a
 Going down the list to the row next to a cluster-forming threshold of p=0.001, we see that we would need a cluster size of 16 or greater in order to determine that the cluster is significant at the p=0.05 threshold.
 
 Using 3dMEMA
-*************
+************
 
 Close the AFNI viewer, and then use the Terminal to navigate back to the directory containing your subjects. Go back to the uber_ttest.py GUI (or open a new one), and make the following changes:
 
