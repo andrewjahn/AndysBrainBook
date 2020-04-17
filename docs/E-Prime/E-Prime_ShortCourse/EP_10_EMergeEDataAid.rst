@@ -1,20 +1,20 @@
 .. _EP_10_EMergeEDataAid:
 
 
-=============================================
+============================================
 E-Prime Tutorial #10: E-Merge and E-Data Aid
-=============================================
+============================================
 
 -------------
 
 Overview
-***********************
+********
 
 Let's say that we've run a handful of subjects, and we now have enough data to run a group-level analysis. E-Prime comes with two separate packages, **E-Merge** and **E-Data Aid**, which allow you to merge the data files for several subjects and then analyze them. E-Data Aid includes several features that allow you to filter and organize the data, as well as compute averages within and across conditions. Once you have the data formatted the way you like, you can export it to a spreadsheet or text file for analysis in a separate statistical software package.
 
 
 E-Merge
-*********
+*******
 
 Both E-Merge and E-Data Aid can be found in the E-Prime package suite that was installed on your computer. Search for the E-Merge program, open it, and navigate to the folder where your e-dat files are output. Click on the ``Filter`` button and select ``*.edat2`` as a filter, which will leave only those files ending in **.edat2**. 
 
@@ -29,7 +29,7 @@ Next, hold down shift and click to highlight all of the .edat2 files, and then c
 .. figure:: 10_EMerge_Merge.png
 
 E-Data Aid
-************
+**********
 
 Now open the E-Data Aid program and open the StroopMerge file that you just created. The first thing you will notice is that there are many columns and many rows - many more than you probably care about. The file contains so many rows and columns because it contains every attribute that was logged on every trial of the experiment.
 
@@ -42,7 +42,7 @@ We can now filter our trials by condition. If you click on the Checklist button,
 .. figure:: 10_Checklist.png
 
 Calculating Averages
-****************
+********************
 
 To calculate the averages within each condition, click on the Analyze button - an icon that looks like a calculator. This will open a new window that allows you to construct tables of averages or other statistics for the variables that you have selected.
 
@@ -89,6 +89,6 @@ Exercises
 ----------------
 
 Video
-***********
+*****
 
 To see how to use E-Merge and E-Data Aid, watch `this video <https://www.youtube.com/watch?v=RUTxxGCQxFc&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=10>`__.
