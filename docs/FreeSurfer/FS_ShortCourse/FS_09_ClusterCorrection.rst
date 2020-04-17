@@ -1,19 +1,19 @@
 .. _FS_09_ClusterCorrection:
 
-======================================
+==========================================
 FreeSurfer Tutorial #9: Cluster Correction
-======================================
+==========================================
 
 ---------------
 
 Overview
-*********
+********
 
 After you have run your general linear model and created group-level contrast maps, you will need to correct for the amount of tests that you have run. For a more detailed overview of how cluster-correction works, see :ref:`this page <Appendix_A_ClusterCorrection>`. Although it uses fMRI data to illustrate the concept, the same idea applies to the vertices that we analyze in structural data.
 
 
 Cluster Correction with mri_glmfit-sim
-**********
+**************************************
 
 As in the previous tutorial, we will use nested for-loops to create cluster-corrected maps for each contrast. Each level of the nested loop specifies a different combination of which hemisphere, smoothness, and structural measurement we are analyzing:
 
@@ -71,7 +71,7 @@ Now copy the code above into a file called ``runClustSims.sh``, and save it in t
   
 
 Viewing the Results
-***********
+*******************
 
 When the script has finished, navigate into one of the directories that it has analyzed, such as ``lh.volume.CannabisStudy.10.glmdir/HC-CB``. There are several new files that have been created:
 
@@ -94,7 +94,7 @@ Observe how the clusters that you see in freeview correspond to the clusters lis
 ----------
 
 Summary
-***********
+*******
 
 This concludes how to run structural analyses between groups; you can use the above code as templates for analyzing the groups in your study. For many experiments, this will be all the researcher needs.
 
@@ -103,6 +103,6 @@ Even if your main focus is testing for group differences, however, you might wan
 -------------
 
 Video
-**********
+*****
 
 For a video overview of how to do cluster correction in FreeSurfer, click `here <https://www.youtube.com/watch?v=CpnKJWdW1Pc&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=9>`__.
