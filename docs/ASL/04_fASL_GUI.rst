@@ -7,7 +7,7 @@ fASL Tutorial #4: The GUI
 ----------
 
 Overview of the GUI
-**********
+*******************
 
 Navigate to the directory that contains ``run_1`` and ``run_2``. When you open the fASL GUI by typing ``fasl02`` from the command line in Matlab, you will see this window:
 
@@ -22,7 +22,7 @@ The GUI is divided into several windows, each responsible for a different aspect
 
 
 Input Data File (Required)
-^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: 04_InputDataFile.png
 
@@ -34,7 +34,7 @@ Click the button ``Input Data File`` to open a window that you can use to select
   
   
 Constants & Acquisition Params
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 This window contains the parameters that were used to acquire the scan, such as TR, T1 decay, and arterial transit time. We will only change one of the defaults: Decrease the ``N. of M0 frames`` from 6 to 0. When you are finished, the window should look like this:
 
@@ -42,7 +42,7 @@ This window contains the parameters that were used to acquire the scan, such as 
 
 
 Time Series Preprocessing
-^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
 These steps are similar to the preprocessing steps described in the :ref:`FSL Short Course <fMRI_04_Preprocessing>`; review those steps for more details about what each one does.
 
@@ -54,7 +54,7 @@ Since these reconstructed data have already been slice-time corrected, leave tha
   
   
 Spatial Transformations
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^
 
 Since we have decided to do Spatial Normalization by checking that box in the Time Series Preprocessing window, we will need to point to the location of the subject's anatomical image, and a template image to normalize the data to. Click on ``Coregister to Structural``, and navigate to the subject's ``anatomy`` directory. Select ``anat_ss.nii``, which is a skull-stripped anatomical dataset.
 
@@ -65,7 +65,7 @@ Next, click on ``Normalise to Template``. Any normalized template can be used; i
 ----------
 
 FMRI
-********
+****
 
 Now that we have all of the preprocessing steps ready to go, we will create a general linear model to analyze the data once it has been preprocessed. This will require creating a design matrix indicating which condition occurred at which time, and for what duration. We will also specify which conditions we want to contrast against each other - which in this example will be the 4-back compared to the 1-back task. The resulting image will show differences in cerebral blood flow between those conditions.
 
@@ -119,7 +119,7 @@ Then click ``Add to Matrix``. Lastly, in the field under ``Save Matrix as``, typ
   
   
 Contrast weights
-^^^^^
+^^^^^^^^^^^^^^^^
   
 Click on ``Load Design Matrix`` and select the NBack_Matrix you just created. fASL will display a figure showing the matrix you just created; make sure it looks like the matrix above, and then close the figure.
 
