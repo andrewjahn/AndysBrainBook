@@ -88,7 +88,7 @@ To download the script that already has these edits, click `here <https://github
   done
 
 Downloading the Surface Template
-*********************************
+********************************
 
 Just as with our volumetric analyses, we will need to render our results on a surface template. Navigate to the directory containing your subjects, and type the following:
 
@@ -100,7 +100,7 @@ Just as with our volumetric analyses, we will need to render our results on a su
 This will download and unpack the MNI_N27 surface template, which we can then view our results on.
 
 Loading the First-Level Results
-********************************
+*******************************
 
 After the preprocessing script has finished, you will see a list of files output that have names similar to the ones you saw during the volumetric analysis. In this case, however, some of the files end in suffixes such as ``niml.dset``. These are datasets that can be loaded into SUMA using the ``-input`` option.
 
