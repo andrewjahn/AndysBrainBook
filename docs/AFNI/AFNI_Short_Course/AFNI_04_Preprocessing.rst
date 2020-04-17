@@ -1,8 +1,8 @@
 .. _AFNI_04_Preprocessing:
 
-=============
+=================================================
 AFNI Tutorial #4: AFNI Commands and Preprocessing
-=============
+=================================================
 
 -----------
 
@@ -11,7 +11,7 @@ AFNI Tutorial #4: AFNI Commands and Preprocessing
   
    
 Overview
--------------
+--------
 
 Now that we know where our data is and what it looks like, we will do the first step of fMRI analysis: **Preprocessing**.
 
@@ -49,10 +49,6 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
 ---------
 
 Video
-*********
+*****
 
 .. When you have finished all of the chapters, click `here <https://www.youtube.com/watch?v=VobRXk3ccNQ&list=PLIQIswOrUH6-rpwcmo2ewY2wi4Yoym9ft>`__ for a playlist containing all of the videos used to demonstrate the preprocessing steps.
-
-
-  
-  
