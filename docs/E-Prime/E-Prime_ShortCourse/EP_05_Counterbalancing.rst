@@ -1,13 +1,13 @@
 .. _EP_05_Counterbalancing:
 
-=============================================
+=====================================
 E-Prime Tutorial #5: Counterbalancing
-=============================================
+=====================================
 
 -------------
 
 Overview
-***********************
+********
 
 An important aspect of experimental design is **counterbalancing**: making sure that the order of stimuli or responses are different across subjects.
 
@@ -17,7 +17,7 @@ Strict counterbalancing would require that every subject be presented with a dif
 
 
 Counterbalancing Responses
-***************************
+**************************
 
 A more serious counterbalancing problem arises with our responses. In our current version of the Stroop task, subjects are required to press "f" when the color is blue, and "j" when the color is red. It could be that this particular combination of mapping colors to responses is easier or more difficult than an alternative combination. However unlikely that may be, we can control for it by using E-Prime's counterbalancing function.
 
@@ -27,12 +27,12 @@ To counterbalance the responses, create a new List object at the head of the exp
 
 In the StroopCounterBalance List, create two new attributes: "StroopBlueResp" and "StroopRedResp". Create a new level as well, and enter the following matrix of responses:
 
-==================   ============
+==================   =============
 StroopBlueResp       StroopRedResp
-==================   ============
+==================   =============
 f                     j
 j                     f
-==================   ============
+==================   =============
 
 In the E-Prime window, it will look like this:
 
@@ -65,6 +65,6 @@ Exercises
 -------------
 
 Video
-********************
+*****
 
 For a video demonstrating how to create a counterbalanced Stroop experiment, click `here <https://www.youtube.com/watch?v=r_LW7vFg93M&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=5>`__.
