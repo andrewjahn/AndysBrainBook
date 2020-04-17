@@ -1,13 +1,13 @@
 .. _EP_06_FeedbackDisplay:
 
-=============================================
+===================================================================================
 E-Prime Tutorial #6: The FeedbackDisplay Object and an Introduction to Slide States
-=============================================
+===================================================================================
 
 -------------
 
 Overview
-*********
+********
 
 In some experiments, you may want the subject to know how he did immediately after a trial. For example, if he was too slow to respond, he should receive feedback telling him so and encouraging him to respond faster on the next trial. Likewise, you may want to give him feedback about whether his response was correct or incorrect so that he is using the right response mappings.
 
@@ -46,6 +46,6 @@ Exercises
 -----------------
 
 Video
-*********
+*****
 
 For a video demonstration of the FeedbackDisplay object, click `here <https://www.youtube.com/watch?v=3XwQpwcAY4U&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=6>`__.
