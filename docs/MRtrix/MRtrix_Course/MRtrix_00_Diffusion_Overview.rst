@@ -1,8 +1,8 @@
 .. _MRtrix_00_Diffusion_Overview:
 
-=================================================
-MRtrix Tutorial #3: Overview of Diffusion Imaging
-=================================================
+==================================================
+MRtrix Introduction: Overview of Diffusion Imaging
+==================================================
 
 ---------------
 
