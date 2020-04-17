@@ -1,8 +1,8 @@
 .. _EP_Intermezzo_Stroop:
 
-============================
+===========================
 Intermezzo: The Stroop Task
-============================
+===========================
 
 ------------
 
@@ -12,7 +12,7 @@ Overview
 Before going on to the next chapters in this tutorial, it will be useful to review the type of experiment we will be creating: a **Stroop Task**. This type of experiment taps into a mental state known as cognitive control; below we discuss both cognitive control and what the Stroop Task is.
 
 Cognitive Control
-*************
+*****************
 
 **Cognitive Control** refers to the ability to focus on one thing - an idea, an object, a sound  - and to filter out or suppress irrelevant thoughts and stimuli. This often requires suppressing a habitual action as well. For example, let's say that you are an American, and that you are writing an article for a British audience. As it so happens your article deals with the concept of "color" quite a bit, but each time you write the word, you need to consciously write it as "colour". This is a case in which your habitual actions are in conflict with a new context, and you need to be on guard as to when your habitual actions will lead you to make a mistake.
 
