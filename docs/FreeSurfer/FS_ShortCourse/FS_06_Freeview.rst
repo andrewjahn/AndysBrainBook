@@ -21,8 +21,6 @@ The Control Panel
 
 The upper-left corner of Freeview contains the **Control Panel**, which shows the volumes currently loaded in memory. The checkbox next to each image can be checked or unchecked to make the image visible or invisible, respectively. As with the other viewers, the image at the top is the **overlay** - it covers all of the other images. The up and down arrows allow you to bring one particular image to the top of the stack, or to lower an image so that it is no longer the overlay image. The ``Opacity`` slider allows you to keep an image as an overlay, but to change its transparency so that you can see the image immediately underneath it.
 
-.. figure:: 06_Freeview_Demo.gif
-
 The **Toolbar** is underneath the Control Panel, and it contains options for changing the opacity, contrast, and color map of the images. When an image such as aseg.mgz is loaded, for example, the default is to use a greyscale color palette. A more informative color map, however, is the **FreeSurferColorLUT** (LUT = Look-Up Table), which color-codes each segment of the image according to a predefined table. 
 
 Many of the images in FreeSurfer are encoded like this. It will take some time to find out which ones are, but a useful heuristic is to assume a look-up table for any image that is segmented (such as aseg.mgz) or parcellated (such as one of the atlases).
