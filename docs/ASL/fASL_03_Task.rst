@@ -1,9 +1,9 @@
 .. _fASL_03_Task:
 
 
-==========================
+=================================
 fASL Tutorial #3: The N-Back Task
-==========================
+=================================
 
 --------------
 
@@ -16,7 +16,7 @@ In light of this example, let's refine our definition: Working memory is the abi
 
 
 The N-Back Task
-********************
+***************
 
 As we saw from the above example, working memory is used in all kinds of everyday situations. But how do we tap into it and measure it in a laboratory? The most popular versions of working memory tasks are the spatial memory working task and the letter working memory task. We will focus here on the letter working memory task, as that is the one that was used during the ASL scan you will analyze.
 
