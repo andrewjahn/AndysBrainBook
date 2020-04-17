@@ -61,7 +61,7 @@ This will create a new file, midACC_rs (in which **rs** stands for re-sampled). 
 
 
 Extracting Data from the Anatomical Mask
-************
+****************************************
 
 Once you've created the mask, you can then extract each subject's contrast estimates from it. There are two ways that we could extract our contrast of interest Incongruent-Congurent:
 
@@ -164,7 +164,7 @@ The numbers you get from this analysis should look much different from the ones 
 -------
 
 Exercises
-********
+*********
 
 1. Create an anatomical mask of a region of your choosing. For the copy dataset, select the "stats" dataset. Will you have to resample this mask in order to use it for an ROI analysis? Why or why not?
   
@@ -175,7 +175,7 @@ Exercises
 --------
 
 Video
-*********
+*****
 
 For a video demonstration of how to do an ROI analysis, click `here <https://www.youtube.com/watch?v=7CvoaaFI32Y>`__.
 
