@@ -1,13 +1,13 @@
 .. _EP_02_Objects:
 
-=============================================
+============================
 E-Prime Tutorial #2: Objects
-=============================================
+============================
 
 -------------
 
 Overview
-***********************
+********
 
 **Objects** are the building blocks of an experiment. Every E-Prime experiment is built upon the idea of **object-oriented programming**, which means that the user selects pre-designed objects from the E-Prime toolbox, and then arranges and modifies them to create an experiment.
 
@@ -16,7 +16,7 @@ In computer programming, the concept of objects is similar to the objects you ho
 Using the keyboard as a concrete example, we can discuss how the abstract objects in E-Prime have similar properties and methods. **Properties** are descriptors of an object - for example, shape, color, and size. **Methods** are actions performed by the object, such as terminating after a button response. By modifying these basic elements we can create an experiment, similar to how bricks and cement are used to construct a building.
 
 E-Objects
-*********************
+*********
 
 The abstract objects in E-Prime are called **E-Objects**, which can be found in the Toolbox sidebar. If you double-click on the SessionProc object, you will see the Experimental Timeline; drag and drop a few **TextDisplay** objects onto the timeline, which can be rearranged in any order you wish. 
 
@@ -27,7 +27,7 @@ The ordering doesn't matter though, because right now the TextDisplay objects do
 If you want to remove an object from the timeline, but still have it at hand in case you need it later, right-click on the object and select "Delete". This will move the object to the **Unreferenced E-Objects** part of the Structure sidebar. If you want to replace it on the timeline, simply click and drag it back; otherwise, you can permanently delete the object by right-clicking on it again and selecting "Delete".
 
 Changing the Text
-^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 To change what the "Welcome" object will display to the subject, simply double-click on it and type in the textbox. In this example, let's write "Welcome to the experiment!" An introduction like this lets the subject know that the experiment is about to start, and that he can wait here until he is ready to proceed.
 
@@ -39,7 +39,7 @@ What if we want to change other aspects of the text, such as font size or color?
 
 
 Exercises
-*************
+*********
 
 1. Click on different tabs and see whether changing them leads to any observable changes in the Text Object. What do you think the "Frame" tab contains? What about "General"? Select the Frame tab from the Welcome TextDisplay Object, and change the Width and Height to 10%. What happens when you run the experiment?
 
@@ -56,6 +56,6 @@ The next tutorial will focus on the more versatile **Slide** object, as well as 
 ----------------
 
 Video
-***********
+*****
 
 To see how objects are created and modified in E-Prime, see `this video <https://www.youtube.com/watch?v=2t3fKGIHlY0&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=2>`__.
