@@ -16,7 +16,7 @@ This experiment was an important one, becoming the template for many functional 
 
 
 The BOLD Signal as an Indirect Measure of Neural Firing
-********
+*******************************************************
 
 Although the discoveries of Ogawa and Kwong were a boon for neuroimagers using MRI, there was a catch: This new method was an indirect measure of brain activity, a few steps removed from the actual neural firing. Whenever a stimulus is presented - such as a flash of light, or a sudden noise - that stimulus is transduced by the sensory organs into nerve impulses, which in turn stimulate neuronal firing in the brain. Neurons that fire require oxygen, and oxygen is delivered by the blood. That oxygenated blood in turn increases the signal from nearby hydrogen in the water in your body, which is what is measured in the scanner.
 
