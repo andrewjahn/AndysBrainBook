@@ -4,14 +4,14 @@
 
   fsurf has been deprecated and is no longer supported; the Open Science Grid will no longer be creating accounts for new users. I have kept the following tutorial available in order to illustrate how jobs are submitted to a supercomputer - this may be superseded by a tutorial about using another supercomputer, such as Michigan's "Great Lakes" supercomputer.
 
-=====================
+===================================================
 FreeSurfer Tutorial #5: Using the Open Science Grid
-=====================
+===================================================
 
 -----------
 
 Time Constraints with Recon-All
-*************
+*******************************
 
 Even if you are able to run multiple jobs with the parallel command, it may not be practical for very large datasets - for example, a study that includes hundreds of subjects. You also may not want to have all of your processing cores tied up in running recon-all, and would prefer to have your computer free to use for other projects.
 
@@ -19,7 +19,7 @@ One option is to use a **supercomputer**, which is available at most universitie
 
 
 Preparing Your Data for the Open Science Grid
-********
+*********************************************
 
 Before you can use any of the Open Science Grid resources, you must create an account `here <https://support.opensciencegrid.org/support/solutions/articles/12000008488-set-up-fsurf-on-your-laptop>`__.
 
@@ -51,7 +51,7 @@ This will pipe the results of the ``ls`` command into a file called subjList.txt
 
 
 Submitting Recon-All Jobs
-*********
+*************************
 
 The Open Science Grid is particular about how the jobs are submitted; each anatomical image needs to be packaged in a certain way, just as you need to package items when you drop them off at the post office. 
 
@@ -92,7 +92,7 @@ The status of the jobs can then be checked by typing ``fsurf list``, which will 
 
 
 Downloading or Removing Jobs
-*******
+****************************
 
 Once recon-all has finished, you can download the output by typing this code:
 
