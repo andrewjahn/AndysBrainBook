@@ -1,14 +1,14 @@
 .. _03_AFNI_Registration_Normalization:
 
 
-=====================
+=========================================
 Chapter 3: Registration and Normalization
-=====================
+=========================================
 
 --------
 
 Overview
-***************
+********
 
 Although most people's brains are similar - everyone has a cingulate gyrus and a corpus callosum, for instance - there are also differences in brain size and shape. As a consequence, if we want to do a group analysis we need to ensure that each voxel for each subject corresponds to the same part of the brain. If we are measuring a voxel in the visual cortex, for example, we would want to make sure that every subject's visual cortex is in alignment with each other.
 
@@ -20,7 +20,7 @@ This is done by **Registering** and **Normalizing** the images. Just as you woul
   
   
 Affine Transformations
-****************
+**********************
 
 To warp the images to a template, we will use an **affine transformation**. This is similar to the rigid-body transformation described above in Motion Correction, but it adds two more transformations: **zooms** and **shears**. Whereas translations and rotations are easy enough to do with an everyday object such as a pen, zooms and shears are more unusual - zooms either shrink or enlarge the image, while shears take the diagonally opposite corners of the image and stretch them away from each other. The animation below summarizes these four types of **linear transformations**.
 
