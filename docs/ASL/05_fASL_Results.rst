@@ -1,8 +1,8 @@
 .. _05_fASL_Results:
 
-===============
+=======================================
 fASL Tutorial #5: Examining the Results
-===============
+=======================================
 
 ------------
 
@@ -19,7 +19,7 @@ After running the analysis, a series of figures will be displayed on your screen
 We will explain each of these groups in turn.
 
 The Time-Series Figures
-**********
+***********************
 
 Figure 3 shows the *unsubtracted* time-series across the brain. The panels in the upper-right, top-left, and bottom-left show the coronal, sagittal, and axial views of the image. The figure may be a little blurry, but you should be able to make out the basic structures of the brain, such as the ventricles and the corpus callosum.
 
@@ -31,7 +31,7 @@ The structures become clearer in Figure 4, which shows the *subtracted* time-ser
 
 
 The CompCorr Figures
-**********
+********************
 
 The next group of figures show the results of using *CompCorr*, which identifies components capturing noise in the brain and then regresses them out of the data. Figure 2 shows the voxels (or pixels in this figure, as they are depicted on a 2-dimensional slice) that are used for the CompCorr analysis; voxels with a particularly high standard deviation are good candidates, because high variance in the data is usually associated with physiological noise and head movement. These voxels are usually found around the edge of the head, as well as within the ventricles and major arteries.
 
@@ -48,7 +48,7 @@ The last figure in this group compares the standard deviation map of the data be
 
 
 The Design Matrix Figures
-***********
+*************************
 
 We will next examine the design matrices before and after CompCorr is applied to the data. Figure 1 is the same as what you saw in the previous tutorial when you set up your design matrix; the scan number is on the y-axis, and the regressors are represented by the columns. Make sure this looks the same as before.
 
@@ -64,7 +64,7 @@ The contrasts that you created are shown in the right panel of Figure 8. (The le
 
 
 The Results Figures
-***********
+*******************
 
 The last group of figures show the results of your analysis, weighted by the contrasts specified above - one figure is generated for each contrast.
 
