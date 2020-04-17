@@ -1,8 +1,8 @@
 .. _FS_02_DownloadInstall:
 
-=============
+===================================================
 FreeSurfer Tutorial #2: How to Download and Install
-=============
+===================================================
 
 -----------
 
@@ -19,7 +19,7 @@ When you have finished downloading and installing the package, you will use :ref
   
   
 Downloading the Example Dataset
-****************************
+*******************************
 
 For the rest of our tutorials, we will be using a `dataset from openneuro.org <https://openneuro.org/datasets/ds000174/versions/1.0.1>`__ that contains anatomical scans from cannabis users and controls. It is a longitudinal study with two timepoints - one baseline scan and one follow-up scan - and individual difference measures such as age and sex. This will enable us to do several different types of analyses, such as group comparisons, longitudinal analyses, and individual difference correlations with grey matter measurements. Download the dataset and unpack it by double-clicking on the file, and then rename the folder by typing ``mv ds000174-1.0.1 Cannabis``.
 
@@ -36,13 +36,13 @@ Each subject's directory contains two sub-directories labeled ``ses-BL``, indica
   When testing your installation by running the mri_convert command, you may get an error like this: ``mir_convert.bin: error while loading shared libraries: libgomp.so.1: cannot open shared object file``. In that case, try manually installing libgomp with this command: ``sudo apt-get install libgomp1``. Also, if you receive this error: ``/home/$USERNAME/freesurfer/license.txt exists but you do not have read permission``, try typing: ``chmod a+r /home/$USERNAME/freesurfer/license.txt``.
 
 Next Steps
-***********
+**********
 
 Now that you have downloaded FreeSurfer and some example data, you are ready to learn about FreeSurfer's **recon-all** command, which will process a dataset from start to finish. Click on the ``Next`` button to learn more about how it works. 
 
 -------
   
 Video
-******
+*****
 
 For a video walkthrough showing you how to download and install FreeSurfer, click `here <https://www.youtube.com/watch?v=BSQUVktXTzo>`__.
