@@ -1,13 +1,13 @@
 .. _EP_08_InlineObjects:
 
-=============================================
+===================================
 E-Prime Tutorial #8: Inline Objects
-=============================================
+===================================
 
 -------------
 
 Overview of E-Basic
-***********************
+*******************
 
 What if we want to have both practice trials and experimental trials in a single E-Prime experiment? What if we want to exit the practice trials when the subject's accuracy had reached a certain level? Both of these goals can be achieved with E-Basic, E-Prime's programming language. If you're new to programming, be prepared to spend some time learning the vocabulary and syntax - things like conditional statements, data types, and declarations. While this may seem overwhelming at first, remember that all we're doing is converting logical thoughts from English into computer code. Keeping that in mind will make the process more comprehensible and less mysterious.
 
@@ -18,7 +18,7 @@ E-Basic can be written in **InLine objects**, which contain code that can affect
   On the first trial of ExpStroopProc, the textbox of ExpFixation will be "+". After E-Prime reads the code in the InLine object WriteTimingInfo, on the next trial the text will be set to HELLO.
   
 Using E-Basic to Create Variables and Set Attributes
-***********************
+****************************************************
   
 Although E-Basic code can change the properties and attributes of other objects, it can also read and update variables specified by the user. Let's say we want to add a practice block and that we also want to exit the List after certain conditions are met - namely, when at least 10 trials are completed and the accuracy for that block is greater than 80%. We first write this out as pseudo-code in our InLine object (starting the line with an apostrophe to signalize that we are writing a comment that should not be interpreted as code):
 
@@ -76,6 +76,6 @@ The next tutorial will cover how to use the Startup information to set attribute
 ----------------
 
 Video
-***********
+*****
 
 For a video overview of Inline objects and how to use them in E-Prime, click `here <https://www.youtube.com/watch?v=z7cBvOJq9FE&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=8>`__.
