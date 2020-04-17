@@ -1,13 +1,13 @@
 .. _FS_01_BasicTerms:
 
-===============
+===================================
 FreeSurfer Tutorial #1: Basic Terms
-===============
+===================================
 
 -------------
 
 Overview
-*********
+********
 
 Virtually all neuroimaging studies acquire a T1-weighted **anatomical scan**: A high-resolution image with high contrast between the white matter and the grey matter. In these images white matter is lighter, grey matter is darker, and cerebrospinal fluid is black. These are the images that will be used by FreeSurfer to partition the cortical surface and the subcortical structures into distinct areas.
 
@@ -26,7 +26,7 @@ We run into a similar problem with a voxel that contains two or more different t
   
   
 FreeSurfer's Solution
-*********
+*********************
 
 FreeSurfer gets around this problem by tracing the boundaries between the different tissues of the brain - grey and white matter, grey and pial matter, and so on - and then inflating those surfaces into spheres. Most of the leftover defects in the inflated surface are automatically corrected (although some defects need to be fixed manually). These surfaces can then be rendered as partially inflated, fully inflated, or spherical brains.
 
@@ -53,6 +53,6 @@ Now that you have a sense of what FreeSurfer does and why reconstructed surfaces
 -------------
 
 Video
-*******
+*****
 
 For a video overview of FreeSurfer and a definition of it's basic terms, see `this video <https://www.youtube.com/watch?v=6wxJ1up-E7E>`__.
