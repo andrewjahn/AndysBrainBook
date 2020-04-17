@@ -11,7 +11,7 @@ Chapter 4: The General Linear Model
 ---------
  
 Introduction
-**********
+************
 
 
 We now come to the **General Linear Model**, or GLM. With a GLM, we can use one or more **regressors**, or independent variables, to fit a model to some outcome measure, or **dependent variable**. To do this we compute numbers called **beta weights**, which are the relative weights assigned to each regressor to best fit the data. Any discrepancies between the model and the data are called **residuals**.
