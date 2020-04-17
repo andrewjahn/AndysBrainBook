@@ -1,12 +1,12 @@
 .. _FreeSurfer_Introduction:
 
-==============
+=======================
 FreeSurfer Short Course
-==============
+=======================
 
 
 Overview
---------------
+--------
 
 FreeSurfer is a software package that enables you to analyze **structural MRI** images - in other words, you can use FreeSurfer to quantify the amount of grey matter and white matter in specific regions of the brain. You will also be able to calculate measurements such as the thickness, curvature, and volume of the different tissue types, and be able to correlate these with covariates; or, you can contrast these structural measurements between groups.
 
