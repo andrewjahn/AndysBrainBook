@@ -1,13 +1,13 @@
 .. _FS_04_ReconAllParallel:
 
-=====================
+=====================================================
 FreeSurfer Tutorial #4: Running recon-all in Parallel
-=====================
+=====================================================
 
 -----------
 
 Time Constraints with Recon-All
-*************
+*******************************
 
 As you will soon find out, FreeSurfer takes a long time to process an individual subject - around sixteen to twenty-four hours on a typical iMac, with some variation due to factors such as the quality of the input data. For many researchers, this can be a prohibitively long time to wait, especially if the study contains dozens or hundreds of subjects.
 
@@ -19,7 +19,7 @@ Let's assume that each meal takes one hour to make. Instead of each man waiting 
 
 
 Downloading the Parallel Command
-***********
+********************************
 
 Turning back to FreeSurfer, usually just one core is used each time recon-all is run. By using a command called **parallel** instead, each instance of recon-all can be assigned to a different core. If you are using a Macintosh computer, you can see the number of cores you have by typing the following:
 
@@ -51,7 +51,7 @@ Which will install the parallel command. (Check to see if it has been installed 
 
 
 Using the Parallel Command
-**********
+**************************
 
 .. note::
 
@@ -82,7 +82,7 @@ Now run the command and observe what happens. If a typical recon-all job takes 1
 
 
 Analyzing the Cannabis Dataset
-**********
+******************************
 
 If you have set up the directory correctly, all of the subjects should be in a folder called ``Cannabis``. Create another directory called ``FS``, and navigate into that directory. From a bash shell (see the note above), type the following code to run all of these subjects through the parallel command:
 
@@ -112,6 +112,6 @@ The next tutorial will show you another way to batching your recon-all processes
 --------------
 
 Video
-*********
+*****
 
 For a video overview of the ``parallel`` command, see `this video <https://www.youtube.com/watch?v=XHN2tm3tNaw&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=5&t=0s>`__.
