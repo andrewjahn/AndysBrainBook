@@ -1,13 +1,13 @@
 .. _AFNI_03_LookingAtTheData:
 
-===================
+=====================================
 AFNI Tutorial #3: Looking at the Data
-===================
+=====================================
 
 ----------------
 
 Overview: The AFNI Graphical User Interface
----------
+-------------------------------------------
 
 Now that you've downloaded the dataset, you will want to **look at your data** - for example, you will want to know if there are any artifacts or problems with your data, and whether these can be alleviated by :ref:`preprocessing <AFNI_04_Preprocessing>`. 
 
@@ -38,7 +38,7 @@ To look at and inspect the data, we will be using the **AFNI Graphical User Inte
 --------
 
 Inspecting the Anatomical Image
-----------
+-------------------------------
     
 Whenever you download imaging data, check the anatomical and functional images for any **artifacts** - scanner spikes, incorrect orientation, poor contrast, and so on. It will take some time to develop an eye for what these problems look like, but with practice it will become quicker and easier to do.
 
@@ -80,8 +80,9 @@ As you continue to inspect the image, here are two things to watch out for:
 
 ----------
 
+
 Inspecting the Functional Images
-----------
+--------------------------------
     
 When you are done looking at the anatomical image, click on the ``Read`` from the menu at the top of your screen. In the "Directories" sidebar, double-click on the filepath that ends in two dots (e.g., ``..``, which indicates one directory above the current directory). Then double-click on the ``func`` directory in the "Sessions" sidebar. This loads all of the images in the ``func`` directory, which you can then browse in the AFNI viewer.
 
@@ -104,14 +105,16 @@ When you are finished looking at the data, click on the red "x" button in the to
 
 --------
 
+
 Exercises
------------
+---------
 
 1. If the AFNI viewer cannot find any images in the current directory, it will look in the directories lower in the hierarchy. What happens, for example, if you navigate to the folder ``sub-08`` and type ``afni``? From the same folder, what happens if you type ``afni func``? What happens when you navigate to the ``Flanker`` folder and type ``afni``?
 
 2. AFNI includes many shortcuts and keyboard commands that allow you to manipulate the image viewer. Look at `this page <https://afni.nimh.nih.gov/pub/dist/src/html/afnigui.html>`__ and try some of the commands listed in the "Keyboard Shortcuts" section.
 
+
 Video
---------
+-----
 
 For a video walkthrough of how to look at the data, click `here <https://www.youtube.com/watch?v=r0NYdToePKM>`__.
