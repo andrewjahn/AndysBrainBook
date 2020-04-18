@@ -173,7 +173,7 @@ Now use this file as a mask for an ROI analysis, following the steps you complet
 Exercises
 ********
 
-1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of contrasts goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.
+1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of tests goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.
   
 2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48, and extract the data from this region.
 
