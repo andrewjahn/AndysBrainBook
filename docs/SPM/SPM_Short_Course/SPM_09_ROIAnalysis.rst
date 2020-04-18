@@ -84,7 +84,7 @@ This will return four variables, representing different parts of the hypothesis 
 	As an exercise, do the same procedure for the 2ndLevel_Inc-Con results. After you have extracted the data and put it into a variable labeled ``Inc_Con``, compare the values to the output from typing "Inc-Con" (note the difference between the underscore character and the dash character). What do you notice? Does it make sense?
   	
   
-Extracting Data from an Sphere
+Extracting Data from a Sphere
 ************
 
 You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the ACC mask covers a very large region; although the ACC is labeled as a single anatomical region, we may be extracting data from several distinct functional areas. Consequently, this may not be the best ROI approach to take.
