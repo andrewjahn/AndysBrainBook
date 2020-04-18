@@ -148,9 +148,9 @@ In our current example, navigate to the folder ``2ndLevel_Inc-Con``. Save the ab
 ::
 
 	load SPM
-	Extract_ROI_Data('BA24.nii', SPM.xY.P)
+	Extract_ROI_Data('BA_32.nii', SPM.xY.P)
 	
-It should return the same values as when you did the anatomical ROI analysis above for the BA24 mask.
+It should return the same values as when you did the anatomical ROI analysis above for the BA32 mask.
 	
 	
 Biased Analyses
