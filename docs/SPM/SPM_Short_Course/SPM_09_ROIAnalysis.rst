@@ -66,7 +66,7 @@ We now have a pair of 26 numbers, one pair per subject. We can enter this pair i
 
 ::
 	
-	[h, c, pi, stats] = ttest(Inc,Con)
+	[h, p, ci, stats] = ttest(Inc,Con)
 	
 This will return four variables, representing different parts of the hypothesis test:
 
