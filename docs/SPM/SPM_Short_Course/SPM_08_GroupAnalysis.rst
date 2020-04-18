@@ -67,7 +67,7 @@ When you are finished, you should see output like this, showing a significant cl
 
 If you are only interested in where there are significant differences between the Incongruent and Congruent conditions, then the above steps are all that you need to do. As you will see in a later chapter on :ref:`ROI Analysis <SPM_09_ROIAnalysis>`, however, it is useful to examine the activity in each condition separately to see what drives the effect of Incongruent-Congruent.
 
-To prepare for that analysis, create two new 2nd-level directories, one for the simple effect of each contrast:
+To prepare for that analysis, navigate to the Flanker directory and create two new 2nd-level directories, one for the simple effect of each contrast:
 
 ::
 
