@@ -57,7 +57,7 @@ Click ``OK``, and then click ``Done``. You will be asked the same questions as b
   
 This will threshold the image to only show clusters that are composed of individual voxels each passing a threshold of 0.001. Later, we will learn how to determine what cluster-defining threshold gives us a false positive rate of 0.05.
 
-When you are finished, you should see output like this, showing a significant cluster in the dorsal ACC:
+When you are finished, you should see output like this, showing a significant cluster in the dorsal medial prefrontal cortex:
 
 .. figure:: 08_GroupLevelResult_Inc-Con.png
 
@@ -90,7 +90,7 @@ When you have finished creating all of the second-level analyses, try the remain
 Exercises
 *********
 
-1. Display the results on one of the MNI template brains using the "sections" option. Make the table show only the cluster in the dorsal ACC (roughly the coordinates 5, 20, 50).
+1. Display the results on one of the MNI template brains using the "sections" option. Make the table show only the cluster in the dorsal medial prefrontal cortex (roughly the coordinates 5, 20, 50).
 
 2. Go back to the Results GUI, and create a contrast that tests for voxels showing significant activation for Congruent-Incongruent. Use the same thresholds as before.
 
