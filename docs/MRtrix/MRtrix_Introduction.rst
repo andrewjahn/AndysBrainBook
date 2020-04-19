@@ -4,6 +4,10 @@
 Introduction to MRtrix
 ======================
 
+.. note::
+
+   This page is still under construction. Check back soon!
+
 .. figure:: 
 
    Example_MRtrix_Output.png
