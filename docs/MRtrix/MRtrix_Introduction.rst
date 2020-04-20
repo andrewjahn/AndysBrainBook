@@ -37,4 +37,8 @@ This course will teach you the basics of diffusion - how it is collected, and ho
    MRtrix_Course/MRtrix_01_Download_Install
    MRtrix_Course/MRtrix_02_DataDownload
    MRtrix_Course/MRtrix_03_DataFormats
+   MRtrix_Course/MRtrix_04_Preprocessing
+   MRtrix_Course/MRtrix_05_BasisFunctions
+   MRtrix_Course/MRtrix_06_TissueBoundary
+   MRtrix_Course/MRtrix_07_Streamlines
    MRtrix_Course/MRtrix_08_Connectome
