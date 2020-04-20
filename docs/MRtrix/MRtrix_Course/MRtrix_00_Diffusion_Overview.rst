@@ -21,4 +21,18 @@ However, there are other types of images that can be acquired with an MRI scanne
 The Structure of the White Matter
 *********************************
 
-Why does dMRI focus on the white matter tracts? Imagine peeling apart a stick of string cheese, and then imagine peeling apart a brain - just like the string cheese, the brain has preferred tear directions. These directions correspond to underlying white matter tracts, which are thick bundles of myelinated neurons that connect both nearby and distant parts of the brain. 
+Why does dMRI focus on the white matter tracts? Imagine peeling apart a stick of string cheese, and then imagine peeling apart a brain - just like the string cheese, the brain has preferred tear directions. These directions correspond to underlying white matter tracts, which are thick bundles of myelinated neurons that connect both nearby and distant parts of the brain. For example, the inferior longitudinal fasciculus connects the visual and temporal regions of the brain, while the uncinate fasciculus connects the temporal and inferior frontal parts of the brain. These tracts travel along all three dimensions of the brain, and they may run parallel to each other or cross one another.
+
+.. figure:: 00_Tract_Examples.png
+
+The white matter of the brain gets its name from its color; these neurons are highly myelinated, meaning they have a thick lipid coating that both insulates them and helps with the transmission of electrical impulses, just like an insulated electrical cable. The grey matter neurons, in contrast, are relatively unmyelinated, which allows for a higher density of neurons to be packed into a given area.
+
+History of Diffusion
+********************
+
+While the composition of the brain tissues has been known for some time, imaging the diffusion of the white matter tracts is a new technique. To understand how the properties of the white matter were exploited for this purpose, we will briefly review of the history of diffusion and how scientists came to apply this concept to imaging the brain.
+
+Brownian Motion
+^^^^^^^^^^^^^^^
+
+The first formal description of diffusion was made in 1827 by Robert Brown, a Scottish botanist. Observing 
