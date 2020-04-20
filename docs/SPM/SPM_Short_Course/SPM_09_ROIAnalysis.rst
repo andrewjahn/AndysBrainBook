@@ -107,6 +107,10 @@ Marsbar allows you to create an ROI using several different methods, such as:
 
 To create a sphere, click on ``ROI definition -> Build``. From the ``Type of ROI`` dropdown menu, select ``Sphere`` and enter the coordinates ``0 20 44``. Enter a Sphere radius of 5, and for both the Description of ROI and Label for ROI fields, enter ``dACC_Sphere``. Save the file to your Flanker directory as ``dACC_Sphere_roi``.
 
+.. note::
+
+	In the paper, the peak of the activation was technically within a region called the pre-supplementary motor area, or pre-SMA. There is still some debate over where these cognitive control activations are located, but for this tutorial I have chosen to use the term dACC.
+
 Now we have a .mat file that contains the necessary information to build our spherical ROI. Before we generate the ROI as a NIFTI file, click on ``ROI definition`` and select ``View``. Click on your newly created ``dACC_Sphere_roi.mat`` file, and make sure that it is located in the region where it should be.
 
 .. figure:: 09_Check_ROI.png
@@ -151,6 +155,12 @@ In our current example, navigate to the folder ``2ndLevel_Inc-Con``. Save the ab
 	Extract_ROI_Data('BA_32.nii', SPM.xY.P)
 	
 It should return the same values as when you did the anatomical ROI analysis above for the BA32 mask.
+
+.. note::
+
+	The default voxel resolution is 2x2x2mm for masks created with either the wfupickatlas or marsbar toolbox. In order to use the script above, this voxel resolution needs to match the resolution of the data you are extracting from. For example, if you specfied a resampling resolution of 3x3x3 during the normalization preprocessing step, you will need to `resample <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#resampling>`__ the mask so that the voxel dimensions match. The following image shows how to use SPM's ``Coregister (Reslice)`` command to resample the BA_32 ROI. The resliced image will have an "r" prepended to it:
+	
+.. figure:: 09_ROI_Reslice.png
 	
 	
 Biased Analyses
