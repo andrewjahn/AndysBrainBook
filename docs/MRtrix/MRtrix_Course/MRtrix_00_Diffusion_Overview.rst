@@ -4,6 +4,11 @@
 MRtrix Introduction: Overview of Diffusion Imaging
 ==================================================
 
+
+.. note::
+
+  This section is still under construction. Please check back soon!
+  
 ---------------
 
 Overview
@@ -35,4 +40,8 @@ While the composition of the brain tissues has been known for some time, imaging
 Brownian Motion
 ^^^^^^^^^^^^^^^
 
-The first formal description of diffusion was made in 1827 by Robert Brown, a Scottish botanist. Observing 
+The first formal description of diffusion was made in 1827 by Robert Brown, a Scottish botanist. While looking at microscopic particles through a microscope, he noticed that the particles seemed to move randomly of their own accord - similar to how motes of dust, when observed moving through a shaft of light, appear to move in random patterns. Browning concluded that the movement was caused by smaller particles impinging upon the larger molecues seen through the microscope. When dye is dropped into water, for example, the random motion of the water molecules causes the dye to disperse at random until the water within the contained reaches a consistent hue. A more common, everyday example can be seen by pouring milk into coffee: Observe how the milk swirls and mixes with its surroundings, and you have an excellent demonstration of Brownian Motion.
+
+.. note::
+
+  For a video of Brownian Motion, click `here <https://www.youtube.com/watch?v=SB7GlVlm60g>`__.
