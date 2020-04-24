@@ -51,6 +51,8 @@ To resample to an anisotropic voxel resolution, you can use AFNI's 3dresample co
   
 Which will resample the voxels to have a size of 1x0.8x1.5mm, in this example.
 
+SPM uses the GUI to resample the images; the steps for this procedure can be found in `this chapter <https://andysbrainbook.readthedocs.io/en/latest/SPM/SPM_Short_Course/SPM_09_ROIAnalysis.html#using-the-command-line-for-roi-analysis>`__.
+
 For an overview of this topic, see `this video <https://www.youtube.com/watch?v=rvW-D5o3ALA>`__.
 
 
