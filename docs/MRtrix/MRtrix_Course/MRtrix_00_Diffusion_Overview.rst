@@ -99,3 +99,32 @@ The result is a contrast image that looks similar to the T2-weighted functional 
 
 The following figure sums up what we have discussed so far. A diffusion-weighted image with a b-value of zero is virtually identical to a typical T2-weighted image - CSF is bright and grey matter is dark. As we increase the b-values, we see that there is greater signal loss in specific parts of the brain, primarily within the white matter. This is because the water within those white matter tracts is diffusing primarily along the direction of the tract, and the image that is generated shows correspondingly lower signal. (Higher b-values also make the image more susceptible to image artifacts such as movement and magnetic currents called eddies; we will revisit those in a later chapter on preprocessing.)
 
+.. figure:: 00_bvalues.png
+
+  Higher b-values will be more sensitive to detecting diffusion, but at the risk of more noise and more susceptibility to vibration artifacts.
+
+B-vectors
+*********
+
+So far, we have learned how diffusion gradients are applied, and how to interpret the resulting signal in the image. To round out our understanding of how the diffusion images are created, we also need to know the **direction** of the gradients that were applied. These directions are known as **b-vectors**, or **bvecs** for short. You will notice that once you have downloaded the data from a diffusion-weighted scan, you have two text files - one usually has the suffix **.bval**, to indicate the b-values, and another with the suffix **.bvec**, which stands for b-vectors.
+
+Suppose that you collected 40 diffusion-weighted images. Let's also assume that the first volume was acquired with a b-value of zero, and the rest of the volumes were acquired with b-values of 1000. The bvals file would have 40 entries, with each bval corresponding to an individual volume in the diffusion-weighted image. The bvecs file, on the other hand, would have 40 *triplets* of numbers indicating the direction of the diffusion gradient for that volume in the x-, y-, and z-directions. If we know both the direction and the magnitude of the gradient, we can make an educated guess about the diffusion along that gradient depending on changes in the signal acquired from those voxels.
+
+.. figure:: 00_bvals_bvecs.png
+
+  Example content of the .bvals and .bvecs files. The structure of the bvecs file is clearer if it is imported into a spreadsheet; the file is formatted to group the numbers into triplets. Each triplet of bvecs corresponds to a single bval.
+  
+.. note::
+
+  One parameter you have control over is the number of directions you would like to scan with the gradients. For example, you could acquire 64 or 128 images, with each image having diffusion gradients applied from a slightly different direction. More directions leads to higher **angular resolution**, which allows you to make finer spatial distinctions about the direction of the diffusion. The tradeoff, as with anything that increases resolution, is that more scans take more time.
+  
+Putting it all Together: Modeling the Tensor
+********************************************
+
+This combination of bvals and bvecs allows us to construct something called a **tensor** and fit it to each voxel of our diffusion-weighted image. For this tutorial, think of a tensor as a box with a point at the center radiating energy along the x-, y-, and z-dimensions. The amount of the energy is constrained by the sides of the box, so that a rectangular box elongated along the z-dimension will show a greater amount of energy flow along that dimension. We call the directions of the energy **eigenvectors**, and the magnitude of the energy **eigenvalues**.
+
+Applied to diffusion-weighted images, we use these same concepts to model the signal observed at each voxel as a combination of eigenvectors and eigenvalues. The eigenvectors indicate the direction of the diffusion, and the eigenvalues represent the magnitude of the diffusion. Water flowing through a garden hose, for example, would have a high eigenvector and eigenvalue along the length of the tube; similarly, we can model the diffusion in each voxel of the brain as a combination of eigenvectors and eigenvalues. Once we calculate the combination of values that best represents the signal observed in the current voxel, we can use a number of different equations to calculate different properties of the diffusion at that voxel. The most popular equation for this **diffusion tensor imaging** is called **Fractional Anisotropy**, or FA for short. 
+
+Fractional anisotropy is a weighted sum of the eigenvectors that are derived in each voxel. A higher FA value indicates greater diffusion along one of the directions, and a lower FA value indicates that there is either very little diffusion, or that the diffusion is unconstrained and going in each direction at random (as in, say, the ventricles of the brain). If we find that the diffusion is greater along one of the dimensions, we can color-code it according to the direction. The convention in diffusion imaging is to represent diffusion along the x-axis in red, diffusion along the y-axis in green, and diffusion along the z-axis in blue. The image below summarizes this color-coding scheme.
+
+.. figure:: 00_ColorCoding.png
