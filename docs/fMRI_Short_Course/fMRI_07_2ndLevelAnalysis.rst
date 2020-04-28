@@ -18,7 +18,7 @@ From the Flanker directory, open the FEAT GUI from the command line by typing ``
 Selecting the FEAT Directories
 **********
 
-Since we had 26 subjects with 2 runs each, we have 56 FEAT directories total. Change the ``Number of inputs`` to 56, and then click the button ``Select FEAT directories``.
+Since we had 26 subjects with 2 runs each, we have 52 FEAT directories total. Change the ``Number of inputs`` to 52, and then click the button ``Select FEAT directories``.
 
 You *could* select each of the FEAT directories by hand, clicking on the Folder icon and selecting each one individually. But as we saw with scripting our analysis, this usually isn't a good idea - it is impractical for large datasets, and the odds of making a mistake increases with the number of subjects.
 
