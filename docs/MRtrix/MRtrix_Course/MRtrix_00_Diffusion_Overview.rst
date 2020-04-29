@@ -103,6 +103,10 @@ The following figure sums up what we have discussed so far. A diffusion-weighted
 
   Higher b-values will be more sensitive to detecting diffusion, but at the risk of more noise and more susceptibility to vibration artifacts.
 
+.. note::
+
+  Diffusion images that are acquired with more than one b-value are referred to as **multi-shell acquisitions**. This allows finer-grained distinctions in the orientation of the diffusion, since the image will show different amounts of signal loss at each b-value depending on the amount of diffusion. We will revisit this concept in a later chapter.
+
 B-vectors
 *********
 
@@ -142,8 +146,28 @@ Drawbacks of Diffusion Tensor Imaging: The Crossing-Fibers Problem
 
 Although diffusion tensor imaging has been one of the most popular analysis methods since the beginning of diffusion-weighted imaging, it has been hindered by the **Crossing-Fibers Problem**. The tensor fitting method described above is useful for analyzing voxels that only contain white matter tracts that travel in a single direction. If, on the other hand, the voxel contains fibers that cross each other, the method can lead to spurious results. To take the most extreme case, imagine that we have acquired a diffusion-weighted image for a single voxel, and that this voxel contains white matter fibers that cross at right angles with respect to each other. Since the tensor is constained to generate a single solution to estimating all of its eigenvectors and eigenvalues, it is unable to estimate the direction and magnitude of the diffusion for each bundle of fibers separately. Instead, it will split the difference and conclude that there is no diffusion along any direction - in other words, the diffusion of the two tracts will cancel each other out.
 
+.. figure:: 00_CrossingFibers.png
+
+  An illustration of white matter fibers crossing each other at right angles. This image was provided by John Plass.
+
 To address this problem, a technique was developed known as **Spherical Deconvolution**. Instead of trying to find a single solution to a complex signal that is measured at each voxel, spherical deconvolution assumes that the diffusion signal is an average of the signal you would expect from multiple individual fibers crossing each other at different angles. A single fiber is therefore used as a **basis function** to deconvolve the more complex signal.
+
+.. figure:: 00_BasisFunction.png
 
 In order to understand this better, let's revisit how basis functions are used with fMRI data. You may recall from :ref:`another part of the book <03_Stats_HRF_Overview>` that the BOLD signal we acquire from a single voxel can be modeled as an average of several overlapping BOLD responses to events that occur closely together. In order to estimate the amount of BOLD activity for each individual event, we **deconvolve** the more complex signal into its individual parts. The basis function of a single Hemodynamic Response Function (HRF) allows us to estimate what combination of HRFs occuring at different times and with different magnitudes would look like, and we estimate the combination that leads to the observed signal.
 
-Similarly with diffusion-weighted data, we acquire a diffusion signal in each voxel from many different angles in order to form a picture of both the direction of the diffusion and its magnitude. 
+Similarly with diffusion-weighted data, we acquire a diffusion signal in each voxel from many different angles in order to form a picture of both the direction of the diffusion and its magnitude. The signal is then deconvolved into a set of individual fibers oriented in different directions. Instead of a single diffusion number at each voxel, spherical deconvolution is used to generate a fiber **orientation density function**, or ODF. The function is represented as a shape with ovoid axes; and although the lobes of the axis that loads on to the predominant direction of diffusion become longer and bigger relative to the other axes, information about the direction and strength of diffusion along the other axes is still retained.
+
+.. figure:: 00_ODF.png
+
+  Pictured is a diffusion-weighted image with ODFs overlaid on top of it. If we zoom in to a region of the anterior commissure, we see that the ODFs are primarily going from left to right (which is also represented by their being color-coded in red). Note that the ODFs on the right of the inset begin to turn more green, representing the turning of the orientation from primarily a left-right axis to an anterior-posterior axis. 
+  
+  
+.. figure:: 00_ODF_2.png
+
+  Another part of the white matter shows ODFs that primarily follow an anterior-posterior orientation; however, some of the ODFs have lobes that extend in both the anterior-posterior and inferior-superior directions (with inferior-superior being color-coded as blue). In this way, ODFs can represent the orientation of the fibers along multiple dimensions.
+
+Diffusion Analysis with MRtrix
+******************************
+
+For this tutorial, we will be using the software package `MRtrix <https://www.mrtrix.org/>`__. It uses the spherical deconvolution approach described above, in addition to advanced techniques such as anatomical constrained tractography. The output from MRtrix can also be combined with the parcellations generated by :ref:`FreeSurfer <FreeSurfer_Introduction>` in order to create a **connectome** representing the amount of connectivity for each parcellation (also known as **nodes** in this context) with every other node in the brain. All of that, and more, will be discussed in the following chapters.
