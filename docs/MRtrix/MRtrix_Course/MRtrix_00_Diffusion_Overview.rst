@@ -3,11 +3,6 @@
 ==================================================
 MRtrix Introduction: Overview of Diffusion Imaging
 ==================================================
-
-
-.. note::
-
-  This section is still under construction. Please check back soon!
   
 ---------------
 
