@@ -1,8 +1,8 @@
 .. _MRtrix_06_TissueBoundary:
 
-==========================================
-Chapter #6: Creating the Tissue Boundaries
-==========================================
+==================================================
+MRtrix Tutorial #6: Creating the Tissue Boundaries
+==================================================
 
 --------------
 
@@ -95,3 +95,43 @@ Now that we have generated our transformation matrix, we will need to convert it
 
   transformconvert diff2struct_fsl.mat mean_b0.nii.gz 5tt_nocoreg.nii.gz flirt_import diff2struct_mrtrix.txt
   
+Note that the above steps used the anatomical segmentation as the reference image. We did this because usually the coregistration is more accurate if the reference image has higher spatial resolution and sharper distinction between the tissue types. However, we also want to introduce as few edits and interpolations to the functional data as possible during preprocessing. Therefore, since we already have the steps to transform the diffusion image to the anatomical image, we can take the inverse of the transformation matrix to do the opposite - i.e., coregister the anatomical image to the diffusion image:
+
+::
+
+  mrtransform 5tt_nocoreg.mif -linear diff2struct_mrtrix.txt -inverse 5tt_coreg.mif
+  
+The resulting file, "5tt_coreg.mif", can be loaded into ``mrview`` in order to examine the quality of the coregistration:
+
+::
+
+  mrview sub-01_den_unr_preproc_unbiased.mif -overlay.load 5tt_nocoreg.mif -overlay.colourmap 2 -overlay.load 5tt_coreg.mif -overlay.colourmap 1
+  
+The "overlay.colourmap" options specify different color codes for each image that is loaded. In this case, the boundaries before coregistration will be depicted in blue, and the boundares after coregistration will be shown in red:
+
+.. figure:: 06_GM_Alignment.png
+
+  The change in the boundaries before and after coregistration may be very slight, but they will have a large effect on the rest of the steps that we do. Make sure to check the boundaries in all three views; you can also use the ``Tool -> Overlay`` menu to display or hide the different overlays.
+
+The last step to create the "seed" bounday - the boundary separating the grey from the white matter, which we will use to create the seeds for our streamlines - is created with the command ``5tt2gmwmi`` (which stands for "5 Tissue Type (segmentation) to Grey Matter / White Matter Interface)
+
+::
+  
+  5tt2gmwmi 5tt_coreg.mif gmwmSeed_coreg.mif
+
+Again, we will check the result with ``mrview`` to make sure the interface is where we think it should be:
+
+::
+
+  mrview sub-01_den_unr_preproc_unbiased.mif -overlay.load gmwmSeed_coreg.mif
+  
+  
+You should see something like this at the end:
+
+.. figure:: 06_GMWMI.png
+
+
+Next Steps
+**********
+
+Now that we have determined where the boundary is between the grey matter and the white matter, we are ready to begin generating **streamlines** in order to reconstruct the major white matter pathways of the brain. We will see how to do that in the next chapter.
