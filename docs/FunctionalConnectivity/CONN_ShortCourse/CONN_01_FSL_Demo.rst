@@ -19,7 +19,7 @@ Before we begin using the CONN toolbox, a short demonstration of functional conn
 Functional Connectivity Analysis with FSL
 *****************************************
 
-As you saw in the FSL tutorial, each voxel of an fMRI dataset contains a **time-series**, or sequence of BOLD activation measurements that are concatenated together. The sampling rate of the time-series is the **Time to Repetition (TR)**, which for most fMRI studies is around 2-3 seconds. For each voxel, therefore, the BOLD activiation is measured at each TR, and this continues for a period of time specified by the user. This period of time encompassing when the scanner is measuring the BOLD signal is called a **run** (or **session**, in SPM), and several runs of data are usually acquired for a typical experiment. 
+As you saw in the FSL tutorial, each voxel of an fMRI dataset contains a **time-series**, or sequence of BOLD activation measurements that are concatenated together. The sampling rate of the time-series is the **Time to Repetition (TR)**, which for most fMRI studies is around 2-3 seconds. For each voxel, therefore, the BOLD activation is measured at each TR, and this continues for a period of time specified by the user. This period of time encompassing when the scanner is measuring the BOLD signal is called a **run** (or **session**, in SPM), and several runs of data are usually acquired for a typical experiment. 
 
 To examine the time-series of the sample dataset, navigate to where you downloaded the ``TimeSeries_ExampleData.nii.gz`` file, and type:
 
