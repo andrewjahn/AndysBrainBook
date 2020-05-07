@@ -53,9 +53,29 @@ If you want to visualize the output, I recommend extracting a subset of the outp
   tckedit tracks_10M.tck -number 200k smallerTracks_200k.tck
 
 
+This can then be loaded into ``mrview`` by using the "-tractography.load" option, which will automatically overlay the smallerTracks_200k.tck file onto the preprocessed diffusion-weighted image:
+
+::
+
+  mrview sub-01_den_unr_preproc_unbiased.mif -tractography.load smallerTracks_200k.tck
+  
+This will generate a figure like the following:
+
+.. figure:: 07_Sifted_Streamlines.png
+
+Remember to inspect this image to make sure that the streamlines end where you think they should; in other words, the streamlines should be constrained to the white matter, and they should be color-coded appropriately. For example, the corpus callosum should be mostly red, and the corona radiata should be mostly blue.
+
+Although we have created a diffusion image with reasonable streamlines, also known as a **tractogram**, we still have a problem with some of the white matter tracts being over-fitted, and others being under-fitted. This problem can be addressed by using the ``tcksift2`` command.
+
 Refining the Streamlines with tcksift2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You may ask why there is any need to modify the streamlines further once we have created our tractogram. The reason is that some tracts will be threaded with more streamlines than others, because the fiber orientation densities are much clearer and more attractive candidates for the probabilistic sampling algorithm that was discussed above. In other words, certain tracts can be over-represented by the amount of streamlines that pass through them not necessarily because they contain more fibers, but because the fibers tend to all be orientated in the same direction.
+
+To counter-balance this overfitting, the command ``tcksift2`` will create a text file containing weights for each voxel in the brain:
 
 ::
 
   tcksift2 -act 5tt_coreg.mif -out_mu sift_mu.txt -out_coeffs sift_coeffs.txt -nthreads 8 tracks_10M.tck wmfod_norm.mif sift_1M.txt
+
+The output from the command, "sift_1M.txt", can be used with the command ``tck2connectome`` to create a matrix of how much each ROI is connected with every other ROI in the brain - a figure known as a **connectome** - which will weight each ROI. To see how to do that, click the ``Next`` button.
