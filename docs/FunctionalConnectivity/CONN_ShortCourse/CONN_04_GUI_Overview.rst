@@ -59,7 +59,7 @@ Along the top of the CONN GUI are four tabs:
 
 The **Setup** tab is where the user enters the scanning parameters for the study, such as the number of runs and the TR; there are also buttons for loading the structural and functional images.
 
-In this experiment there was one resting-state scan and one anatomical scan per subject; since we are beginning by analyzing just one subject, we enter ``1`` for the "Number of subjects" field, and ``1`` for the "Number of sessions or runs" field. From the ``sub-01_task-rest_bold.json`` on the Openneuro data download page, we learn that the Repetition Time (i.e., the TR) was 3.56 seconds; enter this number in the "Repeition Time (seconds)" field.
+In this experiment there was one resting-state scan and one anatomical scan per subject; since we are beginning by analyzing just one subject, we enter ``1`` for the "Number of subjects" field, and ``1`` for the "Number of sessions or runs" field. From the ``sub-01_task-rest_bold.json`` on the Openneuro data download page, we learn that the Repetition Time (i.e., the TR) was 3.56 seconds; enter this number in the "Repetition Time (seconds)" field.
 
 The "Acquisition type" field provides two choices: ``Continuous`` and ``Sparse``. Most experiments will use Continuous acquisition; Sparse acquisition is used for event-related designs, and omits convolving the HRF with the onset of each trial. For now, leave it as the default of ``Continuous``.
 
