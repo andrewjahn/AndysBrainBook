@@ -36,3 +36,9 @@ Which will create the folders ``func`` and ``anat`` within a folder called ``sub
   movefile('~/Downloads/sub-01_anat_sub-01_T1w.nii', 'sub-01/anat')
   
 Type ``ls sub-01/anat`` and ``ls sub-01/func`` to make sure that the functional data is now located in the func directory, and that the anatomical data is located in the anat directory. If so, you are now ready to begin using the CONN toolbox, which we now turn to.
+
+
+Video
+*****
+
+Click `here <https://youtu.be/hN7mLhiH5Zc>`__ for a video demonstration of how to download the data.
