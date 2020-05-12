@@ -109,6 +109,12 @@ If you like, you can do the same QA check with the SPM Check Reg function by cli
   There are other options in the ``- functional tools:`` menu; look at each of them and guess what they do. Why would it not make sense at this time to look at the coregistration with the MNI boundaries?
   
   
+Video
+*****
+
+For a video overview of the CONN GUI, click `here <https://www.youtube.com/watch?v=N-1CZ3U8LrI>`__.
+  
+  
 Next Steps
 **********
 
