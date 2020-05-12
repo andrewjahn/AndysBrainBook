@@ -35,3 +35,9 @@ If the path has been set correctly, CONN should load. After a few moments, you w
   
 
 If you see the CONN home screen, then you have both successfully installed CONN and you have installed SPM. We are now ready to begin our tour of the CONN GUI and explore some of the options in more detail.
+
+
+Video
+*****
+
+For a video walkthrough of how to install the CONN toolbox, click `here <https://youtu.be/hN7mLhiH5Zc?t=149>`__.
