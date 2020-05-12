@@ -66,6 +66,12 @@ As an exercise, try setting the coordinates to one of the nodes of the salience 
 
   Demonstration of how to generate functional connectivity maps with Neurosynth. Note that you can threshold the image to only show correlations above a certain value, and you can also download the correlation map to use as a mask.
   
+  
+Video
+*****
+
+Click `here <https://www.youtube.com/watch?v=OQ3N79KG8Z8>`__ for a brief overview of the history of functional connectivity, and how to do a simple functional connectivity analysis in FSL.
+  
 Next Steps
 **********
 
