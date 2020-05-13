@@ -12,7 +12,7 @@ Overview
 
 Preprocessing a resting-state dataset is similar to how you preprocess a task-related dataset: You do the same steps of realignment, segmentation, normalization, and so on. The main difference is in the motion threshold. Resting-state datasets are notoriously susceptible to motion-related artifacts; even small movements can introduce spurious correlations. These artifacts are particularly problematic for laboratories studying disorders such as schizophrenia, or for researchers who scan very old or very young people. Too much movement will ruin your study.
 
-There is no simple way to address this problem, aside from training the subjects to move as little as possible. That said, the CONN toolbox has several methods for mitigating movements artifacts, including ART (Artifact Removal Toolbox) and principal component filtering of signal from tissues you may not be interested in, such as white matter and cerebrospinal fluid - a method known as ``Comp Cor``, short for Component Correction. In the following chapters, we will examine how including or omitting these steps will affect our results.
+There is no simple way to address this problem, aside from training the subjects to move as little as possible. That said, the CONN toolbox has several methods for mitigating movements artifacts, including ART (`Artifact Detection Tools <https://www.nitrc.org/projects/artifact_detect>`__) and principal component filtering of signal from tissues you may not be interested in, such as white matter and cerebrospinal fluid - a method known as ``Comp Cor``, short for Component Correction. In the following chapters, we will examine how including or omitting these steps will affect our results.
 
 
 The Preprocessing Button
