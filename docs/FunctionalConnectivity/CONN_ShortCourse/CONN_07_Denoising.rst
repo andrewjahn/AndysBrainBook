@@ -70,7 +70,7 @@ Lastly, the preview brain on the right-hand side shows the percent of variance i
 Next Steps
 **********
 
-For most datasets, the above figures should look similar - the distribution of connectivity values will be centered close to zero, and the BOLD timeseries will be smoothed out. If the data passes those checks, you are ready to begin estimating a general linear model using those regresssors. To see how to do this, click the ``Next`` button.
+For most datasets, the above figures should look similar - the distribution of connectivity values will be centered close to zero, and the BOLD timeseries will be smoothed out. If the data passes those checks, you are ready to begin estimating a general linear model using those regressors. To see how to do this, click the ``Next`` button.
 
 
 Exercises
