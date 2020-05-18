@@ -151,6 +151,11 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     OpenScience/OS_Overview
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Statistics for Neuroimagers
+    
+    Stats/Stats_Overview
 
 
 .. Glossary
