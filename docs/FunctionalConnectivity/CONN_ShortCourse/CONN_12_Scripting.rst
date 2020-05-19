@@ -227,6 +227,16 @@ All of the steps you specified earlier will be run. The next three lines will op
   conn
   conn('load',fullfile(cwd,'Arithmetic_Scripted.mat'));
   conn gui_results
+  
+  
+Exercises
+*********
+
+1. Within the field ``CONN_x.Preproc``, set the sub-field ``despiking`` to 1. Before you do this, see if you can find where in the GUI this change will take place. Save the structure into a new .mat file, load it, and observe if the change occurs where you think it should.
+
+2. Using the script ``conn_batch_Template.m``, change the ``NSUBJECTS`` value to 1. What happens if you try to run the script? Why? How would you fix it? (Hint: You would have to move all but one subject to a folder that won't be detected by the conn_dir command run from the current directory.)
+
+3. Edit the ``batch.Setup.preprocessing.steps`` field, replacing "default_mni" with a cell array that does the following steps: functional_label, functional_realign, functional_center, functional_slicetime, functional_segement&normalize_direct, structural_center, structural_segment&normalize, functional_label. See the `CONN batch webpage <https://web.conn-toolbox.org/resources/conn_batch>`__ for details on how to label each step.
 
 Video
 *****
