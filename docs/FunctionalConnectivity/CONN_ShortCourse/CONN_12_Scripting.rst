@@ -36,7 +36,7 @@ The CONN Toolbox comes with a command called ``conn_batch``, which takes a **str
 
    filename          : conn_*.mat project file (defaults to currently open project)
    subjects          : Subset of subjects to run processing steps or define parameters for (defaults to all subjects)
-   parallel          : Parallelization options (defaults to local procesing / no parallelization)
+   parallel          : Parallelization options (defaults to local processing / no parallelization)
    Setup             : Information/processes regarding experiment Setup and Preprocessing
    Denoising         : Information/processes regarding Denoising step
    Analysis          : Information/processes regarding first-level analyses
@@ -82,7 +82,7 @@ This replaces the original value of 3.56 with a value of 1. We can then save the
 
 ::
 
-  save('conn_Arithmetic_Project.mat', 'CONN_x')
+  save('conn_Arithmetic_Sample.mat', 'CONN_x')
   
 This uses the Matlab ``save`` command, which requires two arguments: The .mat file to be written, and any values or structures to be saved into it. In this case, we save the CONN_x structure into the .mat file. If you now load it from the CONN GUI (by clicking on ``Project -> Open`` and selecting the file), the Basic Information tab should be updated with the new Repetition Time that you specified in the Matlab terminal.
 
@@ -92,7 +92,7 @@ The CONN_x structure also specifies menu options. For example, the Batch.Setup s
 
   acquisitiontype : 1/0: Continuous acquisition of functional volumes [1] 
   
-This is a binary variable, with 1 signalizing a continuous acquisition of functional volumes (which is the default, as indicated by the brackets). If we set this to 0, then it will be the other option that is available, which is spare sampling. As an exercise, set the field ``CONN_x.Setup.acquisitiontype`` to 0, save the CONN_x structure into the .mat file, and reload the .mat file. What do you observe has changed?
+This is a binary variable, with 1 signalizing a continuous acquisition of functional volumes (which is the default, as indicated by the brackets). If we set this to 0, then it will be the other option that is available, which is sparse sampling. As an exercise, set the field ``CONN_x.Setup.acquisitiontype`` to 0, save the CONN_x structure into the .mat file, and reload the .mat file. What do you observe has changed?
 
 
 Creating the conn Batch Variable
@@ -102,7 +102,8 @@ Having seen how CONN creates a Matlab structure from the GUI, we will now create
 
 .. note::
 
-  The following code is adapted from the file ``conn_batch_workshop_nyudataset.m``, which you can download from Alfonso Nieto-Castanon's ``NITRC website <https://www.nitrc.org/frs/?group_id=279>``. The CONN website also contains examples of how to modify your batch script.
+  The following code is adapted from the file ``conn_batch_workshop_nyudataset.m``, which you can download from Alfonso Nieto-Castanon's `NITRC website <https://www.nitrc.org/frs/?group_id=279>`__. The CONN website also contains examples of how to modify your batch script. The website lists each of the different fields that can be entered into the batch structure, and what the defaults are. If you don't write out one of the fields in your script, it will be set to the default listed on the webpage.
+  For example, the field Analysis.type reads: ``analysis type, 1 = 'ROI-to-ROI', 2 = 'Seed-to-Voxel', 3 = 'all'; [3]``. If we don't include this in our script, the field will automatically be set to 3, meaning that both ROI-to-ROI and Seed-to-Voxel analyses will be run.
 
 
 Loading the files
@@ -114,10 +115,10 @@ Whichever method you choose, make sure that the ``NSUBJECTS`` variable matches t
 
 ::
 
-  NSUBJECTS=1;
+  NSUBJECTS=6;
   cwd=pwd;
-  FUNCTIONAL_FILE=cellstr(conn_dir('sub-01_func_sub-01_task-rest_bold.nii.gz'));
-  STRUCTURAL_FILE=cellstr(conn_dir('sub-01_anat_sub-01_T1w.nii'));
+  FUNCTIONAL_FILE=cellstr(conn_dir('sub-*_func_sub-*_task-rest_bold.nii.gz'));
+  STRUCTURAL_FILE=cellstr(conn_dir('sub-*_anat_sub-*_T1w.nii'));
   if rem(length(FUNCTIONAL_FILE),NSUBJECTS),error('mismatch number of functional files %n', length(FUNCTIONAL_FILE));end
   if rem(length(STRUCTURAL_FILE),NSUBJECTS),error('mismatch number of anatomical files %n', length(FUNCTIONAL_FILE));end
   nsessions=length(FUNCTIONAL_FILE)/NSUBJECTS;
@@ -127,13 +128,15 @@ Whichever method you choose, make sure that the ``NSUBJECTS`` variable matches t
   disp([num2str(size(FUNCTIONAL_FILE,2)),' sessions']);
   TR=3.56; % Repetition time
   
-Executing this block of code will return both the number of subjects and the number of sessions per subject.
+Executing this block of code will return both the number of subjects and the number of sessions per subject, and the wildcard ``*`` will return any files that contain the string ``sub-``, ``_func_sub-``, and ``task-rest_bold.nii.gz``, in that order. For your own experiment, remember to change this filter so that it is specific to how your data is labeled. Remember to change the TR as well, if needed.
 
 
 The Setup Field
 ^^^^^^^^^^^^^^^
 
 Each field after the ``batch`` structure will be one of the tabs listed in the CONN GUI: Setup, Denoising, and Analysis.
+
+The first block of code will populate the ``Setup`` field of the ``batch`` structure. If the files above were correctly loaded, this block of code should be useable for any experiment. You may want to change the batch name to something more descriptive of your study, and change the processing pipeline and slice order if needed.
 
 
 ::
@@ -186,6 +189,8 @@ The ``multiplelabels`` field, set to ``1``, indicates that there is a text file 
 The Denoising Field
 ^^^^^^^^^^^^^^^^^^^
 
+This block of code controls all of the options that are specified in the Denoising tab of the GUI. Here, the code demonstrates how to change the filter to a customized range, such as 0.01 to 0.1 The other parameters, ``done`` and ``overwrite``, will execute the code (``done=1`` means run the Denoising step) and overwrite any previous results (``overwrite='Yes'``). You can set ``overwrite`` to "No" if you want the program to throw an error before it overwrites any previous data.
+
 ::
 
   %% DENOISING step
@@ -196,6 +201,8 @@ The Denoising Field
 
 The Analysis Field
 ^^^^^^^^^^^^^^^^^^
+
+Similar to the Denoising block of code above, this section will run both the 1st and 2nd-level analyses. If you want to run only one of the analysis types, such as ROI-to-ROI, you can set it with a new field ``Analysis.type``. See the CONN batch webpage for more details.
 
 ::
 
@@ -213,10 +220,21 @@ You can run the batch from the Terminal by using the command ``conn_batch``:
 
   conn_batch(batch);
   
-All of the steps you specified earlier will be run. You can then open up the CONN GUI as you did in the previous tutorials, or load it from the command line:
+All of the steps you specified earlier will be run. The next three lines will open the CONN GUI and automatically load the second-level results. If everything ran without errors, you should see the same results that were generated using the point-and-click method of the GUI:
 
 ::
 
   conn
   conn('load',fullfile(cwd,'Arithmetic_Scripted.mat'));
   conn gui_results
+
+Video
+*****
+
+For a video demonstration of scripting, click `here <https://www.youtube.com/watch?v=NJmPYLfE7oo>`__.
+
+
+Congratulations!
+****************
+
+You now have everything you need to script an analysis in CONN, no matter how big the dataset is. The following chapters are a set of appendices covering other situations that you may come across in the CONN toolbox, such as graph theory, pre-post designs, and how to create your own custom ROIs.
