@@ -30,7 +30,7 @@ The Results Explorer
 
 You may have wondered why the right window pane says "Results preview", when it appears that we have generated our group-level results. The map has not actually been written to the disk yet; we will do that by clicking on the ``Results explorer`` button. After a few moments, another window opens up, giving you more options for viewing the results in different orientations - for example, rendered on a surface.
 
-When the results explorer window opens, you will see the a glass brain with the results displayed on it for the seed that was highlighted. The window can be divided into three parts:
+When the results explorer window opens, you will see a glass brain with the results displayed on it for the seed that was highlighted. The window can be divided into three parts:
 
 1. The **Threshold Panel**;
 2. The **Display Panel**; and
@@ -46,7 +46,7 @@ The Threshold Panel allows you to set a **threshold**, or value that determines 
 
 The menus next to the voxel threshold and cluster threshold fields specify which kind of correction mechanism to use. For example, switching from "p-uncorrected" to "F/T/X stat" allows you to specify a t-statistic threshold instead of a p-threshold. Likewise, the cluster threshold can be changed from an FDR threshold to FWE or uncorrected.
 
-The last pair of menus specify whether the tests are one-sided or two-sided, and whether to use parametric or non-parametric methods for correction. Unless your hypothesis is concerned with only one direction of the result, leave the default of "two-sided"; and if you want to use a correction method that does not depend on parameteric assumptions such as normality, change "parametric stats" to "non-parametric stats". Selecting "non-parametric stats" will prompt you to select the number of simulations; usually around 5000 simulations is recommended, although this can be unwieldy for large samples. 
+The last pair of menus specify whether the tests are one-sided or two-sided, and whether to use parametric or non-parametric methods for correction. Unless your hypothesis is concerned with only one direction of the result, leave the default of "two-sided"; and if you want to use a correction method that does not depend on parametric assumptions such as normality, change "parametric stats" to "non-parametric stats". Selecting "non-parametric stats" will prompt you to select the number of simulations; usually around 5000 simulations is recommended, although this can be unwieldy for large samples. 
 
 For now, run a non-parametric simulation with 1000 simulations, and observe how the results change. (You can always change it back to parametric statistics to see the original results.) Are there new clusters that appear? Clusters that disappear? Why do you think that is?
 
@@ -100,7 +100,7 @@ Click on the ``Results explorer`` button to open a new results window. This will
 
 .. figure:: 10_ROItoROI_ResultsExplorer.png
 
-The coordinates table in the lower right displays all of the significant correlations between the seed node and other ROIs. If you want, you can restrict the number of nodes you are testing by going to the menu "Define connectivity matrix" and selecting "manually-deinfed subset of ROIs". You can then select only those ROIs that you are interested in testing.
+The coordinates table in the lower right displays all of the significant correlations between the seed node and other ROIs. If you want, you can restrict the number of nodes you are testing by going to the menu "Define connectivity matrix" and selecting "manually-defined subset of ROIs". You can then select only those ROIs that you are interested in testing.
 
 Regardless of how many ROIs you test, you will need to correct for the number of tests performed. "Seed-level correction" will correct for the number of seeds that you use; "analysis-level correction" will correct for the total number of connections that are tested.
 
