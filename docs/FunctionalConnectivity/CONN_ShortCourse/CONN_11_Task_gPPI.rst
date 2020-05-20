@@ -60,6 +60,21 @@ Setting up a gPPI in the CONN Toolbox
 
 So far, we have used the CONN toolbox to model one condition: The resting-state condition, which is simply the time-series at each of our ROIs that we have selected in the Setup tab. We will now load a separate scan that was collected while the subject was doing a task, and which has two conditions: The main task, in which the subject was doing an arithmetic problem, and a control task, in which the subject was doing nothing. The onset times for each of these conditions can be found in the "events.tsv" files on the openneuro webpage for the Arithmetic dataset.
 
+::
+
+  subjects = [01 02 03 04 05 06];
+
+for subject=subjects
+
+  subject=num2str(subject, '%02d');
+  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-01_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
+  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-02_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
+  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-01_events.tsv'], ['sub-' num2str(subject) '/func'])
+  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-02_events.tsv'], ['sub-' num2str(subject) '/func'])
+
+end
+
+
 .. note::
 
   To review onset times, and how they are used to construct a general linear model, see :ref:`this module <fMRI_05_1stLevelAnalysis>`.
@@ -74,5 +89,31 @@ Doing this once can be a useful exercise, but you most likely will not want to d
 
   The study design window. Bars indicate the onset and duration of each trial, with separate conditions on each row. Highlighted bars reflect the condition and session that is currently selected in the left-hand menus.
   
-When you are finished importing the timing files, click ``Done``.
+When you are finished importing the timing files, click ``OK``. Just as with the functional connectivity analysis, you will need to then run preprocessing, Setup, and Denoising, using similar QA checks.
+
+Viewing the Results
+*******************
+
+After you’ve done preprocessing, Setup, and Denoising, you will have access to the 1st-level tab. This is similar to what we did with the correlation analysis, but we will make the following changes: 
+
+1) Change the analysis type to task-modulation effects (gPPI), which will prompt you to select all of your task conditions of interest. Remember that we want to model the entire experimental space; in this case, we will select both and click OK. 
+
+2) The other change is to switch the analysis options from correlation to regression (bivariate). Notice that the values in the preview window are not correlation coefficients anymore; they are beta weights for the interaction term. For example, if we have the right Frontal Pole region highlighted and we switch to main_condition, the map shows which voxels are significantly more correlated with the right frontal pole during the main_condition.
+
+
+.. figure:: 11_SelectConditions.png
+
+.. note::
+
+  Before going on, think about this: With the functional connectivity analyses, one of our QA checks was whether the currently highlighted seed region was most significantly correlated with itself, which made sense. Here, if we set the threshold to only show the highest beta weights, there doesn’t seem to be much of anything in that seed region. Given what you just learned about gPPI, why do you think that is?
+
+For the next step, click on the Done button. This will run a gPPI using all of the seed regions that are in the lefthand menu. If you have an hypothesis about one or two regions, you would only select those, and remove everything else. In this case, let’s just leave in the left and right frontal pole, and then click Done. This will take about a minute to run.
+
+The second-level tab will be the same as what we saw in the video about viewing results. This study wasn’t designed for a gPPI analysis, and PPI effects are notoriously difficult to find in any case; so it isn’t surprising that we don’t see anything here. Nevertheless, if you did find an effect, you would need to follow the same steps of correcting for type 1 errors.
+
+
+Next Steps
+**********
+
+In this tutorial, we briefly touched on how automating the loading of onset data can save you time. In the next and last tutorial, we will learn how to automate our entire analysis by using something called **scripting**. To find out how to do it, click the ``Next`` button.
 
