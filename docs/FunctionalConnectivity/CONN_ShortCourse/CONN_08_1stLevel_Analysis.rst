@@ -27,10 +27,17 @@ If you recall from the Setup tab, several different ROIs were generated: Grey ma
 
 Clicking on the Seed-to-Voxel or ROI-to-ROI buttons (which are yoked together) will display two distinct areas, similar to the setup in the Denoising tab. The left area, ``Seed-based connectivity analyses``, lists different analysis types and options that you can choose from. The right area, ``Preview first-level analysis results``, shows how the averaged time-series of the currently selected seed correlates with other voxels in the brain.
 
-Since we are only looking at resting-state data, ``functional connectivity (weighted GLM)`` is the most appropriate option to use. Later on we will see how to do a generalized psychophysiological interaction (gPPI) analysis, which can be used with task-related datasets.
+Since we are only looking at resting-state data, ``functional connectivity (weighted GLM)`` is the most appropriate option to use. Later on we will see how to do a :ref:`generalized psychophysiological interaction (gPPI) analysis <CONN_11_Task_gPPI>`, which can be used with task-related datasets.
 
 In the Seeds/Sources panel, highlight different seeds to observe how the connectivity map changes in the ``Preview first-level analysis results`` area. What do you notice about the maps as you select different seeds? Do they match up with what you would predict?
 
 .. figure:: 08_1stLevelPreview.png
 
-If you are satisfied with the preview of the correlation maps, click the ``Done`` button. This will generate correlation maps that are stored in your project folder in the ``results/firstlevel`` directory.
+If you are satisfied with the preview of the correlation maps, click the ``Done`` button. This will generate correlation maps that are stored in your project folder in the ``results/firstlevel`` directory. Once we have done this for all of the subjects in our dataset we can then run a group analysis, which we now turn to.
+
+Video
+*****
+
+To see how to do a 1st-level analysis on your computer, click `here <https://www.youtube.com/watch?v=19JVXJDzC4A&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=7>`__.
+
+
