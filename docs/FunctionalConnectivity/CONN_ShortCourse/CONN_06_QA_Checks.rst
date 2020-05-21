@@ -84,6 +84,11 @@ A series of figures will be generated, one for each QA check that you selected. 
 
 .. figure:: 06_QA_HTML.png
 
+Video
+*****
+
+For a video demonstration of how to do QA checks in the CONN toolbox, click `here <https://www.youtube.com/watch?v=eHSsUzUSwf0&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=5>`__.
+
 
 Next Steps
 **********
