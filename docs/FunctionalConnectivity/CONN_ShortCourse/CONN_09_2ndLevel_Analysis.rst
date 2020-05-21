@@ -137,6 +137,11 @@ If you want to mean-center any of your covariates, click on the ``-covariate too
 
 .. figure:: 09_Age_Covariate_MeanCentered.png
 
+Video
+*****
+
+A video demonstration of group-level analysis in the CONN toolbox can be found `here <https://www.youtube.com/watch?v=cr1u7OZ4JGw&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=8>`__.
+
 
 Next Steps
 **********
