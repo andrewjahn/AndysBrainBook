@@ -45,6 +45,11 @@ Finally, you will be asked to specify a smoothing kernel. As you will see later,
 .. note::
 
   For more details on what each step does, see the :ref:`SPM preprocessing module <SPM_04_Preprocessing>`.
+  
+Video
+*****
+
+For a video overview of how to preprocess data in the CONN toolbox, click `here <https://www.youtube.com/watch?v=4DaNiMEHO3s&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=5&t=0s>`__.
 
 Next Steps
 **********
