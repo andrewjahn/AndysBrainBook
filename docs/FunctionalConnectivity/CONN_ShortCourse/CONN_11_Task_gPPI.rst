@@ -117,3 +117,7 @@ Next Steps
 
 In this tutorial, we briefly touched on how automating the loading of onset data can save you time. In the next and last tutorial, we will learn how to automate our entire analysis by using something called **scripting**. To find out how to do it, click the ``Next`` button.
 
+Video
+*****
+
+A video overview of how to do gPPIs, including loading onset times, can be found `here <https://www.youtube.com/watch?v=s_lEcGeQOjk&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=9>`__.
