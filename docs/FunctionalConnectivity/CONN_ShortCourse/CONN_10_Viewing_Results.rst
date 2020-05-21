@@ -126,6 +126,11 @@ You may also want to use the ROI-to-ROI matrix to test for an ROI-by-ROI interac
 
 4. Enter these values into a statistical software program such as SPSS or R, note which subject belongs to which group, and carry out an interaction analysis.
 
+Video
+*****
+
+A video about how to do each of these steps can be found `here <https://www.youtube.com/watch?v=vkoY9_R_rgQ>`__.
+
 Exercises
 *********
 
