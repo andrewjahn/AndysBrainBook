@@ -66,6 +66,11 @@ The figure in the lower-left side is a **carpet plot** which unravels each volum
 
 Lastly, the preview brain on the right-hand side shows the percent of variance in the BOLD signal explained by the currently highlighted confound regressor. The loading of the explained variance should correspond to the regressor that is highlighted. For example, can you guess which nuisance regressor this plot represents? What clues do you see? Try to guess what the figure would look like if one of the other confound regressors were selected.
 
+Video
+*****
+
+For a video overview of Denoising, click `here <https://www.youtube.com/watch?v=2CeZ7EYHRpk&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=6>`__.
+
 
 Next Steps
 **********
