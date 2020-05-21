@@ -1,8 +1,8 @@
 .. _EP_11_fMRI_Experiment:
 
-=============================================
+===============================================
 E-Prime Tutorial #11: Making an fMRI Experiment
-=============================================
+===============================================
 
 -------------
   
@@ -11,7 +11,7 @@ E-Prime Tutorial #11: Making an fMRI Experiment
   This tutorial uses many of the concepts you've learned so far about E-Prime: Objects, attributes, E-Basic code, and more. It is a summary of everything we've done in the previous tutorials and also applies your learning to something you may do for your research: Creating a scanner-compatible E-Prime experiment.
 
 Overview
-***********************
+********
 
 Once you have created a behavioral experiment, you may think that all you need to do is present it to the subjects while they are in the MRI scanner. However, there are certain aspects of the experiment that we need to change, such as inserting **jitters** between the trials that we are interested in.
 
@@ -19,7 +19,7 @@ Before going on, you should make sure that you are detecting a behavioral effect
 
 
 The Trigger Pulse
-************************
+*****************
 
 When a scanner begins to collect images, it sends a pulse, commonly known as a **trigger**, to the experimental computer. (The setup for this varies between laboratories - for example, you may need to bring your own laptop to the control room and plug in the cable yourself - so you'll need to ask what the procedure is where you work.) In order to ensure that all of our timings are aligned to a common reference point - in other words, that we have a point in our experiment representing the start of our timings at zero seconds - we will need to include an object whose purpose is to wait for the trigger and then, when the trigger is detected, begin the experiment.
 
@@ -46,7 +46,7 @@ Another feature of many fMRI experiments is "Jitter", or variable duration betwe
   Example of a List object containing Jitter durations. Note that the variable "StartTimestamp" will need to be declared in the User script.
   
 Writing Timing Files
-*********************
+********************
   
 Another useful option is to add InLine objects that output the timing information into a text file as the experiment runs. This is easier to manage than sifting through the edat files and trying to reconstruct the timing manually.
 
@@ -57,6 +57,6 @@ And that's it! If you're new to E-Prime, these tutorials should give you the fou
 ----------------
 
 Video
-***********
+*****
 
 To watch a video about how to format your E-Prime experiment for an MRI scanner, click `here <https://www.youtube.com/watch?v=FeC0SLWC7B0&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=11>`__.

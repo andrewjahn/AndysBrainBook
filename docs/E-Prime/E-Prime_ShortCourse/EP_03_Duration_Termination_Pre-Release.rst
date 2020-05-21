@@ -7,7 +7,7 @@ E-Prime Tutorial #3: Slides and Advanced Properties
 ----------
 
 Overview
-***********************
+********
 
 This tutorial will show you how to make a basic Stroop experiment by using **Slides** - objects that can contain several sub-objects, or objects within the object, such as multiple images and text boxes. The Slide object's properties are controlled by the property pages tab, while the sub-objects are controlled by the sub-object property pages tab.
 
@@ -17,12 +17,12 @@ At this point you could run the experiment by clicking the **Run** icon - a tiny
 
 
 Advanced Properties
-***********************
+*******************
 
 ----------
 
 Duration and Input Masks
-^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^
 
 By default, the TextDisplay object will be presented on the screen for 1000 milliseconds; in other words, one of its properties is a **duration** of 1000 milliseconds. This is probably too short for most purposes, and in any case you will want more flexbility for your own experiment. Within the TextDisplay object's properties, the ``Duration/Input`` tab allows you control these details about the timing of the object. The **Duration** field, for example, specifies how long, in milliseconds, the object will be presented on the screen. You can enter any number you want - or, you can set it to ``Infinite``, which will leave the object on the screen until a button is pressed or some kind of input is received.
 
@@ -55,7 +55,7 @@ As with the "Welcome" object, set the duration to ``Infinite``, selecting the Ke
 
 
 Timing Mode
-^^^^^^^^^^^^^^^
+^^^^^^^^^^^
 
 Sometimes you want an object to be displayed until the subject makes a response; but other times, you want the object displayed for a specific amount of time - for example, fixation crosses that are displayed for a couple of seconds to signalize that the last trial is over, and a new trial is coming up. If the experiment is part of an fMRI scan, then accurate timing is especially important - you want the experiment to end at the same time as the scanner stops collecting images.
 
@@ -66,12 +66,12 @@ However, your computer is always running several processes simultaneously: Refre
 In case you do not want these delays adding up over time - in other words, you want the entire experiment to be the same duration for every subject - selecting the "Cumulative" option will subtract these delays from the Duration of the object. For example, if the Duration is 2000ms and there was a delay of 10ms, then the duration of the object will be 2000ms-10ms = 1990ms. Including the delay, the entire duration of the entire trial will be 2000ms: 1990ms (object duration) + 10ms (delay) = 2000ms. This minimizes any cumulative timing errors, which may be important for experiments which need to end at an exact time for all the trials to be collected.
 
 Pre-Release
-^^^^^^^^^^^^
+^^^^^^^^^^^
 
 Another way to mitigate timing errors and delays is through the **Pre-release** option. Once an object is displayed on the screen, E-Prime is able to load another object in the background which is ready to display as soon as the current object terminates. Pre-release indicates when E-Prime can begin loading the next object. For example, if you specify a pre-release time of 200, then the last 200ms of the current object are used to load the next object into memory. Leaving this as the default of ``(same as duration)`` is fine for most experiments; there are exceptions to this, which we will talk about in a later tutorial on :ref:`Inline objects <EP_08_InlineObjects>`.
 
 The Slide Object
-*****************
+****************
 
 Let's now take an in-depth look at the **Slide object**. Click and drag a Slide object onto the experimental timeline after the Fixation object, rename the Slide to "Stroop", and double-click on it to open up the Slide workspace. Notice how this is different from the TextDisplay object - there are dots representing a grid, and there are several **sub-objects** on the menu bar that you can click and drag onto the workspace. For example, within this Slide object you can display Text, Images and Videos. The Properties tab with the white card, as with the Properties tab of the TextDisplay object, allows you to specify properties such as the color of the background and the Duration of the Slide. The icon with the green card allows you to specify properties of the currently selected sub-object, such as the font size and color of a Text object.
 
@@ -91,13 +91,22 @@ In order to standardize the duration of the experiment, we will also set the End
 
 
 Summary
-***********
+*******
 
 By expanding your tools to include Slide objects and more advanced options, you can create an entire Stroop experiment. In order to make this process more efficient, however, we next turn to Procedures and Lists to create larger-scale, more flexible experiments.
+
+Exercises
+*********
+
+1. Add a new device to the TextDisplay Welcome object, and select "Mouse". Note the Allowable responses that are selected by default. Now run the experiment, and see if you can advance the slide by simply left-clicking on the screen.
+
+2. Note that the Data Logging for the Stroop slide will ask you whether it shoudl be set to default. When you select the default settings, what do you see in the "Logging" tab? We will revisit this in a later tutorial, but for now, look at some of the attributes that can be written, and think about which ones might be useful for your experiment.
+
+3. Create two new Stroop objects, each one separated by a Fixation object. (Remember that you can copy and paste objects by right clicking on them, selecting Copy, and then right-clicking and selecting Paste.) Make each Stroop object a different combination of a word and color, either congruent or incongruent, and then run the experiment.
 
 -----------
 
 Video
-**********
+*****
 
 To see how all of the above steps are implemented in E-Prime, see `this video <https://www.youtube.com/watch?v=S8zO8T_0DiA&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=3>`__.

@@ -27,7 +27,6 @@ After you have reviewed those concepts, you are then ready to run a first-level 
    AFNI_Statistics/AFNI_04_Stats_General_Linear_Model
    AFNI_Statistics/AFNI_05_Creating_Timing_Files
    AFNI_Statistics/AFNI_06_Stats_Running_1stLevel_Analysis
-   AFNI_Statistics/AFNI_07_Stats_1stLevel_Checkpoint
 
 
 .. note::

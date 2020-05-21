@@ -1,20 +1,20 @@
 .. _EP_10_EMergeEDataAid:
 
 
-=============================================
+============================================
 E-Prime Tutorial #10: E-Merge and E-Data Aid
-=============================================
+============================================
 
 -------------
 
 Overview
-***********************
+********
 
 Let's say that we've run a handful of subjects, and we now have enough data to run a group-level analysis. E-Prime comes with two separate packages, **E-Merge** and **E-Data Aid**, which allow you to merge the data files for several subjects and then analyze them. E-Data Aid includes several features that allow you to filter and organize the data, as well as compute averages within and across conditions. Once you have the data formatted the way you like, you can export it to a spreadsheet or text file for analysis in a separate statistical software package.
 
 
 E-Merge
-*********
+*******
 
 Both E-Merge and E-Data Aid can be found in the E-Prime package suite that was installed on your computer. Search for the E-Merge program, open it, and navigate to the folder where your e-dat files are output. Click on the ``Filter`` button and select ``*.edat2`` as a filter, which will leave only those files ending in **.edat2**. 
 
@@ -29,7 +29,7 @@ Next, hold down shift and click to highlight all of the .edat2 files, and then c
 .. figure:: 10_EMerge_Merge.png
 
 E-Data Aid
-************
+**********
 
 Now open the E-Data Aid program and open the StroopMerge file that you just created. The first thing you will notice is that there are many columns and many rows - many more than you probably care about. The file contains so many rows and columns because it contains every attribute that was logged on every trial of the experiment.
 
@@ -42,7 +42,7 @@ We can now filter our trials by condition. If you click on the Checklist button,
 .. figure:: 10_Checklist.png
 
 Calculating Averages
-****************
+********************
 
 To calculate the averages within each condition, click on the Analyze button - an icon that looks like a calculator. This will open a new window that allows you to construct tables of averages or other statistics for the variables that you have selected.
 
@@ -78,9 +78,17 @@ At this point, you have learned everything you need to analyze a simple experime
 
 In the last tutorial, we will learn how to format our experiment so that it can be run in an MRI experiment. The basic structure of the experiment will remain the same, but we will need to make some adjustments in order to use it in a specialized environment.
 
+
+Exercises
+*********
+
+1. Run the experiment on yourself or some friends for a total of 5 sessions. Use E-Merge to merge the sessions into a single file called "Stroop_Merge".
+
+2. Use the filter to only select the blueCar and redCar conditions instead of the incongruent and congruent Stroop conditions. Run the same analysis in E-Data Aid to compare the reaction times between the blueCar and redCar conditions. Do you observe any significant difference between the two when you run a paired t-test in Excel? Why do you think you get the result that you do?
+
 ----------------
 
 Video
-***********
+*****
 
 To see how to use E-Merge and E-Data Aid, watch `this video <https://www.youtube.com/watch?v=RUTxxGCQxFc&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=10>`__.

@@ -1,13 +1,13 @@
 .. _EP_09_StartupInfo:
 
-=============================================
+=========================================
 E-Prime Tutorial #9: The Startup Info Tab
-=============================================
+=========================================
 
 -------------
 
 Setting Variables when Starting the Experiment
-***********************
+**********************************************
 
 So far, you have learned how to create variables and attributes using Inline objects and List objects. These variables and attributes can then be used by other objects on the procedural timeline, and they allow you to create more compact and flexible experiments.
 
@@ -58,6 +58,6 @@ Try enabling some of the other Startup Info parameters, such as Sex, Age, and Gr
 
 
 Video
-***********
+*****
 
 For a video overview of the Startup Info tab, see `this video <https://www.youtube.com/watch?v=SvFCwf-J5wE&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=9>`__.

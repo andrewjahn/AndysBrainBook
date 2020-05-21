@@ -1,8 +1,8 @@
 .. _ASL:
 
-==========
+=================================
 fASL Tutorial #1: Overview of ASL
-==========
+=================================
 
 .. note::
   This page is under construction; it is being designed for an ASL tutorial and practical exercises with ASL data. It may be relocated to another repository in the future.
@@ -12,7 +12,7 @@ Arterial Spin Labeling (ASL) is a neuroimaging technique that measures the perfu
 
 
 ASL Summary
----------
+-----------
 
 .. note::
   The following images are taken from Luis Hernandez-Garcia's `webpage <http://fmri.research.umich.edu/research/main_topics/asl.php>`__.
@@ -43,7 +43,7 @@ There are several approaches to ASL perfusion imaging:
 
 
 CASL
----------
+----
 
 CASL, or **continous ASL**, where the inversion of the arterial blood occurs continuously through the application of a continuous RF pulse. During the acquisition of the control image, an RF pulse is supplied above the image slice to account for magnetic distortions caused by the pulse itself, but the pulse itself will not label any blood. This method of inversion is also called flow-driven inversion.
 
@@ -51,7 +51,7 @@ CASL, or **continous ASL**, where the inversion of the arterial blood occurs con
 
 
 PASL
----------
+----
 
 PASL, or **pulsed ASL**, where the inversion of the arterial blood occurs over a specific area. The RF pulse is applied in a spatially selective manner (slice-specific). Several versions exist, including EPISTAR (echo planar imaging and signal targeting with alternating radiofrequency) and FAIR (flow-sensitive alternating inversion recovery). Please refer to the image on the right. These methods of inversion are also referred to as spatial inversion.
 
@@ -59,7 +59,7 @@ PASL, or **pulsed ASL**, where the inversion of the arterial blood occurs over a
 
 
 ASL vs. BOLD fMRI
----------------
+-----------------
 
 How do the results obtained from ASL experiments differ from those obtained with BOLD? How do BOLD and ASL differ?
 
@@ -79,6 +79,6 @@ As you can see, ASL images are intrinsically a lot noisier, in fact, they look a
 
 
 Next Steps
----------
+----------
 
 Now that you've become familiar with different approaches to ASL analysis, click on the Next button to learn how to download ASL software and a sample dataset to analyze.

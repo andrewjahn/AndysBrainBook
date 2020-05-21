@@ -71,7 +71,7 @@ This gets us closer to our goal, but it still isn’t exactly what we want. Noti
 
 ::
 
-  for i in `seq -w 2 1 26`; do echo “sub-$i”; done
+  for i in `seq -w 1 26`; do echo “sub-$i”; done
 
 This sets each number in this range to have a width of two integers; if it’s a number less than ten, for example, it is zero-padded with one zero to the left of the number. This will be important later on when we use these loops to automate analyses over all of our subjects.
 

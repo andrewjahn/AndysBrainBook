@@ -1,8 +1,8 @@
 .. _SUMA_04_GroupAnalysisOnTheSurface:
 
-=================
+================================
 SUMA Tutorial #4: Group Analysis
-=================
+================================
 
 ------------------
 
@@ -98,7 +98,7 @@ If you compare the surface results to the volumetric results, you will see that 
 
 
 Multiple Comparisons Correction
-******************
+*******************************
 
 As with the volumetric analysis, we will need to correct for the number of vertices in our dataset (as opposed to the number of voxels). The commands needed to run a cluster simulation on the surface are more involved; similar to how we created an entire preprocessing script with uber_subject.py, we will create a cluster correction script with ``slow_surf_clustsim.py`` (note that this should be done for both hemispheres):
 

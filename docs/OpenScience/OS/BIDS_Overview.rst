@@ -9,6 +9,10 @@ BIDS Overview and Tutorial
 .. note::
 
   This article was contributed by `Daniel Levitas <https://perceptionandneuroimaging.psych.indiana.edu/people/daniellevitas.html>`__ of the Perception and Neuroimaging Lab at Indiana University.
+  
+.. note::
+
+  The Stanford Center for Reproducible Neuroscience (which created BIDS) has their own tutorial `here <http://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__.
 
 What is BIDS?
 *************
@@ -19,7 +23,7 @@ BIDS (Brain Imaging Data Structure) is a standarized format for the organization
 Benefits of BIDS
 ****************
 
-1. Reproducibility and Data Sharing: One of the more common issues that can arise for imaging researchers is receiving data from a colleague and not being able to make heads or tails of it: how the data are named and organized do not make intuitive sense to you, finding pertinent information (e.g. Repetition Time) is time-consuming, etc. What transpires is time wasted trying to make sense of the data, leading to needless back and forth with your colleague. Thanks to the standarized format of BIDS however, the hassles of data sharing are largely alleviated. By extension, improved data sharing allows researchers to better assess and reproduce others’ experimental findings.
+1. Reproducibility and Data Sharing: One of the more common issues that can arise for imaging researchers is receiving data from a colleague and not being able to make heads or tails of it: how the data are named and organized do not make intuitive sense to you, finding pertinent information (e.g. Repetition Time) is time-consuming, etc. What transpires is time wasted trying to make sense of the data, leading to needless back and forth with colleague(s). Thanks to the standarized format of BIDS however, the hassles of data sharing are largely alleviated. By extension, improved data sharing allows researchers to better assess and reproduce others’ experimental findings.
 
 2. Access to “BIDS-apps”: Once converted to BIDS format, data can be applied to software packages that take BIDS-formatted datasets as their input, colloquially referred to as “BIDS-apps”. Two of the most common and used apps are MRIQC (a quality control pipeline that generates metrics of your data), and fMRIPrep (a standarized pre-processing pipeline). Having access to fMRIPrep is incredibly useful, as labs (and even individuals within a single lab) typically have their own idiosyncratic pre-processing pipelines, which can influence findings in subsequent analyses, and create confusion for others when attempting to re-process the data. By having a standarized pipeline such as fMRIPrep, which incorporates different sofware packages (such as FSL, AFNI, ANTs, FreeSurfer, and nipype), datasets across labs/institutions can be pre-processed in a highly reproducible and transparent manner.
 
@@ -36,23 +40,83 @@ BIDS Tutorial
 
 For this tutorial we will be using the dcm2bids converter; however, as you become familiarized with BIDS you may find a different converter that suits your fancy.
 
-Before beginning, there are two required software packages that need to be downloaded: `dcm2niix <https://github.com/rordenlab/dcm2niix>`__ and `dcm2bids <https://github.com/cbedetti/Dcm2Bids>`__.
+Before diving into the tutorial, we first need to get the data, set up a project folder for this tutorial, and install some software packages.
+
+Create Project folder
+*********************
+
+Throughout this tutorial we will be using the command line, so you will need to be working in a MacOS or Linux environment. To access the command line you will need to open your terminal. Once open, type the following, line by line:
+
+::
+
+  cd $HOME
+  mkdir BIDS_tutorial
+  
+You have now created our project folder (BIDS_tutorial) in your home directory.
+  
+Download data
+*************
+The data can be found `here <https://drive.google.com/drive/folders/1vVW3jPfYdvh52juiHTUnkmY6bjvxZQcR?usp=sharing>`__. Be sure to download the entire folder and not individual files. Due to the size of the folder, it will take several minutes to zip and download everything. If the download appears to have stalled, cancel the current download and retry. Once downloaded, extract/unzip the files (in your Downloads folder), and type the following into the command line, line by line:
+
+::
+
+  mv ~/Downloads/BIDS_tutorial_data $HOME/BIDS_tutorial
+  
+The data has now been moved into your project folder
+
+CMake and pip Installation
+**************************
+
+Depending on your computer or server, you may already have CMake and/or pip; however, this is no guarantee. To determine which you have these installed and in your $PATH variable, type the following in the command line, line by line:
+
+::
+
+  which cmake
+  which pip
+  
+If these packages are in your $PATH, it should list where they're located, otherwise you will need to install them. To install CMake, go `here <https://cmake.org/download/>`__ and click the tar.gz file for your MacOS or Linux. Then type the following into your command line, line by line:
+
+::
+
+  cd ~/Downloads
+  tar -zxvf cmake-3.16.3-*-x86_64.tar.gz
+  export PATH="~/Downloads/cmake-3.16.3-Darwin-x86_64/CMake.app/Contents/bin/:$PATH"
+
+
+To install pip (if for some reason you don't have it), type the following into the command line, line by line:
+
+::
+
+  cd
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  python get-pip.py --user
+
+You will see a warning message that lists where pip is installed. Copy that path and add it to your $PATH. An example of how you do that is:
+
+::
+
+  export PATH="/Users/dlevitas/Library/Python/2.7/bin/:$PATH"
+  
+  
+At this point, CMake and pip should now be installed and in your $PATH
+
 
 dcm2niix Installation
 *********************
 
-dcm2niix is the standard for converting raw data to NIFTI/JSON file format. It is extremely versatile and can be used on raw data from different scanners (Siemens, Phillips, GE). To install the package on your machine or HPC account, do the following on the terminal command line
+dcm2niix is the standard for converting raw data to NIFTI/JSON file format. It is extremely versatile and can be used on raw data from different scanners (Siemens, Phillips, GE). To install the package on your machine or HPC account, type the following into your command line, line by line:
 
 ::
 
   cd ~
   git clone https://github.com/rordenlab/dcm2niix.git
   cd dcm2niix
-  mkdir build && cd build
+  mkdir build 
+  cd build
   cmake ..
   make
   
-You will then want to add dcm2niix to your $PATH
+You will then want to add dcm2niix to your $PATH by typing the following into your command line:
 
 ::
 
@@ -62,49 +126,42 @@ You can check to see whether it is now in your $PATH, by typing the following, w
 
 ::
 
-
   which dcm2niix
   
 
-Regardless of which BIDS conversion software you choose, most run dcm2niix under the hood, so it's worthwhile to have. If you are working on your university/institution’s HPC, you may have access to dcm2niix; however, you will want to check to ensure that you are using the most current version, as newer versions are more up to date with the BIDS specifications.
+Regardless of which BIDS conversion software you choose, most run dcm2niix under the hood, so it's worthwhile to have. If you are working on your university/institution’s High Perfomance Computing supercomputer (HPC), you may have access to dcm2niix; however, you will want to check to ensure that you are using the most current version, as newer versions are more up to date with the BIDS specifications.
 
 Disclaimer regarding dcm2niix: Running dcm2niix on a HPC can potentially take much longer (~6-10 min/session) than running on a local machine (~0.5-1.5 min/session), due to the poor disk I/O of HPCs. If this is the case for you, it may be worthwhile reaching out to your university/institution's HPC admin to see if there is an easy workaround.   
   
 dcm2bids Installation
 *********************
 
-If you are performing the installation on your local machine then you can do the following on the command line
+Dcm2bids is a package that takes the output from dcm2niix and organizes/renames files to meet the BIDS specification. To install, type the following on the command line, line by line:
 
 ::
 
-  pip install dcm2bids
-  
-If you are working on your university/institution’s HPC, then you likely do not have sudo privileges, and will need to do the following
-
-::
-
+  pip uninstall dcm2bids --user
   pip install dcm2bids --user
   
-Add dcm2bids to your $PATH
-
-::
-  
-  export PATH="$HOME/.local/bin/:$PATH"
+This should automatically add dcm2bids to your $PATH
   
 pigz Installation (optional)
-*********************
+****************************
 
-You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to run. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from the `_website <https://zlib.net/pigz/>`__ 
+You can install pigz to reduce time during the file compression portion of dcm2niix, though it is not required for dcm2niix to run. The software may already be provided by your university/institution's HPC; however, if this is not the case then you will need to download it directly from their `website <https://zlib.net/pigz/>`__. Make sure the file is extracted/unzipped and in your Downloads folder. Then type the following onto the command line, line by line:
 
-Once downloaded and unzipped, place the folder in your $HOME directory and add it to your $PATH with the following
 
 ::
+
+  mv ~/Downloads/pigz-2.4 $HOME
+  cd $HOME/pigz-2.4
+  make
   export PATH="$HOME/pigz-2.4/:$PATH"
 
 Setting Up Your Configuration File
 **********************************
 
-This is where user input is paramount. Most BIDS converters require some type of configuration file or setup to tell the conversion software how to organize and name the output from dcm2niix. Before setting up the configuration file, a mock protocol is provided, which details what a participant did during their scan session. This protocol contains both common data and modality types, as well as less common ones (the names of the individual acquisitions in the protocol are not important, merely descriptive).
+This is where user input is paramount. Most BIDS converters require some type of configuration file or setup to tell the conversion software how to organize and name the output from dcm2niix. Before setting up the configuration file, a mock protocol is provided below, which details what a participant did during their scan session. This protocol contains both common data and modality types, as well as less common ones (the names of the individual acquisitions in the protocol are not important, merely descriptive). You do not need to type anything here.
 
 ::
 
@@ -130,7 +187,15 @@ This is where user input is paramount. Most BIDS converters require some type of
   
 A few notes about this protocol: There are two localizer acquisitions because the participant came out of the scanner halfway through the session for a short break. There are two different sets of field maps: *fmap-SE-AP* & *fmap-SE-PA* (spin echoes with opposite phase encoding directions), and *gre-field-mapping* & *gre-field-mapping* (magnitude and phase difference). Participants partook in two “tasks”: the Balloon Analogue Risk Task (bart), and resting-state (rest). Each functional run was preceded by a single-band reference (sbref). There were three separate anatomicals collected: T1w, T2w, and FLAIR. Lastly, two dwi scans were collected. Again, this mock protocol is meant to demonstrate the different kinds of acquisitions that can be collected during a scanning session.
 
-To run dcm2bids, you will need to build a Javascript Object Notation (JSON) file, which dcm2bids uses to determine which acquisitions in the protocol will be converted to BIDS. Based on the mock protocol above, the configuration file looks like this:
+To run dcm2bids, you will need to create a Javascript Object Notation (JSON) configuration file, which dcm2bids uses to determine which acquisitions in the protocol will be converted to BIDS. To create the configuration file, type the following onto the command line, line by line:
+
+::
+
+  cd $HOME
+  touch BIDS_config.json
+
+
+Based on the mock protocol for this tutorial, the configuration file should like this (you will need to copy and paste the contents below into the BIDS_config.json file:
 
 ::
 
@@ -313,6 +378,21 @@ To run dcm2bids, you will need to build a Javascript Object Notation (JSON) file
      ]
   }
   
+To get the information into the file, you can type the following onto the command line:
+
+::
+
+  cd $HOME
+  vim BIDS_config.json
+
+Press the "i" key, and paste the contents into the file. To save and close the file, press the Escape button, and type the following: :wq
+To ensure that the information was added and saved to the json file, you can type the following onto the command line:
+
+::
+
+  cat BIDS_config.json
+
+  
 Understanding dcm2bids’s configuration file
 *******************************************
 
@@ -320,7 +400,7 @@ Let’s take a closer look at the configuration file we’ve just created (you c
 
 The last field to discuss, and arguably the least straightforward, is the ``IntendedFor`` list, required for field map acquisitions. Simply put, the list contains the indices of the functional acquisitions that the field maps will perform susceptibility distortion correction (SDC) on. There are two important caveats in determing the functional indices: the first is that the indices must reflect a “revised” protocol that doesn’t include non-BIDS acqusitions (e.g. localizers), and second, since dcm2bids is performed in python the indices must reflect python indexing (where the first element is 0).
 
-Let us refer back to our mock protocol, which contains two acquisitions that are not to be converted to bids - the localizers, which are absent in the configuration file. By removing the localizers from the protocol and listing the python-based indices, we can determine the functional indices needed for the ``IntendedFor`` list
+Let us refer back to our mock protocol, which contains two acquisitions that are not to be converted to bids - the localizers, which are absent in the configuration file. By removing the localizers from the protocol and listing the python-based indices, we can determine the functional indices needed for the ``IntendedFor`` list (don't type out section below).
 
 ::
 
@@ -348,55 +428,53 @@ The starred acquistions show the functional data corresponding to the field maps
 Running the dcm2bids command
 ****************************
 
-Finally, we've created the configuration file; now the BIDS conversion can be performed. For this, we'll assume that the subject ID is 01 and that this is a single session study. Type the on the command line
+Finally, we've created the configuration file; now the BIDS conversion can be performed. For this, we'll assume that the subject ID is 01 and that this is a single session study. Type the following on the command line
 
 ::
 
-  mkdir $HOME/BIDS_tutorial
   dcm2bids_scaffold -o $HOME/BIDS_tutorial
   echo "study imaging data" > $HOME/BIDS_tutorial/README
-  dcm2bids -d $dicom_dir -p 01 -c $HOME/dcm2bids_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
+  dcm2bids -d $HOME/BIDS_tutorial/BIDS_tutorial_data -p 01 -c $HOME/BIDS_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
   
 If however this were multi-session data (i.e. participant was scanned more than once), the dcm2bids command will look like this
 
 ::
 
-  mkdir $HOME/BIDS_tutorial
   dcm2bids_scaffold -o $HOME/BIDS_tutorial
   echo "study imaging data" > $HOME/BIDS_tutorial/README
-  dcm2bids -d $dicom_dir -p 01 -s 01 -c $HOME/dcm2bids_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
+  dcm2bids -d $HOME/BIDS_tutorial/BIDS_tutorial_data -p 01 -s 01 -c $HOME/BIDS_config.json -o $HOME/BIDS_tutorial --forceDcm2niix
 
 where the ``-s 01`` indicates that this is the first session. ``-s 02`` would indicate the second session, and so on.
+
+Clean project folder
+********************
+
+Type the following onto the command line, line by line:
+
+::
+
+  mv $HOME/BIDS_tutorial/BIDS_tutorial_data $HOME/BIDS_tutorial/sourcedata
+  rm -rf $HOME/BIDS_tutorial/tmp_dcm2bids
   
-PyDeface
+  
+PyDeface (optional)
 ********
 Although not required for BIDS compliance, it is highly recommended that users deface their anatomical image(s), such that facial features are removed from the image(s) to ensure a greater degree of anonymity for data sharing purposes. Since PyDeface is a python package, we recommend that users have one of the newer python 3 releases. To install PyDeface, type the following into your command line
 
 ::
 
-  pip install pydeface
-  
-If you are working on an HPC and do not have sudo privileges the you will want to type the following
-
-::
-
   pip install pydeface --user
-  
-Add PyDeface to your $PATH
-
-::
-
   export PATH="$HOME/.local/bin/:$PATH"
   
 Check out the github page of `PyDeface <https://github.com/poldracklab/pydeface>`__ for additional information. 
 
-In our mock protocol we have three separate anatomical acquisitions: T1w, T2w, and FLAIR. We will therefore need to run pydeface on each of these anatomicals. To deface the T1w we would do the following
+In the mock protocol there are three separate anatomical acquisitions: T1w, T2w, and FLAIR. You would therefore need to run pydeface on each of these anatomicals. To deface the T1w you would type the following:
 
 ::
 
   pydeface $HOME/BIDS_tutorial/sub-01/anat/sub-01_T1w.nii.gz --outfile $HOME/BIDS_tutorial/sub-01/anat/sub-01_T1w.nii.gz --force
   
-For multi-session data, the command would look like this
+For multi-session data, the command would look like this:
 
 ::
 
@@ -407,9 +485,11 @@ PyDeface can sometimes takes upwards of 10 minutes to complete; however, the def
 Validating your BIDS data
 *************************
 
-Once the BIDS conversion is complete and the anatomicals defaced, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to absolutely be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
+Once the BIDS conversion is complete and the anatomicals defaced, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
+
+NOTE: You will likely get an error when performing the BIDS validation due to a minor format issue in the dataset_description.json file. This is not important and can be ignored. 
 
 Final Thoughts
 **************
 
-In the tutorial we created a dcm2bids configuration file based on our mock protocol. While it's tempting to assume that everyone's protocol will be the same, this is sadly not always the case. As those who collect imaging data can attest, participants may need to randomly take a bathroom break, redo a functional acquisition due to excessive motion, etc. Thus, some participants' protocol will look different and therefore the configuration file will need to be adjusted to reflect this. Reducing user overhead is an ongoing process when it comes to BIDS conversion and continues to get better. While some work is required from the user's standpoint, you may come to realize that benefits of have a BIDS-compliant dataset outweight the work put in.
+In the tutorial we created a dcm2bids configuration file based on our mock protocol. While it's tempting to assume that everyone's protocol will be the same, this is not always the case. As those who collect imaging data can attest, participants may need to randomly take a bathroom break, redo a functional acquisition due to excessive motion, etc. Thus, some participants' protocol will look different and therefore the configuration file will need to be adjusted to reflect this. Reducing user overhead is an ongoing process when it comes to BIDS conversion and continues to get better. While some work is required from the user's standpoint, you may come to realize that benefits of have a BIDS-compliant dataset outweigh the work put in.

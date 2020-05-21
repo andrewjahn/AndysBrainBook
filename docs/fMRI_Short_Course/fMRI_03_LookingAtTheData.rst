@@ -42,7 +42,7 @@ Let's take a look at the anatomical image in the ``anat`` folder for ``sub-08``.
 
 ::
 
-    fsleyes anat/sub-01_T1w.nii.gz
+    fsleyes anat/sub-08_T1w.nii.gz
     
 This will open the anatomical image in ``fsleyes``, FSL's image viewer.
 

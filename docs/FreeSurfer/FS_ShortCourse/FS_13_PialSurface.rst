@@ -1,14 +1,14 @@
 .. _FS_13_PialSurface:
 
 
-======================================
+===============================================================
 FreeSurfer Tutorial #13: SkullStripping and Pial Surface Errors
-======================================
+===============================================================
 
 ---------------
 
 Skull-Stripping
-*********
+***************
 
 One of the first preprocessing steps in recon-all is to :ref:`**skull-strip** <Skull_Stripping>` the anatomical image. This removes both the skull and anything else from the image that is not grey or white matter, such as the eyes, neck, ears, and dura mater, which allows recon-all to trace a more accurate boundary of the pial surface.
 
@@ -23,7 +23,7 @@ The pial surface after skullstripping should be checked for whether cortex was r
   Even if not all of the non-brain material was removed during skullstripping, that is OK as long as the pial surface has been correctly traced.
   
 Setting the watershed threshold
-^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One way to control the amount of skull that is removed is by adjusting a parameter called the **watershed threshold**. During recon-all's autorecon1, the skull is stripped using a watershed threshold of 25; this parameter can take any value from 0 to 50. Increasing the threshold will increase the likelihood that both brain and skull will remain (i.e., it will be a more lenient skull-strip), while decreasing the threshold will run a more aggressive skull-strip. 
 
@@ -50,7 +50,7 @@ This will create a new brainmask.mgz file, which now has more of the skull remov
 
 
 Using the -gcut option
-^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^
 
 Even with a lower watershed threshold, there are still bits of skull and dura mater that remain. You can use the -gcut option to remove the latter:
 
@@ -93,7 +93,7 @@ This will display the excised regions in fuschia; use the overlay slider to exam
   
 
 Pial Surface Errors
-**********
+*******************
 
 
 A related problem is an inaccurate pial surface, which can be caused by failures in skull-stripping or removal of dura mater. As we've seen, however, the remedies for those failures can remove cortex, which can also result in an inaccurate estimate of the pial surface. A more accurate method is to manually remove those parts of the surface which trace parts of the nearby skull or dura mater.
@@ -131,6 +131,6 @@ As always, check the regenerated surfaces to make sure that they are an improvem
 
 
 Video
-*********
+*****
 
 For a video overview of how to fix skull-stripping and pial surface errors, click `here <https://www.youtube.com/watch?v=WaPtktm2EX4&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=12>`__.

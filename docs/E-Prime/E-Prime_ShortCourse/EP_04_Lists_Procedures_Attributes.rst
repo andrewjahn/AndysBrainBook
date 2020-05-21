@@ -14,7 +14,7 @@ So far we have created the bare minimum of an experiment: We have an introductor
 This is the skeleton of any experiment, and can be used as a template for virtually any study that you have in mind. The only problem lies in how to extend this template to include as many trials as we want. If we required one hundred Stroop trials in our experiment, it would be tedious to continue manually inserting the same sequence of Fixation -> Stroop.
 
 The List Object
-**************
+***************
 
 Fortunately, E-Prime has a feature that allows us to loop through several instances of the same or similar trials: The **List Object**. The List Object will repeat all of the objects that come after it as many times as we like; we can also indicate how many trials of a particular condition we would like to display in the experiment, and which properties we would like to change on a given trial - such as the color of the text.
 
@@ -72,7 +72,7 @@ Later on, we will be comparing the reaction times for congruent compared to inco
 
 
 Using Attributes in other Objects
-********************************
+*********************************
 
 The attributes that you specified in the List object can be used in any of the objects that are within the Procedure timeline of that List object. For example, since we created a Procedure called "StroopProc" in our StroopList object, the attributes in that object can be used in either the Fixation or StroopSlide objects.
 
@@ -100,9 +100,18 @@ In the StroopSlide object for that trial, the contents of each word on the left 
 You can set any attributes you want, using them in any object within the scope of the procedure timeline of the current List object. This allows you to create more flexible experiments and to be more economical with the amount of objects you use to loop over multiple trials.
 
 
+Exercises
+*********
+
+1. Change the Selection Order of the List object to "Random with Replacement." Run the experiment, and notice whether the order of these stimuli differ from the ones that were selected with Replacement.
+
+2. Add a level to the StroopList Object, and for this level replace the StroopProc string with the text "HelloProc". Add a TextDisplay Object to this procedural timeline, call it "HelloDisplay", and enter the text "Hello". Run the experiment, and observe how two separate procedures can be called upon by the same List object.
+
+3. Select the sub-object properties tab for the text of the Stroop Object. What other attributes could we control from the List object? Select one of them (such as "BackStyle" or "AlignVertical"), note the options that you have, and then add an attribute to the StroopList Object to set them to another value when you run the experiment.
+
 -----------
   
 Video
-**********************
+*****
 
 For a video overview of Lists, Procedures, and Attributes, click `here <https://www.youtube.com/watch?v=JHhZZAGkElU&list=PLIQIswOrUH68zDYePgAy9_6pdErSbsegM&index=4>`__.

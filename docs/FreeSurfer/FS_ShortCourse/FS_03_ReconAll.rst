@@ -1,11 +1,11 @@
 .. _FS_03_ReconAll:
 
-============
+=================================
 FreeSurfer Tutorial #3: Recon-all
-============
+=================================
 
 Overview: Reconstructing the Cortical Surface
-*********
+*********************************************
 
 FreeSurfer contains a large suite of programs which can take several hours to process a single subject, and days to process an entire dataset. Fortunately, the processing itself is very simple to do - FreeSurfer has a single command that, when executed, does virtually all of the most tedious parts of preprocessing a single subject. This command, **recon-all**, is easy to use and requires only a few arguments in order to run. Later on, you will learn how to execute multiple recon-all commands simultaneously, which will save you a considerable amount of time.
 
@@ -18,7 +18,7 @@ Recon-all stands for **reconstruction**, as in reconstructing a two-dimensional 
 
 
 The Output of Recon-all
-*********
+***********************
 
 Before discussing how to use the recon-all command, it is informative to see examples of what it creates. Recon-all first strips the skull from the anatomical image to generate a dataset called **brainmask.mgz**. (The .mgz extension stands for a compressed, or zipped, Massachusetts General Hospital file; it is an extension specific to FreeSurfer, similar to AFNI's BRIK/HEAD extension.) Any files that are output as three-dimensional volumes are stored in a folder called **mri**. Recon-all then estimates where the interface is between the white matter and grey matter for both hemispheres, and these surface estimates are stored in files called **lh.orig** and **rh.orig**.
 
@@ -42,7 +42,7 @@ These inflated surfaces can be inflated yet again, this time into a sphere. This
 
 
 Using the Recon-all command
-********
+***************************
 
 We will generate all of the images mentioned above with the command recon-all, which only requires a T1-weighted anatomical image with good contrast between the white matter and the grey matter. If you are in the Cannabis directory, navigate to sub-101's anatomical directory by typing ``cd sub-101/ses-BL/anat``. You can then run recon-all with the following command:
 
@@ -77,6 +77,6 @@ We could run recon-all for each of our subjects, one by one. You will soon find,
 ---------
 
 Video
-**********
+*****
 
 For a video overview of recon-all and how to use it, click `here <https://www.youtube.com/watch?v=gkjvKMjH7iM>`__.

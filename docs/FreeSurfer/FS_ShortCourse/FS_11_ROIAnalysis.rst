@@ -1,13 +1,13 @@
 .. _FS_11_ROIAnalysis:
 
-======================================
+====================================================
 FreeSurfer Tutorial #11: Region of Interest Analysis
-======================================
+====================================================
 
 ---------------
 
 Overview
-*********
+********
 
 In addition to creating a cortical surface and calculating structural measurements at each vertex, FreeSurfer parcellates and segments the brain - the parcellations outlining anatomically distinct regions of the cortex, and the segmentations dividing the sub-cortical nuclei into distinct structures. These parcellations are created along the lines of two atlases that come with FreeSurfer: The Destrieux atlas, and the Desikan-Killiany atlas.
 
@@ -22,7 +22,7 @@ The segmentations, on the other hand, are contained within one file called ``ase
 
 
 Extracting data with asegstats2table and aparcstats2table
-*********
+*********************************************************
 
 Both the command ``asegstats2table`` and ``aparcstats2table`` require a list of subjects and the structural measurement you wish to extract from the table.
 
@@ -50,18 +50,50 @@ In this command you can specify the hemisphere to analyze (``--hemi``), the meas
 
 
 Next Steps
-*********
+**********
 
 The output from these commands are tab-delimited text files that can be read into a spreadsheet like Excel, or a statistical software program such as R. You would perform the statistical tests just like you would any other t-test: Select the structural measurements from the groups you wish to compare, and then contrast the two groups against each other.
 
 .. note::
 
-  In the future, I will add sections on how to resample a volumetric ROI to the surface, and then extract structural measurements from that ROI.
+  In the future, I will add sections on how to resample a volumetric ROI to the surface, and then extract structural measurements from that ROI. The code below was created some time ago, but it will 
+
+
+::
+  
+  #!/bin/tcsh
+
+  setenv SUBJECTS_DIR `pwd`
+
+  #Create 5mm sphere ROI with 3dUndump; ROI_file.txt contains x-, y-, and z-coordinates for center of sphere (e.g., 0 30 20)
+  3dUndump -srad 5 -prefix S2.nii -master MNI_caez*+tlrc.HEAD -orient LPI -xyz ROI_file.txt
+
+  #View in tkmedit
+  tkmedit -f MNI_caez_N27.nii -overlay S2.nii -fthresh 0.5
+
+  #Register anatomical template to fsaverage (FreeSurfer template)
+  fslregister --s fsaverage --mov MNI_caez_N27.nii --reg tmp.dat
+
+  #View ROI on fsaverage
+  tkmedit fsaverage T1.mgz -overlay S2.nii -overlay-reg tmp.dat -fthresh 0.5 -surface lh.white -aux-surface rh.white
+
+
+  #Map ROI to fsaverage surface
+  mri_vol2surf --mov S2.nii \
+          --reg tmp.dat \
+          --projdist-max 0 1 0.1 \
+          --interp nearest \
+          --hemi lh \
+          --out lh.fsaverage.S2.mgh \
+          --noreshape
+
+  #Check how well the ROI maps onto the inflated surface
+  tksurfer fsaverage lh inflated -overlay lh.fsaverage.S2.mgh -fthresh 0.5
 
 
 -----------
 
 Video
-**********
+*****
 
 For a video overview of how to do region of interest analysis in FreeSurfer, click `here <https://www.youtube.com/watch?v=ho_cFxkXS5E&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=10>`__.

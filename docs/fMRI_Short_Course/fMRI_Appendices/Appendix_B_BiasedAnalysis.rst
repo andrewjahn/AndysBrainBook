@@ -46,20 +46,35 @@ Here’s the important part: notice that this region overlaps with some of the t
 
 In 2009, the Voodoo Correlations paper claimed that many studies were using biased analyses which led to inflated correlations - and also claimed that if they used unbiased analyses, the distribution of effects would be lower. In response, other researchers argued that if you correct for multiple comparisons, the effect does indeed exist. Also, if you’re doing an exploratory analysis to see where an effect is located, what’s the harm in looking within the significant voxels to see what is driving the effect? Isn’t it good to know what’s going on?
 
-There are two problems with those arguments. First, the magnitude of the effect is just as important as detecting whether the effect is there, and biased analyses will systematically overestimate it. Why? Because small studies by definition can only detect large effects. The second is that if you publish a biased analysis, the reader may assume that it is an inferential analysis, even if it includes caveats about how it was done. If you absolutely insist on presenting them in a figure, at least don’t include error bars.
+There are two problems with those arguments. First, the magnitude of the effect is just as important as detecting whether the effect is there, and biased analyses will systematically overestimate it. Why? Because small studies by definition can only detect large effects. The second is that if you publish a biased analysis, the reader may assume that it is an inferential analysis, even if it includes caveats about how it was done. If you insist on presenting them in a figure, at least don’t include error bars.
+
+
+How to Create Unbiased ROIs
+***************************
+
+The two most popular ways of creating unbiased ROIs are:
+
+1. From an atlas; or
+2. By creating a sphere centered at the coordinates reported by another study.
+
+AFNI and FSL each come with their own set of atlases (for SPM, you will need to download a separate toolbox first). To learn more about how to use each of these package's atlases, follow these links to the tutorials on :ref:`AFNI <AFNI_09_ROIAnalysis>`, :ref:`FSL <fMRI_09_ROIAnalysis>`, and :ref:`SPM <SPM_09_ROIAnalysis>`.
+
+A spherical ROI is creating by noting the coordinates of the peak activation reported by another study. Ideally, this should be a study that uses an experimental identical to the one that you use, or at least is very similar. In most cases, you will have to find a study that uses an experiment that at least taps into the same cognitive process that you are studying. Methods for creating spherical ROIs can also be found in the same links just referenced.
+
+A third way of creating unbiased ROIs is to use a meta-analysis map, which represents a combination of individual statistical maps reported by hundreds or thousands of studies. The most accessible meta-analysis generator is ``Neurosynth <neurosynth.org>``__, which allows you to generate these maps in seconds. For more details on how to create these maps, see :ref:`this tutorial <Appendix_E_Meta_Analysis>`.
 
 
 Other Types of Biased Analysis
 ***********
 
-We’ve only touched on a couple of different ways to do biased analyses, but there are other ways too - and you need to be on the lookout for them. Let’s say that you use an anterior cingulate cortex ROI for your confirmatory analysis - meaning that you selected the ROI beforehand, regardless of what the whole-brain results look like - but the results don’t pass correction. You then look at the whole-brain map, and see this. You then decide to use an ROI located more in the pre-SMA. This is also a biased an alysis, because now you know where your effect is before you decide where to extract from.
+We’ve only touched on a couple of different ways to do biased analyses, but there are other ways too - and you need to be on the lookout for them. Let’s say that you use an anterior cingulate cortex ROI for your confirmatory analysis - meaning that you selected the ROI beforehand, regardless of what the whole-brain results look like - but the results don’t pass correction. You then look at the whole-brain map, and see this. You then decide to use an ROI located more in the pre-SMA. This is also a biased an analysis, because now you know where your effect is before you decide where to extract from.
 
 
 
 Exercises
 *********
 
-1. Do a biased analysis by extracting the contrast estimates from a cluster in a statistical map defined by that contrast and thresholded at p<0.05. Compare this against doing an unbiased analysis, e.g. with an independent mask. 
+1. Do a biased analysis in a software package of your choice by extracting the contrast estimates from a cluster in a statistical map defined by that contrast and thresholded at p<0.05. Compare this against doing an unbiased analysis, e.g. with an independent mask. 
 
 2. Do the same thing as above, but with a map threshold at p<0.01. Does the effect get bigger? Smaller? Why?
 

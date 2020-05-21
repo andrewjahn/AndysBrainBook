@@ -39,7 +39,7 @@ Once you have entered the appropriate scaling factor, check the box next to "Qua
 
 
 Viewing the Output
-*******************
+******************
 
 fASL will generate a "lightbox" figures (i.e., individual slices laid out in a montage) for the Mean Subtraction, Spin Density, and Perfusion images. Each of the images should have the anterior part of the head oriented toward the top of your screen, and you should be able to discern the gross anatomy of the brain in each of the images. The perfusion images are scaled to be between 0 and 60 ml/min/100g, with brighter areas located in the grey matter. If the entire perfusion image is uniformly bright, you may have to use a different scaling factor.
 

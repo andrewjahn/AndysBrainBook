@@ -7,7 +7,7 @@ Chapter 6: Running the First-Level Analysis
 ---------
 
 uber_subject.py Revisited
-***************
+*************************
 
 Previously, we used the command ``uber_subject.py`` to :ref:`set up the preprocessing script for a single subject <AFNI_Intermezzo_Uber_Subject>`. You may recall that we removed one of the processing blocks, called "regress", because we were not focusing on regression at the time. Now, however, we will add the regress block back into our uber_subject.py script, and combine both preprocessing and 1st-level analysis into a single script.
 
@@ -73,7 +73,7 @@ Now, click the top three icons in succcession (the sheet of paper, the magnifyin
 
 
 The Ideal Time-Series and the GLM
-***************
+*********************************
 
 While you're waiting for the analysis to finish, let's take a look at how the model we just created relates to the GLM. Remember that each voxel has a BOLD time-series (our outcome measure), which we represent with Y. We also have our two regressors, which we will represent with x1 and x2. These regressors constitute our design matrix, which we represent with a large X. 
 
@@ -83,7 +83,7 @@ The next part of the GLM equation is the beta weights, which we represent with B
 
 
 Examining the Output
-**************
+********************
 
 When the script finishes, navigate into the folder ``sub-08/subject_results/group.Flanker/subj.sub08/sub08.results``. In addition to the preprocessed blocks you saw previously, you will also see statistical datasets: The one labeled ``stats.sub_08+tlrc`` has been analyzed using the traditional 3dDeconvolve approach; the dataset ``stats.sub_08_REML+tlrc`` has accounted for temporal autocorrelation.
 
@@ -122,9 +122,7 @@ We haven't corrected for multiple comparisons yet, so we can't say whether any o
 
 Now, change the OLay sub-brik to ``incongruent-congruent#0_Coef`` and the Thr sub-brik to ``incongruent-congruent#0_Tstat``, and set the uncorrected p-value threshold to 0.05. Click around the brain, observing where the statistics are positive and where they are negative. Where do you notice significant "clusters" of activated voxels? Are they where you would expect them to be?
 
-Later on, you will learn about a multiple correction technique called **cluster correction**. This method looks for clusters composed of voxels that pass a given uncorrected threshold, and then determines whether the cluster is significant or not. In this chapter we won't go into how to calculate how large the cluster needs to be, but for now click the "*Clusterize" button and change the number of voxels to ``45``. As a result, you will only see those clusters that are composed of 45 or more voxels that each pass an uncorrected p-value threshold of 0.05. You can click on the "Rpt" button to see a report of each cluster that passes this threshold, which lists the voxel size, the location of the peak voxel of the cluster, and options to move the crosshairs to the cluster and make it flash. All of these operations are summarized in the GIF below.
-
-.. figure:: 06_ViewingClusters.gif
+Later on, you will learn about a multiple correction technique called **cluster correction**. This method looks for clusters composed of voxels that pass a given uncorrected threshold, and then determines whether the cluster is significant or not. In this chapter we won't go into how to calculate how large the cluster needs to be, but for now click the "*Clusterize" button and change the number of voxels to ``45``. As a result, you will only see those clusters that are composed of 45 or more voxels that each pass an uncorrected p-value threshold of 0.05. You can click on the "Rpt" button to see a report of each cluster that passes this threshold, which lists the voxel size, the location of the peak voxel of the cluster, and options to move the crosshairs to the cluster and make it flash. All of these operations are summarized in the video link below.
 
 
 Exercises

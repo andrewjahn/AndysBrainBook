@@ -31,7 +31,7 @@ Lastly, in the "extra tlrc options" field, choose the template ``MNI_avg152T1+tl
 
 
 Running the Analysis
-*******************
+********************
 
 When you are done setting up the analysis, you can execute it by clicking, from left to right, the three icons at the top of the GUI window. The first one looks like a sheet of paper with lines on it; this will generate the afni_proc.py command that includes everything that you specified in the GUI. Click on the icon, and it will return two windows: One listing each of the options that were changed from the defaults and listing each of the inputs, and another showing the code of the afni_proc.py command. Take a look at it to see how the commands and options listed in the afni_proc.py command correspond to the options you entered into the uber_subject.py GUI:
 

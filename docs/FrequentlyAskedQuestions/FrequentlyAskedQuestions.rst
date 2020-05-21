@@ -27,11 +27,36 @@ For example, let's say that you created a mask in FSL, and you would like to ext
 
 ::
 
-  flirt -in mask.nii.gz -ref stats.nii.gz -out mask_RS.nii.gz
+  flirt -in mask.nii.gz -ref stats.nii.gz -out mask_RS.nii.gz -applyxfm
+  
+Or in AFNI:
+
+::
+
+  3dresample -input mask.nii.gz -master stats.nii.gz -prefix mask_RS.nii.gz
   
 And you would then be able to use an ROI extraction command, such as 3dmaskave or fslstats, to extract data from the mask.
 
+In order to resample an image to an isotropic voxel size, such as 3x3x3, you can use the following options with flirt:
+
+::
+
+  flirt -in volume.nii -ref volume.nii -applyisoxfm 3.0 -nosearch -out volume_3x3x3.nii
+  
+To resample to an anisotropic voxel resolution, you can use AFNI's 3dresample command, e.g.:
+
+::
+
+  3dresample -input volume.nii -out output_volume.nii -dxyz 1 0.8 1.5
+  
+Which will resample the voxels to have a size of 1x0.8x1.5mm, in this example.
+
+SPM uses the GUI to resample the images; the steps for this procedure can be found in `this chapter <https://andysbrainbook.readthedocs.io/en/latest/SPM/SPM_Short_Course/SPM_09_ROIAnalysis.html#using-the-command-line-for-roi-analysis>`__.
+
 For an overview of this topic, see `this video <https://www.youtube.com/watch?v=rvW-D5o3ALA>`__.
+
+
+
 
 Biased Analysis
 **********
@@ -167,6 +192,20 @@ How do I merge multiple ROIs into a Single File?
 5. Merge all of the datasets together using fslmaths (e.g., fslmaths pub_ROIs.nii -add theoretical_ROIs_2s.nii -add neurosynth_ROIs_3s.nii all_ROIs.nii)
 
 View it in fsleyes and see if that is what you want.
+
+
+How do I extract the voxel coordinates for an ROI?
+**************************************************
+
+If the atlas is in MNI space, you can use a command like AFNI's 3dmaskdump. First, save the mask using the methods shown here: https://www.youtube.com/watch?v=Vaj7BBxqXt0
+
+Then type the following:
+
+::
+
+  3dmaskdump -noijk -xyz -nozero -mask yourMask.nii yourMask.nii
+
+It should generate a series of numbers, with the first 3 representing the MNI coordinates of each voxel. Note that these are in RAI orientation, so you will have to multiply the first two columns by -1 in order to convert it to LPI orientation (which is the standard used by most people).
 
 Other Questions
 **********

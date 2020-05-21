@@ -7,7 +7,7 @@ FreeSurfer Tutorial #8: Group Analysis
 ---------------
 
 Overview
-*********
+********
 
 The previous tutorials have focused on preparing the data for a group analysis: First, the data was preprocessed using recon-all, with different structural measurements calculated at each vertex; and second, we created an FSGD file and a contrast file indicating which groups we want to compare against each other.
 
@@ -25,7 +25,7 @@ If you recall from a previous tutorial, I recommended using the ``qcache`` optio
 
 
 Creating a group file with mris_preproc
-************
+***************************************
 
 In order to run a group analysis, we will need to combine all of our individual structural maps into a single dataset. This is similar to the idea of combining consecutive volumes of an fMRI run into a one dataset - as though the volumes are daisy-chained together and laid end to end. (Or, to think of it another way, the structural images are stacked on top of each other, like pancakes; or layered like nachos. Use whatever food analogy is most helpful to remember this important point.) 
 
@@ -71,7 +71,7 @@ Copy this code into a shell script and save it as ``runMrisPreproc.sh``. This co
   
 
 Fitting the general linear model with mri_glmfit
-**********
+************************************************
   
 Now that all of the subjects are concatenated into a single dataset, we can fit a general linear model with FreeSurfer's ``mri_glmfit`` command. In this example we will use the following inputs:
 
@@ -111,7 +111,7 @@ Copy this code into a shell script and save it as ``runGLMs.sh``. This code is a
 
 
 Reviewing the Output
-**********
+********************
 
 If the scripts run without any errors, you should see the following directories in your current directory:
 
@@ -155,6 +155,6 @@ Now that we have the results, what do we do with them? Your first impulse might 
 
 
 Video
-**********
+*****
 
 For a video overview of ``mris_preproc`` and ``mri_glmfit``, as well as how to view the results, see `this video <https://www.youtube.com/watch?v=hdSkEPG-G8s&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=8>`__.

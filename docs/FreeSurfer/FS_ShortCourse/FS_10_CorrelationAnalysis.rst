@@ -1,13 +1,13 @@
 .. _FS_10_CorrelationAnalysis:
 
-======================================
+=============================================
 FreeSurfer Tutorial #10: Correlation Analysis
-======================================
+=============================================
 
 ---------------
 
 Overview
-*********
+********
 
 **Correlation** quantifies how much two variables covary. For example, if I am analyzing an experiment which measures the IQ and the cortical thickness of my subjects, I can plot both variables on separate axes of a graph. For each subject I draw a dot on my graph at the intersection of their IQ and thickness values, and then draw a line that seems to best fit the data. The magnitude of the covariation between the variables, also known as the **correlation coefficient**, can be calculated using the formula found `here <https://www.socscistatistics.com/tests/pearson/>`__. (On that page you can also click on the ``Calculator`` button to compute the correlation coefficient for a sample dataset.) A positive correlation means that as one of the variables goes up, so does the other; and a negative correlation represents the inverse. The magnitude of the correlation coefficient can be tested for statistical significance, just as with t-tests.
 
@@ -24,7 +24,7 @@ Just as the group comparison in the last tutorial used a t-test at each vertex t
   
 
 DODS vs. DOSS
-**********
+*************
 
 Before we model these covariates, we need to be familiar with FreeSurfer's modeling options: Different Onset, Different Slope (or **DODS**) and Different Onset, Same Slope (or **DOSS**). DODS will estimate a separate onset (or **intercept**) and a separate slope for each of the covariates in the model, while DOSS restricts the slopes for both covariates to be the same.
 
@@ -39,7 +39,7 @@ The advantages of DODS are that less parameters are estimated, and therefore you
 
 
 Modifying the FSGD File
-**********
+***********************
 
 In the tutorial on :ref:`creating the FSGD file <FS_07_FSGD>`, we saw how the FSGD file is formatted to include two groups. We will now add covariates, and see how to modify the FSGD file accordingly.
 
@@ -66,7 +66,7 @@ When you have finished formatting the file, save it as ``CannabisStudy_Age_Audit
 You are then ready to create the contrast files to either rerun the group analysis controlling for the covariates, or to run a correlation analysis on any of the covariates.
 
 Creating Contrast Files for Covariate Analyses
-**********
+**********************************************
 
 The number of covariates and the modeling option that you choose (DODS or DOSS) will affect the formatting of your contrast files. In our previous tutorial which only had two groups, we needed only two numbers: one contrast weight for each group. With additional covariates, we will need to add a corresponding number of columns.
 
@@ -109,7 +109,7 @@ Save this file in your ``Contrasts`` folder, and then open the file ``runGLMs.sh
   
   
 Running the Analysis
-**********
+********************
 
 You can rerun these analyses by navigating to your subjects directory and creating a higher-level script called ``runAllGroupScripts.sh``, which contains the following code:
 
@@ -135,6 +135,6 @@ And look at the results in `Freeview <FS_06_Freeview>`.
 -----------
 
 Video
-**********
+*****
 
 For a video overview of how to do correlation analyses in FreeSurfer, click `here <https://www.youtube.com/watch?v=tnMvf_FM6u4&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=9>`__.

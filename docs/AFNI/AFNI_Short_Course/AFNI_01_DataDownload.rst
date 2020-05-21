@@ -1,12 +1,12 @@
 .. _AFNI_01_DataDownload:
 
-==============
+======================================
 AFNI Tutorial #1: Downloading the Data
-==============
+======================================
 
 
 Overview
---------------
+--------
 
 For this course we will be analyzing an fMRI dataset that used the Flanker task. The dataset can be found `here <https://openneuro.org/datasets/ds000102/versions/00001>`__ on the `OpenNeuro <https://openneuro.org>`__ website, an online repository for neuroimaging data.
 

@@ -1,20 +1,20 @@
 .. _FS_14_ControlPoints:
 
-======================================
+===================================================================
 FreeSurfer Tutorial #14: Control Points and Intensity Normalization
-======================================
+===================================================================
 
 ---------------
 
 Overview
-*********
+********
 
 During preprocessing, FreeSurfer will perform a step called **intensity normalization**. This refers to a homogenization of the signal intensity of the white and grey matter, in order to better distinguish between the tissue types and make it easier to segment the brain.
 
 Intensity normalization failures are typically indicated by an inaccurate white matter surface. In that case, we will add **control points** to specify which parts of cortex should be classified as white matter. These control points act like tiny lamps that illuminate their immediate surroundings; by increasing the signal intensity of nearby voxels, they increase the likelihood that the area will be classified as white matter.
 
 Identifying Intensity Normalization Errors
-**********
+******************************************
 
 Intensity normalization errors usually occur in areas that are susceptible to signal dropout - such as the ventral frontal cortex and ventral areas of the temporal lobe.
 
@@ -34,7 +34,7 @@ In this particular case, parts of the frontal cortex have been removed. This isn
 Nevertheless, we will attempt to improve the surface estimates by setting control points and judge whether it is better or not.
 
 Setting the Control Points
-**********
+**************************
 
 Switch to the coronal view and zoom in on the frontal area of the brain. The intensity normalization errors start around slice 121. From the menu, click on ``File -> New Point Set``, and type the name ``control.dat``. Select the ``brainmask.mgz`` file as your template dataset.
 
@@ -56,6 +56,6 @@ When you are done setting the control points, click on ``File -> Save Point Set`
 
 
 Video
-*********
+*****
 
 For a video overview of how to set control points, click `here <https://www.youtube.com/watch?v=TY2G8cHHzRE&list=PLIQIswOrUH6_DWy5mJlSfj6AWY0y9iUce&index=13>`__.

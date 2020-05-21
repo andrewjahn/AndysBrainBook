@@ -40,7 +40,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
 .. toctree::
     :maxdepth: 1
-    :caption: fMRI Short Course
+    :caption: fMRI Short Course with FSL
     
     fMRI_Short_Course/fMRI_Intro
     fMRI_Short_Course/fMRI_01_DataDownload
@@ -74,20 +74,26 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 
     AFNI/AFNI_Overview
     
+.. toctree::
+    :maxdepth: 1
+    :caption: SPM
+
+    SPM/SPM_Overview
+    
 
 
 .. note::
 
     The following modules are under construction. Check back soon for more updates!
     
-    
+       
 
     
 .. toctree::
     :maxdepth: 1
-    :caption: SPM
-
-    SPM/SPM_Overview
+    :caption: Functional Connectivity with the CONN Toolbox
+    
+    FunctionalConnectivity/CONN_Overview
  
 .. toctree::
    :maxdepth: 1
@@ -145,6 +151,11 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     OpenScience/OS_Overview
 
+.. toctree::
+    :maxdepth: 1
+    :caption: Statistics for Neuroimagers
+    
+    Stats/Stats_Overview
 
 
 .. Glossary
@@ -166,3 +177,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     10.14.2019: E-Prime module is complete.
 
     10.16.2019: FreeSurfer module complete.
+    
+    1.13.2020: SPM written module complete (videos not up yet)
+    
+    4.13.2020: SPM videos uploaded
