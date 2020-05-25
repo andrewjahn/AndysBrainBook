@@ -25,6 +25,8 @@ Why does dMRI focus on the white matter tracts? Imagine peeling apart a stick of
 
 .. figure:: 00_Tract_Examples.png
 
+  Illustration of several main white matter tracts. Figure taken from Thiebaut et al., 2015.
+
 The white matter of the brain gets its name from its color; these neurons are highly myelinated, meaning they have a thick lipid coating that both insulates them and helps with the transmission of electrical impulses, just like an insulated electrical cable. The grey matter neurons, in contrast, are relatively unmyelinated, which allows for a higher density of neurons to be packed into a given area.
 
 History of Diffusion
@@ -47,7 +49,7 @@ Lastly, and most relevant for our future tutorials on diffusion imaging, the Bro
 
 All of these factors - temperature, particle size, and viscosity - were combined by Albert Einstein into a single equation known as the **Stokes-Einstein Equation**:
 
-.. figure:: Stokes_Einstein_Equation.png
+.. figure:: 00_Stokes_Einstein_Equation.png
 
 The diffusion coefficient, **D**, increases as the temperature (**T**) increases, and deceases with higher viscosity (symbolized by eta) and a higher particle radius (**r**). **k** stands for Boltzmann's constant. This diffusion coefficient will play a role in how we acquire **diffusion-weighted images**, which we turn to next.
 
