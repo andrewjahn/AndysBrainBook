@@ -37,6 +37,14 @@ This course will show you how to download and install FreeSurfer, and how to ana
    FS_ShortCourse/FS_13_PialSurface
    FS_ShortCourse/FS_14_ControlPoints
 
+.. note::
 
-  
+  The following is under construction; check back soon!
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Start to Finish Analysis with TRACULA
+
+   TRACULA_ShortCourse/TRACULA_01_Intro
+
 
