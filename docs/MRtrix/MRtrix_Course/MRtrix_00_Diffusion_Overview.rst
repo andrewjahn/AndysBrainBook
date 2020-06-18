@@ -128,11 +128,7 @@ Applied to diffusion-weighted images, we use these same concepts to model the si
 
 Fractional anisotropy is a weighted sum of the eigenvectors that are derived in each voxel. A higher FA value indicates greater diffusion along one of the directions, and a lower FA value indicates that there is either very little diffusion, or that the diffusion is unconstrained and going in each direction at random (as in, say, the ventricles of the brain). If we find that the diffusion is greater along one of the dimensions, we can color-code it according to the direction. The convention in diffusion imaging is to represent diffusion along the x-axis in red, diffusion along the y-axis in green, and diffusion along the z-axis in blue. The image below summarizes this color-coding scheme.
 
-.. figure:: 00_ColorCoding.png
-
 .. figure:: 00_Eigenvectors.png
-
-.. figure:: 00_Eigenvalues.png
 
 Fitting a tensor at each voxel allows for the generation of different types of diffusion maps, such as fractional anisotropy maps. Tract-Based Spatial Statistics (TBSS), a popular FSL diffusion analysis package, can be used to create these maps; similar to the analysis of fMRI data, these maps can be combined into a group-analysis map, and data can be extracted from regions of interest within the map.
 
@@ -153,16 +149,16 @@ To address this problem, a technique was developed known as **Spherical Deconvol
 
 In order to understand this better, let's revisit how basis functions are used with fMRI data. You may recall from :ref:`another part of the book <03_Stats_HRF_Overview>` that the BOLD signal we acquire from a single voxel can be modeled as an average of several overlapping BOLD responses to events that occur closely together. In order to estimate the amount of BOLD activity for each individual event, we **deconvolve** the more complex signal into its individual parts. The basis function of a single Hemodynamic Response Function (HRF) allows us to estimate what combination of HRFs occuring at different times and with different magnitudes would look like, and we estimate the combination that leads to the observed signal.
 
-Similarly with diffusion-weighted data, we acquire a diffusion signal in each voxel from many different angles in order to form a picture of both the direction of the diffusion and its magnitude. The signal is then deconvolved into a set of individual fibers oriented in different directions. Instead of a single diffusion number at each voxel, spherical deconvolution is used to generate a fiber **orientation density function**, or ODF. The function is represented as a shape with ovoid axes; and although the lobes of the axis that loads on to the predominant direction of diffusion become longer and bigger relative to the other axes, information about the direction and strength of diffusion along the other axes is still retained.
+Similarly with diffusion-weighted data, we acquire a diffusion signal in each voxel from many different angles in order to form a picture of both the direction of the diffusion and its magnitude. The signal is then deconvolved into a set of individual fibers oriented in different directions. Instead of a single diffusion number at each voxel, spherical deconvolution is used to generate a **fiber orientation density function**, or FOD. The function is represented as a shape with ovoid axes; and although the lobes of the axis that loads on to the predominant direction of diffusion become longer and bigger relative to the other axes, information about the direction and strength of diffusion along the other axes is still retained.
 
 .. figure:: 00_ODF.png
 
-  Pictured is a diffusion-weighted image with ODFs overlaid on top of it. If we zoom in to a region of the anterior commissure, we see that the ODFs are primarily going from left to right (which is also represented by their being color-coded in red). Note that the ODFs on the right of the inset begin to turn more green, representing the turning of the orientation from primarily a left-right axis to an anterior-posterior axis. 
+  Pictured is a diffusion-weighted image with FODs overlaid on top of it. If we zoom in to a region of the anterior commissure, we see that the ODFs are primarily going from left to right (which is also represented by their being color-coded in red). Note that the ODFs on the right of the inset begin to turn more green, representing the turning of the orientation from primarily a left-right axis to an anterior-posterior axis. 
   
   
 .. figure:: 00_ODF_2.png
 
-  Another part of the white matter shows ODFs that primarily follow an anterior-posterior orientation; however, some of the ODFs have lobes that extend in both the anterior-posterior and inferior-superior directions (with inferior-superior being color-coded as blue). In this way, ODFs can represent the orientation of the fibers along multiple dimensions.
+  Another part of the white matter shows FODs that primarily follow an anterior-posterior orientation; however, some of the ODFs have lobes that extend in both the anterior-posterior and inferior-superior directions (with inferior-superior being color-coded as blue). In this way, FODs can represent the orientation of the fibers along multiple dimensions.
 
 Diffusion Analysis with MRtrix
 ******************************
