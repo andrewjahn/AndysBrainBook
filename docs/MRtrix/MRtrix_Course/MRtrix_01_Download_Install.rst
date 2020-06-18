@@ -13,7 +13,7 @@ The `MRtrix download page <http://www.mrtrix.org/download/>`__ contains download
 
   sudo bash -c "$(curl -fsSL https://raw.githubusercontent.com/MRtrix3/macos-installer/master/install)"
   
-This will download and install the entire MRtrix3 package to your machine, which will take about 15 minutes.
+This will download and install the entire MRtrix3 package to your machine, which will take no more than a few moments.
 
 Once it has downloaded, open a Terminal and type the following to test your installation:
 
