@@ -15,7 +15,7 @@ To see how this works, navigate to the folder ``sub-CON02/ses-preop/dwi``, which
 
 ::
 
-  mrconvert sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.nii.gz sub-02_dwi.mif -fslgrad sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bvec sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bval
+  mrconvert sub-CON02_ses-preop_acq-AP_dwi.nii.gz sub-02_dwi.mif -fslgrad sub-CON02_ses-preop_acq-AP_dwi.bvec sub-CON02_ses-preop_acq-AP_dwi.bval
   
 This command requires three arguments: The input, which is the raw DWI file in the AP directory; an output file, which we will call sub-02_dwi.mif to make it more compact and easier to read; and ``-fslgrad``, which requires the corresponding .bvec and .bval files (in that order).
 
@@ -25,10 +25,10 @@ This command requires three arguments: The input, which is the raw DWI file in t
   
   ::
   
-    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bvec sub-02_AP.bvec
-    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bval sub-02_AP.bval
-    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.bvec sub-02_PA.bvec
-    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.bval sub-02_PA.bval
+    mv sub-CON02_ses-preop_acq-AP_dwi.bvec sub-02_AP.bvec
+    mv sub-CON02_ses-preop_acq-AP_dwi.bval sub-02_AP.bval
+    mv sub-CON02_ses-preop_acq-PA_dwi.bvec sub-02_PA.bvec
+    mv sub-CON02_ses-preop_acq-PA_dwi.bval sub-02_PA.bval
 
 The output image, ``sub-02_dwi.mif``, can be read with the command ``mrinfo``:
 
