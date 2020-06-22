@@ -17,7 +17,7 @@ When the download has finished, unzip the folder, open a Terminal, and then rena
 
 ::
 
-  mv ~/Downloads/ds001226-000001 ~/Desktop/BTC_preop
+  mv ~/Downloads/ds001226-00001 ~/Desktop/BTC_preop
   
 This assumes that the dataset was put in the "Downloads" directory. The command will place the renamed directory on your Desktop.
   
