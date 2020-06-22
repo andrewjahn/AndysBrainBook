@@ -13,11 +13,13 @@ To download the data, click on `this link <https://openneuro.org/datasets/ds0012
 .. figure:: 02_Download_BTC.png
 
 
-When the download has finished, unzip the folder, and then rename it to BTC_preop:
+When the download has finished, unzip the folder, open a Terminal, and then rename it to BTC_preop:
 
 ::
 
-  mv ds001226-000001 BTC_preop
+  mv ~/Downloads/ds001226-000001 ~/Desktop/BTC_preop
+  
+This assumes that the dataset was put in the "Downloads" directory. The command will place the renamed directory on your Desktop.
   
 .. note::
 
