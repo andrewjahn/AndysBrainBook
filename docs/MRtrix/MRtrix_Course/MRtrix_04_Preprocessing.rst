@@ -13,6 +13,8 @@ Just like other neuroimaging data, diffusion data should be **preprocessed** bef
 
 .. figure:: 04_AP_PA_Comparisons.png
 
+  A side-by-side comparison of images obtained with Anterior-to-Posterior phase encoding (left) and Posterior-to-Anterior phase encoding (right). These differences are most noticeable in the coronal slices of the image, which show the frontal areas either pushed inwards (AP) or stretched outwards (PA). Images taken from the `FSL primer website <https://www.fmrib.ox.ac.uk/primers/intro_primer/ExBox20/IntroBox20.html>`__.
+
 The following are common preprocessing steps done with MRtrix. If you have used the software package FSL to analyze diffusion data, note that some of the FSL commands - such as eddy and topup - are used in some of the MRtrix libraries. We will explore that more below.
 
 
