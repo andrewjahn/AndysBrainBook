@@ -11,13 +11,13 @@ Overview
 
 MRtrix uses its own format for storing and displaying imaging data. If you've already gone through the tutorials on the major fMRI software packages, such as SPM, FSL, and AFNI, you may remember that all of them can read and write images in NIFTI format. (AFNI by default will write files in its own BRIK/HEAD format unless you specify that your output should have a .nii extension, but it is the sole exception.) MRtrix is also able to read raw data in NIFTI format, but will output its files in MRtrix format, signalized with a ``.mif`` extension.
 
-To see how this works, navigate to the folder ``sub-CON01/ses-preop/dwi``, which contains your diffusion data. One of the first steps for preprocessing your data is to convert the diffusion data into a format that MRtrix understands; we will use the command ``mrconvert`` to combine the raw diffusion data with its corresponding ``.bval`` and ``.bvec`` files, so that we can use the combined file for future preprocessing steps:
+To see how this works, navigate to the folder ``sub-CON02/ses-preop/dwi``, which contains your diffusion data. One of the first steps for preprocessing your data is to convert the diffusion data into a format that MRtrix understands; we will use the command ``mrconvert`` to combine the raw diffusion data with its corresponding ``.bval`` and ``.bvec`` files, so that we can use the combined file for future preprocessing steps:
 
 ::
 
-  mrconvert sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-AP_dwi.nii.gz sub-01_dwi.mif -fslgrad sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-AP_dwi.bvec sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-AP_dwi.bval
+  mrconvert sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.nii.gz sub-02_dwi.mif -fslgrad sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bvec sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bval
   
-This command requires three arguments: The input, which is the raw DWI file in the AP directory; an output file, which we will call sub-01_dwi.mif to make it more compact and easier to read; and ``-fslgrad``, which requires the corresponding .bvec and .bval files (in that order).
+This command requires three arguments: The input, which is the raw DWI file in the AP directory; an output file, which we will call sub-02_dwi.mif to make it more compact and easier to read; and ``-fslgrad``, which requires the corresponding .bvec and .bval files (in that order).
 
 .. note::
 
@@ -25,16 +25,16 @@ This command requires three arguments: The input, which is the raw DWI file in t
   
   ::
   
-    mv sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-AP_dwi.bvec sub-01_AP.bvec
-    mv sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-AP_dwi.bval sub-01_AP.bval
-    mv sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-PA_dwi.bvec sub-01_PA.bvec
-    mv sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-PA_dwi.bval sub-01_PA.bval
+    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bvec sub-02_AP.bvec
+    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-AP_dwi.bval sub-02_AP.bval
+    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.bvec sub-02_PA.bvec
+    mv sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.bval sub-02_PA.bval
 
-The output image, ``sub-01_dwi.mif``, can be read with the command ``mrinfo``:
+The output image, ``sub-02_dwi.mif``, can be read with the command ``mrinfo``:
 
 ::
 
-  mrinfo sub-01_dwi.mif
+  mrinfo sub-02_dwi.mif
   
 The output contains several pieces of information, such as the dimensions of the dataset and the voxels size, along with the commands that were used to generate the current file:
 
@@ -52,18 +52,18 @@ The other files we need to check are the **bvals** and **bvecs** files. (For a m
 
   Three volumes with different b-values. A b-value of 0 is equivalent to a T2-weighted functional scan, while higher b-values lead to lower image quality (but higher sensitivity to diffusion).
   
-The most important check is to ensure that the number of bvals and the number of bvecs are the same as the number of volumes in the dataset. For example, we can find the number of volumes in the ``sub-01_dwi.mif`` dataset by typing:
+The most important check is to ensure that the number of bvals and the number of bvecs are the same as the number of volumes in the dataset. For example, we can find the number of volumes in the ``sub-02_dwi.mif`` dataset by typing:
 
 ::
 
-  mrinfo -size sub-01_dwi.mif | awk '{print $4}'
+  mrinfo -size sub-02_dwi.mif | awk '{print $4}'
   
 Which returns a value of 102, the number in the 4th field of the dimensions header that corresponds to the number of time-points, or volumes, in the dataset. We then compare this with the number of bvals and bvecs by using awk to count the number of columns in each text file:
 
 ::
 
-  awk '{print NF; exit}' sub-01_AP.bvec
-  awk '{print NF; exit}' sub-01_AP.bval
+  awk '{print NF; exit}' sub-02_AP.bvec
+  awk '{print NF; exit}' sub-02_AP.bval
   
 Which should both return a value of 102.
 
@@ -79,7 +79,7 @@ MRtrix, like the other imaging software packages we've covered in this e-book, h
 
 ::
 
-  mrview sub-01_dwi.mif
+  mrview sub-02_dwi.mif
   
 This opens up a single viewing pane of the axial slices:
 
@@ -101,6 +101,6 @@ Now hover your mouse over the viewing window of mrivew, and press the right arro
 Next Steps
 **********
 
-Once you have practiced looking at the data and seen the relationship between the b-values and the volumes, try the same thing with the diffusion-weighted image with phase-enconding in the PA direction (i.e., sub-CON01_ses-preop_dwi_sub-CON01_ses-preop_acq-PA_dwi.nii.gz). How many volumes are there in this dataset? What are the b-values? How does it compare to what you saw in the AP diffusion-weighted dataset?
+Once you have practiced looking at the data and seen the relationship between the b-values and the volumes, try the same thing with the diffusion-weighted image with phase-enconding in the PA direction (i.e., sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.nii.gz). How many volumes are there in this dataset? What are the b-values? How does it compare to what you saw in the AP diffusion-weighted dataset?
 
 Now that you have learned some of the basic MRtrix commands and concepts, we will start to **preprocess** the data so that we can start to fit **streamlines** to the data. To begin that stage, click the ``Next`` button.
