@@ -20,7 +20,7 @@ Unlike most fMRI studies which use a basis function that has already been create
 
 ::
 
-  dwi2response dhollander dwi_den_unr_preproc_unbiased.mif wm.txt gm.txt csf.txt –voxels voxels.mif
+  dwi2response dhollander sub-02_den_unr_preproc_unbiased.mif wm.txt gm.txt csf.txt –voxels voxels.mif
 
 
 Let’s unpack what this command does. First, it uses an algorithm to deconvolve the **fiber orientation distributions (FODs)** - in other words, it tries to decompose the diffusion signal into a set of smaller individual fiber orientations. You have several algorithms to choose from, but the most common are tournier and dhollander. The **tournier** algorithm is used for single-shell data and for a single tissue type (e.g., white matter). The **dhollander** algorithm can be used for either single- or multi-shell data, and for multiple tissue types. Estimating the FOD for each tissue type will later help us do **anatomically constrained tractography.**
@@ -29,7 +29,7 @@ The next argument specifies your input data, and the resulting response function
 
 ::
 
-  mrview dwi_den_unr_preproc_unbiased.mif -overlay.load voxels.mif
+  mrview sub-02_den_unr_preproc_unbiased.mif -overlay.load voxels.mif
   
 Which will generate something like this:
 
