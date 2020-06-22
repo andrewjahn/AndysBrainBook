@@ -13,8 +13,6 @@ Just like other neuroimaging data, diffusion data should be **preprocessed** bef
 
 .. figure:: 04_AP_PA_Comparisons.png
 
-  A side-by-side comparison of images obtained with Anterior-to-Posterior phase encoding (left) and Posterior-to-Anterior phase encoding (right). These differences are most noticeable in the coronal slices of the image, which show the frontal areas either pushed inwards (AP) or stretched outwards (PA). Images taken from the `FSL primer website <https://www.fmrib.ox.ac.uk/primers/intro_primer/ExBox20/IntroBox20.html>`__.
-
 The following are common preprocessing steps done with MRtrix. If you have used the software package FSL to analyze diffusion data, note that some of the FSL commands - such as eddy and topup - are used in some of the MRtrix libraries. We will explore that more below.
 
 
@@ -25,7 +23,7 @@ The first preprocessing step we will do is **denoise** the data by using MRtrix'
 
 ::
 
-  dwidenoise sub-01_dwi.mif sub-01_den.mif -noise noise.mif
+  dwidenoise sub-02_dwi.mif sub-02_den.mif -noise noise.mif
   
 This command should take a couple of minutes to run.
 
@@ -33,7 +31,7 @@ One quality check is to see whether the residuals load onto any part of the anat
 
 ::
 
-  mrcalc sub-01_dwi.mif sub-01_den.mif -subtract residual.mif
+  mrcalc sub-02_dwi.mif sub-02_den.mif -subtract residual.mif
   
 You can then inspect the residual map with mrview:
 
@@ -52,11 +50,11 @@ An optional preprocessing step is to run ``mri_degibbs``, which removes Gibbs' r
 
 ::
 
-  mrdegibbs sub-01_den.mif sub-01_den_unr.mif
+  mrdegibbs sub-02_den.mif sub-02_den_unr.mif
   
 As always, inspect the data both before and after with ``mrview`` to determine whether the preprocessing step made the data better, worse, or had no effect.
 
-If you don't see any Gibbs artifacts in your data, then I would recommend omitting this step.
+If you don't see any Gibbs artifacts in your data, then I would recommend omitting this step; we won't be using it for the rest of the tutorial.
 
 
 Extracting the Reverse Phase-Encoded Images
@@ -71,20 +69,22 @@ Similarly, we use both phase-encoding directions to create a sort of average bet
 Our first step is to extract the first volume of the reverse phase-encoded NIFTI file into .mif format (since the first volume has a b-value of zero):
 
 ::
-
-  mrconvert sub-01_PA.nii.gz -coord 3 0 PA.mif
+  mv sub-CON02_ses-preop_acq-PA_dwi.nii.gz sub-02_PA.nii.gz
+  mrconvert sub-02_PA.nii.gz
+  mrconvert sub-02_PA.nii.gz -coord 3 0 PA.mif
   
 We will also add its b-values and b-vectors into the header:
 
 ::
-
+  mrconvert sub-02_PA.nii.gz PA.mif -fslgrad sub-02_PA.bvec sub-02_PA.bval
   mrconvert PA.mif -fslgrad $PA_BVEC $PA_BVAL - | mrmath - mean mean_b0_PA.mif -axis 3
 
 Next, we extract the b-values from the primary phase-encoded image, and then combine the two with ``mrcat``:
 
 ::
 
-  dwiextract dwi_den.mif - -bzero | mrmath - mean mean_b0_AP.mif -axis 3
+  dwiextract sub-02_den.mif - -bzero | mrmath - mean mean_b0_AP.mif -axis 3
+  dwiextract PA.mif - -bzero | mrmath - mean mean_b0_PA.mif -axis 3
   mrcat mean_b0_AP.mif mean_b0_PA.mif -axis 3 b0_pair.mif
   
 This will create a new image, "b0_pair.mif", which contains both of the average b=0 images for both phase-encoded images.
@@ -97,11 +97,19 @@ We now have everything we need to run the main preprocessing step, which is call
 
 ::
 
-  dwipreproc dwi_den.mif dwi_den_preproc.mif -nocleanup -pe_dir AP -rpe_pair -se_epi b0_pair.mif -eddy_options " --slm=linear --data_is_shelled"
+  dwifslpreproc sub-02_den.mif sub-02_den_preproc.mif -nocleanup -pe_dir AP -rpe_pair -se_epi b0_pair.mif -eddy_options " --slm=linear --data_is_shelled"
   
 The first arguments are the input and output; the second option, ``-nocleanup``, will keep the temporary processing folder which contains a few files we will examine later. ``-pe_dir AP`` signalizes that the primary phase-encoding direction is anterior-to-posterior, and ``-rpe_pair`` combine with the ``-se_epi`` options indicates that the following input file (i.e., "b0_pair.mif") is a pair of spin-echo images that were acquired with reverse phase-encoding directions. Lastly, ``-eddy_options`` specifies options that are specific to the FSL command ``eddy``. You can visit the `eddy user guide <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/eddy/UsersGuide>`__ for more options and details about what they do. For now, we will only use the options ``--slm=linear`` (which can be useful for data that was acquired with less than 60 directions) and ``--data_is_shelled`` (which indicates that the diffusion data was acquired with multiple b-values).
 
-This command can take several hours to run, depending on the speed of your computer. For an iMac with 8 processing cores, it takes roughly 2 hours. When it has finished, examine the output to see how eddy current correction and unwarping have changed the data; ideally, you should see more signal restored in regions such as the orbitofrontal cortex, which is particularly susceptible to signal dropout.
+This command can take several hours to run, depending on the speed of your computer. For an iMac with 8 processing cores, it takes roughly 2 hours. When it has finished, examine the output to see how eddy current correction and unwarping have changed the data; ideally, you should see more signal restored in regions such as the orbitofrontal cortex, which is particularly susceptible to signal dropout:
+
+::
+
+  mrview sub-02_den_preproc.mif -overlay.load sub-02_dwi.mif
+  
+This command will display the newly preprocessed data, with the original diffusion data overlaid on top of it and colored in red. To see how the eddy currents were unwarped, open the Overlays tab and click on the box next to the image ``sub-02_dwi.mif``. You should see a noticeable difference between the two images, especially in the frontal lobes of the brain near the eyes, which are most susceptible to eddy currents.
+
+.. figure:: 04_BeforeAfterEddy.png
 
 
 Generating a Mask
@@ -113,15 +121,40 @@ To do that, it can be useful to run a command beforehand called ``dwibiascorrect
 
 ::
 
-  dwibiascorrect -ants dwi_den_preproc.mif dwi_den_preproc_unbiased.mif -bias bias.mif
+  dwibiascorrect ants sub-02_den_preproc.mif sub-02_den_preproc_unbiased.mif -bias bias.mif
   
 .. note::
 
   The command above uses the ``-ants`` option, which requires that ANTs be installed on your system. I highly recommending this program, but in case you are unable to install it, you can replace it with the ``-fsl`` option.
   
-You are now ready to create the mask with ``dwi2mask``:
+You are now ready to create the mask with ``dwi2mask``, which will restrict your analysis to voxels that are located within the brain:
 
 ::
 
-  dwi2mask dwi_den_preproc_unbiased.mif mask.mif
+  dwi2mask sub-02_den_preproc_unbiased.mif mask.mif
   
+Check the output of this command by typing:
+
+::
+
+  mrview mask.mif
+  
+You should see something like the following:
+
+.. figure:: 04_Mask.png
+
+MRtrix's dwi2mask command works well in most scenarios. However, you can see from the above image that there are a few holes in the mask within the brainstem and the cerebellum. You may be uninterested in these regions, but it is still a good idea to make sure the mask doesn't have any holes anywhere.
+
+To that end, you could use a command such as FSL's ``bet2``. For example, you could use the following code to convert the unbiased diffusion-weighted image to NIFTI format, create a mask with ``bet2``, and then convert the mask to .mif format:
+
+::
+  
+  mrconvert sub-02_den_preproc_unbiased.mif sub-02_unbiased.nii
+  bet2 sub-02_unbiased.nii sub-02_masked.nii -m -f 0.7
+  mrconvert sub-02_masked.nii mask.nii
+  
+  
+Next Steps
+**********
+
+Now that we have our preprocessed diffusion data and a mask, we are ready to do **constrained spherical deconvolution**, which we cover in the next chapter.
