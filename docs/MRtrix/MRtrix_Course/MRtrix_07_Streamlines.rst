@@ -57,7 +57,7 @@ This can then be loaded into ``mrview`` by using the "-tractography.load" option
 
 ::
 
-  mrview sub-01_den_unr_preproc_unbiased.mif -tractography.load smallerTracks_200k.tck
+  mrview sub-02_den_preproc_unbiased.mif -tractography.load smallerTracks_200k.tck
   
 This will generate a figure like the following:
 
