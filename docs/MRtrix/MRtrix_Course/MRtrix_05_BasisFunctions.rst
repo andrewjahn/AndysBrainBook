@@ -91,6 +91,19 @@ You can zoom in on the image by holding ``command`` and scrolling the mouse whee
 Remember that green means posterior-to-anterior, and blue represents orientations in the inferior-to-superior direction. By using all three orthogonal views, see if you can find tracts such as the superior longitudinal fasciculus and the corona radiata. Do these match up with the colors that you would expect?
 
 
+Normalization
+*************
+
+Later on, we will learn how to do a group-level analysis with the data that has been generated for each subject. In order to make the comparisons valid across subjects, we will need to **normalize** the FODs. This ensures that any differences we see are not due to intensity differences in the image, similar to how we correct for the size of the brain when comparing volumetric differences across subjects.
+
+To normalize the data, we will use the ``mtnormalise`` command. This requires an input and output for each tissue type, as well as a mask to restric the analysis to brain voxels:
+
+::
+
+  mtnormalise wmfod.mif wmfod_norm.mif gmfod.mif gmfod_norm.mif csffod.mif csffod_norm.mif -mask mask.mif
+
+
+
 Next Steps
 **********
 
