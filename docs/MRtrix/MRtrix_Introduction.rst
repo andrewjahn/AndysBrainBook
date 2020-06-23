@@ -22,6 +22,10 @@ MRtrix is a software package for analyzing diffusion data. One of the notable ad
 
 In addition to a library of commands created by the MRtrix team, the software also has wrappers for commands used with FSL: in particular, the commands ``topup`` and ``eddy``. If you haven't already, download and install the fMRI software package :doc:`FSL </andrewjahn/AndysBrainBook/edit/master/docs/installation/fsl_mac_install>`.
 
+.. note::
+
+   This course is based on the steps outlined in the `MRtrix documentation <https://mrtrix.readthedocs.io/en/latest/index.html>`__, especially the "DWI Pre-Processing" and "Constrained Spherical Deconvolution" chapters. Many of the steps and explanations are derived from Marlene Tahedl's excellent `BATMAN tutorial <https://osf.io/ht7zv/>`__, and in many places I use her file notation. I would also like to thank John Plass of the David Brang lab at the University of Michigan for sharing his scripts with me and answering my questions. 
+
 
 Goals of This Course
 *****************
