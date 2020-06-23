@@ -21,11 +21,11 @@ Once we have segmented the brain into those tissue classes, we can then use the 
 Converting the Anatomical Image
 *******************************
 
-The anatomical image first needs to be converted to MRtrix format. Just as we did in a previous chapter, we will use the command ``mrconvert`` (make sure you are in your anatomical directory first):
+The anatomical image first needs to be converted to MRtrix format. Just as we did in a previous chapter, we will use the command ``mrconvert`` (make sure you are in the anatomical directory ``anat`` first):
 
 ::
 
-  mrconvert sub-CON01_ses-preop_anat_sub-CON01_ses-preop_T1w.nii.gz T1.mif
+  mrconvert sub-CON02_ses-preop_T1w.nii.gz T1.mif
   
 This creates a new file, ``T1.mif``, which you can look at in mrview.
 
@@ -35,7 +35,7 @@ We will now use the command ``5ttgen`` to segment the anatomical image into the 
 
   5ttgen fsl T1.mif 5tt_nocoreg.mif
 
-If the segmentation has finished successfully, you should see the following images in mrview (pressing the left and right arrow keys scrolls through the different tissue types):
+This command will take about 10-15 minutes. If the segmentation has finished successfully, you should see the following images when you type ``mrview 5tt_nocoreg.mif`` (pressing the left and right arrow keys scrolls through the different tissue types):
 
 .. figure:: 06_TissueTypes.png
 
@@ -58,20 +58,20 @@ Coregistering the Diffusion and Anatomical Images
 
 If the segmentation has finished without any errors, our next step is to coregister the anatomical and diffusion-weighted images. This ensures that the boundaries of the tissue types are accurately match up with the boundaries of the diffusion-weighted images; even small differences in the location of the two scans can throw off the tractography results.
 
-We will first use the commands ``dwiextract`` and ``mrmath`` to average together the B0 images from the diffusion data. These are the images that look most like T2-weighted functional scans, since a diffusion gradient wasn't applied during their acquisition - in other words, they were acquired with a b-value of zero. To see how this works, type the following command:
+We will first use the commands ``dwiextract`` and ``mrmath`` to average together the B0 images from the diffusion data. These are the images that look most like T2-weighted functional scans, since a diffusion gradient wasn't applied during their acquisition - in other words, they were acquired with a b-value of zero. To see how this works, navigate back to the ``dwi`` directory and type the following command:
 
 ::
 
-  dwiextract sub-01_den_unr_preproc_unbiased.mif - -bzero | mrmath - mean mean_b0.mif -axis 3
+  dwiextract sub-02_den_preproc_unbiased.mif - -bzero | mrmath - mean mean_b0.mif -axis 3
   
-There are two parts to this command, separated by a pipe ("``\``"). The left half of the command, ``dwiextract``, takes the preprocessed diffusion-weighted image as an input, and the ``-bzero`` option extracts the B0 images; the solitary ``-`` argument indicates that the output should be used as input for the second part of the command, to the right of the pipe. ``mrmath`` then takes these output B0 images and computes the mean along the 3rd axis, or the time dimension. In other words, if we start with an index of 0, then the number 3 indicates the 4th dimension, which simply means to average over all of the volumes.
+There are two parts to this command, separated by a pipe ("``|``"). The left half of the command, ``dwiextract``, takes the preprocessed diffusion-weighted image as an input, and the ``-bzero`` option extracts the B0 images; the solitary ``-`` argument indicates that the output should be used as input for the second part of the command, to the right of the pipe. ``mrmath`` then takes these output B0 images and computes the mean along the 3rd axis, or the time dimension. In other words, if we start with an index of 0, then the number 3 indicates the 4th dimension, which simply means to average over all of the volumes.
 
 In order to carry out the coregistration between the diffusion and anatomical images, we will need to take a brief detour outside of MRtrix. The software package doesn't have a coregistration command in its library, so we will need to use another software package's commands instead. Although you can choose any one you want, we will focus here on FSL's ``flirt`` command.
 
 The first step is to convert both the segmented anatomical image and the B0 images we just extracted:
 
 ::
-
+  mv ../anat/5tt_nocoreg.mif .
   mrconvert mean_b0.mif mean_b0.nii.gz
   mrconvert 5tt_nocoreg.mif 5tt_nocoreg.nii.gz
   
@@ -105,7 +105,7 @@ The resulting file, "5tt_coreg.mif", can be loaded into ``mrview`` in order to e
 
 ::
 
-  mrview sub-01_den_unr_preproc_unbiased.mif -overlay.load 5tt_nocoreg.mif -overlay.colourmap 2 -overlay.load 5tt_coreg.mif -overlay.colourmap 1
+  mrview sub-02_den_preproc_unbiased.mif -overlay.load 5tt_nocoreg.mif -overlay.colourmap 2 -overlay.load 5tt_coreg.mif -overlay.colourmap 1
   
 The "overlay.colourmap" options specify different color codes for each image that is loaded. In this case, the boundaries before coregistration will be depicted in blue, and the boundares after coregistration will be shown in red:
 
@@ -123,7 +123,7 @@ Again, we will check the result with ``mrview`` to make sure the interface is wh
 
 ::
 
-  mrview sub-01_den_unr_preproc_unbiased.mif -overlay.load gmwmSeed_coreg.mif
+  mrview sub-02_den_preproc_unbiased.mif -overlay.load gmwmSeed_coreg.mif
   
   
 You should see something like this at the end:
