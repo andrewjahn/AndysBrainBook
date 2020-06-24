@@ -69,6 +69,7 @@ Similarly, we use both phase-encoding directions to create a sort of average bet
 Our first step is to extract the first volume of the reverse phase-encoded NIFTI file into .mif format (since the first volume has a b-value of zero):
 
 ::
+
   mv sub-CON02_ses-preop_acq-PA_dwi.nii.gz sub-02_PA.nii.gz
   mrconvert sub-02_PA.nii.gz
   mrconvert sub-02_PA.nii.gz -coord 3 0 PA.mif
@@ -76,6 +77,7 @@ Our first step is to extract the first volume of the reverse phase-encoded NIFTI
 We will also add its b-values and b-vectors into the header:
 
 ::
+
   mrconvert sub-02_PA.nii.gz PA.mif -fslgrad sub-02_PA.bvec sub-02_PA.bval
   mrconvert PA.mif -fslgrad $PA_BVEC $PA_BVAL - | mrmath - mean mean_b0_PA.mif -axis 3
 
@@ -125,7 +127,7 @@ To do that, it can be useful to run a command beforehand called ``dwibiascorrect
   
 .. note::
 
-  The command above uses the ``-ants`` option, which requires that ANTs be installed on your system. I highly recommending this program, but in case you are unable to install it, you can replace it with the ``-fsl`` option.
+  The command above uses the ``-ants`` option, which requires that ANTs be installed on your system. I highly recommend this program, but in case you are unable to install it, you can replace it with the ``-fsl`` option.
   
 You are now ready to create the mask with ``dwi2mask``, which will restrict your analysis to voxels that are located within the brain:
 
