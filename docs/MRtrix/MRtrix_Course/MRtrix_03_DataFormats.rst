@@ -93,7 +93,7 @@ By clicking and dragging the crosshairs, you can examine the whole brain from al
 
 .. figure:: 03_mrview_firstVolume_bval.png
 
-Now hover your mouse over the viewing window of mrivew, and press the right arrow key to load the next volume in the time-series. If you look at the bval file, would you expect this image to look similar to different to the one that you just saw? Why? Think about this as you load the third and fourth images in the time-series, noting the intensity differences and how they correspond to their respective b-values. If you find that the drop in intensity makes the image too dark to see, you can increase the brightness by clking on ``Tool -> View options``, and then entering a lower maximum value for the "Intensity scaling" field:
+Now hover your mouse over the viewing window of mrview, and press the right arrow key to load the next volume in the time-series. If you look at the bval file, would you expect this image to look similar to or different from the one that you just saw? Why? Think about this as you load the third and fourth images in the time-series, noting the intensity differences and how they correspond to their respective b-values. If you find that the drop in intensity makes the image too dark to see, you can increase the brightness by clicking on ``Tool -> View options``, and then entering a lower maximum value for the "Intensity scaling" field:
 
 .. figure:: 03_mrview_IntensityScaling.png
 
@@ -101,6 +101,6 @@ Now hover your mouse over the viewing window of mrivew, and press the right arro
 Next Steps
 **********
 
-Once you have practiced looking at the data and seen the relationship between the b-values and the volumes, try the same thing with the diffusion-weighted image with phase-enconding in the PA direction (i.e., sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.nii.gz). How many volumes are there in this dataset? What are the b-values? How does it compare to what you saw in the AP diffusion-weighted dataset?
+Once you have practiced looking at the data and seen the relationship between the b-values and the volumes, try the same thing with the diffusion-weighted image with phase-encoding in the PA direction (i.e., sub-CON02_ses-preop_dwi_sub-CON02_ses-preop_acq-PA_dwi.nii.gz). How many volumes are there in this dataset? What are the b-values? How does it compare to what you saw in the AP diffusion-weighted dataset?
 
 Now that you have learned some of the basic MRtrix commands and concepts, we will start to **preprocess** the data so that we can start to fit **streamlines** to the data. To begin that stage, click the ``Next`` button.
