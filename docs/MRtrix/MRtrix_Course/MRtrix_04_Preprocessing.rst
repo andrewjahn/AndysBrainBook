@@ -66,27 +66,18 @@ To understand how this works, imagine that you are using a blow dryer on your ha
 
 Similarly, we use both phase-encoding directions to create a sort of average between the two. We know that both types of phase-encoding will introduce two separate and opposite distortions into the data, but we can use unwarping to cancel them out.
 
-Our first step is to extract the first volume of the reverse phase-encoded NIFTI file into .mif format (since the first volume has a b-value of zero):
+Our first step is to convert the reverse phase-encoded NIFTI file into .mif format. We will also add its b-values and b-vectors into the header:
 
 ::
 
-  mv sub-CON02_ses-preop_acq-PA_dwi.nii.gz sub-02_PA.nii.gz
-  mrconvert sub-02_PA.nii.gz
-  mrconvert sub-02_PA.nii.gz -coord 3 0 PA.mif
-  
-We will also add its b-values and b-vectors into the header:
-
-::
-
-  mrconvert sub-02_PA.nii.gz PA.mif -fslgrad sub-02_PA.bvec sub-02_PA.bval
-  mrconvert PA.mif -fslgrad $PA_BVEC $PA_BVAL - | mrmath - mean mean_b0_PA.mif -axis 3
+  mrconvert sub-CON02_ses-preop_acq-PA_dwi.nii.gz PA.mif
+  mrconvert PA.mif -fslgrad sub-02_PA.bvec sub-02_PA.bval - | mrmath - mean mean_b0_PA.mif -axis 3
 
 Next, we extract the b-values from the primary phase-encoded image, and then combine the two with ``mrcat``:
 
 ::
 
   dwiextract sub-02_den.mif - -bzero | mrmath - mean mean_b0_AP.mif -axis 3
-  dwiextract PA.mif - -bzero | mrmath - mean mean_b0_PA.mif -axis 3
   mrcat mean_b0_AP.mif mean_b0_PA.mif -axis 3 b0_pair.mif
   
 This will create a new image, "b0_pair.mif", which contains both of the average b=0 images for both phase-encoded images.
