@@ -56,7 +56,7 @@ This command will take about 10-15 minutes. If the segmentation has finished suc
 Coregistering the Diffusion and Anatomical Images
 *************************************************
 
-If the segmentation has finished without any errors, our next step is to coregister the anatomical and diffusion-weighted images. This ensures that the boundaries of the tissue types are accurately match up with the boundaries of the diffusion-weighted images; even small differences in the location of the two scans can throw off the tractography results.
+If the segmentation has finished without any errors, our next step is to coregister the anatomical and diffusion-weighted images. This ensures that the boundaries of the tissue types are aligned with the boundaries of the diffusion-weighted images; even small differences in the location of the two scans can throw off the tractography results.
 
 We will first use the commands ``dwiextract`` and ``mrmath`` to average together the B0 images from the diffusion data. These are the images that look most like T2-weighted functional scans, since a diffusion gradient wasn't applied during their acquisition - in other words, they were acquired with a b-value of zero. To see how this works, navigate back to the ``dwi`` directory and type the following command:
 
@@ -107,13 +107,13 @@ The resulting file, "5tt_coreg.mif", can be loaded into ``mrview`` in order to e
 
   mrview sub-02_den_preproc_unbiased.mif -overlay.load 5tt_nocoreg.mif -overlay.colourmap 2 -overlay.load 5tt_coreg.mif -overlay.colourmap 1
   
-The "overlay.colourmap" options specify different color codes for each image that is loaded. In this case, the boundaries before coregistration will be depicted in blue, and the boundares after coregistration will be shown in red:
+The "overlay.colourmap" options specify different color codes for each image that is loaded. In this case, the boundaries before coregistration will be depicted in blue, and the boundaries after coregistration will be shown in red:
 
 .. figure:: 06_GM_Alignment.png
 
   The change in the boundaries before and after coregistration may be very slight, but they will have a large effect on the rest of the steps that we do. Make sure to check the boundaries in all three views; you can also use the ``Tool -> Overlay`` menu to display or hide the different overlays.
 
-The last step to create the "seed" bounday - the boundary separating the grey from the white matter, which we will use to create the seeds for our streamlines - is created with the command ``5tt2gmwmi`` (which stands for "5 Tissue Type (segmentation) to Grey Matter / White Matter Interface)
+The last step to create the "seed" boundary - the boundary separating the grey from the white matter, which we will use to create the seeds for our streamlines - is created with the command ``5tt2gmwmi`` (which stands for "5 Tissue Type (segmentation) to Grey Matter / White Matter Interface)
 
 ::
   
