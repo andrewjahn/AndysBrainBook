@@ -21,11 +21,11 @@ Once we have segmented the brain into those tissue classes, we can then use the 
 Converting the Anatomical Image
 *******************************
 
-The anatomical image first needs to be converted to MRtrix format. Just as we did in a previous chapter, we will use the command ``mrconvert`` (make sure you are in the anatomical directory ``anat`` first):
+The anatomical image first needs to be converted to MRtrix format. Just as we did in a previous chapter, we will use the command ``mrconvert``. If you are in the ``dwi`` directory, you can type the following:
 
 ::
 
-  mrconvert sub-CON02_ses-preop_T1w.nii.gz T1.mif
+  mrconvert ../anat/sub-CON02_ses-preop_T1w.nii.gz T1.mif
   
 This creates a new file, ``T1.mif``, which you can look at in mrview.
 
