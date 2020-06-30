@@ -25,11 +25,11 @@ Anatomically constrained tractography isn't a separate preprocessing step per se
 Generating Streamlines with tckgen
 **********************************
 
-MRtrix is able to do both **deterministic** and **probabilistic** tractography. In deterministic tractography, the direction of the streamline at each voxel is determined based on the predominant fiber orientation; in other words, the streamline is determined by a single paramter. MRtrix includes multiple options to do this type of deterministic tractography, such as ``FACT`` or ``tensor_det``.
+MRtrix is able to do both **deterministic** and **probabilistic** tractography. In deterministic tractography, the direction of the streamline at each voxel is determined based on the predominant fiber orientation; in other words, the streamline is determined by a single parameter. MRtrix includes multiple options to do this type of deterministic tractography, such as ``FACT`` or ``tensor_det``.
 
 The other method, probabilistic tractography, is the default in MRtrix. In this approach, multiple streamlines are generated from seed regions all along the boundary between the grey matter and white matter. The direction of the streamline will most likely follow the predominant fiber orientation density, but not always; due to a large number of samples, some streamlines will follow other directions. This becomes less likely if the FOD is extremely strong in one direction - for example, the FODs within a structure such as the corpus callosum will tend to all be aligned left-to-right - but the sampling becomes more diverse in regions that do not have a predominant fiber orientation.
 
-The default method is to use an algorithm known as iFOD2, which will use a probabilistic streamline approach. Other algorithms can be found at `this site <https://mrtrix.readthedocs.io/en/latest/reference/commands/tckgen.html>`__, although for the remainer of the tutorial we will use the default of iFOD2.
+The default method is to use an algorithm known as iFOD2, which will use a probabilistic streamline approach. Other algorithms can be found at `this site <https://mrtrix.readthedocs.io/en/latest/reference/commands/tckgen.html>`__, although for the remainder of the tutorial we will use the default of iFOD2.
 
 How Many Streamlines?
 ^^^^^^^^^^^^^^^^^^^^^
