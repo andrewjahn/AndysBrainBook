@@ -98,6 +98,12 @@ Now hover your mouse over the viewing window of mrview, and press the right arro
 .. figure:: 03_mrview_IntensityScaling.png
 
 
+Video
+*****
+
+You can follow along with `this video <https://www.youtube.com/watch?v=DSnuxQZx7zk>`__ to learn more about how to check the data.
+
+
 Next Steps
 **********
 
