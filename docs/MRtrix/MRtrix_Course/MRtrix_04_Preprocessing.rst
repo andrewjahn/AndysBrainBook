@@ -146,6 +146,10 @@ To that end, you could use a command such as FSL's ``bet2``. For example, you co
   bet2 sub-02_unbiased.nii sub-02_masked.nii -m -f 0.7
   mrconvert sub-02_masked.nii mask.nii
   
+Video
+*****
+
+A video overview of preprocessing in MRtrix can be found `here <https://www.youtube.com/watch?v=W-NPz74oUzg>`__.
   
 Next Steps
 **********
