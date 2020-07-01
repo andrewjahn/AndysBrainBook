@@ -6,21 +6,39 @@ MRtrix Tutorial #8: Creating and Viewing the Connectome
 
 ------------------------
 
-Creating the Connectome
-***********************
+Overview
+********
+
+Now that we have created a streamline map, we can create a **connectome** that represents the number of streamlines connecting different parts of the brain. And in order to do that, we have to first parcellate the brain into different regions, or nodes. One way to do this is by using an **atlas**, which assigns each voxel in the brain to a specific ROI.
+
+You can use any atlas you want, but for this tutorial we will be using the atlases that come with :ref:`FreeSurfer <FS_11_ROIAnalysis>`. Accordingly, our first step will be to run the subject's anatomical image through recon-all, which you can read more about :ref:`here <FS_03_ReconAll>`:
 
 ::
 
-  #!/bin/bash
+  recon-all -i ../anat/sub-CON02_ses-preop_T1w.nii.gz -s sub-CON02_recon -all
   
+This will take a few hours, depending on the speed of your computer. When it has finished, make sure to check the output by using the QA procedures described in :ref:`this chapter <FS_12_FailureModes>`.
 
-  #Convert the labels of the FreeSurfer parcellation to a format that MRtrix understands. This requires recon-all to have been run on the subject
-  labelconvert -force sub-01_MRtrix_FS/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt ~/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt sub-01_parcels.mif
 
-  #Create a whole-brain connectome, representing the streamlines between each parcellation pair in the atlas (in this case, 84x84). The "symmetric" option will make the lower diagonal the same as the upper diagonal, and the "scale_invnodevol" option will scale the connectome by the inverse of the size of the node
+Creating the Connectome
+***********************
+
+When recon-all has finished, we will need to convert the labels of the FreeSurfer parcellation to a format that MRtrix understands. The command ``labelconvert`` will use the parcellation and segmentation output of FreeSurfer to create a new parcellated file in .mif format:
+
+::
+
+  labelconvert sub-CON02_recon/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt ~/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt sub-CON02_parcels.mif
+
+We then need to create a whole-brain connectome, representing the streamlines between each parcellation pair in the atlas (in this case, 84x84). The "symmetric" option will make the lower diagonal the same as the upper diagonal, and the "scale_invnodevol" option will scale the connectome by the inverse of the size of the node:
+
+::
+
   tck2connectome -symmetric -zero_diagonal -scale_invnodevol sift_1mio.tck sub-01_parcels.mif sub-01_parcels.csv -out_assignment assignments_sub-01_parcels.csv
 
-  #Creates a tract file between the specified nodes that can then be visualized in mrview. Replace the "8,10" pair after the "nodes" option with the labels in ~/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt that you are interested in
+Lastly, we will createa a tract file between the specified nodes that can then be visualized in mrview. Replace the "8,10" pair after the "nodes" option with the labels in ~/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt that you are interested in:
+
+::
+
   connectome2tck -nodes 8,10 -exclusive sift_1mio.tck assignments_sub-01_parcels.csv test
   
   
@@ -55,4 +73,4 @@ To make these associations more obvious, you can change the scaling of the color
   
 .. figure:: 08_ViewingConnectome_Scaled.png
 
-[Will need to annotate the figure to indicate what I am talking about.]
+.. indicate on the figure what you are talking about
