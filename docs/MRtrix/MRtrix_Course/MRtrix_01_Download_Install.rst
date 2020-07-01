@@ -34,5 +34,4 @@ If both of these work without any errors, you are ready to begin downloading dif
 Video
 *****
 
-You can find a video tutorial for Macintosh installation `here <http://www.mrtrix.org/download/>`__. Note that this approach is outdated, in that it walks through how to download each of the dependencies separately.
-
+You can find a video tutorial for Macintosh installation `here <https://www.youtube.com/watch?v=A9j9gbSwU2k>`__.
