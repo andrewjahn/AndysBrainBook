@@ -27,3 +27,9 @@ This assumes that the dataset was put in the "Downloads" directory. The command 
   
   
 You will then be ready to begin looking at the data in the next chapter.
+
+
+Video
+*****
+
+Click `here <https://www.youtube.com/watch?v=DSnuxQZx7zk>`__ for a walkthrough of how to download the dataset.
