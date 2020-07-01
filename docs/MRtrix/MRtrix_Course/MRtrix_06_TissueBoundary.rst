@@ -131,6 +131,12 @@ You should see something like this at the end:
 .. figure:: 06_GMWMI.png
 
 
+Video
+*****
+
+A video walkthrough of creating the tissue boundaries can be found `here <https://www.youtube.com/watch?v=A2ZyGE5BcfE>`__.
+
+
 Next Steps
 **********
 
