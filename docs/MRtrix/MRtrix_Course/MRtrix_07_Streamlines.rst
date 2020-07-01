@@ -79,3 +79,9 @@ To counter-balance this overfitting, the command ``tcksift2`` will create a text
   tcksift2 -act 5tt_coreg.mif -out_mu sift_mu.txt -out_coeffs sift_coeffs.txt -nthreads 8 tracks_10M.tck wmfod_norm.mif sift_1M.txt
 
 The output from the command, "sift_1M.txt", can be used with the command ``tck2connectome`` to create a matrix of how much each ROI is connected with every other ROI in the brain - a figure known as a **connectome** - which will weight each ROI. To see how to do that, click the ``Next`` button.
+
+
+Video
+*****
+
+For a video overview of streamlines and how to fit them with tckgen, click `here <https://www.youtube.com/watch?v=DK2ZqJd9yZE>`__.
