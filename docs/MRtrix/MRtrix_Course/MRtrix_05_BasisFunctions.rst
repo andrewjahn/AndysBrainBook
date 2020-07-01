@@ -105,6 +105,10 @@ To normalize the data, we will use the ``mtnormalise`` command. This requires an
   mtnormalise wmfod.mif wmfod_norm.mif gmfod.mif gmfod_norm.mif csffod.mif csffod_norm.mif -mask mask.mif
 
 
+Video
+*****
+
+Click `here <https://www.youtube.com/watch?v=-Pd5oKMwvFI>`__ for a demonstration of how to create basis functions in MRtrix.
 
 Next Steps
 **********
