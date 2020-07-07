@@ -1,7 +1,7 @@
 .. _FrequentlyAskedQuestions:
 
 Frequently Asked Questions
-==============
+==========================
 
 This is a list of common questions that I am asked. I have found that most questions can be organized into categories such as Resampling, Cluster Correction, Normalization, and so on. Some of these questions may eventually be folded into the fMRI Concepts section.
 
@@ -59,7 +59,7 @@ For an overview of this topic, see `this video <https://www.youtube.com/watch?v=
 
 
 Biased Analysis
-**********
+***************
 
 Question: What is a biased analysis? How do you avoid doing them?
 
@@ -77,7 +77,7 @@ We’ve only touched on a couple of different ways to do biased analyses, but th
 
 
 Orientation Problems
-**********
+********************
 
 Question: When I open my image in a viewer, the axes don't look right. How can I change it to a more reasonable orientation, such as LPI?
 
@@ -106,11 +106,11 @@ When you open the reoriented image, it looks as though it's in the correct orien
 
 
 What is Signal-to-Noise Ratio? How can I calculate it?
-****************
+******************************************************
 
 
 How can I calculate the number of voxels in a mask?
-****************
+***************************************************
 
 Let's say you have two masks in an image, labeled A and B. Mask A is composed of 1's, and Mask B is composed of 2's. If these masks are saved into one image called ``ROIs.nii.gz``, and they were created from a template called ``ROI_Template.nii.gz``, you can use the command:
 
@@ -183,7 +183,7 @@ See these websites for more details about field-map unwarping a functional image
 
 
 How do I merge multiple ROIs into a Single File?
-**************
+************************************************
 
 1. Merge all of the publication ROIs into one file using fslmaths to add them together (fslmerge, on the other hand, will concatenate the volumes in time, and each ROI will be in a separate volume);
 2. Merge the other ROIs using step 1 above;
@@ -207,8 +207,58 @@ Then type the following:
 
 It should generate a series of numbers, with the first 3 representing the MNI coordinates of each voxel. Note that these are in RAI orientation, so you will have to multiply the first two columns by -1 in order to convert it to LPI orientation (which is the standard used by most people).
 
+
+What is in the header of a NIFTI file?
+**************************************
+
+When an fMRI images is acquired, several pieces of information are stored in its **header**, which is like a list of ingredients on the side of a box. For example, using the FSL command ``fslinfo`` on a functional dataset might return something like this (comments are after the # symbol):
+
+::
+
+  data_type	INT16 #The decimal precision of the data; e.g., INT16 means that it is in Integer format (i.e., no decimals), and can store values between –32768 and 32768.
+  dim1		64 # Number of voxels in the x-dimension (i.e., left-to-right)
+  dim2		64 # Number of voxels in the y-dimension (i.e., front-to-back)
+  dim3		42 # Number of voxels in the z-dimension (i.e., bottom-to-top; in most acquistions, these are the **slices**)
+  dim4		180 # Number of time-points; in other words, the number of volumes that have been concatenated together into a time-series
+  datatype	4
+  pixdim1		3.000000 # Size of each voxel in the x-dimension, in millimeters
+  pixdim2		3.000000 # Size of each voxel in the y-dimension, in millimeters
+  pixdim3		3.300000 # Size of each voxel in the z-dimension, in millimeters
+  pixdim4		2.100000 # Size of the time-step, or TR; in other words, the time it takes to acquire each volume
+  cal_max		0.000000
+  cal_min		0.000000
+  file_type	NIFTI-1+
+
+Given this, annotate the output of this same command when applied to an anatomical image (hint: It is a single volume):
+
+::
+
+  data_type	INT16
+  dim1		256
+  dim2		256
+  dim3		160
+  dim4		1
+  datatype	4
+  pixdim1		1.000006
+  pixdim2		1.000000
+  pixdim3		1.000000
+  pixdim4		1.700000
+  cal_max		0.000000
+  cal_min		0.000000
+  file_type	NIFTI-1+
+
+It is common to report the anatomical x- and y-dimensions as the field of view, or FOV, in the Methods section of neuroimaging papers. Since the x- and y- dimensions for anatomical images are usually the same, the FOV is typically reported as a single number, in centimeters, that is supposed to represent each of them separately. For example, in the output above, the FOV might be reported as "25.6cm".
+
+You can output even more of the header by using a command like ``fslhd``. For example, some datasets may report this in the ``descrip`` field at the bottom of the output:
+
+::
+
+  descrip		TE=4.2;Time=123931.290;phase=1
+  
+Other pieces of information, such as the flip angle, are not usually stored in the header and must be extracted from the protocol located in the computer that ran the fMRI scan.
+
 Other Questions
-**********
+***************
 
 1. What is the difference between a functional and a structural image?
 2. Where do the fMRI templates come from? When should one use a template other than the default?
