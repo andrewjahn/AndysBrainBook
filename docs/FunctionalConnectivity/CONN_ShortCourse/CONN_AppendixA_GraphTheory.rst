@@ -41,7 +41,7 @@ In this figure, we represent each city as a **node** (also called a **vertex**).
 
 .. note::
 
-  Adjacency matrices are **symmetrical**, meaning that the upper diagonal (i.e., all of the numbers above the diagonal of zeros that bisects the graph) are redundant with the lower diagonal (i.e., all of those numbers below the diagonal of the graph).
+  Adjacency matrices are **symmetrical**, meaning that the upper diagonal (i.e., all of the numbers above the diagonal of zeros that bisects the graph) are redundant with the lower diagonal (i.e., all of those numbers below the diagonal of the graph). This is true only for undirected graphs, but for the present tutorial we will assume that symmetry holds.
   
 To sum up, this **network** is represented as a collection of nodes connected by edges. Some of the connections are direct - for example, between Detroit and Port Huron - while others are indirect, such as the connection between Port Huron and Kalamazoo. More complicated networks will have different levels of connectivity depending on how many steps each node is removed from the other nodes, but all networks in graph theory rest upon these building blocks.
 
@@ -63,6 +63,10 @@ The simplest algorithm is to maximize the value of what is called the **modulari
   
 The total number of edges in the network is represented by **m**, and the fraction **1/4m** is a normalization parameter that seems to work well for most studies. **s** is a column vector which, for two groups, contains either a 1 (if the node belongs to group A) or a -1 (if the node belongs to group B). The last term, **B**, is what is called a **modularity matrix**; this matrix contains the **degree** (i.e., the number of edges) between two nodes if they were placed at random. (For more details about the mathematics behind each of these terms, see the `Newman (2005) paper <https://www.pnas.org/content/103/23/8577.full>`__.) Conceptually, the equation represents the number of edges falling within a group, as compared to the expected number of edges that are placed at random within a similar-sized network.
 
+.. note::
+
+  A different explanation of modularity can be found in this review by `Sporns & Betzel, 2016 <https://www.annualreviews.org/doi/abs/10.1146/annurev-psych-122414-033634?casa_token=Q9be2mqaTKsAAAAA:sx6xrzjrEtxIEaHm3NZdoUuL3bMfsoTNY6KRNQ689UpPM6KLEZvkkBjv8XMDBrZbJCH--Xg6YhZQ>`__.
+
 The Louvain Algorithm
 &&&&&&&&&&&&&&&&&&&&&
 
@@ -83,7 +87,7 @@ A related parameter is called **resolution**, which determines how fine-grained 
   Example of tuning the resolution parameter, as shown in `Betzel & Basset (2017) <https://www.sciencedirect.com/science/article/pii/S1053811916306152>`__. The resolution parameter reflects the topological scale of interest: increasing it leads to finer scaled modules, but at some point it may start to model noise rather than biologically plausible modules. This parameter can't be set using the CONN toolbox, but it can be set in other toolboxes (such as the Brain Connectivity Toolbox).
 
   
-**Thresholding** can also be used to remove edge values below a certain value. For example, a graph analysis of resting-state data may threshold the resulting connectivity maps to only show correlation values above 0.2, and remove everything else.
+**Thresholding** can also be used to remove edge values below a certain value. For example, a graph analysis of resting-state data may threshold the resulting connectivity maps to only show correlation values above 0.2, and remove everything else. This can increase signal to noise-ratio, and it can either be absolute (in the example just given) or proportional (e.g., keeping 20% strongest connections) - which in CONN is called **fixed network cost**.
 
 .. figure:: AppendixA_Thresholding.png
 
