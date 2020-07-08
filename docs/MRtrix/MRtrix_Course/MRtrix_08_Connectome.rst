@@ -74,3 +74,13 @@ To make these associations more obvious, you can change the scaling of the color
 .. figure:: 08_ViewingConnectome_Scaled.png
 
 .. indicate on the figure what you are talking about
+
+Video
+*****
+
+For a video overview of how to create the connectome, click `here <https://www.youtube.com/watch?v=Xt42wDmdvKs>`__.
+
+Next Steps
+**********
+
+Now that we've preprocessed a single subject and created a connectome, we will have to do this for all of the remaining subjects. To do that, we will have to **script** the analyses for our entire dataset, which will we do in the next chapter.
