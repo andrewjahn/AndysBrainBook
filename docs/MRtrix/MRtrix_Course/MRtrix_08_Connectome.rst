@@ -29,17 +29,21 @@ When recon-all has finished, we will need to convert the labels of the FreeSurfe
 
   labelconvert sub-CON02_recon/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt sub-CON02_parcels.mif
 
+If you used ``mrtransform`` earlier to coregister the grey matter boundary, then you should use it again here to also coregister the parcellation: 
+
+::
+
+  mrtransform sub-CON02_parcels.mif -interp nearest -linear diff2struct_mrtrix.txt -inverse -datatype uint32 sub-CON02_parcels_coreg.mif
+
+
 We then need to create a whole-brain connectome, representing the streamlines between each parcellation pair in the atlas (in this case, 84x84). The "symmetric" option will make the lower diagonal the same as the upper diagonal, and the "scale_invnodevol" option will scale the connectome by the inverse of the size of the node:
 
 ::
 
-  tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks_10M.tck sub-CON02_parcels.mif sub-CON02_parcels.csv -out_assignment assignments_sub-CON02_parcels.csv
+  tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks_10M.tck sub-CON02_parcels_coreg.mif sub-CON02_parcels_coreg.csv -out_assignment assignments_sub-CON02_parcels_coreg.csv
 
-Lastly, we will create a tract file between the specified nodes that can then be visualized in mrview. Replace the "8,10" pair after the "nodes" option with the labels in /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt that you are interested in:
 
-::
-
-  connectome2tck -nodes 8,10 -exclusive sift_1mio.tck assignments_sub-CON02_parcels.csv test
+.. Lastly, we will create a tract file between the specified nodes that can then be visualized in mrview. Replace the "8,10" pair after the "nodes" option with the labels in /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt that you are interested in: connectome2tck -nodes 8,10 -exclusive sift_1mio.tck assignments_sub-CON02_parcels.csv test
   
   
 Viewing the Connectome
@@ -49,7 +53,7 @@ Once you have created the ``parcels.csv`` file, you can view it as a matrix in M
 
 ::
 
-  connectome = importdata('sub-CON02_parcels.csv');
+  connectome = importdata('sub-CON02_parcels_coreg.csv');
   
 And then you will need to view it as a scaled image, so that higher structural connectivity pairs are brighter:
 
