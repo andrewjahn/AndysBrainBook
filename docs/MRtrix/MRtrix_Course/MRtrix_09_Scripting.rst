@@ -250,9 +250,30 @@ Creating the connectome takes only a few lines of code. For this tutorial, as me
 
   #!/bin/bash
 
-
   #Convert the labels of the FreeSurfer parcellation to a format that MRtrix understands. This requires recon-all to have been run on the subject
-  labelconvert sub-CON03_recon/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt sub-CON03_parcels.mif
+  labelconvert sub-CON02_recon/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt sub-CON02_parcels.mif
+
+  #Coregister the parcellation to the grey matter mask
+  mrtransform sub-CON02_parcels.mif -interp nearest -linear diff2struct_mrtrix.txt -inverse -datatype uint32 sub-CON02_parcels_coreg.mif
 
   #Create a whole-brain connectome, representing the streamlines between each parcellation pair in the atlas (in this case, 84x84). The "symmetric" option will make the lower diagonal the same as the upper diagonal, and the "scale_invnodevol" option will scale the connectome by the inverse of the size of the node 
-  tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks_10M.tck sub-CON03_parcels.mif sub-CON03_parcels.csv -out_assignment assignments_sub-CON03_parcels.csv
+  #tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt sub-01_parcels.mif sub-01_parcels.csv -out_assignment assignments_sub-01_parcels.csv
+  tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks_10M.tck sub-CON02_parcels_coreg.mif sub-CON02_parcels_coreg.csv -out_assignment assignments_sub-CON02_parcels_coreg.csv
+
+Running the Scripts
+*******************
+
+I recommend running each script separately in order to check the output from each part, although you may prefer to combine everything into a single master script. In any case, when you have downloaded each of the scripts and placed them in the ``BTC_preop`` folder, you can run the following for-loop to run the preprocessing for subjects 04 and 05 of the control group:
+
+::
+
+  for sub in sub-CON04 sub-CON05; do
+    cp *.sh ${sub}/ses-preop/dwi;
+    cd ${sub}/ses-preop/dwi;
+    bash MRtrix_Preproc_AP_Direction.sh ${sub}_ses-preop_acq-AP_dwi.nii.gz ${sub}_ses-preop_acq-PA_dwi.nii.gz \
+    ${sub}_ses-preop_acq-AP_dwi.bvec ${sub}_ses-preop_acq-AP_dwi.bval \
+    ${sub}_ses-preop_acq-PA_dwi.bvec ${sub}_ses-preop_acq-PA_dwi.bval \
+    ../anat/${sub}_ses-preop_T1w.nii.gz
+    cd ../../..;
+  done
+  
