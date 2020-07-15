@@ -46,9 +46,9 @@ For now, we will do this for a single subject. The scripts will be written in fo
 
 ``recon-all`` isn't part of the MRtrix pipeline *per se* - you can use any atlas you want, and you are not restricted to FreeSurfer - but we will include it as a prerequisite for creating the connectome.
 
-..note::
+.. note::
 
-  Before going on, download the preprocessing script `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/MRtrix_Preproc_AP_Direction.sh>`__. You can download it using ``git``, or by clicking ``Raw``, right-clicking anywhere in the resulting screen, and clicking "Save As". Save it to the directory ``sub-CON03/ses-preop/dwi``. The following sections will explain what each block of code does.
+  Before going on, download the preprocessing script `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/01_MRtrix_Preproc_AP_Direction.sh>`__. You can download it using ``git``, or by clicking ``Raw``, right-clicking anywhere in the resulting screen, and clicking "Save As". Save it to the directory ``sub-CON03/ses-preop/dwi``. The following sections will explain what each block of code does.
 
 
 Script 1: Preprocessing
@@ -88,7 +88,7 @@ These last fields, marked by the numbers 1-7 preceded by a dollar sign (``$``), 
 
 ::
 
-  bash MRtrix_Preproc_AP_Direction.sh sub-CON03_ses-preop_acq-AP_dwi.nii.gz sub-CON03_ses-preop_acq-PA_dwi.nii.gz \
+  bash 01_MRtrix_Preproc_AP_Direction.sh sub-CON03_ses-preop_acq-AP_dwi.nii.gz sub-CON03_ses-preop_acq-PA_dwi.nii.gz \
   sub-CON03_ses-preop_acq-AP_dwi.bvec sub-CON03_ses-preop_acq-AP_dwi.bval \
   sub-CON03_ses-preop_acq-PA_dwi.bvec sub-CON03_ses-preop_acq-PA_dwi.bval \
   ../anat/sub-CON03_ses-preop_T1w.nii.gz
@@ -188,7 +188,7 @@ Copy and paste this command into your terminal and press enter. While it is runn
 Script 2: QA Checks
 ^^^^^^^^^^^^^^^^^^^
 
-Just as with the preprocessing script, the QA script contains all of the quality checks that we did in the previous chapters. You can download it `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/QC_mrview.sh>`__, and execute it by typing ``bash QC_mrview.sh``. It will use ``mrview`` and ``shview`` to examine the output of each preprocessing step; to proceed to the next QC check, you will need to close the window that is currently open. The contents of the script are reproduced below:
+Just as with the preprocessing script, the QA script contains all of the quality checks that we did in the previous chapters. You can download it `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/02_QC_mrview.sh>`__, and execute it by typing ``bash 02_QC_mrview.sh``. It will use ``mrview`` and ``shview`` to examine the output of each preprocessing step; to proceed to the next QC check, you will need to close the window that is currently open. The contents of the script are reproduced below:
 
 ::
 
