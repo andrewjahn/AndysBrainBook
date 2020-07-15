@@ -277,3 +277,33 @@ I recommend running each script separately in order to check the output from eac
     cd ../../..;
   done
   
+When this has finished, use the same loop to run the QA checks, which were discussed in a previous chapter:
+
+::
+
+  for sub in sub-CON04 sub-CON05; do        
+    cd ${sub}/ses-preop/dwi;     
+    bash 02_QC_mrview.sh; 
+    cd ../../..;   
+  done
+  
+Since the command ``tck2connectome`` requires the output from recon-all, we will execute it in a separate loop:
+
+::
+
+  for sub in sub-CON04 sub-CON05; do         
+    cd ${sub}/ses-preop/dwi;     
+    SUBJECTS_DIR=`pwd`;
+    recon-all -i ../anat/${sub}_ses-preop_T1w.nii.gz -s ${sub}_recon -all
+    cd ../../..;   
+  done
+  
+Lastly, we will run the ``tck2connectome`` command:
+
+::
+
+  for sub in sub-CON04 sub-CON05; do         
+    cd ${sub}/ses-preop/dwi;     
+    bash 03_MRtrix_CreateConnectome.sh
+    cd ../../..;   
+  done
