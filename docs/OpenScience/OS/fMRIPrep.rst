@@ -45,16 +45,24 @@ fMRIPrep Installation Option #2: Docker
 
 Assuming that you do not have Docker installed, go to the Docker `installation page <https://docs.docker.com/install/>`__ and select the download for your operating system. Once downloaded, click on the Docker.dmg installer and drag the Docker icon into your Applications (you may need your computer's admin password for this). **Be sure to click the Docker icon to open it**. 
 
-Click on the Docker icon and select *Preferences*, followed by *Advanced*. You will want to increase the CPUs and Memory, since fMRIPrep is quite computationally expensive. Once selected, click on the *Apply & Restart* button. 
+Click on the Docker icon and select *Preferences*, then *Resources*, and then *Advanced*. You will want to increase the CPUs and Memory, since fMRIPrep is quite computationally expensive. Once selected, click on the *Apply & Restart* button.
 
-If you do not have pip installed (or in your $PATH), refer back to the `BIDS Overview and Tutorial <https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__ for guidance.
+.. figure:: OS_Docker_Memory.png
+
+  The Docker Preferences tab. The total number of CPUs and Memory may be different for your machine; increasing the number of CPUs and Memory will speed up fMRIPrep.
+
+The next step is to use **pip**, a command for downloading and installing packages. If you do not have pip installed (or in your $PATH), refer back to the `BIDS Overview and Tutorial <https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html>`__ for guidance.
 
 At this point the docker command should now be in your $PATH, and you can type the following into the terminal to get things set up: 
 
 ::
 
   python -m pip install --user --upgrade fmriprep-docker
-  
+
+
+.. note::
+
+  Once the fmriprep-docker command is installed, you may need to set your path to point to where the command is, in order to run it. To do this, from the terminal type: ``echo 'export PATH=$PATH:/Users/ajahn/Library/Python/2.7/bin' >> ~/.bash_profile``, and then type ``source ~/.bash_profile`` to set the path automatically whenever you open a new terminal.
   
 What we've just installed is a wrapper that will create a Docker command to download the latest fMRIPrep container. Unlike MRIQC, fMRIPrep goes through more releases, typically for bug fixes and feature additions/modifications. Oftentimes, the changes from version to version are minor and do not require upgrading to the latest version, unless the changes in the newest version are pertinent to you. Regardless, **you should preprocess your entire dataset using the same fMRIPrep version**. 
 
@@ -66,7 +74,7 @@ To install TemplateFlow, type the following into the terminal, line by line:
 
 ::
 
-  pip install templateflow --target $HOME/.cache
+  pip install templateflow -target $HOME/.cache
   unzip $HOME/.cache/templateflow/conf/templateflow-skel.zip -d $HOME/.cache/templateflow
   
 Once finished, you should see multiple template options in your $HOME/.cache/templateflow folder.
