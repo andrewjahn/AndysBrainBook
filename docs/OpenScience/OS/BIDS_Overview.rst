@@ -499,4 +499,4 @@ In the tutorial we created a dcm2bids configuration file based on our mock proto
 Next Steps
 **********
 
-Now that you have arranged your data in BIDS format, you are ready to begin using BIDS apps, such as MRIQC and FMRIPREP. To see how to use MRIQC, click the ``Next`` button.
+Now that you have arranged your data in BIDS format, you are ready to begin using BIDS apps, such as MRIQC and fMRIPrep. To see how to use MRIQC, click the ``Next`` button.
