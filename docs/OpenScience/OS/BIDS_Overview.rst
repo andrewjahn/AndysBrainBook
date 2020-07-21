@@ -487,9 +487,16 @@ Validating your BIDS data
 
 Once the BIDS conversion is complete and the anatomicals defaced, you can use the `BIDS validator <https://bids-standard.github.io/bids-validator/>`__ to ensure that your data are BIDS-compliant. If there are any issues in how the data were converted, these will show up as either warnings (in yellow) or errors (in red). If there is an error, then it will need to be addressed, otherwise the data will likely not work on BIDS-apps such as MRIQC and/or fMRIPrep. Warnings are less pernicious, as you can potentially still run BIDS-apps on the data; however, at some point it will be worthwhile to address them.
 
-NOTE: You will likely get an error when performing the BIDS validation due to a minor format issue in the dataset_description.json file. This is not important and can be ignored. 
+.. note::
+
+  You will likely get an error when performing the BIDS validation due to a minor format issue in the dataset_description.json file. This is not important and can be ignored. 
 
 Final Thoughts
 **************
 
 In the tutorial we created a dcm2bids configuration file based on our mock protocol. While it's tempting to assume that everyone's protocol will be the same, this is not always the case. As those who collect imaging data can attest, participants may need to randomly take a bathroom break, redo a functional acquisition due to excessive motion, etc. Thus, some participants' protocol will look different and therefore the configuration file will need to be adjusted to reflect this. Reducing user overhead is an ongoing process when it comes to BIDS conversion and continues to get better. While some work is required from the user's standpoint, you may come to realize that benefits of have a BIDS-compliant dataset outweigh the work put in.
+
+Next Steps
+**********
+
+Now that you have arranged your data in BIDS format, you are ready to begin using BIDS apps, such as MRIQC and FMRIPREP. To see how to use MRIQC, click the ``Next`` button.
