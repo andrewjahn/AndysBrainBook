@@ -1,7 +1,7 @@
 .. _fMRI_09_ROIAnalysis:
 
 fMRI Tutorial #9: ROI Analysis
-=====================
+==============================
 
 ---------
 
