@@ -23,6 +23,26 @@ Download the dataset by clicking on the "Download" button at the top of the page
 
 After you have downloaded and unzipped the dataset, click on the Next button for an overview of the experimental task used in this study.
 
+.. note::
+
+    If the download button doesn't work, try installing ``datalad`` using ``pip``:
+    
+    ::
+    
+        pip install datalad
+    
+    Also make sure to install the ``git-annex`` using `homebrew <https://brew.sh/index_it>`__:
+    
+    ::
+    
+        brew install git-annex
+        
+    And then download the dataset:
+    
+    ::
+    
+        datalad install https://github.com/OpenNeuroDatasets/ds000102.git
+
 
 Video
 ******
