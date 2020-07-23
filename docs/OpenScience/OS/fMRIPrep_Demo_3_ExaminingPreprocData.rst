@@ -12,13 +12,13 @@ When fMRIPrep has finished, the output will be located in the sub-directory ``de
 
 Within the ``anat`` directory, for example, we find the following files:
 
-.. figure:: 04_fMRIPrep_Output_Anat.png
+.. figure:: 03_fMRIPrep_Output_Anat.png
 
 The files that contain the string ``MNI152NLin2009cAsym`` are anatomical images that have been normalized to that template, while those files without that string are in native space (i.e., they are not normalized). For example, the file ``sub-08_space-MNI152NLin2009cAsym_label-CSF_probseg.nii.gz`` is the CSF probabilistic segmentation in normalized space, while the anatomical image that has been preprocessed and normalized is the file ``sub-08_space-MNI152NLin2009cAsym_desc-preproc_T1w.nii.gz``. Many of these files are intermediate images used to improve the normalization process, as well as for extracting the time-courses of tissue types as confound regressors.
 
 Moving on to the ``func`` directory, we have the following:
 
-.. figure:: 04_fMRIPrep_Output_Func.png
+.. figure:: 03_fMRIPrep_Output_Func.png
 
 You will see two distinct blocks of files, one for each run. The first block contains a list of confound regressors, such as time-courses from the white matter and cerebrospinal fluid, and the motion parameters and their derivatives in the x-, y-, and z-directions. (For a review of motion parameters, see :ref:`this chapter <04_AFNI_Alignment>`.) The file ``sub-08_task-flanker_run-1_space-MNI152NLin2009cAsym_res-2_boldref.nii.gz`` is the reference image used for registration and normalization, while the file ``sub-08_task-flanker_run-1_space-MNI152NLin2009cAsym_res-2_desc-brain_mask.nii.gz`` is the estimated brain mask for that run, and the file ``sub-08_task-flanker_run-1_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz`` is the preprocessed functional data, up through normalization. Similar files are generated for the other runs in your dataset.
 
@@ -31,7 +31,7 @@ fMRIPrep summarizes all of the preprocessing output in a single HTML file called
 
 The layout of the webpage is organized into the following sections: Summary, Anatomical, Functional, About, Methods, and Errors, with corresponding links at the top of the page. The first section, "Summary", contains details about the number of structural and fucntional images, the template that was used for normalization, and whether FreeSurfer was run. These should match the options you specified in the fmriprep.sh script that we ran in the previous chapter
 
-.. figure:: 04_HTML_Ribbon.png
+.. figure:: 03_HTML_Ribbon.png
 
 Although the output of fMRIPrep in the terminal should note whether there were any errors during preprocessing, it's worth checking the Error tab first to see whether there is anything that you need to address.
 
