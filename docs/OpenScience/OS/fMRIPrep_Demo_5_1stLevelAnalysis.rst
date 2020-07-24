@@ -40,6 +40,31 @@ When you have generated the timings, navigate to the fmriprep output directory f
   cp ../../../../sub-08/func/*.1D stimuli
   
 This will place the timing files within the ``stimuli`` directory.
+
+Modifying the Confound Regressor Files
+**************************************
+
+Before we can insert our confound regressors into the General Linear Model, we will need to do a few steps in Unix to format them correctly. AFNI expects a separate regressor file for each run, with later runs containing a string of zeros equal to the number of volumes in the previous run. For example, if we have two runs with 146 volumes each, the second regressor file should have 146 zeros before the first confound regressor.
+
+First, we will create a backup of the second confound regressor file, and then remove the header line:
+
+::
+
+  cp sub-08_task-flanker_run-2_desc-confounds_regressors.tsv run-2_confounds_regressors_BACKUP.tsv
+  tail -n +2 sub-08_task-flanker_run-2_desc-confounds_regressors.tsv > tmp2.txt
+  
+We will then create a string of zeros equal to the number of volumes in the previous run:
+
+::
+
+  NT=`3dinfo -nt r1_scale.nii`
+  for ((i=0; i<$NT; i++)); do echo 0 >> tmp.txt; done
+  
+Concatenating the two files using ``cat`` will generate a file that can now be read by AFNI:
+
+::
+
+  cat tmp.txt tmp2.txt > sub-08_task-flanker_run-2_desc-confounds_regressors.tsv
   
 Creating the 3dDecon File
 *************************
