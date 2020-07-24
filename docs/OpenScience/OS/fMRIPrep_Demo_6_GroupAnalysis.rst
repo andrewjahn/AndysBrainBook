@@ -52,9 +52,14 @@ The code will look like this:
       done
       rm rm*;
     mkdir stimuli;
-    cp ../../../${i}/func/*.1D stimuli;
-    cp ../../../doDecon.sh .;
+    cp ../../../../${i}/func/*.1D stimuli;
+    cp ../../../../doDecon.sh .;
+    cp sub-${i}_task-flanker_run-2_desc-confounds_regressors.tsv run-2_confounds_regressors_BACKUP.tsv
+tail -n +2 sub-${i}_task-flanker_run-2_desc-confounds_regressors.tsv > tmp2.txt
+    NT=`3dinfo -nt r1_scale.nii`
+    for ((i=0; i<$NT; i++)); do echo 0 >> tmp.txt; done
+    cat tmp.txt tmp2.txt > sub-${i}_task-flanker_run-2_desc-confounds_regressors.tsv
     tcsh doDecon.sh $i;
-    cd ../../../code;
+    cd ../../../../code;
   done
     
