@@ -58,7 +58,7 @@ And then
 
   for reg in trans_x trans_y trans_z rot_x rot_y rot_z; do
     for run in 1 2; do
-      awk -v col=$reg 'NR==1{for(i=1;i<=NF;i++){if($i==col){c=i;break}} print $c} NR>1{print $c}' sub-01_task-flanker_run-${run}_desc-confounds_regressors.tsv > ${reg}_run${run}_all_tmp.txt;
+      awk -v col=$reg 'NR==1{for(i=1;i<=NF;i++){if($i==col){c=i;break}} print $c} NR>1{print $c}' sub-08_task-flanker_run-${run}_desc-confounds_regressors.tsv > ${reg}_run${run}_all_tmp.txt;
       sed '1d' ${reg}_run${run}_all_tmp.txt > ${reg}_run${run}_noHead_tmp.txt
       sed '1!d' ${reg}_run${run}_all_tmp.txt > ${reg}_run${run}_Head_tmp.txt
     done
@@ -78,10 +78,10 @@ Concatenating the two files using ``cat`` will generate a file that can now be r
   
   for reg in trans_x trans_y trans_z rot_x rot_y rot_z; do
     for run in 1 2; do
-      if [ $run=="1" ]; then
-        cat ${reg}_run${run}_Head_tmp.txt ${reg}_run${run}_noHead_tmp.txt > ${reg}_run${run}.txt
+      if [ $run -eq 1 ]; then
+        cat ${reg}_run${run}_noHead_tmp.txt > ${reg}_run${run}.txt
       else
-        cat ${reg}_run${run}_Head_tmp.txt zeros_tmp.txt ${reg}_run${run}_noHead_tmp.txt > ${reg}_run${run}.txt
+        cat zeros_tmp.txt ${reg}_run${run}_noHead_tmp.txt > ${reg}_run${run}.txt
       fi
     done
   done
