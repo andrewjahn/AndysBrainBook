@@ -5,6 +5,10 @@ fMRIPrep Tutorial #3: Examining the Preprocessed Data
 
 ---------
 
+.. note::
+
+  This section is still under construction; please check back soon!
+
 Overview
 ********
 
