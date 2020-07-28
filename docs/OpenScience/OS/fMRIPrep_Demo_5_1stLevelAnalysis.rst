@@ -52,7 +52,7 @@ First, we will create a backup of the second confound regressor file:
 
   cp sub-01_task-flanker_run-2_desc-confounds_regressors.tsv run-2_confounds_regressors_BACKUP.tsv
  
-And then 
+And then create a for-loop to extract the translation and rotation parameters for the x-, y-, and z-directions. The ``awk`` and ``sed`` commands will print the numbers in each of those columns, and then put them in files that either contain just the header, or everything except the header:
 
 ::
 
@@ -85,6 +85,7 @@ Concatenating the two files using ``cat`` will generate a file that can now be r
       fi
     done
   done
+  rm *tmp*
   
 Creating the 3dDecon File
 *************************
