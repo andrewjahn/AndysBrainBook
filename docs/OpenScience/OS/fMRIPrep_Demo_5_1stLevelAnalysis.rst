@@ -104,4 +104,4 @@ This will run the 1st-level analysis for sub-08. When it is finished, you can op
 Next Steps
 **********
 
-Now that we have successfully analyze a single subject, we now move on to a group-level analysis. To learn more about how to do that, click the ``Next`` button.
+Now that we have successfully analyzed a single subject, we now move on to a group-level analysis. To learn more about how to do that, click the ``Next`` button.
