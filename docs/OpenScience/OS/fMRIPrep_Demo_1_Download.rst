@@ -38,4 +38,4 @@ It should take about half an hour to download.
 Video
 ******
 
-For a video tutorial of how to download the data, click `here <https://www.youtube.com/watch?v=4Y0LfKNj8Ns>`__.
+For a video tutorial of how to download the data, click `here <https://www.youtube.com/watch?v=J0npRWV2zTY>`__.
