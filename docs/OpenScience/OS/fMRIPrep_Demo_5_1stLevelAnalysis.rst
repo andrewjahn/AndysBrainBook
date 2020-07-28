@@ -106,3 +106,8 @@ Next Steps
 **********
 
 Now that we have successfully analyzed a single subject, we now move on to a group-level analysis. To learn more about how to do that, click the ``Next`` button.
+
+Video
+*****
+
+A video demonstration of performing a first-level analysis can be found `here <https://www.youtube.com/watch?v=OESt1--zuq4>`__.
