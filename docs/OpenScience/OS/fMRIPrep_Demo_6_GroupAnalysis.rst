@@ -51,6 +51,7 @@ The code will look like this:
            -prefix r${run}_scale.nii;
         done
         rm rm*;
+        3dmask_tool -inputs *mask.nii.gz -union -prefix full_mask.nii
       mkdir stimuli;
       cp ../../../../${i}/func/*.1D stimuli;
       cp ../../../../doDecon.sh .;
