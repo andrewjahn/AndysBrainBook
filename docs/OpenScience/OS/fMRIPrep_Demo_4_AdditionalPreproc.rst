@@ -18,7 +18,7 @@ In order to make a valid comparison with the **sub-08** data that we analyzed in
 Smoothing
 *********
 
-In the AFNI tutorial, we used a smoothing kernel of 4mm on the functional data, applied with the command ``3dmerge``. We will run the following code to apply the smoothing kernel:
+In the AFNI tutorial, we used a smoothing kernel of 4mm on the functional data, applied with the command ``3dmerge``. First, navigate to the directory ``Flanker/derivatives/fmriprep/sub-08/func``. We will run the following code to apply the smoothing kernel:
 
 ::
 
