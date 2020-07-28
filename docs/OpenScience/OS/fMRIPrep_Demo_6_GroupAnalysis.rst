@@ -37,7 +37,7 @@ The code will look like this:
 
     for i in `cat subjList.txt`; do
       cd code;
-      bash fmriprep.sh $i;
+      bash fmriprep_Scripted.sh $i;
       cd ../derivatives/fmriprep/${i}/func
       for run in 1 2; do
         3dmerge -1blur_fwhm 4.0 -doall -prefix r${run}_blur.nii \
