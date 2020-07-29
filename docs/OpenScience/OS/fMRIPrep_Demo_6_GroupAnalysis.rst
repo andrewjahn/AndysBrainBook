@@ -92,13 +92,13 @@ When the script has finished, do the same quality assurance checks that we cover
 ::
 
 
-  #!/bin/tcsh -xef
+  #!/bin/bash -xef
 
-  set dirA = derivatives/fmriprep
+  dirA=derivatives/fmriprep
 
   # specify and possibly create results directory
-  set results_dir = test.results
-  if ( ! -d $results_dir ) mkdir $results_dir
+  results_dir=test.results
+  if [ ! -d $results_dir ]; then mkdir $results_dir; fi
 
   # ------------------------- process the data -------------------------
 
