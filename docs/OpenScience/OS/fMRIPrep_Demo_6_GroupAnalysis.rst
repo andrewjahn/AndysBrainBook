@@ -26,7 +26,7 @@ And modify the "subj" line to the following:
 
   subj=$subject
   
-You can make the changes yourself if you like, and save the file as ``fmriprep_Scripted.sh``; otherwise, you can download the script for `here https://github.com/andrewjahn/OpenScience_Scripts/blob/master/fmriprep_Scripted.sh>`__. Also make sure to download the script `doDecon.sh https://github.com/andrewjahn/OpenScience_Scripts/blob/master/doDecon.sh>`__ to your Flanker directory.
+You can make the changes yourself if you like, and save the file as ``fmriprep_Scripted.sh``; otherwise, you can download the script for `here <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/fmriprep_Scripted.sh>`__. Also make sure to download the script `doDecon.sh <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/doDecon.sh>`__ to your Flanker directory.
   
 Running the for-loop
 ********************
@@ -81,7 +81,7 @@ The combined code will look like this:
       cd ../../../..
     done
   
-Each block of this code is discussed in the previous chapters; the only difference is that we now use variables for input where appropriate. You can either copy and paste this code into the Terminal while in the Flanker directory, or download `this script https://github.com/andrewjahn/OpenScience_Scripts/blob/master/script_fMRIPrep_Analysis.sh>`__ from Andy's GitHub page (again, making sure to run it from the Flanker directory). This will take a long time to run - maybe a few days, depending on the speed of your computer.
+Each block of this code is discussed in the previous chapters; the only difference is that we now use variables for input where appropriate. You can either copy and paste this code into the Terminal while in the Flanker directory, or download `this script <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/script_fMRIPrep_Analysis.sh>`__ from Andy's GitHub page (again, making sure to run it from the Flanker directory). This will take a long time to run - maybe a few days, depending on the speed of your computer.
 
 
 Running the Group Analysis
