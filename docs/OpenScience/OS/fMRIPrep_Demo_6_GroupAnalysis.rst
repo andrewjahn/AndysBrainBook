@@ -64,7 +64,7 @@ The code will look like this:
       done
       NT=`3dinfo -nt r1_scale.nii`
       if [ -f zeros_tmp.txt ]; then rm zeros_tmp.txt; fi
-      for ((i=0; i<$NT; i++)); do echo 0 >> zeros_tmp.txt; done
+      for ((j=0; j<$NT; j++)); do echo 0 >> zeros_tmp.txt; done
       for reg in trans_x trans_y trans_z rot_x rot_y rot_z; do
         for run in 1 2; do
           if [ $run -eq 1 ]; then
