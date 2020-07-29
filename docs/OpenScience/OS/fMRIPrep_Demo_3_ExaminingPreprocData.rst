@@ -28,6 +28,10 @@ You will see two distinct blocks of files, one for each run. The first block con
 
 All of these output files will be used in the HTML summary, which we now turn to.
 
+.. note::
+
+  Much of the QA analysis can be found `here <https://fmriprep.org/en/stable/outputs.html>`__ on the fMRIPrep ReadTheDocs webpage. The following recapitulates most of what is on that site, applied to the current dataset.
+
 The HTML Output
 ***************
 
@@ -38,6 +42,24 @@ The layout of the webpage is organized into the following sections: Summary, Ana
 .. figure:: 03_HTML_Ribbon.png
 
 Although the output of fMRIPrep in the terminal should note whether there were any errors during preprocessing, it's worth checking the Error tab first to see whether there is anything that you need to address.
+
+Anatomical QA
+^^^^^^^^^^^^^
+
+The next section contains anatomical QA checks, with the first figure showing the anatomical image in sagittal, axial, and coronal views. The estimated brain mask is outlined in red, the grey matter boundary is outlined in magenta, and the white matter boundary is outlined in blue. These boundaries will be used for component extraction, which is discussed in more detail below.
+
+.. figure:: 03_Anatomical_QA.png
+
+Normalization of the anatomical image to the template - in this case, the MNI152NLin2009cAsym template - is shown in a back-and-forth GIF. Make sure to check the alignment not only between the outlines of the brain, but also the internal structures such as the ventricles:
+
+.. figure:: 03_AnatomicalQA.gif
+
+Functional QA
+^^^^^^^^^^^^^
+
+We now move on to the functional QA, which uses a GIF to show the alignment between the functional and anatomical images. As with the normalization QA check, make sure that the internal structures are well aligned, remembering that lighter voxels in the functional images represent fluid, and vice versa in the anatomical image:
+
+.. figure:: 03_Functional_Alignment.gif
 
 This will open a webpage with the output from each preprocessing step. Some of the outputs, such as normalization, will show you "before" and "after" images if you hover your mouse cursor over the image.
 
