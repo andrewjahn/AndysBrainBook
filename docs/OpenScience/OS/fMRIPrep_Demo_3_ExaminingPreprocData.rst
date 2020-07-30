@@ -59,7 +59,30 @@ Functional QA
 
 We now move on to the functional QA, which uses a GIF to show the alignment between the functional and anatomical images. As with the normalization QA check, make sure that the internal structures are well aligned, remembering that lighter voxels in the functional images represent fluid, and vice versa in the anatomical image:
 
-.. figure:: 03_Functional_Alignment.gif
+.. figure:: 03_Alignment_GIF.gif
 
-This will open a webpage with the output from each preprocessing step. Some of the outputs, such as normalization, will show you "before" and "after" images if you hover your mouse cursor over the image.
+The next figure shows an outline of the masks used for anatomical component correction (anatCompCor), with magenta showing the white matter and CSF voxels used to estimate signal that is representative of that area. The voxels outlined in blue show the most variable voxels, which will be used for functional component correction (funcCompCor):
 
+.. figure:: 03_CompCor_Mask.png
+
+These voxels are then used to generate compCor curves for the white matter, CSF, combined white matter and CSF, and temporal standard deviation, which show the amount of variance explained by different amounts of components. The first 27 components of the white matter mask, for example, explain half of the variance within those voxels; you will have to make a judgment about the tradeoff between removing nuisance variance, and spending more degrees of freedom and statistical power on modeling those sources of variance.
+
+.. figure:: 03_CompCorCurves.png
+
+Time-series plots are also generated for global signal (GS), global signal of the cerebrospinal fluid (GSCSF), global signal of the white matter (GSWM), and two measures of motion: DVARS and Framewise Displacement (FD). Changes in motion tend to be correlated with changes in global signal, and it is up to you whether to include any of these regressors in your model. In general, DVARS and FD are good ways to account for signal caused by motion artifacts.
+
+.. figure:: 03_time-series_plots.png
+
+The next figure is a carpet plot, showing the time-series of each major tissue type. Voxels are grouped into cortical (dark/light blue), and subcortical (orange) gray matter, cerebellum (green) and white matter and CSF (red). Any sudden changes in motion may be reflected in uniform changes across the entire column for that timepoint.
+
+.. figure:: 03_CarpetPlot.png
+
+Lastly, a matrix shows correlations between the different nuisance regressors. High correlation between the CSF regressor and the trans_z and rot_z motion regressors, for example, may be explained by motion causing signal changes in the CSF that encases the skull. The bar chart on the right shows the correlation of different regressors with respect to global signal; those components that show a high degree of correlation may be candidates for nuisance regression.
+
+.. figure:: 03_CorrelationPlots.png
+
+
+Next Steps
+**********
+
+Now that we have run quality checks on our data and have some idea of what regressors to include, we are prepared to begin creating our general linear model. Before we can do that, however, we have the option of running a couple more preprocessing steps. To see what those are and how to do them, click the ``Next`` button.
