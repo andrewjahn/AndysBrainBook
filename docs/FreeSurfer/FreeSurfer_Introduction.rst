@@ -36,6 +36,7 @@ This course will show you how to download and install FreeSurfer, and how to ana
    FS_ShortCourse/FS_12_FailureModes
    FS_ShortCourse/FS_13_PialSurface
    FS_ShortCourse/FS_14_ControlPoints
+   FS_ShortCourse/Appendices/AppendixA_LGI
 
 .. note::
 
