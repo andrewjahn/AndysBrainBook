@@ -33,7 +33,7 @@ The HTML Output
 
 fMRIPrep summarizes all of the preprocessing output in a single HTML file called ``sub-08.html``. You can open this by using finder and double-clicking on the file, or navigating to the directory with your terminal and typing ``open sub-08.html``.
 
-The layout of the webpage is organized into the following sections: Summary, Anatomical, Functional, About, Methods, and Errors, with corresponding links at the top of the page. The first section, "Summary", contains details about the number of structural and fucntional images, the template that was used for normalization, and whether FreeSurfer was run. These should match the options you specified in the fmriprep.sh script that we ran in the previous chapter
+The layout of the webpage is organized into the following sections: Summary, Anatomical, Functional, About, Methods, and Errors, with corresponding links at the top of the page. The first section, "Summary", contains details about the number of structural and functional images, the template that was used for normalization, and whether FreeSurfer was run. These should match the options you specified in the fmriprep.sh script that we ran in the previous chapter
 
 .. figure:: 03_HTML_Ribbon.png
 
