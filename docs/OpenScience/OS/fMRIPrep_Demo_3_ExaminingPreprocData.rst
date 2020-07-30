@@ -82,3 +82,9 @@ Next Steps
 **********
 
 Now that we have run quality checks on our data and have some idea of what regressors to include, we are prepared to begin creating our general linear model. Before we can do that, however, we have the option of running a couple more preprocessing steps. To see what those are and how to do them, click the ``Next`` button.
+
+
+Video
+*****
+
+For a video demonstration of QA checks with fMRIPrep, click `here <https://www.youtube.com/watch?v=fQHEKSzFKDc>`__.
