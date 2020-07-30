@@ -150,4 +150,4 @@ Now that we have seen how fMRIPrep can improve our results, we can take a closer
 Video
 *****
 
-For a video demonstration of scripting and group analysis, click `here`.
+For a video demonstration of scripting and group analysis, click `here <https://www.youtube.com/watch?v=JBf7HFQZ6gw>`__.
