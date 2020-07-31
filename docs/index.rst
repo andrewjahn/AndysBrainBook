@@ -1,7 +1,9 @@
 Welcome to Andy's Brain Book!
 ==================================================
 
-.. figure:: ABB_HomePage.png
+.. figure:: ABB_logo_book.png
+
+    This resource is sponsored by the `University of Michigan <https://umich.edu/>`__.
 
 This book, *Andy's Brain Book*, is the ReadTheDocs companion
 to `Andy's Brain Blog <https://www.andysbrainblog.com>`__. It is intended for fMRI beginners, with more advanced imaging techniques being added later on. If this is your first time here, watch `this video <https://www.youtube.com/watch?v=zUxOdq3sAFU>`__ for a quick overview of the website.
