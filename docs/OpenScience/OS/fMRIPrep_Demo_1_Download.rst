@@ -26,7 +26,7 @@ After you have downloaded and unzipped the dataset, click on the Next button for
 Alternative Download Options
 ****************************
 
-If the download button doesn't work, try using the `Amazon Web Services (AWS) <https://aws.amazon.com/>__` option. Go to `this page <https://aws.amazon.com/cli/>`__ and download the appropriate AWS client for your operating system. Once it has been installed, open a Terminal, navigate to the Desktop, and type the following:
+If the download button doesn't work, try using the `Amazon Web Services (AWS) <https://aws.amazon.com/>`__ option. Go to `this page <https://aws.amazon.com/cli/>`__ and download the appropriate AWS client for your operating system. Once it has been installed, open a Terminal, navigate to the Desktop, and type the following:
 
 ::
 
