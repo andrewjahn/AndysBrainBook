@@ -1,7 +1,7 @@
 Welcome to Andy's Brain Book!
 ==================================================
 
-.. figure:: ABB_HomePage.png
+.. figure:: ABB_logo_book.png
 
     This resource is sponsored by the `University of Michigan <https://umich.edu/>`__.
 
