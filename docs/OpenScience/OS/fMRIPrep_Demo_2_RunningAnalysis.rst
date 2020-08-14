@@ -29,6 +29,12 @@ The ``Docker`` App allows you to download a package of software programs that ar
   
 Which will install all of the programs used by fMRIPrep - for example, tools from software packages such as FSL and ANTs to assist with normalization and denoising the data. Before executing the code that will perform fMRIPrep on the data, you need to have Docker running.
 
+.. note::
+
+  If you try running the command above, you may get the following error: ``ImportError: cannot import name md5``. This can happen sometimes with Python version 2.7; to fix this error, install a `more recent version of Python <https://www.python.org/downloads/>`__, and then rerun the command:
+  
+  python3 -m pip install --user --upgrade fmriprep-docker
+
 Contents of the fMRIPrep Script
 *******************************
 
