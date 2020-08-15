@@ -257,6 +257,24 @@ You can output even more of the header by using a command like ``fslhd``. For ex
   
 Other pieces of information, such as the flip angle, are not usually stored in the header and must be extracted from the protocol located in the computer that ran the fMRI scan.
 
+
+I get the message "ERROR: Could not resample" when running AFNI's align_epi_anat.py. How do I fix this?
+*******************************************************************************************************
+
+This can be due to either the raw anatomical or raw functional image being in TLRC as opposed to ORIG space. (I'm not sure why this happens, but it does sometimes.) See if this ``3dinfo`` command returns the string "TLRC" for any of the raw images:
+
+::
+
+  3dinfo -space funcImage.nii
+
+If it returns "TLRC", type the following:
+
+::
+
+  3drefit -space ORIG funcImage.nii
+  
+And then rerun your AFNI proc script or align_epi_anat.py command.
+
 Other Questions
 ***************
 
