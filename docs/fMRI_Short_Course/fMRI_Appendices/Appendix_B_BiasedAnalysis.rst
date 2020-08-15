@@ -61,7 +61,7 @@ AFNI and FSL each come with their own set of atlases (for SPM, you will need to 
 
 A spherical ROI is creating by noting the coordinates of the peak activation reported by another study. Ideally, this should be a study that uses an experimental identical to the one that you use, or at least is very similar. In most cases, you will have to find a study that uses an experiment that at least taps into the same cognitive process that you are studying. Methods for creating spherical ROIs can also be found in the same links just referenced.
 
-A third way of creating unbiased ROIs is to use a meta-analysis map, which represents a combination of individual statistical maps reported by hundreds or thousands of studies. The most accessible meta-analysis generator is ``Neurosynth <neurosynth.org>``__, which allows you to generate these maps in seconds. For more details on how to create these maps, see :ref:`this tutorial <Appendix_E_Meta_Analysis>`.
+A third way of creating unbiased ROIs is to use a meta-analysis map, which represents a combination of individual statistical maps reported by hundreds or thousands of studies. The most accessible meta-analysis generator is `Neurosynth <neurosynth.org>`__, which allows you to generate these maps in seconds. For more details on how to create these maps, see :ref:`this tutorial <Appendix_E_Meta_Analysis>`.
 
 
 Other Types of Biased Analysis
