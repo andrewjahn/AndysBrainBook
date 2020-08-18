@@ -1,7 +1,7 @@
 .. _fsl_mac_install:
 
 Overview
-==================
+========
 
 
 In order to analyze fMRI data, you will need to download an fMRI analysis package. The three most popular are:
@@ -16,7 +16,7 @@ Most laboratories use one of these three packages to analyze fMRI data. Each pac
 
 
 Installing FSL
--------------
+--------------
 
 FSL can be installed on different operating systems, such as Windows, Macintosh, and Linux. The Windows version requires a virtual machine to run FSL. This course will assume that you have a Macintosh or Linux operating system, and the tutorials will be recorded using an iMac desktop.
 
@@ -32,7 +32,7 @@ a screencast can be found here to walk you through the installation and setup:
 
 
 Next Steps
------------
+----------
 
 If you have never used a command line before, click on the Next button to begin the Unix tutorials. If you do feel comfortable using Unix, then you can skip to the :ref:`fMRI Short Course <fMRI_Intro>`.
 
