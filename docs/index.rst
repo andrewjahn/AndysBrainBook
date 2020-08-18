@@ -148,6 +148,18 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Open Science
     
     OpenScience/OS_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Advanced Normalization Tools (ANTs)
+    
+    ANTs/ANTs_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Tract-Based Spatial Statistics (TBSS)
+    
+    TBSS/TBSS_Overview
 
 .. toctree::
     :maxdepth: 1
