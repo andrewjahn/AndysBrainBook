@@ -1,7 +1,13 @@
 .. _TBSS_01_Download_Install.rst:
 
+=============================
+TBSS #1: Download and Install
+=============================
+
+--------
+
 Before you Begin
-================
+****************
 
 
 TBSS comes with the `FSL software package <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSL>`__, which is covered in a ref:`previous tutorial <fMRI_Intro>`. If you haven't used FSL before, I recommend reviewing that module to become familiar with it; the following chapters assume that you know how to use basic FSL commands, as well as the FSL viewer, `FSLeyes <https://www.youtube.com/watch?v=VVYHFQedAXA>`__.
