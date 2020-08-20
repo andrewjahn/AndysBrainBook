@@ -18,7 +18,7 @@ fMRIPrep creates a confound file for each run; for example, the confound regress
 
 .. figure:: 05_ConfoundSpreadsheet.png
 
-You can see that the file contains many confounds, and you probably won't use all of them. If we wanted to replicate our AFNI analysis as closely as possible, however, we will need to find the motion regressors in the x-, y-, and z-directions. The translation regressors can be found in columns EU, EY, and FC; while the rotation regressors can be found in columns FG, FK, and FO. These letters correspond to the column numbers 125, 129, 133, 137, 141, and 145.
+You can see that the file contains many confounds, and you probably won't use all of them. If we wanted to replicate our AFNI analysis as closely as possible, however, we will need to find the motion regressors in the x-, y-, and z-directions. The translation regressors can be found in columns EU, EY, and FC; while the rotation regressors can be found in columns FG, FK, and FO. Note that the location of these regressors may change from subject to subject, depending on how many components are extracted during ICA analysis of the different tissues.
 
 There are several other regressors that you can include, such as global signal, framewise displacement, and different component time-series. Which ones to include are up to you; in any case, remember to use these regressors with AFNI's ``stim_files`` options, which will *not* convolve the time-series with a basis function, such as the HRF.
 
