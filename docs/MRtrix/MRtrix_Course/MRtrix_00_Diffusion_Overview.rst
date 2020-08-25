@@ -124,15 +124,26 @@ Putting it all Together: Modeling the Tensor
 
 This combination of bvals and bvecs allows us to construct something called a **tensor** and fit it to each voxel of our diffusion-weighted image. For this tutorial, think of a tensor as model of forces that push along the x-, y-, and z-dimensions. Water flowing through a garden hose, for example, pushes against the boundaries of the tube, but primarily flows along the length of the hose. We call the directions of the energy **eigenvectors**, and the magnitude of the energy **eigenvalues**.
 
-Applied to diffusion-weighted images, we use these same concepts to model the signal observed at each voxel as a combination of eigenvectors and eigenvalues. The eigenvectors indicate the direction of the diffusion, and the eigenvalues represent the magnitude of the diffusion. To bring back the garden hose example, the water's force would have a high eigenvector and eigenvalue along the length of the tube; similarly, we can model the diffusion in each voxel of the brain as a combination of eigenvectors and eigenvalues. Once we calculate the combination of values that best represents the signal observed in the current voxel, we can use a number of different equations to calculate different properties of the diffusion at that voxel. The most popular equation for this **diffusion tensor imaging** is called **Fractional Anisotropy**, or FA for short. 
+Applied to diffusion-weighted images, we use these same concepts to model the signal observed at each voxel as a combination of eigenvectors and eigenvalues. The eigenvectors indicate the direction of the diffusion, and the eigenvalues represent the magnitude of the diffusion. To bring back the garden hose example, the water's force would have a high eigenvector and eigenvalue along the length of the tube; similarly, we can model the diffusion in each voxel of the brain as a combination of eigenvectors and eigenvalues. Once we calculate the combination of values that best represents the signal observed in the current voxel, we can use a number of different equations to calculate different properties of the diffusion at that voxel. The most popular equation for this **diffusion tensor imaging** is called **Fractional Anisotropy**, or FA for short. This can be calculated using the formula:
 
-Fractional anisotropy is a weighted sum of the eigenvectors that are derived in each voxel. A higher FA value indicates greater diffusion along one of the directions, and a lower FA value indicates that there is either very little diffusion, or that the diffusion is unconstrained and going in each direction at random (as in, say, the ventricles of the brain). If we find that the diffusion is greater along one of the dimensions, we can color-code it according to the direction. The convention in diffusion imaging is to represent diffusion along the x-axis in red, diffusion along the y-axis in green, and diffusion along the z-axis in blue. The image below summarizes this color-coding scheme.
+.. figure:: 00_FA_formula.png
+
+Fractional anisotropy is a weighted sum of the eigenvalues in each voxel. A higher FA value indicates greater diffusion along one of the directions, and a lower FA value indicates that there is either very little diffusion, or that the diffusion is unconstrained and going in each direction at random (as in, say, the ventricles of the brain). If we find that the diffusion is greater along one of the dimensions, we can color-code it according to the direction. The convention in diffusion imaging is to represent diffusion along the x-axis in red, diffusion along the y-axis in green, and diffusion along the z-axis in blue. The image below summarizes this color-coding scheme.
 
 .. figure:: 00_Eigenvectors.png
 
 Fitting a tensor at each voxel allows for the generation of different types of diffusion maps, such as fractional anisotropy maps. Tract-Based Spatial Statistics (TBSS), a popular FSL diffusion analysis package, can be used to create these maps; similar to the analysis of fMRI data, these maps can be combined into a group-analysis map, and data can be extracted from regions of interest within the map.
 
 .. figure:: 00_FA_Map.png
+
+Other Diffusion Measures
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Although FA is the most popular diffusion measure, there are a few others that we will briefly review:
+
+* Mean Diffusivity (MD): The average of the eigenvalues, calculated by summing the eigenvalues together and dividing them by 3. Useful for identifying edemas.
+* Axial Diffusivity (AD): The value of the largest eigvenvalue.
+* Radial Diffusivity (RD): The average of the two smallest eigenvalues. Often used to analyze large fiber bundles oriented in the same direction, such as the corpus callosum.
 
 Drawbacks of Diffusion Tensor Imaging: The Crossing-Fibers Problem
 ******************************************************************
