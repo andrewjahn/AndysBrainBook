@@ -23,3 +23,9 @@ Applying Machine Learning to fMRI Data
 From this basic example, we can apply the same principles to a more complicated dataset, such as fMRI data. In previous modules you have learned how to preprocess and analyze an fMRI dataset from start to finish - beginning with cleaning up the data using techniques such as motion correction and coregistration, and ending with creating a general linear model to estimate the amount of brain activity in response to different stimuli. 
 
 The following chapters are based on a tutorial from the `Brown University website <https://www.brown.edu/carney/mri/researchers/analysis-pipelines/mvpa>`__. 
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Introduction to Machine Learning
+
+   ML_Short_Course/ML_01_Brown_Example
