@@ -40,19 +40,35 @@ The .1D files that were included in the dataset indicate which stimulus class wa
   -stim_times_IM 4 shoes.block.onsets.1D 'BLOCK(9,1)' -stim_label 4 shoes \
   -bucket MVPA.BLOCK.nii
   
-  
-We will then extract the sub-briks from each class in the output of 3dDeconvolve, ``MVPA.BLOCK.nii`, using a for-loop. For example, the line of code:
+
+Copying and running this code in your Terminal should only take a few moments. The output file, MVPA.BLOCK.nii, contains image volumes (also known as **sub-briks**) for each instance of each regressor. If you type ``3dinfo -verb MVPA.BLOCK.nii``, you will see which sub-briks correspond to which trial for each regressor:
+
+.. figure:: 01_MVPA_Info.png
+
+  The contents of the file MVPA.BLOCK.nii. Remember that the first file is indexed as 0; in other words, the first sub-brik in this dataset is "#0 'Full_FStat'", the first sub-brik for the Cars condition is sub-brik #1, which is labeled 'cars#0_Coef', and so on.
+
+We will then extract the sub-briks from each class in the output of 3dDeconvolve, ``MVPA.BLOCK.nii`, using a for-loop. For example, to extract the sub-briks for the Car condition, we can use this line of code:
 
 ::
 
   for a in $(seq 1 8); do 3dTcat -prefix cars.$a.nii MVPA.BLOCK.nii[${a}]; done
   
-Will create 8 files, cars.1.nii, cars.2.nii, all the way until cars.8.nii. (The ``seq`` command creates a string of numbers between the two arguments that are provided; in this case, 1, 2, 3, 4, 5, 6, 7, and 8.)
-
+Which will create 8 files, cars.1.nii, cars.2.nii, all the way until cars.8.nii. (The ``seq`` command creates a string of numbers between the two arguments that are provided; in this case, 1, 2, 3, 4, 5, 6, 7, and 8.) We will use this same command to extract the corresponding sub-briks for the Faces, Houses, and Shoes conditions:
 
 ::
 
-  for a in $(seq 1 8); do 3dTcat -prefix cars.$a.nii MVPA.BLOCK.nii[${a}]; done
   for a in $(seq 9 16); do (( b=`expr $a - 8` )); 3dTcat -prefix faces.$b.nii MVPA.BLOCK.nii[${a}]; done
   for a in $(seq 17 24); do (( b=`expr $a - 16` )); 3dTcat -prefix houses.$b.nii MVPA.BLOCK.nii[${a}]; done
   for a in $(seq 25 32); do (( b=`expr $a - 24` )); 3dTcat -prefix shoes.$b.nii MVPA.BLOCK.nii[${a}]; done
+  
+In this case, we include another piece of code, ``expr``. Since we want to label each sub-brik we extract as corresponding to the first through the eighth of that condition, we subtract from the sub-brik number that is specified in the ``seq`` command. For example, the first sub-brik of the Faces condition is the ninth one in the MVPA.BLOCK.nii file; by subtracting 8 from 9, we label the first sub-brik as ``faces.1.nii``, and so on for all of the sub-briks in that condition.
+
+When you have run all of the code above, you should see something like this in your directory:
+
+.. figure:: 01_Extract_sub-brik_output.png
+
+
+Creating the Training Set
+*************************
+
+Now that we have the sub-briks, we will create a **training set** for the classifier. The classifier will then have some experience of what the typical beta map looks like for each of the conditions in our experiment, and will be able to make an educated guess about what condition an unlabeled beta map belongs to.
