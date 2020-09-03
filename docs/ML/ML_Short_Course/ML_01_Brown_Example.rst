@@ -72,3 +72,25 @@ Creating the Training Set
 *************************
 
 Now that we have the sub-briks, we will create a **training set** for the classifier. The classifier will then have some experience of what the typical beta map looks like for each of the conditions in our experiment, and will be able to make an educated guess about what condition an unlabeled beta map belongs to.
+
+In order to avoid any ordering confounds, we will select at random beta maps from each condition. This can be done with a random number generator, such as the one in Excel; but for now, we will use the same beta maps that are listed on the Brown website. For example, we will select beta maps 3 through 8 for the Cars condition, leaving beta maps 1 and 2 for the training set:
+
+::
+
+  3dTcat -prefix cars.train.nii cars.3.nii cars.4.nii cars.5.nii cars.6.nii cars.7.nii cars.8.nii
+  
+This will create a new dataset, ``cars.train.nii`, which contains beta maps 3 throught 8. We will do a similar procedure for the other conditions, selecting different sets of beta maps:
+
+::
+
+  3dTcat -prefix faces.train.nii faces.2.nii faces.8.nii faces.1.nii faces.7.nii faces.4.nii faces.5.nii
+  3dTcat -prefix houses.train.nii houses.5.nii houses.3.nii houses.4.nii houses.8.nii houses.6.nii houses.7.nii
+  3dTcat -prefix shoes.train.nii shoes.8.nii shoes.7.nii shoes.4.nii shoes.3.nii shoes.6.nii shoes.2.nii
+  
+We will then concatenate all of those training datasets into a single dataset called ``trainBlock.nii``:
+
+::
+
+  3dTcat -prefix trainBlock.nii cars.train.nii faces.train.nii houses.train.nii shoes.train.nii
+  
+
