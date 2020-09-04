@@ -177,4 +177,41 @@ We will then input this into ``3dsvm`` again, using the testBlock.nii file as ou
   -classout \
   -predictions exemplar
   
+This command will use the training set generated in the previous command to predict which volume in the testing block belongs to which category. For example, we know that the first two volumes belong to the Cars category; since we labeled them as 1's, the classifier - if it is accurate - should also classify them as 1's. We then compare the classifier's predictions to the actual labels in order to compute its accuracy. The ``-classout`` option will label each prediction as an integer, and ``-predictions`` will prepend a string to each set of predictions (in this case, "exemplar").
+
+Since we have 4 categories, the classifier generates a separate file for each combination: 1 vs. 2, 2 vs. 3, 2 vs. 4, and so on. If we look within the file ``exemplar_1_2.1D``, we find the following:
+
+::
+
+  1
+  1 
+  2
+  2
+  1
+  1
+  1
+  2
   
+In which the training block attempts to judge whether each volume in the training set belongs to category 1 or category 2; that is, whether it belongs to Cars or Faces. The first two volumes, which we know are the beta maps for the Cars category, have been correctly identified, although a few other beta maps have been identified as Cars although they are not.
+
+You can look at the other combinations at your leisure. The most important file for our purposes, however, is ``exemplar_overall_DAG.1D``. This file contains predictions for every combination of category that we used in our training dataset, and the output may look something like this:
+
+::
+
+  1
+  3 
+  2
+  2
+  3
+  3
+  1
+  4
+  
+As we saw before, the first two volumes are Cars, the second two are Faces, the third pair are Houses, and the last two are Shoes. Note that both Faces and Houses have been classified correctly, whereas Cars and Shoes are less accurately classified. If we were doing a group analysis, we would run this same classification for each subject and then add up the accuracies for each category. If there is a significantly higher classification accuracy for one category or group of categories compared to other categories, and the classification accuracy is greater than chance - in this case, greater than 1 in 4, or 25% - we can conclude that the voxels in our mask are able to reliably represent one category as opposed to another.
+
+
+Why This Mask?
+**************
+
+You may be wondering why we chose the voxels that we did - specifically, the ones located in the temporal and occipital lobes. These voxels were not chosen at random, but rather were chosen based on many studies that have shown that these voxels show reliable patterns of activation in response to faces. One of the classic studies of this phenomenon was conducted by `Haxby et al., 2001 <https://science.sciencemag.org/content/293/5539/2425.abstract>`__; and it happens that we can download the data from that study and analyze it the same way. We will learn how to do that in the following chapters, in order to both consolidate what you've learned about MVPA, extend it to a group analysis, and replicate the results of a famous experiment.
+
