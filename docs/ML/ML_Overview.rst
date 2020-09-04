@@ -29,3 +29,9 @@ The following chapters are based on a tutorial from the `Brown University websit
    :caption: Introduction to Machine Learning
 
    ML_Short_Course/ML_01_Brown_Example
+   ML_Short_Course/ML_02_Haxby_Intro_Download
+   ML_Short_Course/ML_03_Haxby_Preprocessing
+   ML_Short_Course/ML_04_Haxby_GLM
+   ML_Short_Course/ML_05_Haxby_MVPA
+   ML_Short_Course/ML_06_Haxby_Scripting
+   ML_Short_Course/ML_07_Haxby_GroupAnalysis
