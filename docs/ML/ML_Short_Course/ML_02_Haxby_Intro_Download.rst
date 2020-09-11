@@ -147,6 +147,8 @@ This in turn will generate a file called "proc.sub-1". The only edit I would mak
 
   @auto_tlrc -base MNI_avg152T1+tlrc -input sub-1_T1w_ns+orig -no_ss -init_xform AUTO_CENTER
   
+Also, change the line ``-bucket`` to ``-cbucket`` to output only the coefficients (i.e., beta weights) for each regressor in the model. This will make it easier to write the script for extracting the beta weights.
+  
 Then, run the script by typing:
 
   tcsh -xef proc.sub-1
@@ -159,3 +161,90 @@ After about half an hour, you should see all of the files output into the folder
   
 To check registration, normalization, and any volumes censored due to motion.
 
+Extracting the Beta Maps
+************************
+
+To extract the beta maps from the output statistics file, ``stats.sub-1+tlrc``, we can use the same for-loop structure that we used for the Brown data:
+
+::
+
+  for a in $(seq 48 59); do (( b =`expr $a - 47` )); 3dTcat -prefix bottle.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 60 71); do (( b =`expr $a - 59` )); 3dTcat -prefix cat.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 72 83); do (( b =`expr $a - 71` )); 3dTcat -prefix chair.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 84 95); do (( b =`expr $a - 83` )); 3dTcat -prefix face.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 96 107); do (( b =`expr $a - 95` )); 3dTcat -prefix house.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 108 119); do (( b =`expr $a - 107` )); 3dTcat -prefix scissors.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 120 131); do (( b =`expr $a - 119` )); 3dTcat -prefix scrambledpix.$b.nii stats.sub-1+tlrc[${a}]; done
+  for a in $(seq 132 143); do (( b =`expr $a - 131` )); 3dTcat -prefix shoe.$b.nii stats.sub-1+tlrc[${a}]; done
+  
+We will then use the even-numbered beta maps for training data, and the odd-numbered maps for testing:
+
+::
+
+  3dTcat -prefix bottle.train.nii bottle.1.nii bottle.3.nii bottle.5.nii bottle.7.nii bottle.9.nii bottle.11.nii
+  3dTcat -prefix cat.train.nii cat.1.nii cat.3.nii cat.5.nii cat.7.nii cat.9.nii cat.11.nii
+  3dTcat -prefix chair.train.nii chair.1.nii chair.3.nii chair.5.nii chair.7.nii chair.9.nii chair.11.nii
+  3dTcat -prefix face.train.nii face.1.nii face.3.nii face.5.nii face.7.nii face.9.nii face.11.nii
+  3dTcat -prefix house.train.nii house.1.nii house.3.nii house.5.nii house.7.nii house.9.nii house.11.nii
+  3dTcat -prefix scissors.train.nii scissors.1.nii scissors.3.nii scissors.5.nii scissors.7.nii scissors.9.nii scissors.11.nii
+  3dTcat -prefix scrambledpix.train.nii scrambledpix.1.nii scrambledpix.3.nii scrambledpix.5.nii scrambledpix.7.nii scrambledpix.9.nii scrambledpix.11.nii
+  3dTcat -prefix shoe.train.nii shoe.1.nii shoe.3.nii shoe.5.nii shoe.7.nii shoe.9.nii shoe.11.nii
+  
+  3dTcat -prefix trainBlock.nii *train.nii
+
+  3dTcat -prefix bottle.test.nii bottle.2.nii bottle.4.nii bottle.6.nii bottle.8.nii bottle.10.nii bottle.12.nii
+  3dTcat -prefix cat.test.nii cat.2.nii cat.4.nii cat.6.nii cat.8.nii cat.10.nii cat.12.nii
+  3dTcat -prefix chair.test.nii chair.2.nii chair.4.nii chair.6.nii chair.8.nii chair.10.nii chair.12.nii
+  3dTcat -prefix face.test.nii face.2.nii face.4.nii face.6.nii face.8.nii face.10.nii face.12.nii
+  3dTcat -prefix house.test.nii house.2.nii house.4.nii house.6.nii house.8.nii house.10.nii house.12.nii
+  3dTcat -prefix scissors.test.nii scissors.2.nii scissors.4.nii scissors.6.nii scissors.8.nii scissors.10.nii scissors.12.nii
+  3dTcat -prefix scrambledpix.test.nii scrambledpix.2.nii scrambledpix.4.nii scrambledpix.6.nii scrambledpix.8.nii scrambledpix.10.nii scrambledpix.12.nii
+  3dTcat -prefix shoe.test.nii shoe.2.nii shoe.4.nii shoe.6.nii shoe.8.nii shoe.10.nii shoe.12.nii
+  
+  3dTcat -prefix testBlock.nii *test.nii
+  
+We will also create a file, ``trainLabels.1D``, that contains a number indexing which volume in the dataset ``trainBlock.nii`` belongs to which category. For example, 1's can represent the "bottle" beta maps, 2's can represent the "cat" beta maps, and so on. Open a text editor such as TextWrangler or the vi editor, and enter six 1's, one per row, followed by six 2's, and so on, up until the number 8:
+
+::
+
+  1
+  1
+  1
+  1
+  1
+  1
+  2
+  2
+  2
+  2
+  2
+  2
+  
+etc.
+  
+Creating the Mask
+*****************
+
+In the original Haxby study, the authors created masks (called volumes of interest, or VOIs, in their paper), using the following criteria:
+
+
+  Volumes of interest (VOI) were drawn on the high-resolution structural images to identify ventral temporal, lateral temporal, and ventrolateral occipital cortex. The VOI for ventral temporal cortex extended from 70 to 20 mm posterior to the anterior commissure in Talairach brain atlas coordinates (41) and consisted of the lingual, parahippocampal, fusiform, and inferior temporal gyri. The VOI for lateral temporal cortex also extended from 70 to 20 mm posterior to the anterior commissure and consisted of the middle temporal gyrus and both banks of the superior temporal sulcus. The VOI for ventrolateral occipital cortex extended from the occipital pole to 70 mm posterior to the anterior commissure and consisted of the lingual, fusiform, inferior occipital, and middle occipital gyri. Voxels within these VOIs that were significantly object-selective (P , 1026, uncorrected) were used for the analysis of within-category and between-category correlations.
+  
+These regions were chosen because they usually show a BOLD response to faces and to objects. In particular, the ventral region of the temporal cortex can be parcellated into two functional regions: The Fusiform Face Area (FFA) and the Parahippocampal Place Area (PPA).
+
+
+Testing and Training the Classifier
+***********************************
+
+Now that we have all of the ingredients - training and testing blocks, a training labels file, and a mask of the FFA - we are ready to use the command ``3dsvm`` to 
+train a classifier to distinguish between the different categories:
+
+::
+
+  3dsvm -trainvol trainBlock.nii -trainlabels trainLabels.1D -model trainSet.model.nii -mask FFA.nii 
+  
+And then test the classifier, also using the ``3dsvm`` command:
+
+::
+
+  3dsvm -testvol testBlock.nii -model trainSet.model.nii -classout -predictions exemplar
