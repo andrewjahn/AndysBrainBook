@@ -233,18 +233,41 @@ In the original Haxby study, the authors created masks (called volumes of intere
 These regions were chosen because they usually show a BOLD response to faces and to objects. In particular, the ventral region of the temporal cortex can be parcellated into two functional regions: The Fusiform Face Area (FFA) and the Parahippocampal Place Area (PPA).
 
 
-Testing and Training the Classifier
-***********************************
+Creating ROIs from FreeSurfer
+*****************************
 
-Now that we have all of the ingredients - training and testing blocks, a training labels file, and a mask of the FFA - we are ready to use the command ``3dsvm`` to 
-train a classifier to distinguish between the different categories:
+Since normalization can introduce unwanted interpolations into the data, we can run our ROI analyses in native space using the parcellations from FreeSurfer. Once you've run recon-all on a subject, convert the annotations to individual label files using ``mri_annotation2label``:
 
 ::
 
-  3dsvm -trainvol trainBlock.nii -trainlabels trainLabels.1D -model trainSet.model.nii -mask FFA.nii 
+  mri_annotation2label --subject Dev03 --hemi lh --outdir label
   
-And then test the classifier, also using the ``3dsvm`` command:
+This will store all of the labels as ROIs in a directory called ``label``. We will then need to register the anatomical image to the subject that was run through recon-all:
 
 ::
 
-  3dsvm -testvol testBlock.nii -model trainSet.model.nii -classout -predictions exemplar
+  tkregister2 --mov rt1spgr_208sl.nii --noedit --s Dev03 --regheader --reg register.dat
+  
+We can then pick whichever label we want to convert to volumetric space. For example, if I wanted to convert the left superior temporal gyrus to volumetric space, I would type:
+
+::
+
+  mri_label2vol --label label/lh.superiortemporal.label --temp rt1spgr_208sl.nii --subject Dev03 --hemi lh --o Dev03_lh_superiorTemporal.nii --proj frac 0 1 .1 --fillthresh .3 --reg register.dat
+  
+You can then view the output image "Dev03_lh_superiorTemporal.nii" overlaid on the anatomical image to make sure it is aligned with the structure you intended.
+
+.. note::
+
+  Sometimes the header of the anatomical image will say that it is in normalized space, even if it hasn't been warped. To correct this, use a command like 3drefit to fix the problem:
+  
+  3drefit -space ORIG anatomical.nii
+
+
+Then run the classification script (ADD HERE)
+
+And view the output with:
+
+::
+
+  figure; h= heatmap(results.confusion_matrix.output{1})
+
