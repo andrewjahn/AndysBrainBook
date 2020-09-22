@@ -9,25 +9,18 @@ Machine Learning for Neuroimagers
 Overview
 ********
 
-Machine Learning is a method of using data to train a classifier; this is called **training data**. The classifier is then provided with new data (also known as **testing data**), and it attempts to distinguish between different classes within the data based on the training data. The classifier's perfomance is judged by its accuracy - how many is the testing data points it managed to correctly classify.
 
-The training data has one or more **features** that are used to train the classifier. These features can be any characteristic; for example, height and hair length. You have probably met several thousand people in your life, and you've seen many thousands more in movies, pictures, and magazines. Over time, you've learned that in general males tend to be taller than females and have shorter hair, which implies that women tend to be shorter and have longer hair. There are of course exceptions: Some males are quite short and have long hair, while some females are taller than the average male and have short hair (for example, Tilda Swinton). All of these experiences can be thought of as "training data" which you've observed during your life.
+.. figure:: Haxby_Fig3A.png
 
-Now imagine that I tell you there's a person standing outside the door, and that their height is six feet four inches, and that their hair length is three inches. (The average height for men in the United States, by the way, is five feet, nine inches, with an average hair length somewhere between two and six inches.) What would be your best guess about whether it is a male or female? In this case, given the average height and hair distributions for males and females, it would very likely be a male.
+Machine Learning is a method of using data to train a classifier; this is called **training data**. The classifier is then provided with new data (also known as **testing data**), and it attempts to distinguish between different classes within the data based on the training data. The classifier's perfomance is judged by its accuracy - how many of the testing data points it managed to correctly classify.
 
-If I now say that there's another person behind the door, and that they are five feet and seven inches tall with a hair length of eight inches, what would you guess? This is a more difficult classification, since both features tend to be somewhere around the middle range for both males and females. We would expect you - the "classifier" in this example - to be less accurate for these "testing data", and more accurate for the testing data that tend towards one end of the distribution.
-
-Applying Machine Learning to fMRI Data
-**************************************
-
-From this basic example, we can apply the same principles to a more complicated dataset, such as fMRI data. In previous modules you have learned how to preprocess and analyze an fMRI dataset from start to finish - beginning with cleaning up the data using techniques such as motion correction and coregistration, and ending with creating a general linear model to estimate the amount of brain activity in response to different stimuli. 
-
-The following chapters are based on a tutorial from the `Brown University website <https://www.brown.edu/carney/mri/researchers/analysis-pipelines/mvpa>`__. 
+After working through an example with AFNI to learn the basics, we will begin to use a Matlab package called `The Decoding Toolbox <https://sites.google.com/site/tdtdecodingtoolbox/>`__. This will expand our options of different classifiers to use, such as searchlight algorithms and representational similarity analysis (RSA). This course will give you the experience needed to design and analyze your own MVPA experiment.
 
 .. toctree::
    :maxdepth: 1
    :caption: Introduction to Machine Learning
 
+   ML_Short_Course/ML_00_Introduction
    ML_Short_Course/ML_01_Brown_Example
    ML_Short_Course/ML_02_Haxby_Intro_Download
    ML_Short_Course/ML_03_Haxby_Preprocessing
