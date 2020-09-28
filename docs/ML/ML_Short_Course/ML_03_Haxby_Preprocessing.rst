@@ -75,7 +75,7 @@ Then click on ``Source Image``, navigate to sub-1's ``anat`` directory, and sele
 Specifying the GLM
 ******************
 
-Now that we have set up our motion correction and coregistration, we are done with preprocessing and ready to begin specifying our GLM. To prepare for this, go back to the Matlab terminal, make sure you are in the ``Haxby_Data`` directory, and type ``mkdir SPM_Results``.
+Now that we have set up our motion correction and coregistration, we are done with preprocessing and ready to begin specifying our GLM. To prepare for this, go back to the Matlab terminal, make sure you are in the ``Haxby_Data`` directory, and type ``mkdir SPM_Results_1``.
 
 This directory will be the input for the ``Directory`` field in the ``fMRI model specification`` module. Also set the Units for design to ``Seconds`` and the Interscan interval to ``2.5``:
 
