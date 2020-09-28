@@ -49,10 +49,55 @@ So far, the modified script should look something like this:
 
 .. figure:: 05_Haxby_Script_Edited1.png
 
+Line 63 indicates the output that you want from the analysis; the default is "accuracy minus chance." A more useful output is a confusion matrix, which shows how accurate the classifier is at identifying each condition correctly. In this case, we will uncomment the line and change it to "confusion_matrix":
+
+::
+
+  cfg.results.output = {'confusion_matrix'};
+
 The last line to edit is near the end, which starts with ``cfg=decoding_describe_data``. This contains only two conditions; to expand it to our 8 conditions, we will replace it with this code:
 
 ::
 
   cfg = decoding_describe_data(cfg,{labelname1 labelname2 labelname3 labelname4 labelname5 labelname6 labelname7 labelname8},[1 2 3 4 5 6 7 8],regressor_names,beta_loc);
+
+
+Examining the Results
+*********************
+
+Now save the file and run it from the terminal by typing ``Haxby_MVPA_ROI``. This should only take a few moments, and you will then see the following figures:
+
+.. figure:: 05_Haxby_ROI_Output.png
+
+  The output from an MVPA ROI analysis. The figure on the left shows the beta maps that are used as both training and testing data, which uses a leave-one-out cross-validation procedure. The figure on the right shows a three-dimensional representation of the voxels in the mask.
   
-Now save the file and run it from the terminal by typing ``Haxby_MVPA_ROI``.
+The results are stored in two places: Your Matlab workspace, in the variable ``results``, and in a .mat file in the statistics directory called ``res_confusion_matrix.mat``. (That way, you still have the results written to your disk even if you clear your Matlab workspace.) To see the confusion matrix, type:
+
+::
+
+  results.confusion_matrix.output{1}
+  
+Which will return something like this:
+
+.. figure:: 05_Haxby_ROI_Results.png
+
+This can also be represented as a heatmap:
+
+::
+
+  figure; heatmap(results.confusion_matrix.output{1}, 'Colormap', jet)
+  
+.. figure:: 05_Haxby_ConfusionMatrix_Heatmap.png
+
+Going from left to right, and from top to bottom, the columns and rows are 1) bottle; 2) cat; 3) chair; 4) face; 5) house; 6) scissors; 7) scrambledpix; and 8) shoe - the same order as they were entered into the GLM.
+
+How should we interpret this? If we look at the number in the upper left corner, we see that it is 58.33%. That means that when the classifier was trained with the beta maps for the bottle condition, it accurately identified other beta maps for the bottle condition 58.33% of the time. If we look at the neighboring square to the right with a value of 8.33%, that is the amount that bottle beta maps were misidentified as cat beta maps. A perfect classifier would be 100% on all of the squares along the diagonal, since every condition would be correctly classified. Note that the highest classification accuracy is for faces and houses and the lowest accuracy is for scissors, replicating the main findings in the Haxby paper.
+
+Searchlight Analysis
+********************
+
+The ROI analysis we just did gave us a single classification accuracy number per condition. This is useful if we have an ROI a priori, but what if we want to look at the whole brain?
+
+One method to do this is called **searchlight analysis**. The searchlight is composed of a cluster of voxels of a given size specified by the user, which is centered consecutively at each voxel in the brain. The above ROI analysis is done here in miniature, with a leave-one-out cross-validation performed at each position of the searchlight; the classification accuracy is then stored in the center of the searchlight, and the process is repeated for the next voxel.
+
+To 
