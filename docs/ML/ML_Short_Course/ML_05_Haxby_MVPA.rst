@@ -100,4 +100,19 @@ The ROI analysis we just did gave us a single classification accuracy number per
 
 One method to do this is called **searchlight analysis**. The searchlight is composed of a cluster of voxels of a given size specified by the user, which is centered consecutively at each voxel in the brain. The above ROI analysis is done here in miniature, with a leave-one-out cross-validation performed at each position of the searchlight; the classification accuracy is then stored in the center of the searchlight, and the process is repeated for the next voxel.
 
-To 
+To run this analysis, click on ``Save -> Save Copy as...`` and call the new file ``Haxby_MVPA_Searchlight``. Open it in the terminal and change the ``cfg.analysis`` from "ROI" to "searchlight". Since we are examining a relatively large area, let's increase the searchlight radius to 5. Later one, in lines 50-53, you can decide to change the units to millimeters instead of voxels, and whether to make the searchlight spherical. Also, if we want to run the searchlight across the whole brain and not just the mask we specified previously, comment out line 31 (``cfg.files.mask``). Let's also uncomment lines 52 and 53 (i.e., ``cfg.serachlight.spherical`` and ``cfg.verbose``), save the script, and then run it from the terminal by typing ``Haxby_MVPA_Searchlight``.
+
+You will see the same training and testing data figure as before, along with a figure that appears to show a group of voxels being used as a mask. Every few seconds or so, the group of voxels will move to a different location, demonstrating how the searchlight moves through all of the voxels in the brain. Note that it sometimes seems irregularly shaped, especially near the edges of the brain, but that it is a spherical cluster inside the brain mask.
+
+.. figure:: 05_Haxby_Searchlight.png
+
+The result of this analysis is a file in the ``SPM_Results_1`` directory called ``res_accuracy_minus_chance.nii``. I find it useful to overlay this on the subject's coregistered anatomical image in a viewer such as AFNI; after copying the file ``rsub-1_T1w.nii`` into the ``SPM_Results_1`` directory and loading the AFNI viewer, experiment with different viewing settings, in particular the threshold. Remember that the values in the image are the accuracy scores minus chance; since chance in this study is 1/8, or 12.5%., any negative values are accuracy scores less than chance, and any positive values are above chance. For example, if in a certain voxel we find a value of 25, that means the classification accuracy at that voxels is 25%+12.5%, or 37.5% total.
+
+.. figure:: 05_Haxby_Searchlight_Results.png
+
+  Sample figure of the searchlight results, overlaid onto the subject's coregistered anatomical volume. The iamge is thresholded at 30, which shows classification accuracies of 42.5% or greater. The highest classification accuracies are found in the ventral temporal cortex, similar to what was found in the Haxby 2001 paper.
+  
+Next Steps
+**********
+
+Now that we have both ROI and whole-brain searchlight results, we can repeat the same procedure for all of the subjects in our study. To see how to automate the process, click the ``Next`` button.
