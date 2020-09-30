@@ -64,15 +64,15 @@ So far, we have used the CONN toolbox to model one condition: The resting-state 
 
   subjects = [01 02 03 04 05 06];
 
-for subject=subjects
+  for subject=subjects
 
-  subject=num2str(subject, '%02d');
-  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-01_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
-  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-02_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
-  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-01_events.tsv'], ['sub-' num2str(subject) '/func'])
-  movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-02_events.tsv'], ['sub-' num2str(subject) '/func'])
+    subject=num2str(subject, '%02d');
+    movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-01_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
+    movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-02_bold.nii.gz'], ['sub-' num2str(subject) '/func'])
+    movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-01_events.tsv'], ['sub-' num2str(subject) '/func'])
+    movefile(['~/Downloads/sub-' num2str(subject) '_func_sub-' num2str(subject) '_task-arithm_run-02_events.tsv'], ['sub-' num2str(subject) '/func'])
 
-end
+  end
 
 
 .. note::
