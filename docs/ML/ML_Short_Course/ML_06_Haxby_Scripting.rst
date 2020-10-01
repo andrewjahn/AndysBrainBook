@@ -87,3 +87,29 @@ When the script has finished running for subjects 2, 3, 4, and 6, the only subje
 Editing the MVPA Scripts
 ************************
 
+The changes to the MVPA scripts are similar to the edits for the preprocessing. At the beginning of the script we will declare our for-loop:
+
+::
+
+  for subject=subjects
+    
+  subject = num2str(subject);
+  
+And then change the code for setting the results and beta maps directories:
+
+::
+
+  % Set the output directory where data will be saved, e.g. 'c:\exp\results\buttonpress'
+  cfg.results.dir = [pwd '/SPM_Results_' subject];
+
+  % Set the filepath where your SPM.mat and all related betas are, e.g. 'c:\exp\glm\model_button'
+  beta_loc = [pwd '/SPM_Results_' subject];
+  
+And run the script from the terminal. As an exercise, when it has finished modify the script again to do a searchlight analysis for all of the subjects, using the methods you learned in the last chapter. A template script can be downloaded `here <https://github.com/andrewjahn/MachineLearning>`__, under the file ``Haxby_MVPA_Scripted``.
+
+Next Steps
+**********
+
+The ROI results may be all that you need for your analysis; with an accuracy value per condition for each subject, these can be used as values in a t-test. Keep in mind that they need to be compared to chance, as opposed to a baseline of zero. (This might be why one of the outputs you can select is accuracy minus chance; that removes the need for an additional step of subtracting chance.)
+
+If you are instead interested in the searchlight whole-brain results, on the other hand, we will need to normalize them to MNI space. To see how to do that, click the ``Next`` button.
