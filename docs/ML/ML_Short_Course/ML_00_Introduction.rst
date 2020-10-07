@@ -9,7 +9,7 @@ Machine Learning: Introduction to Basic Terms and Concepts
 What is Machine Learning?
 *************************
 
-Machine Learning is a method of using data to train a classifier; this is called **training data**. The classifier is then provided with new data (also known as **testing data**), and it attempts to distinguish between different classes within the data based on the training data. The classifier's perfomance is judged by its accuracy - how many of the testing data points it managed to correctly classify.
+Machine Learning is a method of using data to train a classifier; this is called **training data**. The classifier is then provided with new data (also known as **testing data**), and it attempts to distinguish between different classes within the data based on the training data. The classifier's performance is judged by its accuracy - how many of the testing data points it managed to correctly classify.
 
 The training data has one or more **features** that are used to train the classifier. These features can be any characteristic; for example, height and hair length. You have probably met several thousand people in your life, and you've seen many thousands more in movies, pictures, and magazines. Over time, you've learned that in general males tend to be taller than females and have shorter hair, which implies that women tend to be shorter and have longer hair. There are of course exceptions: Some males are quite short and have long hair (such as Sam Kinison), while some females are taller than the average male and have short hair (for example, Tilda Swinton). All of these experiences can be thought of as "training data" which you've observed during your life.
 
