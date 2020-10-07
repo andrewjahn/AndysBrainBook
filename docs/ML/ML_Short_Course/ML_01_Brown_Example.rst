@@ -13,14 +13,14 @@ This tutorial is transcribed almost verbatim from the `Brown University website 
 
 The study design, according to the website, was as follows:
 
-  We presented a participant with 4 different types of visual stimuli (cars, shoes, faces, houses) in a blocked design. The participant passively viewed these images (no task was performed). The study consisted of 8 runs, where each run was comprised of four blocks, one for each stimulus category. Within each block there were 10 images from a single simulus condition. The blocks were randomized across each run, and no image was repeated across runs (80 images per category total).
+  We presented a participant with 4 different types of visual stimuli (cars, shoes, faces, houses) in a blocked design. The participant passively viewed these images (no task was performed). The study consisted of 8 runs, where each run was comprised of four blocks, one for each stimulus category. Within each block there were 10 images from a single stimulus condition. The blocks were randomized across each run, and no image was repeated across runs (80 images per category total).
   
 This dataset can be downloaded `here <https://drive.google.com/drive/folders/0B141z-GC_3Bdbms5TGlGRU9DRlk>`__. By highlighting all of the items and right-clicking, you can select "Download". This will place the files within your ``Downloads`` folder.
   
 Pre-processing
 **************
 
-The data for this study has already been preprocessed, which includes sclie-timing correction, motion correction, and spatial smoothing. Note that some studies do not perform spatial smoothing, in order to keep the activation profiles of each voxel as separate as possible; because we are not concerned with detecting the strength of a signal that is there, we do not need to average together the signal of nearby voxels. We will cover this more in a later tutorial, in which you compare the results both with and without smoothing.
+The data for this study has already been preprocessed, which includes slice-timing correction, motion correction, and spatial smoothing. Note that some studies do not perform spatial smoothing, in order to keep the activation profiles of each voxel as separate as possible; because we are not concerned with detecting the strength of a signal that is there, we do not need to average together the signal of nearby voxels. We will cover this more in a later tutorial, in which you compare the results both with and without smoothing.
 
 Regression Analysis
 *******************
