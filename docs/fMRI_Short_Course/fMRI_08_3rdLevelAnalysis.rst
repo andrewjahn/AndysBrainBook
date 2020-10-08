@@ -1,12 +1,12 @@
 .. _fMRI_08_3rdLevelAnalysis:
 
-fMRI tutorial #8: 3rd-Level Analysis
-===================
+fMRI Tutorial #8: 3rd-Level Analysis
+====================================
 
 -------------
 
 Overview
-*********
+********
 
 Our goal in analyzing this dataset is to generalize the results to the population that the sample was drawn from. In other words, if we see changes in brain activity in our sample, can we say that these changes would likely be seen in the population as well?
 
@@ -20,7 +20,7 @@ Loading the Data
 From the Flanker directory, open the FEAT GUI. As with the 2nd-level analysis, select ``Higher-level analysis``. Now, instead of selecting FEAT directories, choose ``Inputs are 3D cope images from FEAT directories``, and change the number of inputs to 26. The 2nd-level analysis generated an average contrast of parameter estimate (or **cope**) for each subject for each contrast that was specified in our model. As with selecting the FEAT directories during the 2nd-level analysis, we can copy and paste a list of the cope images: Click on ``Select cope images`` and then click the ``Paste`` button. In the Terminal, navigate to the directory ``Flanker_2ndLevel.gfeat/cope3.feat/stats``, and type ``ls $PWD/cope* | sort -V``. This will list all of the cope images in numerical order, even though they are not zero-padded. Copy and paste the list into the ``Input data`` window by typing ``ctrl+y``. After clicking ``OK``, label the output directory as ``Flanker_Level3_inc-con``.
 
 Creating the GLM
-***********
+****************
 
 Click on the ``Stats`` tab. For a 3rd-level analysis, we will used Mixed Effects. This models the variance so that our results are generalizable to the population our sample was drawn from. FLAME 1 (FSL’s Local Analysis of Mixed Effects) provides accurate parameter estimates by using information about both within-subject and between-subject variability; FLAME1+2 is considered even more accurate, but the additional benefit is usually minimal, and the process takes much longer.
 
@@ -36,7 +36,7 @@ Since we're using a simple design, we can quickly create a GLM using the ``Model
 
 
 The Post-Stats Tab
-**********
+******************
 
 Now we finally discuss the ``Post-Stats`` tab. The only defaults you would probably want to consider changing are the Thresholding options. ``None`` won’t do any thresholding (i.e., show the parameter estimate at every voxel, regardless of significance); ``Uncorrected`` will allow any individual voxels to pass the threshold specified in Z-threshold (e.g., here we would only show voxels that have a value greater than 3.1); ``Voxel`` will perform a type of maximum height thresholding based on Gaussian Random Field theory, which is less conservative than a Bonferroni test; and lastly ``Cluster``, which uses a cluster-defining threshold (CDT) to determine whether a cluster of voxels is significant. The logic behind this approach is that neighboring voxels are not independent of one another, and this reduced degrees of freedom is taken into account when estimating significance.
 
@@ -51,7 +51,7 @@ Now click ``Go``. This will take about 5-10 minutes, depending on how powerful y
 
 
 Reviewing the Output
-*************
+********************
 
 In the FEAT HTML output, you will see the thresholded z-statistic image overlaid on a template MNI brain. These are axial slices, and they give you a quick overview of where the significant clusters are located.
 
@@ -69,8 +69,8 @@ To make the results look cleaner, change the color scheme to "Red-Yellow", and c
 
 ------
 
-Exercise
-*******
+Exercises
+*********
 
 1. In the ``Post-stats`` tab, set the Thresholding to ``None``, and re-run the analysis (changing the output directory to something that indicates that no threshold is being used). Examine the results in fsleyes. How do they compare to the cluster-corrected results?
 
@@ -79,6 +79,6 @@ Exercise
 ------
 
 Video
-********
+*****
 
 Click `here <https://www.youtube.com/watch?v=4_gJokjStgc>`__ for a demonstration of how to set up and analyze a group-level analysis in FSL.
