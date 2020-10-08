@@ -48,7 +48,7 @@ What if the HRFs overlap?
 
 We have seen what the BOLD signal looks like after a stimulus is presented and how the HRF models the shape of that signal. But what happens if another stimulus is presented before the BOLD response for the previous stimulus has returned to baseline?
   
-In that case, the individual HRFs are convolved. This creates a BOLD response that is a moving average of the individual HRFs, and the shape of the BOLD signal becomes more complex as more stimuli are presented close together.
+In that case, the individual HRFs are summed together. This creates a BOLD response that is a moving average of the individual HRFs, and the shape of the BOLD signal becomes more complex as more stimuli are presented close together.
 
 .. figure:: 05_03_HRF_Sum.png
   :scale: 30%
