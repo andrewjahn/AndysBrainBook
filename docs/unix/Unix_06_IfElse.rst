@@ -14,7 +14,7 @@
 Unix Tutorial #6: Conditional Statements
 =============
 
-At this point, we’ll start to use our Unix commands with fMRI data. Click on the link in the More Info box down below for instructions about how to download the Flanker dataset, install FSL, and what skull-stripping is. When you’ve finished, come back to this tutorial.
+At this point, we’ll start to use our Unix commands with fMRI data. Click :ref:`here <fMRI_01_DataDownload>` for instructions about how to download the Flanker dataset, install FSL, and what skull-stripping is. When you’ve finished, come back to this tutorial.
 
 The previous video on for-loops showed us how to run many blocks of code with slight alterations between each execution. But what if we only want to run the code if certain conditions are met? We can automate these decisions with **conditional statements**, also called if-else statements: IF a certain condition is true, THEN do something; else if the condition is not true, do something else.
 
