@@ -28,7 +28,7 @@ DODS vs. DOSS
 
 Before we model these covariates, we need to be familiar with FreeSurfer's modeling options: Different Onset, Different Slope (or **DODS**) and Different Onset, Same Slope (or **DOSS**). DODS will estimate a separate onset (or **intercept**) and a separate slope for each of the covariates in the model, while DOSS restricts the slopes for both covariates to be the same.
 
-The advantages of DSDS are that less parameters are estimated, and therefore you will have more degrees of freedom and more statistical power. This probably doesn't matter for large datasets with many degrees of freedom, but it may have an effect on datasets that have only a couple dozen subjects and several covariates. For most analyses, however, DODS is the better option - it is more flexible, and also allows you to model interaction effects. Whichever model you choose, you should use the model that you think is most reasonable for your data.
+The advantages of DOSS are that fewer parameters are estimated, and therefore you will have more degrees of freedom and more statistical power. This probably doesn't matter for large datasets with many degrees of freedom, but it may have an effect on datasets that have only a couple dozen subjects and several covariates. For most analyses, however, DODS is the better option - it is more flexible, and also allows you to model interaction effects. Whichever model you choose, you should use the model that you think is most reasonable for your data.
 
 .. figure:: 10_DODS_DOSS.png
 
