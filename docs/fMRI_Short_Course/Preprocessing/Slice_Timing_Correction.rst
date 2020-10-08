@@ -7,7 +7,7 @@ Unlike a photograph, in which the entire picture is taken in a single moment, an
 
 The two most commonly used methods for creating volumes are sequential and interleaved slice acquisition. Sequential slice acquisition acquires each adjacent slice consecutively, either bottom-to-top or top-to-bottom. Interleaved slice acquisition acquires every other slice, and then fills in the gaps on the second pass. Both of these methods are illustrated in the video below.
 
-.. figure:: SliceTImingCorrection_Demo.gif
+.. figure:: SliceTimingCorrection_Demo.gif
 
 As you'll see later on, when we model the data at each voxel we assume that all of the slices were acquired simultaneously. To make this assumption valid, the :ref:`time-series <Time_Series>` for each slice needs to be shifted back in time by the duration it took to acquire that slice. `Sladky et al. (2011) <https://www.sciencedirect.com/science/article/pii/S1053811911007245>`__ also demonstrated that slice-timing correction can lead to significant increases in statistical power for studies with longer TRs (e.g., 2s or longer), and especially in the dorsal regions of the brain.
 
