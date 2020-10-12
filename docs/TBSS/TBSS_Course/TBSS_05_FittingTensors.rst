@@ -22,9 +22,13 @@ Creating the tensors is done most easily through the GUI; when you have done it 
 From the dropdown menu highlighted in the orange box, select "DTIFIT Reconstruct diffusion tensors". You can specify a directory that has all of the files we just created - the unwarped diffusion data, the brain mask, the bvals and bvecs - but they have to be formatted a certain way for DTIFIT to recognize it. Instead, clicking on the box "Specify input files manually" allows you to enter each of these files individually:
 
 *Diffusion weighted data: The unwarped, eddy-corrected diffusion-weighted data (AP_eddy_unwarped.nii.gz)
+
 *BET binary brain mask: The brain mask (AP_brain_mask.nii.gz)
+
 *Output basename: This will be automatically filled in for you with the string "dti"
+
 *Gradient directions: The bvecs file (sub-CON08_ses-preop_acq-AP_dwi.bvec)
+
 *b-values: The bvals file (sub-CON08_ses-preop_acq-AP_dwi.bval)
 
 .. figure:: 05_FDT_filled.png
