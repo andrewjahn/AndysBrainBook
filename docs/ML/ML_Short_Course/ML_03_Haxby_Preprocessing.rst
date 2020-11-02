@@ -17,7 +17,7 @@ Another step we may choose to remove is **normalization**. In a typical univaria
 The Preprocessing Pipeline
 **************************
 
-To reproduce the Haxby results, we will keep our preprocessing a minimum, avoiding interpolation wherever we can. To that end, we will include only the following two steps:
+To reproduce the Haxby results, we will keep our preprocessing to a minimum, avoiding interpolation wherever we can. To that end, we will include only the following two steps:
 
 1. Motion correction and realignment of the functional volumes; and
 
