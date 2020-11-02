@@ -79,7 +79,7 @@ In order to avoid any ordering confounds, we will select at random beta maps fro
 
   3dTcat -prefix cars.train.nii cars.3.nii cars.4.nii cars.5.nii cars.6.nii cars.7.nii cars.8.nii
   
-This will create a new dataset, ``cars.train.nii`, which contains beta maps 3 throught 8. We will do a similar procedure for the other conditions, selecting different sets of beta maps:
+This will create a new dataset, ``cars.train.nii`, which contains beta maps 3 through 8. We will do a similar procedure for the other conditions, selecting different sets of beta maps:
 
 ::
 
