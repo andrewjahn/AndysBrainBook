@@ -109,7 +109,7 @@ These need to be replaced for each condition for the first run, and then done fo
 
 .. note::
 
-  If you are uncertain about how to fill in the rest of the fields, a copy of the script can be downloaded here (INSERT LINK).
+  If you are uncertain about how to fill in the rest of the fields, a copy of the script can be downloaded `here <https://github.com/andrewjahn/MachineLearning/blob/main/Haxby_Script_job.m>`__.
   
 Lastly, add this line to the end of the script in order to run the code:
 
