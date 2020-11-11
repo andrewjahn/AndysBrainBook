@@ -88,7 +88,7 @@ In the previous chapter, we created a template script from the SPM GUI and label
 
   This section draws upon many of the same principles discussed in the SPM chapter on :ref:`scripting <SPM_06_Scripting>`. If you haven't already, it may help to work through the entire SPM tutorial in order to develop a foundation for what we will learn next.
   
-Around line 58 is where the fMRI specification module is defined. Around this area, and before the onset times are defined, enter the following code (I place this at lines 64-65 in my script:
+Around line 58 is where the fMRI specification module is defined. Before the onset times are defined, enter the following code (I place this at lines 64-65 in my script):
 
 ::
 
@@ -99,7 +99,7 @@ This will load each text file for ``sub-1`` into a variable. Usually the variabl
 
 Remember that when we created this script in the GUI, we left the onset times undefined. In the script, you will see the string ``<UNDEFINED>`` that was not filled in from the GUI; we will replace these with the appropriate values from the text files that we just loaded.
 
-For example, in the first onset field in my script is at line 67. Since this is the onset time for the ``bottle`` condition for run 1, I will need to extract the first row of the file ``bottle.txt``. I can assign it to this field by replacing ``<UNDEFINED>`` with ``bottle(1,:)``. (You can double-check what value is being assigned by typing ``bottle(1,:)`` at the Matlab terminal. We will then do this for the other conditions as well, which you can see in the figure below:
+For example, the first onset field in my script is at line 67. Since this is the onset time for the ``bottle`` condition for run 1, I will need to extract the first row of the file ``bottle.txt``. I can assign it to this field by replacing ``<UNDEFINED>`` with ``bottle(1,:)``. (You can double-check what value is being assigned by typing ``bottle(1,:)`` at the Matlab terminal.) We will then do this for the other conditions as well, which you can see in the figure below:
 
 .. figure:: 04_Script_Timings.png
 
