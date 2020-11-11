@@ -9,7 +9,7 @@ Machine Learning Tutorial #4: Creating the Timing Files
 Overview
 ********
 
-Each subject in the dataset has 12 timing files in their ``func`` folder, corresponding to each run of functional data. For example, the first few lines of the file ``sub-1_task_objectviewing_run-01_events.tsv`` in the folder ``sub-1/func`` looks like this:
+Once we have created a template, we will need to change the timings for each run. Each subject in the dataset has 12 timing files in their ``func`` folder, corresponding to each run of functional data. For example, the first few lines of the file ``sub-1_task_objectviewing_run-01_events.tsv`` in the folder ``sub-1/func`` looks like this:
 
 ::
 
