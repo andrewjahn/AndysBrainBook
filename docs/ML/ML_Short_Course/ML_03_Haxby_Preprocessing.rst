@@ -100,7 +100,9 @@ The conditions should look something like this:
 
 .. figure:: 03_model_part2.png
 
-Now go back to the ``Data & Design`` field, and select ``Replicate: Subject/Session (1)`` until you have 12 sessions total. Then from the Module list window, select ``Model estimation``, highlight the ``Select SPM.mat`` field, and select the dependency ``fMRI model specification: SPM.mat File``:
+Now go back to the ``Data & Design`` field, and select ``Replicate: Subject/Session (1)`` until you have 12 sessions total. For each of the Scans fields, select the corresponding resliced dependency from the Realignment step.
+
+Once you’ve finished doing this, select ``Model estimation``, highlight the ``Select SPM.mat`` field, and select the dependency ``fMRI model specification: SPM.mat File``:
 
 .. figure:: 03_model_part3.png
 
