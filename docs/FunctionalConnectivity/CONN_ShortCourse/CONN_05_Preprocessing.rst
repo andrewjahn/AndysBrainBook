@@ -46,6 +46,12 @@ Finally, you will be asked to specify a smoothing kernel. As you will see later,
 
   For more details on what each step does, see the :ref:`SPM preprocessing module <SPM_04_Preprocessing>`.
   
+.. note::
+
+  If you notice a coregistration error with certain runs and not others, it may be an issue with the preprocessing stream. Negin Nadvar of the University of Michigan writes:
+  
+  **When preprocessing multiple fMRI runs with conn preprocessing pipelines (such as preprocessing pipeline for indirect normalization to MNI space), if I remove the motion correction steps from the pipeline, I noticed some registration issues with run 2 and higher runs. After lots of troubleshooting, I noticed that when I omit the motion correction step from this pipeline, the CONN toolbox appears to assume that all the runs are already coregistered to run 1 and this results in inaccurate corregistration/normalization for run 2 and higher runs. In order to fix this issue, in the preprocessing window, I deselected the "Process all sessions" and from the drop down menu picked 1 session and applied the preprocessing to that 1 session for all the subjects and next picked another session and applied the preprocessing to each of those sessions individually. This prevented the issue and drastically improved my coregistration/normalization.**
+  
 Video
 *****
 
