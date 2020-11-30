@@ -108,12 +108,12 @@ Once you’ve finished doing this, select ``Model estimation``, highlight the ``
 
 If you wanted to finish filling in all of the fields you need to run the batch from the GUI, you could go back to the fMRI model specification module and enter by hand each of the timings for each condition in each run. This would be tedious to do for each subject, even though we only have six individuals in the current dataset; instead, we will click on ``File -> Save Batch and Script`` and save the script to the ``Haxby_Data`` directory as ``Haxby_Script.m``.
 
+Video
+*****
+
+A thorough demonstration of how to preprocess the data can be found `here <https://www.youtube.com/watch?v=lCYMz6O5AAI>`__.
+
 Next Steps
 **********
 
 Now that we have a template script to work with, we will load the timings for each condition using Matlab code. To see how to do that, click the ``Next`` button.
-
-
-
-
-
