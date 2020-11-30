@@ -35,6 +35,12 @@ Once you have downloaded the data, move it to your Desktop and rename it by typi
 
   mv ~/Downloads/ds000105 ~/Desktop/Haxby_Data
   
+  
+Video
+*****
+
+To see how to download the data, click `here <https://www.youtube.com/watch?v=X0O7wSqRYdI>`__
+  
 Next Steps
 **********
 
