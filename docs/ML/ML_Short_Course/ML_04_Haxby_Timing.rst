@@ -125,6 +125,11 @@ And then run the script from the terminal by tying the name of the script:
   
 It should take about an hour to run.
 
+Video
+*****
+
+For an overview of how to create the timing files for this study, click `here <https://www.youtube.com/watch?v=Fv3KAPW8Kd0>`__.
+
 Next Steps
 **********
 
