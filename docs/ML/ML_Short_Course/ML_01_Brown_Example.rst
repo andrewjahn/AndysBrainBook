@@ -215,3 +215,7 @@ Why This Mask?
 
 You may be wondering why we chose the voxels that we did - specifically, the ones located in the temporal and occipital lobes. These voxels were not chosen at random, but rather were chosen based on many studies that have shown that these voxels show reliable patterns of activation in response to faces. One of the classic studies of this phenomenon was conducted by `Haxby et al., 2001 <https://science.sciencemag.org/content/293/5539/2425.abstract>`__; and it happens that we can download the data from that study and analyze it the same way. We will learn how to do that in the following chapters, in order to both consolidate what you've learned about MVPA, extend it to a group analysis, and replicate the results of a famous experiment.
 
+Video
+*****
+
+For a video demonstration of how to use 3dsvm, click `here <https://www.youtube.com/watch?v=5j-z2ibs00U>`__.
