@@ -100,7 +100,7 @@ The ROI analysis we just did gave us a single classification accuracy number per
 
 One method to do this is called **searchlight analysis**. The searchlight is composed of a cluster of voxels of a given size specified by the user, which is centered consecutively at each voxel in the brain. The above ROI analysis is done here in miniature, with a leave-one-out cross-validation performed at each position of the searchlight; the classification accuracy is then stored in the center of the searchlight, and the process is repeated for the next voxel.
 
-To run this analysis, click on ``Save -> Save Copy as...`` and call the new file ``Haxby_MVPA_Searchlight``. Open it in the terminal and change the ``cfg.analysis`` from "ROI" to "searchlight". Since we are examining a relatively large area, let's increase the searchlight radius to 5. Later one, in lines 50-53, you can decide to change the units to millimeters instead of voxels, and whether to make the searchlight spherical. Also, if we want to run the searchlight across the whole brain and not just the mask we specified previously, comment out line 31 (``cfg.files.mask``). Let's also uncomment lines 52 and 53 (i.e., ``cfg.searchlight.spherical`` and ``cfg.verbose``), save the script, and then run it from the terminal by typing ``Haxby_MVPA_Searchlight``.
+To run this analysis, click on ``Save -> Save Copy as...`` and call the new file ``Haxby_MVPA_Searchlight``. Open it in the terminal and change the ``cfg.analysis`` from "ROI" to "searchlight". Since we are examining a relatively large area, let's increase the searchlight radius to 5. Later one, in lines 50-53, you can decide to change the units to millimeters instead of voxels, and whether to make the searchlight spherical. Also, if we want to run the searchlight across the whole brain and not just the mask we specified previously, comment out line 31 (``cfg.files.mask``). Let's also uncomment lines 53 and 54 (i.e., ``cfg.searchlight.spherical`` and ``cfg.verbose``), and change line 70 from “confusion_matrix” to “accuracy_minus_chance”, which will create the accuracy map, save the script, and then run it from the terminal by typing ``Haxby_MVPA_Searchlight``.
 
 You will see the same training and testing data figure as before, along with a figure that appears to show a group of voxels being used as a mask. Every few seconds or so, the group of voxels will move to a different location, demonstrating how the searchlight moves through all of the voxels in the brain. Note that it sometimes seems irregularly shaped, especially near the edges of the brain, but that it is a spherical cluster inside the brain mask.
 
@@ -111,6 +111,11 @@ The result of this analysis is a file in the ``SPM_Results_1`` directory called 
 .. figure:: 05_Haxby_Searchlight_Results.png
 
   Sample figure of the searchlight results, overlaid onto the subject's coregistered anatomical volume. The image is thresholded at 30, which shows classification accuracies of 42.5% or greater. The highest classification accuracies are found in the ventral temporal cortex, similar to what was found in the Haxby 2001 paper.
+  
+Video
+*****
+
+The video walkthroughs for this chapter are divided into two parts: To see how to do an ROI MVPA analysis, click `here <https://www.youtube.com/watch?v=R0R-1kCIBAI>`__. To see how to do a searchlight analysis, click `here <https://www.youtube.com/watch?v=CTxVHBh6OmI>`__.
   
 Next Steps
 **********
