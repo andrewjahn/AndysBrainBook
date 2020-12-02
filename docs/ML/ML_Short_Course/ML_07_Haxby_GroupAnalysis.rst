@@ -61,8 +61,8 @@ In the first case (Faces compared to Houses), the average classification accurac
 Group Analysis: Searchlight
 ***************************
 
+The group analysis of the searchlight results requires more steps. Remember that our preprocessing pipeline did not include normalization, since we wanted to introduce as few interpolations as possible; this also enabled us to use subject-specific masks for our ROI group analysis.
 
-  
-  
-  
-  
+Our searchlight maps, located within the ``SPM_Results`` directories, will instead need to be normalized before they can be used in a group analysis. To do this, open SPM, and then click ``Segment``. In the ``Volumes`` field, select the image ``rsub-1_T1w.nii`` from the directory ``sub-1/anat``, and in the ``Save Bias Corrected``, change the selection from ``None`` to ``Save Bias Corrected``. At the very bottom of the window, change ``Deformation Fields`` to ``Forward``, and then click the Green Go button. This will only take a minute or two.
+
+When it has finished, go back to the SPM GUI and select ``Normalise -> Write``. Select the file ``y_rsub-1_T1.nii`` from the subject's ``anat`` directory, and for ``Images to Write``, select the realigned functional images within the ``func`` directory (you can find them easily by navigating to the func directory, entering ``^r`` in the Filter, and setting the Frames to ``1:300``. Click ``Done``, and then set the Voxel sizes to ``[3 3 3]``. (You may choose a different normalized resolution; this is simply done to save time for the tutorial and save space on your hard drive.) Then click the Green Go button.
