@@ -73,3 +73,4 @@ From the Matlab terminal, create a new directory by typing ``mkdir 2ndLevel_Grou
 Next Steps
 **********
 
+Now that you have learned the basics of MVPA from preprocessing to group analysis, you are ready to use The Decoding Toolbox on a dataset of your choice. [Fill in some options here]
