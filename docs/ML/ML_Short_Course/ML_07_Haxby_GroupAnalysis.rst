@@ -70,6 +70,11 @@ When it has finished, go back to the SPM GUI and select ``Normalise -> Write``. 
 From the Matlab terminal, create a new directory by typing ``mkdir 2ndLevel_GroupResults``. Then click on ``Specify 2nd-Level`` and select this new directory in the ``Directory`` field. Double-click on the ``Scans`` field, and select all of the normalized accuracy maps; then, click on the ``Estimate`` button and estimate the model. When this is finished, click on ``Results``. Just as with the fMRI studies, you can create a single contrast weight to determine where the classification accuracy is above chance. In this example we will use a voxel-wise threshold of p=0.001 and a cluster threshold of 50; see the link below for a guide to cluster correction if you want to fine-tune this. Notice that the results are strongest in the ventral temporal and occipital areas, similar to the results reported in the original Haxby paper.
 
 
+Video
+*****
+
+For a video demonstration of group level analysis with MVPA, click `here <https://www.youtube.com/watch?v=-zMDVd67tXo>`__.
+
 Next Steps
 **********
 
