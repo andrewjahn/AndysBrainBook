@@ -63,10 +63,6 @@ Which will create 8 files, cars.1.nii, cars.2.nii, all the way until cars.8.nii.
   
 In this case, we include another piece of code, ``expr``. Since we want to label each sub-brik we extract as corresponding to the first through the eighth of that condition, we subtract from the sub-brik number that is specified in the ``seq`` command. For example, the first sub-brik of the Faces condition is the ninth one in the MVPA.BLOCK.nii file; by subtracting 8 from 9, we label the first sub-brik as ``faces.1.nii``, and so on for all of the sub-briks in that condition.
 
-When you have run all of the code above, you should see something like this in your directory:
-
-.. figure:: 01_Extract_sub-brik_output.png
-
 
 Creating the Training Set
 *************************
