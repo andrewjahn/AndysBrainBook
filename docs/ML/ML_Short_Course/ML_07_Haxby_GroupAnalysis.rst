@@ -78,4 +78,4 @@ For a video demonstration of group level analysis with MVPA, click `here <https:
 Next Steps
 **********
 
-Now that you have learned the basics of MVPA from preprocessing to group analysis, you are ready to use The Decoding Toolbox on a dataset of your choice. [Fill in some options here]
+Now that you have learned the basics of MVPA from preprocessing to group analysis, you are ready to use The Decoding Toolbox on a dataset of your choice. In the next chapters, we will review other features of The Decoding Toolbox, such as Representational Similarity Analysis (RSA).
