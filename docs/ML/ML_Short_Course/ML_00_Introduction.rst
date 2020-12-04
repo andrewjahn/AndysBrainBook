@@ -48,3 +48,29 @@ Haxby tested whether these patterns were consistent within categories by splitti
 Support Vector Machines
 ***********************
 
+After the Haxby study was published, new methods were introduced to refine the detection of patterns in imaging data. One of the most popular was **support vector machines**, a machine learning method that can divide the data based on patterns of activity within a group of voxels. This method, introduced to fMRI analysis by David Cox and Robert Savoy in 2003, assumes that the activity in one voxel is independent of the activity in other voxels; a line that can best separate the combinations of activity across voxels is then used to train the classifier as to what pattern belongs to what condition. 
+
+To illustrate this, imagine that we measure the activity in just two voxels. In one scenario, condition A will only elicit activity from one of the voxels and not the other, while conditon B elicits activity only from the other voxel. In this case a typical univariate analysis would show a clear distinction between the two, similar to the Specificity studies that we discussed earlier
+
+In another scenario, both condition A and condition B elicit activity from both voxels, but to slightly different degrees. Univariate analyses wouldn't be able to detect a difference between the two conditions, but there is clearly a difference in the pattern of activity; a support vector machine in this case will draw a line that best separates the activity profiles of these two conditions. Both scenarios are shown in the following figure:
+
+.. figure:: 00_Cox_Savoy_Fig1ab.png
+
+Keep in mind that this method works best with a linearly separable pattern; there may be situations that are separable only by a nonlinear curve:
+
+.. figure:: 00_Cox_Savoy_Fig1c.png
+
+.. note::
+
+  This last scenario, while important, will not be the focus of this module.
+  
+The line that separates the two patterns is called a **hyperplane**. As we deal with larger groups of voxels, such as thousands or tens of thousands, it becomes difficult to represent what this hyperplane looks like. In any case, the concept is the same. 
+
+Now imagine that we train a classifier with this pattern by showing it dozens of instances of both conditions; after a while, the classifier has a good idea of what pattern belongs to condition A, and which belongs to condition B. If we give it a new pattern, which condition will the classifier guess that it belongs to? This is the question at the heart of machine learning, and the MVPA analyses that we now turn to.
+
+.. figure:: 00_MVPA.png
+
+Next Steps
+**********
+
+Having learned the fundamentals of machine learning, we will now apply them to actual data. The first tutorial will show you how to do this analysis with AFNI's 3dsvm, and the tutorials after that will focus on The Decoding Toolbox. To begin with the practical part of this module, click the ``Next`` button.
