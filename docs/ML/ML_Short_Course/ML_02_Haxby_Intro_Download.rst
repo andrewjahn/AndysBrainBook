@@ -12,7 +12,7 @@ Overview
 
 During the 1990s, fMRI studies focused on activation - which region of the brain responded to particular stimuli. fMRI was a new method, and researchers were able to use it to non-invasively map which regions of the brain responded to touch, pictures, noises, and other basic stimuli. These experiments measured the *amplitude* of the BOLD response to each of the different stimuli, and then compared the amplitudes between conditions to see which one elicited greater brain activity.
 
-In 2001, James Haxby conducted an experiment that instead focused on *patterns* of activity instead of the amplitude itself. If we take a 2x2 grid of squares and assign a number in each square representing the BOLD response, certain stimuli may elicit a specific pattern that can be detected by a classifier. If that pattern is consistent and unique, we will be able to distinguish that pattern from that elicited by another stimulus.
+In 2001, James Haxby conducted an experiment that instead focused on *patterns* of activity instead of the amplitude itself - for example, certain stimuli may elicit a specific pattern that can be detected by a classifier. If that pattern is consistent and unique, we will be able to distinguish that pattern from that elicited by another stimulus.
 
 .. figure:: 02_Cox_Savoy_Fig1.png
 
