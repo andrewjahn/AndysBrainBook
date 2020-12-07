@@ -160,7 +160,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
   
 .. warning::
 
-  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stoping eval after a few subjects. Secondly, if you think you're a smartass like me and select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
+  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stoping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
 
 To ensure that the information was added and saved to the script, you can type the following into the terminal:
 
