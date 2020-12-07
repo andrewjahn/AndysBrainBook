@@ -9,7 +9,7 @@ Machine Learning Tutorial #6: Scripting
 Overview
 ********
 
-In a :ref:`previous chapter <ML_04_Haxby_Timing>` in this module, you edited a script that was generated through the SPM GUI. We will use that same script and impose a for-loop on it in order to analyze all of the subjects, one after another, without our having to do anything in between. This makes it much easier and less tedious to analyze large numbers of subjects, especially when they are all formatted identically with the same number of runs and timing files - the only difference is the subject number, which will be changed on each iteration of the loop.
+In a :ref:`previous chapter <ML_04_Haxby_Timing>` in this module, you edited a script that was generated through the SPM GUI. We will use that same script and impose a for-loop on it in order to analyze all of the subjects, one after another, without having to do anything in between. This makes it much easier and less tedious to analyze large numbers of subjects, especially when they are all formatted identically with the same number of runs and timing files - the only difference is the subject number, which will be changed on each iteration of the loop.
 
 
 Editing the Preprocessing Script
