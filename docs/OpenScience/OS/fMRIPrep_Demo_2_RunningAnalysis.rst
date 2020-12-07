@@ -92,6 +92,10 @@ Let's take a look at what the code does by typing ``cat code/fmriprep_singleSubj
       --mem_mb $mem_mb \
       -w $HOME
   fi
+  
+.. warning::
+
+  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stoping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
 
 The first block of code, "User Inputs", sets the path to where the data is, as well as which subject to analyze. ``nthreads`` specifies the number of processors to use, and ``mem`` specifies the amount of memory to use, in gigabytes. The variable ``container`` can be set to either ``docker`` or ``singularity``; the latter, which refers to a container typically used on supercomputing clusters, will be covered in a later tutorial. For now, we will set it to ``docker``. The second block of code reformats the ``mem`` variable to remove the suffix ``gb``, so that it can be read by fMRIPrep.
 
