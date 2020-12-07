@@ -82,7 +82,7 @@ Note that these onset times are relative to the start of each run. For example, 
 Modifying the Script
 ********************
 
-In the previous chapter, we created a template script from the SPM GUI and labeled it ``Haxby_Script``. This created two separate scripts, ``Haxby_Script_job.m`` which contains the SPM code that runs all of the commands specified in the GUI, and ``Haxby_Script.m``, which contains the command ``spm_jobman`` which executes the file ``Haxby_Script_job.m``. We will be editing the latter in order to read the timing files that we just created; to open it, from the Matlab termainal type ``open Haxby_Script_job.m`` (or click the ``Open`` button and select the script).
+In the previous chapter, we created a template script from the SPM GUI and labeled it ``Haxby_Script``. This created two separate scripts, ``Haxby_Script_job.m`` which contains the SPM code that runs all of the commands specified in the GUI, and ``Haxby_Script.m``, which contains the command ``spm_jobman`` which executes the file ``Haxby_Script_job.m``. We will be editing the latter in order to read the timing files that we just created; to open it, from the Matlab terminal type ``open Haxby_Script_job.m`` (or click the ``Open`` button and select the script).
 
 .. note::
 
