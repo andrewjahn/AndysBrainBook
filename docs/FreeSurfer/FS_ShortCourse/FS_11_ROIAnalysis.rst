@@ -56,7 +56,7 @@ The output from these commands are tab-delimited text files that can be read int
 
 .. note::
 
-  In the future, I will add sections on how to resample a volumetric ROI to the surface, and then extract structural measurements from that ROI. The code below was created some time ago, but it will 
+  In the future, I will add sections on how to resample a volumetric ROI to the surface, and then extract structural measurements from that ROI. The code below was created some time ago, but it should work for most purposes.
 
 
 ::
