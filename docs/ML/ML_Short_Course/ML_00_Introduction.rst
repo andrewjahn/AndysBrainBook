@@ -42,7 +42,7 @@ Haxby tested whether these patterns were consistent within categories by splitti
 
 .. note::
 
-  The terms Multi-Voxel Pattern Analysis, Classifier, and Machine Learning, as applied to fMRI data, can be traced back to the Haxby et al. 2001 paper - although none of these terms were used in the original study. As we mentioned above, Haxby used a correlation method instead the classifier approach that we will use in the remaining chapters of this tutorial; regardless, the idea of matching patterns of activity is the same.
+  The terms Multi-Voxel Pattern Analysis, Classifier, and Machine Learning, as applied to fMRI data, can be traced back to the Haxby et al. 2001 paper - although none of these terms were used in the original study. As we mentioned above, Haxby used a correlation method instead of the classifier approach that we will use in the remaining chapters of this tutorial; regardless, the idea of matching patterns of activity is the same.
 
 
 Support Vector Machines
@@ -50,7 +50,7 @@ Support Vector Machines
 
 After the Haxby study was published, new methods were introduced to refine the detection of patterns in imaging data. One of the most popular was **support vector machines**, a machine learning method that can divide the data based on patterns of activity within a group of voxels. This method, introduced to fMRI analysis by David Cox and Robert Savoy in 2003, assumes that the activity in one voxel is independent of the activity in other voxels; a line that can best separate the combinations of activity across voxels is then used to train the classifier as to what pattern belongs to what condition. 
 
-To illustrate this, imagine that we measure the activity in just two voxels. In one scenario, condition A will only elicit activity from one of the voxels and not the other, while conditon B elicits activity only from the other voxel. In this case a typical univariate analysis would show a clear distinction between the two, similar to the Specificity studies that we discussed earlier
+To illustrate this, imagine that we measure the activity in just two voxels. In one scenario, condition A will only elicit activity from one of the voxels and not the other, while condition B elicits activity only from the other voxel. In this case a typical univariate analysis would show a clear distinction between the two, similar to the Specificity studies that we discussed earlier
 
 In another scenario, both condition A and condition B elicit activity from both voxels, but to slightly different degrees. Univariate analyses wouldn't be able to detect a difference between the two conditions, but there is clearly a difference in the pattern of activity; a support vector machine in this case will draw a line that best separates the activity profiles of these two conditions. Both scenarios are shown in the following figure:
 
