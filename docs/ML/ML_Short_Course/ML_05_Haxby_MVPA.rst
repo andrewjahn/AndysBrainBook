@@ -61,6 +61,9 @@ The last line to edit is near the end, which starts with ``cfg=decoding_describe
 
   cfg = decoding_describe_data(cfg,{labelname1 labelname2 labelname3 labelname4 labelname5 labelname6 labelname7 labelname8},[1 2 3 4 5 6 7 8],regressor_names,beta_loc);
 
+.. note::
+
+  To keep your results organized, you can also include the option "cfg.results.filestart", 
 
 Examining the Results
 *********************
