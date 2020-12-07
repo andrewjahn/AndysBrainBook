@@ -106,7 +106,7 @@ You will see the same training and testing data figure as before, along with a f
 
 .. figure:: 05_Haxby_Searchlight.png
 
-The result of this analysis is a file in the ``SPM_Results_1`` directory called ``res_accuracy_minus_chance.nii``. I find it useful to overlay this on the subject's coregistered anatomical image in a viewer such as AFNI; after copying the file ``rsub-1_T1w.nii`` into the ``SPM_Results_1`` directory and loading the AFNI viewer, experiment with different viewing settings, in particular the threshold. Remember that the values in the image are the accuracy scores minus chance; since chance in this study is 1/8, or 12.5%., any negative values are accuracy scores less than chance, and any positive values are above chance. For example, if in a certain voxel we find a value of 25, that means the classification accuracy at that voxels is 25%+12.5%, or 37.5% total.
+The result of this analysis is a file in the ``SPM_Results_1`` directory called ``res_accuracy_minus_chance.nii``. I find it useful to overlay this on the subject's coregistered anatomical image in a viewer such as AFNI; after copying the file ``rsub-1_T1w.nii`` into the ``SPM_Results_1`` directory and loading the AFNI viewer, experiment with different viewing settings, in particular the threshold. Remember that the values in the image are the accuracy scores minus chance; since chance in this study is 1/8, or 12.5%., any negative values are accuracy scores less than chance, and any positive values are above chance. For example, if in a certain voxel we find a value of 25, that means the classification accuracy at that voxel is 25%+12.5%, or 37.5% total.
 
 .. figure:: 05_Haxby_Searchlight_Results.png
 
