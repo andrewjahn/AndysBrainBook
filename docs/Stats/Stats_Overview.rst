@@ -17,5 +17,10 @@ This module is an overview of statistics, geared toward neuroimagers. It is mean
    :caption: Statistics for Neuroimagers
 
    Stats_ShortCourse/Stats_01_History
-   Stats_ShortCourse/Stats_02_CentralTendency
-   Stats_ShortCourse/Stats_03_Variability
+   Stats_ShortCourse/Stats_02_CentralTendency_Variability
+   Stats_ShortCourse/Stats_03_NormalDistribution
+   Stats_ShortCourse/Stats_04_Ttests_HypothesisTesting
+   Stats_ShortCourse/Stats_05_MultipleLinearRegression
+   Stats_ShortCourse/Stats_06_ParametricModulation
+   Stats_ShortCourse/Stats_07_Covariates
+   Stats_ShortCourse/Stats_08_PowerAnalyses
