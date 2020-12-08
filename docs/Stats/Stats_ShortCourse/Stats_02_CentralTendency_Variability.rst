@@ -1,4 +1,4 @@
-.. _Stats_02_CentralTendency:
+.. _Stats_02_CentralTendency_Variability:
 
 ============================
 Chapter #2: Central Tendency
