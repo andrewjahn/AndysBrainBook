@@ -137,7 +137,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     Miscellaneous/ConvertingDICOMs
     
-.. toctree::
+.. toctree
     :maxdepth: 1
     :caption: Multi-Voxel Pattern Analysis (MVPA)
     
@@ -199,3 +199,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     4.13.2020: SPM videos uploaded
 
     5.21.2020: CONN Tutorials complete
+    
+    12.08.2020: First part of MVPA tutorial complete, from preprocessing to group-level analysis. Later on, will add other statistical analyses, such as prevalence analysis.
