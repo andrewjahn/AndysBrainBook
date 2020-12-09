@@ -16,7 +16,7 @@ The response function is similar to the canonical HRF we use in fMRI studies. In
 dwi2response
 ************
 
-Unlike most fMRI studies which use a basis function that has already been created, MRtrix will derive a basis function from the diffusion data. Using an individual subject’s data is more precise and specific to that subject. The command ``dwi2response`` has several different algorithms that you can choose from, but for this tutorial we will use the "dhollander" algorithm:
+Unlike most fMRI studies which use a basis function that has been created beforehand, MRtrix will derive a basis function from the diffusion data; using an individual subject’s data is more precise and specific to that subject. The command ``dwi2response`` has several different algorithms that you can choose from, but for this tutorial we will use the "dhollander" algorithm:
 
 ::
 
@@ -35,7 +35,7 @@ Which will generate something like this:
 
 .. figure:: 05_voxels.png
 
-  The output from the ``dwi2response`` command, showing which voxels were used to construct a basis function for each tissue type. Red: CSF voxels; Green: Grey Matter voxels; Blue: White Matter voxels. Make sure that these colors are located where they should be; for example, the blue voxels should be within the CSF.
+  The output from the ``dwi2response`` command, showing which voxels were used to construct a basis function for each tissue type. Red: CSF voxels; Green: Grey Matter voxels; Blue: White Matter voxels. Make sure that these colors are located where they should be; for example, the red voxels should be within the ventricles.
 
 
 You can then check the response function for each tissue type by typing:
@@ -52,7 +52,7 @@ The figure below shows how the basis function changes for each combination of ti
 
 .. note::
 
-  The grey matter and cerebrospinal fluid basis functions tends to get smaller at different rates as the b-values increase. Why do you think this might be?
+  The grey matter and cerebrospinal fluid basis functions tend to get smaller at different rates as the b-values increase. Why do you think this might be?
 
 .. figure:: 05_bvals_tissues.png
 
@@ -60,7 +60,7 @@ The figure below shows how the basis function changes for each combination of ti
 Fiber Orientation Density (FOD)
 *******************************
 
-We will now use the basis functions generated above to create **Fiber Orientation Densities**, or FODs. These are estimates of the amount of diffusion in each of three orthogonal directions. As described in the :ref:`introductory chapter MRtrix_00_Diffusion_Overview>`, these are analogous to the tensors that are used in traditional diffusion studies. However, MRtrix allows for the estimation of multiple crossing fibers within a single voxel, and can resolve the diffusion signal into multiple directions.
+We will now use the basis functions generated above to create **Fiber Orientation Densities**, or FODs. These are estimates of the amount of diffusion in each of three orthogonal directions. As described in the :ref:`introductory chapter <MRtrix_00_Diffusion_Overview>`, these are analogous to the tensors that are used in traditional diffusion studies. However, MRtrix allows for the estimation of multiple crossing fibers within a single voxel, and can resolve the diffusion signal into multiple directions.
 
 To do this, we will use the command ``dwi2fod`` to apply the basis functions to the diffusion data. The "-mask" option specifies which voxels we will use; this is simply to restrict our analysis to brain voxels and reduce the computing time. The ".mif" files specified after each basis function will output an FOD image for that tissue type:
 
