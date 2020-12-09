@@ -6,7 +6,7 @@ Introduction to MRtrix
 
 .. note::
 
-   Update 12.09.2020: All chapters completed except for group-level analysis; this last part should be done in January 2021.
+   Update 12.09.2020: All chapters completed except for group-level analysis and fixel analysis; these last parts should be done in January 2021.
 
 .. figure:: 
 
@@ -24,7 +24,7 @@ In addition to a library of commands created by the MRtrix team, the software al
 
 .. note::
 
-   This course is based on the steps outlined in the `MRtrix documentation <https://mrtrix.readthedocs.io/en/latest/index.html>`__, especially the "DWI Pre-Processing" and "Constrained Spherical Deconvolution" chapters. Many of the steps and explanations are derived from Marlene Tahedl's excellent `BATMAN tutorial <https://osf.io/ht7zv/>`__, and in many places I use her file notation. I would also like to thank John Plass of the David Brang lab at the University of Michigan for sharing his scripts with me and answering my questions. 
+   This course is based on the steps outlined in the `MRtrix documentation <https://mrtrix.readthedocs.io/en/latest/index.html>`__, especially the "DWI Pre-Processing" and "Constrained Spherical Deconvolution" chapters. Several of the steps and explanations are derived from Marlene Tahedl's excellent `BATMAN tutorial <https://osf.io/ht7zv/>`__, and in many places I use her file notation. I would also like to thank John Plass of the David Brang lab at the University of Michigan for sharing his scripts with me and answering my questions. 
 
 
 Goals of This Course
