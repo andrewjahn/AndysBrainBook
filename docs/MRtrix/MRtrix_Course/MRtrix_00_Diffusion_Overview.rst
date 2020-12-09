@@ -21,7 +21,7 @@ However, there are other types of images that can be acquired with an MRI scanne
 The Structure of the White Matter
 *********************************
 
-Why does dMRI focus on the white matter tracts? Imagine peeling apart a stick of string cheese, and then imagine peeling apart a brain - just like the string cheese, the brain has preferred tear directions. These directions correspond to underlying white matter tracts, which are thick bundles of myelinated neurons that connect both nearby and distant parts of the brain. For example, the inferior longitudinal fasciculus connects the visual and temporal regions of the brain, while the uncinate fasciculus connects the temporal and inferior frontal parts of the brain. These tracts travel along all three dimensions of the brain, and they may run parallel to each other or cross one another.
+Why does dMRI focus on the white matter tracts? Imagine peeling apart a stick of string cheese, and then imagine peeling apart the brain - just like the string cheese, the brain has preferred tear directions. These directions correspond to underlying white matter tracts, which are thick bundles of myelinated neurons that connect both nearby and distant parts of the brain. For example, the inferior longitudinal fasciculus connects the visual and temporal regions of the brain, while the uncinate fasciculus connects the temporal and inferior frontal parts of the brain. These tracts travel along all three dimensions of the brain, and they may run parallel to each other or cross one another.
 
 .. figure:: 00_Tract_Examples.png
 
