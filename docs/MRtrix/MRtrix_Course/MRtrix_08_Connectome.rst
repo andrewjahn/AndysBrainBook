@@ -87,4 +87,4 @@ For a video overview of how to create the connectome, click `here <https://www.y
 Next Steps
 **********
 
-Now that we've preprocessed a single subject and created a connectome, we will have to do this for all of the remaining subjects. To do that, we will have to **script** the analyses for our entire dataset, which will we do in the next chapter.
+Now that we've preprocessed a single subject and created a connectome, we will have to do this for all of the remaining subjects. To do that, we will have to **script** the analyses for our entire dataset, which we will do in the next chapter.
