@@ -6,7 +6,7 @@ Introduction to MRtrix
 
 .. note::
 
-   This page is still under construction. Check back soon!
+   Update 12.09.2020: All chapters completed except for group-level analysis; this last part should be done in January 2021.
 
 .. figure:: 
 
