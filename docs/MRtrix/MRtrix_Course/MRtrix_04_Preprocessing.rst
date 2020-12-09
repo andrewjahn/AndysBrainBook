@@ -41,12 +41,16 @@ You can then inspect the residual map with mrview:
   
 .. figure:: 04_residuals.png
 
-It is common to see a grey outline of the brain, as in the figure above. However, everything within the grey matter and white matter should be relatively uniform and blurry; if you see any clear anatomical landmarks, such as individual gyri or sulci, that may indicate that those parts of the brain have been corrupted by noise. (Maybe give some recommendations about what to do if they see this?)
+It is common to see a grey outline of the brain, as in the figure above. However, everything within the grey matter and white matter should be relatively uniform and blurry; if you see any clear anatomical landmarks, such as individual gyri or sulci, that may indicate that those parts of the brain have been corrupted by noise. If that happens, you can increase the extent of the denoising filter from the default of 5 to a larger number, such as 7; e.g.,
+
+::
+
+  dwidenoise your_data.mif your_data_denoised_7extent.mif -extent 7 -noise noise.mif
 
 mri_degibbs
 ***********
 
-An optional preprocessing step is to run ``mri_degibbs``, which removes Gibbs' ringing artifacts from the data. These artifacts look like ripples in a pond, and are most conspicuous in the images that have a b-value of 0. Look at your diffusion data first with ``mrview``, and determine whether there are any Gibbs artifacts; if there are, then you can run ``mrdegibbs`` by specifying both an input file and output file, e.g.:
+An optional preprocessing step is to run ``mri_degibbs``, which removes `Gibbs' ringing artifacts <http://mriquestions.com/gibbs-artifact.html>`__ from the data. These artifacts look like ripples in a pond, and are most conspicuous in the images that have a b-value of 0. Look at your diffusion data first with ``mrview``, and determine whether there are any Gibbs artifacts; if there are, then you can run ``mrdegibbs`` by specifying both an input file and output file, e.g.:
 
 ::
 
@@ -92,7 +96,7 @@ We now have everything we need to run the main preprocessing step, which is call
 
   dwifslpreproc sub-02_den.mif sub-02_den_preproc.mif -nocleanup -pe_dir AP -rpe_pair -se_epi b0_pair.mif -eddy_options " --slm=linear --data_is_shelled"
   
-The first arguments are the input and output; the second option, ``-nocleanup``, will keep the temporary processing folder which contains a few files we will examine later. ``-pe_dir AP`` signalizes that the primary phase-encoding direction is anterior-to-posterior, and ``-rpe_pair`` combine with the ``-se_epi`` options indicates that the following input file (i.e., "b0_pair.mif") is a pair of spin-echo images that were acquired with reverse phase-encoding directions. Lastly, ``-eddy_options`` specifies options that are specific to the FSL command ``eddy``. You can visit the `eddy user guide <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/eddy/UsersGuide>`__ for more options and details about what they do. For now, we will only use the options ``--slm=linear`` (which can be useful for data that was acquired with less than 60 directions) and ``--data_is_shelled`` (which indicates that the diffusion data was acquired with multiple b-values).
+The first arguments are the input and output; the second option, ``-nocleanup``, will keep the temporary processing folder which contains a few files we will examine later. ``-pe_dir AP`` signalizes that the primary phase-encoding direction is anterior-to-posterior, and ``-rpe_pair`` combined with the ``-se_epi`` options indicates that the following input file (i.e., "b0_pair.mif") is a pair of spin-echo images that were acquired with reverse phase-encoding directions. Lastly, ``-eddy_options`` specifies options that are specific to the FSL command ``eddy``. You can visit the `eddy user guide <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/eddy/UsersGuide>`__ for more options and details about what they do. For now, we will only use the options ``--slm=linear`` (which can be useful for data that was acquired with less than 60 directions) and ``--data_is_shelled`` (which indicates that the diffusion data was acquired with multiple b-values).
 
 This command can take several hours to run, depending on the speed of your computer. For an iMac with 8 processing cores, it takes roughly 2 hours. When it has finished, examine the output to see how eddy current correction and unwarping have changed the data; ideally, you should see more signal restored in regions such as the orbitofrontal cortex, which is particularly susceptible to signal dropout:
 
@@ -135,7 +139,7 @@ To do that, it can be useful to run a command beforehand called ``dwibiascorrect
   
 .. note::
 
-  The command above uses the ``-ants`` option, which requires that ANTs be installed on your system. I highly recommend this program, but in case you are unable to install it, you can replace it with the ``-fsl`` option.
+  The command above uses the ``-ants`` option, which requires that ANTs be installed on your system. I recommend this program, but in case you are unable to install it, you can replace it with the ``-fsl`` option.
   
 You are now ready to create the mask with ``dwi2mask``, which will restrict your analysis to voxels that are located within the brain:
 
@@ -162,6 +166,8 @@ To that end, you could use a command such as FSL's ``bet2``. For example, you co
   mrconvert sub-02_den_preproc_unbiased.mif sub-02_unbiased.nii
   bet2 sub-02_unbiased.nii sub-02_masked.nii -m -f 0.7
   mrconvert sub-02_masked.nii mask.nii
+  
+You may have to experiment with the fractional intensity threshold (specified by ``-f``) in order to generate a mask that you are satisfied with.
   
 Video
 *****
