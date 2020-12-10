@@ -14,13 +14,13 @@ Having created the interface between the white matter and the grey matter, we ar
 Anatomically Constrained Tractography 
 *************************************
 
-One of MRtrix's features is **Anatomically Constrained Tractography**, or ACT. This method will only determine that a streamline is valid if it is biologically plausible. For example, a streamline that terminates in the cerebrospinal fluid will be discarded, since white matter tracts tend to both originate and terminate in grey matter. This is another way of saying that the streamlines should be constrained to the white matter, and excluded from the other tissue types. The effect of either including or omitting this step can be seen in the following figure:
+One of MRtrix's features is **Anatomically Constrained Tractography**, or ACT. This method will only determine that a streamline is valid if it is biologically plausible. For example, a streamline that terminates in the cerebrospinal fluid will be discarded, since white matter tracts tend to both originate and terminate in grey matter. In other words, the streamlines will be constrained to the white matter. The effect of either including or omitting this step can be seen in the following figure:
 
 .. figure:: 07_ACT_With_Without.png
 
   An analysis without (left) and with (right) anatomically constrained tractography. Note how without ACT, the streamlines do tend to congregate within the white matter; however, a large number of them are found within the grey matter and cerebrospinal fluid. Using ACT (right) restricts the streamlines to the white matter tracts that we will want to analyze.
   
-Anatomically constrained tractography isn't a separate preprocessing step per se, but rather an option that can be included with the command ``tckgen``, which generates the actual streamlines.
+Anatomically constrained tractography isn't a separate preprocessing step, but rather an option that can be included with the command ``tckgen``, which generates the actual streamlines.
 
 Generating Streamlines with tckgen
 **********************************
@@ -34,17 +34,17 @@ The default method is to use an algorithm known as iFOD2, which will use a proba
 How Many Streamlines?
 ^^^^^^^^^^^^^^^^^^^^^
 
-There is a trade-off between the number of generated streamlines and the amount of time that it takes. More streamlines result in a more accurate reconstruction of the underlying white-matter tracts, but a large number of them can take a prohibitively long time. 
+There is a trade-off between the number of generated streamlines and the amount of time that it takes. More streamlines result in a more accurate reconstruction of the underlying white-matter tracts, but estimating a large number of them can take a prohibitively long time. 
 
-The "correct" number of streamlines to use is still being debated, but at least 10 million or so should be a good starting place. 
+The "correct" number of streamlines to use is still being debated, but at least 10 million or so should be a good starting place: 
 
 ::
 
   tckgen -act 5tt_coreg.mif -backtrack -seed_gmwmi gmwmSeed_coreg.mif -nthreads 8 -maxlength 250 -cutoff 0.06 -select 10000000 wmfod_norm.mif tracks_10M.tck
   
-The "-act" option specifies that we will use the anatomically-segmented image to constrain our analysis to the white matter. "-backtrack" indicates for the current streamline to go back and run the same streamline again if it terminates in a strange place (e.g., the cerebrospinal fluid); "-maxlength" sets the maximum tract length, in voxels, that will be permitted; and "-cutoff" specifies the FOD amplitude for terminating a tract (for example, a value of 0.06 would not permit a streamline to go along an FOD that is lower than that number). "-seed_gmwmi" takes as an input the grey-matter / white-matter boundary that was generated using the ``5tt2gmwmi`` command.
+In this command, the "-act" option specifies that we will use the anatomically-segmented image to constrain our analysis to the white matter. "-backtrack" indicates for the current streamline to go back and run the same streamline again if it terminates in a strange place (e.g., the cerebrospinal fluid); "-maxlength" sets the maximum tract length, in voxels, that will be permitted; and "-cutoff" specifies the FOD amplitude for terminating a tract (for example, a value of 0.06 would not permit a streamline to go along an FOD that is lower than that number). "-seed_gmwmi" takes as an input the grey-matter / white-matter boundary that was generated using the ``5tt2gmwmi`` command.
 
-"-nthreads" can be used to specify the number of processing cores you wish to use, in order to speed up the analysis. And finally, "-select" indicates how many total streamlines to generate. Note that a shorthand can be used if you like; instead of, say, 10000000, you can rewrite it as 10000k (signalizing "ten thousand thousands", which equals "ten million"). The last two arguments specify both the input (``wmfod_norm.mif``) and a label for the output (``tracks_10M.tck``).
+"-nthreads" specifies the number of processing cores you wish to use, in order to speed up the analysis. And finally, "-select" indicates how many total streamlines to generate. Note that a shorthand can be used if you like; instead of, say, 10000000, you can rewrite it as 10000k (meaning "ten thousand thousands", which equals "ten million"). The last two arguments specify both the input (``wmfod_norm.mif``) and a label for the output (``tracks_10M.tck``).
 
 If you want to visualize the output, I recommend extracting a subset of the output by using ``tckedit``:
 
@@ -65,7 +65,7 @@ This will generate a figure like the following:
 
 Remember to inspect this image to make sure that the streamlines end where you think they should; in other words, the streamlines should be constrained to the white matter, and they should be color-coded appropriately. For example, the corpus callosum should be mostly red, and the corona radiata should be mostly blue.
 
-Although we have created a diffusion image with reasonable streamlines, also known as a **tractogram**, we still have a problem with some of the white matter tracts being over-fitted, and others being under-fitted. This problem can be addressed by using the ``tcksift2`` command.
+Although we have created a diffusion image with reasonable streamlines, also known as a **tractogram**, we still have a problem with some of the white matter tracts being over-fitted, and others being under-fitted. This can be addressed with the ``tcksift2`` command.
 
 Refining the Streamlines with tcksift2
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
