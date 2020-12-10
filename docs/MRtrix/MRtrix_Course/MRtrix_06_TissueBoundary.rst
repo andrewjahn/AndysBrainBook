@@ -71,6 +71,7 @@ In order to carry out the coregistration between the diffusion and anatomical im
 The first step is to convert both the segmented anatomical image and the B0 images we just extracted:
 
 ::
+
   mv ../anat/5tt_nocoreg.mif .
   mrconvert mean_b0.mif mean_b0.nii.gz
   mrconvert 5tt_nocoreg.mif 5tt_nocoreg.nii.gz
