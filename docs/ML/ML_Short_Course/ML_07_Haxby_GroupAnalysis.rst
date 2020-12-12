@@ -77,7 +77,7 @@ From the Matlab terminal, create a new directory by typing ``mkdir 2ndLevel_Grou
 Video
 *****
 
-For a video demonstration of group level analysis with MVPA, click `here <https://www.youtube.com/watch?v=-zMDVd67tXo>`__.
+For a video demonstration of group level analysis with MVPA, click `here <https://youtu.be/44H72YlYfvs>`__.
 
 Next Steps
 **********
