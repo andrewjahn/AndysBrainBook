@@ -188,7 +188,7 @@ Copy and paste this command into your terminal and press enter. While it is runn
 Script 2: QA Checks
 ^^^^^^^^^^^^^^^^^^^
 
-Just as with the preprocessing script, the QA script contains all of the quality checks that we did in the previous chapters. You can download it `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/02_QC_mrview.sh>`__, and execute it by typing ``bash 02_QC_mrview.sh``. It will use ``mrview`` and ``shview`` to examine the output of each preprocessing step; to proceed to the next QC check, you will need to close the window that is currently open. The contents of the script are reproduced below:
+Just as with the preprocessing script, the QA script contains all of the quality checks that we did in the previous chapters. You can download it `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/02_QC_mrview.sh>`__, and execute it by typing ``bash 02_QC_mrview.sh``. (Make sure it is placed in the folder ``sub-CON03/ses-preop/dwi`` before you run it.) It will use ``mrview`` and ``shview`` to examine the output of each preprocessing step, similar to what we did in a :ref:`previous chapter <MRtrix_05_BasisFunctions>` that examined the results of preprocessing; to proceed to the next QC check, you will need to close the window that is currently open. The contents of the script are reproduced below:
 
 ::
 
@@ -250,24 +250,32 @@ Creating the connectome takes only a few lines of code. For this tutorial, as me
 
   #!/bin/bash
 
-  #Convert the labels of the FreeSurfer parcellation to a format that MRtrix understands. This requires recon-all to have been run on the subject
-  labelconvert sub-CON02_recon/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt sub-CON02_parcels.mif
+  SUBJ=$1
 
-  #Coregister the parcellation to the grey matter mask
-  mrtransform sub-CON02_parcels.mif -interp nearest -linear diff2struct_mrtrix.txt -inverse -datatype uint32 sub-CON02_parcels_coreg.mif
+  #Convert the labels of the FreeSurfer parcellation to a format that MRtrix understands. This requires recon-all to have been run on the subject
+  labelconvert ${SUBJ}_recon/mri/aparc+aseg.mgz $FREESURFER_HOME/FreeSurferColorLUT.txt /usr/local/mrtrix3/share/mrtrix3/labelconvert/fs_default.txt ${SUBJ}_parcels.mif
+
+  mrtransform ${SUBJ}_parcels.mif -interp nearest -linear diff2struct_mrtrix.txt -inverse -datatype uint32 ${SUBJ}_parcels_coreg.mif
 
   #Create a whole-brain connectome, representing the streamlines between each parcellation pair in the atlas (in this case, 84x84). The "symmetric" option will make the lower diagonal the same as the upper diagonal, and the "scale_invnodevol" option will scale the connectome by the inverse of the size of the node 
-  #tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt sub-01_parcels.mif sub-01_parcels.csv -out_assignment assignments_sub-01_parcels.csv
-  tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks_10M.tck sub-CON02_parcels_coreg.mif sub-CON02_parcels_coreg.csv -out_assignment assignments_sub-CON02_parcels_coreg.csv
+  tck2connectome -symmetric -zero_diagonal -scale_invnodevol -tck_weights_in sift_1M.txt tracks_10M.tck ${SUBJ}_parcels_coreg.mif ${SUBJ}_parcels_coreg.csv -out_assignment assignments_${SUBJ}_parcels_coreg.csv 
+  
+This script can be downloaded `here <https://github.com/andrewjahn/MRtrix_Analysis_Scripts/blob/master/03_MRtrix_CreateConnectome.sh>`__. Copy it to the folder ``sub-CON03/ses-preop/dwi`` and run it by typing:
+
+::
+
+  bash 03_MRtrix_CreateConnectome.sh sub-CON03
+  
+This will create a .csv file that you can then view in Matlab, just as we did in the previous chapter.
 
 Running the Scripts
 *******************
 
-I recommend running each script separately in order to check the output from each part, although you may prefer to combine everything into a single master script. In any case, when you have downloaded each of the scripts and placed them in the ``BTC_preop`` folder, you can run the following for-loop to run the preprocessing for subjects 04 and 05 of the control group:
+I recommend running each script separately in order to check the output from each part, although you may prefer to combine everything into a single master script. In any case, when you have downloaded each of the scripts and placed them in the ``BTC_preop`` folder, you can run the following for-loop to run the preprocessing for subjects 04-08 of the control group and 02-08 of the patient group (NOTE: For now, omit CON05 and CON06, I already did those):
 
 ::
 
-  for sub in sub-CON04 sub-CON05; do
+  for sub in sub-CON04 sub-CON05 sub-CON06 sub-CON07 sub-CON08 sub-PAT02 sub-PAT03 sub-PAT05 sub-PAT06 sub-PAT07 sub-PAT08; do
     cp *.sh ${sub}/ses-preop/dwi;
     cd ${sub}/ses-preop/dwi;
     bash MRtrix_Preproc_AP_Direction.sh ${sub}_ses-preop_acq-AP_dwi.nii.gz ${sub}_ses-preop_acq-PA_dwi.nii.gz \
@@ -281,7 +289,7 @@ When this has finished, use the same loop to run the QA checks, which were discu
 
 ::
 
-  for sub in sub-CON04 sub-CON05; do        
+  for sub in sub-CON04 sub-CON05 sub-CON06 sub-CON07 sub-CON08 sub-PAT02 sub-PAT03 sub-PAT05 sub-PAT06 sub-PAT07 sub-PAT08; do        
     cd ${sub}/ses-preop/dwi;     
     bash 02_QC_mrview.sh; 
     cd ../../..;   
@@ -291,7 +299,7 @@ Since the command ``tck2connectome`` requires the output from recon-all, we will
 
 ::
 
-  for sub in sub-CON04 sub-CON05; do         
+  for sub in sub-CON04 sub-CON05 sub-CON06 sub-CON07 sub-CON08 sub-PAT02 sub-PAT03 sub-PAT05 sub-PAT06 sub-PAT07 sub-PAT08; do         
     cd ${sub}/ses-preop/dwi;     
     SUBJECTS_DIR=`pwd`;
     recon-all -i ../anat/${sub}_ses-preop_T1w.nii.gz -s ${sub}_recon -all
@@ -302,8 +310,14 @@ Lastly, we will run the ``tck2connectome`` command:
 
 ::
 
-  for sub in sub-CON04 sub-CON05; do         
+  for sub in sub-CON04 sub-CON05 sub-CON06 sub-CON07 sub-CON08 sub-PAT02 sub-PAT03 sub-PAT05 sub-PAT06 sub-PAT07 sub-PAT08; do         
     cd ${sub}/ses-preop/dwi;     
-    bash 03_MRtrix_CreateConnectome.sh
+    bash 03_MRtrix_CreateConnectome.sh $sub
     cd ../../..;   
   done
+  
+
+Next Steps
+**********
+
+When the subjects have been preprocessed and you have run the QA checks, we can now run a **group analysis** to compare the streamlines between the control and the patient groups. To see how to do that, click the ``Next`` button.
