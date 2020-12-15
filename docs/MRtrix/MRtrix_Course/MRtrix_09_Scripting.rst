@@ -278,12 +278,13 @@ I recommend running each script separately in order to check the output from eac
   for sub in sub-CON04 sub-CON05 sub-CON06 sub-CON07 sub-CON08 sub-PAT02 sub-PAT03 sub-PAT05 sub-PAT06 sub-PAT07 sub-PAT08; do
     cp *.sh ${sub}/ses-preop/dwi;
     cd ${sub}/ses-preop/dwi;
-    bash MRtrix_Preproc_AP_Direction.sh ${sub}_ses-preop_acq-AP_dwi.nii.gz ${sub}_ses-preop_acq-PA_dwi.nii.gz \
+    bash 01_MRtrix_Preproc_AP_Direction.sh ${sub}_ses-preop_acq-AP_dwi.nii.gz ${sub}_ses-preop_acq-PA_dwi.nii.gz \
     ${sub}_ses-preop_acq-AP_dwi.bvec ${sub}_ses-preop_acq-AP_dwi.bval \
     ${sub}_ses-preop_acq-PA_dwi.bvec ${sub}_ses-preop_acq-PA_dwi.bval \
     ../anat/${sub}_ses-preop_T1w.nii.gz
     cd ../../..;
   done
+  
   
 When this has finished, use the same loop to run the QA checks, which were discussed in a previous chapter:
 
