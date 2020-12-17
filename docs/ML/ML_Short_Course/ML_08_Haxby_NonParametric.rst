@@ -28,4 +28,6 @@ Then open a Matlab terminal, click on the ``Set Path`` button, and click ``Add F
 
 From the Matlab terminal, open SPM by typing ``spm fmri``. Click on ``Batch``, then select ``SPM -> Tools -> SnPM -> Specify -> Multisub: One-sample T-test on diffs/contrasts``. This will open a new editor window.
 
-From the Matlab terminal, navigate to the Haxby_Data directory, and create a new directory for our non-parametric results by typing ``mkdir 2ndLevel_GroupResults_SnPM``. 
+From the Matlab terminal, navigate to the Haxby_Data directory, and create a new directory for our non-parametric results by typing ``mkdir 2ndLevel_GroupResults_SnPM``. Select this as the Analysis Directory in the Batch Editor window, and for Images to Analyze, select the smoothed and warped res_minus_chance images. Then click the green "Go" button. This will specify the model.
+
+Then go back to the Batch Editor window, click on ``SPM -> Tools -> SnPM -> Compute``, and select the SnPMcfg.mat file. Click the green "Go" button.
