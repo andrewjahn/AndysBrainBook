@@ -69,7 +69,7 @@ You are then ready to create the contrast files to either rerun the group analys
 
   Another covariate that is useful to include for between-groups analysis is **estimated total intracranial volume**, or eTIV for short. This will control for overall head size, which can be a confounding factor between groups that on average have different head sizes (e.g., males and females, old and young, patients and control; see `this paper <https://www.sciencedirect.com/science/article/pii/S1053811914007769>`__ for an overview of when it is appropriate to include this covariate). If a subject has been processed with recon-all, the following line of code will use ``mri_segstats`` to extract the eTIV (you will need to make sure that this command is run from the directory that contains the subjects, and that SUBJECTS_DIR is pointing to that directory):
   
-  ::
+::
 
     mri_segstats --subject subject_name --etiv-only | grep atlas_icv | awk '{print $4}
     
@@ -107,6 +107,7 @@ Note that there are two additional zeroes. The way to read this contrast file is
 For now, let us create two contrast files: One that tests for a difference between groups, and one that tests for the average correlation of the Audit covariate, collapsed across groups. For the second contrast we will use contrast weights of 0.5 each, in order to control for the number of covariates that we are averaging across:
 
 ::
+
   echo "1 -1 0 0 0 0" > HC-CB_Age_Audit.mtx
   echo "0 0 0 0 0.5 0.5" > Audit_Slope.mtx
   
