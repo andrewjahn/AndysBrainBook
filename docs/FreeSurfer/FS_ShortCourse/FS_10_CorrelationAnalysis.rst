@@ -65,6 +65,16 @@ When you have finished formatting the file, save it as ``CannabisStudy_Age_Audit
   
 You are then ready to create the contrast files to either rerun the group analysis controlling for the covariates, or to run a correlation analysis on any of the covariates.
 
+.. note::
+
+  Another covariate that is useful to include for between-groups analysis is **estimated total intracranial volume**, or eTIV for short. This will control for overall head size, which can be a confounding factor between groups that on average have different head sizes (e.g., males and females, old and young, patients and control; see `this paper <https://www.sciencedirect.com/science/article/pii/S1053811914007769>`__ for an overview of when it is appropriate to include this covariate). If a subject has been processed with recon-all, the following line of code will use ``mri_segstats`` to extract the eTIV (you will need to make sure that this command is run from the directory that contains the subjects, and that SUBJECTS_DIR is pointing to that directory):
+  
+  ::
+
+    mri_segstats --subject subject_name --etiv-only | grep atlas_icv | awk '{print $4}
+    
+  This number, which usually ranges from about 1,000,000 to 1,500,000 in healthy adults, can then be entered into the FSGD file just as we did with the other numbers. Mean-centering the covariates can also change your interpretation of the results; see `this page <http://mumford.fmripower.org/mean_centering/>`__ for examples of when to do it, and how it will change your interpretation.
+
 Creating Contrast Files for Covariate Analyses
 **********************************************
 
@@ -130,7 +140,7 @@ Run this higher-level script by typing:
   tcsh runAllGroupScripts.sh CannabisStudy_Age_Audit
   
   
-And look at the results in `Freeview <FS_06_Freeview>`.
+And look at the results in :ref:`Freeview <FS_06_Freeview>`.
 
 -----------
 
