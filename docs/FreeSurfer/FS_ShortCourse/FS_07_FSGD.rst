@@ -100,6 +100,10 @@ For now, save the spreadsheet as a Tab Delimited Text file by clicking on ``File
   
 This will remove any DOS carriage returns, which Unix cannot interpret, and replaces them with newline characters. This will prevent any errors when using the FSGD file with FreeSurfer commands.
 
+.. note::
+
+  Although we are not discussing covariates yet, be aware that many researchers choose to include estimated total intracranial volume (eTIV) as a covariate when comparing groups. See the note in :ref:`this page <FS_10_CorrelationAnalysis>` under the section "Modifying the FSGD File".
+
 
 Creating the Contrast file
 **************************
