@@ -9,7 +9,7 @@ Machine Learning: Introduction to Basic Terms and Concepts
 What is Machine Learning?
 *************************
 
-Machine Learning is a method of using data to train a classifier; this is called **training data**. The classifier is then provided with new data (also known as **testing data**), and it attempts to distinguish between different classes within the data based on the training data. The classifier's performance is judged by its accuracy - how many of the testing data points it managed to correctly classify.
+Machine Learning is a method of using data to train a classifier; this is called **training data**. The classifier is then provided with new data (also known as **testing data**), and then it decides whether a new data point belongs to one category or another. The classifier's performance is judged by its accuracy - how many of the testing data points it manages to classify correctly.
 
 The training data has one or more **features** that are used to train the classifier. These features can be any characteristic; for example, height and hair length. For example, you have probably met several thousand people in your life, and you've seen many thousands more in movies, pictures, and magazines. Over time, you've learned that in general males tend to be taller than females and have shorter hair, which implies that women on average are shorter and have longer hair. There are of course exceptions: Some males are quite short and have long hair (such as Sam Kinison), while some females are taller than the average male and have short hair (for example, Tilda Swinton). All of these experiences can be thought of as "training data" which you've observed during your life.
 
@@ -71,6 +71,11 @@ The line that separates the two patterns is called a **hyperplane**. As we deal 
 Now imagine that we train a classifier with this pattern by showing it dozens of instances of both conditions; after a while, the classifier has a good idea of what pattern belongs to condition A, and which belongs to condition B. If we give it a new pattern, which condition will the classifier guess that it belongs to? This is the question at the heart of machine learning, and the MVPA analyses that we now turn to.
 
 .. figure:: 00_MVPA.png
+
+Video
+*****
+
+For a video introduction to this MVPA module, click `here <https://www.youtube.com/watch?v=0uMexB0MAOw&list=PLIQIswOrUH6-dE7qorQSstYICO4beJFgq&index=1>`__.
 
 Next Steps
 **********
