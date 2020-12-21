@@ -60,9 +60,11 @@ Keep in mind that this method works best with a linearly separable pattern; ther
 
 .. figure:: 00_Cox_Savoy_Fig1c.png
 
+  The above figures are from Cox & Savoy, 2003.
+
 .. note::
 
-  This last scenario, while important, will not be the focus of this module.
+  This last scenario - nonlinear separability - while important, will not be the focus of this module.
   
 The line that separates the two patterns is called a **hyperplane**. As we deal with larger groups of voxels, such as thousands or tens of thousands, it becomes difficult to represent what this hyperplane looks like. In any case, the concept is the same. 
 
