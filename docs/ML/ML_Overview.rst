@@ -32,4 +32,5 @@ After working through an example with AFNI to learn the basics, we will begin to
    ML_Short_Course/ML_05_Haxby_MVPA
    ML_Short_Course/ML_06_Haxby_Scripting
    ML_Short_Course/ML_07_Haxby_GroupAnalysis
+   ML_Short_Course/ML_08_Haxby_NonParametric
    ML_Short_Course/ML_AppendixA_AFNI_Code
