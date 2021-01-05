@@ -9,6 +9,7 @@ Appendix B: PETSurfer
 .. note::
 
   These steps are taken from the FreeSurfer `PETSurfer page <https://surfer.nmr.mgh.harvard.edu/fswiki/PetSurfer>`__; I am adapting them to be used with another dataset. Note that PETSurfer is only available in FreeSurfer version 6.0 or later.
+  As of January 5th, 2021, this page is still under revision; I may come back to it if there seems to be a demand.
 
 Overview
 ********
