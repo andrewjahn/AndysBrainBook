@@ -16,7 +16,7 @@ This course is designed to build your confidence in working with fMRI data, incr
 Downloading and Installing SPM
 ******************************
 
-Unlike AFNI or FSL, SPM is able to run on any operating system as long as it has Matlab installed. Matlab is proprietary software that is muy expensivo, but if you are a student or university employee you may be able to obtain a copy for free. Once you have installed Matlab, the `SPM website <https://www.fil.ion.ucl.ac.uk/spm/software/spm12/>`__ has instructions on how to install the software package. Click on the "download form" button to fill out some personal details such as your position and what you will be using the software for, which will enable you to download the software.
+Unlike AFNI or FSL, SPM is able to run on any operating system as long as it has Matlab installed. Matlab is proprietary software that is quite expensive, but if you are a student or university employee you may be able to obtain a copy for free. Once you have installed Matlab, the `SPM website <https://www.fil.ion.ucl.ac.uk/spm/software/spm12/>`__ has instructions on how to install the software package. Click on the "download form" button to fill out some personal details such as your position and what you will be using the software for, which will enable you to download the software.
 
 Once you have downloaded the SPM package, place it your home directory. Open up Matlab, click on the "Home" tab, and then click the "Set Path" button. Select the ``spm12`` directory, and then click "Add with Subfolders". Click the "Save" button to ensure that the path is set every time Matlab is opened, and then close the window.
 
