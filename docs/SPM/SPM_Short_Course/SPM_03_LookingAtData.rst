@@ -68,7 +68,7 @@ Inspect the image by clicking around in one of the viewing windows. Notice how t
 
 .. note::
 
-    You may have noticed that this subject appears to be missing his face. That is because the data from OpenNeuro.org have been **de-identified**: Not only has information such as name and date of scanning been removed from the header, but the faces have also been erased. This is done in order to ensure the subject's anonymity.
+    You may have noticed that this subject appears to be missing their face. That is because the data from OpenNeuro.org have been **de-identified**: Not only has information such as name and date of scanning been removed from the header, but the faces have also been erased. This is done in order to ensure the subject's anonymity.
     
 
 As you continue to inspect the image, here are two things to watch out for:
@@ -87,7 +87,7 @@ As you continue to inspect the image, here are two things to watch out for:
 Inspecting the Functional Images
 ----------
     
-When you are done looking at the anatomical image, click on the ``Display`` button again, navigate to the ``func`` directory, and select one the ``run-1`` functional image.
+When you are done looking at the anatomical image, click on the ``Display`` button again, navigate to the ``func`` directory, and select the ``run-1`` functional image.
 
 A new image will be displayed in the orthogonal viewing windows. This image also looks like a brain, but it is not as clearly defined as the anatomical image. This is because the **resolution** is lower. It is typical for a study to collect a high-resolution T1-weighted (i.e., anatomical) image and lower-resolution functional images, which are lower resolution in part because they are collected at a very fast rate. One of the trade-offs in imaging research is between spatial resolution and temporal resolution: Images collected at higher temporal resolution will have lower spatial resolution, and vice versa.
 
