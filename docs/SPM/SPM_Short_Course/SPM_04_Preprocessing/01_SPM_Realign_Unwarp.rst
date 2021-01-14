@@ -16,7 +16,7 @@ If you click on the button ``Realign (Estimate & Reslice)``, a window opens up s
 
 .. note::
 
-  In this preprocessing step and in the steps that follow, we will leave most of the defaults as they are. These defaults have been computed to produce the best results for a wide range of image field of views, voxel sizes, and so on; that said, you may find that it is useful to change the defaults of the File Prefix, for example, to something you find more intelligible. If you decide to change any of the other options, clicking on them will open a help file which is displayed in the information box at the bottom of the Batch Editor screen.
+  In this preprocessing step and in the steps that follow, we will leave most of the defaults as they are. These defaults have been calculated to produce the best results for a wide range of image field of views, voxel sizes, and so on; that said, you may find that it is useful to change the defaults of the File Prefix, for example, to something you find more intelligible. If you decide to change any of the other options, clicking on them will open a help file which is displayed in the information box at the bottom of the Batch Editor screen.
   
   
 Loading the Images
@@ -28,7 +28,7 @@ Double-click on the first session to open up the Image Selection window. Navigat
 
 .. note::
 
-  If you don't know how many frames are in the current dataset, you can set the upper bound to an arbitrarily high number - e.g., ``1:10000``. This command will max out at the number of available frames, and will ensure that you do not miss any.
+  If you don't know how many frames are in the current dataset, you can set the upper bound to an arbitrarily high number - e.g., ``1:10000``. The list of files will max out at the number of available frames, and so will ensure that you do not miss any.
 
 
 However, you will notice that all of the frames for both run-1 and run-2 have been selected, even though we only want the frames for run-1. You could simply click and drag from frame 1 to frame 146 for run-1, but you risk accidentally including other frames by mistake. To restrict our file selection to only the frames we are interested in, on the other hand, we can use the ``Filter`` field. This field uses **regular expressions**, a type of coding shorthand to indicate which characters to include in a string. In this case, to the left of the ``.*`` characters that are already in the field, type ``run-1`` and press return. This will refresh the screen to display only those frames which include the string ``run-1``. Either click and drag to select all of the images, or right click in the selection window and click ``Select All``.
@@ -59,7 +59,7 @@ Exercises
 
 1. In the Filter field, the dollar sign (``$``) can be used to return files that *end* with a particular string. For example, typing ``run-1_bold.*$`` would return those files that end with the string "run-1_bold". Use the filter field to return only those files that end with ``run-2_bold``. If you've run the realignment step, use the filter to field to return those files that begin with ``rsub-08``. Use the Frames field to select the frames 10-20.
 
-2. Re-run the realignment step on just the run-1 images, changing the Quality field from 0.9 to 0.5. When you highlight the Quality field, read the help text at the bottom of the window. What do you think this change will do to the quality of your realignment? To keep these files separate from the other output, change the Filename Prefix to ``qual_05``. Check the output in the Check Reg window, loading a representative image from the rsub-08_task-flanker_run-1 files, and an image from the qual_05 files you just created. Do you notice any difference between them? Why or why not?
+2. Re-run the realignment step on just the run-1 images, changing the value in the Quality field from 0.9 to 0.5. When you highlight the Quality field, read the help text at the bottom of the window. What do you think this change will do to the quality of your realignment? To keep these files separate from the other output, change the Filename Prefix to ``qual_05``. Check the output in the Check Reg window, loading a representative image from the rsub-08_task-flanker_run-1 files, and an image from the qual_05 files you just created. Do you notice any difference between them? Why do you think that there is or is not a difference?
 
 3. Re-run the realignment step by changing the Num Passes from "Register to mean" to "Register to first". Read the help file and determine what the tradeoffs are. Which one would you prefer to use as the default for your analysis, and why?
 
