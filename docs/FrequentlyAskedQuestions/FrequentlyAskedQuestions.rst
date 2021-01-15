@@ -134,6 +134,39 @@ How can I unwarp my data?
 
 Imaging data is often warped because of magnetic field inhomogeneities (also known as B0 inhomogeneities). The data can be unwarped using field maps, which detect where the inhomogeneities are located.
 
+Steps for field-map unwarping
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Step 0: Create brain mask of magnitude image
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+bet2 MagnitudeImage.nii.gz -f 0.7
+
+Play around with the fractional intensity threshold to generate a brain mask that is restricted just to the brain voxels (i.e., err on the side of excluding some brain voxels rather than including any non-brain voxels)
+
+Step 1: Create fieldmap
+&&&&&&&&&&&&&&&&&&&&&&&
+
+fsl_prepare_fieldmap SIEMENS phaseImage.nii.gz MagnitudeImage_brain.nii.gz fieldmap.nii 2.65
+
+This last parameter (2.65) is the delta TE, which you will need to verify on your scanner. I believe this is the default for Siemens, but small deviations don't seem to make that much of a difference in the fieldmap.
+
+Check the fieldmap in an image viewer; it should be brighter in the orbitofrontal and inferior temporal areas, representing where there is greater field inhomogeneity and greater signal loss.
+
+Step 2: Apply fieldmap with FUGUE to unwarp functional images
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+fugue -i fMRI_Image.nii.gz --dwell=.0.00018 --unwarpdir=y- --loadfmap=fieldmap.nii.gz -u fMRI_Unwarped.nii
+
+The --dwell option specifies the dwell time, which is your echo spacing divided by your acceleration factor. For example, if your echo spacing time is 0.00072 seconds, and your acceleration factor is 4, you would calculate 0.00072 / 4 = 0.00018 to create your dwell time value.
+
+The option unwarpdir indicates the direction for unwarping our data. For example, if the fMRI data was acquired with a phase-encoding direction of Anterior-to-Posterior, this is along the y axis; the unwarping would therefore be in the opposite direction, which is specified with y-. 
+
+Check the output image to see whether it appears to have been unwarped correctly.
+
+Unwarping with blip-up/blip-down images
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Another way to unwarp the data is with **blip-up/blip-down** images. Usually these are acquired in the Anterior-to-Posterior (AP) and Posterior-to-Anterior (PA) directions, with one of the directions being used to acquire your functional runs. For example, let's say that you have two images labeled AP.nii.gz and PA.nii.gz: The former contains three volumes, and the latter contains three volumes. AP images typically look more "smushed" near the frontal pole, and PA images are more smeared outwards at the frontal areas.
 
 .. Insert figures of AP and PA examples
