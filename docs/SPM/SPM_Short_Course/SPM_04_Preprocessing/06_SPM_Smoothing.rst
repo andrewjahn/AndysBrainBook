@@ -27,7 +27,7 @@ In the SPM GUI, click on the ``Smooth`` button and double-click on ``Images to S
 
 .. note::
 
-  The default FWHM of 8x8x8mm is probably too large for most studies; it may help boost the signal over larger cortical regions, but it is likely to diulte the signal of functionally smaller but more homogeneous regions. Once you have finished this series, you are encouraged to test different smoothing kernels to see how it affects the profile and the significance of your results.
+  The default FWHM of 8x8x8mm is probably too large for most studies; it may help boost the signal over larger cortical regions, but it is likely to dilute the signal of functionally smaller but more homogeneous regions. Once you have finished this series, you are encouraged to test different smoothing kernels to see how it affects the extent and the significance of your results.
   
   
 Checking the Smoothed Images
