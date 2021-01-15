@@ -69,7 +69,7 @@ FMRI
 
 Now that we have all of the preprocessing steps ready to go, we will create a general linear model to analyze the data once it has been preprocessed. This will require creating a design matrix indicating which condition occurred at which time, and for what duration. We will also specify which conditions we want to contrast against each other - which in this example will be the 4-back compared to the 1-back task. The resulting image will show differences in cerebral blood flow between those conditions.
 
-To begin, click on ``Build Design Matrix``. This will open up another window that says ``ASL Design Matrix Builder``. In the field next to ``TR (sec.)``, enter the number ``4``. In the ``Exp. Duration (sec.) field, enter ``1192``. Leave unchecked the box next to ``Unsubtracted ASL data``.
+To begin, click on ``Build Design Matrix``. This will open up another window that says ``ASL Design Matrix Builder``. In the field next to ``TR (sec.)``, enter the number ``4``. In the ``Exp. Duration (sec.)`` field, enter ``1192``. Leave unchecked the box next to ``Unsubtracted ASL data``.
 
 .. note::
 
