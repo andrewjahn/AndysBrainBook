@@ -140,14 +140,22 @@ Steps for field-map unwarping
 Step 0: Create brain mask of magnitude image
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-bet2 MagnitudeImage.nii.gz -f 0.7
+The first step is to create a map of the voxels that we will use for unwarping. You can use any skull-stripping program you like, but for now, we will use the relatively fast ``bet2`` command from FSL:
 
-Play around with the fractional intensity threshold to generate a brain mask that is restricted just to the brain voxels (i.e., err on the side of excluding some brain voxels rather than including any non-brain voxels)
+::
+
+  bet2 MagnitudeImage.nii.gz -f 0.7
+
+Play around with the fractional intensity threshold to generate a brain mask that is restricted just to the brain voxels (i.e., err on the side of excluding some brain voxels rather than including any non-brain voxels). 
 
 Step 1: Create fieldmap
 &&&&&&&&&&&&&&&&&&&&&&&
 
-fsl_prepare_fieldmap SIEMENS phaseImage.nii.gz MagnitudeImage_brain.nii.gz fieldmap.nii 2.65
+The next step will create the fieldmap using FSL's ``fsl_prepare_fieldmap`` command. This command includes an option, SIEMENS, that is optimized for Siemens scanners:
+
+::
+
+  fsl_prepare_fieldmap SIEMENS phaseImage.nii.gz MagnitudeImage_brain.nii.gz fieldmap.nii 2.65
 
 This last parameter (2.65) is the delta TE, which you will need to verify on your scanner. I believe this is the default for Siemens, but small deviations don't seem to make that much of a difference in the fieldmap.
 
@@ -156,9 +164,14 @@ Check the fieldmap in an image viewer; it should be brighter in the orbitofronta
 Step 2: Apply fieldmap with FUGUE to unwarp functional images
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-fugue -i fMRI_Image.nii.gz --dwell=.0.00018 --unwarpdir=y- --loadfmap=fieldmap.nii.gz -u fMRI_Unwarped.nii
+Unwarping the images requires a parameter called "echo spacing", the distance between echoes in echo planar images. If you have acquired two magnitude fieldmap images, echo spacing can be calculated by subracting the echo time of the first magnitude image from the echo time of the second magnitude image.
 
-The --dwell option specifies the dwell time, which is your echo spacing divided by your acceleration factor. For example, if your echo spacing time is 0.00072 seconds, and your acceleration factor is 4, you would calculate 0.00072 / 4 = 0.00018 to create your dwell time value.
+The ``--dwell`` option of the commend below specifies the dwell time, which is your echo spacing divided by your acceleration factor. For example, if your echo spacing time is 0.00072 seconds, and your acceleration factor is 4, you would calculate 0.00072 / 4 = 0.00018 to create your dwell time value:
+
+::
+
+  fugue -i fMRI_Image.nii.gz --dwell=.0.00018 --unwarpdir=y- --loadfmap=fieldmap.nii.gz -u fMRI_Unwarped.nii
+
 
 The option unwarpdir indicates the direction for unwarping our data. For example, if the fMRI data was acquired with a phase-encoding direction of Anterior-to-Posterior, this is along the y axis; the unwarping would therefore be in the opposite direction, which is specified with y-. 
 
