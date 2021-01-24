@@ -63,7 +63,15 @@ The last line to edit is near the end, which starts with ``cfg=decoding_describe
 
 .. note::
 
-  To keep your results organized, you can also include the option "cfg.results.filestart", 
+  To keep your results organized, you can also include the option "cfg.results.filestart" to specify a prefix that is applied to the output files.
+  
+.. warning::
+
+  The latest operating system for Macintosh as of this writing (January 24th, 2021) is Catalina. You may run into an error installing SPM and The Decoding Toolbox, which is related to the MEX files. The following code should fix this:
+  
+  ::
+  
+    find . -name "*.mexmaci64" -exec xattr -d com.apple.quarantine {} \;
 
 Examining the Results
 *********************
