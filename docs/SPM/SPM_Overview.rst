@@ -1,13 +1,13 @@
 .. _SPM_Overview:
 
-================================
+============
 SPM Overview
-================================
+============
 
 ---------------
 
 What is SPM?
-*****************
+************
 
 `SPM <https://www.fil.ion.ucl.ac.uk/spm/>`__ (Statistical Parametric Mapping) is an fMRI analysis software package that is run in `Matlab <https://www.mathworks.com/products/matlab.html>`__. In addition to fMRI analysis, SPM contains toolboxes for performing volume-based morphometry and effective connectivity.
 
