@@ -172,6 +172,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Machine Learning for Neuroimagers
     
     ML/ML_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Slicer
+    
+    Slicer/Slicer_Overview
 
 
 .. Glossary
