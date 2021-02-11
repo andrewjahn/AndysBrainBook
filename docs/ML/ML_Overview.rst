@@ -18,7 +18,7 @@ After working through an example with AFNI to learn the basics, we will begin to
 
 .. note::
 
-   Thanks to `Martin Hebart <http://martin-hebart.de/>`__ for helpful comments, especially about the statistical analysis of MVPA data.
+   Thanks to `Martin Hebart <http://martin-hebart.de/>`__ for helpful comments, especially about the statistical analysis of MVPA data. A useful series of PDFs and lectures can also be found `here <https://fmrif.nimh.nih.gov/public/other-courses/mvpa>`__.
 
 .. toctree::
    :maxdepth: 1
