@@ -66,6 +66,7 @@ In AFNI
 We will first create our ROIs using 3dUndump:
 
 ::
+
   # Create the mPFC ROI
   echo "0 20 44" | 3dUndump -orient LPI -master Congruent_betas+tlrc -srad 5 -prefix ConflictROI+tlrc -xyz -
   
