@@ -74,30 +74,34 @@ Depending on your computer or server, you may already have CMake and/or pip; how
   which cmake
   which pip
   
-If these packages are in your $PATH, it should list where they're located, otherwise you will need to install them. To install CMake, go `here <https://cmake.org/download/>`__ and click the tar.gz file for your MacOS or Linux. Then type the following into your command line, line by line:
-
-::
-
-  cd ~/Downloads
-  tar -zxvf cmake-3.16.3-*-x86_64.tar.gz
-  export PATH="~/Downloads/cmake-3.16.3-Darwin-x86_64/CMake.app/Contents/bin/:$PATH"
-
-
-To install pip (if for some reason you don't have it), type the following into the command line, line by line:
+If these packages are in your $PATH, it should list where they're located, otherwise you will need to install them. To install pip, for example, you can type the following into the command line, line by line:
 
 ::
 
   cd
   curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
   python get-pip.py --user
-
+  
 You will see a warning message that lists where pip is installed. Copy that path and add it to your $PATH. An example of how you do that is:
 
 ::
 
   export PATH="/Users/$USER/Library/Python/2.7/bin/:$PATH"
+
+To install CMake, go `here <https://cmake.org/download/>`__ and click the tar.gz file for your MacOS or Linux. Then type the following into your command line, line by line:
+
+::
+
+  cd ~/Downloads
+  tar -zxvf cmake-3.16.3-*-x86_64.tar.gz
+  export PATH="~/Downloads/cmake-3.16.3-Darwin-x86_64/CMake.app/Contents/bin/:$PATH"
   
-  
+You can also install cmake by using pip:
+
+::
+
+  pip install cmake
+
 At this point, CMake and pip should now be installed and in your $PATH
 
 
@@ -140,10 +144,10 @@ dcm2bids is a package that takes the output from dcm2niix and organizes/renames 
 
 ::
 
-  pip uninstall dcm2bids --user
+  pip uninstall dcm2bids
   pip install dcm2bids --user
   
-This should automatically add dcm2bids to your $PATH
+This should automatically add dcm2bids to your $PATH.
   
 pigz Installation (optional)
 ****************************
