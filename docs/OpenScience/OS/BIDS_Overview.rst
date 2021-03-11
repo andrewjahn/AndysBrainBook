@@ -95,7 +95,7 @@ You will see a warning message that lists where pip is installed. Copy that path
 
 ::
 
-  export PATH="/Users/dlevitas/Library/Python/2.7/bin/:$PATH"
+  export PATH="/Users/$USER/Library/Python/2.7/bin/:$PATH"
   
   
 At this point, CMake and pip should now be installed and in your $PATH
@@ -136,7 +136,7 @@ Disclaimer regarding dcm2niix: Running dcm2niix on a HPC can potentially take mu
 dcm2bids Installation
 *********************
 
-Dcm2bids is a package that takes the output from dcm2niix and organizes/renames files to meet the BIDS specification. To install, type the following on the command line, line by line:
+dcm2bids is a package that takes the output from dcm2niix and organizes/renames files to meet the BIDS specification. To install, type the following on the command line, line by line:
 
 ::
 
