@@ -22,3 +22,20 @@ Download the dataset by clicking on the "Download" button at the top of the page
 
 
 After you have downloaded and unzipped the dataset, click on the Next button for an overview of the experimental task used in this study.
+
+Alternative Download Options
+****************************
+
+If the download button doesn't work, try using the `Amazon Web Services (AWS) <https://aws.amazon.com/>`__ option. Go to `this page <https://aws.amazon.com/cli/>`__ and download the appropriate AWS client for your operating system. Once it has been installed, open a Terminal, navigate to the Desktop, and type the following:
+
+::
+
+    aws s3 sync --no-sign-request s3://openneuro.org/ds000102 ds000102-download/
+
+It should take about half an hour to download.
+
+
+Video
+******
+
+For a video tutorial of how to download the data, click `here <https://www.youtube.com/watch?v=4Y0LfKNj8Ns>`__. (The video has the title "AFNI Tutorial #1", but since it's essentially the same thing as what you'll be doing for FSL, I've decided to use the same video for both tutorials.)
