@@ -10,7 +10,7 @@ Overview
 
 After you've preprocessed and set up a model for a single run for a single subject, you will need to do the same steps for all of the runs for all of the subjects in your dataset. This may seem tedious but doable - we only have twenty-six subjects, and two runs per subject. You may think that it can be done over the course of a week or so; and you can always assign the task to a couple of Research Assistants.
 
-This attitude is admirable, and if you take this approach you will be able to analyze all of the data eventually. But at some point you will run into two problems:
+At some point, however, you will run into two problems:
 
 1. You will find that manually analyzing each run is not only tedious but prone to error, and the probability of making a mistake increases significantly as the number of runs to analyze also increases; and
 
@@ -116,4 +116,4 @@ You can run the script by simply typing ``bash run_1stLevel_Analysis.sh`` from t
 Video
 *********
 
-Click `here <https://www.youtube.com/watch?v=oXSHbRlogaA>`__ for a video showing you how to download and run the above script. It is the same video that summarizes the :ref:`final Unix chapter <Unix_09_AutomatingTheAnalysis>`, to show how the convergence between the two courses.
+Click `here <https://www.youtube.com/watch?v=oXSHbRlogaA>`__ for a video showing you how to download and run the above script. It is the same video that summarizes the :ref:`final Unix chapter <Unix_09_AutomatingTheAnalysis>`, to show the convergence between the two courses.
