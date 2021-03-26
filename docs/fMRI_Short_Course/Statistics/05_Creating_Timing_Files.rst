@@ -1,12 +1,12 @@
 .. _05_Creating_Timing_Files.rst
 
 Chapter 5: Creating Timing Files
-==========
+================================
 
 ---------
 
 The Ideal Time-Series and the Fitted Time-Series
-*********
+************************************************
 
 We just saw how we can use several regressors, or independent variables, to estimate an outcome measure such as GPA. Conceptually, we’re doing the same thing when we use several regressors to estimate brain activity, which is our outcome measure with fMRI data: We estimate the average amplitude of the BOLD signal in response to each condition in our model.
 
@@ -22,7 +22,7 @@ The Red and Green lines representing the HRFs are called the **ideal time-series
 
 
 Creating the Ideal Time-Series
-*********
+******************************
 
 Our goal is to create the fitted time-series so that we can use the estimated beta weights in a group-level analysis. But to do that, we first need to create our ideal time-series.
 
