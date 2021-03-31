@@ -117,6 +117,20 @@ FSL has a command called ``Randomise``, which creates a distribution from the da
   
 "allZs.nii.gz" is a file of the combined zstat images from both groups, created using fslmerge. The .mat and .con files are created using the Setup Model Wizard from the FEAT GUI. Usually about 5000 permutations or more should be selected in order to create a robust distribution.
 
+Alternatively, if you are running permutations on a one-sample t-test, you can use shorthand to omit the design and contrast files:
+
+::
+
+  randomise -i allZstats.nii.gz -o allZstats_randomise.nii -1 -T -n 500
+  
+Randomise can also be run from the 3rd-level analysis. If you navigate to your 3rd-level directory, open FEAT, and load the design.fsf file, click on the ``Stats`` tab and change ``FLAME1`` to ``Randomise``:
+
+.. figure:: CC_StatsTab_Randomise.png
+
+On the post-stats tab under ``Thresholding``, ``TFCE`` is now an option that you can choose:
+
+.. figure:: CC_PostStatsTab_Randomise.png
+
 
 SPM's Cluster Correction
 ^^^^^^^^^^^^^^^^^^^^^^^^
