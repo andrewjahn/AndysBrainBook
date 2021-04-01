@@ -7,7 +7,7 @@ Appendix B: Biased Analysis
 ---------------
 
 What is a Biased Analysis?
-************
+**************************
 
 In 2009, a paper was published “Puzzlingly High Correlations in fMRI Studies,” better known as the “Voodoo Correlations” paper. The paper claimed that some correlations in imaging studies were inflated because of “Nonindependence,” or “Circular Analysis."
 
@@ -15,7 +15,7 @@ Circular analysis occurs when data are selected based on some criteria, and then
 
 
 Circular Analyses with fMRI Data
-*************
+********************************
 
 Circular analyses can also happen with imaging data, although it’s not as apparent when it happens. This was first pointed out in a study which examined activity in the fusiform face area in response to different stimuli. They extracted data from each condition’s significant voxels and discovered a pattern of selective activity. 
 
@@ -36,7 +36,7 @@ However, it was pointed out that if you chose an ROI outside of the brain which 
 
 
 Biased Analyses and Inflated Effect Sizes
-**********
+*****************************************
 
 Let’s see how biased ROIs lead to inflated effect sizes. The figure below shows a group-level z-score map, zoomed in on a region of the medial prefrontal cortex. We can see the boundaries of each individual voxel, with a range of z-scores from 0 to 3. Assume that there is a real effect in the brain outlined in orange. If we extracted the parameter estimates for each subject from those voxels, the effect would be 0.3 – with some variation around that value. Now assume that we threshold our image at an uncorrected level of p<0.05, or a z-score of 1.65. The voxels highlighted in red are the only ones that pass that threshold.
 
@@ -47,6 +47,23 @@ Here’s the important part: notice that this region overlaps with some of the t
 In 2009, the Voodoo Correlations paper claimed that many studies were using biased analyses which led to inflated correlations - and also claimed that if they used unbiased analyses, the distribution of effects would be lower. In response, other researchers argued that if you correct for multiple comparisons, the effect does indeed exist. Also, if you’re doing an exploratory analysis to see where an effect is located, what’s the harm in looking within the significant voxels to see what is driving the effect? Isn’t it good to know what’s going on?
 
 There are two problems with those arguments. First, the magnitude of the effect is just as important as detecting whether the effect is there, and biased analyses will systematically overestimate it. Why? Because small studies by definition can only detect large effects. The second is that if you publish a biased analysis, the reader may assume that it is an inferential analysis, even if it includes caveats about how it was done. If you insist on presenting them in a figure, at least don’t include error bars.
+
+Demonstration
+=============
+
+Using the same data from the FSL chapter on ROI analysis, create a biased ROI around the peak of the contrast Inc-Con (which is at voxel coordiantes 47, 71, 59):
+
+::
+
+  fslmaths $FSLDIR/data/standard/MNI152_T1_2mm.nii.gz -mul 0 -add 1 -roi 47 1 71 1 59 1 0 1 biasedROI.nii.gz -odt float
+  fslmaths biasedROI.nii.gz -kernel sphere 5 -fmean biasedROI_Sphere.nii.gz -odt float
+  fslmaths biasedROI_Sphere.nii.gz -bin biasedROI_Sphere_bin.nii.gz
+  
+And then extract the data from this ROI using fslmeants:
+
+::
+
+  fslmeants -i allZstats.nii.gz -m biasedROI_Sphere_bin.nii.gz 
 
 
 How to Create Unbiased ROIs
@@ -65,7 +82,7 @@ A third way of creating unbiased ROIs is to use a meta-analysis map, which repre
 
 
 Other Types of Biased Analysis
-***********
+******************************
 
 We’ve only touched on a couple of different ways to do biased analyses, but there are other ways too - and you need to be on the lookout for them. Let’s say that you use an anterior cingulate cortex ROI for your confirmatory analysis - meaning that you selected the ROI beforehand, regardless of what the whole-brain results look like - but the results don’t pass correction. You then look at the whole-brain map, and see this. You then decide to use an ROI located more in the pre-SMA. This is also a biased an analysis, because now you know where your effect is before you decide where to extract from.
 
