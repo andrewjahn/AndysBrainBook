@@ -117,6 +117,51 @@ This will begin preprocessing the data for subject #8 - which, you may recall, w
 
 Using the barebones analysis pipeline that we specified above, this should take about one or two hours to process. When it has finished, click the ``Next`` button.
 
+Running Singularity on a Supercomputing Cluster
+***********************************************
+
+The following is sample code that will be updated in the future:
+
+::
+
+  #!/bin/bash
+
+  #SBATCH --job-name=fmriprep
+  #SBATCH --nodes=1
+  #SBATCH --tasks-per-node=1
+  #SBATCH --cpus-per-task=4
+  #SBATCH --mem=16g
+  #SBATCH --mail-type=NONE
+  #SBATCH --partition=week-long
+  #SBATCH --output=/home/%u/slurm/%x-%j.log
+  #SBATCH --time=72:00:00
+
+  hostname -s
+  uptime
+  source /home/sw/spack/share/spack/setup-env.sh
+  spack load singularity
+
+  SUBJ=$1
+  FMRIPREP=/home/data/fmriprep-20.2.1.simg
+  SURF_LICENSE=/home/sw/freesurfer/license.txt
+
+  BIDS_DIR=~/Desktop/Flanker
+  OUTPUT_DIR=~/Desktop/Flanker/derivatives
+  WORK_DIR=~
+
+  singularity run \
+      $FMRIPREP      \
+      $BIDS_DIR $OUTPUT_DIR participant \
+      --n_cpus $SLURM_CPUS_PER_TASK        \
+      --omp-nthreads $SLURM_CPUS_PER_TASK \
+      --fs-license-file=$SURF_LICENSE         \
+      --participant-label=$SUBJ \
+      --skip_bids_validation --ignore slicetiming \
+      --dummy-scans 12 \
+      --output-spaces anat fsnative MNI152NLin2009cAsym:res-2 fsaverage:den-10k fsLR \
+      --cifti-output \
+      -w $WORK_DIR
+
 Video
 *****
 
