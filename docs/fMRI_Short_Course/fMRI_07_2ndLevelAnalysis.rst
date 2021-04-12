@@ -1,10 +1,10 @@
 .. _fMRI_07_2ndLevelAnalysis:
 
 fMRI Tutorial #7: 2nd-Level Analysis
-=================
+====================================
 
 Overview
-***********
+********
 
 Once you have preprocessed and analyzed all of the runs for all of the subjects in the Flanker dataset, you are ready to run a **2nd-level analysis**. Whereas AFNI and SPM define a 2nd-level analysis as synonymous with a group analysis, in FSL a 2nd-level analysis is the averaging together within each subject the parameter estimates and contrast estimates from the 1st-level analyses.
 
@@ -16,7 +16,7 @@ From the Flanker directory, open the FEAT GUI from the command line by typing ``
   
   
 Selecting the FEAT Directories
-**********
+******************************
 
 Since we had 26 subjects with 2 runs each, we have 52 FEAT directories total. Change the ``Number of inputs`` to 52, and then click the button ``Select FEAT directories``.
 
@@ -47,7 +47,7 @@ In the ``Output directory`` field, type ``Flanker_2ndLevel``. This is where the 
 
 
 Creating the GLM
-***********
+****************
 
 The ``Stats`` tab will look different from when you used it for 1st-level analysis - you can now choose between different types of **inference**, or how you want the results to generalize to the population. The dropdown menu has the following options:
 
@@ -79,6 +79,6 @@ As with the 1st-level analysis, we will ignore the ``Post-stats`` tab for now, s
 ---------
 
 Video
-*********
+*****
 
 For a screencast about how to create a 2nd-level analysis, click `here <https://www.youtube.com/watch?v=pT2Ry-mk_Ns>`__.
