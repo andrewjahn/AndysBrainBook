@@ -18,7 +18,7 @@ In order to illustrate how parametric modulation works, we will be using a gambl
    :maxdepth: 1
    :caption: Start to Finish Analysis with SPM
 
-    PM_Short_Course/PM_01_DataDownload
-    PM_Short_Course/PM_02_SPM
-    PM_Short_Course/PM_03_FSL
-    PM_Short_Course/PM_04_AFNI
+   PM_Short_Course/PM_01_DataDownload
+   PM_Short_Course/PM_02_SPM
+   PM_Short_Course/PM_03_FSL
+   PM_Short_Course/PM_04_AFNI
