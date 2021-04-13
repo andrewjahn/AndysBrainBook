@@ -24,3 +24,11 @@ Creating the XML File
 
 Previous versions of Motive (1.x) used **projects** to organize the data that was being viewed at a given time. For more recent versions of Motive (2.x), the data is saved as a **profile** in .xml format.
 
+When you first open Motive, you will see the following layout:
+
+.. figure:: 02_Motive_Layout.png
+
+The top window pane is the **Perspective View**, a combination of all of the three cameras on a viewing plane. The three windows highlighted in orange are the views in each individual camera; the default, **Precision View**, is sensitized to the reflective markers, which show up as bright dots against a black background. For a better picture of the entire scene, you can right-click in any one of the viewing windows and select **Grayscale**, which will display a grayscale recording from that particular camera's feed:
+
+.. figure:: 02_Motive_Grayscale.png
+
