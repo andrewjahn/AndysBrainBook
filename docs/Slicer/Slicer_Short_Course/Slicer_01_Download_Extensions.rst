@@ -1,4 +1,4 @@
-.. _Slicer_00_Download_Extensions:
+.. _Slicer_01_Download_Extensions:
 
 ===========================================
 Slicer Tutorial #1: Download and Extensions
