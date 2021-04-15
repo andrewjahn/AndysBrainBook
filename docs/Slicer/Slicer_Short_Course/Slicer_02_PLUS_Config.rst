@@ -1,4 +1,4 @@
-.. _Slicer_01_PLUS_Config:
+.. _Slicer_02_PLUS_Config:
 
 ===================================================
 Slicer Tutorial #2: PLUS and the Configuration file
@@ -43,8 +43,8 @@ A sample config file can be found on PLUS applications user manual website, loca
         AttachToRunningMotive="FALSE"
         MotiveDataDescriptionsUpdateTimeSec="1.0" >
         <DataSources>
-          <DataSource Type="Tool" Id="Stylus" RigidBodyFile="OptiTrackStylus.tra" />
-          <DataSource Type="Tool" Id="Reference" RigidBodyFile="OptiTrack/Reference.tra" />
+          <DataSource Type="Tool" Id="Stylus" />
+          <DataSource Type="Tool" Id="Reference" />
         </DataSources>
         <OutputChannels>
           <OutputChannel Id="TrackerStream">
@@ -89,8 +89,63 @@ In this example, the ``DeviceSet`` has the attributes ``Name`` and ``Description
 The Modified Configuration File
 *******************************
 
-We will modify the above template configuration file to match our setup. For example, if we create a folder called MyExp on our Desktop, we will then create a Motive profile called "MyProfile.xml", as well as two rigid-body objects: A stylus (i.e., a pointer that contains several tracking markers on its body), and a reference object (e.g., any object that remains stationary with regard to the stylus). These rigid-body objects will be labeled as ``.TRA`` files, which we will see in the next tutorial.
+We will modify the above template configuration file to match our setup. For example, if we create a folder called MyExp on our Desktop, we will then create a Motive profile called "MyProfile.xml", as well as two rigid-body objects: A stylus (i.e., a pointer that contains several tracking markers on its body), and a reference object (e.g., any object that remains stationary with regard to the stylus). We will also change the boolean ``AttachToRunningMotive`` to ``TRUE``, to allow real-time updates from OptiTrack as we view an object in Slicer.
 
-.. Insert modified configuration file here
+Another block of code that we will need is a **Virtual Capture** device. After the first TrackerDevice that is listed, we will enter code for another one called VirtualCapture. All of these modifications can be seen in code below:
+
+::
+
+      <PlusConfiguration version="2.7">
+      <DataCollection StartupDelaySec="1.0">
+        <DeviceSet
+          Name="PlusServer: OptiTrack (Profile file and additional rigid body TRA files)"
+          Description="Broadcasting tracking data through OpenIGTLink."
+        />
+        <Device
+          Id="TrackerDevice"
+          Type="OptiTrack"
+          ToolReferenceFrame="Tracker" 
+          Profile="MyProfile.xml"
+          AttachToRunningMotive="TRUE"
+          MotiveDataDescriptionsUpdateTimeSec="1.0" >
+          <DataSources>
+            <DataSource Type="Tool" Id="Stylus" />
+            <DataSource Type="Tool" Id="Reference" />
+          </DataSources>
+          <OutputChannels>
+            <OutputChannel Id="TrackerStream">
+            <DataSource Type="Tool" Id="Stylus" />
+            <DataSource Type="Tool" Id="Reference" />
+            </OutputChannel>
+          </OutputChannels>
+        </Device>
+        <Device 
+            Id="CaptureDevice" 
+            Type="VirtualCapture"
+            BaseFilename="RecordingTest.igs.mha"
+            EnableCapturingOnStart="FALSE" >
+            <InputChannels>
+              <InputChannel Id="TrackerStream" />
+            </InputChannels>
+         </Device>
+      </DataCollection>
+      <PlusOpenIGTLinkServer
+        MaxNumberOfIgtlMessagesToSend="1"
+        MaxTimeSpentWithProcessingMs="50"
+        ListeningPort="18944"
+        SendValidTransformsOnly="TRUE"
+        OutputChannelId="TrackerStream" >
+        <DefaultClientInfo>
+          <MessageTypes>
+            <Message Type="TRANSFORM" />
+          </MessageTypes>
+          <TransformNames>
+            <Transform Name="StylusToTracker" />
+            <Transform Name="ReferenceToTracker" />
+          </TransformNames>
+        </DefaultClientInfo>
+      </PlusOpenIGTLinkServer>
+
+     </PlusConfiguration>
 
 Copy and save this code into a text file called ``MyConfig.txt``. We now turn to the Motive software to create the profile and rigid-body objects that are needed by the configuration file.
