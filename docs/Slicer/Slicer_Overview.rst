@@ -20,6 +20,7 @@ The following chapters will step through each of the dependencies and pieces of 
    :maxdepth: 1
    :caption: Start to Finish Analysis with SPM
 
-   Slicer_Short_Course/Slicer_00_Download_Extensions
-   Slicer_Short_Course/Slicer_01_PLUS_Config
-   Slicer_Short_Course/Slicer_02_Motive
+   Slicer_Short_Course/Slicer_01_Download_Extensions
+   Slicer_Short_Course/Slicer_02_PLUS_Config
+   Slicer_Short_Course/Slicer_03_Motive
+   Slicer_Short_Course/Slicer_04_OpeningPLUSConnection
