@@ -52,4 +52,4 @@ You can do the same procedure for spin calibration; click on ``Start Spin Calibr
 Next Steps
 **********
 
-Once the stylus has been calibrated, we are 
+Once the stylus has been calibrated, we are ready to **coregister** a three-dimensional image of an object, such as a brain, with a physical model of the brain itself. To see how to do that, click the ``Next`` button.
