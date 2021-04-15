@@ -31,8 +31,6 @@ Now from the modules dropdown menu select ``IGT -> Fiducial Registration Wizard`
 
 In the FiducialRegistrationWizard ``From fiducials`` display window, click on the dropdown menu and select ``Create new MarkupsFiducial``. Then click on ``Rename current MarkupsFiducial`` from the same dropdown menu, and call it ``ReferencePoints``. Do the same procedure for the ``To fiducials`` window, calling it ``RasPoints``.
 
-.. figure:: 06_NameFiducials.png
-
 Now click on the icon of the blue arrow with the red dot, and then left-click on the MRI where you want to place a fiducial. In this case, place them on different sides of the ball in the center of the cube, and maybe one on the plastic circle pasted on the side of the cube. The more fiducials you place, the better the coregistration between the images will be.
 
 .. figure:: 06_SettingFiducials.png
