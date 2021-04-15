@@ -9,7 +9,7 @@ Slicer Tutorial #2: PLUS and the Configuration file
 Overview
 ********
 
-PLUS is a software package that allows Slicer to communicate with OptiTrack, a tracking system. It can be downloaded `here <https://plustoolkit.github.io/`__. In this walkthrough, I have downloaded the Win32 package, to work with Motive version 2.1.
+PLUS is a software package that allows Slicer to communicate with OptiTrack, a tracking system. It can be downloaded `here <https://plustoolkit.github.io/>`__. In this walkthrough, I have downloaded the Win32 package, to work with Motive version 2.1.
 
 PLUS is an intermediary between your tracking software (e.g., OptiTrack) and your visualization software (e.g., Slicer), as shown in the following diagram:
 
@@ -142,6 +142,7 @@ Another block of code that we will need is a **Virtual Capture** device. After t
           <TransformNames>
             <Transform Name="StylusToTracker" />
             <Transform Name="ReferenceToTracker" />
+            <Transform Name-"StylusToReference" />
           </TransformNames>
         </DefaultClientInfo>
       </PlusOpenIGTLinkServer>
