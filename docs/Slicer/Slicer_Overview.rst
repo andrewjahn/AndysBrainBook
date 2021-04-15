@@ -25,5 +25,6 @@ The following chapters will step through each of the dependencies and pieces of 
    Slicer_Short_Course/Slicer_03_Motive
    Slicer_Short_Course/Slicer_04_OpeningPLUSConnection
    Slicer_Short_Course/Slicer_05_Calibration
-   Slicer_Short_Course/Slicer_06_Coregistration
-   Slicer_Short_Course/Slicer_07_RealTimeViewing
+   
+.. Slicer_Short_Course/Slicer_06_Coregistration
+.. Slicer_Short_Course/Slicer_07_RealTimeViewing
