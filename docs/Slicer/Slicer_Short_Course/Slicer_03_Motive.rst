@@ -1,7 +1,7 @@
-.. _Slicer_02_Motive:
+.. _Slicer_03_Motive:
 
 ==========================
-Slicer Tutorial #2: Motive
+Slicer Tutorial #3: Motive
 ==========================
 
 ----------
