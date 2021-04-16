@@ -34,7 +34,7 @@ To calibrate the stylus, we will first need to create a **needle model** to repr
 
 .. figure:: 05_CreateNeedle.png
 
-Now select the ``Data`` module from the dropdown menu and click on the ``Transform hierarchy`` tab. Right-click anywhere in the ``Nodes`` window pane and select ``Insert new transform``. Rename the new transform to ``StylusTipToStylus``, and click and drag the ``NeedleModel`` to go within the new transform.
+Now select the ``Data`` module from the dropdown menu and click on the ``Transform hierarchy`` tab. Right-click anywhere in the ``Nodes`` window pane and select ``Insert new transform``. Rename the new transform to ``StylusTipToStylus``, and click and drag the ``NeedleModel`` to go within the new transform. Rename NeedleModel to ``StylusTip``.
 
 .. figure:: 05_StylusTipToStylus.png
 
