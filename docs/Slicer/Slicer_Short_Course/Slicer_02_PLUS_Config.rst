@@ -142,7 +142,7 @@ Another block of code that we will need is a **Virtual Capture** device. After t
           <TransformNames>
             <Transform Name="StylusToTracker" />
             <Transform Name="ReferenceToTracker" />
-            <Transform Name-"StylusToReference" />
+            <Transform Name="StylusToReference" />
           </TransformNames>
         </DefaultClientInfo>
       </PlusOpenIGTLinkServer>
