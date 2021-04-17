@@ -17,7 +17,7 @@ Likewise, with Slicer we will coregister an MRI of an image to the stylus which 
 Creating the Transforms
 ***********************
 
-Go back to the ``Data`` module, and click on the ``Transform Hierarchy`` tab. Rename the NeedleModel to ``StylusTip``, create a new transform, and call the new transform ``ReferenceToRas``. Click and drag the transforms until the hierarchy looks like this:
+Go back to the ``Data`` module, and click on the ``Transform Hierarchy`` tab. Create a new transform, and call the new transform ``ReferenceToRas``. Click and drag the transforms until the hierarchy looks like this:
 
 .. figure:: 06_TransformHierarchy.png
 
