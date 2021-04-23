@@ -24,4 +24,25 @@ If the download button doesn't work, try using the `Amazon Web Services (AWS) <h
 
     aws s3 sync --no-sign-request s3://openneuro.org/ds000005 ds000005-download/
 
-It should take about half an hour to download.
+It should take about half an hour to download. When it finishes downloading, move it to the Desktop and rename it by opening a Terminal and typing:
+
+::
+
+    mv ~/Downloads/ds000005-download ~/Desktop/Gambles
+    
+Analyzing the Dataset in Different Software Packages
+****************************************************
+
+When you have downloaded the data, you have a choice of analyzing it in any of the major fMRI analysis packages:
+
+1. SPM (LINK)
+2. FSL (LINK)
+3. AFNI (LINK)
+
+You can use any of these packages to do parametric modulation, although the details are slightly different between them. If you are already familiar with how to preprocessing a typical dataset using these packages, the major difference will be in setting up the general linear model to estimate regressors for the parametric modulators.
+
+
+Video
+*****
+
+For a video on how parametric modualtion works, click here (INSERT LINK).
