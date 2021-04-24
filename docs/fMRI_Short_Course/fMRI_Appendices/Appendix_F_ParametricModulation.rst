@@ -82,9 +82,45 @@ Next, download the file `run_1stLevel_Analysis_Gambles.sh <https://github.com/an
   
 You should see an HTML file open for each run that is analyzed, which will generate 48 tabs total. The entire analysis should take a four or five hours, depending on the speed of your machine.
 
+Higher-Level Analysis
+*********************
+
 Setting up the Second-Level Analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+From the ``Gambles`` directory, type:
+
+::
+
+  ls -d $PWD/sub-??/run*
+  
+This will create a list of all of the first-level FEAT directories. Copy the output to your clipboard, and open up a new FEAT GUI. Select ``Higher-level analysis`` from the dropdown menu, and make sure that ``Inputs are lower-level FEAT directories`` is selected. Change the ``Number of inputs`` to ``48``, and then click on ``Select FEAT directories``. Click ``Paste``, and then press ``ctrl+y`` on the keyboard to paste the list of FEAT directories. Click ``OK``, and leave the boxes checked next to ``Use lower-level copes``. For the ``Output directory``, enter ``Gambles_2ndLevel``.
+
+In the ``Stats`` tab, change the Mixed effects to ``Fixed effects``. Click on ``Full Model Setup``. Change the ``Number of main EVs`` to ``16``, and fill in the matrix with three 1's for each subject, as in the following figure:
+
+.. figure:: Appendix_F_EVs.png
+
+And update the ``Contrasts & F-tests`` tab so that there are 16 contrasts, and a contrast weight of 1 per subject:
+
+.. figure:: Appendix_F_Contrasts.png
+
+Click OK, and then click the ``Go`` button. This will average the parameter estimate for each regressor across all three runs, and it will take an hour or two.
 
 
+Setting up the Third-Level Analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Open a new FEAT GUI, and select ``Inputs are 3D cope images from FEAT directories`` from the dropdown menu. Change the ``Number of inputs`` to ``16``, and set the ``Output directory`` to ``Gambles_Gain_3rdLevel``. Use a Terminal to navigate to the directory ``Gambles_2ndLevel.gfeat/cope2.feat/stats``, and type:
+
+::
+
+  ls $PWD/cope* | sort -V
+
+This will return a list of all of the cope images for the second contrast we specified, which is the parametric modulation of Gain. Copy this list, click on ``Select cope images``, click ``Paste``, and then type ``ctrl+y`` to paste the list. Click ``OK``. 
+
+In the ``Stats`` tab, you can leave the default of ``Mixed effects: FLAME 1``. Click on ``Model setup wizard``, and select ``single group average``. Click ``Process``, and then click ``Go``. This analysis will take ten to twenty minutes.
+
+
+Viewing the Results
+*******************
 
