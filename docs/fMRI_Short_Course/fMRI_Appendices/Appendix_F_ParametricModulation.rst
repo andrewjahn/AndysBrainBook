@@ -151,4 +151,8 @@ Load the file ``allZs_randomise_tfce_corrp_tstat1`` in fsleyes, and change the `
 Next Steps
 **********
 
-As an exercise, try running the same analysis with the parametric modulation of Loss; these are located in the 2ndLevels directory as ``cope3``. 
+As an exercise, try running the same analysis with the parametric modulation of Loss; these are located in the 2ndLevels directory as ``cope3``. You may have to look at the unthresholded results, since in my experience the Loss results do not pass the threshold in either FLAME1 or TFCE. Nevertheless, you should still see an association of **negative** BOLD signal with the Loss parametric modulators. Compare your results to those of `Tom et al., 2007 <https://science.sciencemag.org/content/sci/315/5811/515.full.pdf>`__:
+
+.. figure:: Appendix_F_Tom_Results.png
+
+
