@@ -124,3 +124,31 @@ In the ``Stats`` tab, you can leave the default of ``Mixed effects: FLAME 1``. C
 Viewing the Results
 *******************
 
+To view the results, navigate to the directory ``Gambles_3rdLevel.gfeat`` and open fsleyes. Select ``File -> Add Standard`` and choose the template ``MNI152_T1_1mm``. Next, click on ``File -> Add from file``, and select ``thresh_zstat1``. Change the colorscale to ``Red-Yellow`` to better see the outline of the cluster, and click on the Gear icon and choose ``Linear interpolation`` to smooth the edges. You should see something like this:
+
+.. figure:: Appendix_F_Zthresh.png
+
+We see that there is significant parametric modulation of Gain within the ventral striatum, as we would expect. However, we also know that FSL's FLAME1 method for cluster correction can be overly conservative; see, for example, Figure 1 of Eklund et al., 2016. We can instead use a non-parametric option such as randomise in conjunction with threshold-free cluster enhancement, in order to balance the width and the height of each cluster. This will strike a balance between false positives and false negatives; our false positive rate will be kept to 5%, but we will also see cluster that we wouldn't otherwise with traditional cluster correction methods.
+
+To do this, navigate to the directory ``Gambles_2ndLevel.gfeat/cope2.feat/stats``, which contains the z-statistic images for the parametric modulation of Gain. Merge the files into a single dataset, and move it to the main ``Gambles`` directory:
+
+::
+
+  fslmerge -t allZs.nii.gz zstat*
+  mv allZs.nii.gz ../../..
+  cd ../../..
+  
+Now run ``randomise``, using the ``-1`` flag to indicate that it is a one-sample t-test, and the ``-T`` flag to do threshold-free cluster enhancement (TFCE). We will run 5000 simulations:
+
+::
+
+  randomise -i allZs.nii.gz -o allZs_randomise -1 -T -n 5000
+  
+Load the file ``allZs_randomise_tfce_corrp_tstat1`` in fsleyes, and change the ``Min.`` threshold fo 0.95. This will show all of the TFCE clusters at an alpha threshold of p=0.05. Note how many more clusters there are, and how these were hidden with the FLAME1 approach.
+
+.. figure:: Appendix_F_Results_TFCE.png
+
+Next Steps
+**********
+
+As an exercise, try running the same analysis with the parametric modulation of Loss; these are located in the 2ndLevels directory as ``cope3``. 
