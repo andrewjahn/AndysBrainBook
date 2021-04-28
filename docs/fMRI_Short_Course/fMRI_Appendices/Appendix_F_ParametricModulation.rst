@@ -41,7 +41,7 @@ Before we open the FEAT GUI, we need to skull-strip the brain using ``bet2``. Fr
 
 ::
 
-  bet2 anat/sub-01_T1w.nii.gz anat/sub-01_T1w_brain.nii.gz -f 0.2
+  bet2 anat/sub-01_T1w.nii.gz anat/sub-01_T1w_brain.nii.gz
 
 
 Setting up the FEAT GUI
@@ -80,7 +80,7 @@ Next, download the file `run_1stLevel_Analysis_Gambles.sh <https://github.com/an
 
   bash run_1stLevel_Analysis_Gambles.sh
   
-You should see an HTML file open for each run that is analyzed, which will generate 48 tabs total. The entire analysis should take a four or five hours, depending on the speed of your machine.
+You should see an HTML file open for each run that is analyzed, which will generate 48 tabs total. The entire analysis should take four or five hours, depending on the speed of your machine.
 
 Higher-Level Analysis
 *********************
@@ -110,7 +110,7 @@ Click OK, and then click the ``Go`` button. This will average the parameter esti
 Setting up the Third-Level Analysis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Open a new FEAT GUI, and select ``Inputs are 3D cope images from FEAT directories`` from the dropdown menu. Change the ``Number of inputs`` to ``16``, and set the ``Output directory`` to ``Gambles_Gain_3rdLevel``. Use a Terminal to navigate to the directory ``Gambles_2ndLevel.gfeat/cope2.feat/stats``, and type:
+Open a new FEAT GUI, and select ``Inputs are 3D cope images from FEAT directories`` from the dropdown menu. Change the ``Number of inputs`` to ``16``, and set the ``Output directory`` to ``Gambles_3rdLevel_Gain``. Use a Terminal to navigate to the directory ``Gambles_2ndLevel.gfeat/cope2.feat/stats``, and type:
 
 ::
 
@@ -124,7 +124,7 @@ In the ``Stats`` tab, you can leave the default of ``Mixed effects: FLAME 1``. C
 Viewing the Results
 *******************
 
-To view the results, navigate to the directory ``Gambles_3rdLevel.gfeat`` and open fsleyes. Select ``File -> Add Standard`` and choose the template ``MNI152_T1_1mm``. Next, click on ``File -> Add from file``, and select ``thresh_zstat1``. Change the colorscale to ``Red-Yellow`` to better see the outline of the cluster, and click on the Gear icon and choose ``Linear interpolation`` to smooth the edges. You should see something like this:
+To view the results, navigate to the directory ``Gambles_3rdLevel_Gain.gfeat`` and open fsleyes. Select ``File -> Add Standard`` and choose the template ``MNI152_T1_1mm``. Next, click on ``File -> Add from file``, and select ``thresh_zstat1``. Change the colorscale to ``Red-Yellow`` to better see the outline of the cluster, and click on the Gear icon and choose ``Linear interpolation`` to smooth the edges. You should see something like this:
 
 .. figure:: Appendix_F_Zthresh.png
 
@@ -144,7 +144,7 @@ Now run ``randomise``, using the ``-1`` flag to indicate that it is a one-sample
 
   randomise -i allZs.nii.gz -o allZs_randomise -1 -T -n 5000
   
-Load the file ``allZs_randomise_tfce_corrp_tstat1`` in fsleyes, and change the ``Min.`` threshold fo 0.95. This will show all of the TFCE clusters at an alpha threshold of p=0.05. Note how many more clusters there are, and how these were hidden with the FLAME1 approach.
+Load the file ``allZs_randomise_tfce_corrp_tstat1`` in fsleyes, and change the ``Min.`` threshold of 0.95. This will show all of the TFCE clusters at an alpha threshold of p=0.05. Note how many more clusters there are, and how these were hidden with the FLAME1 approach.
 
 .. figure:: Appendix_F_Results_TFCE.png
 
@@ -156,3 +156,7 @@ As an exercise, try running the same analysis with the parametric modulation of 
 .. figure:: Appendix_F_Tom_Results.png
 
 
+Video
+*****
+
+A video demonstration of how to analyze the Tom et al. 2007 dataset can be found `here <https://www.youtube.com/watch?v=SSDPVY3Ma_w>`__.
