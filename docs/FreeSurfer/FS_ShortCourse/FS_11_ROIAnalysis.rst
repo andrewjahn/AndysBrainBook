@@ -89,6 +89,23 @@ The output from these commands are tab-delimited text files that can be read int
 
   #Check how well the ROI maps onto the inflated surface
   tksurfer fsaverage lh inflated -overlay lh.fsaverage.S2.mgh -fthresh 0.5
+  
+  
+Conversely, you may want to resample a surface ROI to a volume, and then extract data from it; for example, let's say that we want to convert the superior temporal ROI created by FreeSurfer, to the individual subject's volumetric space. First, create a registration file called ``register.dat`` with FreeSurfer's ``tkregister2`` command:
+
+::
+
+  tkregister2 --mov beta_0001.nii --s subject --noedit --regheader --reg register.dat
+  
+Where "beta_0001.nii" is a beta map created in the subject's native space, and "subject" is the name of the subject that has been preprocessed with recon-all.
+
+We then use the command ``mri_label2vol`` to convert the surface ROI to volumetric space:
+
+::
+
+  mri_label2vol --label lh.superiortemporal.label --temp beta_0001.nii --subject subject --hemi lh --fillthresh .9 --proj frac 0 1 .1 --reg register.dat --o $PWD/stgnew.nii
+  
+In this case, we create a new file, ``stgnew.nii``, which is the surface ROI converted to volumetric space.
 
 
 -----------
