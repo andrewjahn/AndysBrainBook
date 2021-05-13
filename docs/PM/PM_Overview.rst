@@ -10,13 +10,29 @@ If you have completed the previous tutorials on SPM, FSL, or AFNI, you are able 
 
 While many experiments use this approach, there are other scenarios in which we examine not just the BOLD response to the condition itself, but the BOLD response to different aspects of the stimulus. For example, assume that we have a condition in which a light is shown for a few seconds, and then switched off. During certain trials the light is relatively weak, while during other trials, the light is relatively strong. If we had a measurement of the light intensity, in candelas, we could determine whether the BOLD response covaries with the light intensity.
 
-This covariation is called **parametric modulation**; in other words, does the BOLD signal seem to increase as the intensity of the stimulus increases, and decrease as the intensity decreases? This is not just restricted to the intensity of a light stimulus. For example, social psychology researchers may require the participant to rate a particular image on how aversive it is, how attractive it is, or on any other scale.
+.. figure:: 01_1PM.png
+
+    Illustration of parametric modulation. If the average BOLD response that is estimated (red) doesn't exactly fit the raw data (grey), parametric modulation may help explain the additional variance, or gap, between the two (red arrow).
+
+This covariation is called **parametric modulation**; in other words, does the BOLD signal seem to increase as the intensity of the stimulus increases, and decrease as the intensity decreases? This same idea can be applied to other kinds of experiments; for example, social psychology researchers may require the participant to rate a particular image on how aversive it is, how attractive it is, or on some other scale.
 
 Setting up a Parametric Modulation Analysis: The Tom et. al (2007) Dataset
 **************************************************************************
 
-In order to illustrate how parametric modulation works, we will be using a gambling dataset from `Tom et al., 2007 <https://science.sciencemag.org/content/sci/315/5811/515.full.pdf>`__. In the following chapters we will learn how to download the dataset and how to analyze it in each of the major fMRI software packages: SPM, FSL, and AFNI.
+To illustrate how parametric modulation works, we will be using a dataset from `Tom et al., 2007 <https://science.sciencemag.org/content/sci/315/5811/515.full.pdf>`__ that used a **gambles task**. In this task, each trial presented both a potential gain and a potential loss; the probability of getting either one was 50%. The main point of this study was to examine the BOLD response to the presentation of the gambles themselves when the participant was making a decision, instead of anticipating an immediate outcome, or evaluating the outcome itself. By presenting a range of potential gains and losses, the researchers were able to make the gains and losses **orthogonal** to each other; that is, they did not systematically go up or down together. In other words, the gambles were **independent**. When desiging your own parametric modulation study, it is important to make the modulators orthogonal to each other like they did in this paper, in order to increase statistical power and more accurately identify which voxels are responsive to which modulator.
 
+.. figure:: 01_Tom_Fig1.png
+
+  Figure 1 from Tom et al., 2007. The original caption is included for completeness.
+    
+In the supplementary material, it is written that four regressors were included in the general linear model: The response to the gamble itself, parametric modulators for potential gain and potential loss, and a parametric modulator for the Euclidean distance of the gain and loss from the diagonal of the gamble matrix. Since they didn't report a result for this last modulator, and since they should be orthogonal, in order to keep things simple we will not include this last modulator in our general linear model.
+
+You may notice that, unlike the example above, there are two parametric modulators instead of one. How does that look when they are fit to the model? If we have two modulators, they will both be used to modulate the amplitude of the BOLD response to see which one better fits it to the original time-series. If one is a better fit than the other, it will capture more of the variance, and have a larger associated t-statistic. It is important to note, however, that both are being fit at the same time; in the figure below, let's say that Red represents the parametric modulation of Gain, and Green represents the parametric modulation of Loss. For the first BOLD response, assume that we've recorded the behavioral data from the experiment, and the Gain is 3, while the Loss is -1. The Gain better fits the amplitude of the Gamble BOLD response to the data, and therefore will have a large t-statistic associated with it. On the second trial, by contrast, the parametric modulation of Loss is a better fit than the potential Gain. 
+
+.. figure:: 01_2PMs.png
+
+
+Now that we have reviwed what parametric modulation is and the dataset we will be using, we now move on to the practical part of the tutorial. In the following chapters we will learn how to download the dataset and how to analyze it in each of the major fMRI software packages: SPM, FSL, and AFNI.
 
 Downloading the Dataset
 ***********************
