@@ -19,7 +19,7 @@ From a cognitive neuroscience  point of view, blood flow is a great way to map b
 
 So, how does one measure blood flow in the brain?
 
-One way is to measure the velocity of arterial blood with doppler ultrasound, or phase contrast MRI, but that’s not very good for brain mapping.  A better way to get images of blood flow is to inject some sort of tracer and then collect images of the tracer and see how much tracer accumulated int each region over time.  More tracer accumulation implies more flow to the area.
+One way is to measure the velocity of arterial blood with doppler ultrasound, or phase contrast MRI, but that’s not very good for brain mapping.  A better way to get images of blood flow is to inject some sort of tracer and then collect images of the tracer and see how much tracer accumulated in each region over time.  More tracer accumulation implies more flow to the area.
 
 At this point, let’s  take a moment to make a distinction between blood flow and perfusion.  Technically speaking, blood flow refers to the blood that is in the larger vasculature, whereas perfusion refers to the blood that gets into capillaries and exchanges nutrients and water into the tissue.  Perfusion is generally a finer indicator of where brain activity happens.
 
