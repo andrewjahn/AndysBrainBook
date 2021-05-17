@@ -27,10 +27,26 @@ To illustrate how parametric modulation works, we will be using a dataset from `
     
 In the supplementary material, it is written that four regressors were included in the general linear model: The response to the gamble itself, parametric modulators for potential gain and potential loss, and a parametric modulator for the Euclidean distance of the gain and loss from the diagonal of the gamble matrix. Since they didn't report a result for this last modulator, and since they should be orthogonal, in order to keep things simple we will not include this last modulator in our general linear model.
 
-You may notice that, unlike the example above, there are two parametric modulators instead of one. How does that look when they are fit to the model? If we have two modulators, they will both be used to modulate the amplitude of the BOLD response to see which one better fits it to the original time-series. If one is a better fit than the other, it will capture more of the variance, and have a larger associated t-statistic. It is important to note, however, that both are being fit at the same time; in the figure below, let's say that Red represents the parametric modulation of Gain, and Green represents the parametric modulation of Loss. For the first BOLD response, assume that we've recorded the behavioral data from the experiment, and the Gain is 3, while the Loss is -1. The Gain better fits the amplitude of the Gamble BOLD response to the data, and therefore will have a large t-statistic associated with it. On the second trial, by contrast, the parametric modulation of Loss is a better fit than the potential Gain. 
+You may notice that, unlike the example above, there are two parametric modulators instead of one. How does that look when they are fit to the model? If we have two modulators, they will both be used to modulate the amplitude of the BOLD response to see which one better fits it to the original time-series. If one is a better fit than the other, it will capture more of the variance, and have a larger associated t-statistic. It is important to note, however, that both are being fit at the same time; in the figure below, let's say that Red represents the parametric modulation of Gain, and Green represents the parametric modulation of Loss. For the first BOLD response, assume that we've recorded the behavioral data from the experiment, and the Gain is 3, while the Loss is -1. The Gain better fits the amplitude of the Gamble BOLD response to the data, and therefore will have a large t-statistic associated with it. On the second trial, by contrast, the parametric modulation of Loss is a better fit than the potential Gain. Note that the parametric modulator can be weighted **negatively** to fit the data; in that case, the t-statistics will be negative as well. We will see examples of both with the dataset below.
 
 .. figure:: 01_2PMs.png
 
+
+Mean-Centering
+^^^^^^^^^^^^^^
+
+In order to make the parametric modulators orthogonal to the regressors they are modulating, you should mean-center them. This reduces the correlation with the main regressor, as illustrated in the figure below (taken from Bob Spunt's webpage `here <https://www.bobspunt.com/resources/teaching/single-subject-analysis/parametric-modulation/>`__):
+
+
+.. figure:: 01_MeanCentering.png
+
+  Example of mean-centering. Before mean-centering, the parametric modulator (blue) is highly correlated with the main regressor (red, top panel). After mean-centering, the correlation drops to zero (bottom panel).
+    
+Similarly, if the model contains multiple parametric modulators, the modulators should be orthogonal with respect to each other, or at least not highly correlated (e.g., having a correlation value greater than 0.4). In the experiment described above, the modulators were orthogonalized as part of the experimental design, as well as mean-centered; consequently, we don't need to edit the regressors.
+
+.. warning::
+
+    Although the parametric modulators have been orthogonalized with respect to each other as part of the experimental design, this is not the same as orthogonalizing the regressors with respect to each other *in the model*. For example, SPM has an option called ``Orthogonalise modulations`` as part of its ``Specify First-Level`` tab; the default is set to ``Yes``, when it should be set to ``No``. Orthogonalizing in the model will assign any shared variance to the first regressor that is entered in the model, which is probably not what most researchers want; it changes the interpretation of the modulators, and makes any but the first virtually guaranteed to not be significant. By default, the regressors are not orthogonalized in either FSL or AFNI. For more details on orthogonalization in the model and whether or not to use it, see `this paper <https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0126255>`__ by Jeanette Mumford.
 
 Now that we have reviwed what parametric modulation is and the dataset we will be using, we now move on to the practical part of the tutorial. In the following chapters we will learn how to download the dataset and how to analyze it in each of the major fMRI software packages: SPM, FSL, and AFNI.
 
