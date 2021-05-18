@@ -94,7 +94,7 @@ You can use any of these packages to do parametric modulation, although the deta
 Video
 *****
 
-For a video on how parametric modualtion works, click here (INSERT LINK).
+For a video on how parametric modualtion works, click `here <https://www.youtube.com/watch?v=C8__lwEAQ28>`__.
 
 .. toctree::
 ..   :maxdepth: 1
