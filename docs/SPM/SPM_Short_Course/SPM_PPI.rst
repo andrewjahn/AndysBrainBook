@@ -1,8 +1,8 @@
 .. _SPM_PPI:
 
-=================
-Psychophysiological Interactions (PPI) in SPM
-=================
+=========================================================
+Appendix B: Psychophysiological Interactions (PPI) in SPM
+=========================================================
 
 ----------
 
@@ -13,13 +13,13 @@ Psychophysiological Interactions (PPI) in SPM
   
 
 Download
-*********
+********
   
 Data is from the `Human Connectome Project database <https://db.humanconnectome.org/>`__; click on the dropdown menu next to WU-Minn HCP Data - 1200 subjects and select `subjects with 3T MR Session Data`.
 
 
 Data Structure
-************
+**************
 
 Within each subject directory (with subject IDs like 100206), there is a directory called `MNINonLinear/Results`. This contains 2 directories with functional data, tfMRI_SOCIAL_LR and tfMRI_SOCIAL_RL. The data have been preprocessed, except for the smoothing step; you will need to apply that yourself.
 
@@ -31,12 +31,12 @@ Before you begin, create the following directories in each subject's folder with
   PPI
 
 Preparing for the PPI Analysis
-**************************
+******************************
 
 Once the data have been smoothed, the directories will contain files called "stfMRI_SOCIAL_LR.nii" and "stfMRI_SOCIAL_RL.nii". We will be combining these into a single dataset, because SPM's PPI function cannot process datasets with more than one run. To account for the fact that we are combining all of the data into one run, and that the signal may be systematically different in one run compared to another, we will be including *both* in our 1st level analysis.
 
 Concatenating the Movement Regressors
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The movement regressors will also need to be vertically concatenated into a single file. Navigate into the tfMRI_SOCIAL_LR directory and type:
 
@@ -46,7 +46,7 @@ The movement regressors will also need to be vertically concatenated into a sing
   
   
 Creating the Model Specification Batch
-^^^^^^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 In this study, the TR is 0.72, and each run has 274 volumes. That means that each run is 0.72 * 274 = **197.28 seconds** long. We will therefore add 197.28 to the second run's timings to generate the following onset times for a single concatenated run:
 
@@ -105,7 +105,7 @@ Now save the batch and script by clicking on ``File -> Save Batch and Script``. 
 
 
 The PPI Interface
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^
 
 We are now ready to begin our PPI analysis. Before you start, make sure that you have a region of interest (or ROI, also known as a mask) to use. These can be created either using Marsbar or another software package, such as AFNI's 3dUndump or FSL's fslmaths. In our example, assume you've created an ROI called dmPFC that is centered within the dorsomedial prefrontal cortex. These ROIs will be stored in the directory that contains all of the subject directories.
 
@@ -127,7 +127,7 @@ Our goal is to now include these three variables in another GLM, which will allo
 
 
 Setting up the PPI Analysis
-**************************
+***************************
 
 First, enable the use of the PPI fields by typing the following at the Matlab prompt:
 
