@@ -1,8 +1,8 @@
 .. _SummaryStatistics:
 
-==================
-Summary Statistics
-==================
+==============================
+Appendix A: Summary Statistics
+==============================
 
 -----------
 
