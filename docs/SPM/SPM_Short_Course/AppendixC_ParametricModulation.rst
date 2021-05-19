@@ -16,7 +16,7 @@ Preprocessing the Data
 
 ------------------
 
-To prepare the data for a parametric modulation analysis, we will create a preprocessing pipeline similar to the one we used for the example dataset :ref:`here <fMRI_Intro>`. If you haven't already, go through the tutorial with the Flanker dataset; there you can find the details of each preprocessing and statistical analysis step, which we won't discuss here in depth.
+To prepare the data for a parametric modulation analysis, we will create a preprocessing pipeline similar to the one we used for the example dataset :ref:`here <SPM_Overview>`. If you haven't already, go through the tutorial with the Flanker dataset; there you can find the details of each preprocessing and statistical analysis step, which we won't discuss here in depth.
 
 Creating the Timing Files
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -27,3 +27,47 @@ You can download a script to convert the timings into a format that FSL understa
 
 .. figure:: Appendix_F_Onsets.png
 
+Creating the Preprocessing Script
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Similar to the :ref:`scripting section <SPM_06_Scripting>` of the SPM tutorial, we will create a Batch script that can be used in a for-loop to analyze all of our subjects. Assuming you are familiar already with the details of preprocessing, we won't go over how to fill in each of the fields; however, for this dataset, note that the functional and anatomical data for subject 01 need to be reoriented in order to normalize the brain appropriately. From the Matlab terminal, navigate into both the ``anat`` and ``func`` directories and unzip the files with:
+
+::
+
+  gunzip *.gz
+  
+Then, open the SPM GUI, click on the ``Display`` button, and select ``sub-01_task-mixedgamblestask_run-01_bold.nii``. This subject's images are tilted forward in the "pitch" orientation; let's undo this by typing ``6`` in the ``pitch (rad)`` field, and setting the origin at the anterior commissure; click on ``Reorient`` and apply these transformations to all of the functional images. Then, open the anatomical image in same display window, and set the origin at the anterior commissure. The rest of the steps should run without any errors.
+
+
+
+
+Setting up the Second-Level Analysis
+************************************
+
+For our group analysis, we will create two directories, one for the parametric modulation of Gain and one for the parametric modulation of Loss. From the Matlab terminal, type:
+
+::
+
+  mkdir 2ndLevel_GainPM
+  mkdir 2ndLevel_LossPM
+  
+Then, click on ``Specify 2nd-level`` from the SPM GUI, and for the ``Directory`` field select ``2ndLevel_GainPM``. Within ``Scans``, use the filter field to select ``con_0001.nii``, which is the contrast for the Gain modulator, and then click the ``Go`` button. Estimate the model, and then click on ``Results``; type ``GainPM`` for the name, and give it a contrast weight of +1. Click ``OK``, and set the following parameters:
+
+::
+
+  Apply masking -> none
+  p value adjustment to control -> none -> 0.001
+  extent threshold (voxels) -> 50
+  
+These thresholds have been chosen ad hoc, but they should be close to giving you a cluster false positive rate of p=0.05. Click on ``overlays -> sections`` and select a template from the ``canonical`` directory of your SPM folder. You should see an activation map like this, with significant clusters within the ventral striatum:
+
+.. figure:: AppendixC_GainPM.png
+
+Now do the same procedure for the Loss parametric modulators, which should be the image con_0002.nii. In the ``Results`` window, give it a weight of -1, using the same parameters as before. Compare both of your results to Tom et al., 2007, and observe whether there is a similar pattern.
+
+.. figure:: AppendixC_LossPM.png
+
+.. figure:: Appendix_F_Tom_Results.png
+
+  The original results from Tom et al., 2007.
+  
