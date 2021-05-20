@@ -84,7 +84,7 @@ Analyzing the Dataset in Different Software Packages
 
 When you have downloaded the data, you have a choice of analyzing it in any of the major fMRI analysis packages:
 
-1. SPM (Under construction)
+1. :ref:`SPM <AppendixC_ParametricModulation>`
 2. :ref:`FSL <Appendix_F_ParametricModulation>`
 3. AFNI (Under construction)
 
