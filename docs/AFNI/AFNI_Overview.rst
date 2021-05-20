@@ -1,13 +1,13 @@
 .. _AFNI_Overview:
 
-================================
+=============
 AFNI Overview
-================================
+=============
 
 ---------------
 
 What is AFNI?
-*****************
+*************
 
 AFNI (Analysis of Functional NeuroImages) is a suite of programs designed to analyze fMRI data. Created in the mid-1990's by `Bob Cox <https://www.sciencedirect.com/science/article/pii/S0010480996900142>`__, AFNI is now used by hundreds of imaging labs around the world.
 
@@ -30,4 +30,4 @@ The following tutorials will show you how to analyze a sample dataset with AFNI.
    AFNI_Short_Course/AFNI_08_ROIAnalysis
    AFNI_Short_Course/AFNI_09_SurfaceAnalysis
    AFNI_Short_Course/AFNI_10_Summary
-   AFNI_Short_Course/AFNI_Appendices
+   AFNI_Short_Course/AppendixA_ParametricModulation
