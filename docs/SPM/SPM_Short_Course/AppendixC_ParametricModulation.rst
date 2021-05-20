@@ -98,4 +98,4 @@ You can then load the file ``allZs_randomise_tfce_corrp_tstat1`` in fsleyes, and
 Video
 *****
 
-For a screencast of how to set up a parametric modulation analysis in SPM, click here.
+For a screencast of how to set up a parametric modulation analysis in SPM, click `here <https://youtu.be/EjmJ412SQM8>`__.
