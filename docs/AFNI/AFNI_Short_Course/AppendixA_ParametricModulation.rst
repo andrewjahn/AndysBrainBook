@@ -136,4 +136,4 @@ Copy and paste this into your terminal, or download it `here <https://github.com
 Video
 *****
 
-For a demonstration of what parametric analysis in AFNI looks like, click here.
+For a demonstration of what parametric analysis in AFNI looks like, click `here <https://youtu.be/vF87n4kZxwU>`__.
