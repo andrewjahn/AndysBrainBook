@@ -80,8 +80,49 @@ If you navigate into one of the output directories, such as ``sub-01.results``, 
 
   afni anat_final.sub-01+tlrc. stats.sub-01+tlrc.
   
-In the ``Define Overlay`` window, there are multiple options in the ``OLay`` and ``Thr`` dropdown menus. The first one (``Gamble#0_Coef``) is the beta weight for the main regressor of "Gamble", while ``Gamble#1_Coef`` corresponds to the parametric modulator of Gain and ``Gamble#2_Coef`` corresponds to the parametric modulator of Loss. We will use these last two regressors as inputs into our group-level analysis.
-
-
+In the ``Define Overlay`` window, there are multiple options in the ``OLay`` and ``Thr`` dropdown menus. The first one (``Gamble#0_Coef``) is the beta weight for the main regressor of "Gamble", while sub-brik 3 of ``Gamble#1_Coef`` corresponds to the parametric modulator of Gain and sub-brik 5 of ``Gamble#2_Coef`` corresponds to the parametric modulator of Loss. We will use these last two regressors as inputs into our group-level analysis.
 
 .. figure:: AppendixA_GambleOverlays.png
+
+Our script will look like this:
+
+::
+
+  #!/bin/tcsh -xef
+
+  # created by uber_ttest.py: version 2.0 (December 28, 2017)
+  # creation date: Wed Feb 19 11:33:21 2020
+
+  # ---------------------- set process variables ----------------------
+
+  set mask_dset = $PWD/sub-01.results/mask_group+tlrc
+
+  set dirA = $PWD
+
+  # specify and possibly create results directory
+  set results_dir = test.results
+  if ( ! -d $results_dir ) mkdir $results_dir
+
+  # ------------------------- process the data -------------------------
+
+  3dttest++ -prefix $results_dir/GainPM                     \
+          -mask $mask_dset                                         \
+          -setA GainPM                                           \
+             01 "$dirA/sub-01.results/stats.sub-01+tlrc[3]" \
+             02 "$dirA/sub-02.results/stats.sub-02+tlrc[3]" \
+             03 "$dirA/sub-03.results/stats.sub-03+tlrc[3]" \
+             04 "$dirA/sub-04.results/stats.sub-04+tlrc[3]" \
+             05 "$dirA/sub-05.results/stats.sub-05+tlrc[3]" \
+             06 "$dirA/sub-06.results/stats.sub-06+tlrc[3]" \
+             07 "$dirA/sub-07.results/stats.sub-07+tlrc[3]" \
+             08 "$dirA/sub-08.results/stats.sub-08+tlrc[3]" \
+             09 "$dirA/sub-09.results/stats.sub-09+tlrc[3]" \
+             10 "$dirA/sub-10.results/stats.sub-10+tlrc[3]" \
+             11 "$dirA/sub-11.results/stats.sub-11+tlrc[3]" \
+             12 "$dirA/sub-12.results/stats.sub-12+tlrc[3]" \
+             13 "$dirA/sub-13.results/stats.sub-13+tlrc[3]" \
+             14 "$dirA/sub-14.results/stats.sub-14+tlrc[3]" \
+             15 "$dirA/sub-15.results/stats.sub-15+tlrc[3]" \
+             16 "$dirA/sub-16.results/stats.sub-16+tlrc[3]"
+             
+Copy and paste this into your terminal, or download it `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/runGroupAnalysis_GainPM.sh>`__. It will create a new directory called GainPM, which you can overlay on a template brain and threshold at whatever level you want. At a relatively liberal voxel-wise uncorrected threshold of p=0.01, you can see that the gain modulators load significantly on the caudate nucleus. If we do the same analysis for the Loss modulators, which is sub-brik 5, you will see negative loadings in the same region. 
