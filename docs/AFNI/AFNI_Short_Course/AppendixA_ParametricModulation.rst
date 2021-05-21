@@ -21,7 +21,7 @@ Creating the Timing Files
 
 We will first create timing files that contain onsets for the Gamble, the parametric value for the potential Gain, and the parametric value for the potential Loss, for each run; in total, we will create nine regressors.
 
-You can download a script to convert the timings into a format that SPM understands by clicking `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/make_Gamble_Timings.sh>`__, clicking on the ``Raw`` button, and right-clicking anywhere on the screen and selecting ``Save As``. Save the file as a shell script into the ``Gambles`` directory. Once it has been downloaded, navigate to that directory with a Terminal and run the script by typing ``bash make_Gamble_Timings.sh``. Within each func directory you should now see a file called ``gamble_Timings.1D``, which looks like the following:
+You can download a script to convert the timings into a format that AFNI understands by clicking `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/make_Gamble_Timings.sh>`__, clicking on the ``Raw`` button, and right-clicking anywhere on the screen and selecting ``Save As``. Save the file as a shell script into the ``Gambles`` directory. Once it has been downloaded, navigate to that directory with a Terminal and run the script by typing ``bash make_Gamble_Timings.sh``. Within each func directory you should now see a file called ``gamble_Timings.1D``, which looks like the following:
 
 .. figure:: AppendixA_OnsetTimes.png
 
@@ -55,7 +55,7 @@ Similar to the :ref:`scripting section <AFNI_06_Scripting>` of the AFNI tutorial
 
   tcsh proc.${subj}
 
-The first line uses the first argument, or input, as the subject number for the rest of the script. The blocks tshift, align, tlrc, and so on, indicate the standard preprocessing steps of slice-timing correction, realignment, normalization, etc. The major difference from analyzing a non-parametric modulation dataset is using ``AM2``, which stands for Ampltiude Modulation. This will orthogonalize the modulators with respect to the main regressor, but not with respect to each other; for more details on why this is important, see the link to the Mumford et al. paper down below.
+The first line uses the first argument, or input, as the subject number for the rest of the script. The blocks tshift, align, tlrc, and so on, indicate the standard preprocessing steps of slice-timing correction, realignment, normalization, etc. The major difference from analyzing a non-parametric modulation dataset is using ``AM2``, which stands for Amplitude Modulation. This will orthogonalize the modulators with respect to the main regressor, but not with respect to each other; for more details on why this is important, see the link to the Mumford et al. paper down below.
 
 Running the Analysis
 ********************
@@ -125,4 +125,15 @@ Our script will look like this:
              15 "$dirA/sub-15.results/stats.sub-15+tlrc[3]" \
              16 "$dirA/sub-16.results/stats.sub-16+tlrc[3]"
              
-Copy and paste this into your terminal, or download it `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/runGroupAnalysis_GainPM.sh>`__. It will create a new directory called GainPM, which you can overlay on a template brain and threshold at whatever level you want. At a relatively liberal voxel-wise uncorrected threshold of p=0.01, you can see that the gain modulators load significantly on the caudate nucleus. If we do the same analysis for the Loss modulators, which is sub-brik 5, you will see negative loadings in the same region. 
+Copy and paste this into your terminal, or download it `here <https://github.com/andrewjahn/AFNI_Scripts/blob/master/runGroupAnalysis_GainPM.sh>`__. It will create a new directory called GainPM, which you can overlay on a template brain and threshold at whatever level you want. At a relatively liberal voxel-wise uncorrected threshold of p=0.01, you can see that the gain modulators load significantly on the caudate nucleus. If we do the same analysis for the Loss modulators, which is sub-brik 5, you will see negative loadings in the same region. Compare this to the Tom et al. paper; do the results look similar? We could strengthen our results by changing the preprocessing or the GLM - for example, by increasing the smoothing kernel, or by using REML model estimation. This is left as an exercise for you to do on your own.
+
+
+.. note::
+
+  Because we have only 16 subjects, we won't be able to use AFNI's ETAC option, which is simliar to FSL's threshold-free cluster enhancement. If you did have more subjects, however, you could try using this option as well.
+
+
+Video
+*****
+
+For a demonstration of what parametric analysis in AFNI looks like, click here.
