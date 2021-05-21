@@ -86,7 +86,7 @@ When you have downloaded the data, you have a choice of analyzing it in any of t
 
 1. :ref:`SPM <AppendixC_ParametricModulation>`
 2. :ref:`FSL <Appendix_F_ParametricModulation>`
-3. AFNI (Under construction)
+3. :ref:`AFNI <AppendixA_ParametricModulation>`
 
 You can use any of these packages to do parametric modulation, although the details are slightly different between them. If you are already familiar with how to preprocessing a typical dataset using these packages, the major difference will be in setting up the general linear model to estimate regressors for the parametric modulators.
 
