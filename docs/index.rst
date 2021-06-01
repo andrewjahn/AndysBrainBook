@@ -87,16 +87,22 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Functional Connectivity with the CONN Toolbox
     
     FunctionalConnectivity/CONN_Overview
-
-.. note::
-
-    The following modules are under construction. Check back soon for more updates!
     
 .. toctree::
     :maxdepth: 1
     :caption: Parametric Modulation
     
     PM/PM_Overview
+
+.. note::
+
+    The following modules are under construction. Check back soon for more updates!
+    
+.. toctree::
+   :maxdepth: 1
+   :caption: Finite Impulse Response (FIR) Models
+   
+   FIR/FIR_Overview
 
 .. toctree::
    :maxdepth: 1
