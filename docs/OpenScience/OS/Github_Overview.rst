@@ -27,8 +27,17 @@ The following is a list of terms that you will come across with Github. Example 
   
 * Clone: Copying a repository to your local machine. For example, if I want to clone the repository ``SPM_Scripts`` from Andy's Github page, I would need to know the link to the page (i.e., https://github.com/andrewjahn/SPM_Scripts), and then use it with the ``git`` command:
 
-..
+  ..
 
-  git clone https://github.com/andrewjahn/SPM_Scripts
+    git clone https://github.com/andrewjahn/SPM_Scripts
   
 This will clone the SPM_Scripts repository to my local machine, from where I ran the ``git`` command.
+
+* Branching: Each repository has a ``main`` branch, which contains all of the final edits that are seen by the public. A new branch is created to make edits, and can be called anything you like; when the edits are approved by whoever owns the repository, they are merged into the main branch.
+
+.. figure:: Github_Branch.png
+
+
+* Commit: An edit that is made, which can be either accepted or rejected by the owner of the repository. Commits can be labeled with notes describing what the change is.
+
+* Fork: Create a copy of a repository. Edits made to this copy will not be seen by the public until the changes are merged.
