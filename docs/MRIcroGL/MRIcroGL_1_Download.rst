@@ -1,4 +1,4 @@
-.. _MRIcroGL_1_Download
+.. _MRIcroGL_1_Download:
 
 ==============================
 MRIcroGL Tutorial #1: Download
