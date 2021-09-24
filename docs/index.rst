@@ -100,6 +100,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
 .. toctree::
    :maxdepth: 1
+   :caption: Image Visualization with MRIcroGL
+   
+   MRIcroGL/MRIcroGL_Overview
+    
+.. toctree::
+   :maxdepth: 1
    :caption: Finite Impulse Response (FIR) Models
    
    FIR/FIR_Overview
