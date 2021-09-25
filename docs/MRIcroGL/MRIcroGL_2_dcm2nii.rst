@@ -33,3 +33,10 @@ When the dataset has been downloaded, click on it to unzip it. Once it is uncomp
 
 .. figure:: 02_DataStructure.png
 
+This subject has several different runs of imaging data: An anatomical scan, a scan during which the subject held their breath, data collected when a visual checkerboard was shown, and so on. There are also two folders marked ``session1`` and ``session2``, which contain diffusion and resting state scans.
+
+For now, let's focus on the folders ``anat`` and ``session1``. MRIcroGL's graphical user interface makes it easy to convert all of the data in these folders by simply clicking and dragging them onto the GUI. From the MRIcroGL menu at the top of your window, click on ``Import -> Convert DICOM to NIFTI``. You will see another window opened up that looks like this:
+
+.. figure:: 02_DICOMtoNIFTI_GUI.png
+
+There are several options here, which I encourage you to explore on your own. The sidebar on the left of the converter GUI contains options you can change; the window on the right shows the output when you run the converter. The first field, ``Output Filename``, by default contains the string ``%f_%p_%t_%s``. Each of these letters preceded by a percentage symbol is called a **formatting operator**, which is shorthand for 
