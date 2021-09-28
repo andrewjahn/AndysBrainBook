@@ -9,7 +9,7 @@ Overview
 
 In recent years, NIFTI has become a standard format for neuroimaging data - the major fMRI software packages of FSL, SPM, and AFNI can all load it and generate output in NIFTI format, and it can be read by other widely-used program as well, such as FreeSurfer.
 
-However, the raw data collected by the scanner isn't in NIFTI format. Each of the major scanner models - Siemens, Philips, and General Electric - has its own raw data format, which usually stores the data as individual slices. The raw data from a Siemens scanner, for example, is in Digital Imaging and Communications in Medicine (DICOM) format. These slices contain header information indicating which volume they belong to, and which scanning sequence they belong to, such as an anatomical, functional, or diffusion scan. When converting to NIFTI format, the slices are stacked together into individual volumes, and the volumes are concatenated together into their corresponding scan sequence. This makes the data much more compact and easier to manipulate.
+However, the raw data collected by the scanner isn't in NIFTI format. Each of the major scanner models - Siemens, Philips, and General Electric - has its own raw data format, which usually stores the data as individual slices. The raw data from a Siemens scanner, for example, is in Digital Imaging and Communications in Medicine (DICOM) format, with a ``.dcm`` extension. These slices contain header information indicating which volume they belong to, and which scanning sequence they belong to, such as an anatomical, functional, or diffusion scan. When converting to NIFTI format, the slices are stacked together into individual volumes, and the volumes are concatenated together into their corresponding scan sequence. This makes the data much more compact and easier to manipulate.
 
 
 Downloading a Sample Dataset
@@ -39,4 +39,12 @@ For now, let's focus on the folders ``anat`` and ``session1``. MRIcroGL's graphi
 
 .. figure:: 02_DICOMtoNIFTI_GUI.png
 
-There are several options here, which I encourage you to explore on your own. The sidebar on the left of the converter GUI contains options you can change; the window on the right shows the output when you run the converter. The first field, ``Output Filename``, by default contains the string ``%f_%p_%t_%s``. Each of these letters preceded by a percentage symbol is called a **formatting operator**, which is shorthand for 
+There are several options here, which I encourage you to explore on your own. The sidebar on the left of the converter GUI contains options you can change; the window on the right shows the output when you run the converter. The first field, ``Output Filename``, by default contains the string ``%f_%p_%t_%s``. Each of these letters preceded by a percentage symbol is called a **formatting operator**, which is a shorthand for filling in different parts of the string; you can think of them as **variables**, which were discussed in the :ref:`Unix tutorial <Unix_04_ShellsVariables>`. For example, if you hover your mouse over the Output Filename field, you will see a help bubble appear which lists what each of the formatting operators refer to: %f is the folder name, %p is the protocol, and so on. These are read from the DICOM header as the files are converted into NIFTI format, and if the data is not in the header, that variable is replaced with NA (i.e., Not Available).
+
+You can modify these formatting operators however you want, adding or subtracting them as you wish. The string right below the field will automatically update as you change the operators; for example, the output string might read ``myFolder_MPRAGE_19770703150928_1.nii.gz``. The folder name that contains the DICOM images would be the first part of the string, and MPRAGE would indicate that the DICOMs all belonged to an MPRAGE, or anatomical, scan. The next part shows the date and time the scan was collected, and the last part is which scan the image belonged to; in this example, the first scan.
+
+I usually don't find the timestamp of the file is useful, so I will remove the ``%t`` formatting operator. The underscore lines are simply separators for keeping the different parts of the filename distinct from one another; you can replace it with whatever you want.
+
+
+Conversion Options
+&&&&&&&&&&&&&&&&&&
