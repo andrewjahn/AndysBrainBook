@@ -1,8 +1,8 @@
 .. _Unix_04_ShellsVariables:
 
-=============
+===========================================
 Unix Tutorial #4: Shells and Path Variables
-=============
+===========================================
 
 .. note::
   Topics covered: paths, variables, shells, FSL, installation, syntax, redirection
@@ -55,6 +55,6 @@ Exercises
 
 
 Video
----------
+-----
 
 Click `here <https://www.youtube.com/watch?v=KAs94hs_aXY>`__ for a video walkthrough explaining what shells and path variables are.
