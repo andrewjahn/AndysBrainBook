@@ -26,8 +26,8 @@ This will take you to a new page, listing the subject IDs for every participant 
 This will take you to the NITRC page - the same website that hosts the MRIcroGL software package - and you will be required to sign up for an account and log in, if you haven't already. Once you do that, the download will begin; the dataset is about two gigabytes, and will take a few minutes, depending on the speed of your Internet connection.
 
 
-Converting the Data
--------------------
+The DICOM to NIFTI Converter
+----------------------------
 
 When the dataset has been downloaded, click on it to unzip it. Once it is uncompressed, you should see something like this in your Finder:
 
@@ -43,8 +43,33 @@ There are several options here, which I encourage you to explore on your own. Th
 
 You can modify these formatting operators however you want, adding or subtracting them as you wish. The string right below the field will automatically update as you change the operators; for example, the output string might read ``myFolder_MPRAGE_19770703150928_1.nii.gz``. The folder name that contains the DICOM images would be the first part of the string, and MPRAGE would indicate that the DICOMs all belonged to an MPRAGE, or anatomical, scan. The next part shows the date and time the scan was collected, and the last part is which scan the image belonged to; in this example, the first scan.
 
-I usually don't find the timestamp of the file is useful, so I will remove the ``%t`` formatting operator. The underscore lines are simply separators for keeping the different parts of the filename distinct from one another; you can replace it with whatever you want.
+I usually don't find the timestamp of the file is useful, so in this example I will remove the ``%t`` formatting operator. The underscore lines are simply separators for keeping the different parts of the filename distinct from one another; you can replace it with whatever you want.
 
 
 Conversion Options
 &&&&&&&&&&&&&&&&&&
+
+In addition to the Output Filename, you also have options for where to save the output files and for their format. The defaults work well in most cases, but we will examine some of the options you can change:
+
+* **Output Directory**: The default is to save the output files into the same folder that contains the DICOM. From the dropdown menu, you can select another directory if you wish.
+* **Output Format**: The default of compressed NIFTI will save space on your computer; this format can also be read by AFNI and FSL. Note that, as of 2021, SPM is not able to open compressed files - you will need to either unzip them manually, or specify the output as uncompressed NIFTI. Another option, NRRD format, can be used by programs such as `Slicer <https://www.slicer.org/>`__.
+* **Create BIDS Sidecar**: This will create a Javascript Object Notation (.json) file, which contains metadata about the converted DICOM files. For example, if you converted the DICOMs for a functional dataset, the BIDS sidecar may contain information about slice-timing and slice order, the repetition time, and when the scan was collected. These sidecars are required for using a standardized preprocessing pipeline such as :ref:`fMRIPrep <fMRIPrep_Demo>`.
+
+Below these dropdown menus, you can learn more about the Advanced options by hovering your mouse over each of the boxes. The ``Crop 3D images`` option, for example, can improve coregistration by removing most of the neck from the image.
+
+
+Converting the DICOM Files
+--------------------------
+
+Once you have become familiar with the DICOM to NIFTI graphical user interface, you can convert a folder of DICOM files simply by clicking and dragging the folder into the right window pane of the GUI. Alternatively, you can click on the ``Select Folder to Convert`` button, and choose the directory from your Finder window.
+
+For this example, open up a Finder window, navigate to your Downloads folder, and click on the folder ``2475376``. Click and drag the ``anat`` folder into the DICOM to NIFTI GUI, and then wait a moment for the files to be converted. After a couple of seconds, you should see the following output in the converter window, as well as a NIFTI file and .json file in the ``anat`` folder:
+
+.. figure:: 02_ConvertedFiles.png
+
+Note that some of the folders contain sub-folders of other images; for example, the folder ``session1`` contains a DTI folder and three resting state fMRI folders. If you convert the ``session1`` folder, you will see something like this:
+
+.. figure:: 02_Session1_Converted.png
+
+Whether you want all of the converted files in that folder, or each file in its corresponding sub-folder, is up to you. Using fMRIPrep requires that the files and .json sidecars are located within their corresponding sub-folders; you may also have to rename the files. See the `Stanford BIDS tutorial <https://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__ for more details.
+
