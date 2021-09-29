@@ -73,3 +73,50 @@ Note that some of the folders contain sub-folders of other images; for example, 
 
 Whether you want all of the converted files in that folder, or each file in its corresponding sub-folder, is up to you. Using fMRIPrep requires that the files and .json sidecars are located within their corresponding sub-folders; you may also have to rename the files. See the `Stanford BIDS tutorial <https://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__ for more details.
 
+
+Running DICOM to NIFTI from the Command Line
+--------------------------------------------
+
+Dragging and dropping individual folders into the converter GUI may be feasible if you have just a few subjects, but it can become tedious if you have dozens or hundreds of subjects. Once you've mastered the GUI, you can save time by running a command-line version of the converter, called ``dcm2niix``. This is a command that comes with the MRIcroGL package that you downloaded, and is located in /Applications/MRIcroGL.
+
+You may have noticed in the output window of the converter that there is a line of text at the top, generated after you've converted a DICOM folder. In the example I used to conver the ``anat`` folder, it looks like this:
+
+::
+
+  /Applications/MRIcroGL.app/Contents/Resources/dcm2niix -f "%f_%p_%s" -p y -z y "/Users/ajahn/Downloads/2475376/anat"
+
+If you are using a Macintosh operating system, click on the Searchlight icon in the upper right corner of your screen, type ``Terminal``, and press enter. This opens up a command line window. If you copy and paste the line above, it will run the same conversion as before, appending an ``a`` to the output file if a previous output file already exists in that directory.
+
+Note the option ``-f``, which contains the formatting operators that were specified in the GUI. The other options, such as ``-p`` and ``-z``, specify whether to use Philips Precision Scaling and whether to compress the output file, respectively. You can see the correspondence between the GUI and the command line by just typing the path to the command, ``/Applications/MRIcroGL.app/Contents/Resources/dcm2niix``, and examining the help file, which is reprinted here:
+
+::
+
+   Options :
+  -1..-9 : gz compression level (1=fastest, 9=smallest)
+  -b : BIDS sidecar (y/n, default y)
+   -ba : anonymize BIDS (y/n, default y)
+  -f : filename (%a=antenna  (coil) number, %c=comments, %d=description, %e echo number, %f=folder name, %i ID of patient, %j seriesInstanceUID, %k studyInstanceUID, %m=manufacturer, %n=name of patient, %p=protocol, %s=series number, %t=time, %u=acquisition number, %v=vendor, %x=study ID; %z sequence name; default '%f_%p')
+  -h : show help
+  -i : ignore derived, localizer and 2D images (y/n, default n)
+  -m : merge 2D slices from same series regardless of study time, echo, coil, orientation, etc. (y/n, default n)
+  -o : output directory (omit to save to input folder)
+  -p : Philips precise float (not display) scaling (y/n, default y)
+  -s : single file mode, do not convert other images in folder (y/n, default n)
+  -t : text notes includes private patient details (y/n, default n)
+  -v : verbose (n/y or 0/1/2 [no, yes, logorrheic], default 0)
+  -x : crop (y/n, default n)
+  -z : gz compress images (y/i/n, default y) [y=pigz, i=internal, n=no]
+  
+For example, we could modify the above command to crop the image by adding ``-x y``, and omitting the BIDS sidecar by including ``-b n``:
+
+::
+
+  /Applications/MRIcroGL.app/Contents/Resources/dcm2niix -f "%f_%p_%s" -x y -b n -p y -z y "/Users/ajahn/Downloads/2475376/anat"
+  
+You can also set the command as part of your :ref:`path <Unix_04_ShellsVariables>`, in order to call upon it from any directory by just typing ``dcm2niix``. You can then use the command in for-loops, which are described in more detail :ref:`here <Unix_05_ForLoops>`.
+
+
+Next Steps
+----------
+
+Having covered one of MRIcroGL's features, we now move on to its primary feature: Displaying imaging data and results. To see how to do that, click the ``Next`` button.
