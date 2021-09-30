@@ -103,6 +103,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    :caption: Image Visualization with MRIcroGL
    
    MRIcroGL/MRIcroGL_Overview
+   
+.. toctree::
+   :maxdepth: 1
+   :caption: Introduction to the Human Connectome Project
+   
+   HCP/HCP_Overview
     
 .. toctree::
    :maxdepth: 1
