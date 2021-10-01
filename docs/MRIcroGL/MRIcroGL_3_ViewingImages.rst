@@ -48,4 +48,8 @@ One of the new features in MRIcroGL is the ability to visualize the changes in i
 Loading Multiple Images
 ***********************
 
-Leaving the anatomical image loaded, click on ``File -> Add Overlay``, and select one of the functional images from the ``sub-01/func`` directory. Recall that viewing both the anatomical and functional images can be useful for seeing how far apart the images are, before any preprocessing has been done; images that start farther away from each other may need a larger search area during coregistration in order to find a good fit, or the origins may need to be manually centered before doing any further preprocessing. In this case, the images are quite far away from each other, with the functional image highlighted in red. 
+Leaving the anatomical image loaded, click on ``File -> Add Overlay``, and select one of the functional images from the ``sub-01/func`` directory. Recall that viewing both the anatomical and functional images can be useful for seeing how far apart the images are, before any preprocessing has been done; images that start farther away from each other may need a larger search area during coregistration in order to find a good fit, or the origins may need to be manually centered before doing any further preprocessing. In this case, the images are quite far away from each other, with the functional image highlighted in red.
+
+.. figure:: 03_OverlayImages.png
+
+
