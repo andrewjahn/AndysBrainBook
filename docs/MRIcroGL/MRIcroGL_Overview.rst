@@ -36,3 +36,5 @@ Given the versatility of MRIcroGL, we will begin with some of its most basic and
    MRIcroGL_1_Download
    MRIcroGL_2_dcm2nii
    MRIcroGL_3_ViewingImages
+   MRIcroGL_4_ViewingResults
+   MRIcroGL_5_CreatingROIs
