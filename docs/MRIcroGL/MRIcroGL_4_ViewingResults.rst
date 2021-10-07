@@ -42,4 +42,35 @@ In any case, this example uses the results of a TFCE analysis, in which all of t
 
 .. figure:: 04_ClusterTable.png
 
+Overlaying Atlases
+******************
 
+In addition to displaying the results, you may also want to know where the results are located, using an atlas as a guide. You probably won't want to show the atlas as part of the figure that will be published, but a label for the location of the cluster, in addition to its coordinates, can be a useful in a table of the results.
+
+To see the atlases that are available with MRIcroGL, click on ``File -> Add Atlas``. Add the ``aal`` atlas (Automated Anatomical Labeling), and note how you can see different structures color-coded on the template. The default opacity will allow you to see where the cluster is in relation to a particular structure, and the last string at the top of the MRIcroGL viewer tells you which structure the crosshairs are currently on. In this case, the cluster in the anterior middle part of the brain is located within the left supplementary motor area, according to the atlas.
+
+.. figure:: 04_AAL.png
+
+.. note::
+
+  There are many other atlases that come with MRIcroGL; take a look at each of them and guess what they are atlases of. The ``natbrainlab`` atlas, for example, appears to be an atlas of the major white matter pathways, and it may be useful for looking at diffusion weighted imaging results obtained with FSL's TBSS.
+
+
+Rendering the Results
+*********************
+
+There are scenarios in which viewing the results on the surface of the brain can be more useful than viewing the results on three orthogonal slices. To get a more precise location of where the results are located along the gyri and sulci, it is necessary to do a surface-based analysis, using AFNI's SUMA, for example. However, we can still get a rough idea of where the results are on the surface by **rendering** them; that is, interpolating voulmetric data onto a surface. 
+
+Uncheck the box next to the ``aal`` overlay to hide it (or right-click on it and select ``Close``), and then go to ``Display -> Multi-Planar (A+C+S+R)``. This will add another view, a surface of the template brain with the results visible both on the surface and within the folds of the brain. This view is most useful when the activation is on the outer surface, such as the motor cortex or the dorsolateral prefrontal cortex.
+
+.. figure:: 04_Ortho_Render.png
+
+To see the activation more deeply within the brain, however, we will need to restrict our focus just to the rendered view of the brain. Click on ``Display -> Render``, and the orthogonal volumetric views will be removed, leaving just the surface reconstruction of the image. You now have access to ``Clipping`` options, which can be used to remove parts of the surface of the brain. As you move the slider for ``Depth`` from left to right, the front of the brain is removed little by little. After you've moved the ``Depth`` slider about halfway down the scale, try moving the ``Azimuth`` slider; it will twist the clipped area around the z-axis. Lastly, the ``Elevation`` slider will move the clipped area around the y-axis. Experiment with all of them until you remove half of the brain, and can see part of the activation inside one of the hemispheres, and part of the activation extending outside of it.
+
+.. figure:: 04_Clipping.png
+
+
+Next Steps
+**********
+
+Now that you have more experience with the MRIcroGL viewer, we will learn about a more advanced option for creating regions of interest (ROIs). To see how to do that, click the ``Next`` button.
