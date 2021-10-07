@@ -29,3 +29,11 @@ For example, the default in many viewing software packages is **radiological con
 
 The current color palette might also be too saturated for your taste. You could either modify the intensity range to sharpen the distinction between voxels with different significance levels, or you could choose another color scheme. In the dropdown menu that says ``1red``, try changing it to ``6warm``. What do you think of this one? Change it again to ``8redyell``. Does this make the figure easier or more difficult to look at and interpret? Ultimately, these choices are up to you; there is no clear right or wrong answer. However, you should start to build up your own standards of taste, and think about why you make certain choices about your illustrations. How would this appear to somebody else who is not familiar with your data? What do you notice about figures you see in other papers that make them clear and easy to understand? These are the questions you can start asking yourself to build up your own aesthetic. Your primary consideration should always be the convenience of the reader; after that, you can make the stylistic choices that make your figures and your prose immediately recognizable, even when unsigned.
 
+.. figure:: 04_RedYel.png
+
+You may also choose to hide the crosshairs by setting the value in the ``Width`` box to ``0``, and to hide the color scale at the top by clicking on ``Color -> Colorbar`` and unchecking ``Visible``. It's up to you whether you think these overlays are necessary or unnecessary, and there are many more you can experiment with in the other menus of the software package.
+
+Viewing Clusters
+****************
+
+Similar to FSLeyes, you can view the clusters that survive correction, and display them in a table. 
