@@ -36,4 +36,10 @@ You may also choose to hide the crosshairs by setting the value in the ``Width``
 Viewing Clusters
 ****************
 
-Similar to FSLeyes, you can view the clusters that survive correction, and display them in a table. 
+Similar to FSLeyes, you can view the clusters that survive correction, and display them in a table. Click on the ``Options`` button, and select ``Generate Cluster Table with Options``. From here, you can select the voxel intensity and the cluster size as thresholds; in this case, setting the voxel intensity to 0.95 and the cluster size to 32 means to display only those clusters that are composed of 32 or more clusters, with each voxel in the cluster having an intensity value of 0.95 or greater. The dropdown menu with the ``Neighbor`` options allows you to specify how the contiguity of the voxels in the cluster is defined: ``Faces (6)`` means that the entire face of neighboring voxels need to touch in order to be contiguous; ``Faces, Edges (18)`` means that either the faces **or** the edges of the voxels can touch; and ``Faces, Edges, Corners (36)`` means that the faces, edges, or corners can touch in order for the voxels to be contiguous. In sum, the ``Faces (6)`` option sets a more demanding standard for what constitutes a cluster, while ``Faces, Edges, Corners (36)`` is more lenient.
+
+In any case, this example uses the results of a TFCE analysis, in which all of the surviving voxels about the 0.95 threshold should be part of a statistically significant cluster. Click the ``OK`` button, and the clusters will be listed in a table at the bottom of the viewing window. ``Volume`` indicates the size of the cluster in cubic millimeters [or is it voxels? Need to double-check this], while the x-, y-, and z-coordinates are given in the ``XYZ`` column. Clicking on any of these clusters will make the crosshairs jump to the center of that cluster.
+
+.. figure:: 04_ClusterTable.png
+
+
