@@ -17,6 +17,12 @@ Next, we will want to **overlay** a results image onto the template. You can loa
 
 .. figure:: 04_ResultsOverlay.png
 
+.. note::
+
+  You can overlay multiple statistical maps on each other, with the color of the overlap representing a mixture of the colors of the individual overlays. For example, load the file ``zstat8.nii.gz`` for both the 2nd-level Incongruent and Congruent maps. They should default to colors of green and blue, although you can chnage this to whatever you want. To show the overlap of the two, click on ``Options -> Additive Overlay Blending``. In this case, the overlap will be shown in Cyan.
+  
+.. figure:: 04_Additive.png
+
 
 Editing the Layout
 ******************
