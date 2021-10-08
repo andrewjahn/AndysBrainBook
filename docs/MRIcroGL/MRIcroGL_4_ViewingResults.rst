@@ -79,10 +79,13 @@ To see the activation more deeply within the brain, however, we will need to res
 Creating ROIs
 *************
 
-MRIcroGL can be used to create ROIs, similar to how we used tools in the other software packages to generate spheres for data extraction. For example, if we wanted to create a sphere with a radius of 5mm centered at the coordinates 0, 20, 44, we would first enter those coordinates into the fields below ``Coordinates (X,Y,Z)``. Then, click on ``Draw -> Advanced -> Automatic Drawing``. The two fields, ``Difference from origin`` and ``Radius (mm)``, specify 
+MRIcroGL can be used to create regions of interest (ROIs; also called volumes of interest, or VOIs), similar to how we used tools in the other software packages to generate spheres for data extraction. For example, if we wanted to create a sphere with a radius of 5mm centered at the coordinates 0, 20, 44, we would first enter those coordinates into the fields below ``Coordinates (X,Y,Z)``. Then, click on ``Draw -> Advanced -> Automatic Drawing``. The two fields, ``Difference from origin`` and ``Radius (mm)``, specify how different a voxel's intensity is allowed to be from the crosshairs and the radius of the sphere, respectively. If you set the ``Difference from origin`` to ``100``, for example, then any neighboring voxels that are within an intensity value of 100 will be added to the ROI. This can be useful if you want to restrict the ROI to a certain tissue type, such as neighboring grey matter. For now, set the ``Difference`` value to 500, which should create a perfectly round sphere, regardless of which tissue types it covers. Set the dropdown menu selection to ``Append to current VOI``, and you should see something like this:
 
+.. figure:: 04_ROI.png
 
-Next Steps
-**********
+You can then save the ROI by clicking ``Draw -> Save VOI``, and saving it wherever you want. Remember that the ROI will need to be resampled to the data you are extracting from; more details about those steps can be found `here <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#frequently-asked-questions>`__. Many other ROI transformations, such as dilating or eroding the region, can also be found under the ``Draw -> Advanced`` menu.
 
-Now that you have more experience with the MRIcroGL viewer, we will learn about a more advanced option for creating regions of interest (ROIs). To see how to do that, click the ``Next`` button.
+Summary
+*******
+
+Having learned some of the features of MRIcroGL, you now have more choices in how you want to perform different tasks - converting DICOM images, visualizing results, and creating ROIs, to name a few. The software package also has other options for reorienting and resizing images, converting TIFFs to NIFTI, and many different display tools. I encourage you to explore them on your own, and see which ones suit you best.
