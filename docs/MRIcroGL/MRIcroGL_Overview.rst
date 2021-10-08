@@ -5,10 +5,7 @@
 Image Visualization with MRIcroGL
 =================================
 
-
-.. note::
-
-  This section is still under construction
+.. figure:: MRIcroGL_Example.png
   
 ---------------
 
@@ -18,6 +15,8 @@ Overview
 If you've worked through the previous tutorials on SPM, FSL, and AFNI, you saw how each one allows you to visualize the data and the results at several different stages of analysis - for example, you may want to see the functional images before and after coregistration, to make sure they are aligned properly with the anatomical image. As of this writing, out of the major packages FSL appears to have the most advanced interface in `fsleyes <https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/FSLeyes>`__; it is easy to load images from any directory, overlay them onto a template brain, and to load a variety of atlases for creating regions of interest.
 
 .. figure:: fsleyes_example.png
+
+  Example of the fsleyes interface, showing the overlay of results on a template brain as well as a cortical atlas.
 
 There is another software package that can be used for visualizing imaging data, especially group-level results: `MRIcroGL <https://www.nitrc.org/projects/mricrogl/>`__. This is an updated version of MRIcro, which has been around for many years; those who started their neuroimaging careers back in the early 2000's probably used MRIcro at some point, using it to view overlays and create ROIs.
 
@@ -37,4 +36,3 @@ Given the versatility of MRIcroGL, we will begin with some of its most basic and
    MRIcroGL_2_dcm2nii
    MRIcroGL_3_ViewingImages
    MRIcroGL_4_ViewingResults
-   MRIcroGL_5_CreatingROIs
