@@ -14,3 +14,4 @@ The next few steps should be straightforward; you will be asked to read a user a
 
 .. figure:: 01_IDA.png
 
+Once you are there, you have access to all of the study data uploaded to the IDA. Click on ``Projects``, and then select ``ADNI``. This will redirect you to the Alzheimer's Disease Neuroimaging Initiative dataset, with an overview of the data demographics such as age, gender, and research group. Select ``Download -> Image Collections`` to open the IDA Search page. (The ``Study Data`` link allows you to download subject demographic data.) Click on ``Advanced Search``
