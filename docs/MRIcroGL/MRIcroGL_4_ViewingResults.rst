@@ -76,6 +76,12 @@ To see the activation more deeply within the brain, however, we will need to res
 .. figure:: 04_Clipping.png
 
 
+Creating ROIs
+*************
+
+MRIcroGL can be used to create ROIs, similar to how we used tools in the other software packages to generate spheres for data extraction. For example, if we wanted to create a sphere with a radius of 5mm centered at the coordinates 0, 20, 44, we would first enter those coordinates into the fields below ``Coordinates (X,Y,Z)``. Then, click on ``Draw -> Advanced -> Automatic Drawing``. The two fields, ``Difference from origin`` and ``Radius (mm)``, specify 
+
+
 Next Steps
 **********
 
