@@ -20,5 +20,4 @@ In this tutorial, we will download data directly from the HCP website and analyz
    :maxdepth: 1
    :caption: Walkthrough of the Human Connectome Project
 
-   HCP_1_Register
-   HCP_2_DownloadData
+   HCP_1_DownloadData
