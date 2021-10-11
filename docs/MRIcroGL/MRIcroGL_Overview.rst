@@ -5,7 +5,7 @@
 Image Visualization with MRIcroGL
 =================================
 
-.. figure:: MRIcroGL_Example.png
+.. figure:: 04_AAL.png
   
 ---------------
 
