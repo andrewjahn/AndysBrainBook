@@ -1,8 +1,8 @@
-.. _HCP_1_Register:
+.. _HCP_1_DownloadData:
 
-=============================
-HCP Tutorial #1: Registration
-=============================
+=====================================
+HCP Tutorial #1: Downloading the Data
+=====================================
 
 -------------
 
@@ -24,4 +24,4 @@ Click on the button ``queue for download`` next to the package ``Working Memory 
 
   All of the datasets on the HCP website are quite large, usually at least several dozen gigabytes. In this example I will be placing the downloaded data into an external hard drive, under the file path ``/Volumes/ANDY_FMRI/HCP/WU-Minn_HCP_Lifespan_Pilot_WM``. If you have the space on your desktop of your personal computer, by all means put it there.
   
-After you have downloaded the data, extract the files for the first subject (i.e., ``LS2001``) by either double-clicking on the zipped file, or navigating to the directory in which the files are stored, and typing ``unzip LS2001*.zip``. 
+After you have downloaded the data, extract the files for the first subject (i.e., ``LS2001``) by either double-clicking on the zipped file, or navigating to the directory in which the files are stored, and typing ``unzip LS2001*.zip``. This will extract all of the data into a new data structure, ``LS2001/unpreocessed/3T/tfMRI_WM_LR``. 
