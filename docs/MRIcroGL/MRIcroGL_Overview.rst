@@ -22,7 +22,7 @@ There is another software package that can be used for visualizing imaging data,
 
 .. figure:: mricro.png
 
-  Screenshot from an early version of MRIcro
+  Screenshot from an early version of MRIcro.
   
 This was succeeded by MRIcron, which could read NIFTI images - a major advance, since the major fMRI software packages both load and write NIFTI format by default. With the addition of new features, such as converting DICOM images to NIFTI and organizing the output in BIDS format, a new version was released as MRIcroGL, which is the software package we will focus on for this tutorial. It should be noted that MRIcroGL can visualize virtually any type of medical imaging data, from CAT scans to PET data to images of any part of the body; however, since this e-book is concerned with analyzing brain data, we will focus on that, while having to ignore other interesting features of the software. (For a more in-depth overview of all of its features, see `this video <https://www.youtube.com/watch?v=J7uSSbTJ-iw>`__ by the developer, Chris Rorden.)
 
