@@ -11,7 +11,7 @@ Overview
 
 The main feature of MRIcroGL is the ability to view medical images - especially magnetic resonance imaging (MRI) data. For this tutorial, we will focus on MRI, fMRI, and diffusion weighted imaging (DWI), although many other forms of imaging data can be loaded as well.
 
-The default image that is loaded when you open MRIcroGL is the SPM152 template brain. In the first chapter of this walkthrough, you experimented with the basic operations of the viewer, such as the Opacity slider, the crosshairs, and the Brightness settings. We will examine these in more detail, and begin to use multiple images at once, in order to explore the abilities of the software package.
+In the first chapter of this walkthrough, you experimented with the basic operations of the viewer, such as the Opacity slider, the crosshairs, and the Brightness settings. We will examine these in more detail, and begin to use multiple images at once, in order to explore the abilities of the software package.
 
 .. note::
 
@@ -23,7 +23,7 @@ The default image that is loaded when you open MRIcroGL is the SPM152 template b
 Loading a Functional Image
 **************************
 
-We will begin by loading a functional image - in this case, the T2-weighted ``sub-10_T1w`` image from ``sub-10/anat``  folder in the Flanker directory. You will see something like this:
+We will begin by loading a functional image - in this case, the T2*-weighted ``sub-10_T1w`` image from ``sub-10/func``  folder in the Flanker directory. You will see something like this:
 
 .. figure:: 03_LoadFunctional.png
 
@@ -66,7 +66,7 @@ After you've run coregistration and normalization, you can also use MRIcroGL to 
 
 .. figure:: 03_HighResFunc.png
 
-Now there is nearly complete overlap of the functional image on top of the anatomical image, which is what we would expect if the coregistration was successful. However, it is difficult to tell how well some of the internal structures are aligned, such as the ventricles and basal ganglia. (You could toggle the opacity of the overlay, but that would only show whether the outlines of the brains match up.) To see the edges of features such as the sulci, highlight the ``example_func2highres`` image, click on ``Options``, and select ``Find Edges``. This will create a new overlay called ``edge_example_func2highres``, and you can see this image more clearly by unchecking the box next to ``example_func2highres``. Now we can see more clearly where the edges of the brains are aligned, and how well the interior structures match up. To see this more sharply, highlight the newly created edge dataset, and adjust the values next to the ``Darkest`` and ``Brightest`` fields; for example, this is what it looks like when they are set to 0.05 and 0.1, respectively:
+Now there is nearly complete overlap of the functional image on top of the anatomical image, which is what we would expect if the coregistration was successful. However, it is difficult to tell how well some of the internal structures are aligned, such as the ventricles and basal ganglia. (You could toggle the opacity of the overlay, but that would only show whether the outlines of the brains match up.) To see the edges of features such as the sulci, highlight the ``example_func2highres`` image, click on ``Options``, and select ``Find Edges``. This will create a new overlay called ``edge_example_func2highres``, and you can see this image more clearly by unchecking the box next to ``example_func2highres``. Now we can see more clearly where the edges of the brains are aligned, and how well the interior structures match up:
 
 .. figure:: 03_AddEdges.png
 
