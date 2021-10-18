@@ -7,9 +7,9 @@ MRIcroGL Tutorial #2: Converting DICOM to NIFTI
 Overview
 --------
 
-In recent years, NIFTI has become a standard format for neuroimaging data - the major fMRI software packages of FSL, SPM, and AFNI can all load it and generate output in NIFTI format, and it can be read by other widely-used program as well, such as FreeSurfer.
+In recent years, NIFTI has become a standard format for neuroimaging data - the fMRI software packages of FSL, SPM, and AFNI can all load it and generate output in NIFTI format, and it can be read by other widely-used program as well, such as FreeSurfer.
 
-However, the raw data collected by the scanner isn't in NIFTI format. Each of the major scanner models - Siemens, Philips, and General Electric - has its own raw data format, which usually stores the data as individual slices. The raw data from a Siemens scanner, for example, is in Digital Imaging and Communications in Medicine (DICOM) format, with a ``.dcm`` extension. These slices contain header information indicating which volume they belong to, and which scanning sequence they belong to, such as an anatomical, functional, or diffusion scan. When converting to NIFTI format, the slices are stacked together into individual volumes, and the volumes are concatenated together into their corresponding scan sequence. This makes the data much more compact and easier to manipulate.
+However, the raw data collected by the scanner isn't in NIFTI format. Each of the major scanner manufacturers - Siemens, Philips, and General Electric - has its own raw data format, which usually stores the data as individual slices. The raw data from a Siemens scanner, for example, is in Digital Imaging and Communications in Medicine (DICOM) format, with a ``.dcm`` extension. These slices contain header information indicating which volume they belong to, and which scanning sequence they belong to, such as an anatomical, functional, or diffusion scan. When converting to NIFTI format, the slices are stacked together into individual volumes, and the volumes are concatenated together into their corresponding scan sequence. This makes the data much more compact and easier to manipulate.
 
 
 Downloading a Sample Dataset
