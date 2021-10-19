@@ -22,7 +22,7 @@ Double-click on the MRIcroGL icon to open the program. By default, the template 
 
 .. figure:: 01_MRIcroGL_spm152.png
 
-Take some time to click and drag the crosshairs in any of the viewing panes, noting how the other viewing panes are updated as you move the mouse around; you can also rapidly flip through slices in any one of the views by using the scroll wheel of your mouse. Try also experimenting with the numbers in the boxes next to the ``Darkest`` and ``Brightest`` fields, along with the opacity slider. We will cover more of these features in a later tutorial, so don't worry about understading them fully just yet; for now, play around and try to build some intuition for what the buttons do.
+Take some time to click and drag the crosshairs in any of the viewing panes, noting how the other viewing panes are updated as you move the mouse around; you can also rapidly flip through slices in any one of the views by using the scroll wheel of your mouse. Try also experimenting with the numbers in the boxes next to the ``Darkest`` and ``Brightest`` fields, along with the opacity slider. We will cover more of these features in a later tutorial, so don't worry about understanding them fully just yet; for now, play around and try to build some intuition for what the buttons do.
 
 
 Next Steps
