@@ -87,10 +87,12 @@ When the script has finished running for subjects 2, 3, 4, and 6, the only subje
 Editing the MVPA Scripts
 ************************
 
-The changes to the MVPA scripts are similar to the edits for the preprocessing. At the beginning of the script we will declare our for-loop:
+The changes to the MVPA scripts are similar to the edits for the preprocessing. At the beginning of the ``Haxby_MVPA_ROI`` script we will declare our for-loop:
 
 ::
 
+  subjects = [1 2 3 4 5 6];
+  
   for subject=subjects
     
   subject = num2str(subject);
@@ -105,7 +107,9 @@ And then change the code for setting the results and beta maps directories:
   % Set the filepath where your SPM.mat and all related betas are, e.g. 'c:\exp\glm\model_button'
   beta_loc = [pwd '/SPM_Results_' subject];
   
-And run the script from the terminal. As an exercise, when it has finished modify the script again to do a searchlight analysis for all of the subjects, using the methods you learned in the last chapter. A template script can be downloaded `here <https://github.com/andrewjahn/MachineLearning>`__, under the file ``Haxby_MVPA_Scripted``.
+Also, add an ``end`` at the end of the file.
+
+And run the script from the terminal. As an exercise, when it has finished modify the script again to do a searchlight analysis for all of the subjects, using the methods you learned in the last chapter. A template script can be downloaded `here <https://github.com/andrewjahn/MachineLearning>`__, under the file ``Haxby_MVPA_ROI_Scripted``.
 
 Next Steps
 **********
