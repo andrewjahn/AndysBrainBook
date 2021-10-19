@@ -29,7 +29,7 @@ and remember to add the string ``end`` to the very last line of the script to cl
 
   Subject 5 has 11 runs instead of the usual 12 runs that all of the other subjects have, so we will save that for another script below.
 
-To make this script work for any subject, we will need to replace any occurrences of ``sub-1`` with the variable located in ``subject``. Open the Find and Replace menu, and replace every instance of ``pwd '/sub-1/func/sub-1`` with ``pwd '/sub-' subject '/func/sub-' subject '``. Also change ``[ pwd '/SPM_Results_sub-1' ]`` to ``[ pwd '/SPM_Results_' subject]``.
+To make this script work for any subject, we will need to replace any occurrences of ``sub-1`` with the variable located in ``subject``. Open the Find and Replace menu, and replace every instance of ``pwd '/sub-1/func/sub-1`` with ``pwd '/sub-' subject '/func/sub-' subject '``. Also change ``[ pwd '/SPM_Results_1' ]`` to ``[ pwd '/SPM_Results_' subject]``.
 
 In the section that loads the onset times, you will need to change each condition from something like this:
 
@@ -43,13 +43,13 @@ to this:
 
   load(['sub-' subject '/func/bottle.txt']);
   
-  Repeat for all of the other conditions.
+Repeat for all of the other conditions.
 
-  Lastly, near the beginning of the script, just after the for loops is defined, insert the following code:
+Lastly, near the beginning of the script, just after the for loop is defined, insert the following code:
 
-  ::
+::
 
-    subject = num2str(subject);
+  subject = num2str(subject);
   % Check whether the files have been unzipped. If not, unzip them using
   % gunzip
 
@@ -82,7 +82,7 @@ This will check whether the files are zipped, and if so, it will unzip them. Thi
 
   It might be easier to download a script that has already been edited, and compare it against the script you generated in the previous chapters. Click `here <https://github.com/andrewjahn/MachineLearning>`__ and download the file "Haxby_Script_allSubjs.m". If you place it in the directory ``Haxby_Data``, you should be able to run it from the terminal by typing ``Haxby_Script_allSubjs`` and pressing ``Enter``.
   
-When the script has finished running for subjects 2, 3, 4, and 6, the only subject remaining is number 5. Change the ``subjects`` array from ``[2 3 4 6]`` to ``[5]``, and remove the number ``12`` from the ``runs`` array. Then comment out the line ``{[ pwd filesep 'sub-' subject '/func/sub-' subject '_task-objectviewing_run-12_bold.nii']}``, and any line of code that begins with ``matlabbatch{4}.spm.stats.fmri_spec.sess(12)``. Run the script again, saving it as a separate file if you want to.
+When the script has finished running for subjects 2, 3, 4, and 6, the only subject remaining is number 5. Change the ``subjects`` array from ``[2 3 4 6]`` to ``[5]``, and remove the number ``12`` from the ``runs`` array. Then comment out the line ``{[ pwd filesep 'sub-' subject '/func/sub-' subject '_task-objectviewing_run-12_bold.nii']}``, the line around 64 that begins ``matlabbatch{2}.spm.spatial.realign.estwrite.data{12}(1) = cfg_dep('Named File Selector: Runs(12) - Files``, and any line of code that begins with ``matlabbatch{4}.spm.stats.fmri_spec.sess(12)``. Run the script again, saving it as a separate file if you want to.
 
 Editing the MVPA Scripts
 ************************
