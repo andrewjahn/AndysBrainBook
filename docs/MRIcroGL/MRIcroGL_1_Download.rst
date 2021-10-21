@@ -18,7 +18,7 @@ On the next screen, click "I Agree", and download the software. After a few mome
 
 .. figure:: 01_MRIcroGL_Applications.png
 
-Double-click on the MRIcroGL icon to open the program. By default, the template brain spm152 is displayed in three orthogonal views: Coronal, Sagittal, and Axial. 
+Double-click on the MRIcroGL icon to open the program. Click on ``File -> Open Standard -> spm152``, and you will see the brain in three orthogonal views: Coronal, Sagittal, and Axial. 
 
 .. figure:: 01_MRIcroGL_spm152.png
 
