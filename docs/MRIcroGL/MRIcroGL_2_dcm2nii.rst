@@ -79,7 +79,7 @@ Running DICOM to NIFTI from the Command Line
 
 Dragging and dropping individual folders into the converter GUI may be feasible if you have just a few subjects, but it can become tedious if you have dozens or hundreds of subjects. Once you've mastered the GUI, you can save time by running a command-line version of the converter, called ``dcm2niix``. This is a command that comes with the MRIcroGL package that you downloaded, and is located in /Applications/MRIcroGL.
 
-You may have noticed in the output window of the converter that there is a line of text at the top, generated after you've converted a DICOM folder. In the example I used to conver the ``anat`` folder, it looks like this:
+You may have noticed in the output window of the converter that there is a line of text at the top, generated after you've converted a DICOM folder. In the example I used to convert the ``anat`` folder, it looks like this:
 
 ::
 
