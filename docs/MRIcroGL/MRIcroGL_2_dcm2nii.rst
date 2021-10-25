@@ -9,7 +9,7 @@ Overview
 
 In recent years, NIFTI has become a standard format for neuroimaging data - the fMRI software packages of FSL, SPM, and AFNI can all load it and generate output in NIFTI format, and it can be read by other widely-used programs as well, such as FreeSurfer.
 
-However, the raw data collected by the scanner isn't in NIFTI format. Each of the major scanner manufacturers - Siemens, Philips, and General Electric - has its own raw data format, which usually stores the data as individual slices. The raw data from a Siemens scanner, for example, is in Digital Imaging and Communications in Medicine (DICOM) format, with a ``.dcm`` extension. These slices contain header information indicating which volume they belong to, and which scanning sequence they belong to, such as an anatomical, functional, or diffusion scan. When converting to NIFTI format, the slices are stacked together into individual volumes, and the volumes are concatenated together into their corresponding scan sequence. This makes the data much more compact and easier to manipulate.
+However, the raw data collected by the scanner isn't in NIFTI format. Each of the major scanner manufacturers - Siemens, Philips, and General Electric - has its own raw data format, which usually stores the data as individual slices. The raw data from a Siemens scanner, for example, is in Digital Imaging and Communications in Medicine (DICOM) format, with a ``.dcm`` extension (sometimes with a ``.IMA`` extension). These slices contain header information indicating which volume they belong to, and which scanning sequence they belong to, such as an anatomical, functional, or diffusion scan. When converting to NIFTI format, the slices are stacked together into individual volumes, and the volumes are concatenated together into their corresponding scan sequence. This makes the data much more compact and easier to manipulate.
 
 
 Downloading a Sample Dataset
@@ -115,6 +115,10 @@ For example, we could modify the above command to crop the image by adding ``-x 
   
 You can also set the command as part of your :ref:`path <Unix_04_ShellsVariables>`, in order to call upon it from any directory by just typing ``dcm2niix``. You can then use the command in for-loops, which are described in more detail :ref:`here <Unix_05_ForLoops>`.
 
+Video
+-----
+
+For a video walkthrough of how to use MRIcroGL's DICOM converter, click `here <https://youtu.be/DMGWdi6Z73s>`__.
 
 Next Steps
 ----------
