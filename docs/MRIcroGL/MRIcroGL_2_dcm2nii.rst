@@ -15,7 +15,7 @@ However, the raw data collected by the scanner isn't in NIFTI format. Each of th
 Downloading a Sample Dataset
 ----------------------------
 
-To demonstrate how to use MRIcroGL's DICOM to NIFTI converter, we will download a sample dataset from the Nathan Kline Institute (NKI) Rockland Sample. Click on `this link <http://fcon_1000.projects.nitrc.org/indi/pro/eNKI_RS_TRT/FrontPage.html>`__, scroll to the bottom of the page, and click on the link that says ``Download DICOM Files``. 
+To demonstrate how to use MRIcroGL's DICOM to NIFTI converter, we will download a sample dataset from the Nathan Kline Institute (NKI) Rockland Sample. Click on `this link <https://fcon_1000.projects.nitrc.org/indi/pro/eNKI_RS_TRT/FrontPage.html>`__, scroll to the bottom of the page, and click on the link that says ``Download DICOM Files``. 
 
 .. figure:: 02_DownloadData.png
 
