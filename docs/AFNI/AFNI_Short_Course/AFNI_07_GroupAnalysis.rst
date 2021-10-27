@@ -191,7 +191,7 @@ This would be done by inserting the string ``-3dClustSim`` after the 3dttest++ c
 
 ::
 
-    3dttest++ -3dClustSim -prefix $results_dir/Flanker-Inc-Con                     \
+    3dttest++ -ClustSim -prefix $results_dir/Flanker-Inc-Con                     \
             -mask $mask_dset                                         \
             -setA Inc-Con                                            
             
