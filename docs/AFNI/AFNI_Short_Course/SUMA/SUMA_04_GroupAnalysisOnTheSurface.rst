@@ -6,7 +6,7 @@ SUMA Tutorial #4: Group Analysis
 
 ------------------
 
-As with our :ref:`group analysis of the volumetric data <AFNI_07_GroupAnalysis>`, we can average the contrast estimates over all of our subjects and display them on a template brain. See the :ref:`last tutorial <SUMA_03_AnalysisOnTheSurface>` for instructions on how to donwload and unpack this template brain if you have not already done so.
+As with our :ref:`group analysis of the volumetric data <AFNI_07_GroupAnalysis>`, we can average the contrast estimates over all of our subjects and display them on a template brain. See the :ref:`last tutorial <SUMA_03_AnalysisOnTheSurface>` for instructions on how to download and unpack this template brain if you have not already done so.
 
 We can adapt the same uber_ttest.py script we created during the volumetric group analyses to analyze the surface data, making sure to append the string ``.niml.dset`` to the output in order to indicate that it is a surface file that can be read by SUMA. The framework of the t-test is the same: We load each subject's statistics file and specify the sub-brik that we want to contrast. (If you recall from viewing the individual subject results, sub-brik #10 represents the contrast estimate for Incongruent-Congruent.) We then do this for both the left and right hemispheres, since we have run separate GLMs for each side of the brain:
 
