@@ -9,7 +9,7 @@ MRIcroGL Tutorial #3: Viewing Images
 Overview
 ********
 
-The main feature of MRIcroGL is the ability to view medical images - especially magnetic resonance imaging (MRI) data. For this tutorial, we will focus on MRI, fMRI, and diffusion weighted imaging (DWI), although many other forms of imaging data can be loaded as well.
+The main feature of MRIcroGL is the ability to view medical images - especially magnetic resonance imaging (MRI) data. For this tutorial, we will focus on MRI and fMRI, although many other forms of imaging data can be loaded as well.
 
 In the first chapter of this walkthrough, you experimented with the basic operations of the viewer, such as the Opacity slider, the crosshairs, and the Brightness settings. We will examine these in more detail, and begin to use multiple images at once, in order to explore the abilities of the software package.
 
@@ -51,7 +51,7 @@ Modifying the values in the ``Darkest`` and ``Brightest`` fields are useful for 
 Viewing the Intensity over Slices
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-One of the new features in MRIcroGL is the ability to visualize the changes in intensity over multiple slices. First, you will need to find the top of a "hidden" window pane at the bottom of the MRIcroGL viewer; click and drag it up to see another window. Then, find an axial slice that clearly shows both lateral ventricle, click somehwere in the lefthand side of the brain, hold down the ``option`` key, and drag the mouse to the righthand side of the brain. You will see an intensity profile generated in the bottom window, depicting how the intensity changes over the slices that you selected. Note that in this case there are two dips in intensity, indicating where the line you drew crossed over the lower-intensity ventricles.
+One of the new features in MRIcroGL is the ability to visualize the changes in intensity over multiple slices. First, you will need to find the top of a "hidden" window pane at the bottom of the MRIcroGL viewer; click and drag it up to see another window. Then, find an axial slice that clearly shows both lateral ventricle, click somewhere in the left-hand side of the brain, hold down the ``option`` key, and drag the mouse to the right-hand side of the brain. You will see an intensity profile generated in the bottom window, depicting how the intensity changes over the slices that you selected. Note that in this case there are two dips in intensity, indicating where the line you drew crossed over the lower-intensity ventricles.
 
 .. figure:: 03_IntensityProfile.png
 
@@ -62,7 +62,7 @@ Leaving the anatomical image loaded, click on ``File -> Add Overlay``, and selec
 
 .. figure:: 03_OverlayImages.png
 
-After you've run coregistration and normalization, you can also use MRIcroGL to evaluate how well the functional and anatomical iamges are aligned, and how those images in turn are aligned to standardized space. If you've run your analyses through FSL, for example, you can find the output from these steps in the ``reg`` directory from your ``feat`` folder. Open the ``highres.nii.gz`` image from subject ``sub-10``'s ``run1.feat`` directory, and lower the value of the ``Brightest`` field to 800. Then click on ``File -> Add Overlay``, and select the image ``example_func2highres.nii.gz``. You should see something like this:
+After you've run coregistration and normalization, you can also use MRIcroGL to evaluate how well the functional and anatomical images are aligned, and how those images in turn are aligned to standardized space. If you've run your analyses through FSL, for example, you can find the output from these steps in the ``reg`` directory from your ``feat`` folder. Open the ``highres.nii.gz`` image from subject ``sub-10``'s ``run1.feat`` directory, and lower the value of the ``Brightest`` field to 800. Then click on ``File -> Add Overlay``, and select the image ``example_func2highres.nii.gz``. You should see something like this:
 
 .. figure:: 03_HighResFunc.png
 
