@@ -45,7 +45,7 @@ Next, we will load an anatomical image - in this case, the T1-weighted ``sub-10_
   An anatomical image. Note that this image has had the face removed, in order to deidentify it.
   
   
-Modifying the values in the ``Darkest`` and ``Brightest`` fields are useful for setting the thresholds for which voxels will be shown. For example, you may not want to see any voxels below an intensity of 30, for example, or anything brighter than an intensity of 300. By setting the ``Darkest`` threshold to 30 and the ``Brightest`` threshold of 300, the darkest color - in this case, black - will be set to those voxels with an intensity of 30, and pure white will be assigned to those voxels with an intensity of 300.
+Modifying the values in the ``Darkest`` and ``Brightest`` fields are useful for setting the thresholds for which voxels will be shown. For example, you may not want to see any voxels below an intensity of 30, for example, or anything brighter than an intensity of 300. By setting the ``Darkest`` threshold to 30 and the ``Brightest`` threshold of 300, the darkest color - in this case, black - will be set to those voxels with an intensity of 30, and white will be assigned to those voxels with an intensity of 300.
 
 
 Viewing the Intensity over Slices
@@ -58,7 +58,7 @@ One of the new features in MRIcroGL is the ability to visualize the changes in i
 Loading Multiple Images
 ***********************
 
-Leaving the anatomical image loaded, click on ``File -> Add Overlay``, and select one of the functional images from the ``sub-01/func`` directory. Recall that viewing both the anatomical and functional images can be useful for seeing how far apart the images are, before any preprocessing has been done; images that start farther away from each other may need a larger search area during coregistration in order to find a good fit, or the origins may need to be manually centered before doing any further preprocessing. In this case, the images are quite far away from each other, with the functional image highlighted in red:
+Leaving the anatomical image loaded, click on ``File -> Add Overlay``, and select one of the functional images from the ``sub-10/func`` directory. Recall that viewing both the anatomical and functional images can be useful for seeing how far apart the images are, before any preprocessing has been done; images that start farther away from each other may need a larger search area during coregistration in order to find a good fit, or the origins may need to be manually centered before doing any further preprocessing. In this case, the images are quite far away from each other, with the functional image highlighted in red:
 
 .. figure:: 03_OverlayImages.png
 
