@@ -71,6 +71,11 @@ Now there is nearly complete overlap of the functional image on top of the anato
 .. figure:: 03_AddEdges.png
 
   Example of the "Find Edges" feature of MRIcroGL. Note the outline of the ventricles and the basal ganglia in the axial view, and the how the outlines of the sulci are traced.
+  
+Video
+*****
+
+A video overview of how to view the data can be found `here <https://youtu.be/eD87us76jN0>`__.
 
 
 Next Steps
