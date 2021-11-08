@@ -19,7 +19,7 @@ Next, we will want to **overlay** a results image onto the template. You can loa
 
 .. note::
 
-  You can overlay multiple statistical maps on each other, with the color of the overlap representing a mixture of the colors of the individual overlays. For example, load the file ``zstat8.nii.gz`` for both the 2nd-level Incongruent and Congruent maps. They should default to colors of green and blue, although you can chnage this to whatever you want. To show the overlap of the two, click on ``Options -> Additive Overlay Blending``. In this case, the overlap will be shown in Cyan.
+  You can overlay multiple statistical maps on each other, with the color of the overlap representing a mixture of the colors of the individual overlays. For example, load the file ``zstat8.nii.gz`` for both the 2nd-level Incongruent and Congruent maps. They should default to colors of green and blue, although you can change this to whatever you want. To show the overlap of the two, click on ``Options -> Additive Overlay Blending``. In this case, the overlap will be shown in Cyan.
   
 .. figure:: 04_Additive.png
 
@@ -51,7 +51,7 @@ In any case, this example uses the results of a TFCE analysis, in which all of t
 Overlaying Atlases
 ******************
 
-In addition to displaying the results, you may also want to know where the results are located, using an atlas as a guide. You probably won't want to show the atlas as part of the figure that will be published, but a label for the location of the cluster, in addition to its coordinates, can be a useful in a table of the results.
+In addition to displaying the results, you may also want to know where the results are located, using an atlas as a guide. You probably won't want to show the atlas as part of the figure that will be published, but a label for the location of the cluster, in addition to its coordinates, can be useful in a table of the results.
 
 To see the atlases that are available with MRIcroGL, click on ``File -> Add Atlas``. Add the ``aal`` atlas (Automated Anatomical Labeling), and note how you can see different structures color-coded on the template. The default opacity will allow you to see where the cluster is in relation to a particular structure, and the last string at the top of the MRIcroGL viewer tells you which structure the crosshairs are currently on. In this case, the cluster in the anterior middle part of the brain is located within the left supplementary motor area, according to the atlas.
 
@@ -65,7 +65,7 @@ To see the atlases that are available with MRIcroGL, click on ``File -> Add Atla
 Rendering the Results
 *********************
 
-There are scenarios in which viewing the results on the surface of the brain can be more useful than viewing the results on three orthogonal slices. To get a more precise location of where the results are located along the gyri and sulci, it is necessary to do a surface-based analysis, using AFNI's SUMA, for example. However, we can still get a rough idea of where the results are on the surface by **rendering** them; that is, interpolating voulmetric data onto a surface. 
+There are scenarios in which viewing the results on the surface of the brain can be more useful than viewing the results on three orthogonal slices. To get a more precise location of where the results are located along the gyri and sulci, it is necessary to do a surface-based analysis, using AFNI's SUMA, for example. However, we can still get a rough idea of where the results are on the surface by **rendering** them; that is, interpolating volumetric data onto a surface. 
 
 Uncheck the box next to the ``aal`` overlay to hide it (or right-click on it and select ``Close``), and then go to ``Display -> Multi-Planar (A+C+S+R)``. This will add another view, a surface of the template brain with the results visible both on the surface and within the folds of the brain. This view is most useful when the activation is on the outer surface, such as the motor cortex or the dorsolateral prefrontal cortex.
 
