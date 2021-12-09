@@ -43,6 +43,8 @@ We will also need to create a file that indicates the phase-encoding direction a
   0 1 0 0.0266003
   0 -1 0 0.0266003
   
+And save the file as ``acq_param.txt``.
+  
 The first three numbers in the first row represent the phase-encoding along the x-, y-, and z-dimensions. Since the first volume was acquired in the A-P direction, we place a "1" in the second column. In the next row, since the second image in this dataset was acquired in the opposite direction, we use a value of "-1". The last column is the read-out time, in milliseconds; if it's the same for both images, you can set it to "1". Otherwise, replace it with the exact read-out time for each volume separately. For the current dataset, this number can be found in the "TotalReadOutTime" field of the ".json" file in the ``dwi`` directory.
 
 Once you have all of these ingredients, you are ready to run ``topup`` to estimate the field inhomogeneity:
