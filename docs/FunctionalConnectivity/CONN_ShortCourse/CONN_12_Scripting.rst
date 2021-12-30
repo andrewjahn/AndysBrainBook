@@ -30,7 +30,7 @@ Scripting in the CONN Toolbox
 Structures, Fields, and Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The CONN Toolbox comes with a command called ``conn_batch``, which takes a **structure** as an argument. A structure is a Matlab data type that organizes several variables into containers called **fields**. The structure fields that are expected by the ``conn_batch`` command are the following (taken from the conn_batch help, which can also be found on the `CONN scripting page <https://sites.google.com/view/conn/resources/conn_batch?authuser=0>`__):
+The CONN Toolbox comes with a command called ``conn_batch``, which takes a **structure** as an argument. A structure is a Matlab data type that organizes several variables into containers called **fields**. The structure fields that are expected by the ``conn_batch`` command are the following (taken from the conn_batch help, which can also be found on the `CONN scripting page <https://web.conn-toolbox.org/resources/documentation/conn_batch>`__):
 
 ::
 
