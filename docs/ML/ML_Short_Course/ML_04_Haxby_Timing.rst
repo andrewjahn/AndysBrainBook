@@ -59,6 +59,8 @@ The following code will extract the first onset time for each condition automati
     cd ../..
   done
   
+  (Note that errors for subject 5 run 12 are expected, and will be dealt with later.)
+  
 This will generate files labeled ``bottle.txt``, ``cat.txt``, and so on, one for each condition, and place it in the appropriate subject's ``func`` folder. The contents of sub-1's ``bottle.txt`` file, for example, will look like this:
 
 ::
