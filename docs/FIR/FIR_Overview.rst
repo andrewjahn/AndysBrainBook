@@ -19,10 +19,25 @@ Even if the shapes aren't that different from the canonical hemodynamic response
 
 .. figure:: 00_FIR_Auditory_Visual.png
 
-Another example of more complicated differences between conditions can be seen in this figure from Nee et al., 2013, which examined the difference in the BOLD response when the subject was first instructed to 
+Another example of more complicated differences between conditions can be seen in this figure from Nee et al., 2013, which examined the difference in the BOLD response when the subject was first given a feature cue - such as whether the stimulus was green or red - or a relational cue, such as the word "or", "and", or "any". The similarities and differences of the BOLD response can be better visualized using a Finite Impulse Responses analysis, which shows how the signal unfolds.
 
 .. figure:: 00_Nee_FIR.png
 
-In any case, a Finite Impulse Response analysis can be a useful supplement to the more widely-used single-parameter hemodynamic response function model. The drawbacks, however, are that the analysis can be less powerful; fMRI data is already very noisy as it is, and trying to divide it even further into single time-points may lead nowhere - at that scale, it is even easier to overfit the data and model noise instead of the signal. Group analyses are also more complicated, as you will ideally want to select a single time-point (or subset of time-points). The more time-points you analyze at the group level, the more test you will need to control for.
+In any case, this type of analysis can be a useful supplement to the more widely-used single-parameter hemodynamic response function model. The drawbacks, however, are that the analysis can be less powerful; fMRI data is already very noisy as it is, and trying to divide it even further into single time-points may lead nowhere - at that scale, it is even easier to overfit the data and model noise instead of the signal. Group analyses are also more complicated, as you will ideally want to select a single time-point (or subset of time-points). The more time-points you analyze at the group level, the more test you will need to control for.
 
-For this tutorial, we will be using the data from the `Pauli et al., 2016 paper <https://openneuro.org/datasets/ds000011/versions/00001>`__. The dataset analyzed in this paper can be found on OpenNeuro `here <https://openneuro.org/datasets/ds000011/versions/00001>`__.
+Next Steps
+**********
+
+For this tutorial, we will be using the data from the `Pauli et al., 2016 paper <https://openneuro.org/datasets/ds000011/versions/00001>`__. The dataset analyzed in this paper can be found on OpenNeuro `here <https://openneuro.org/datasets/ds000011/versions/00001>`__. We will learn how to analyze this dataset in the three major fMRI analysis packages: AFNI, FSL, and SPM.
+
+.. note::
+
+  The following tutorials assume that you are already experienced in preprocessing fMRI data; we will be repeating many of those same steps, but not going over the rationale for each step. Fortunately, the preprocessing steps for a Finite Impulse Response analysis are identical in many cases to how you would preprocess an fMRI dataset using a canonical hemodynamic response function for the statistical analysis. If you need to review how to preprocess the data, see the tutorials for AFNI, FSL, and SPM on the main page of this e-book.
+  
+  .. toctree::
+   :maxdepth: 1
+   :caption: Finite Impulse Response Analysis
+
+   FIR_ShortCourse/FIR_01_AFNI
+   FIR_ShortCourse/FIR_02_SPM
+   FIR_ShortCourse/FIR_03_FSL
