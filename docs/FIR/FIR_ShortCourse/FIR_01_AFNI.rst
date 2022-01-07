@@ -78,3 +78,32 @@ This will create the file ``subjList.txt`` (if it doesn't exist already), and us
 
 Examining the Results
 *********************
+
+Once the preprocessing and analysis is finished, navigate to the directory ``sub-01/sub-01.results``. Similar to the results folder from the AFNI tutorials, we see output from all of the steps; however, if we look at the output from the statistical analysis by typing ``3dinfo -verb stats.sub-01+tlrc``, we see the following (truncated to just the tone_counting condition):
+
+::
+
+  -- At sub-brick #1 'tone_counting#0_Coef' datum type is float:       -50.34 to         60.68
+  -- At sub-brick #2 'tone_counting#0_Tstat' datum type is float:     -6.03381 to       4.62057
+     statcode = fitt;  statpar = 68
+  -- At sub-brick #3 'tone_counting#1_Coef' datum type is float:     -64.2838 to       89.6593
+  -- At sub-brick #4 'tone_counting#1_Tstat' datum type is float:     -5.57096 to       4.79652
+     statcode = fitt;  statpar = 68
+  -- At sub-brick #5 'tone_counting#2_Coef' datum type is float:       -119.9 to        102.47
+  -- At sub-brick #6 'tone_counting#2_Tstat' datum type is float:     -5.04005 to       4.87468
+     statcode = fitt;  statpar = 68
+  -- At sub-brick #7 'tone_counting#3_Coef' datum type is float:     -132.215 to       136.358
+  -- At sub-brick #8 'tone_counting#3_Tstat' datum type is float:     -5.70406 to       5.24604
+     statcode = fitt;  statpar = 68
+  -- At sub-brick #9 'tone_counting#4_Coef' datum type is float:     -100.065 to       99.7619
+  -- At sub-brick #10 'tone_counting#4_Tstat' datum type is float:     -5.50184 to       5.14456
+     statcode = fitt;  statpar = 68
+  -- At sub-brick #11 'tone_counting#5_Coef' datum type is float:      -134.37 to       156.491
+  -- At sub-brick #12 'tone_counting#5_Tstat' datum type is float:     -5.12016 to        6.7376
+     statcode = fitt;  statpar = 68
+  -- At sub-brick #13 'tone_counting#6_Coef' datum type is float:     -76.8142 to        77.716
+  -- At sub-brick #14 'tone_counting#6_Tstat' datum type is float:     -4.45098 to        4.4271
+     statcode = fitt;  statpar = 68
+     
+There are 14 sub-briks total for the tone_counting condition, with 7 beta weights (i.e., those labeled "Coef") and 7 T-statistics. In other words, we have an average beta estimate for each time-point in a 12-second window after the onset of each tone_counting condition; these beta weights can then be submitted to a group-level analysis just like the beta weights from a canonical HRF analysis.
+
