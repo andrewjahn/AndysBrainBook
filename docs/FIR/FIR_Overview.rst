@@ -34,7 +34,7 @@ For this tutorial, we will be using the data from the `Pauli et al., 2016 paper 
 
   The following tutorials assume that you are already experienced in preprocessing fMRI data; we will be repeating many of those same steps, but not going over the rationale for each step. Fortunately, the preprocessing steps for a Finite Impulse Response analysis are identical in many cases to how you would preprocess an fMRI dataset using a canonical hemodynamic response function for the statistical analysis. If you need to review how to preprocess the data, see the tutorials for AFNI, FSL, and SPM on the main page of this e-book.
   
-  .. toctree::
+.. toctree::
    :maxdepth: 1
    :caption: Finite Impulse Response Analysis
 
