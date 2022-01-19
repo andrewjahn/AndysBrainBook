@@ -107,3 +107,84 @@ Once the preprocessing and analysis is finished, navigate to the directory ``sub
      
 There are 14 sub-briks total for the tone_counting condition, with 7 beta weights (i.e., those labeled "Coef") and 7 T-statistics. In other words, we have an average beta estimate for each time-point in a 12-second window after the onset of each tone_counting condition; these beta weights can then be submitted to a group-level analysis just like the beta weights from a canonical HRF analysis.
 
+
+Plotting the TENT Activity
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Each of the "coef" sub-briks representing the activity at each time-point are also contained within the files beginning with ``iresp``. In this example, the file ``iresp_probe.sub-01+tlrc`` contains just the TENT sub-briks for the 14-second window after the onset of the probe stimuli, while the file ``iresp_tone_counting.sub-01+tlrc`` contains the TENT sub-briks for the tone counting stimuli. If you open the AFNI GUI by typing ``afni``, click ``Underlay`` and select the file ``iresp_tone_counting.sub-01+tlrc``. Place the crosshairs on a voxel around the primary auditory cortex and click the ``Graph`` button next to any of the orthogonal viewers; you will see a 3x3 matrix of the center voxel and its neighbors, with the estimated activity at each time-point.
+
+.. figure:: 01_FIR_AFNI_Plot.png
+
+.. note::
+
+  Some researchers find it more useful to force the activity of the first time-point to zero as a constant baseline for comparison with the activity of the other time-points. This can be done by changing the basis function in the above script from ``TENT`` to ``TENTzero``. Keeping all of the other options the same, the resulting activity profile at the same voxel in the above figure would look like this:
+  
+  .. figure:: 01_FIR_AFNI_TENTzero.png
+  
+  The overall profile looks almost the same, but the values are now relative to the first sub-brik's value of zero.
+  
+Group-Level Analysis
+********************
+
+The group-level analysis of the TENT sub-briks is virtually identical to those analyses using the canonical HRF; the only difference is that you will select which sub-briks you want to compare against each other.
+
+For example, let's say that we wanted to compare the zero time-point to the third time-point - in this case, those sub-briks corresponding to time-points 0s and 6s, since the TR is 2 seconds. From the above output from the ``stats`` dataset, we see that the sub-brik 7 is the third time-point after the onset of the tone counting condition, and sub-brik 1 is the onset of the condition. Thus, we could write a paired t-test script like this:
+
+::
+
+  #!/bin/tcsh -xef
+
+  # created by uber_ttest.py: version 2.0 (December 28, 2017)
+  # creation date: Wed Feb 19 11:33:21 2020
+
+  # ---------------------- set process variables ----------------------
+
+  set mask_dset = $PWD/sub-01/sub-01.results/mask_group+tlrc
+
+  set dirA = $PWD
+
+  # specify and possibly create results directory
+  set results_dir = test.results_6s-0s
+  if ( ! -d $results_dir ) mkdir $results_dir
+
+  # ------------------------- process the data -------------------------
+
+  3dttest++ -prefix $results_dir/results_6s-0s -paired                    \
+          -mask $mask_dset                                         \
+          -setA SixSeconds                                           \
+             01 "$dirA/sub-01/sub-01.results/stats.sub-01+tlrc[7]" \
+             02 "$dirA/sub-02/sub-02.results/stats.sub-02+tlrc[7]" \
+             03 "$dirA/sub-03/sub-03.results/stats.sub-03+tlrc[7]" \
+             04 "$dirA/sub-04/sub-04.results/stats.sub-04+tlrc[7]" \
+             05 "$dirA/sub-05/sub-05.results/stats.sub-05+tlrc[7]" \
+             06 "$dirA/sub-06/sub-06.results/stats.sub-06+tlrc[7]" \
+             07 "$dirA/sub-07/sub-07.results/stats.sub-07+tlrc[7]" \
+             08 "$dirA/sub-08/sub-08.results/stats.sub-08+tlrc[7]" \
+             09 "$dirA/sub-09/sub-09.results/stats.sub-09+tlrc[7]" \
+             10 "$dirA/sub-10/sub-10.results/stats.sub-10+tlrc[7]" \
+             11 "$dirA/sub-11/sub-11.results/stats.sub-11+tlrc[7]" \
+             12 "$dirA/sub-12/sub-12.results/stats.sub-12+tlrc[7]" \
+             13 "$dirA/sub-13/sub-13.results/stats.sub-13+tlrc[7]" \
+             14 "$dirA/sub-14/sub-14.results/stats.sub-14+tlrc[7]" \
+          -setB ZeroSeconds                                           \
+             01 "$dirA/sub-01/sub-01.results/stats.sub-01+tlrc[1]" \
+             02 "$dirA/sub-02/sub-02.results/stats.sub-02+tlrc[1]" \
+             03 "$dirA/sub-03/sub-03.results/stats.sub-03+tlrc[1]" \
+             04 "$dirA/sub-04/sub-04.results/stats.sub-04+tlrc[1]" \
+             05 "$dirA/sub-05/sub-05.results/stats.sub-05+tlrc[1]" \
+             06 "$dirA/sub-06/sub-06.results/stats.sub-06+tlrc[1]" \
+             07 "$dirA/sub-07/sub-07.results/stats.sub-07+tlrc[1]" \
+             08 "$dirA/sub-08/sub-08.results/stats.sub-08+tlrc[1]" \
+             09 "$dirA/sub-09/sub-09.results/stats.sub-09+tlrc[1]" \
+             10 "$dirA/sub-10/sub-10.results/stats.sub-10+tlrc[1]" \
+             11 "$dirA/sub-11/sub-11.results/stats.sub-11+tlrc[1]" \
+             12 "$dirA/sub-12/sub-12.results/stats.sub-12+tlrc[1]" \
+             13 "$dirA/sub-13/sub-13.results/stats.sub-13+tlrc[1]" \
+             14 "$dirA/sub-14/sub-14.results/stats.sub-14+tlrc[1]" 
+
+Visualizing these results and determining a significance threshold for them is the same as in the previous AFNI tutorials.
+
+Next Steps
+**********
+
+Now that you are familiar with how to analyze the data with AFNI, we will move on to analyzing the data in FSL. To see how to do that, click the ``Next`` button.
