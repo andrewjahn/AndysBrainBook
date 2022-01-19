@@ -187,4 +187,4 @@ Visualizing these results and determining a significance threshold for them is t
 Next Steps
 **********
 
-Now that you are familiar with how to analyze the data with AFNI, we will move on to analyzing the data in FSL. To see how to do that, click the ``Next`` button.
+Now that you are familiar with how to analyze the data with AFNI, we will move on to analyzing the data in SPM. To see how to do that, click the ``Next`` button.
