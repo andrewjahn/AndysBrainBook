@@ -184,6 +184,10 @@ For example, let's say that we wanted to compare the zero time-point to the thir
 
 Visualizing these results and determining a significance threshold for them is the same as in the previous AFNI tutorials.
 
+.. note::
+
+  For more details on how to set up contrasts within AFNI for to compare different TENTs, as well as a comparison of TENT to other basis functions, see `this post <https://blog.cogneurostats.com/2014/10/08/tidbits-on-afnis-tent-function/>`__ by Pete Molfese.
+
 Next Steps
 **********
 
