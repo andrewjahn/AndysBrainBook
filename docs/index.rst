@@ -230,3 +230,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     5.21.2020: CONN Tutorials complete
     
     12.08.2020: First part of MVPA tutorial complete, from preprocessing to group-level analysis. Later on, will add other statistical analyses, such as prevalence analysis.
+    
+    01.20.2022: There is now a DOI for Andy's Brain Book! If you would like to cite it, use the following template: "We followed the AFNI preprocessing pipeline as outlined in Andy's Brain Book (Jahn, 2022. doi:10.5281/zenodo.5879293)."
