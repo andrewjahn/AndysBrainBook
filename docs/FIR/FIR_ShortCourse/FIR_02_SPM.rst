@@ -1,7 +1,7 @@
 .. _FIR_02_SPM:
 
 ===============================
-Chapter #1: FIR Analysis in SPM
+Chapter #2: FIR Analysis in SPM
 ===============================
 
 ------------------
