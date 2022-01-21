@@ -56,7 +56,7 @@ In the field next to ``F-tests``, type ``1`` and press enter. You should see 10 
 
 .. note::
 
-  The box to the left of each regressor 
+  The box to the left of each regressor marked ``C1``, ``C2``, etc., will also create a separate t-contrast for that particular regressor. If you don't want individual t-tests for each regressor, uncheck the boxes from ``C1`` to ``C10``, and leave the F-test boxes checked. However, these individual t-tests will be useful later on if you want to extract contrast estimates for each time-point in a group-level ROI analysis.
 
 If you click on ``View Design``, you should see the following image, representing 10 regressors after the onset of each condition:
 
@@ -112,3 +112,29 @@ Next, click ``Done``, and then click ``Save``; call the output file ``Design_run
   echo
   
 This will analyze all of the subjects with the FIR model you specified in the FEAT GUI; it will take a couple of hours, depending on the speed of your computer.
+
+.. note::
+
+  Subjects 1 and 2 have 104 TRs in their ToneCounting runs, while Subjects 3-14 have 112. To make the script run without errors for the rest of the subjects, 
+  
+  
+Viewing the FIRs
+****************
+
+In order to view the estimated time-points as a time-series, you will need to concatenate them using ``fslmerge``. Navigate to the directory ``sub-01/run1.feat/stats`` and type the following:
+
+::
+
+  fslmerge -t FIRs.nii.gz zstat1.nii.gz zstat2.nii.gz zstat3.nii.gz zstat4.nii.gz zstat5.nii.gz zstat6.nii.gz zstat7.nii.gz zstat8.nii.gz zstat9.nii.gz zstat10.nii.gz 
+  
+This will create a new file, ``FIRs.nii.gz``, which you can look at in fsleyes. Type ``fsleyes`` from the command line to open up the viewer, and then select ``File -> Add from file``, and choose the file sub-01/run1.feat/reg/highres.nii.gz. Then select ``File -> Add from file``, navigate to the ``sub-01/run1.feat/stats`` directory, and select the file ``fstat1.nii.gz`` and ``FIRs.nii.gz``. Highlight the ``fstat1`` file, threshold it however you want, and note where there seem to be brighter intensity voxels, indicating a higher f-statistic. Then highlight the ``FIRs`` file, and click on ``View -> Time Series``. You should see something like this:
+
+.. figure:: 03_View_FIRs.png
+
+As you click the crosshairs on different voxels, the time-series will update to show the estimated BOLD response to each time-point in the window you specified. Once you run the preprocessing and first-level analysis for all of the subjects, you can then do a group-level analysis on the time-points and contrast that you want, and extract time-points using an ROI analysis as in the Flanker study.
+
+
+Next Steps
+**********
+
+You have now learned how to perform a Finite Impulse Response analysis in all of the major software packages; which one you choose is ultimately up to you.
