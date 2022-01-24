@@ -26,7 +26,6 @@ Before you begin, create the onset time files by navigating to the directory con
   for subj in `cat subjList.txt` ; do
           cd $subj/func #Navigate to the subject's func directory, which contains the timing files
 
-          #Extract the onset times for the incongruent and congruent trials for each run. NOTE: This script only extracts the trials in which the subject made a correct response. Accuracy is nearly 100% for all subjects, but as an exercise the student can modify this to extract the incorrect trials as well.
           cat ${subj}_task-tonecounting_events.tsv | awk '{if (NR!=1 && $5=="") {print $1, $2, "1"}}' > toneCount_run1.txt
           cat ${subj}_task-tonecounting_events.tsv | awk '{if ($5=="probe") {print $1, $2, "1"}}' > toneProbe_run1.txt
 
@@ -75,7 +74,7 @@ Next, click ``Done``, and then click ``Save``; call the output file ``Design_run
   # Generate the subject list to make modifying this script
   # to run just a subset of subjects easier.
 
-  for id in `seq -w 1 14` ; do
+  for id in `seq -w 1 2` ; do
       subj="sub-$id"
       echo "===> Starting processing of $subj"
       echo
@@ -115,7 +114,7 @@ This will analyze all of the subjects with the FIR model you specified in the FE
 
 .. note::
 
-  Subjects 1 and 2 have 104 TRs in their ToneCounting runs, while Subjects 3-14 have 112. To make the script run without errors for the rest of the subjects, 
+  Subjects 1 and 2 have 104 TRs in their ToneCounting runs, while subjects 4-14 have 112; subject 3 has 113. To make the script run without errors for the rest of the subjects, you will need to edit the ``design_run1.fsf`` script and change line 39 from `set fmri(npts) 104`` to ``113`` for subject 3, and ``112`` for subjects 4-14. Then rerun the script above, changing ``seq -w 1 2`` to ``seq -w 3`` for subject 3, and ``seq -w 4 14`` for the rest of the subjects.
   
   
 Viewing the FIRs
