@@ -201,6 +201,18 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Slicer
     
     Slicer/Slicer_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: CAT12
+    
+    CAT12/CAT12_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Using the Supercomputer
+    
+    Supercomputer/Supercomputer_Overview
 
 
 .. Glossary
