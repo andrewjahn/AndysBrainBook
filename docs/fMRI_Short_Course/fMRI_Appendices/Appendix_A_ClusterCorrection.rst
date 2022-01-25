@@ -164,7 +164,7 @@ Then run 3dFWHMx on the concatenated residual dataset:
 
   3dFWHMx -mask mask.nii -acf -input allRes.nii
   
-Then following the steps above for running 3dClustSim on the resulting ACF values.
+Then follow the steps above for running 3dClustSim on the resulting ACF values.
 
 
 ------------
