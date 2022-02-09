@@ -74,7 +74,7 @@ To run the command ``eddy``, we will need to create two more files, in addition 
 
 ::
 
-  AP_Cor.nii.gz AP_1stVol 0 1
+  fslroi AP_Cor.nii.gz AP_1stVol 0 1
   
 And then use ``bet`` to create a mask from that image:
 
