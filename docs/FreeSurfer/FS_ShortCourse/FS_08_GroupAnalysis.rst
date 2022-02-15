@@ -66,6 +66,20 @@ Copy this code into a shell script and save it as ``runMrisPreproc.sh``. This co
 
 .. note::
 
+  If you haven't used the ``-qcache`` option during recon-all, you can still smooth the data without having to rerun all of the preprocessing steps; e.g.,
+  
+  ::
+
+    recon-all -s <subjName> -qcache
+    
+  To smooth at a specific level, you can add it after the ``-fwhm`` option, e.g.:
+  
+  ::
+  
+    recon-all -s <subjName> -qcache -fwhm 10
+
+.. note::
+
   If you need a refresher on Unix, variables, and for-loops, see :ref:`this tutorial <Unix_Intro>`.
   
   
