@@ -1,4 +1,4 @@
-.. _Smoothing.rst
+.. _Smoothing.rst:
   
 Chapter 5: Smoothing
 =============
