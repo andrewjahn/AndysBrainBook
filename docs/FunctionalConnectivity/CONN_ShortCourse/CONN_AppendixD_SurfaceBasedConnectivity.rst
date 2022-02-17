@@ -38,4 +38,12 @@ Loading the Surface Data into CONN
 
 When ``recon-all`` finishes, you will have a new directory within each subject's ``anat`` folder. Each of these FreeSurfer directories will contain subfolders such as ``mri`` and ``surf``, which you will need to import the surface data into CONN.
 
-First, open a Matlab terminal and open the CONN toolbox. 
+First, open a Matlab terminal and open the CONN toolbox. Create a new project called ``Arithmetic_Surface``, which will open the Setup Tab. Enter ``3`` for the number of subjects, and change the TR to ``3.56``.
+
+Next, click on the ``Structural`` button. Within the FreeSurfer output directories, there is a file called ``T1.mgz`` in the ``mri`` subfolder. In the ``Find`` field, type ``T1.mgz`` and then press the ``Find`` button; you should see a new list of files that contain the string ``T1.mgz``. Shift and click to highlight all of the Subjects in the ``Structural data`` field, and then hold control and left-click to select the corresponding T1.mgz files for each subject, and click ``Import``. This will automatically detect the surface reconstructed anatomical file, along with any segmentation files.
+
+.. figure:: AppendixD_LoadStructurals.png
+
+The functional data, by contrast, is still in volumetric space; during preprocessing, it will be resampled to surface space. Click on ``Functional``. Similar to what we just did above, enter ``task-rest_bold.nii.gz`` in the ``Find`` field; highlight the three subjects in the ``Functional data`` window and then control and click to select their corresponding functional files.
+
+.. figure:: AppendixD_LoadFunctionals.png
