@@ -74,3 +74,8 @@ Denoising
 The Denoising tab will be the same as was during the volumetric functional connectivity analysis, and the interpretation of the connectivity distributions and principal components correction is the same. The only difference is that you will see the BOLD variance projected onto a surface for each subject, instead of their volume.
 
 .. figure:: AppendixD_Denoising.png
+
+First-Level Analysis
+********************
+
+The First-Level Analysis tab will also be very similar to a volumetric analysis, except that this time the results are projected onto a cortical surface.
