@@ -23,7 +23,7 @@ Another example of more complicated differences between conditions can be seen i
 
 .. figure:: 00_Nee_FIR.png
 
-In any case, this type of analysis can be a useful supplement to the more widely-used single-parameter hemodynamic response function model. The drawbacks, however, are that the analysis can be less powerful; fMRI data is already very noisy as it is, and trying to divide it even further into single time-points may lead nowhere - at that scale, it is even easier to overfit the data and model noise instead of the signal. Group analyses are also more complicated, as you will ideally want to select a single time-point (or subset of time-points). The more time-points you analyze at the group level, the more test you will need to control for.
+In any case, this type of analysis can be a useful supplement to the more widely-used single-parameter hemodynamic response function model. The drawbacks, however, are that the analysis can be less powerful; fMRI data is already very noisy as it is, and trying to divide it even further into single time-points may lead nowhere - at that scale, it is even easier to overfit the data and model noise instead of the signal. Group analyses are also more complicated, as you will ideally want to select a single time-point (or subset of time-points). The more time-points you analyze at the group level, the more tests you will need to control for.
 
 Next Steps
 **********
