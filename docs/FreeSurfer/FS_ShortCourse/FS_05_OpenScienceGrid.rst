@@ -2,7 +2,10 @@
 
 .. warning::
 
-  fsurf has been deprecated and is no longer supported; the Open Science Grid will no longer be creating accounts for new users. I have kept the following tutorial available in order to illustrate how jobs are submitted to a supercomputer - this may be superseded by a tutorial about using another supercomputer, such as Michigan's "Great Lakes" supercomputer.
+  fsurf has been deprecated and is no longer supported; to run Freesurfer jobs on the OSG, you can request an account on the 
+  `OSG Connnect <https://www.osgconnect.net/>`__ service (available to all researchers affiliated with a US-based institution or project) and then follow the instructions
+  on `this page <https://support.opensciencegrid.org/support/solutions/articles/12000008483-introduction-to-freesurfer-on-osg>`__ which shows 
+  how to submit your own Freesurfer workload to the OSG. 
 
 ===================================================
 FreeSurfer Tutorial #5: Using the Open Science Grid
