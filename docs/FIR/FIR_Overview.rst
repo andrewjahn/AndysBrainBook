@@ -28,7 +28,20 @@ In any case, this type of analysis can be a useful supplement to the more widely
 Next Steps
 **********
 
-For this tutorial, we will be using the data from the `Pauli et al., 2016 paper <https://internal-journal.frontiersin.org/articles/10.3389/fninf.2016.00024/full>`__. The dataset analyzed in this paper can be found on OpenNeuro `here <https://openneuro.org/datasets/ds000011/versions/00001>`__. We will learn how to analyze this dataset in the three major fMRI analysis packages: AFNI, FSL, and SPM.
+For this tutorial, we will be using the data from the `Pauli et al., 2016 paper <https://internal-journal.frontiersin.org/articles/10.3389/fninf.2016.00024/full>`__. The dataset analyzed in this paper can be found on OpenNeuro `here <https://openneuro.org/datasets/ds000011/versions/00001>`__; click on the ``Download`` button, and then copy and paste this code into a Terminal:
+
+::
+
+  cd ~/Desktop
+  aws s3 sync --no-sign-request s3://openneuro.org/ds000011 ds000011-download/
+
+We will then learn how to analyze this dataset in the three major fMRI analysis packages: AFNI, FSL, and SPM. To organize the data for each analysis, make three copies of the dataset:
+
+::
+
+  cp -R ds000011-download ToneCounting_AFNI
+  cp -R ds000011-download ToneCounting_FSL
+  cp -R ds000011-download ToneCounting_SPM
 
 Video
 *****
