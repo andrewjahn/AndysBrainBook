@@ -11,7 +11,9 @@ Overview
 
 In AFNI, the individual time-points you estimate are called TENTs - possibly because each basis function looks like a pup tent. The peak of this TENT function is estimated for each time-point that is specified, including the end-points of the interval; for example, if you wanted to estimate each time-point from zero (that is, when the stimulus occurs) to twelve seconds after the start of the stimulus, there would be seven estimates total: at the time-points 0, 2, 4, 6, 8, 10, and 12.
 
-For this analysis, we will make edits to the ``cmd`` file provided on the study's associated `NITRC website <https://www.nitrc.org/projects/frcl>`__ (the directory can be found by clicking on the button ``See All Files`` next to the Download dropdown menu, and selecting ``afni_hrf_tent.tar.gz``). This file uses the command ``afni_proc.py`` to create a script with all of the individual AFNI commands needed to do each step of the preprocessing and statistical analysis.
+To begin, navigate to the directory ``ToneCounting_AFNI`` by opening a Terminal and typing ``cd ToneCounting_AFNI``. Then, download `this script <https://github.com/andrewjahn/AFNI_Scripts/blob/master/make_AFNI_Timings_TENT.sh>`__ to the ``ToneCounting_AFNI`` directory, and execute the script by typing ``bash make_AFNI_Timings_TENT.sh``. This will create two separate timing files for each subject, ``tone_counting_onset_times.txt`` and ``tone_counting_probe_onsets.txt``. 
+
+For the rest of this analysis, we will make edits to the ``cmd`` file provided on the study's associated `NITRC website <https://www.nitrc.org/projects/frcl>`__ (the directory can be found by clicking on the button ``See All Files`` next to the Download dropdown menu, and selecting ``afni_hrf_tent.tar.gz``). This file uses the command ``afni_proc.py`` to create a script with all of the individual AFNI commands needed to do each step of the preprocessing and statistical analysis.
 
 Editing the Script
 ******************
