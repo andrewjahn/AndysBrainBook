@@ -189,6 +189,12 @@ Visualizing these results and determining a significance threshold for them is t
 .. note::
 
   For more details on how to set up contrasts within AFNI for to compare different TENTs, as well as a comparison of TENT to other basis functions, see `this post <https://blog.cogneurostats.com/2014/10/08/tidbits-on-afnis-tent-function/>`__ by Pete Molfese.
+  
+
+Video
+*****
+
+For a video overview of how to do FIR analysis in AFNI, click `here <https://youtu.be/prl6JOoQxkY>`__.
 
 Next Steps
 **********
