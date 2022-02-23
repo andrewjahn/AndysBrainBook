@@ -16,7 +16,7 @@ Setting Up the First-Level Model
 
 Once you have finished preprocessing, go to the SPM GUI and click the button ``Specify 1st-level``. Use the Terminal to create a new directory ``1stLevel`` within the directory ``sub-01``, and select that in the ``Directory`` field for the output. Set the ``Units for design`` to ``Seconds``, the ``Interscan interval`` to ``2``, and leave the rest of the defaults as they are. 
 
-Add a new Subect/Session from the ``Data & Design`` field, and use the file navigator to select all of the functional data that begin with the prefix ``swr`` (i.e., those files that have been smoothed, warped, and realigned). Use a frame selector range of 1:104 to select all of the volumes within the dataset.
+Add a new Subject/Session from the ``Data & Design`` field, and use the file navigator to select all of the functional data that begin with the prefix ``swr`` (i.e., those files that have been smoothed, warped, and realigned). Use a frame selector range of 1:104 to select all of the volumes within the dataset.
 
 Create two Conditions, ``ToneCounting`` and ``ToneProbe``. The onsets and durations for each condition can be found in the first and second columns of the file ``sub-01_task-tonecounting_events.tsv``; to make the files easier to read, and to split them into separate timings for both the probe and tone counting conditions, run the following script from the directory containing all of the subjects:
 
@@ -60,7 +60,7 @@ Just like with analyzing the Flanker task, we can create a script that will auto
 
   ToneCount_AnalysisScript_job
   
-This will run the preporcessing and model analysis for all of your subjects, and should take a couple of hours.
+This will run the preprocessing and model analysis for all of your subjects, and should take a couple of hours.
 
 
 Viewing the Results
