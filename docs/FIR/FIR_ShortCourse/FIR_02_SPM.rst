@@ -9,7 +9,7 @@ Chapter #2: FIR Analysis in SPM
 Overview
 ********
 
-Compared to FIR analysis AFNI, the implementation in SPM is quite easy. The preprocessing is the same as in the previous SPM tutorial on analyzing event-related data from the Flanker task; the only difference is in how the first-level model is specified for each subject.
+Compared to FIR analysis in AFNI, the implementation in SPM is quite easy. The preprocessing is the same as in the previous SPM tutorial on analyzing event-related data from the Flanker task; the only difference is in how the first-level model is specified for each subject.
 
 Setting Up the First-Level Model
 ********************************
