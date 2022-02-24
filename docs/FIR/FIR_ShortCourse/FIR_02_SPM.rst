@@ -91,6 +91,10 @@ Note that since we are comparing two regressors against one, we will need to con
 
 Click ``OK -> Done``, and use the same correction settings as for the F-test. The resulting map will show where the average of TRs 3 and 4 are greater than TR 1.
 
+Video
+*****
+
+For a video demonstration of how to perform a Finite Impulse Response analysis in SPM, click `here <https://youtu.be/JVMcfFaKgfw>`__.
 
 Next Steps
 **********
