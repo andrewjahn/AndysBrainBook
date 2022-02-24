@@ -74,7 +74,7 @@ Click ``OK``, and then ``Done``. Similar to the Flanker analysis, set ``apply ma
 
 .. figure:: 02_SPM_FIR_Plot.png
 
-Note how the overall pattern looks similar to the canonical HRF - there is a rise and a distinct peak around 3-4 TRs, corresponding to approximately 6-8 seconds after the onset of the sitmulus, followed by a gradual decrease and undershoot. This pattern is not the same everywhere, however; navigate around the brain and see the variety of profiles that have been estimated in this time window.
+Note how the overall pattern looks similar to the canonical HRF - there is a rise and a distinct peak around 3-4 TRs, corresponding to approximately 6-8 seconds after the onset of the stimulus, followed by a gradual decrease and undershoot. This pattern is not the same everywhere, however; navigate around the brain and see the variety of profiles that have been estimated in this time window.
 
 Other Contrasts
 ^^^^^^^^^^^^^^^
