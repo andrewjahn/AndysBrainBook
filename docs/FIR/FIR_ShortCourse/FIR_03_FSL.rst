@@ -132,6 +132,10 @@ This will create a new file, ``FIRs.nii.gz``, which you can look at in fsleyes. 
 
 As you click the crosshairs on different voxels, the time-series will update to show the estimated BOLD response to each time-point in the window you specified. Once you run the preprocessing and first-level analysis for all of the subjects, you can then do a group-level analysis on the time-points and contrast that you want, and extract time-points using an ROI analysis as in the Flanker study.
 
+Video
+*****
+
+For a video demonstration of how to do FIR analysis in FSL, click `here <https://youtu.be/hMJFPZHEHeI>`__.
 
 Next Steps
 **********
