@@ -51,7 +51,7 @@ The functional data, by contrast, is still in volumetric space; during preproces
 Loading the FreeSurfer ROIs
 ***************************
 
-Even though the CONN toolbox doesn't have a FreeSurfer atlas that comes with it, you can generate a subject-specific set of ROIs through the Setup tab. Click on the ``ROIs`` button, and then hover your cursor over the ROIs window and click the ``new`` button at the bottom of the window. Call the new ROI ``FS_Atlas``, and in the "Find" field type ``lh.aparc.annot``. (It doesn't matter whether you use the left hemisphere or right hemisphere; the ROIs for both will be loaded automatically.) Highlight the subject names and the corresponding ``lh.aparc.annot`` files in the subjects' ``label`` folder, and then click ``Import``. When it is finished importing, make sure the box ``Subject-specific ROI`` is checked at the bottom of the window.
+Even though the CONN toolbox doesn't have a FreeSurfer atlas that comes with it, you can create it through the Setup tab. Click on the ``ROIs`` button, and then hover your cursor over the ROIs window and click the ``new`` button at the bottom of the window. Call the new ROI ``FS_Atlas``, and in the "Find" field type ``lh.aparc.annot``. (It doesn't matter whether you use the left hemisphere or right hemisphere; the ROIs for both will be loaded automatically.) Select the file ``sub-01/anat/fsaverage/label/lh.aparc.annot``, and then click ``Import``. When it is finished importing, make sure the box ``Atlas File`` is checked at the bottom of the window.
 
 .. figure:: AppendixD_LoadROIs.png
 
@@ -88,6 +88,11 @@ Second-Level Analysis
 Once the first-level results are done, you can highlight any of the regions and click the ``compute results`` button. This will display a group-level result in the ``2nd-level`` tab, and also generate a window with a glass brain and a corresponding table of significant clusters. If you click on the ``Surface Display`` button (the first one in the upper-left corner of the buttons under ``Display&Print``, you can more accurately see the connectivity results displayed on the surface of the cortex.
 
 .. figure:: AppendixD_GroupResults.png
+
+Video
+*****
+
+For a video demonstration of how to do a surface-based analysis in the CONN toolbox, click `here <https://youtu.be/M8njs_NwtwI>`__.
 
 Next Steps
 **********
