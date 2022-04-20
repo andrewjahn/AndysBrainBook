@@ -161,6 +161,14 @@ Press the “i” key, and paste the contents below into the file. To save and c
 .. warning::
 
   Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stoping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
+  
+  Furthermore, if you are using a supercomputer cluster, you may want to use the /tmp/scratch directory to store the output. Bennet Fauber of the University of Michigan recommends setting the following variables for the directories:
+  
+  BIDS_DIR=/tmp/workflow_${SUB}/BIDS
+  OUTPUT_DIR=/tmp/workflow_${SUB}/derivatives
+  WORK_DIR=/tmp/workflow_${SUB}/work
+
+  Bennet: "It's almost certainly not a good idea to make WORK_DIR the home on a cluster, as home is likely to have a small quota, be NFS, and be slow. There's almost always some kind of /scratch for that, or, as we do, /tmp.  If using /tmp, it's a good idea to have code to remove work directories after the job finishes, unless debugging.
 
 To ensure that the information was added and saved to the script, you can type the following into the terminal:
 
