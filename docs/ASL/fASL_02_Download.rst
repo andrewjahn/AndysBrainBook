@@ -43,9 +43,7 @@ In order to use f-ASL from anywhere on your computer, you will need to set a pat
     addpath ~/Matlab_ASL_repo-master
     
     
-You will then be able to open up f-ASL by typing ``fasl02`` and pressing Enter. The following GIF shows how to both download the package and how to set the path:
-
-.. figure:: 02_fASL_Download_Install.gif
+You will then be able to open up f-ASL by typing ``fasl02`` and pressing Enter.
 
 
 .. note::
