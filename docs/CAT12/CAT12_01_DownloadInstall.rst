@@ -13,3 +13,18 @@ The CAT12 toolbox is designed to work with SPM12, using the same libraries for m
 ===========================
 
 The download and installation instructions for SPM12 can be found :ref:`here <SPM_fMRI_Intro>`, as well as on the SPM12 website. 
+
+
+2. Download the CAT12 Toolbox
+=============================
+
+The CAT12 toolbox can be found `here <http://www.neuro.uni-jena.de/cat/index.html#DOWNLOAD>`__. Click on the ``Download CAT12`` button, which will start the download; then, unzip the file. Assuming that your ``spm12`` folder is located in your home directory, open a terminal and type the following:
+
+::
+
+  mv ~/Downloads/cat12 ~/spm12/toolbox
+  
+Then open a Matlab terminal, and type ``spm fmri``. When the GUI appears, click on the ``Toolbox:`` dropdown menu, and select ``cat12``. This will open the CAT12 GUI, which should look like this:
+
+.. figure:: 01_CAT12_GUI.png
+
