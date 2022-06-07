@@ -23,5 +23,5 @@ The following walkthrough will demonstrate how to use CAT12 with data downloaded
    :maxdepth: 1
    :caption: Start to Finish Analysis with CAT12
 
-   CAT12_ShortCourse/CAT12_00_DownloadInstall
+   CAT12_ShortCourse/CAT12_01_DownloadInstall
    
