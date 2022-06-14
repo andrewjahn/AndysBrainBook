@@ -1,5 +1,5 @@
 Welcome to Andy's Brain Book!
-==================================================
+=============================
 
 .. figure:: ABB_logo_book.png
 
@@ -106,7 +106,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    
 .. toctree::
    :maxdepth: 1
-   :caption: Introduction to the Human Connectome Project
+   :caption: Introduction to the Human Connectome Project (HCP)
    
    HCP/HCP_Overview
     
