@@ -24,3 +24,5 @@ Once your application is approved, you will be given a link to the `Laboratory o
 Your landing page on the IDA should look something like this, showing that you have access to the ADNI project. Click on ``Projects``, and then click on ``ADNI``.
 
 .. figure:: 02_IDA_Webpage.png
+
+
