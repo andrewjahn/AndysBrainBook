@@ -28,3 +28,5 @@ Then open a Matlab terminal, and type ``spm fmri``. When the GUI appears, click 
 
 .. figure:: 01_CAT12_GUI.png
 
+
+If that works without any issues, you are ready to download and analyze data from the ADNI website. Click the ``Next`` button to learn how to do that.
