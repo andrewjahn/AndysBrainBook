@@ -34,9 +34,9 @@ The following walkthrough will demonstrate how to use CAT12 with data downloaded
    :maxdepth: 1
    :caption: Start to Finish Analysis with CAT12
 
-   CAT12/CAT12_01_DownloadInstall
-   CAT12/CAT12_02_DownloadingADNIData
-   CAT12/CAT12_03_Preprocessing
-   CAT12/CAT12_04_Analysis
-   CAT12/CAT12_05_Supercomputer
+   CAT12_01_DownloadInstall
+   CAT12_02_DownloadingADNIData
+   CAT12_03_Preprocessing
+   CAT12_04_Analysis
+   CAT12_05_Supercomputer
    
