@@ -38,4 +38,5 @@ The following walkthrough will demonstrate how to use CAT12 with data downloaded
    CAT12/CAT12_02_DownloadingADNIData
    CAT12/CAT12_03_Preprocessing
    CAT12/CAT12_04_Analysis
+   CAT12/CAT12_05_Supercomputer
    
