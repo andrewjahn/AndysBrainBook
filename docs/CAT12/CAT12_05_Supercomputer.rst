@@ -21,7 +21,7 @@ For most University of Michigan graduate students and researchers affiliated wit
 You can apply for an account on the `UMRCP webpage <https://arc.umich.edu/UMRCP/>`__ and clicking on ``Sign up for the UMRCP``. You will need to provide your title, affiliation, University ID, and a brief description of the research you will be doing on the cluster. You will also need to specify whether the data is sensitive or not; see a list `here <https://safecomputing.umich.edu/dataguide/?q=node/246>`__ of data that is allowed to be analyzed on the cluster.
 
 Using Open On-Demand
-*************************
+********************
 
 Once your account has been approved, use `this link <https://greatlakes.arc-ts.umich.edu/pun/sys/dashboard/>`__ to access the Great Lakes dashboard. You will need to log in with your username and password, and use Duo authentication as well. Once you are logged in, you should see something like this:
 
@@ -38,3 +38,7 @@ When you have filled out all of these fields, click on the ``Launch`` button, wh
 .. figure:: 05_Desktop.png
 
 To run CAT12 on the computing cluster, we will have to download both SPM12 and CAT12 to our home directory, just like we did in the SPM12 tutorial and an earlier chapter of this CAT12 tutorial. Follow those instructions to install both packages in your home directory, and to install the CAT12 program in the ``spm12/toolbox`` directory.
+
+Once you have installed the software, return to the Great Lakes dashboard, and from the ``Interactive Apps`` list, select ``MATLAB``. Similar to the Basic Desktop Interactive App, we need to specify the computational resources we require. Select the ``MATLAB version`` ``2020a``, 120 hours, 4 cores, and 10GB of memory. We will be using this app just to create a batch template, which will then be submitted via batch jobs on the computing cluster. Click the ``Launch`` button, and then ``Launch MATLAB`` when it is ready.
+
+When Matlab has appeared in a new tab, type ``addpath ~/spm12`` from the terminal, assuming that you installed SPM12 in your home directory. Then type ``spm fmri`` to open the program. From the dropdown menu underneath ``toolbox``, select ``cat12``. Click the ``Segment`` button. 
