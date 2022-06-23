@@ -66,7 +66,13 @@ Once you have installed the software and downloaded the data, return to the Grea
 
 When Matlab has appeared in a new tab, navigate to the directory where the anatomical images are stored by typing ``cd /nfs/turbo/lsa-ajahn``. Then, type ``addpath ~/spm12`` from the terminal, assuming that you installed SPM12 in your home directory, and navigate to our tutorial data by typing ``cd /nfs/turbo/lsa-ajahn/ADNI``. Type ``spm fmri`` to open the program, and from the dropdown menu underneath ``toolbox``, select ``cat12``. Click the ``Segment`` button. Similar to what we did on the personal computer, we just have to enter the volumes that need to be segmented. However, since we will be generating an individual batch for each subject, we shoudl change the ``Split job into separate processes`` from the default of ``4`` to ``0``, assigning each job to a single processor.
 
-Double-click on ``Volumes``, navigate to the folder ``002_S_0413``, and select the file ``002_S_0413_T1w.nii``. There is nothing special about this file; we just need a single file to create our template. Click on ``File -> Save Batch and Script``, and name the file ``CAT12_SPM_Batch_Template``, saving it to the directory that contains all of the subjects. Use a text editor to open the file ``CAT12_SPM_Batch_Template_job.m``, and change the subject ID - in this case, ``002_S_0413`` - to ``changeme``. This string of text will be used later in a ``sed`` command to generate a batch file for each subject.
+Double-click on ``Volumes``, navigate to the folder ``002_S_0413``, and select the file ``002_S_0413_T1w.nii``. There is nothing special about this file; we just need a single file to create our template. Click on ``File -> Save Batch and Script``, and name the file ``CAT12_SPM_Batch_Template``, saving it to the directory that contains all of the subjects. Use a text editor to open the file ``CAT12_SPM_Batch_Template_job.m``, and change the subject ID - in this case, ``002_S_0413`` - to ``changeme``. This string of text will be used later in a ``sed`` command to generate a batch file for each subject. Also, at the very end of the file, add this line of code:
+
+::
+
+  spm_jobman('run', matlabbatch)
+  
+Which will run all of the code above it stored in the ``matlabbatch`` structure.
 
 Next, we will create a template file for the Matlab commands to be run from the terminal. Although we created the batch template file using Matlab, we will be submitting all of the jobs from the command line, and can run them using Matlab commands but without opening the Matlab GUI. Use a text editor to create a file called ``Matlab_Template_Job.sh``, and enter the following code into it:
 
