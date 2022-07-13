@@ -30,3 +30,8 @@ Then open a Matlab terminal, and type ``spm fmri``. When the GUI appears, click 
 
 
 If that works without any issues, you are ready to download and analyze data from the ADNI website. Click the ``Next`` button to learn how to do that.
+
+Video
+=====
+
+For a video overview of how to download and install CAT12, click `here <https://youtu.be/GpuN5F1kmr0>`__.
