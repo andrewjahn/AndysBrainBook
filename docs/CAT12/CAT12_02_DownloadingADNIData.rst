@@ -41,7 +41,7 @@ Instead of having to select all of the MP-RAGE images by hand, however, there ar
 
 .. figure:: 02_ADNI_Download.png
 
-Once the download finishes, unzip the file ``ADNI1_Baseline 3T.zip``. Then, open a Terminal, navigate to your Desktop, and create a new folder by typing ``mkdir CAT12_Tutorial``. Within this folder, create two sub-folders, ``AD`` and ``CN``. Using the download window as a guide, place the subjects ending with IDs 0963, 0369, 0413, 0304, 0061, and 1250 into the ``CN`` folder, and the rest into the ``AD`` folder. Next, you will notice that each of these subject folders contain several subfolders, before you reach the anatomical NIFTI image. Since these subfolders aren't neede, move each of the NIFTI files to the each subject's top folder by typing the following code from the CAT12_Tutorial directory:
+Once the download finishes, unzip the file ``ADNI1_Baseline 3T.zip``. Then, open a Terminal, navigate to your Desktop, and create a new folder by typing ``mkdir CAT12_Tutorial``. Within this folder, create two sub-folders, ``AD`` and ``CN``. Using the download window as a guide, place the subjects ending with IDs 0963, 0369, 0413, 0304, 0061, and 1250 into the ``CN`` folder, and the rest into the ``AD`` folder. Next, you will notice that each of these subject folders contain several subfolders, before you reach the anatomical NIFTI image. Since these subfolders aren't needed, move each of the NIFTI files to the each subject's top folder by typing the following code from the CAT12_Tutorial directory:
 
 ::
 
