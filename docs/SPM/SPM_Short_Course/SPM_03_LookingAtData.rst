@@ -112,11 +112,27 @@ Also, during the :ref:`Realignment preprocessing step <01_SPM_Realign_Unwarp>` y
 Exercises
 -----------
 
-1. View the time-series of the ``run-2`` data, using the steps outlined above. Do you notice any sudden changes in movement?
+1. View the time-series of the ``run-2`` data, using the steps outlined above. Do you notice any sudden changes in movement? View the time-series for ``run-1``, and compare it to ``run-2``. Which volumes, if any, show any sudden changes in movement?
 
 2. Examine a few of the other anatomical and functional scans for some of the other subjects, making sure to unzip the images before loading them into the viewer. How does the contrast and the brightness change as you drag the crosshair through different slices of the image? What do you think affects the brightness of a given slice?
 
-3. Open the anatomical image for sub-08 in the Display Image viewer, and right click on any of the three window panes. Select ``Overlay -> Add Image -> This Image``, and select the functional file ``sub-08_task-flanker_run-1_bold.nii``. The functional image will be overlaid on the anatomical image and displayed in a red-orange heatmap, showing a relatively good initial alignment between the images:
+3. If you are viewing one of the functional images using the ``Display`` button, right-clicking on any of the viewing panes will display a menu with the currently viewed file name at the top of it. Hover your mouse over the file name, and observe the values that are presented in a sub-menu on the right. How do these compare with the values that you see in the bottom half of the Display window?
+
+4. SPM reads **header information** when it loads a file. The command line version of this is called ``spm_vol``. From the Matlab terminal, navigate to the directory ``sub-01/func``, and type the following:
+
+::
+
+    run1 = spm_vol('sub-01_task-flanker_run-1_bold.nii')
+    
+Notice that there are several fields that are returned in this structure, such as fname, dim, and dt. You can examine the contents of each one of them by typing, e.g.,
+
+::
+
+    run1.fname
+    
+In this case, why are there 146 answers that are returned? Which of the fields contains the dimensions of the voxels for each volume? Which of the fields contains the dimensions of the overall volume (i.e., width, length, and height)? How many volumes would be returned if you applied the ``spm_vol`` command to the anatomical image? Why?
+
+5. Open the anatomical image for sub-08 in the Display Image viewer, and right click on any of the three window panes. Select ``Overlay -> Add Image -> This Image``, and select the functional file ``sub-08_task-flanker_run-1_bold.nii``. The functional image will be overlaid on the anatomical image and displayed in a red-orange heatmap, showing a relatively good initial alignment between the images:
 
 .. figure:: 03_ImageOverlay.png
 
