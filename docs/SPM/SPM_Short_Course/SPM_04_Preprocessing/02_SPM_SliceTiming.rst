@@ -84,4 +84,11 @@ For the TR, enter 2; for the TA, follow the formula provided in the help window 
 When the images have been slice-time corrected, you are ready to **coregister** the functional data to the anatomical data; in other words, we will align the two sets of images as best we can.
 
 
+Exercises
+*********
 
+1. Sometimes the slices are acquired from the bottom to the top of the volume, without any interleaving. How would you change the code for the slice order to reflect this?
+
+2. Now do the same edits, but for slices that are interleaved going from the top of the volume to the bottom.
+
+3. Download another functional run from a random study on openneuro.org, and use spm_vol to determine how many slices there are. Repeat exercises 1 and 2 for this dataset.
