@@ -1,8 +1,8 @@
 .. _Unix_02_CopyRemove:
 
-============
+============================================
 Unix Tutorial #2: Copying and Removing Files
-============
+============================================
 
 .. note::
   Topics covered: File manipulation; arguments; options; copying, deleting, and renaming files
