@@ -213,6 +213,13 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Using the Supercomputer
     
     Supercomputer/Supercomputer_Overview
+    
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Matlab for Neuroimagers
+    
+    Matlab/Matlab_Overview
 
 
 .. Glossary
