@@ -6,18 +6,27 @@ Matlab for Neuroimagers
 
 --------------
 
+.. figure:: Matlab_Logo.png
 
+What is Matlab?
+***************
 
-Matlab is a programming language that is centered around matrices. You are able to use a mouse to point and click on icons in Matlab to run certain commands, but Matlab primarily uses a command line interface, or **command line** for short: Instead of pointing and clicking like you would in a Windows or Macintosh operating system, you type the commands that you want to run. 
+Matlab is a programming language that is centered around matrices. Within Matlab, you are able to use a mouse to point and click on icons to run certain commands; however, Matlab primarily uses a command line interface, or **command line** for short: Instead of pointing and clicking like you would in a Windows or Macintosh operating system, you type the commands that you want to run. 
 
-While this may look strange and maybe even tedious, in fact using the command line will allow you to be quicker, more flexible, and more efficient when running programs and analyzing data. You will also need to know Unix in order to use neuroimaging packages that are run from the command line, such as AFNI or FSL. And as you'll see, becoming fluent in programming will save you time, minimize errors, and make you more versatile as a scientist. 
+While this may look strange and maybe even tedious, in fact using the command line will allow you to be quicker, more flexible, and more efficient when running programs and analyzing data. And as you'll see, becoming fluent in programming will save you time, minimize errors, and make you more versatile as a scientist.
+
+.. figure:: 00_Matlab_Example_Code.png
+
+The goal of this tutorial is to walk you through how to use Matlab to automate SPM analyses from the command line. SPM requires Matlab to run, although many researchers are able to use SPM with minimal coding experience. If you have already gone through the :ref:`SPM12 tutorial <SPM_Overview>` on this website, you may have already read a chapter that focused on :ref:`scripting <SPM_06_Scripting>`; this tutorial will arrive at that same point, while explaining in detail what the syntax means.
+
+This tutorial also overlaps considerably with the :ref:`Unix tutorials <Unix_Intro>`, which are geared more towards understanding Unix within the context of using it with AFNI and FSL. Researchers with access to both Matlab and Unix will benefit from learning both languages, not only to enable them to use a wider variety of software packages, but to see the similarities and differences between two of the most popular programming languages available. 
 
 .. note::
 
-    Linux operating systems (such as Ubuntu) come with a Terminal, as do recent versions of Macintosh operating systems. Windows users will need to download a Terminal emulator such as `Cygwin <https://www.cygwin.com/>`__. Although I record my tutorials on a Macintosh computer, once you have downloaded and installed Cygwin, you should be able to follow the rest of the tutorials.
+    Matlab is proprietary software, and price quotes can be found on the `Mathworks website <https://www.mathworks.com/store/>`__. Most universities have a an education license that can be accessed for free by both students and staff. Ask your local IT department whether this is provided at your institution. 
 
 Video
-------------
+-----
 
 Click here to see a video introducing you to Matlab. When you have finished watching the video, click the "Next" button down below to begin the Matlab tutorial series.
 
