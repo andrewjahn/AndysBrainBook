@@ -1,8 +1,8 @@
 .. _Unix_01_Navigation:
 
-==============
+===============================================
 Unix Tutorial #1: Navigating the directory tree
-==============
+===============================================
 
 .. note::
     Topics covered: Directories, navigation
@@ -11,7 +11,7 @@ Unix Tutorial #1: Navigating the directory tree
 
 
 Overview
--------------
+--------
 
 Like other operating systems, Unix organizes folders and files using a directory tree - also known as a directory hierarchy, or directory structure. At the top of the hierarchy is a folder called ``root``, written as a forward slash (``/``). All other folders (also known as directories) are contained within the ``root`` folder, and those folders in turn can contain other folders.
 
@@ -30,7 +30,7 @@ To navigate around your computer, you will need to know the commands ``pwd``, ``
 
 
 Video
--------------
+-----
 
 Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=2>`__ to see a video overview of the commands cd, ls, and pwd - the basic commands you will need to navigate around your directory tree.
 
@@ -38,7 +38,7 @@ Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOibl
 -------------
 
 Exercises
--------------
+---------
 
 When you're done watching the video, try the following exercises:
 
