@@ -13,13 +13,11 @@ Matlab Tutorial #1: Navigation & Matrices
 Overview of the Matlab Interface
 ********************************
 
-When you first open Matlab, you will notice that it has five distinct sections: Four windows, and a ribbon of buttons at the top, similar to the layout of Microsoft Word. The window on the left is the Navigation window, the central window is the Command Window, the upper-right window is the Workspace, and the lower-right window is the Command History. The Navigation window contains a list of all the folders located within the folder you are currently in; for example, if I am in my home directory, you may see sub-folders such as Documents, Desktop, Music, and so on.
+When you first open Matlab, you will notice that it has four distinct sections: Four windows, and a ribbon of buttons at the top, similar to the layout of Microsoft Word. The window on the left is the Navigation window, the central window is the Command Window, and the upper-right window is the Workspace. The Navigation window contains a list of all the folders located within the folder you are currently in; for example, if I am in my home directory, you may see sub-folders such as Documents, Desktop, Music, and so on.
 
-The Command Window is where you can directly type commands and see the output of those commands. As you will see below, these can be commands for navigating to different directories, listing the contents of the current directory, or creating variables that can be used in scripts. Most of what we will be doing in this tutorial requires you to use the Command Window.
+The Command Window is where you can directly type commands and see the output of those commands. As you will see below, these can be commands for navigating to different directories, listing the contents of the current directory, or creating variables that can be used in scripts. Most of what we will be doing in this tutorial requires you to use the Command Window. The Workspace window contains **variables** that you have created in your current session. The concept of variables will be discussed in a later chapter.
 
-The last two windows contain **variables** that you have created in your current session (the Workspace), and a list of commands that you previously typed (Command History). The concept of variables will be discussed in a later chapter.
-
-
+.. figure:: 01_Matlab_Layout.png
 
 Navigating with Matlab
 **********************
@@ -42,7 +40,38 @@ To navigate around your computer, you will need to know the commands ``pwd``, ``
 Introduction to Matrices
 ************************
 
+In addition to being able to navigate from the command line and the ability to host software programs such as SPM12 and the CONN toolbox, Matlab allows the user to create and manipulate **matrices**. For example, we can create a matrix simply by typing:
 
+::
+
+    x = 1
+    
+Once you press enter, this will automatically print output to the terminal that says "x = 1". Note that "x" is now stored as a **variable** in the Workspace window; you can see both the name of the variable, and its value. The reason we call these objects "variables" is that they can contain any value, and can be updated in a command structure such as a **for-loop**, which will be discussed in a later chapter.
+
+If you ever want to find out the value contained within the variable, you can simply type ``x`` at the command line and press enter, or you can look in the Workspace. For even more detailed information about the variable, you can type:
+
+::
+
+    whos x
+    
+This will display the following:
+
+::
+
+  Name      Size            Bytes  Class     Attributes
+  x         1x1                 8  double              
+
+For now we will ignore the last three fields, and focus on the first two. The first column, "Name", is simply the name of the variable; but notice that the second column, "Size", contains the value "1x1". Even a single value stored in a variable - in this case, the value "1" contained in the variable "x" - is labeled by Matlab as a 1x1 matrix. If we wanted to create a variable that spanned multiple dimensions, such as a 4x3 matrix, we could type something like the following:
+
+::
+
+    a = [1 2 3; 4 5 6; 7 8 9; 10 11 12];
+
+.. note::
+
+    In this line of code, we ended it with a semicolon (``;``). This suppresses the output from being automatically printed to the terminal, while still storing the value in the variable.
+    
+Notice that we now have a new variable in our Workspace window called "a", which is a 4x3 matrix. If you type 
 
 Video
 -----
