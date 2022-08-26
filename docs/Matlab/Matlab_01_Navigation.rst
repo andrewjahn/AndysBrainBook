@@ -15,7 +15,7 @@ Overview of the Matlab Interface
 
 When you first open Matlab, you will notice that it has four distinct sections: Four windows, and a ribbon of buttons at the top, similar to the layout of Microsoft Word. The window on the left is the Navigation window, the central window is the Command Window, and the upper-right window is the Workspace. The Navigation window contains a list of all the folders located within the folder you are currently in; for example, if I am in my home directory, you may see sub-folders such as Documents, Desktop, Music, and so on.
 
-The Command Window is where you can directly type commands and see the output of those commands. As you will see below, these can be commands for navigating to different directories, listing the contents of the current directory, or creating variables that can be used in scripts. Most of what we will be doing in this tutorial requires you to use the Command Window. The Workspace window contains **variables** that you have created in your current session. The concept of variables will be discussed in a later chapter.
+The Command Window is where you can directly type commands and see the output of those commands. As you will see below, these can be commands for navigating to different directories, listing the contents of the current directory, or creating variables that can be used in scripts. Most of what we will be doing in this tutorial requires you to use the Command Window. The Workspace window contains **variables** that you have created in your current session. The concept of variables is discussed below in the section on matrices.
 
 .. figure:: 01_Matlab_Layout.png
 
@@ -61,17 +61,51 @@ This will display the following:
   Name      Size            Bytes  Class     Attributes
   x         1x1                 8  double              
 
-For now we will ignore the last three fields, and focus on the first two. The first column, "Name", is simply the name of the variable; but notice that the second column, "Size", contains the value "1x1". Even a single value stored in a variable - in this case, the value "1" contained in the variable "x" - is labeled by Matlab as a 1x1 matrix. If we wanted to create a variable that spanned multiple dimensions, such as a 4x3 matrix, we could type something like the following:
+For now we will ignore the last three fields, and focus on the first two. The first column, "Name", is simply the name of the variable; but notice that the second column, "Size", contains the value "1x1". Even a single value stored in a variable - in this case, the value "1" contained in the variable "x" - is labeled by Matlab as a 1x1 matrix. If we wanted to create a variable that spanned multiple dimensions, such as a 4x35 matrix, we could type something like the following:
 
 ::
 
-    a = [1 2 3; 4 5 6; 7 8 9; 10 11 12];
+    a = [4 10 1 6 2; 8 1.2 9 4 25; 7.2 5 7 1 11; 0 0.5 4 5 56; 23 83 13 0 10];
 
 .. note::
 
     In this line of code, we ended it with a semicolon (``;``). This suppresses the output from being automatically printed to the terminal, while still storing the value in the variable.
     
-Notice that we now have a new variable in our Workspace window called "a", which is a 4x3 matrix. If you type 
+Notice that we now have a new variable in our Workspace window called "a", which is a 4x5 matrix. If you type ``a`` in the terminal and press enter, you will see the following:
+
+::
+
+    4.0000   10.0000    1.0000    6.0000    2.0000
+    8.0000    1.2000    9.0000    4.0000   25.0000
+    7.2000    5.0000    7.0000    1.0000   11.0000
+         0    0.5000    4.0000    5.0000   56.0000
+   23.0000   83.0000   13.0000         0   10.0000
+    
+Immediately after the variable name, if you type a number or pair of numbers in parentheses, it will **index** the rows and columns of this matrix - in other words, extract certain parts of it. For example, typing ``a(1)`` will return ``4``; typing ``a(9)`` will return ``0.5``. Two-dimensional matrices have the following index structure, in which the first cell in the upper-left is indexed as 1, the cell below that is indexed as 2, and so on until the first cell of next column, which in this case would be indexed as 6.
+
+.. figure:: 01_Matlab_Indexing.gif
+
+Instead of using a single number for indexing, we could use a pair of numbers separated by commas. The first number of the pair indexes the row of the matrix, and the second number indexes the column. For example, if we wanted to extract the value contained in the third row and fourth column of the matrix, we could type:
+
+::
+
+    a(3,4)
+    
+Which would return a value of ``1``. This indexing can be extended to three- and four-dimensional matrices, as well as higher-dimensional ones, which will not be covered here.
+
+An entire column or row can be extracted by using a colon (``:``). For example, if we wanted to extract the second column of the matrix ``a``, we could type:
+
+::
+
+    a(:,2)
+    
+Likewise, to extract the fifth row, we could type:
+
+::
+
+    a(5,:)
+    
+This will take some time to get used to, but with practice, the indexing of rows and columns will become easier.
 
 Video
 -----
@@ -91,3 +125,7 @@ When you're done watching the video, try the following exercises:
 2.  Navigate to the Desktop by typing ``cd ~/Desktop``. Type ``pwd`` and note what the path is. Then create a new directory using the ``mkdir`` command, choosing a name for the directory on your own. Navigate into that new directory and think about how your current path has been updated. Does that match what you see from typing ``pwd`` from your new directory?
 
 3.  Define the terms ``cd``, ``ls``, and ``pwd`` in your own words. 
+
+4. Using the ``a`` matrix defined above, what would ``a(14)`` return? Make your prediction about the output before typing the code and pressing return.
+
+5. Use the ``help`` function to find out what the keyword ``end`` does (for our purposes, read the third paragraph of the help file). Use this keyword to with the ``a`` matrix defined above to print rows 2 through 5. Do the same procedure to print only the last four rows of columns 3 through 5.
