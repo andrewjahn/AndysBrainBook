@@ -41,10 +41,9 @@ Overview of the Computational Anatomy Toolbox
    :caption: Start to Finish Analysis with CAT12
 
    Matlab_01_Navigation
-   Matlab_02_Matrices
-   Matlab_03_Structures
-   Matlab_04_FunctionsPaths
-   Matlab_05_ForLoops
-   Matlab_06_IfElse
-   Matlab_07_Scripting
-   Matlab_08_AutomatingTheAnalysis
+   Matlab_02_VariablesStructures
+   Matlab_03_FunctionsPaths
+   Matlab_04_ForLoops
+   Matlab_05_IfElse
+   Matlab_06_Scripting
+   Matlab_07_AutomatingTheAnalysis
