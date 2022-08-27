@@ -7,6 +7,7 @@ Matlab for Neuroimagers
 --------------
 
 .. figure:: Matlab_Logo.png
+    :width: 240px
 
 What is Matlab?
 ***************
