@@ -105,7 +105,73 @@ Likewise, to extract the fifth row, we could type:
 
     a(5,:)
     
+You can also extract every nth element of the matrix by inserting another number in-between the first and last indices. For example,
+
+::
+
+    a(10:2:20)
+    
+Will start at the matrix index 10 and go up through index 20, increasing by intervals of 2. In this case, the matrix values contained within indices 10, 12, 14, 16, 18, and 20 will be extracted.
+    
 This will take some time to get used to, but with practice, the indexing of rows and columns will become easier.
+
+
+Matrix Arithmetic
+&&&&&&&&&&&&&&&&&
+
+Matrices can also be added to and subracted from each other, multiplied and divided by one another. For example, if we create two matrices:
+
+::
+
+    a = [9 8 7; 3 2 1]
+    b = [1 2; 4 5 ; 7 8]
+    
+We can multiply them by typing ``c = a*b``. (Note that the inner dimensions must be identical; in this case, ``a`` is a 2x3 matrix, and ``b`` is a 3x2 matrix. For more information about matrix multiplication, click `here <https://www.mathworks.com/help/matlab/ref/mtimes.html>`__).
+
+If we want to do element-by-element multiplication - in other words, multiply each cell in one matrix by its corresponding cell in another matrix - each matrix will need to have the same dimensions. We could create another matrix that has the same dimensions as either matrix ``a`` or ``b``, or we could **transpose** one of the matrices to have the same dimensions as the other. For example,
+
+::
+
+    a'.*b
+    
+Will transponse ``a`` to be a 3x2 matrix. The resulting product will also be a 3x2 matrix. You can also add or subtract matrices, as long as they have the same dimensions. Multiplying by a constant requires no special transformations, and will simply multiply each cell of the matrix by a single number:
+
+::
+
+    a'-b
+    a'+b
+    7*a
+
+
+Concatenating Matrices and Strings
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+
+We can juxtapose, or **concatenate**, two or more matrices by using brackets. For example,
+
+::
+
+    d = [a' b]
+    
+Which will simply place the two matrices side by side, in this case creating a new 3x4 matrix. However, we can also use brackets to concatenate both numbers and text, or **strings**. Later, we will see how this can be used with **scripting** to automate analyses. For now, create a new variable:
+
+::
+
+    x = 'subject-'
+    y = 1
+    
+ We could try to concatenate them into a new variable, ``z``, by using brackets:
+ 
+ ::
+ 
+    z = [x y]
+    
+You may be surprised to see that the output from this command is simply ``subject-``. It turns out that we will need both the variables ``x`` and ``y`` to be strings, which we could do by typing ``y='1'``. If we want to keep the option to use ``y`` as either an integer or a string, we can use the command ``num2str`` to convert the variable when we need to:
+
+::
+
+    z = [x num2str(y)]
+    
+Which will generate the expected output, ``subject-1``. We will revisit this in a later chapter.
 
 Video
 -----
