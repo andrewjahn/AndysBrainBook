@@ -1,7 +1,7 @@
 .. _CAT12_01_DownloadInstall:
 
 =====================================
-CAT Tutorial #1: Download and Install
+CAT12 Tutorial #1: Download and Install
 =====================================
 
 -----------------
