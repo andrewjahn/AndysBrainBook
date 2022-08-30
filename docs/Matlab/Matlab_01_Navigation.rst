@@ -159,7 +159,7 @@ Which will simply place the two matrices side by side, in this case creating a n
     x = 'subject-'
     y = 1
     
- We could try to concatenate them into a new variable, ``z``, by using brackets:
+We could try to concatenate them into a new variable, ``z``, by using brackets:
  
  ::
  
