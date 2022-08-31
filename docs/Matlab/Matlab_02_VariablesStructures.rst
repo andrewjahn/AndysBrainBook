@@ -92,3 +92,85 @@ You will now see a new object we haven't seen before, called a **structure**:
 Structures
 **********
 
+Similar to the integers and strings we have been using so far, a **structure** is another data type. In this case, however, it stores other data types as well, and organizes them into containers called **fields**. The structure we just created, ``Variables``, has three fields. These fields, in turn, can contain sub-fields, and those sub-fields can contain sub-fields, and so on, depending on your needs.
+
+For example, let's say that we have a subject, and we have that person's name, profession, hobby, and heartrate. We could create his structure using this code:
+
+::
+
+    subject.name = 'Andy';
+    subject.profession = 'Teacher';
+    subject.hobby = 'Running';
+    subject.Heart_rate = '60';
+    
+Similarly, we could type this all on one line to achieve the same end:
+
+::
+
+    subject = struct('name', 'Andy', 'profession', 'Teacher', 'hobby', 'Running', 'Heart_rate', 60)
+    
+Let's say that we wanted to change the ``name`` field so that it now contains two components, a ``First`` and ``Last`` name. If you try typing ``subject.name.first='Andy'``, it will throw an error. We could remove the ``subject`` structure completely by typing ``clear subject`` and starting over, or we could remove that specific field by using the ``rmfield`` command:
+
+::
+
+    subject = rmfield(subject, 'name')
+    
+Note that this command takes two arguments, the name of the structure (i.e., ``subject``), and the field we want to remove (i.e., ``name``). The first part of this command, ``subject = ``, will overwrite the structure, minus the field you just removed. We can then create a new structure within the structure, a field called ``name`` with two sub-fields, ``First`` and ``Last``:
+
+::
+
+    subject.name.First = 'Andy';
+    subject.name.Last = 'Last';
+    
+Now when you type the variable name ``subject``, you will see the structure ``name`` located within the current structure:
+
+::
+
+    subject = 
+
+  struct with fields:
+
+    profession: 'Teacher'
+         hobby: 'Running'
+    Heart_rate: 60
+          name: [1×1 struct]
+          
+You can add as many fields as you want; there are no limits to how many fields the structure can contain.
+
+The SPM.mat File
+&&&&&&&&&&&&&&&&
+
+When you begin analyzing fMRI data with SPM12, at a certain point you will generate a file called ``SPM.mat``. These files will be generated both at the first-level per subject, or at the group-level. Let's begin with an SPM.mat file generated at the first-level. Click `here <https://github.com/andrewjahn/PSYCH808>`__ to access the Psych808 repository, and then click on the file ``SPM_SingleSubj.mat``. Then, click on the ``Download`` button to download it to your computer. Move the file to your Desktop directory by typing the following in the Matlab terminal:
+
+::
+
+    movefile('~/Downloads/SPM_SingleSubj.mat', '~/Desktop')
+    cd ~/Desktop/
+    
+Then, load the .mat file by typing ``load SPM_SingleSubj.mat``. There will be a new variable in the workspace called ``SPM``, which is a 1x1 structure. From the command line, type ``SPM``, and see the following output:
+
+::
+
+    SPM = 
+
+    struct with fields:
+
+        xY: [1×1 struct]
+       xBF: [1×1 struct]
+     nscan: [146 146]
+      Sess: [1×2 struct]
+    factor: []
+       xGX: [1×1 struct]
+        xM: [1×1 struct]
+        xX: [1×1 struct]
+       xVi: [1×1 struct]
+     SPMid: 'SPM12: spm_spm (v7738)'
+     xsDes: [1×1 struct]
+       swd: '/Users/ajahn/Desktop/Flanker/sub-01/1stLevel'
+      xVol: [1×1 struct]
+     Vbeta: [1×6 struct]
+    VResMS: [1×1 struct]
+        VM: [1×1 struct]
+      xCon: [1×4 struct]
+      
+Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them.
