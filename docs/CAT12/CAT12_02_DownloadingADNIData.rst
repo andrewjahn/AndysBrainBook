@@ -59,3 +59,8 @@ When you finish, you should see something like this:
 .. figure:: 02_FileOrganization.png
 
 Now that your data is organized, you are ready to analyze it using the CAT12 toolbox. To get started, click the ``Next`` button.
+
+Video
+*****
+
+For a video demonstration of how to access the ADNI database and download anatomical images, click `here <https://youtu.be/MbLtKL7iMek>`__.
