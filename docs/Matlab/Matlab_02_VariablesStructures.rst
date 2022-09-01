@@ -137,10 +137,10 @@ Now when you type the variable name ``subject``, you will see the structure ``na
           
 You can add as many fields as you want; there are no limits to how many fields the structure can contain.
 
-The SPM.mat File
-&&&&&&&&&&&&&&&&
+The SPM.mat File and Plotting
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-When you begin analyzing fMRI data with SPM12, at a certain point you will generate a file called ``SPM.mat``. These files will be generated both at the first-level per subject, or at the group-level. Let's begin with an SPM.mat file generated at the first-level. Click `here <https://github.com/andrewjahn/PSYCH808>`__ to access the Psych808 repository, and then click on the file ``SPM_SingleSubj.mat``. Then, click on the ``Download`` button to download it to your computer. Move the file to your Desktop directory by typing the following in the Matlab terminal:
+When you begin analyzing fMRI data with SPM12, at a certain point you will generate a file called ``SPM.mat``. These files will be generated both at the first-level per subject, or at the group-level. Let's begin with an SPM.mat file generated at the first-level. Click `here <https://github.com/andrewjahn/PSYCH808>`__ to access the Psych808 repository, and then click on the file ``SPM_SingleSubj.mat``. This is a .mat file generated during the first-level analysis for a single subject with two runs, with each run containing 146 volumes, and with 2 conditions: Incongruent and Congruent. Then, click on the ``Download`` button to download it to your computer. Move the file to your Desktop directory by typing the following in the Matlab terminal:
 
 ::
 
@@ -173,4 +173,53 @@ Then, load the .mat file by typing ``load SPM_SingleSubj.mat``. There will be a 
         VM: [1×1 struct]
       xCon: [1×4 struct]
       
-Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them.
+Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them. The more obvious ones are fields such as ``nscan``, a vector containing the number of volumes in each run, and ``SPMid``, which is the version of SPM that was used to analyze the data. Some of the less obvious field names are those such as xY, which contains information about the files that were loaded for the first-level analysis. For example, if you type ``SPM.xY.P``, each row is a separate volume that was loaded into the design matrix. SPM.xBF is the Basis Function that was used for this analysis, which in this case was the canonical hemodynamic response function. You can see what this basis function looks like by typing:
+
+::
+
+    plot(SPM.xBF.bf)
+    
+.. figure:: 02_HRF.png
+    
+This introduces a new function, ``plot``, which creates a 2-dimensional figure of x-values against y-values; in this example, time is on the x-axis, and the height of the BOLD response is on the y-axis. We can close the figure by simply typing ``close``. If you want to create other plots, such as sine waves, we can define it by creating a line from 0 to 3*pi, with intervals of 0.1:
+
+::
+
+    a = [0:0.1:3*pi];
+    figure
+    plot(a)
+
+    figure
+    plot(sin(a))
+
+Note that the command ``figure`` precedes each ``plot`` command, and that two figures are generated as a result. If we type ``close``, it will close the last generated figure. Alternatively, you could type ``close(2)``, using the index as an argument to close a specific figure; or, you could just type ``close all`` to close all of the figures.
+
+If you wanted to plot two figures overlapping each other, you can use the ``hold`` command:
+
+::
+
+    figure
+    plot(a)
+    hold on
+    plot(sin(a))
+    
+.. figure:: 02_Hold.png
+
+Lastly, we will plot a **phantom** image, or a non-living object that has been scanned using MRI. Type each of the following commands one by one, noting how the figure changes after each line of code:
+
+::
+
+    figure
+    a = phantom;
+    imagesc(a)
+    colorbar
+    colormap gray
+    
+.. figure:: 02_Phantom.png
+
+As you can see, there are many different applications of the ``plot`` command. Knowing how to use this command, and how to create and manipulate structures, will be necessary for using the more complicated .mat files generated later on by SPM.
+
+Exercises
+*********
+
+1. Once you have loaded the SPM.mat file, type ``SPM.xY.P``. Now, instead of printing every volume name to the terminal, extract the name of the 10th volume. (Hint: You will need to use the index syntax discussed in the previous chapter.)
