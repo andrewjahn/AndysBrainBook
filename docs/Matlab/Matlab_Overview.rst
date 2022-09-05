@@ -44,4 +44,3 @@ Overview of the Computational Anatomy Toolbox
    Matlab_02_VariablesStructures
    Matlab_03_FunctionsPaths
    Matlab_04_ControlStructures
-   Matlab_05_AutomatingTheAnalysis
