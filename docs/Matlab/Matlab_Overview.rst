@@ -43,7 +43,5 @@ Overview of the Computational Anatomy Toolbox
    Matlab_01_Navigation
    Matlab_02_VariablesStructures
    Matlab_03_FunctionsPaths
-   Matlab_04_ForLoops
-   Matlab_05_IfElse
-   Matlab_06_Scripting
-   Matlab_07_AutomatingTheAnalysis
+   Matlab_04_ControlStructures
+   Matlab_05_AutomatingTheAnalysis
