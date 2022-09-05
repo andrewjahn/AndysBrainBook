@@ -13,7 +13,7 @@ Unix Tutorial #5: For-Loops
 
 
 Overview
--------------
+--------
 
 Neuroimaging analysis often involves running many commands, but with only a small alteration each time you run a new command. For example, you might have to analyze subject 1, then subject 2, subject 3, and so on. To save time, we will use something called a Loop - also known as a for-loop.
 
@@ -78,7 +78,7 @@ This sets each number in this range to have a width of two integers; if it’s a
 -------
 
 Exercises
-**********
+*********
 
 Today we covered the basics of for loops; later on, you’ll learn how to use them in more sophisticated contexts, such as automating the analysis of an entire dataset. But no matter how complicated the analysis, every for-loop is built on the fundamentals you learned today. Try these exercises to develop your understanding:
 
@@ -92,6 +92,6 @@ Today we covered the basics of for loops; later on, you’ll learn how to use th
 --------
 
 Video
-**********
+*****
 
 Click `here <https://tinyurl.com/y6297v4e>`__ for an example of how to code for-loops.
