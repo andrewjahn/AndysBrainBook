@@ -42,7 +42,7 @@ Exercises
 
 When you're done watching the video, try the following exercises:
 
-1.  Type ``ls ~`` and note what it returns; they type ``ls ~/Desktop``. How are the outputs different? Why?
+1.  Type ``ls ~`` and note what it returns; then type ``ls ~/Desktop``. How are the outputs different? Why?
 
 2.  Navigate to the Desktop by typing ``cd ~/Desktop``. Type ``pwd`` and note what the path is. Then create a new directory using the ``mkdir`` command, choosing a name for the directory on your own. Navigate into that new directory and think about how your current path has been updated. Does that match what you see from typing ``pwd`` from your new directory?
 
