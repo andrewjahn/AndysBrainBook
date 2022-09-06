@@ -174,7 +174,11 @@ Then, load the .mat file by typing ``load SPM_SingleSubj.mat``. There will be a 
         VM: [1×1 struct]
       xCon: [1×4 struct]
       
-Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them. The more decipherable ones are fields such as ``nscan``, a vector containing the number of volumes in each run, and ``SPMid``, which is the version of SPM that was used to analyze the data. Some of the less obvious field names are those such as xY, which contains information about the files that were loaded for the first-level analysis. For example, if you type ``SPM.xY.P``, each row is a separate volume that was loaded into the design matrix. SPM.xBF is the Basis Function that was used for this analysis, which in this case was the canonical hemodynamic response function. You can see what this basis function looks like by typing:
+Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them. The more decipherable ones are fields such as ``nscan``, a vector containing the number of volumes in each run, and ``SPMid``, which is the version of SPM that was used to analyze the data. Some of the less obvious field names are those such as xY, which contains information about the files that were loaded for the first-level analysis. For example, if you type ``SPM.xY.P``, each row is a separate volume that was loaded into the design matrix.
+
+Some of the fields contain structures of their own which can be indexed using numbers inside parentheses. For example, if we look within the field ``SPM.Sess``, we see that it is a 2x1 structure, corresponding to the two runs of imaging data that were used to generate this SPM.mat file. If we just wanted to focus on the first run, we would type ``SPM.Sess(1)``. This also contains fields that are structures, such as ``U``, which is another 2x1 structure. To access the first run of this structure, we would type ``SPM.Sess(1).U(1)``, which in turn would give us a list of fields within that structure.
+
+Lastly, take a look at ``SPM.xBF``: the Basis Function that was used for this analysis, which in this case was the canonical hemodynamic response function. You can see what this basis function looks like by typing:
 
 ::
 
@@ -225,4 +229,24 @@ Exercises
 
 1. Once you have loaded the SPM.mat file, type ``SPM.xY.P``. Now, instead of printing every volume name to the terminal, extract the name of the 10th volume. (Hint: You will need to use the index syntax discussed in the previous chapter.) Show the code you used to do this.
 
-2. 
+2. If you look at the field ``SPM.xBF``, you will see all of the parameters used to generate the basis function for this particular analysis. This basis function is also known as the canonical hemodynamic response function, which takes about 4-6 seconds to peak, and another 6-8 seconds to return to baseline. (This is explained in more detail in the chapters on :ref:`SPM <SPM_03_Stats_HRF_Overview>`.) The field ``SPM.xBF.dt`` is the time interval that was used to generate this basis function, which by default is 0.125 seconds. In other words, each second encompasses eight of these time-steps (1 / 0.125 = 8). Type the following code:
+
+::
+
+    figure; plot(SPM.xBF.bf(1:8:end))
+    
+And write down what you think it does, observing whether the hemodynamic response function seems smoother or more jagged (Hint: See the discussion in the previous chapter about indexing and the ``end`` keyword). Write the code you would use to plot the hemodynamic response function every three seconds. How does it compare to the previous figure you plotted? Why? Include the code you used, and screenshots of the figure you generated.
+
+What we've just done in this last exercise is called **resampling**, which is taking a sample every nth step along a time-course to generate a new time-course. This concept can be applied to both the temporal and spatial domains, and will be used often when preprocessing fMRI data to a common time-course and a common space.
+
+3. Within the field ``SPM.xCon``, which lists the contrasts that were created within this SPM structure, there is a field called ``name``. We can index each of the separate names by typing ``SPM.xCon(1).name``, ``SPM.xCon(2).name``, and so on. Imagine that the fourth contrast in this structure was mistakenly called ``Con`` and needs to be called something else, which can sometimes happen. Replace that contrast name by typing:
+
+::
+
+    SPM.xCon(4).name = 'Neutral'
+    
+And overwrite the original SPM structure by typing:
+
+::
+
+    save('SPM_updated', SPM)
