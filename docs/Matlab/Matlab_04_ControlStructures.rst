@@ -13,7 +13,7 @@ Overview
 
   Topics covered: variables, for loops, if/else statements
   
-  Commands covered: for, if/else
+  Commands covered: for, if/else, disp
 
 
 Overview
