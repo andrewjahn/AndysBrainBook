@@ -87,14 +87,15 @@ You will now see a new object we haven't seen before, called a **structure**:
     y: 20
     z: 'fMRI'
     
- 
+
+Let's explore in more detail what a structure is.
 
 Structures
 **********
 
 Similar to the integers and strings we have been using so far, a **structure** is another data type. In this case, however, it stores other data types as well, and organizes them into containers called **fields**. The structure we just created, ``Variables``, has three fields. These fields, in turn, can contain sub-fields, and those sub-fields can contain sub-fields, and so on, depending on your needs.
 
-For example, let's say that we have a subject, and we have that person's name, profession, hobby, and heartrate. We could create his structure using this code:
+For example, let's say that we have a subject, and we have that person's name, profession, hobby, and heart rate. We could create his structure using this code:
 
 ::
 
@@ -173,7 +174,7 @@ Then, load the .mat file by typing ``load SPM_SingleSubj.mat``. There will be a 
         VM: [1×1 struct]
       xCon: [1×4 struct]
       
-Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them. The more obvious ones are fields such as ``nscan``, a vector containing the number of volumes in each run, and ``SPMid``, which is the version of SPM that was used to analyze the data. Some of the less obvious field names are those such as xY, which contains information about the files that were loaded for the first-level analysis. For example, if you type ``SPM.xY.P``, each row is a separate volume that was loaded into the design matrix. SPM.xBF is the Basis Function that was used for this analysis, which in this case was the canonical hemodynamic response function. You can see what this basis function looks like by typing:
+Many of these fields have unintelligible abbreviations, but over time you will become more familiar with them. The more decipherable ones are fields such as ``nscan``, a vector containing the number of volumes in each run, and ``SPMid``, which is the version of SPM that was used to analyze the data. Some of the less obvious field names are those such as xY, which contains information about the files that were loaded for the first-level analysis. For example, if you type ``SPM.xY.P``, each row is a separate volume that was loaded into the design matrix. SPM.xBF is the Basis Function that was used for this analysis, which in this case was the canonical hemodynamic response function. You can see what this basis function looks like by typing:
 
 ::
 
@@ -222,4 +223,6 @@ As you can see, there are many different applications of the ``plot`` command. K
 Exercises
 *********
 
-1. Once you have loaded the SPM.mat file, type ``SPM.xY.P``. Now, instead of printing every volume name to the terminal, extract the name of the 10th volume. (Hint: You will need to use the index syntax discussed in the previous chapter.)
+1. Once you have loaded the SPM.mat file, type ``SPM.xY.P``. Now, instead of printing every volume name to the terminal, extract the name of the 10th volume. (Hint: You will need to use the index syntax discussed in the previous chapter.) Show the code you used to do this.
+
+2. 
