@@ -28,10 +28,45 @@ Think of the directory hierarchy as an upside-down tree: ``root`` is the base of
 
 .. figure:: UnixTree.png
 
-    Root, symbolized by a forward slash (``/``), is the highest level of the directory tree; it contains folders such as ``bin`` (which contains binaries, or Matlab commands such as pwd, cd, ls, and so on), ``mnt`` (which shows any currently mounted drives, such as external hard drives), and ``Users``. These directories in turn contain other directories - for example, ``Users`` contains the folder ``andrew``, which in turn contains the ``Desktop``, ``Applications``, and ``Downloads`` directories. This is how folders and files are organized within a directory tree.
+    Root, symbolized by a forward slash (``/``), is the highest level of the directory tree; it contains folders such as ``bin`` (which contains binaries, or commands such as pwd, cd, ls, and so on), ``mnt`` (which shows any currently mounted drives, such as external hard drives), and ``Users``. These directories in turn contain other directories - for example, ``Users`` contains the folder ``andrew``, which in turn contains the ``Desktop``, ``Applications``, and ``Downloads`` directories. This is how folders and files are organized within a directory tree.
     
 
 To navigate around your computer, you will need to know the commands ``pwd``, ``cd``, and ``ls``. ``pwd`` stands for “print working directory”; ``cd`` stands for “change directory”; and ``ls`` stands for “list”, as in “list the contents of the current directory.” This is analogous to pointing and clicking on a folder on your Desktop, and then seeing what’s inside. Note that in these tutorials, the words “folder” and “directory” are used interchangeably.
+
+In the Matlab environment, you can either use an **absolute path** that specifies the entire listing of directories and sub-directories to get to a specific folder, or you can use a **relative path** that either navigates to a folder or lists its contents relative to another directory. For example, assume that I have opened a new Matlab terminal, and by default I am in my home directory (usually indicated by your username). I could list the contents by typing an absolute path, which in my case would be:
+
+::
+
+    ls /Users/andrewjahn
+  
+Or, I could just type ``ls`` to list the contents of the directory I am currently in, which is a relative path. As another example, let's say I want to navigate to my Desktop directory, which is a sub-directory of my home directory. I could type an absolute path, such as:
+
+::
+
+    cd /Users/andrewjahn/Desktop
+    
+Or use a relative path:
+
+::
+
+    cd Desktop
+    
+Note that your home directory has a **keyword** reserved for it, which is just the tilda symbol (``~``). Since the home directory is often used as a reference point, I could replace my absolute path above with:
+
+::
+
+    cd ~/Desktop
+    
+Which would also navigate to my Desktop directory.
+
+Two other keywords you should be familiar with are ``.`` and ``..``. They represent your current working directory and a directory one level above, respectively. For example, if I am in my Desktop folder and I wanted to return to my home folder one directory above, I could simply type:
+
+::
+
+    cd ..
+    
+This keyword in particular will be frequently used in scripts and for-loops, when you need a shorthand for change directories using relative paths.
+
 
 .. figure:: Desktop_Folder.png
 
@@ -61,7 +96,7 @@ This will display the following:
   Name      Size            Bytes  Class     Attributes
   x         1x1                 8  double              
 
-For now we will ignore the last three fields, and focus on the first two. The first column, "Name", is simply the name of the variable; but notice that the second column, "Size", contains the value "1x1". Even a single value stored in a variable - in this case, the value "1" contained in the variable "x" - is labeled by Matlab as a 1x1 matrix. If we wanted to create a variable that spanned multiple dimensions, such as a 4x35 matrix, we could type something like the following:
+For now we will ignore the last three fields, and focus on the first two. The first column, "Name", is simply the name of the variable; but notice that the second column, "Size", contains the value "1x1". Even a single value stored in a variable - in this case, the value "1" contained in the variable "x" - is labeled by Matlab as a 1x1 matrix. If we wanted to create a variable that spanned multiple dimensions, such as a 4x5 matrix, we could type something like the following:
 
 ::
 
@@ -113,7 +148,7 @@ You can also extract every nth element of the matrix by inserting another number
     
 Will start at the matrix index 10 and go up through index 20, increasing by intervals of 2. In this case, the matrix values contained within indices 10, 12, 14, 16, 18, and 20 will be extracted.
     
-This will take some time to get used to, but with practice, the indexing of rows and columns will become easier.
+This will take some time to get used to, but with practice, you will become more fluent with how to index rows and columns.
 
 
 Matrix Arithmetic
@@ -127,8 +162,6 @@ Matrices can also be added to and subracted from each other, multiplied and divi
     b = [1 2; 4 5 ; 7 8]
     
 We can multiply them by typing ``c = a*b``. (Note that the inner dimensions must be identical; in this case, ``a`` is a 2x3 matrix, and ``b`` is a 3x2 matrix. For more information about matrix multiplication, click `here <https://www.mathworks.com/help/matlab/ref/mtimes.html>`__).
-
-If we want to do element-by-element multiplication - in other words, multiply each cell in one matrix by its corresponding cell in another matrix - each matrix will need to have the same dimensions. We could create another matrix that has the same dimensions as either matrix ``a`` or ``b``, or we could **transpose** one of the matrices to have the same dimensions as the other. For example,
 
 ::
 
@@ -171,12 +204,12 @@ You may be surprised to see that the output from this command is simply ``subjec
 
     z = [x num2str(y)]
     
-Which will generate the expected output, ``subject-1``. We will revisit this in a later chapter.
+Which will generate the expected output, ``subject-1``. We will revisit this in a later chapter on **scripting**, in which we will need to loop over multiple subjects and analyze them.
 
 Video
 -----
 
-Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=2>`__ to see a video overview of the commands cd, ls, and pwd - the basic commands you will need to navigate around your directory tree.
+Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOiblvvEz5KBwWaNRMEUp&index=2>`__ to see a video overview of the commands cd, ls, and pwd - the basic commands you will need to navigate around your directory tree. This particular video is written using a Unix terminal, but the basic navigation commands are the same between Unix and Matlab.
 
 
 -------------
@@ -184,14 +217,18 @@ Click `here <https://www.youtube.com/watch?v=TQqJD-v6glE&list=PLIQIswOrUH69xOibl
 Exercises
 ---------
 
-When you're done watching the video, try the following exercises:
+Open a Matlab terminal, and do the following exercises:
 
-1.  Type ``ls ~`` and note what it returns; they type ``ls ~/Desktop``. How are the outputs different? Why?
+1.  Type ``ls ~`` and note what it returns; then type ``ls ~/Desktop``. How are the outputs different? Why?
 
-2.  Navigate to the Desktop by typing ``cd ~/Desktop``. Type ``pwd`` and note what the path is. Then create a new directory using the ``mkdir`` command, choosing a name for the directory on your own. Navigate into that new directory and think about how your current path has been updated. Does that match what you see from typing ``pwd`` from your new directory?
+.. In the first case we are listing the contents of the home directory; in the second case, we are using shorthand to list the contents of the Desktop. We are using relative paths instead of absolute paths.
 
-3.  Define the terms ``cd``, ``ls``, and ``pwd`` in your own words. 
+2.  Navigate to the Desktop by typing ``cd ~/Desktop``. Type ``pwd`` and note what the path is. Then create a new directory using the ``mkdir`` command, choosing a name for the directory on your own, such as ``mkdir myFolder``. Navigate into that new directory and think about how your current path has been updated. Does that match what you see from typing ``pwd`` from your new directory? Take a screenshot of the Matlab terminal that shows the ``pwd`` command being typed from the newly created directory.
+
+3.  Define the terms ``cd``, ``ls``, and ``pwd`` in your own words.
+
+.. This should be straightforward, given the definitions provided above.
 
 4. Using the ``a`` matrix defined above, what would ``a(14)`` return? Make your prediction about the output before typing the code and pressing return.
 
-5. Use the ``help`` function to find out what the keyword ``end`` does (for our purposes, read the third paragraph of the help file). Use this keyword to with the ``a`` matrix defined above to print rows 2 through 5. Do the same procedure to print only the last four rows of columns 3 through 5.
+5. Use the ``help`` function to find out what the keyword ``end`` does by typing ``help end`` (for our purposes, read the third paragraph of the output from the help file). Use this keyword with the ``a`` matrix defined above to print rows 2 through 5. Do the same procedure to print only the last four rows of columns 3 through 5.
