@@ -140,6 +140,6 @@ Exercises
 
 1. Using the same Cond1 and Cond2 vectors as defined above, change the t-test to a right-tailed test (i.e., testing whether then mean is greater than 0).
 
-2. Create a new vector ``myBetas`` and populate it with whatever values you choose. Run a one-sample t-test on the vector ``myBetas``. Report the p-value, confidence level, t-statistic, degrees of freedom, and standard deviation of the estimate.
+2. Create a new vector ``myBetas`` and populate it with whatever values you choose. Run a one-sample t-test on the vector ``myBetas``. Report the p-value, confidence level, t-statistic, degrees of freedom, and standard deviation of the estimate. Show the contents of the ``myBetas`` vector that you used.
 
-3. Edit the function ``squareXandY`` to create a new function called ``squareXYZ``. Give it a new input, ``z``, and a new output, ``zSquared``. Add a line of code to the body of the function to reflect this change, and update the comments to instruct the use how to use this new function. Run the function with any values for x, y, and z that you choose, and report the output.
+3. Edit the function ``squareXandY`` to create a new function called ``squareXYZ``. Give it a new input, ``z``, and a new output, ``zSquared``. Add a line of code to the body of the function to reflect this change, and update the comments to instruct the use how to use this new function. Run the function with any values for x, y, and z that you choose, and report the output. Show the script you used as well.
