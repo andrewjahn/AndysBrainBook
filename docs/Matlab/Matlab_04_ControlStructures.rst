@@ -74,7 +74,7 @@ This also quickly becomes impractical with large numbers. You can make this comm
 
 In this case, the first run of the loop would assign 1 to i, print sub-1, and then go through the rest of the items in the list.
 
-This gets us closer to our goal, but it still isn’t exactly what we want. Notice that the subject names each have two integers, such as 01, 02, 03, and so on, which ensures that each subject’s name is the same length; it also keeps them in order when they are listed with the ls command. This is called **zero padding**, The text ``'%02d'`` is **string-formatting code** indicating that the current value being converted from a number to a string should be **zero-paddded** with as many zeros as needed until the number is two characters long. (Details about string formatting can be found `here <https://www.mathworks.com/help/matlab/matlab_prog/formatting-strings.html>`__.). We can implement it in our for-loop, which looks like this:
+This gets us closer to our goal, but it still isn’t exactly what we want. Notice that the subject names each have two integers, such as 01, 02, 03, and so on, which ensures that each subject’s name is the same length; it also keeps them in order when they are listed with the ls command. This is called **zero padding**, The text ``'%02d'`` is **string-formatting code** indicating that the current value being converted from a number to a string should be **zero-padded** with as many zeros as needed until the number is two characters long. (Details about string formatting can be found `here <https://www.mathworks.com/help/matlab/matlab_prog/formatting-strings.html>`__.). We can implement it in our for-loop, which looks like this:
 
 ::
 
@@ -86,7 +86,7 @@ This sets each number in this range to have a width of two integers; if it’s a
 Conditional Statements
 **********************
 
-Another important control structure is the **conditional statement**, also known as an **if/else statement**. The code within a statement is run only if a certain condition is satisified. For example, you might decide that you will go out to eat if you have $20 or more in your pocket; else, you will eat at home. If on the other hand you have very little money, you will feel motivated to make more. We can represent this as a conditional statement in Matlab by typing:
+Another important control structure is the **conditional statement**, also known as an **if/else statement**. The code within a statement is run only if a certain condition is satisfied. For example, you might decide that you will go out to eat if you have $20 or more in your pocket; else, you will eat at home. If on the other hand you have very little money, you will feel motivated to make more. We can represent this as a conditional statement in Matlab by typing:
 
 ::
   
