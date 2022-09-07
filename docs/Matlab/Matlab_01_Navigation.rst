@@ -51,7 +51,7 @@ Or use a relative path:
 
     cd Desktop
     
-Note that your home directory has a **keyword** reserved for it, which is just the tilda symbol (``~``). Since the home directory is often used as a reference point, I could replace my absolute path above with:
+Note that your home directory has a **keyword** reserved for it, which is just the tilde symbol (``~``). Since the home directory is often used as a reference point, I could replace my absolute path above with:
 
 ::
 
