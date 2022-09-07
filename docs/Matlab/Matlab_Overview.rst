@@ -26,15 +26,6 @@ This tutorial also overlaps considerably with the :ref:`Unix tutorials <Unix_Int
 
     Matlab is proprietary software, and price quotes can be found on the `Mathworks website <https://www.mathworks.com/store/>`__. Most universities have a an education license that can be accessed for free by both students and staff. Ask your local IT department whether this is provided at your institution. 
 
-Video
------
-
-Click here to see a video introducing you to Matlab. When you have finished watching the video, click the "Next" button down below to begin the Matlab tutorial series.
-
-Overview of the Computational Anatomy Toolbox
-*********************************************
-
-
 
 .. toctree::
    :maxdepth: 1
