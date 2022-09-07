@@ -116,7 +116,7 @@ Let's say that we wanted to change the ``name`` field so that it now contains tw
 
     subject = rmfield(subject, 'name')
     
-Note that this command takes two arguments, the name of the structure (i.e., ``subject``), and the field we want to remove (i.e., ``name``). The first part of this command, ``subject = ``, will overwrite the structure, minus the field you just removed. We can then create a new structure within the structure, a field called ``name`` with two sub-fields, ``First`` and ``Last``:
+Note that this command takes two arguments, the name of the structure (i.e., ``subject``), and the field we want to remove (i.e., ``name``). The first part of this command, "subject = ", will overwrite the structure, minus the field you just removed. We can then create a new structure within the structure, a field called ``name`` with two sub-fields, ``First`` and ``Last``:
 
 ::
 
