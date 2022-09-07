@@ -116,7 +116,7 @@ Notice that we now have a new variable in our Workspace window called "a", which
          0    0.5000    4.0000    5.0000   56.0000
    23.0000   83.0000   13.0000         0   10.0000
     
-Immediately after the variable name, if you type a number or pair of numbers in parentheses, it will **index** the rows and columns of this matrix - in other words, extract certain parts of it. For example, typing ``a(1)`` will return ``4``; typing ``a(9)`` will return ``0.5``. Two-dimensional matrices have the following index structure, in which the first cell in the upper-left is indexed as 1, the cell below that is indexed as 2, and so on until the first cell of next column, which in this case would be indexed as 6.
+Immediately after the variable name, if you type a number or pair of numbers in parentheses, it will **index** the rows and columns of this matrix - in other words, extract certain parts of it. For example, typing ``a(1)`` will return ``4``; typing ``a(9)`` will return ``0.5``. Two-dimensional matrices have the following index structure, in which the first cell in the upper-left is indexed as 1, the cell below that is indexed as 2, and so on until the first cell of the next column, which in this case would be indexed as 6.
 
 .. figure:: 01_Matlab_Indexing.gif
 
@@ -154,7 +154,7 @@ This will take some time to get used to, but with practice, you will become more
 Matrix Arithmetic
 &&&&&&&&&&&&&&&&&
 
-Matrices can also be added to and subracted from each other, multiplied and divided by one another. For example, if we create two matrices:
+Matrices can also be added to and subtracted from each other, multiplied and divided by one another. For example, if we create two matrices:
 
 ::
 
@@ -167,7 +167,7 @@ We can multiply them by typing ``c = a*b``. (Note that the inner dimensions must
 
     a'.*b
     
-Will transponse ``a`` to be a 3x2 matrix. The resulting product will also be a 3x2 matrix. You can also add or subtract matrices, as long as they have the same dimensions. Multiplying by a constant requires no special transformations, and will simply multiply each cell of the matrix by a single number:
+Will transpose ``a`` to be a 3x2 matrix. The resulting product will also be a 3x2 matrix. You can also add or subtract matrices, as long as they have the same dimensions. Multiplying by a constant requires no special transformations, and will simply multiply each cell of the matrix by a single number:
 
 ::
 
