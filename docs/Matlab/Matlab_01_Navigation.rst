@@ -223,7 +223,7 @@ Open a Matlab terminal, and do the following exercises:
 
 .. In the first case we are listing the contents of the home directory; in the second case, we are using shorthand to list the contents of the Desktop. We are using relative paths instead of absolute paths.
 
-2.  Navigate to the Desktop by typing ``cd ~/Desktop``. Type ``pwd`` and note what the path is. Then create a new directory using the ``mkdir`` command, choosing a name for the directory on your own, such as ``mkdir myFolder``. Navigate into that new directory and think about how your current path has been updated. Does that match what you see from typing ``pwd`` from your new directory? Take a screenshot of the Matlab terminal that shows the ``pwd`` command being typed from the newly created directory.
+2.  Navigate to the Desktop by typing ``cd ~/Desktop``. Type ``pwd`` and note what the path is. Then create a new directory using the ``mkdir`` command, choosing a name for the directory on your own, such as ``mkdir myFolder``. Navigate into that new directory and think about how your current path has been updated. Does that match what you see from typing ``pwd`` from your new directory? Take a screenshot of the Matlab terminal that shows the ``pwd`` command being typed from the newly created directory, and the output from that command.
 
 3.  Define the terms ``cd``, ``ls``, and ``pwd`` in your own words.
 
