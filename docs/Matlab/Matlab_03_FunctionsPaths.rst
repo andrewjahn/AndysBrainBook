@@ -89,7 +89,7 @@ One of the functions that comes with Matlab's library is called ``ttest``. This 
   Cond1 = [0.44, 0.56, 0.31, 0.34, -0.21, 0.31, 0.7, 0.09];
   Cond2 = [0.21, 0.76, 0.03, 0.07, -0.13, -0.07, -0.03, 0.21];
   
-Read the help file for the ttest command by typing ``help ttest``. Note that this function can either take a single number and perform a one-sample t-test on it, or it can take a pair of numbers, assuming that it was a within-subjects design. First, let's run the function without specifying any of the outputs, e.g.:
+Read the help file for the ttest command by typing ``help ttest``. Note that this function can either take a single vector and perform a one-sample t-test on it, or it can take a pair of vectors, assuming that it was a within-subjects design. First, let's run the function without specifying any of the outputs, e.g.:
 
 ::
 
@@ -132,6 +132,12 @@ Now we get outputs not just of whether the null hypothesis was rejected or not, 
   [h, p, ci, stats] = ttest(Cond1, Cond2, 'alpha', 0.1)
   
 Is the null hypothesis now rejected? Why or why not?
+
+You could also change the test to only be left-tailed, i.e., test whether the mean is less than 0:
+
+::
+
+  [h, p, ci, stats] = ttest(Cond1, Cond2, 'tail', 'left')
 
 We will use the ttest function, and other functions like it, when extracting data after preprocessing and modeling fMRI data with SPM. In the meantime, do the following exercises to improve your understanding of scripts and functions.
 
