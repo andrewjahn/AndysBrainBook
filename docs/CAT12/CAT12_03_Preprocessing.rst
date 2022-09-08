@@ -7,7 +7,7 @@ CAT12 Tutorial #3: Preprocessing the Data and QA Checks
 Overview
 ********
 
-Compared to analyzing fMRI data, structural data is relatively quick and easy: The defaults work fine for most purposes, and the main preprocessing step is segmentation. This takes about 30 minutes per subject depending on which options you use, but given that there is usually one anatomical image per subject, about half an hour is usually the upper limit. This can be longer for longitudinal studies which involve separate anatomical scans being collected at each timepoint, but for now we will focus on a cross-sectional comparsion between Alzheimer's patients and control subjects.
+Compared to analyzing fMRI data, structural data is relatively quick and easy: The defaults work fine for most purposes, and the main preprocessing step is segmentation. This takes about 30 minutes per subject depending on which options you use, but given that there is usually one anatomical image per subject, about half an hour is usually the upper limit. This can be longer for longitudinal studies which involve separate anatomical scans being collected at each timepoint, but for now we will focus on a cross-sectional comparison between Alzheimer's patients and control subjects.
 
 Segmenting the Data
 *******************
@@ -24,7 +24,7 @@ We will leave the rest of the options as the defaults. For now, however, take a 
 
 .. figure:: 03_CAT12_Preprocessing.png
 
-Note that there are four instances of Matlab now running which are analyzing the data: three subject have been assigned to each processor, and each subject currently in each processor's queue are being analyzed simultaneously. This is a preview of what we will be doing on a much larger scale when we analyze more subjects using the supercomputing cluster. Each processor's logfile is also open, click between the different logfiles to see how they update as the data is analyzed. This will take a couple of hours; we will come back to it when it has finished.
+Note that there are four instances of Matlab now running which are analyzing the data: three subjects have been assigned to each processor, and each subject currently in each processor's queue are being analyzed simultaneously. This is a preview of what we will be doing on a much larger scale when we analyze more subjects using the supercomputing cluster. Each processor's logfile is also open, click between the different logfiles to see how they update as the data is analyzed. This will take a couple of hours; we will come back to it when it has finished.
 
 
 Examining the Output
@@ -55,7 +55,7 @@ In the correlation plot window, click on the ``Correlation matrix`` dropdown men
 Smoothing the Data
 ******************
 
-The last preprocessing step is to **smooth** the data, which, similar to functional MRI data, will average together signal and cancel out noise. Since we are focusing on volumetric data for now we will use a similar smoothing kernel to those used in functional MRI data. Go to the SPM12 GUI and click on ``Smooth``. The CAT12 manual recommends a smoothing kernel of 6-8; for this tutorial, let's keep the default values of [8 8 8]. Double-click on ``Images to smooth``, and, as before, navigate to the ``CAT12_Tutorial`` directory, enter ``mwp1`` in the Filter field, and click ``Rec``. When the images are loaded, click the ``Done`` button, and then click the green Go button. This should only take a few moments. When it finishes, check the output by loaded all of the smoothed images using the ``Check Reg`` button, and make sure the images look blurred, indicating that they have in fact been smoothed.
+The last preprocessing step is to **smooth** the data, which, similar to functional MRI data, will average together signal and cancel out noise. Since we are focusing on volumetric data for now we will use a similar smoothing kernel to those used in functional MRI data. Go to the SPM12 GUI and click on ``Smooth``. The CAT12 manual recommends a smoothing kernel of 6-8; for this tutorial, let's keep the default values of [8 8 8]. Double-click on ``Images to smooth``, and, as before, navigate to the ``CAT12_Tutorial`` directory, enter ``mwp1`` in the Filter field, and click ``Rec``. When the images are loaded, click the ``Done`` button, and then click the green Go button. This should only take a few moments. When it finishes, check the output by loading all of the smoothed images using the ``Check Reg`` button, and make sure the images look blurred, indicating that they have in fact been smoothed.
 
 .. figure:: 03_Smoothed_Images.png
 
