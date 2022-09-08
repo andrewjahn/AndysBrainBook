@@ -7,7 +7,7 @@ SPM Tutorial #1: Downloading the Data
 ---------------
 
 Overview
---------------
+--------
 
 For this course we will be analyzing an fMRI dataset that used the Flanker task. The dataset can be found `here <https://openneuro.org/datasets/ds000102/versions/00001>`__ on the `OpenNeuro <https://openneuro.org>`__ website, an online repository for neuroimaging data.
 
@@ -37,6 +37,6 @@ It should take about half an hour to download.
 
 
 Video
-******
+*****
 
 For a video tutorial of how to download the data, click `here <https://www.youtube.com/watch?v=4Y0LfKNj8Ns>`__. (The video has the title "AFNI Tutorial #1", but since it's essentially the same thing as what you'll be doing for SPM, I've decided to use the same video for both tutorials.)
