@@ -1,8 +1,8 @@
 .. _06_SPM_Smoothing:
 
-==================
+====================
 Chapter 6: Smoothing
-==================
+====================
 
 
 ------
@@ -41,7 +41,7 @@ As before, use the ``Check Reg`` button to load a representative volume from the
 ---------------
 
 Exercises
-**********
+*********
 
 1. Try smoothing kernels of these different sizes (to save time, select just one volume from your preprocessed functional data):
 
@@ -51,12 +51,12 @@ Exercises
 
 Again, making sure to give each one a distinct Filename Prefix.
 
-Before you look at the output, predict what it will look like. Does the result match your predictions?
+Before you look at the output, predict what it will look like. Does the result match your predictions? Include a screenshot of the output from each smoothing kernel.
 
 2. Try smoothing in only one direction, e.g., by supplying a triplet of ``[0 0 10]`` - which will smooth by 10mm in the z-direction. What do you notice about the results?
 
-3. Certain types of analyses, such as MVPA, require the time-series in each voxel to be as distinct as possible, in order to accurately classify a voxel as belonging to one condition or another. Would you predict that smoothing would be: (a) included in the preprocessing pipeline with the same smoothing kernel as a typical fMRI study; (b) not included in the preprocessing pipeline; (c) included with a reduced smoothing kernel compared to typical fMRI studies; or (d) included with an increased smoothing kernel compared to typical fMRI studies? Why?
+3. Certain types of analyses, such as MVPA, require the time-series in each voxel to be as distinct as possible, in order to accurately classify a voxel as belonging to one condition or another. Would you predict that smoothing would be: (a) included in the preprocessing pipeline with the same smoothing kernel as a typical fMRI study; (b) not included in the preprocessing pipeline; (c) included with a reduced smoothing kernel compared to typical fMRI studies; or (d) included with an increased smoothing kernel compared to typical fMRI studies? Give reasons for your response.
 
-4. Raw fMRI data already has some smoothness inherent in the data, even before doing any preprocessing. In your own words, describe what this is, and why you would see this in fMRI data. (Hint: If you know the time-series of one voxel, could you make an educated guess about what the time-series looks like in the neighboring voxels?) This will become an important topic to understand when we discuss cluster correction, which will be address in later chapters.
+4. Raw fMRI data already has some smoothness inherent in the data, even before doing any preprocessing. In your own words, describe what this is, and why you would see this in fMRI data. (Hint: If you know the time-series of one voxel, could you make an educated guess about what the time-series looks like in the neighboring voxels?) This will become an important topic to understand when we discuss cluster correction, which will be addressed in later chapters.
 
 5. The smoothing kernel we apply here will add that smoothing size on top of the inherent smoothness already in the data. For example, if the inherent smoothness is 3mm, and we use a kernel of 8mm, the resulting smoothness after preprocessing will be around 11mm. Take a look at the AFNI command `3dBlurToFMWH <https://afni.nimh.nih.gov/pub/dist/doc/program_help/3dBlurToFWHM.html>`__, even if you don't have AFNI installed. Read through the description and the recommendations. Would you prefer to use this command instead? Why or why not? As a reminder, some researchers prefer to integrate commands from several different software packages, depending on their needs; there is nothing invalid about substituting one package's command for another's, and then running the rest of the pipeline as usual.
