@@ -1,13 +1,13 @@
 .. _03_SPM_Coregistration:
 
-==================================
+=========================
 Chapter 3: Coregistration
-==================================
+=========================
 
 -------------
 
 Overview
-***************
+********
 
 Although most people's brains are similar - everyone has a cingulate gyrus and a corpus callosum, for instance - there are also differences in brain size and shape. As a consequence, if we want to do a group analysis we need to ensure that each voxel for each subject corresponds to the same part of the brain. If we are measuring a voxel in the visual cortex, for example, we would want to make sure that every subject's visual cortex is in alignment with each other.
 
@@ -69,9 +69,9 @@ When it finishes, another window will be generated showing the coregistration re
 Exercises
 *********
 
-1. As with the :ref:`Realignment step <01_SPM_Realign_Unwarp>`, we have the option of making the coregistration step faster but lower quality, or slower but higher quality. Use the "Interpolation" field to examine the differences between the different options that are aviailable, and set it to "Nearest Neighbour". Change the Filename prefix to "NN", and run the coregistration. What do you notice about the output? How does it compare to the default interpolation of "4th Degree B-Spline"? (You can also test how using the option of "7th Degree B-Spline" changes the output.)
+1. As with the :ref:`Realignment step <01_SPM_Realign_Unwarp>`, we have the option of making the coregistration step faster but lower quality, or slower but higher quality. Use the "Interpolation" field to examine the differences between the different options that are avialable, and set it to "Nearest Neighbour". Change the Filename prefix to "NN", and run the coregistration. What do you notice about the output? How does it compare to the default interpolation of "4th Degree B-Spline"? Next, test how using the option of "7th Degree B-Spline" changes the output. Take screenshots of the output from NN, 4th-Degree B-Spline, and 7th Degree B-Spline, and label them clearly.
 
-2. Try swapping the Reference and the Source Images - that is, make the anatomical image the Reference, and the functional image the Source. (Remember to change the Filename prefix to something that makes sense to you, in order to keep the outputs organized.) How have the dimensions and resolution of the functional data changed? Keeping in mind that we have a total of 292 functional volumes as compared to 1 anatomical volume, and knowing that a higher resolution dataset takes up more space on the computer, what reasons would you give for keeping the anatomical image as the Source, and the functional data as the Reference?
+2. Try swapping the Reference and the Source Images - that is, make the anatomical image the Reference, and the functional image the Source. (Remember to change the Filename prefix to something that makes sense to you, in order to keep the outputs organized.) How have the dimensions and resolution of the functional data changed? Keeping in mind that we have a total of 292 functional volumes as compared to 1 anatomical volume, and knowing that a higher resolution dataset takes up more space on the computer, what reasons could be given for keeping the anatomical image as the Source, and the functional data as the Reference?
 
 Next Steps
 **********
