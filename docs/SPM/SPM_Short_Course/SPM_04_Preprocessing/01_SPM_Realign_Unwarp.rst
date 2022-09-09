@@ -57,15 +57,17 @@ Now that you have filled in all of the fields that had a ``<-X`` next to them, t
 Exercises
 *********
 
-1. In the Filter field, the dollar sign (``$``) can be used to return files that *end* with a particular string. For example, typing ``run-1_bold.*$`` would return those files that end with the string "run-1_bold". Use the filter field to return only those files that end with ``run-2_bold``. If you've run the realignment step, use the filter to field to return those files that begin with ``rsub-08``. Use the Frames field to select the frames 10-20.
+1. In the Filter field, the dollar sign (``$``) can be used to return files that *end* with a particular string. For example, typing ``run-1_bold.*$`` would return those files that end with the string "run-1_bold". Use the filter field to return only those files that end with ``run-2_bold``. After you've run the realignment step, use the filter field to return those files that begin with ``rsub-08``. Use the Frames field to select the frames 10-20. Take a screenshot of what you entered into the Frames field, and what the resulting filtered files are.
 
 2. Re-run the realignment step on just the run-1 images, changing the value in the Quality field from 0.9 to 0.5. When you highlight the Quality field, read the help text at the bottom of the window. What do you think this change will do to the quality of your realignment? To keep these files separate from the other output, change the Filename Prefix to ``qual_05``. Check the output in the Check Reg window, loading a representative image from the rsub-08_task-flanker_run-1 files, and an image from the qual_05 files you just created. Do you notice any difference between them? Why do you think that there is or is not a difference?
 
 3. Re-run the realignment step by changing the Num Passes from "Register to mean" to "Register to first". Read the help file and determine what the tradeoffs are. Which one would you prefer to use as the default for your analysis, and why?
 
+4. Read through the help files of each option for the ``Realign: Estimate & Reslice`` module. Imagine two scenarios: 1) That you are maximizing the speed of finishing the realignment instead of the quality of the realignment; and 2) That you are maximizing quality over speed. What are the options you would need to change in scenario 1, and in scenario 2? Show which options you changed, along with a screenshot of a sample image from the realigned volumes. (Hint: Not all of the options need to be changed. Smoothing, for example, can stay the same.) 
+
 
 Video
-******
+*****
 
 For a video introduction to preprocessing and how to do realignment, click `here <https://www.youtube.com/watch?v=i39j-t7eRiY>`__.
 
