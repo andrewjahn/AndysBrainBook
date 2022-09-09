@@ -1,8 +1,8 @@
 .. _05_SPM_Normalize:
 
-=========================
+========================
 Chapter 5: Normalization
-=========================
+========================
 
 ---------------
 
@@ -36,6 +36,6 @@ Exercises
 
 1. While the most recent version of SPM's normalization is recommended, you also have the option of using an older version of normalize - one that doesn't require input from the Segmentation step. This can be found from the SPM GUI by clicking on the ``Batch`` button, and from the top of the window selecting ``SPM -> Tools -> Old Normalise: Estimate and Write``.  Click on the Data button and create a new Subject, and select the resliced anatomical image as the Source Image and all 292 volumes of your coregistered functional data as the Images to Write. For the Template Image, select ``T1.nii``. If you compare these results to the results obtained with SPM12's default normalization, you may not see any noticeable differences; however, there are subtle but important differences in how the internal structures are aligned during normalization.
 
-2. Change the ``Voxel sizes`` from [2 2 2] to [3 3 3], also changing teh Filename Prefix from ``w`` to ``w_3_3_3``. Compare the spatial resolution of the two outputs. What resolution seems best to you? What are the disadvantages of using a resolution that is very small, such as [1 1 1]?
+2. Change the ``Voxel sizes`` from [2 2 2] to [3 3 3], also changing the Filename Prefix from ``w`` to ``w_3_3_3``. Compare the spatial resolution of the two outputs. What resolution seems best to you? What are the disadvantages of using a resolution that is very small, such as [1 1 1]?
 
-3. As with coregistration, you can select different amount of Interpolation. The default is ``4th Degree B-Spline``, with options for higher degrees of interpolation (such as 7th Degree B-Spline), or lower degrees of interpolation - the lowest level being ``Nearest Neighbour``, which uses the value of the nearest voxel for resampling (see `this animation </Users/ajahn/Desktop/Archived/AndysBrainBook/SPM/SPM_04_Preprocessing/04_SPM_Segmentation/04_04_Segmentation_GUI.png>`__ for an illustration). When would a higher degree of interpolation be desirable, and when would you want to do Nearest Neighbour interpolation? Try using both interpolation options, and compare the results.
+3. As with coregistration, you can select different amount of Interpolation. The default is ``4th Degree B-Spline``, with options for higher degrees of interpolation (such as 7th Degree B-Spline), or lower degrees of interpolation - the lowest level being ``Nearest Neighbour``, which uses the value of the nearest voxel for resampling (see `this animation <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#resampling>`__ for an illustration; you may need to scroll down the page). When would a higher degree of interpolation be desirable, and when would you want to do Nearest Neighbour interpolation? Try using both interpolation options, and compare the results.
