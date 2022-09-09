@@ -1,8 +1,8 @@
 .. _SPM_04_Preprocessing:
 
-=============
+==============================
 SPM Tutorial #4: Preprocessing
-=============
+==============================
 
 -----------
 
@@ -11,7 +11,7 @@ SPM Tutorial #4: Preprocessing
   
    
 Overview
--------------
+********
 
 Now that we know where our data is and what it looks like, we will do the first step of fMRI analysis: **Preprocessing**.
 
@@ -48,7 +48,7 @@ To begin preprocessing sub-08's data, read through the following chapters. We wi
 ---------
 
 Video
-*********
+*****
 
 Once you have finished reviewing all of the preprocessing steps, click `here <https://www.youtube.com/watch?v=zSqBoB1GrDk>`__ for a video showing how to do all of the steps after realignment.
   
