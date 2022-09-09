@@ -87,8 +87,8 @@ When the images have been slice-time corrected, you are ready to **coregister** 
 Exercises
 *********
 
-1. Sometimes the slices are acquired from the bottom to the top of the volume, without any interleaving. How would you change the code for the slice order to reflect this?
+1. Sometimes the slices are acquired from the bottom to the top of the volume, without any interleaving. How would you change the code for the slice order to reflect this? Show the vector you would use in this case.
 
-2. Now do the same edits, but for slices that are interleaved going from the top of the volume to the bottom.
+2. Now do the same edits, but for slices that are interleaved going from the top of the volume to the bottom. Show the vector.
 
-3. Download another functional run from a random study on openneuro.org, and use spm_vol to determine how many slices there are. Repeat exercises 1 and 2 for this dataset.
+3. Download another functional run from a random study on openneuro.org, and use ``spm_vol`` to determine how many slices there are. Repeat exercises 1 and 2 for this new dataset. Include the code and output from ``spm_vol``, along with the vectors you would use.
