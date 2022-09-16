@@ -7,7 +7,7 @@ SPM Tutorial #3: Looking at the Data
 ----------------
 
 Overview: The SPM Graphical User Interface
----------
+******************************************
 
 Now that you've downloaded the dataset, you will want to **look at your data** - for example, you will want to know if there are any artifacts or problems with your data, and whether these can be alleviated by :ref:`preprocessing <SPM_04_Preprocessing>`. 
 
@@ -36,7 +36,7 @@ To look at and inspect the data, we will be using the **SPM Graphical User Inter
 --------
 
 Inspecting the Anatomical Image
-----------
+*******************************
     
 Whenever you download imaging data, check the anatomical and functional images for any **artifacts** - scanner spikes, incorrect orientation, poor contrast, and so on. It will take some time to develop an eye for what these problems look like, but with practice it will become quicker and easier to do.
 
@@ -85,7 +85,7 @@ As you continue to inspect the image, here are two things to watch out for:
 ----------
 
 Inspecting the Functional Images
-----------
+********************************
     
 When you are done looking at the anatomical image, click on the ``Display`` button again, navigate to the ``func`` directory, and select the ``run-1`` functional image.
 
@@ -110,9 +110,9 @@ Also, during the :ref:`Realignment preprocessing step <01_SPM_Realign_Unwarp>` y
 --------
 
 Exercises
------------
+*********
 
-1. View the time-series of the ``run-2`` data, using the steps outlined above. Do you notice any sudden changes in movement? View the time-series for ``run-1``, and compare it to ``run-2``. Which volumes, if any, show any sudden changes in movement?
+1. View the time-series of the ``run-2`` data for ``sub-08``, using the steps outlined above. Do you notice any sudden changes in movement? View the time-series for ``run-1``, and compare it to ``run-2``. Which volumes, if any, show any sudden changes in movement?
 
 2. Examine a few of the other anatomical and functional scans for some of the other subjects, making sure to unzip the images before loading them into the viewer. How does the contrast and the brightness change as you drag the crosshair through different slices of the image? What do you think affects the brightness of a given slice?
 
