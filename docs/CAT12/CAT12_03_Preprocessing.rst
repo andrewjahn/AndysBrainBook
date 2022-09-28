@@ -59,6 +59,10 @@ The last preprocessing step is to **smooth** the data, which, similar to functio
 
 .. figure:: 03_Smoothed_Images.png
 
+Video
+*****
+
+For a video overview of how to run preprocessing and QA checks, click `here <https://youtu.be/OwRwl4-Y04k>`__.
 
 Next Steps
 **********
