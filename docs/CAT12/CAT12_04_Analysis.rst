@@ -34,7 +34,7 @@ In the ``Covariates`` field, select ``New: Covariate``, and double-click on ``Na
 
 .. figure:: 04_CAT12_Analysis_Setup.png
 
-Note that, by using the CAT12 Basic Models, by default there is another module in the list called ``Check design orthogonality and homogeneity``. This will load the design file you generate in the previous step, and check whether there are high correlations between your covariates and any of the other regressors in your model. Leave these defaults as they are.
+Note that, by using the CAT12 Basic Models, by default there is another module in the list called ``Check design orthogonality and homogeneity``. This will load the design file you generated in the previous step, and check whether there are high correlations between your covariates and any of the other regressors in your model. Leave these defaults as they are.
 
 To save time, and to increase your proficiency with the SPM GUI, I also recommend adding two additional modules: One to estimate the model, and one to generate the contrasts. You can do this by clicking on each of the buttons, as you saw how to do in the :ref:`SPM Tutorial <SPM_08_GroupAnalysis>`, or you can add them to the current batch and run everything in one go. To do the latter, in the menu at the top of the Batch Editor, click ``SPM -> Stats -> Model Estimation`` to add this module to the list. Then click on ``SPM -> Stats -> Contrast Manager``. Click on the new ``Model Estimation`` module, highlight the ``Select SPM.mat`` field, and click on ``Dependency`` in the lower right corner of the batch editor window; select the SPM.mat file dependency from the Factorial design specification module.
 
