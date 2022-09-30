@@ -72,6 +72,11 @@ These numbers are arbitrary, selected in part because we only have six subjects 
 
 .. figure:: 04_CAT12_Results.png
 
+Video
+*****
+
+For a video overview of how to run a group-level analysis, click `here <https://youtu.be/2GqLmCCcegA>`__.
+
 Exercises
 *********
 
