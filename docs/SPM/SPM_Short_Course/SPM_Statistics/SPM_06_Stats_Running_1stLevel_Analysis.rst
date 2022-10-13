@@ -100,11 +100,10 @@ You will now see the results displayed as a heatmap on the template, and you can
 Exercises
 *********
 
-1. Open the contrast manager window again by clicking the ``Results`` button, and create contrasts of "Con-Inc", "Inc", and "Con". Try figuring out the contrast vectors on your own before reading the correct ones provided below:
+1. Open the contrast manager window again by clicking the ``Results`` button, and create contrasts of "Con-Inc" (i.e., the reverse contrast of Inc-Con), a simple effect of Incongruent (label it "Inc"), and a simple effect of Congruent (label it "Con"). Show the contrast vectors you used, and attach a screenshot of the contrast manager when you have created all of the contrasts.
 
-::
 
-  Con-Inc: [-0.5 0.5 -0.5 0.5]
+..  Con-Inc: [-0.5 0.5 -0.5 0.5]
   Inc: [0.5 0 0.5 0]
   Con: [0 0.5 0 0.5]
   
