@@ -220,6 +220,13 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: Matlab for Neuroimagers
     
     Matlab/Matlab_Overview
+    
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: ITK-Snap
+    
+    ITK-Snap/ITK-Snap_Overview
 
 
 .. Glossary
