@@ -183,11 +183,11 @@ Now use this file as a mask for an ROI analysis, following the steps you complet
 Exercises
 ********
 
-1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of tests goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.
+1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. Show a figure displaying the ROI, and show the results from the ttest command. (N.B.: When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of tests goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.)
   
-2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48, and extract the data from this region.
+2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48, and extract the data for the contrast ``Inc-Con`` from this region. Include a figure showing the ROI you used, either with SPM's Display function, or with Marsbar's "View ROI" function. Show the data that was extracted from this ROI (i.e., a list of the average contrast estimate per each subject, using the ``mean(y,2)`` code above).
 
-3. Do a biased ROI analysis by creating a dorsal anterior cingulate mask from the Inc-Con contrast, using a voxel-wise threshold of p=0.0005 and a cluster threshold of 20. Save the mask as ``dACC_0005``. When you extract the data, how does it compare to your earlier biased analysis using a mask with a threshold of p=0.001? Why?
+3. Do a biased ROI analysis by creating a dorsal anterior cingulate mask from the Inc-Con contrast, using a voxel-wise threshold of p=0.0005 and a cluster threshold of 20. Save the mask as ``dACC_0005``. When you extract the data, how does it compare to your earlier biased analysis using a mask with a threshold of p=0.001? Why? Show the code you used, and copy and paste the output from your t-test (e.g., using the code: ``[h, p, ci, stats] = ttest(Inc_Con_0005)``, for example).
 
 
 --------
