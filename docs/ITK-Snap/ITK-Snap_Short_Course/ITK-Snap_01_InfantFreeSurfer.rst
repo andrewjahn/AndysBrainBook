@@ -17,7 +17,7 @@ Because infant brains are much smaller than adult brains, the typical FreeSurfer
   
 Once you have done this, you should have access to the InfantFS libraries. For example, if you type the command ``infant_recon_all`` from any directory in your terminal and press enter, it should return a list of the arguments needed to run the command:
 
-.. figure:: ITK-SNAP_01_InfantRS.png
+.. figure:: ITK-SNAP_01_infantRecon.png
 
 
 Analyzing a Subject with infant_recon-all
