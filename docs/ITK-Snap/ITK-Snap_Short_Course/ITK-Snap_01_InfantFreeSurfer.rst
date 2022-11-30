@@ -23,30 +23,30 @@ Once you have done this, you should have access to the InfantFS libraries. For e
 Analyzing a Subject with infant_recon-all
 *****************************************
 
-The ``infant_recon_all`` command requires only two arguments: the name of the subject, and the age of the subject, in months. However, the data is required to be in a specific format before the command can be run. Assuming that we're working with a six-month-old subject called ``deface_IBIS0198_V06_t1w.nii``, we will first need to compress it:
+The ``infant_recon_all`` command requires only two arguments: the name of the subject, and the age of the subject, in months. However, the data is required to be in a specific format before the command can be run. Assuming that we're working with a six-month-old subject called ``deface_IBIS0079_V06_t1w.nii``, we will first need to compress it:
 
 ::
 
-  gzip deface_IBIS0198_V06_t1w.nii
+  gzip deface_IBIS0079_V06_t1w.nii
   
 And then renamed to be called ``mprage.nii.gz``:
 
 ::
 
-  mv deface_IBIS0198_V06_t1w.nii.gz mprage.nii.gz
+  mv deface_IBIS0079_V06_t1w.nii.gz mprage.nii.gz
   
 Create a folder with the subject's original ID, and then place the gzipped file in that folder:
 
 ::
 
-  mkdir IBIS0198
+  mkdir IBIS0079
   mv mprage.nii.gz IBIS0198
   
 You can then run the recon-all command on the subject's folder:
 
 ::
 
-  infant_recon_all --s IBIS0198 --age 6
+  infant_recon_all --s IBIS0079 --age 6
   
 And then the program will start to run. On my machine (a 2017 iMac with 32GB of RAM), this takes about two hours per subject.
 
@@ -56,10 +56,22 @@ And then the program will start to run. On my machine (a 2017 iMac with 32GB of 
   
 .. note::
 
-  If the contrast between the grey and white matter isn't sufficiently high, InfantFS may not determine the correct boundary of the pial surface - that is, the outer surface of the cortex. InfantFS has a built-in contrast enhancer, but sometimes this is not enough. I have found that AFNI's 3dUnifize helps to increase the contrast and improve the surface output from Infant FS. It can be run by typing ``3dUnifize -prefix deface_IBIS0198_V06_t1w_Unifized.nii -input deface_IBIS0198_V06_t1w.nii``.
+  If the contrast between the grey and white matter isn't sufficiently high, InfantFS may not determine the correct boundary of the pial surface - that is, the outer surface of the cortex. InfantFS has a built-in contrast enhancer, but sometimes this is not enough. I have found that AFNI's 3dUnifize helps to increase the contrast and improve the surface output from Infant FS. It can be run by typing ``3dUnifize -prefix deface_IBIS0079_V06_t1w_Unifized.nii -input deface_IBIS0079_V06_t1w.nii``.
   
 Looking at the Output
 *********************
 
 Once infant_recon_all finishes, you should examine the output to make sure it did an adequate job of both segmenenting the different cortical and subcortical regions, and of reconstructing the cortical surfaces; in particular, the pial surface and the boundary between the grey and white matter.
 
+You can view the outputs using ``Freeview``, FreeSurfer's image viewer. You can either open it from the command line by typing ``freeview``, or you can load the skull-stripped brain image, the cortical and subcortical segmentations, and the pial surfaces by navigating into the subject's output directory (in this case, the folder IBIS0079), and typing the following:
+
+::
+
+  freeview -v mri/orig.mgz mri/aseg.mgz:colormap=LUT -f surf/lh.pial:edgecolor=yellow surf/rh.pial:edgecolor=yellow
+
+
+You should see something like this:
+
+.. figure:: ITK-SNAP_01_infantRecon_Output.png
+
+Most of the segmentation seems correct in this image, but note that there are parts of the brain that do not seem to have the pial surface accurately trace the edges of the brain, especially in the frontal areas. In order to correct this, we will have to do manual segmentations through another program called ``ITK-SNAP``. To see how to do that, click the ``Next`` button.
