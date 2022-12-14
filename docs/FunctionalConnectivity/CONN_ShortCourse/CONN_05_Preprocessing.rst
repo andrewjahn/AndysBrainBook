@@ -38,7 +38,7 @@ Before the preprocessing can start, you will be prompted to enter a few more opt
 
 For our current tutorial, we will leave it at the intermediate settings.
 
-You will next be prompted to select the sampling resolution of the anatomical and functional output. The defaults of 1mm^3 for the anatomical image and 2mm^3 for the functional images should be fine; if you want to take up less space on your hard drive, you can lower the resolution (i.e., increase the numbers in the fields), at the expense of lower spatial resolution.
+You will next be prompted to select the sampling resolution of the anatomical and functional output. The defaults of (1x1x1)mm^3 for the anatomical image and (2x2x2)mm^3 for the functional images should be fine; if you want to take up less space on your hard drive, you can lower the resolution (i.e., increase the numbers in the fields), at the expense of lower spatial resolution.
 
 Finally, you will be asked to specify a smoothing kernel. As you will see later, the smoothed data by default is omitted from the actual functional connectivity analysis; it is included here in case you want to use it. Click ``OK``, and the preprocessing will begin, calling upon SPM tools as needed. For this subject, it will take about 5 minutes total.
 
