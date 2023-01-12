@@ -40,7 +40,7 @@ Create a folder with the subject's original ID, and then place the gzipped file 
 ::
 
   mkdir IBIS0079
-  mv mprage.nii.gz IBIS0198
+  mv mprage.nii.gz IBIS0079
   
 You can then run the recon-all command on the subject's folder:
 
