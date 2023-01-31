@@ -33,17 +33,37 @@ These correspond to the seeds that you see during the 1st and 2nd-level analyses
 Adding ROIs
 ***********
 
-What if you want to use your own images - either a single ROI, or an entire atlas? In that case, you would need to create a series of ROIs combined into a single image, in which each ROI is indexed by a separate number. If you use Edit mode with FSLeyes, for example, you can assign a different number to each ROI that you draw on the brain. To keep things simple, increase the ROI indices by increments of 1. Images that contain several ROIs that parcellate the brain are called **atlases**.
+What if you want to use your own images - either a single ROI, or an entire atlas? In that case, you would need to create a series of ROIs combined into a single image, in which each ROI is indexed by a separate number. If you use Edit mode with FSLeyes, for example, you can assign a different number to each ROI that you draw on the brain. To keep things simple, increase the ROI indices by increments of 1. Images that contain several ROIs that parcellate the brain into different regions are called **atlases**.
 
-When you have created the atlas, save it in a folder (such as the ``conn/rois`` folder) and use a text editor to create a text file with the same root name as the atlas. For example, if my atlas is called ``AndyROIs.nii``, I would create a text file called ``AndyROIs.txt``. Let's say that I have created an atlas with 4 ROIs: One in the vmPFC, one in the PCC, one in the dACC, and one in the sgACC. I would enter the following text into the file:
+When you have created the atlas, save it in a folder (such as the ``conn/rois`` folder) and use a text editor to create a text file with the same root name as the atlas. For example, if my atlas is called ``AllInsulaROIs.nii``, I would create a text file called ``AllInsulaROIs.txt``. Let's say that I have created an atlas with 4 ROIs: One in the left Anterior Insula, one in the left Posterior Insula, one in the right Anterior Insula, and one in the right Posterior Insula. These could be created by using Marsbar to place a sphere of a given radius around the peak coordinates of another study, for example, or by using an atlas to create a mask. (For examples of how to do both through SPM, see :ref:`this chapter <SPM_09_ROIAnalysis>`.) 
+
+As mentioned above, these ROIs should each have a single number filling in their constituent voxels, and the numbers for each ROI should increase consecutively. For example, the left AI could be labeled with 1's, the left PI with 2's, the right AI with 3's, and the right PI with 4's. You can either do this manually by using an image calculator to multiply each ROI by a given number and then add all of them together, or you can use Marsbar's "Export" function to do this automatically, by selecting ``ROI Definition -> Export -> Number Labelled ROI Image``. The latter approach assumes that you created spherical ROIs through Marsbar; if you have, this method can save you time.
+
+In any case, once you have created your ROIs, you could enter the following text into the file, following our current example:
 
 ::
 
-  vmPFC (Ventromedial Prefrontal Cortex)
-  PCC (Posterior Cingulate Cortex)
-  dACC (Dorsal Anterior Cingulate Cortex)
-  sgACC (Subgenual Anterior Cingulate Cortex)
-  
-From the Setup tab, click on the ``+`` sign when you hover your mouse over the ROIs column, and call the ROI whatever you want. Then in the "Select ROI definition files" menu, navigate to where you stored your ROI, and select it. You will have to rerun Setup (but not preprocessing), and denoising again in order to use these ROIs for your analyses:
+  LeftAnteriorInsula (MNI -38, 6, 2)
+  LeftPosteriorInsula (MNI 35, 7, 3)
+  RightAnteriorInsula (MNI -38, -6, 5)
+  RightPosteriorInsula (MNI 35, -11, 6)
 
-.. figure:: C_Manual_ROIs.png
+This will generate a label in the CONN toolbox when these ROIs are processed, and also serve as a reminder of where exactly the ROIs are located. In this example, I created ROIs with a 6mm sphere around the MNI coordinates listed to the right of each ROI.
+
+To import these ROIs, from the Setup tab click on ``ROIs`` from the menu on the left. Click on the ``New`` button at the bottom when you hover your mouse over the ROIs column, and call the ROI whatever you want; in this case, we will call it "AllInsulaROIs". Check the box underneath that is next to "Atlas File". Then in the "Import ROI files" panel on the right, navigate to where you stored your ROI, and select it by double-clicking on it:
+
+.. figure:: C_ImportROIs.png
+
+Once it is imported, you can use the up and down arrows next to the image to navigate through the slices and see where they are. If you click on the image panel, it will open up a new window, displaying where the ROIs are located on one of the subject's functional volumes:
+
+.. figure:: C_VisualizeROIs.png
+
+If the ROIs are located where you think they should be, you are ready to re-run the analyses using your custom ROIs. You will have to rerun Setup (but not preprocessing), by clicking on the ``Done`` button. If you have already run analyses and are re-running them with additional ROIs, you can save time by selecting the option ``do not overwrite (skip already-processed subjects/ROIs``:
+
+.. figure:: C_Processing.png
+
+You will do the same for the Denoising tab and the 1st-level analyses tab; you will then be able to run any second-level analyses as usual:
+
+.. figure:: C_SecondLevel.png
+
+.. .. figure:: C_Manual_ROIs.png
