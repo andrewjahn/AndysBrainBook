@@ -19,7 +19,7 @@ Whole-brain maps can hide important details about the effects that we’re study
 
 
 Using Atlases
-*******
+*************
 
 One way to create a region for our ROI analysis is to use an **atlas**, or a map that partitions the brain into anatomically distinct regions.
 
