@@ -107,7 +107,22 @@ If you like, you can do the same QA check with the SPM Check Reg function by cli
 .. note::
 
   There are other options in the ``- functional tools:`` menu; look at each of them and guess what they do. Why would it not make sense at this time to look at the coregistration with the MNI boundaries?
+
+
+Exercises
+*********
+
+1. As discussed above, a new CONN project will generate an associated ``.mat`` file that contains all of the settings that were specified in the GUI. Close the CONN GUI if you haven't already, saving your project if needed. Then, from the Matlab command line, load the ``.mat`` file by typing:
+
+::
+
+  load conn_ArithmeticProject.mat
   
+And note what the value is when you type ``CONN_x.Setup.RT``. Change this value to 3 by typing ``CONN_x.Setup.RT = 3``, and then overwrite the previous file by typing ``save('conn_ArithmeticProject.mat', 'CONN_x')``. Now, reopen the project in the CONN GUI, and note how the field for the Repetition Time has changed.
+
+From the same Basic window in the Setup tab, note that there are two acquisition types: Continuous and Sparse. Continuous is the first option in the dropdown menu, and it is the default. Close the CONN GUI, load the project ``.mat`` file again, and try to find where the acquisition type is located in the .Setup field of the CONN_x structure. Demonstrate how you would modify it, presenting the code you would use to do so (both for changing the value, and then overwriting the project file). Paste a screenshot of the Setup Basic GUI once you have made these changes. Lastly, show the code you would use to change these values back to the defaults (RT of 3.56, Continuous Acquisition Type). Make sure that they are reset to those values in the CONN GUI before continuing with this tutorial.
+
+2. 
   
 Video
 *****
