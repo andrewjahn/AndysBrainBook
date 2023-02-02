@@ -47,7 +47,7 @@ To resample to an anisotropic voxel resolution, you can use AFNI's 3dresample co
 
 ::
 
-  3dresample -input volume.nii -out output_volume.nii -dxyz 1 0.8 1.5
+  3dresample -input volume.nii -prefix output_volume.nii -dxyz 1 0.8 1.5
   
 Which will resample the voxels to have a size of 1x0.8x1.5mm, in this example.
 
