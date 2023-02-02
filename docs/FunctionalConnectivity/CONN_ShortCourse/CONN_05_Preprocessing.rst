@@ -1,8 +1,8 @@
 .. _CONN_05_Preprocessing:
 
-========================
+=========================
 Chapter #5: Preprocessing
-========================
+=========================
 
 ------------------
 
@@ -51,6 +51,12 @@ Finally, you will be asked to specify a smoothing kernel. As you will see later,
   If you notice a coregistration error with certain runs and not others, it may be an issue with the preprocessing stream. Negin Nadvar of the University of Michigan writes:
   
   **When preprocessing multiple fMRI runs with conn preprocessing pipelines (such as preprocessing pipeline for indirect normalization to MNI space), if I remove the motion correction steps from the pipeline, I noticed some registration issues with run 2 and higher runs. After lots of troubleshooting, I noticed that when I omit the motion correction step from this pipeline, the CONN toolbox appears to assume that all the runs are already coregistered to run 1 and this results in inaccurate corregistration/normalization for run 2 and higher runs. In order to fix this issue, in the preprocessing window, I deselected the "Process all sessions" and from the drop down menu picked 1 session and applied the preprocessing to that 1 session for all the subjects and next picked another session and applied the preprocessing to each of those sessions individually. This prevented the issue and drastically improved my coregistration/normalization.**
+  
+  
+Exercises
+*********
+
+1. Click on the ``Preprocessing`` button again, and note that all of the previous preprocessing steps have already been loaded. Select ``Add``, and note all of the options that are presented for processing both the functional and structural data. Find the preprocessing step to remove the initial scans, and then click the ``Move up`` button to move this step to the top of the preprocessing list. Click ``Start``. When prompted for the number of scans to remove, enter ``2``. Keep the rest of the settings as the defaults, except for Smoothing, which you can change to 4mm. Click ``OK``. When the preprocessing for this subject finishes, click on ``Functional``, and take a screenshot of the resulting image. Similar to smoothing functional images for task-based data, the volumes should look different. When would you want to use a smaller smoothing kernel as opposed to a larger smoothing kernel?
   
 Video
 *****
