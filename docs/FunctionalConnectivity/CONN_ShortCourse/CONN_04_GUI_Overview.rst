@@ -103,10 +103,7 @@ A useful QA check to do at this stage is to click on the ``- functional tools:``
 .. figure:: 04_Functional_Anatomical_CheckReg.png
 
 If you like, you can do the same QA check with the SPM Check Reg function by clicking the ``- functional tools:`` menu and selecting ``Display functional/anatomical coregistration (SPM)``. This will open the Check Reg window, similar to what you used in the :ref:`SPM tutorial <SPM_07_SettingTheOrigin>`.
-
-.. note::
-
-  There are other options in the ``- functional tools:`` menu; look at each of them and guess what they do. Why would it not make sense at this time to look at the coregistration with the MNI boundaries?
+  
 
 
 Exercises
@@ -122,7 +119,9 @@ And note what the value is when you type ``CONN_x.Setup.RT``. Change this value 
 
 From the same Basic window in the Setup tab, note that there are two acquisition types: Continuous and Sparse. Continuous is the first option in the dropdown menu, and it is the default. Close the CONN GUI, load the project ``.mat`` file again, and try to find where the acquisition type is located in the .Setup field of the CONN_x structure. Demonstrate how you would modify it, presenting the code you would use to do so (both for changing the value, and then overwriting the project file). Paste a screenshot of the Setup Basic GUI once you have made these changes. Lastly, show the code you would use to change these values back to the defaults (RT of 3.56, Continuous Acquisition Type). Make sure that they are reset to those values in the CONN GUI before continuing with this tutorial.
 
-2. 
+2. There are other options in the ``- functional tools:`` menu; look at each of them and guess what they do. Why would it not make sense at this time to look at the coregistration with the MNI boundaries?
+
+3. The font size and color scheme of the CONN GUI can be changed by selecting ``Tools -> GUI options``. Look through each of the options, and decide which ones you want to change, if any. For example, you might prefer a smaller or larger font, or to have dark text on a light background. Experiment with the different options, and try to come up with a combination that works best for you.
   
 Video
 *****
