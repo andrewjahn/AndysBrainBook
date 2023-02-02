@@ -83,4 +83,6 @@ Exercises
 
 1. Enter a bandpass regressor of ``[Inf 0.09]``. In your own words, describe what this filter will do. Is this in general better or worse than a low-pass filter? Why?
 
-2. Experiment with changing different regressors to ``Filtered``, and observe what happens in the Preview window. Does this filtering (equivalent to the ``Simultaneous`` option) seem to worsen or improve the nuisance regression? How would you make that judgment?
+2. Experiment with highlighting different regressors in the Confounds window and checking the ``Filtered`` box, and observe what happens in the Preview window. Does this filtering (equivalent to the ``Simultaneous`` option in the ``After regression`` dropdown menu) seem to worsen or improve the nuisance regression? How would you make that judgment?
+
+3. In the ``Denoising settings`` window, you add ``Gray Matter (1P)`` to the list of Confounds. Would this be considered Global Signal Regression? Why or why not? If not, what would you have to do for it to be true Global Signal Regression, and why? (Hint: See `this post <https://www.nitrc.org/forum/forum.php?thread_id=4006&forum_id=1144`__.) 
