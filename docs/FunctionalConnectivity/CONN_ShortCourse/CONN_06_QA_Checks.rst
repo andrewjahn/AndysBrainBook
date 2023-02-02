@@ -84,6 +84,20 @@ A series of figures will be generated, one for each QA check that you selected. 
 
 .. figure:: 06_QA_HTML.png
 
+
+Exercises
+*********
+
+1. One helpful QA check is to view a movie of the functional volumes juxtaposed with movement covariates; that way, you can see how the volume changes as a result of motion. Click on ``Covariates (1st-level)``, make sure that ``realignment`` is selected, and then click ``covariate tools -> display covariate & single slice functional (movie)``. Select ``primary dataset`` for viewing. This will open a new window that displays a single axial slice of the functional data, and displays each of the movement parameters underneath it. If there are any large motions, it should be reflected in the funcitonal volume as well. Now, try the same approach, this time highlighting the ``scrubbing`` covariate for a subject that has at least one volume that was scrubbed. Does the movie suggest that this volume ought to have been removed? Why or why not?
+
+2. Within the ``Covariates (1st-level)`` section, you are able to generate many other new covariates as well. For example, you may want to use a different method to calculate thresholds that should be used to remove certain volumes. Click on ``covariate tools -> Compute new/derived first-level covariates``. Imagine that you've read the Power et al. 2012 paper, and you want to use that to calculate Framewise Displacement (FD), a kind of composite measure of motion for each volume. Select that option, and keep the defaults. (If you want to make a more informed decision about how to change these parameters, refer to the original Power et al. 2012 article.) Click ``OK``. Now, do the same for creating a new covariate for ``FD_conn``. Note any differences between the two, and think about which one you would prefer to use, and why.
+
+3. Multiple-dimension covariates, such as the realignment parameters, can be split into its individual components. Let's say that you wanted to just include the translation parameters, for example. First, highlight the ``realignment`` covariate, and then click again on ``covariate tools``, this time selecting ``Split multiple-dimension covariate into multiple individual-dimension covariates``. (Note: You may have to click another Setup button, and then re-select ``Covariates (1st-level)``, to see the changes take effect.)
+
+4. Create a new QA report with the following plots: 1) QA normalization: structural data + outline of MNI TPM template; 2) QA normalization: functional data + outline of MNI TPM template; and 3) QA artifacts: BOLD GS changes & subject motion timeseries with functional movie. Take screenshots of the QA normalization plots that you generated. (Hint: After you've created the report, these can be found by clicking on the ``Plots`` dropdown menu.)
+
+5. Create your own QA report, including one plot each for the results of normalization, registration, artifacts, and denoising. Show screenshots of each one that you generated. Why did you select these ones in particular? Which ones do you think would be the most helpful for QA reports of your own experiment, and why?
+
 Video
 *****
 
