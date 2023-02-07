@@ -81,9 +81,9 @@ So far, we have used the CONN toolbox to model one condition: The resting-state 
   
 We will first demonstrate this with a single subject, and then with a group analysis. Go back to the Setup tab, and click on "Basic". Set the number of subjects to "1", and the CONN toolbox will ask which subjects you want to delete. Hold down shift and click to select subjects 2-6, so that only subject 1 remains. Click on the "Functional" button, and select the file ``sub-01_func_sub-01_task-arithm_run-01_bold.nii.gz``. This will replace the resting-state scan with a task-related scan.
 
-Then, click on the "Conditions" tab. Clicking on the ``+`` sign when you hover over the Conditions column will allow you to specify a new regressor. In the "Condition name" field, type ``control_condition``, and click on the dropdown menu below "Condition interval" to select "specify blocks/events". This will generate two new fields, "Onset" and "Duration", which you can use to specify when the condition happened, and for how long. Looking at the .tsv file, we see that the onsets were 21.5, 63.5, 105.5, and so on, while the durations were 18.5 for each event. Type the onsets and the durations for each occurrence of the control condition, and then press enter. You can then do the same for the other condition, which we will call ``main_condition``.
+Then, click on the "Conditions" tab. Clicking on the ``New`` sign when you hover over the Conditions column will allow you to specify a new regressor. In the "Condition name" field, type ``control_condition``, and click on the dropdown menu below "Condition definition" to select "task designs: condition present at blocks/events during selected session(s)". This will generate two new fields, "Onset" and "Duration", which you can use to specify when the condition happened, and for how long. Looking at the .tsv file, we see that the onsets were 21.5, 63.5, 105.5, and so on, while the durations were 18.5 for each event. Type the onsets and the durations for each occurrence of the control condition, and then press enter. You can then do the same for the other condition, which we will call ``main_condition``.
 
-Doing this once can be a useful exercise, but you most likely will not want to do this for large numbers of subjects. A better alternative is to load the .tsv files through the CONN GUI automatically, which will fill in all of the fields for you. Highlight the conditions you just created and click the ``-`` sign to remove them, and then click on the ``- condition tools:`` dropdown menu and select ``import condition info from text file(s)``. Since this data is in `BIDS format <https://bids.neuroimaging.io/>`__, we can select the option ``BIDS-compatible``. (You can select either option for the single subject; when you have more sessions and more subjects, you will want to select the option "one *_events.tsv file in each subject/session folder.) When the onset files are loaded, you will see the following figure in the Study Design window:
+Doing this once can be a useful exercise, but you most likely will not want to do this for large numbers of subjects. A better alternative is to load the .tsv files through the CONN GUI automatically, which will fill in all of the fields for you. Highlight the conditions you just created and click the ``x`` sign to remove them, and then click on the ``- condition tools:`` dropdown menu and select ``import condition info from text file(s)``. Since this data is in `BIDS format <https://bids.neuroimaging.io/>`__, we can select the option ``BIDS-compatible``. (You can select either option for the single subject; when you have more sessions and more subjects, you will want to select the option "one *_events.tsv file in each subject/session folder.) When the onset files are loaded, you will see the following figure in the Study Design window:
 
 .. figure:: 11_StudyDesign.png
 
@@ -94,14 +94,15 @@ When you are finished importing the timing files, click ``OK``. Just as with the
 Viewing the Results
 *******************
 
-After you’ve done preprocessing, Setup, and Denoising, you will have access to the 1st-level tab. This is similar to what we did with the correlation analysis, but we will make the following changes: 
+After you’ve done preprocessing, Setup, and Denoising, you will have access to the 1st-level tab. The procedure is similar to what we did with the correlation analysis, but we will make the following changes: 
 
-1) Change the analysis type to task-modulation effects (gPPI), which will prompt you to select all of your task conditions of interest. Remember that we want to model the entire experimental space; in this case, we will select both and click OK. 
-
-2) The other change is to switch the analysis options from correlation to regression (bivariate). Notice that the values in the preview window are not correlation coefficients anymore; they are beta weights for the interaction term. For example, if we have the right Frontal Pole region highlighted and we switch to main_condition, the map shows which voxels are significantly more correlated with the right frontal pole during the main_condition.
-
+1) Click on the ``new`` button at the bottom of the Analyses panel on the left, and change the analysis type to gPPI (task-based generalized psychophysiological interactions), which will prompt you to select all of your task conditions of interest. Remember that we want to model the entire experimental space; in this case, we will select both and click OK. When it prompts you to "Save these changes to the CONN project?", select ``Now``.
 
 .. figure:: 11_SelectConditions.png
+
+2) The other change is to switch the analysis options from correlation to regression (bivariate). Notice that once you run the 1st-level analysis, the values in the preview window are not correlation coefficients anymore; they are beta weights for the interaction term. For example, if we have the right Frontal Pole region highlighted and we switch to main_condition, the map shows which voxels are significantly more correlated with the right frontal pole during the main_condition.
+
+.. figure:: 11_gPPI_SampleResult.png
 
 .. note::
 
