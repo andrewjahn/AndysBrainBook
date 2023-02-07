@@ -80,7 +80,7 @@ First-Level Analysis
 
 The First-Level Analysis tab will also be very similar to a volumetric analysis, except that this time the results are projected onto a cortical surface. To save time, we will remove all of the ``Selected Seeds/Sources`` except for the first three ROIs listed in the ``FS_Atlas`` that we specified in the ``Setup`` tab: the ``FS_Atlas.bankssts (L)``, ``FS_Atlas.caudalanteriorcingulate (L)``, and ``FS_Atlas.caudalmiddlefrontal (L)``. Keep all the other defaults the same, then click the ``Done`` button; once it is finished, you can return to this tab and see connectivity maps for each ROI that was specified.
 
-.. figure:: AppendixD_FirstLevel.png
+.. figure:: AppendixD_1stLevel.png
 
 Second-Level Analysis
 *********************
