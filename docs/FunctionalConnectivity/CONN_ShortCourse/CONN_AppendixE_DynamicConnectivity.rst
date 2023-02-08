@@ -29,6 +29,23 @@ These results can be found in the directory conn_project01/results/firstlevel/SB
 
 .. figure:: AppendixE_ViewingResultsAFNI.png
 
+The default sliding window parameters are intervals of 100 seconds for each window, separating each window by 25 seconds. For example, if you have a time-series that is 300 seconds long, the sliding window vector would look like:
+
+::
+
+  [0 25 50 75 100 125 150 175 200 225 250 275]
+  
+With the onset of each of these time-points having a 100 second long window following each of them, and an overlap of 75 seconds for each window. For our data, let's create a vector of onsets that will be 100 seconds long for each window, with 25 seconds of overlap:
+
+::
+
+  [0 75 150 225 300 375 450 525 600]
+  
+This will create 11 new regressors: one for each of the windows we specified, and a Temporal Average and Temporal Variability regressor. Click ``Done``, and also run Denoising as usual.
+
+When you arrive at the 1st-level Analysis tab,
+
+
 Dynamic ICA
 ***********
 
