@@ -86,6 +86,8 @@ Using the ttest Function
 
 One of the functions that comes with Matlab's library is called ``ttest``. This is a simple function for performing either a one-sample or paired-samples t-test, and will return the p-value and confidence interval. For example, let's create two vectors, ``Cond1_Betas`` and ``Cond2_Betas``. Imagine that these correspond to beta estimates we extracted from a region of interest for two separate conditions in a paired-samples design:
 
+::
+
   Cond1 = [0.44, 0.56, 0.31, 0.34, -0.21, 0.31, 0.7, 0.09];
   Cond2 = [0.21, 0.76, 0.03, 0.07, -0.13, -0.07, -0.03, 0.21];
   
