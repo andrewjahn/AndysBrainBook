@@ -55,4 +55,17 @@ Dynamic ICA
   
 Dynamic ICA is an extension of generalized psychophysiological interactions: Given a set of ROIs, this analysis will measure how the strength and the sign of the connectivity changes with a given component. The resting-state data is decomposed into several independent components, and dyn-ICA measure how their connectivity changes with each ROI-to-ROI pair.
 
-To run a dyn-ICA analysis, from the 1st-level Analysis tab, hover your mouse over the ``Analyses`` panel, and click on ``New`` at the bottom of the panel. Select ``dyn-ICA``, and click ``Done``. This will generate a new analysis in the ``Analyses`` panel called ``DYN_01``. You can specify the number of factors, or independent components, as well as the temporal smoothing kernel, in seconds. As with a seed-based or ROI-to-ROI connectivity analysis, you can select as many or as few seeds as you want; in this case, select only those seeds with a ``networks`` prefix, and unselect all of the rest. 
+To run a dyn-ICA analysis, from the 1st-level Analysis tab, hover your mouse over the ``Analyses`` panel, and click on ``New`` at the bottom of the panel. Select ``dyn-ICA``, and click ``Done``. This will generate a new analysis in the ``Analyses`` panel called ``DYN_01``. You can specify the number of factors, or independent components, as well as the temporal smoothing kernel, in seconds. As with a seed-based or ROI-to-ROI connectivity analysis, you can select as many or as few seeds as you want; in this case, select only those seeds with a ``networks`` prefix, and unselect all of the rest. Then click ``Done``.
+
+.. figure:: AppendixE_DynICA_Setup.png
+  
+In our current example, we used the default of 20 factors and a temporal modulation kernel of 30 seconds. This will run 20 separate analyses to extract that number of components, and then detect which ROIs exhibit similar variability in their time-series. When the analyses finish, you will see a Summary tab in Results (2nd-level), which displays an NxN correlation matrix for each component that was extracted. Some components may seem to be noisier and less interpretable, while others exhibit more structure. For example, Spatial Component #3 shows a high component score for the sensorimotor and visual ROIs, suggesting that these pairs of ROIs exhibit similar temporal variability over a temporal smoothing kernel of 30 seconds:
+
+.. figure:: AppendixE_DynICA_Summary.png
+
+The other two buttons in the lower left, ``Spatial components`` and ``Temporal components``; for now, click on ``Spatial components``, and you will see a results window similar to the earlier Seed-based connectivity analysis that you performed in previous chapters. For example, highlight ``Circuit_3``, and click ``display results``:
+
+.. figure:: AppendixE_DynICA_GroupAnalysis.png
+
+
+.. figure:: AppendixE_DynICA_DisplayResults.png
