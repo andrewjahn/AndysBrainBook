@@ -52,3 +52,7 @@ Dynamic ICA
 .. note::
 
   This section is still under construction.
+  
+Dynamic ICA is an extension of generalized psychophysiological interactions: Given a set of ROIs, this analysis will measure how the strength and the sign of the connectivity changes with a given component. The resting-state data is decomposed into several independent components, and dyn-ICA measure how their connectivity changes with each ROI-to-ROI pair.
+
+To run a dyn-ICA analysis, from the 1st-level Analysis tab, hover your mouse over the ``Analyses`` panel, and click on ``New`` at the bottom of the panel. Select ``dyn-ICA``, and click ``Done``. This will generate a new analysis in the ``Analyses`` panel called ``DYN_01``. You can specify the number of factors, or independent components, as well as the temporal smoothing kernel, in seconds. As with a seed-based or ROI-to-ROI connectivity analysis, you can select as many or as few seeds as you want; in this case, select only those seeds with a ``networks`` prefix, and unselect all of the rest. 
