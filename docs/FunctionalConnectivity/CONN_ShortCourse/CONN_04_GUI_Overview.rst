@@ -86,7 +86,7 @@ Whenever you load data into the CONN toolbox, and whenever you have generated an
 
 .. figure:: 04_Anatomical_Display.png
 
-  Clicking on the structural slices in the CONN GUI will open another display window that allows you to view the slices in three dimensions.
+  Clicking on the structural slices in the CONN GUI will open another display window that allows you to view the slices in three dimensions. Checking multiple boxes will create cross-sections from multiple angles; for exmaple, check the boxes next to ``View yz plane`` and ``View xy plane`` will create a combination of coronal and sagittal slices.
   
 
 The Functional Tab
@@ -94,7 +94,7 @@ The Functional Tab
 
 The Functional tab is similar to the structural tab - select the file ``sub-01_func_sub-01_task-rest_bold.nii``, and it will load the image's slices into the center window. The first volume in the time-series is displayed on the left, and the last volume in the time-series is displayed on the right; if there was any major movement or artifacts between the beginning and the end of the time-series, it would show up in this side-by-side comparison. If there was little or no motion and no artifacts, on the other hand, the two images should look virtually identical.
 
-As with the Structural tab, you can switch between viewing planes and flip between different slices of the functional data. There is a difference, however: Instead of opening up a new viewing window, clicking on the slices will open up a time-series plot, extracted from the voxel that you clicked on. Since these data haven't been preprocessed yet, you may notice trends in the direction of the time-series either upwards or downwards; these represent **scanner drift** artifacts which are corrected by filtering out linear and higher-order trends from the data.
+As with the Structural tab, you can switch between viewing planes and flip between different slices of the functional data; for example, click on the ``+`` icon to the upper-left of the functional images in order to display sagittal slices. There is a difference between the functional viewer and the anatomical viewer, however: Instead of opening up a new viewing window, clicking on the slices directly will open up a time-series plot, extracted from the voxel that you clicked on. Since these data haven't been preprocessed yet, you may notice trends in the direction of the time-series either upwards or downwards; these represent **scanner drift** artifacts which are corrected by filtering out linear and higher-order trends from the data.
 
 .. figure:: 04_Functional_Display.png
 
