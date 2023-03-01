@@ -135,3 +135,5 @@ Exercises
 *********
 
 1. Try running through each of the steps above for both seed-to-voxel and ROI-to-ROI analyses, but using a different seed. Use the terminal to locate the output from the new seed that you used.
+
+2. Navigate to the Analyses (1st-level) tab and create a new seed-to-voxel analysis, selecting the ROIs "atlas.AG r (Angular Gyrus Right)", "atlas.AC (Cingulate Gyrus, anterior division)", and "atlas.Amygdala l". Click "Done", and re-run the 2nd-level analyses. Display the results for each of these analyses, and take a screenshot of the results window.
