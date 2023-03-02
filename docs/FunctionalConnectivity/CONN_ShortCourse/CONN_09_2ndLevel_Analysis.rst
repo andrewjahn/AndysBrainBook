@@ -142,6 +142,13 @@ Video
 
 A video demonstration of group-level analysis in the CONN toolbox can be found `here <https://www.youtube.com/watch?v=cr1u7OZ4JGw&list=PLIQIswOrUH69DoNKYFnOc-UM_tZxwLuMX&index=8>`__.
 
+Exercises
+*********
+
+1. Create two new groups, Group C and Group D, which are composed of the following vectors: Group C [1 0 1 0 1 0]; Group D [0 1 0 1 0 1]. In the Results (2nd-level) tab, create a contrast of Group C > Group D, using the "atlas.FP r (Frontal Pole Right)" as a seed. Display the results, and then change the multiple comparisons settings to "Customize (advanced Family-Wise Error control settings". Change the "voxel threshold" to ``p<0.05``, and change the directional test from ``two-sided`` to ``positive contrast (one-sided)``. Take a screenshot of the results. (Hint: There should be two clusters that survive this correction threshold.)
+
+2. Run the same analysis as in Exercise #1, but include Age as a nuisance covariate. Compute the same contrast, display the results, and change the multiple comparisons correction as in Exercise #1. Take a screenshot of the results. How have the results changed?
+
 
 Next Steps
 **********
