@@ -11,7 +11,7 @@ The Decoding Toolbox
 
 Having generated beta maps for this subject - one per condition for each run - we are now ready to run a **multi-variate pattern analysis**, using the beta maps as both training and testing data. This is similar to what we did in the first tutorial with AFNI's ``3dsvm`` command, but we will be using a different package called **The Decoding Toolbox**.
 
-A software package that runs in Matlab, The Decoding Toolbox can be downloaded from its homepage, located `here <https://sites.google.com/site/tdtdecodingtoolbox/>`__. Scroll down the page and click on the link ``Click here to download TDT``. Unzip the file when it is finished downloading, and move it to your home directory. Then open a Matlab terminal, click on "Set Path" at the top of the ``Home`` tab, and then click on ``Add Folder``. Select the directory ``decoding_toolbox`` within the folder ``tdt_3.999``, then click ``Open`` and ``Save``.
+A software package that runs in Matlab, The Decoding Toolbox can be downloaded from its homepage, located `here <https://sites.google.com/site/tdtdecodingtoolbox/>`__. Scroll down the page and click on the link ``Click here to download TDT``. Unzip the file when it is finished downloading, and move it to your home directory. Then open a Matlab terminal, click on "Set Path" at the top of the ``Home`` tab, and then click on ``Add Folder with subfolders``. Select the directory ``decoding_toolbox`` within the folder ``tdt_3.999``, then click ``Open`` and ``Save``.
 
 .. figure:: 05_TDT_Path.png
 
