@@ -55,7 +55,7 @@ For now, leave the rest of the defaults as they are, noting on line 45 that the 
 
 .. note::
 
-  If you want to save disk space and overwrite the results each time you run the script, add the line ``cfg.results.overwrite = 1;`` anywhere in your script before the last line (i.e., ``results = decoding(cfg)``).
+  If you want to save disk space and overwrite the results each time you run the script, add the line ``cfg.results.overwrite = 1;`` anywhere in your script before the last line (i.e., ``results = decoding(cfg)``) I recommend doing this for the remainder of the tutorial.
 
 
 Running the Script and Viewing the Output
@@ -114,8 +114,8 @@ The same procedure can be done for the other runs; for example, run 2 can be vis
 And so forth.
 
 
-Creating Dissimilarity Matrices and Other Metrics
-*************************************************
+Creating Dissimilarity Matrices and Using Other Similarity Metrics
+******************************************************************
 
 We have now generated similarity matrices. Remember, however, that we are interested in *dis*similarity matrices; a measure of how far apart two categories are, which can be measured from an absolute zero point. To that end, we will need to subtract these correlation values from 1, which can be done with a simple edit to a previous line of code:
 
@@ -127,10 +127,93 @@ We have now generated similarity matrices. Remember, however, that we are intere
   
 .. figure:: 09_DissimilarityMatrix.png
 
+Note that the dissimilarity is relatively low for left and right button presses, which, given that we are looking at activity in the left motor cortex, should make sense. The highest dissimilarity is between left and right button presses, and the instruction cue for both color and direction.
+
+If we wanted to run statistics on these values, it would probably be easier to use transformed r-to-z values, which are more normally distributed. In fact, there are many other similarity metrics you can use, which can be found in the documentation for the function ``pattern_similarity.m``, located in The Decoding Toolbox libraries. The options have been reprinted below:
+
+::
+
+       - 'gmatrix' or 'gma': X'*Y, commonly used in pattern component
+           modeling, can be used to construct Euclidean distance
+       - 'cveuclidean2' or 'cve': will calculate the cross-validated
+           version of the squared Euclidean distance between X and Y
+       - 'euclidean' or 'euc':  Euclidean distance
+       - 'Pearson', 'pea' or 'cor': Pearson correlation similarity
+       - 'zcorr' or 'zco': Fisher-z-transformed correlation similarity
+       - 'Kendall' or 'ken': Kendall's tau rank correlation similarity
+       - 'Spearman' or 'spe': Spearman's rho rank correlation similarity
+       - 'covariance' or 'cov': Sample covariance (divides by n-1)
+       
+We have used ``Pearson`` in the example above; let's now change it to a z-transformed metric, by going back to our ``RSA_SampleScript.m`` and editing line 45:
+
+::
+
+  cfg.decoding.train.classification.model_parameters = 'zcorr';
+  
+Rerun the script, and use the same code above to plot the z-transformed values, which should generate something like this:
+
+.. figure:: 09_Run1_ZScores_LowerDiagonal.png
+
+These values can then be used to compute averages across runs, and then across subjects, and then between groups, as desired.
+
+
+Comparing Dissimilarity across ROIs
+***********************************
+
+So far, we have used the voxels within the left M1 for creating similarity matrices. To take this analysis a step further, we might be interested in comparing these dissimilarity matrices across ROIs. For example, how are the dissimilarity matrices different across the motor and visual cortices? We can use these differences to see how they provide evidence for or against certain computational models.
+
+Continuing with this example, let's add the visual cortex ROI to our analysis. We will edit line 27 of the RSA_SampleScript.m file to read:
+
+::
+
+  cfg.files.mask = {[pwd '/sub01_ROI/m1_left.img'], [pwd '/sub01_ROI/v1.img']};
+  
+Keep all the other parts of the script the same, and run it from the command line by typing ``RSA_SampleScript``. You will now have two sub-fields in the ``output`` field of the ``results`` structure; you can plot the Fisher-to-z transformed scores for the V1 ROI by typing:
+
+::
+
+  figure; heatmap(tril(1-results.other.output{2}(1:8,1:8)), 'Colormap', jet) ...
+  title('Correlations between conditions for run1, V1 ROI'); ...
+  xlabel('1=color instructions; 2=direction instructions; 3=up; 4=down; 5=red; 6=green; 7=left button press; 8=right button press')
+  
+.. figure:: 09_Run1_ZScores_LowerDiagonal_V1.png
+
+Note how the dissimilarity z-values between the conditions Red, Green, Up, and Down, are roughly similar to what they were in the motor cortex ROI. However, the dissimilarity of the Instruction cues with the other conditions, and of the button presses with the other conditions, are much higher. This could be because motor activity is represented very differently in the visual cortex than in the motor cortex, and because reading instructions elicits a different pattern of visual activity than simply viewing colored objects move up or down. How to interpret these differences is up to you.
+
+Averaging Across Runs
+*********************
+
+.. note::
+
+  The following section should be equivalent to changing line 54 of RSA_SampleScript.m to ``cfg.results.output = 'other_average';``; however, as of this time, it seems to give identical output to the code above.
+  
+To prepare the data for a group-level analysis, we will first need to average the similarity metrics across runs. In this case, since each run is an 8x8 matrix, we can extract the values with the following code:
+
+::
+
+  ColorInstructions_ColorInstructions = mean(diag(1-results.other.output{1}(1:8:end,1:8:end)))
+  ColorInstructions_DirectionInstructions = mean(diag(1-results.other.output{1}(2:8:end,1:8:end)))
+  ColorInstructions_Up = mean(diag(1-results.other.output{1}(3:8:end,1:8:end)))
+  ColorInstructions_Down = mean(diag(1-results.other.output{1}(4:8:end,1:8:end)))
+  ColorInstructions_Red = mean(diag(1-results.other.output{1}(5:8:end,1:8:end)))
+  ColorInstructions_Green = mean(diag(1-results.other.output{1}(6:8:end,1:8:end)))
+  ColorInstructions_LeftButtonPress = mean(diag(1-results.other.output{1}(7:8:end,1:8:end)))
+  ColorInstructions_RightButtonPress = mean(diag(1-results.other.output{1}(8:8:end,1:8:end)))
+  
+  DirectionInstructions_ColorInstructions = mean(diag(1-results.other.output{1}(1:8:end,2:8:end)))
+  DirectionInstructions_DirectionInstructions = mean(diag(1-results.other.output{1}(2:8:end,2:8:end)))
+  DirectionInstructions_Up = mean(diag(1-results.other.output{1}(3:8:end,2:8:end)))
+  DirectionInstructions_Down = mean(diag(1-results.other.output{1}(4:8:end,2:8:end)))
+  DirectionInstructions_Red = mean(diag(1-results.other.output{1}(5:8:end,2:8:end)))
+  DirectionInstructions_Green = mean(diag(1-results.other.output{1}(6:8:end,2:8:end)))
+  DirectionInstructions_LeftButtonPress = mean(diag(1-results.other.output{1}(7:8:end,2:8:end)))
+  DirectionInstructions_RightButtonPress = mean(diag(1-results.other.output{1}(8:8:end,2:8:end)))
+  
+And so on, for every other combination of conditions. These can then be concatenated together, and visualized as an 8x8 matrix. 
 
 Exercises
 *********
 
 1. When you compute a dissimilarity matrix by subtracting the correlation values from 1, you may see that some values are greater than 1. Why is this? What does this mean about the similarity of that condition to another condition?
 
-2. Run the same RSA analysis, this time with ``v1.img``. (Note that you can run multiple ROI analyses by using brace notation, e.g., cfg.files.mask = {[pwd '/sub01_ROI/m1_left.img'], [pwd '/sub01_ROI_v1.img']}.) How are the similarity matrices different? How are they similar? Why do you see these differences or similarities?
+2. Run the same RSA analysis, this time with ``v4_both.img``. (Remember that you can run multiple ROI analyses by using brace notation, e.g., cfg.files.mask = {[pwd '/sub01_ROI/m1_left.img'], [pwd '/sub01_ROI/v1.img'], [pwd '/sub01_ROI/v4_both.img']}.) How are the similarity matrices different? How are they similar? Why do you see these differences or similarities?
