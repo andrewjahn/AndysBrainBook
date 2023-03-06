@@ -83,7 +83,7 @@ To simplify the matrix, let's focus in on the first 8x8 matrix by typing:
   
 Which will return a figure like this:
 
-.. figure:: 09_Run1_Correlations.png
+.. figure:: 09_Run1_Correlation.png
 
 And if you want just the lower diagonal, you can type:
 
