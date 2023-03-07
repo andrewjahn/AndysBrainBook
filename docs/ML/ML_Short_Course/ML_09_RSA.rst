@@ -79,7 +79,7 @@ To simplify the matrix, let's focus in on the first 8x8 matrix by typing:
 
 ::
 
-  figure; heatmap(1-results.other.output{1}(1:8,1:8), 'Colormap', jet)
+  figure; heatmap(results.other.output{1}(1:8,1:8), 'Colormap', jet)
   
 Which will return a figure like this:
 
