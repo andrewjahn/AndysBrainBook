@@ -127,6 +127,16 @@ Video
 *****
 
 The video walkthroughs for this chapter are divided into two parts: To see how to do an ROI MVPA analysis, click `here <https://www.youtube.com/watch?v=R0R-1kCIBAI>`__. To see how to do a searchlight analysis, click `here <https://www.youtube.com/watch?v=CTxVHBh6OmI>`__.
+
+
+Exercises
+*********
+
+1. In the ``Haxby_MVPA_ROI`` script, remove the last four labels (i.e., lines 41-44), either by commenting them out or deleting them. (Hint: You will also need to modify line 85 in order for the script to run without errors.) What difference do you notice in the udpated ``results`` variable? Why do you think it has or has not changed? Show a screenshot of the edits you made, and a screenshot of the updated confusion matrix.
+
+2. Use SPM's Display command to In the ``Haxby_MVPA_Searchlight`` script, change the Searchlight radius to 6mm, and rerun the script. Show a screenshot of the code that you edited. Use SPM's Display command to show the resulting ``res_accuracy_minus_chance.nii`` image, again focusing your crosshairs on the ventral temporal cortex in coordinates [23, -30, -24]. Take another screenshot of the image. How does it compare to the previous searchlight that was used? Why do you think there is a difference?
+
+3. Look at other output of the command ``help decoding_transform_results`` for a list of possible outputs. Using the same searchlight parameters as in Exercise #2, create an output of both ``accuracy_minus_chance`` and ``accuracy`` using a single script. Show the code you used to make this change.
   
 Next Steps
 **********
