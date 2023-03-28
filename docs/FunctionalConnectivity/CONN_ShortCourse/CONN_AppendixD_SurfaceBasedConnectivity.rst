@@ -89,6 +89,10 @@ Once the first-level results are done, you can highlight any of the regions and 
 
 .. figure:: AppendixD_GroupResults.png
 
+.. note::
+
+  As of the current version used in these tutorials (21.a), it does not appear that both subcortical and surface-based cortical parcellations can be combined in the same analysis; see `this thread <https://www.nitrc.org/forum/message.php?msg_id=10281>`__ for more details.
+
 Video
 *****
 
