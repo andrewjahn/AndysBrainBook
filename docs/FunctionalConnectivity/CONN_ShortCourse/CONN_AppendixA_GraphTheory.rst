@@ -106,7 +106,22 @@ Here is a brief summary of what some of the measures mean. A fuller treatment of
 
 1. **Degree**: Simply the number nodes that the current node is connected to, i.e. its number of edges.
 2. **Cost**: Proportion of edges for the current node.
-3. **Average path length**: Average shortest-path distance between the node and all other nodes.
-4. **Clustering Coefficient**: Proportion of connected nodes across all neighboring nodes.
+3. **Clustering Coefficient**: Proportion of connected nodes across all neighboring nodes.
+4. **Global Efficiency**: Inverse of the average distance matrix.
+5. **Average path length**: Average shortest-path distance between the node and all other nodes.
 
-Which one you use is up to you.
+
+Which one you use is up to you. Let's take a look at two of the most popular graph metrics, clusting coefficient and global efficiency, and see how they would apply to our data.
+
+Clustering Coefficient
+&&&&&&&&&&&&&&&&&&&&&&
+
+One measurement of local connectivity is a node's **clustering coefficient**, or the proportion of connected nodes across all neighboring nodes. If a node's neighbors are highly connected, then the clustering coefficient is high as well; if there is a low proportion of connections between its neighbors relative to all possible connections among the neighbors, the clustering coefficient is low.
+
+To illustrate this, let's represent as a network friendship among individuals. In the figure below, each of the edges represents a friendship between two individuals, represented by nodes. (In this case, friendship is binary: Either you are friends with someone, or you are not.) Jenny is friends with three people in this graph: Amily, Tom, and Dan. There could be three possible friendships among her neighbors: Dan with Amily, Amily with Tom, and Tom with Dan. However, only one of those pairs are friends - Tom and Dan. Since there is only one friendship out of a possible three friendships total, the clustering coefficient for Jenny is 1/3, or 0.33. 
+
+.. figure:: AppendixA_Friends_ClusteringCoefficient.png
+
+Tom, on the other hand, is friends with two people: Jenny and Dan. Consequently, there is only one possible friendship among his neighbors, and they do indeed happen to be friends. Tom's clustering coefficient is therefore 1/1, or 1.
+
+Lastly, let's focus on Dan. He is friends with four other people: Jenny, Tom, Kevin, and Nancy. There are six possible friendships among his friends, but only one pair are friends (Tom and Jenny). His clustering cofficient is 1/6, or 0.1667.
