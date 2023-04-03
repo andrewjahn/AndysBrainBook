@@ -7,7 +7,7 @@ Chapter #11: Task-Related Connectivity and gPPI
 ------------------
 
 Overview
-*********
+********
 
 Until now, we have analyzed **resting-state** data, in which the subject does nothing except remain still and awake. However, it is also common for studies to collect task-related data as well, in which the subject does some kind of activity; such as doing the :ref:`Flanker Task <fMRI_02_ExperimentalDesign>`, for example. In this chapter we will cover how to analyze task-related data by using a technique called **Psychophysiological Interactions (PPI)**, which reveals whether the functional connectivity between two nodes depends on what task the subject is currently doing.
 
@@ -111,6 +111,22 @@ After you’ve done preprocessing, Setup, and Denoising, you will have access to
 For the next step, click on the Done button. This will run a gPPI using all of the seed regions that are in the lefthand menu. If you have an hypothesis about one or two regions, you would only select those, and remove everything else. In this case, let’s just leave in the left and right frontal pole, and then click Done. This will take about a minute to run.
 
 The second-level tab will be the same as what we saw in the video about viewing results. This study wasn’t designed for a gPPI analysis, and PPI effects are notoriously difficult to find in any case; so it isn’t surprising that we don’t see anything here. Nevertheless, if you did find an effect, you would need to follow the same steps of correcting for type 1 errors.
+
+
+Generalized Functional Connectivity
+***********************************
+
+Including task regressors also creates the possibility of doing **Generalized Functional Connectivity**, a method of generating resting-state functional connectivity maps from task-based datasets. This method, developed by `Elliott et al. (2019) <https://www.sciencedirect.com/science/article/pii/S1053811919300746>`__, regresses out any effects of task and other nuisance covariates (for example, the usual ones of motion and physiological regressors), and creates functional connectivity maps of the remaining variance. According to Elliott et al., connectivity maps generated this way can lead to test-retest reliability that is comparable to functional data that was collected solely for resting-state, without any task conditions.
+
+Furthermore, this method can theoretically increase your power by allowing you to combine both resting-state runs and data from task-based runs. Taking one resting-state and one task-based dataset from our current example, you should first preprocess them both separately (using the "Session" selector in the Preprocessing window if needed). After preprocessing, click on the ``Conditions`` button, and load any task regressors for the task-based run. Both runs should contain a regressor called "rest", as seen below:
+
+.. figure:: 11_GeneralizedFC_Conditions.png
+
+Do the denoising as usual, and then when you get the 1st-level tab and analyze the ROIs you are interested in, you should see something like this, which seems to be an average of the "rest" regressor over both sessions:
+
+.. figure:: 11_GeneralizedFC_Results.png
+
+The only issue that can come up is if the TRs for the resting-state and task-based data are different; in that case, see `this thread <https://www.nitrc.org/forum/message.php?msg_id=15230>`__ for potential ways to address that problem.
 
 
 Next Steps
