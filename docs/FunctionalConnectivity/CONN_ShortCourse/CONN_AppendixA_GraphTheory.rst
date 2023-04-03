@@ -122,6 +122,41 @@ To illustrate this, let's represent as a network friendship among individuals. I
 
 .. figure:: AppendixA_Friends_ClusteringCoefficient.png
 
+  Figure from docs.TigerGraph.com
+
 Tom, on the other hand, is friends with two people: Jenny and Dan. Consequently, there is only one possible friendship among his neighbors, and they do indeed happen to be friends. Tom's clustering coefficient is therefore 1/1, or 1.
 
 Lastly, let's focus on Dan. He is friends with four other people: Jenny, Tom, Kevin, and Nancy. There are six possible friendships among his friends, but only one pair are friends (Tom and Jenny). His clustering cofficient is 1/6, or 0.1667.
+
+We can apply this to our current dataset by going to the 2nd-level tab for our group-level analysis, and highlighting ``AllSubjects`` under ``Subject Effects``. Select ``SBC_01 (ROI-to_ROI)`` from the drop-down menu (click on ``SBC_01 (Seed-to-Voxel)`` to show the options), and then click on ``graph-theory results`` in the right window pane. You should see something like this:
+
+.. figure:: AppendixA_NetworkTheory_Results.png
+
+The defaults will be to use all of the ROIs you selected in the 1st-level tab, and to use a cost threshold of 0.15 to intially threshold the edges between the nodes. The second row of options specify the graph theory metric, and will compute the significance relative to a randomly generated graph with an equal number of nodes.
+
+Let's make our graph slightly different by changing the initial threshold from cost to correlation coefficient, and change the analysis measure from Global Efficiency to Clustering Coefficient:
+
+.. figure:: AppendixA_NetworkTheory_ClusteringCoefficient.png
+
+If we look at individual ROIs, each node's clustering coefficient is located under the ``beta`` column in the results window. For example, if we highlight the ROI ``DefaultMode.LP r``, the clustering coefficient is 0.94, meaning that 94% of this node's neighbors have connections with each other. The beta next to the ``network`` ROI is the average clustering coefficient for all of the ROIs; you can see this yourself by adding up all fo the betas for the individual ROIs, and then dividing them by 11.
+
+
+Global Efficiency
+&&&&&&&&&&&&&&&&&
+
+Another popular graph metric is Global Efficiency, technically defined as the inverse of the average distance matrix. If we assume that each edge is binary (i.e., either it passes a given correlation coefficient threshold or it does not), then the distance between two nodes can be measured by the number of edges you need to get from one node to the other. Using our example above with the friend graph, Tom would need to "go through" Dan and Nancy in order to get to Jack; therefore, the distance between them is 3.
+
+Turning to our connectivity data, we can change the Analysis measure back to Global Efficiency. In this example, the beta next to the network ROI is the global efficiency for the entire set of nodes; the average inverse of the distance matrix for this entire set of nodes, is 0.63, indicating that it is relatively quick to get from one node to the other in this graph. As with some other graph theory metrics, this is a measurement that needs to be seen in context relative to global efficiencies calculated from other studies.
+
+.. figure:: AppendixA_NetworkTheory_GlobalEfficiency.png
+
+Global efficiency is calculated for the individual nodes as well; the interpretation of individual global efficiencies is more complicated, but it is explained clearly by Alfonso in `this thread <https://www.nitrc.org/forum/message.php?msg_id=6695>`__, which I have also reprinted below:
+
+.. note::
+
+  The statistical test comparing the global efficiency of the entire network across your two subject groups is reported in the top-right list (in the row labeled as 'network'); in addition, the global efficiency of the entire network can be represented as the average of the global efficiency of each node of the network (global efficiency of a node in a graph is defined as the average inverse shortest-path distance from this node to all other nodes in the graph). So yes, in addition to comparing between groups the global efficiency of the 'whole-brain' network, you can also compare between groups the global efficiency of individual nodes (ROIs) within this network (this is sometimes thought of as a measure of centrality or relative importance of a given node within a graph); the rest of the result rows shown in the top-right list correspond to the statistical test on the global efficiency measure for each of the nodes/ROIs (only shown those nodes that survive the chosen false positive threshold; the labels of these nodes are displayed in the bottom-right list). In your example attached it would seem that the increased global efficiency (of the entire brain network) in groupA (from the positive beta value and significant p-value in the 'network' row) could be perhaps attributed to an increased efficiency/centrality within the network of the particular ROIs shown in the results display (from their positive beta values and significant FDR-corrected p-values in the corresponding rows for each ROI).
+  
+Conclusion
+**********
+
+We have examined only a couple of different metrics, but I encourage you to study the others in more detail. The fundamentals covered here should give you the means to calculate and visualize any metric you want, and to make an educated interpretation.
