@@ -4,10 +4,6 @@
 Introduction to MRtrix
 ======================
 
-.. note::
-
-   Update 12.09.2020: All chapters completed except for group-level analysis and fixel analysis; these last parts should be done in January 2021.
-
 .. figure:: 
 
    Example_MRtrix_Output.png
@@ -47,3 +43,5 @@ This course will teach you the basics of diffusion - how it is collected, and ho
    MRtrix_Course/MRtrix_07_Streamlines
    MRtrix_Course/MRtrix_08_Connectome
    MRtrix_Course/MRtrix_09_Scripting
+   MRtrix_Course/MRtrix_10_GroupAnalysis
+   MRtrix_Course/MRtrix_11_FixelBasedAnalysis
