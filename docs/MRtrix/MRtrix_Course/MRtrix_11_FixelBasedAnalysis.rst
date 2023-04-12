@@ -119,7 +119,7 @@ You can either adapt the commands from the MRtrix tutorial to you data structure
     mrconvert -force tmp_mask.nii.gz dwi_mask_upsampled.mif
     rm tmp*
     
-  Make sure to check the mask as we did in the previous tutorials of this walkthrough, to ensure that there are no holes in the mask. You may have to change the value after the -f option to generate a good whole-brain mask that covers all of the voxels of the brain.
+  Make sure to check the mask as we did in the previous tutorials of this walkthrough, to ensure that there are no holes in the mask. You may have to change the value after the -f option to generate a good whole-brain mask that covers all of the voxels of the brain. Using this approach may resolve any "balance factor" errors with ``mtnormalise``, especially if one or more of the tissue types is empty.
 
 Creating The GLM
 ****************
