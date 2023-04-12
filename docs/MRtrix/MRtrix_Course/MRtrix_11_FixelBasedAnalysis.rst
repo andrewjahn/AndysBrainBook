@@ -108,7 +108,18 @@ You can either adapt the commands from the MRtrix tutorial to you data structure
   fixelfilter log_fc smooth log_fc_smooth -matrix matrix/
   fixelfilter fdc smooth fdc_smooth -matrix matrix/
 
+.. note::
+
+  Sometimes the command ``dwi2mask`` may fail to cover the entire brain, especially pockets of cerebrospinal fluid. In that case, you can replace the ``dwi2mask`` command with FSL's ``bet2`` command, which will require converting the mask to NIFTI format and then back to .mif format:
   
+  ::
+  
+    mrconvert -force dwi_denoised_unringed_preproc_upsampled.mif tmp.nii
+    bet2 tmp.nii tmp -m -f 0.2
+    mrconvert -force tmp_mask.nii.gz dwi_mask_upsampled.mif
+    rm tmp*
+    
+  Make sure to check the mask as we did in the previous tutorials of this walkthrough, to ensure that there are no holes in the mask. You may have to change the value after the -f option to generate a good whole-brain mask that covers all of the voxels of the brain.
 
 Creating The GLM
 ****************
