@@ -164,10 +164,10 @@ To that end, you could use a command such as FSL's ``bet2``. For example, you co
 ::
   
   mrconvert sub-02_den_preproc_unbiased.mif sub-02_unbiased.nii
-  bet2 sub-02_unbiased.nii sub-02_masked.nii -m -f 0.7
-  mrconvert sub-02_masked.nii mask.nii
+  bet2 sub-02_unbiased.nii sub-02_masked -m -f 0.7
+  mrconvert sub-02_masked_mask.nii.gz mask.mif
   
-You may have to experiment with the fractional intensity threshold (specified by ``-f``) in order to generate a mask that you are satisfied with.
+You may have to experiment with the fractional intensity threshold (specified by ``-f``) in order to generate a mask that you are satisfied with. In my experience, this can vary between 0.2 and 0.7 for most brains in order to generate an adequate mask.
   
 Video
 *****
