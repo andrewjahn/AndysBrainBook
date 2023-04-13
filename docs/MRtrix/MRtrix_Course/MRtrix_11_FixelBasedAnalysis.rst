@@ -163,3 +163,41 @@ You can also load the file ``fwe_1mpvalue.mif``, which will show a 1-p map of si
 Fixel-Based Analysis on the Supercomputing Cluster
 **************************************************
 
+For larger numbers of subjects - such as the entire BTC_Preop dataset - we can use a supercomputing cluster to save both time and storage space on our local machines. In this example, I am using my account on Great Lakes, and I will be using my space on the ``turbo`` folder. First, we will download the dataset using the ``aws`` command:
+
+::
+
+  aws s3 sync --no-sign-request s3://openneuro.org/ds001226 ds001226-download/
+  
+We will also create a template batch script, which has the following SBATCH setup lines:
+
+::
+
+  #!/bin/bash
+  
+  #SBATCH --job-name=FBA_Template_changeme
+  #SBATCH --time=24:00:00
+  
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+  
+  #SBATCH --account=ajahn0
+  #SBATCH --partition=standard
+  
+  #SBATCH --mail-type=NONE
+  
+Many of these parameters are covered in more detail in Bennet Fauber's Supercomputing Tutorial, which can be found `here <https://justbennet.github.io/umich-cluster-neuroimaging/>`__. For now, note that we are using the ``standard`` partition, we are allocating 24 hours for this script to run, and that we will use 8gb per job that we submit. (Using too little memory can lead to errors during commands such as ``dwi2mask``.) The ``--account`` field will need to be changed to your account when you run the script.
+
+The next set of code will load the modules needed for MRtrix, as well as a line of code that will be change in a for-loop:
+
+::
+
+  module load mrtrix fsl
+  my_job_header
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/changeme
+  
+
+  
+The last string, ``changeme``, will be 
