@@ -112,6 +112,10 @@ You can either adapt the commands from the MRtrix tutorial to you data structure
 
   Sometimes the command ``dwi2mask`` may fail to cover the entire brain, especially pockets of cerebrospinal fluid. In that case, you can replace the ``dwi2mask`` command with FSL's ``bet2`` command, which will require converting the mask to NIFTI format and then back to .mif format:
   
+.. note::
+
+  On Macintosh operating systems, the command ``ln -sr`` may not work (it should work on most Linux systems). In that case, copy the ``wmfod*.mif`` files into the ``template/fod_input`` folder, and copy the files ``dwi_mask_upsampled*.mif`` into the ``template/mask_input`` folder. You may have to give each of the files a unique subject ID.
+  
   ::
   
     mrconvert -force dwi_denoised_unringed_preproc_upsampled.mif tmp.nii
@@ -154,3 +158,8 @@ By default, there will be a colorscale bar in the viewing panel showing the mini
 .. figure:: 11_FDC_Directions.png
 
 You can also load the file ``fwe_1mpvalue.mif``, which will show a 1-p map of significant fixels, which can be thresholded at 0.95 to show only those fixels that pass a significance threshold of p=0.05. Given that we only have three subjects, it's unlikely that we have any significant fixels, and they wouldn't mean much for a simple effects analysis in any case. To look at contrasts between groups, on the other hand, we will analyze the entire dataset on a computing cluster, such as the University of Michigan's Great Lakes supercomputer.
+
+
+Fixel-Based Analysis on the Supercomputing Cluster
+**************************************************
+
