@@ -56,7 +56,7 @@ To slice-time correct this data, type:
 
 ::
 
-      3dTshift -tzero 0 -quintic -prefix sub-01_run-01_STC.nii sub-01_task-efs_run-01_bold.nii.gz
+  3dTshift -tzero 0 -quintic -prefix sub-01_run-01_STC.nii sub-01_task-efs_run-01_bold.nii.gz
 
 Next, we bandpass the data using 3dBandPass:
 
@@ -69,6 +69,11 @@ And then smooth the data with a 0.5mm kernel:
 ::
 
   3dmerge -1blur_fwhm 0.5 -doall -prefix sub-01_run-01_STC_BP_Smoothed.nii sub-01_run-01_STC_BP.nii
+  
+  
+.. note::
+
+  On my machine, 3dBandpass appears to generate noisy output, regardless of the parameters used. For the rest of this tutorial, we will skip bandpassing by typing ``3dmerge -1blur_fwhm 0.5 -doall -prefix sub-01_run-01_STC_Smoothed.nii sub-01_run-01_STC.nii``.
 
 First-Level Analysis
 ********************
@@ -82,4 +87,33 @@ Looking within the task-efs_events.tsv file, we find that the onsets were:
   150     30
   240     30
   
-This is the same for all of the subjects in the study, except for subject sub-07 (see note on the OpenNeuro repository). 
+This is the same for all of the subjects in the study, except for subject sub-07 (see note on the OpenNeuro repository). Accordingly, we can make an onset times file called ``Timings.txt``, which contains this line of code:
+
+::
+
+  60 150 240
+  
+Additional lines identical to the one above can be added for however many runs you are analyzing from this particular rat. However, since electrical forepaw stimulation should elicit a strong BOLD response, we should see a significant effect in just one run.
+
+Once we have the timing file, we can insert it into a ``3dDeconvolve`` command, such as the one below:
+
+
+::
+
+  3dDeconvolve -input sub-01_run-01_STC_Smoothed.nii \
+        -polort 3 \
+        -num_stimts 1 \
+        -stim_times 1 Timings.txt  'BLOCK(30,1)' \
+        -stim_label 1 EFS \
+        -gltsym 'SYM: EFS' \
+        -glt_label 1 EFS \
+        -tout -x1D X.xmat.1D -xjpeg X.jpg \
+        -bucket stats.sub-01.nii
+        
+This will apply a 3rd-order polynomial (recommended for runs of 300s or more, which applies to this run), and convolves a 30-second boxcar basis function with each onset time specified in the Timings.txt file. The lines of code beginning with ``stim`` and ``glt`` specify the label for the output statistic dataset, and any contrasts. In this case, since there is only one condition, we are just doing a simple effect of electrical forepaw stimulation. Since the right forepaw was stimulated, the result should localize to the left somatosensory cortex. Once we run ``3dDeconvolve`` and generate the dataset ``stats.sub-01.nii``, we can load it into the AFNI viewer and overlay it on the T2-weighted anatomical image:
+
+.. figure:: AppendixB_EFS_Result.png
+
+  Single-rat results for a simple effect of electrical forepaw stimulation, thresholded at p=0.001, cluster threshold of k=40 voxels. Note that on these images, left is located on the left side of the panel, and the top of the brain is at the bottom of the image. We will later see how to reorient these images so that they match better with the figures reported in Sirmpilatze et al., 2019.
+  
+
