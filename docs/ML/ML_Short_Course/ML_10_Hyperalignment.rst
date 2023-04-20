@@ -26,3 +26,35 @@ There is an `excellent introduction to Hyperalignment <https://github.com/jwpark
 The `Neuroimaging and Data Science <https://neuroimaging-data-science.org/root.html>`__ tutorial by Tal Yarkoni and Ariel Rokem is a good place to start not only for hyperalignment, but also to learn how to use Python for Neuroimaging analysis.
 
 `Luke Chang's lab <https://naturalistic-data.org/content/Functional_Alignment.html>`__ at Dartmouth has a tutorial about how to use hyperalignment to analyze a dataset in which subjects watched a TV show.
+
+
+Analyzing Data with Hyperalignment
+**********************************
+
+To illustrate how to perform hyperalignment, we will use the Sherlock dataset, which is available `here <https://openneuro.org/datasets/ds001132/versions/1.0.0>`__ on OpenNeuro. The rest of this tutorial will closely follow the steps outlined in the Luke Change walkthrough listed above; he deserves the credit for explaining how to do the analysis. What follows is mostly my paraphrasing of his work; my goal is to try and explain it in my own words, and to use this as a teaching tool for my own purposes. Also note that you can either start with the raw data hosted on OpenNeuro (about 16 gigabytes), or use the fully preprocessed data listed on Luke Chang's website. For the rest of this tutorial, we will use the fully preprocessed data.
+
+To begin, we will download parts of the dataset using `DataLad <https://www.datalad.org/>`__, a command for downloading datasets. It is similar to commands such as ``wget`` and ``curl``, but allows for more sophisticated downloads.
+
+For example, the fully preprocessed Sherlock dataset as a whole is over a hundred gigabytes; if we don't have enough space on our local machine to analyze it, we can instead download just a few subjects using DataLad. For Macintosh Operating Systems, I recommend acquiring DataLad with `HomeBrew <https://brew.sh/>`__. Once DataLad is installed, you can begin downloading the Sherlock dataset by typing:
+
+::
+
+  datalad install https://gin.g-node.org/ljchang/Sherlock
+
+You can see how large the entire dataset would be by navigating into the Sherlock folder and typing:
+
+::
+
+  datalad status --annex
+  
+Which returns a total size of 109.0 gigabytes. If we want to download individual files, we can navigate to the ``stimuli`` directory, for example, and type:
+
+::
+
+    datalad get *
+    
+Which will download all of the files in that directory. Do the same for the files in the ``onsets`` directory, and then navigate into the ``fmriprep`` directory. This contains the fully preprocessed data analyzed with fMRIPrep. Let's say that we just want to download the first three subjects; we can do so by using ``datalad`` in a for-loop:
+
+::
+
+  for i in 
