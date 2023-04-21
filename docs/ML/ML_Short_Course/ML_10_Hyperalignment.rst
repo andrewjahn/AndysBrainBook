@@ -53,8 +53,31 @@ Which returns a total size of 109.0 gigabytes. If we want to download individual
 
     datalad get *
     
-Which will download all of the files in that directory. Do the same for the files in the ``onsets`` directory, and then navigate into the ``fmriprep`` directory. This contains the fully preprocessed data analyzed with fMRIPrep. Let's say that we just want to download the first three subjects; we can do so by using ``datalad`` in a for-loop:
+Which will download all of the files in that directory. Do the same for the files in the ``onsets`` directory, and then navigate into the ``fmriprep`` directory. This contains the fully preprocessed data analyzed with fMRIPrep. Let's say that we just want to download the first four subjects; we can do so by typing:
 
 ::
 
-  for i in 
+  datalad get sub-01 sub-02 sub-03 sub-04
+  
+Depending on your connection speed, this can take several hours.
+
+
+Setting Up Your Conda Environment
+*********************************
+
+Conda is a **virtual environment** which can install packages into a partition separate from the rest of your computer. For example, within this environment we can install a version of Python that is different from the default one installed on your machine; this way, we can avoid any version issues and any configuration problems that might arise if all of these different software packages were installed on the same machine.
+
+We will use conda to create a virtual environment for the rest of the analyses in this tutorial. First, download `anaconda` (a more complete suite of options for using conda commands) `here <https://www.anaconda.com/download/>`__. When you have finished downloading it, open a terminal and type ``conda init bash``. Then, create a new virtual environment by typing:
+
+::
+
+   conda create -n naturalistic python=3.7 anaconda
+   
+   
+.. note::
+
+  If you receive an error saying ``PackagesNotFoundError: The following packages are not available from current channels: - python=3.7``, that could be due to python version 3.7 not being available by default on newer Apple models, as of this writing circa 2021-2023. See `this thread https://stackoverflow.com/questions/70205633/cannot-install-python-3-7-on-osx-arm64>`__ for an explanation of how to get around this error. In that case, you can use a more recent version of python, such as 3.9:
+  
+  ::
+  
+    conda create -n naturalistic python=3.9 anaconda
