@@ -190,7 +190,7 @@ We will also create a template batch script, which has the following SBATCH setu
   
 Many of these parameters are covered in more detail in Bennet Fauber's Supercomputing Tutorial, which can be found `here <https://justbennet.github.io/umich-cluster-neuroimaging/>`__. For now, note that we are using the ``standard`` partition, we are allocating 24 hours for this script to run, and that we will use 8gb per job that we submit. (Using too little memory can lead to errors during commands such as ``dwi2mask``.) The ``--account`` field will need to be changed to your account when you run the script.
 
-The next set of code will load the modules needed for MRtrix, as well as a line of code that will be change in a for-loop:
+The next few lines of code will load the modules needed for MRtrix, as well as a line of code that will be change in a for-loop:
 
 ::
 
@@ -199,5 +199,58 @@ The next set of code will load the modules needed for MRtrix, as well as a line 
   cd /nfs/turbo/lsa-ajahn/BTC_Preop/changeme
   
 
+The last string, ``changeme``, will be replaced by a ``sed`` command. For example, we can create another auxiliary script, ``submitPreprocJobs.sh``, which contains the following code:
+
+::
+
+  #!/bin/bash
   
-The last string, ``changeme``, will be 
+  for i in `cat subjList.txt`; do sed "s|changeme|${i}|g" runDWIPreproc.sbat > tmp_${i}.sbat; done
+  for i in `cat subjList.txt`; do sbatch tmp_${i}.sbat; done
+  
+Where ``subjList.txt`` is a list of all of the subject folders used in this experiment; you can create it by typing ``ls | grep ^sub- > subjList.txt``.
+
+Returning to our preprocessing script, the complete file should look something like this:
+
+::
+
+  #!/bin/bash
+  
+  #SBATCH --job-name=FBA_Template_changeme
+  #SBATCH --time=24:00:00
+  
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+  
+  #SBATCH --account=ajahn0
+  #SBATCH --partition=standard
+  
+  #SBATCH --mail-type=NONE
+  
+  #----------------------
+  # Load modules
+  module load mrtrix fsl cuda/10.2.89
+  
+  #----------------------
+  # Print diagnostic informatino to the job output file
+  my_job_header
+  
+  #----------------------
+  # Commands to run during job
+  
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/changeme
+  dwidenoise -force dwi.mif dwi_denoised.mif
+  mrdegibbs -force dwi_denoised.mif dwi_denoised_unringed.mif -axes 0,1
+  dwifslpreproc -force dwi_denoised_unringed.mif dwi_denoised_unringed_preproc.mif -rpe_none -pe_dir AP
+  dwi2response -force dhollander dwi_denoised_unringed_preproc.mif response_wm.txt response_gm.txt response_csf.txt
+  mrgrid -force dwi_denoised_unringed_preproc.mif regrid -vox 1.25 dwi_denoised_unringed_preproc_upsampled.mif
+  mrconvert -force dwi_denoised_unringed_preproc_upsampled.mif tmp.nii
+  bet2 tmp.nii tmp -m -f 0.2
+  mrconvert -force tmp_mask.nii.gz dwi_mask_upsampled.mif
+  dwi2mask -force dwi_denoised_unringed_preproc_upsampled.mif dwi_mask_upsampled.mif
+  dwi2fod -force msmt_csd dwi_denoised_unringed_preproc_upsampled.mif ../group_average_response_wm.txt wmfod.mif ../group_average_response_gm.txt gm.mif ../group_average_response_csf.txt csf.mif -mask dwi_mask_upsampled.mif
+  mtnormalise -force wmfod.mif wmfod_norm.mif csf.mif csf_norm.mif -mask dwi_mask_upsampled.mif
+
+Save this file as ``runDWIPreproc.sbat``. Then, create all of the individual ``.sbat`` files and submit them by typing ``bash submitPreprocJobs.sh``.
