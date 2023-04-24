@@ -81,3 +81,32 @@ We will use conda to create a virtual environment for the rest of the analyses i
   ::
   
     conda create -n naturalistic python=3.9 anaconda
+    
+  Also, you may have to use the ``sudo`` command if you run into any errors regarding root privileges.
+
+Once you have created the environment, you will have to **activate** it by typing ``conda activate naturalistic``. Your shell will be updated with the word ``(naturalistic)`` preprended to it, indicating that you are now in the naturalistic Python environment that you created earlier.
+
+Although the Python environment comes with several neuroimaging and statistical learning packages installed, we will have to install a few other ones manually. This is most easily done with ``pip``, Python's package manager. We will have to install the packages **nilearn**, **nltools**, and **datalad** to run the rest of the tutorial:
+
+::
+
+  pip install nibabel datalad nilearn nltools hypertools timecorr pliers statesegmentation networkx nltk requests urllib3
+  
+  
+Using Jupyter Notebooks
+***********************
+  
+When these packages have finished downloading, you could open a python shell by typing ``python``, and running the rest of this tutorial's commands in that shell. However, the Python shell can be unwieldy; a more flexible and cleaner interface can be found with `Jupyter Notebooks <https://jupyter.org/>`__. These are interactive environments that can be run in a web browser, and easily shared between groups. We can also load all of the currently installed packages in our environment into a new Notebook by typing:
+
+::
+
+  conda install -c anaconda ipykernel
+  python -m ipykernel install --user --name=naturalistic
+  
+If you then type ``jupyter notebook`` from the command line, it will open a new notebook in your web browser, which will look something like this:
+
+.. figure:: 10_Jupyter_Notebook.png
+
+
+Click on the ``New`` dropdown menu, and select ``naturalistic`` as the environment. This will load all of the packages you specified above, and allow you to begin a hyperalignment analysis of the data. All of the following lines of code can be copied and pasted into the Notebook, and then executed by holding ``Shift`` and pressing ``Enter``.
+
