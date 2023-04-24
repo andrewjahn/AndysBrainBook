@@ -254,3 +254,8 @@ Returning to our preprocessing script, the complete file should look something l
   mtnormalise -force wmfod.mif wmfod_norm.mif csf.mif csf_norm.mif -mask dwi_mask_upsampled.mif
 
 Save this file as ``runDWIPreproc.sbat``. Then, create all of the individual ``.sbat`` files and submit them by typing ``bash submitPreprocJobs.sh``.
+
+
+.. note::
+
+  At this point, you should use ``mrview`` to check the results of these preprocessing steps. ``mrview`` does not work on the University of Michigan's Great Lakes computing cluster, so you will either need to download the data to your local machine that has ``mrview``, or instead you can **mount** Turbo directly onto your local machine. This allows you to look at the data without having to download it. To moutn Turbo, follow the instrucions located `here <https://arc.umich.edu/document/mounting-your-turbo-volume/>`__. In my case, I opened a new Finder window on my Macintosh machine, and in the server address field I typed ``smb://lsa-ajahn-win.turbo.storage.umich.edu/lsa-ajahn``, which created a new directory on my local machine called ``/Volumes/lsa-ajahn``. 
