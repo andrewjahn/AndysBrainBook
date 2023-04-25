@@ -259,3 +259,102 @@ Save this file as ``runDWIPreproc.sbat``. Then, create all of the individual ``.
 .. note::
 
   At this point, you should use ``mrview`` to check the results of these preprocessing steps. ``mrview`` does not work on the University of Michigan's Great Lakes computing cluster, so you will either need to download the data to your local machine that has ``mrview``, or instead you can **mount** Turbo directly onto your local machine. This allows you to look at the data without having to download it. To moutn Turbo, follow the instrucions located `here <https://arc.umich.edu/document/mounting-your-turbo-volume/>`__. In my case, I opened a new Finder window on my Macintosh machine, and in the server address field I typed ``smb://lsa-ajahn-win.turbo.storage.umich.edu/lsa-ajahn``, which created a new directory on my local machine called ``/Volumes/lsa-ajahn``. 
+
+At this point, we will run a separate batch script, ``runPopulationTemplate.sbat``, which will create a study-specific template on which we will visualize our results. This step can take a significant amount of time, so we will increase the time limit to 300 hours:
+
+::
+
+  #!/bin/bash
+
+  #----------------------------
+  # Slurm variables
+
+  #SBATCH --job-name=runDWIPreproc_changeme
+  #SBATCH --time=300:00:00
+
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+
+  #SBATCH --account=fmrilab_project1
+  #SBATCH --partition=standard
+
+  #SBATCH --mail-type=NONE
+
+  #-----------------------------
+  # Load modules
+  module load mrtrix fsl cuda/10.2.89
+
+  #-----------------------------
+  # Print diagnostic information to the job output file
+  my_job_header
+
+  #-----------------------------
+  # Commands to run during job
+
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/
+  
+  mkdir -p template/fod_input
+  mkdir template/mask_input
+  
+  for_each `ls | grep ^sub-CON` : ln -sr IN/wmfod_norm.mif template/fod_input/PRE.mif
+  for_each `ls | grep ^sub-PAT | head -11` : ln -sr IN/wmfod_norm.mif template/fod_input/PRE.mif
+  for_each `ls | grep ^sub-CON` : ln -sr IN/dwi_mask_upsampled.mif template/mask_input/PRE.mif
+  for_each `ls | grep ^sub-PAT | head -11` : ln -sr IN/dwi_mask_upsampled.mif template/mask_input/PRE.mif
+
+  population_template template/fod_input -mask_dir template/mask_input/ template/wmfod_template.mif -voxel_size 1.25
+  
+Note that in this example we have chosen to include all 11 Control subjects, and 11 subjects from the Patient group. This is done both to balance the number of subjects from each group that are used to create the template, and also to save processing time.
+
+When that step has finished (which may take several days), run the next section of code, ``runDWIPreproc_Phase2.sbat``, by saving the following script into your ``BTC_Preop`` directory that contains all of the subjects:
+
+::
+
+  #!/bin/bash
+
+  #----------------------------
+  # Slurm variables
+
+  #SBATCH --job-name=runDWIPreproc_changeme
+  #SBATCH --time=2:00:00
+
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+
+  #SBATCH --account=fmrilab_project1
+  #SBATCH --partition=standard
+
+  #SBATCH --mail-type=NONE
+
+  #-----------------------------
+  # Load modules
+  module load mrtrix fsl cuda/10.2.89
+
+  #-----------------------------
+  # Print diagnostic information to the job output file
+  my_job_header
+
+  #-----------------------------
+  # Commands to run during job
+
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/changeme
+  #mtnormalise -force wmfod.mif wmfod_norm.mif csf.mif csf_norm.mif -mask dwi_mask_upsampled.mif
+  mrregister wmfod_norm.mif -mask1 dwi_mask_upsampled.mif ../template/wmfod_template.mif -nl_warp subject2template_warp.mif template2subject_warp.mif
+  mrtransform dwi_mask_upsampled.mif -warp subject2template_warp.mif -interp nearest -datatype bit dwi_mask_in_template_space.mif
+  
+And then submit the scripts with the following code:
+
+::
+
+  for i in `cat subjList.txt`; do sed "s|changeme|${i}|g" runDWIPreproc_Phase2.sbat > tmp_${i}.sbat; done
+  for i in `cat subjList.txt`; do sbatch tmp_${i}.sbat; done
+  
+This will register each subject's FOD image to the FOD template created above, and then warp those masks to template space. We will also need to take the intersection of all the warped masks with ``mrmath``:
+
+::
+
+  mrmath sub-*/dwi_mask_in_template_space.mif min template/template_mask.mif -datatype bit
+  
