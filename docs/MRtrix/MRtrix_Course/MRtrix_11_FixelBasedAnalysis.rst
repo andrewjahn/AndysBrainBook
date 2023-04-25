@@ -382,4 +382,198 @@ Also make sure to visualize the output of this step by typing:
 
   Fixel mask for all of the subjects. According to the MRtrix documentation: "This step ultimately determines the fixel mask in which statistical analysis will be performed, and hence also which fixels’ statistics can contribute to others via the CFE mechanism; so it may have a substantial impact on the final result. Essentially, it can be detrimental to the result if the threshold value specified via the -fmls_peak_value is too high and hence excludes genuine white matter fixels. This risk is substantially higher in voxels containing crossing fibres (and higher the more fibres are crossing in a single voxel). Even though 0.06 has been observed to be a decent default value for 3-tissue CSD population templates, it is still strongly advised to visualise the output fixel mask using mrview. Do this by opening the index.mif found in ../template/fixel_mask via the fixel plot tool. If, with respect to known or normal anatomy, fixels are missing (especially paying attention to crossing areas), regenerate the mask with a lower value supplied to the -fmls_peak_value option (of course, avoid lowering it too much, as too many false or noisy fixels may be introduced). For an adult human brain template, and using an isotropic template voxel size of 1.25 mm, it is expected to have several hundreds of thousands of fixels in the fixel mask (you can check this by mrinfo -size ../template/fixel_mask/directions.mif, and looking at the size of the image along the first dimension)." In sum, the defaults should work fine for most subjects, but you may want to change the ``-fmls_peak_value`` parameter if there are large gaps in the mask.
   
+To make the data more normally distributed and thus make the parametric tests for valid, we will convert the data using a log transform:
+
+::
+
+  mkdir template/log_fc
+  cp template/fc/index.mif template/fc/directions.mif template/log_fc
+ 
+::
+
+  #!/bin/bash
+
+  #----------------------------
+  # Slurm variables
+
+  #SBATCH --job-name=runDWIPreproc_changeme
+  #SBATCH --time=0:01:00
+
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+
+  #SBATCH --account=fmrilab_project1
+  #SBATCH --partition=standard
+
+  #SBATCH --mail-type=NONE
+
+  #-----------------------------
+  # Load modules
+  module load mrtrix fsl cuda/10.2.89
+
+  #-----------------------------
+  # Print diagnostic information to the job output file
+  my_job_header
+
+  #-----------------------------
+  # Commands to run during job
+
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/changeme
+
+  mrcalc ../template/fc/changeme.mif -log ../template/log_fc/changeme.mif
+
+
+::
+
+  for i in `cat subjList.txt`; do sed "s|changeme|${i}|g" runDWIPreproc_Phase4.sbat > tmp_${i}.sbat; done
+  for i in `cat subjList.txt`; do sbatch tmp_${i}.sbat; done
   
+
+To compute a measure of combined fiber density and cross-section (FDC), we will use ``mrcalc`` to multiple the individual fiber density and cross-section images together:
+
+::
+
+  mkdir template/fdc
+  cp template/fc/index.mif template/fdc
+  cp template/fc/directions.mif template/fdc
+  
+::
+
+  #!/bin/bash
+
+  #----------------------------
+  # Slurm variables
+
+  #SBATCH --job-name=runDWIPreproc_changeme
+  #SBATCH --time=0:05:00
+
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+
+  #SBATCH --account=fmrilab_project1
+  #SBATCH --partition=standard
+
+  #SBATCH --mail-type=NONE
+
+  #-----------------------------
+  # Load modules
+  module load mrtrix fsl cuda/10.2.89
+
+  #-----------------------------
+  # Print diagnostic information to the job output file
+  my_job_header
+
+  #-----------------------------
+  # Commands to run during job
+
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/changeme
+
+  mrcalc ../template/fd/changeme.mif ../template/fc/changeme.mif -mult ../template/fdc/changeme.mif
+  
+To complete the last steps of fixel-based analysis, we will first need to create two files, ``design_matrix.txt`` and ``contrast_matrix.txt``, which represent the subjects in each group and the contrast to be performed, respectively. In this case, we have 11 control subjects and 25 patient subjects, for a total of 36 subjects; here is the content of ``design_matrix.txt``:
+
+::
+
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  1 0
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  0 1
+  
+And the content of ``contrast_matrix.txt``:
+
+::
+
+  1 -1
+  
+Which will perform a contrast of the FDC images to generate an image showing where the FDC values are greater for the Control group compared to the Patient group.
+
+Here is the code for the last batch job we will submit, which we will store in a script called ``runDWIPreproc_Phase6.sbat``:
+
+::
+
+  #!/bin/bash
+
+  #----------------------------
+  # Slurm variables
+
+  #SBATCH --job-name=runDWIPreproc_changeme
+  #SBATCH --time=48:00:00
+
+  #SBATCH --nodes=1
+  #SBATCH --ntasks-per-node=1
+  #SBATCH --cpus-per-task=1
+  #SBATCH --mem=8gb
+
+  #SBATCH --account=fmrilab_project1
+  #SBATCH --partition=standard
+
+  #SBATCH --mail-type=NONE
+
+  #-----------------------------
+  # Load modules
+  module load mrtrix fsl cuda/10.2.89
+
+  #-----------------------------
+  # Print diagnostic information to the job output file
+  my_job_header
+
+  #-----------------------------
+  # Commands to run during job
+
+  cd /nfs/turbo/lsa-ajahn/BTC_Preop/template
+
+  tckgen -angle 22.5 -maxlen 250 -minlen 10 -power 1.0 wmfod_template.mif -seed_image template_mask.mif -mask template_mask.mif -select 20000000 -cutoff 0.06 tracks_20_million.tck
+  tcksift tracks_20_million.tck wmfod_template.mif tracks_2_million_sift.tck -term_number 2000000
+
+  fixelconnectivity fixel_mask/ tracks_2_million_sift.tck matrix/
+
+  fixelfilter fd smooth fd_smooth -matrix matrix/
+  fixelfilter log_fc smooth log_fc_smooth -matrix matrix/
+  fixelfilter fdc smooth fdc_smooth -matrix matrix/
+
+  fixelcfestats fd_smooth/ files.txt design_matrix.txt contrast_matrix.txt matrix/ stats_fd/
+  fixelcfestats log_fc_smooth/ files.txt design_matrix.txt contrast_matrix.txt matrix/ stats_log_fc/
+  fixelcfestats fdc_smooth/ files.txt design_matrix.txt contrast_matrix.txt matrix/ stats_fdc/
+  
+Which can be submitted by typing ``sbatch runDWIPreproc_Phase6.sbat``.
+
+Viewing the Results
+*******************
+
+When this last phase finishes, we can visualize the results using ``mrview``.
