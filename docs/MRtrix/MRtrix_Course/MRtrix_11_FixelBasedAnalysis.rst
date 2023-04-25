@@ -167,7 +167,9 @@ For larger numbers of subjects - such as the entire BTC_Preop dataset - we can u
 
 ::
 
+  cd /nfs/turbo/lsa-ajahn
   aws s3 sync --no-sign-request s3://openneuro.org/ds001226 ds001226-download/
+  mv ds001226-download BTC_Preop
   
 We will also create a template batch script, which has the following SBATCH setup lines:
 
@@ -357,4 +359,27 @@ This will register each subject's FOD image to the FOD template created above, a
 ::
 
   mrmath sub-*/dwi_mask_in_template_space.mif min template/template_mask.mif -datatype bit
+  
+You should then look at the overall intersected mask with mrview by typing ``mrview template/template_mask.mif``:  
+
+.. figure:: 11_Check_Masks.png
+
+  Intersection mask for this study. Mask sure there are no holes or gaps in the masks, and visualize the orthogonal slices by clicking on the View dropdown menu and selecting Ortho View. According to the MRtrix documentation: "It is absolutely crucial to check at this stage that the resulting template mask includes all regions of the brain that are intended to be analysed. If this is not the case, the cause will be either an individual subject mask which did not include a certain region, or the template building process or individual subject registrations having gone wrong for one or more subjects. It is advised to go back to these steps, and identify and resolve the cause of the problem before continuing any further."
+  
+We will then create a fixel-based mask, which should clearly show the white matter tracts of the brain:
+
+::
+
+  fod2fixel -mask template/template_mask.mif -fmls_peak_value 0.06 template/wmfod_template.mif template/fixel_mask
+  
+Also make sure to visualize the output of this step by typing:
+
+::
+
+  mrview template/index.mif
+  
+.. figure:: 11_Fixel_Mask.mif
+
+  Fixel mask for all of the subjects. According to the MRtrix documentation: "This step ultimately determines the fixel mask in which statistical analysis will be performed, and hence also which fixels’ statistics can contribute to others via the CFE mechanism; so it may have a substantial impact on the final result. Essentially, it can be detrimental to the result if the threshold value specified via the -fmls_peak_value is too high and hence excludes genuine white matter fixels. This risk is substantially higher in voxels containing crossing fibres (and higher the more fibres are crossing in a single voxel). Even though 0.06 has been observed to be a decent default value for 3-tissue CSD population templates, it is still strongly advised to visualise the output fixel mask using mrview. Do this by opening the index.mif found in ../template/fixel_mask via the fixel plot tool. If, with respect to known or normal anatomy, fixels are missing (especially paying attention to crossing areas), regenerate the mask with a lower value supplied to the -fmls_peak_value option (of course, avoid lowering it too much, as too many false or noisy fixels may be introduced). For an adult human brain template, and using an isotropic template voxel size of 1.25 mm, it is expected to have several hundreds of thousands of fixels in the fixel mask (you can check this by mrinfo -size ../template/fixel_mask/directions.mif, and looking at the size of the image along the first dimension)." In sum, the defaults should work fine for most subjects, but you may want to change the ``-fmls_peak_value`` parameter if there are large gaps in the mask.
+  
   
