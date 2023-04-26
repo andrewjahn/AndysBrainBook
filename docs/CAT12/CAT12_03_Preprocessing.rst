@@ -62,7 +62,7 @@ The last preprocessing step is to **smooth** the data, which, similar to functio
 Video
 *****
 
-For a video overview of how to run preprocessing and QA checks, click `here <https://youtu.be/OwRwl4-Y04k>`__.
+For a video overview of how to run preprocessing and QA checks, click `here <https://youtu.be/Z8GUCY7gtJE>`__.
 
 Next Steps
 **********
