@@ -75,7 +75,7 @@ These numbers are arbitrary, selected in part because we only have six subjects 
 Video
 *****
 
-For a video overview of how to run a group-level analysis, click `here <https://youtu.be/2GqLmCCcegA>`__.
+For a video overview of how to run a group-level analysis, click `here <https://youtu.be/fwNwBupw2RM>`__.
 
 Exercises
 *********
