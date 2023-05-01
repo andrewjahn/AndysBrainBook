@@ -6,9 +6,34 @@ Advanced Normalization Tools (ANTs)
 
 -----------
 
-ANTs is a software package for normalizing data to a template. Most of the templates provided on the ANTs website (maybe all of them?) are in MNI space. They can be downloaded from this page. 
+ANTs is a software package for normalizing data to a template. Most of the templates provided on the ANTs website (maybe all of them?) are in MNI space. They can be downloaded from the `ANTs github page <https://github.com/stnava>`__. 
 
 Below are some notes for how to use ANTs:
+
+Downloading and Installing ANTs
+*******************************
+
+The most recent instructions for how to install ANTs on both Linux and Macintosh operating systems can be found `here <https://github.com/ANTsX/ANTs/wiki/Compiling-ANTs-on-Linux-and-Mac-OS>`__ on the ANTs github page. On my Macintosh operating machine, I do the following steps:
+
+1. Make sure that `homebrew <https://brew.sh/>`__ is installed.
+
+2. Install ``cmake`` by typing:
+
+::
+
+  brew install cmake
+  
+Which should either install the latest version of cmake, or update it to the latest version (as of this writing in early 2023, that would be version 3.26.3).
+
+3. Using a Terminal, navigate to your home directory and download the installation script by typing:
+
+::
+
+  git clone https://github.com/cookpa/antsInstallExample.git
+  
+4. Run the script by typing bash installAnts.sh
+
+This will take about 10 minutes to run. When it finishes, the binaries will be located in ``antsInstallExample/install/bin``. 
 
 Skull-Stripping
 ***************
