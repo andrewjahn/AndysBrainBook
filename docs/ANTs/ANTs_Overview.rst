@@ -35,6 +35,26 @@ Which should either install the latest version of cmake, or update it to the lat
 
 This will take about 10 minutes to run. When it finishes, the binaries will be located in ``antsInstallExample/install/bin``. 
 
+5. Organize the ANTs binaries by opening a Terminal and typing:
+
+::
+
+  cd ~
+  mkdir ANTs
+  cp -R antsInstallExample/install ANTs/
+  cd ANTs
+  mv install/* .
+  rmdir install
+
+You can then add these binaries to your PATH by typing:
+
+::
+
+  echo 'export ANTSPATH=/Users/ajahn/ANTs/bin/' >> ~/.bashrc
+  echo 'export PATH=${ANTSPATH}:$PATH' >> ~/.bashrc
+  
+If you then type ``source ~/.bashrc``, or if you open a new Terminal, you should have access to all of the ANTs commands, no matter which directory you are in.
+
 Skull-Stripping
 ***************
 
