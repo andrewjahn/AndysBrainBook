@@ -132,7 +132,7 @@ Exercises
 
 2. Do the same procedure in Exercise #1, looking at the contrasts of sub-briks #7 and #10. What do you notice about the value of the Overlay? Does this make sense given the contrast weights?
 
-3. Although the default color scheme and display are good enough for most purposes, you will probably want to change it to suit your own taste and aesthetics. For example, once you have thresholded your statistical overlay, click on the ``Define Datamode`` button in the AFNI GUI, click on ``Warp OLay on Demand``, and select the ``Cu`` resampling method (for "Cubic" interpolation) for the ``Stat Resam mode``. This will smooth the edges of the voxels that survive the threshold you used. Going back to the ``Define Overlay`` panel, right click on the color bar, and sample different color palettes to see which one you like best.
+3. Although the default color scheme and display are good enough for most purposes, you will probably want to change it to suit your own taste and aesthetics. For example, once you have thresholded your statistical overlay, click on the ``Define Datamode`` button in the AFNI GUI, click on ``Warp OLay on Demand``, and select the ``Cu`` resampling method (for "Cubic" interpolation) for the ``OLay Resam mode``. This will smooth the edges of the voxels that survive the threshold you used. Going back to the ``Define Overlay`` panel, right click on the color bar, and sample different color palettes to see which one you like best.
 
 Next Steps
 **********
