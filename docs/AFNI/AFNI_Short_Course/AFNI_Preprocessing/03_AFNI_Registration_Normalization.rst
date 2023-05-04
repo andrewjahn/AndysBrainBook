@@ -83,3 +83,16 @@ Once we have aligned the anatomical and functional images, we will first normali
 The first command indicates to use the image MNI_avg152T1 as a template, and the skull-stripped anatomical image as a **source image**, or the image to be moved around to best match the base, or reference, image. The ``-no_ss`` option indicates that the anatomical image has already been skull-stripped.
 
 In order to align the template and the anatomical image, the anatomical image needs to be moved and transformed using the transformations described above. This creates a series of numbers organized in an **affine transformation matrix** which is stored in the header of the anatomical image. The second command, ``cat_matvec``, extracts this matrix and copies it into a file called ``warp.anat.Xat.1D``. How this matrix is used to bring the functional images to the same normalized space will be seen in the next chapter.
+
+Exercises
+*********
+
+1. In the ``@auto_tlrc`` command above, the default template is ``MNI_avg152+tlrc``, which can be found in your ``~/abin`` directory. Take a look at available templates in MNI space by typing ``ls ~/abin | grep MNI``. Not all of these are candidates for normalizing T1 anatomical scans, but a couple of them are, including ``MNI152_1mm_uni+tlrc`` and ``MNI152_T1_2009c+tlrc``. Once you have skull-stripped an anatomical image, try using this command:
+
+::
+  3dcopy sub-01_T1w_ns+orig. T1w_cop
+  @auto_tlrc -base MNI152_T1_2009c+tlrc -input T1w_copy+orig. -no_ss
+  
+And observe how the output is different from the original command above. Try it also with the ``MNI152_T1_2009c+tlrc`` template, creating a new copy of the original T1-weighted anatomical image in orig space. Which template would you prefer to use? Why? Also, why do you think that the default is the ``MNI_avg152T1+tlrc`` brain? (Hint: Look at each of these templates in the AFNI viewer by typing ``afni ~/abin``.)
+
+2. As a follow-up exercise, what would you change about the command listed in Exercise #1 if you hadn't skull-stripped the anatomical image?
