@@ -190,6 +190,12 @@ Visualizing these results and determining a significance threshold for them is t
 
   For more details on how to set up contrasts within AFNI for to compare different TENTs, as well as a comparison of TENT to other basis functions, see `this post <https://blog.cogneurostats.com/2014/10/08/tidbits-on-afnis-tent-function/>`__ by Pete Molfese.
   
+Exercises
+*********
+
+1. Imagine that instead of analyzing the interval of 0-12 seconds, we wanted to just look the interval of 0-8 seconds for the ``tone_counting`` condition. Show how you would modify the ``afni_proc.py`` script above, and run the script for ``sub-01``. How has the 0-8 second interval changed compared to the previous TENT analysis, if at all? Choose a voxel located at MNI coordinates [47, 3, -6] to illustrate the comparison between the analyses.
+
+2. FIR analyses can also analyze an interval with a given number of TENT functions that is not divisible by your TR. For example, change the ``afni_proc.py`` script for the ``tone_counting`` condition to 'TENT(0,12,5)', which will span the 12-second range with 5 TENT functions; these will be interpolated to match the time grid. (Using TENTs that evenly divide into your TRs will be more accurate, but there may be theoretical reasons for using a different time scale.) Run this updated analyses, and examine how the output compares to the original afni_proc.py script, again using MNI coordinates [47, 3, -6] to illustrate the comparison between the analyses.
 
 Video
 *****
