@@ -117,3 +117,47 @@ This will apply a 3rd-order polynomial (recommended for runs of 300s or more, wh
   Single-rat results for a simple effect of electrical forepaw stimulation, thresholded at p=0.001, cluster threshold of k=40 voxels. Note that on these images, left is located on the left side of the panel, and the top of the brain is at the bottom of the image. We will later see how to reorient these images so that they match better with the figures reported in Sirmpilatze et al., 2019.
   
 
+Normalizing the Brains
+**********************
+
+Although there are rat templates available (such as the SIGMA template, available `here <https://www.nitrc.org/projects/sigma_template>`__), you may instead decide to use a study-specific template generated from the subjects included in your sample. For example, if we have six rats, we can choose one of them to be a fixed template image, and register all of the other rat brains to that image.
+
+This was the approach used by the authors of the study, and they used a suite of normalization tools called Advanced Normalization Tools, or `ANTs <http://stnava.github.io/ANTs/>`__. Instructions for how to download and install the package can be found on the e-book :ref:`here <ANTs_Overview>`. 
+
+Once you have installed the package, let's use the first six rat brains in the dataset. Using the first rat as the template, or fixed image, we can register the others to it by using teh ``antsRegistrationSynQuick.sh`` command:
+
+::
+
+  #!/bin/bash
+
+  antsRegistrationSyNQuick.sh -d 3 -f sub-01/anat/sub-01_T2w.nii.gz -m sub-02/anat/sub-02_T2w.nii.gz -o sub-02/anat/sub-02_to_sub-01
+  antsRegistrationSyNQuick.sh -d 3 -f sub-01/anat/sub-01_T2w.nii.gz -m sub-03/anat/sub-03_T2w.nii.gz -o sub-03/anat/sub-03_to_sub-01
+  antsRegistrationSyNQuick.sh -d 3 -f sub-01/anat/sub-01_T2w.nii.gz -m sub-04/anat/sub-04_T2w.nii.gz -o sub-04/anat/sub-04_to_sub-01
+  antsRegistrationSyNQuick.sh -d 3 -f sub-01/anat/sub-01_T2w.nii.gz -m sub-05/anat/sub-05_T2w.nii.gz -o sub-05/anat/sub-05_to_sub-01
+  antsRegistrationSyNQuick.sh -d 3 -f sub-01/anat/sub-01_T2w.nii.gz -m sub-06/anat/sub-06_T2w.nii.gz -o sub-06/anat/sub-06_to_sub-01
+  
+This will create one warped image for each of the other subjects, normalized to have the same size and dimensions as sub-01's anatomical image. We then average them together using ``3dcalc``:
+
+::
+
+  3dcalc -a sub-01_T2w.nii.gz -b sub-02_to_sub-01Warped.nii.gz -c sub-03_to_sub-01Warped.nii.gz -d sub-04_to_sub-01Warped.nii.gz -e sub-05_to_sub-01Warped.nii.gz -f sub-06_to_sub-01Warped.nii.gz -expr '(a+b+c+d+e+f)/6' -prefix anat_average.nii
+  
+Which will generate an average image, ``anat_average.nii``, which will look smoother than the other images:
+
+.. figure::
+
+  AppendixB_Averaged_RatBrain.png
+  
+We then down-sample this image to match the resolution of the functional images (0.2 x 0.2 x 0.5mm^3):
+
+::
+
+  3dresample -master sub-01/func/sub-01_task-efs_run-01_bold.nii.gz -input anat_average.nii -prefix anat_average_rs.nii
+  
+Which should result in a slightly lower-resolution anatomial image:
+
+.. figure::
+
+  AppendixB_Resampled_Average_Anatomical.png
+  
+
