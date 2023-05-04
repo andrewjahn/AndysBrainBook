@@ -227,6 +227,12 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     :caption: ITK-Snap
     
     ITK-Snap/ITK-Snap_Overview
+    
+.. toctree::
+    :maxdepth: 1
+    :caption: Python for Neuroimagers
+    
+    PythonForNeuroimagers/PythonForNeuroimagers_Overview
 
 
 .. Glossary
