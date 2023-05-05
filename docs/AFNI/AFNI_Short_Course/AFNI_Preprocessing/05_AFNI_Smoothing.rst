@@ -35,3 +35,7 @@ The ``-1blur_fwhm`` option specifies the amount to smooth the image, in millimet
 
 The last preprocessing steps will take these smoothed images and then scale them to have a mean signal intensity of 100 - so that deviations from the mean can be measured in percent signal change. Any non-brain voxels will then be removed by a mask, and these images will be ready for statistical analysis. To see how these last two preprocessing steps are done in AFNI, click the ``Next`` button.
 
+Exercises
+*********
+
+1. Apply different smoothing kernels to the raw functional data by navigating to the directory ``sub-01/func``, and typing ``3dmerge -1blur_fwhm 4.0 -doall -prefix test_blur_4mm.nii sub-01_task-flanker_run-1_bold.nii.gz``. Look at the output file in the AFNI GUI. Then, do the same with smoothing kernels of 8mm, 12mm, and 20mm, remembering to change the name of the output file each time you smooth. Once you are done, you can remove all of the smoothed images by typing ``rm test*``.
