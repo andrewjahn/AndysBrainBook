@@ -120,7 +120,7 @@ This will apply a 3rd-order polynomial (recommended for runs of 300s or more, wh
 Normalizing the Brains
 **********************
 
-Although there are rat templates available (such as the SIGMA template, available `here <https://www.nitrc.org/projects/sigma_template>`__), you may instead decide to use a study-specific template generated from the subjects included in your sample. For example, if we have six rats, we can choose one of them to be a fixed template image, and register all of the other rat brains to that image.
+Although there are rat templates available (such as the SIGMA template, available `here <https://www.nitrc.org/projects/sigma_template>`__, or the `Waxholm Rat Atlas, available from the AFNI site <http://afni.nimh.nih.gov/pub/dist/atlases/waxrat/waxratbrainv2.tgz>`__), you may instead decide to use a study-specific template generated from the subjects included in your sample. For example, if we have six rats, we can choose one of them to be a fixed template image, and register all of the other rat brains to that image.
 
 This was the approach used by the authors of the study, and they used a suite of normalization tools called Advanced Normalization Tools, or `ANTs <http://stnava.github.io/ANTs/>`__. Instructions for how to download and install the package can be found on the e-book :ref:`here <ANTs_Overview>`. 
 
@@ -160,4 +160,8 @@ Which should result in a slightly lower-resolution anatomial image:
 
   AppendixB_Resampled_Average_Anatomical.png
   
+You can skull-strip the image using AFNI's ``3dSkullStrip`` command with the ``-rat`` option:
 
+::
+
+  3dSkullStrip -prefix anat_stripped.nii -rat -input anat_average_rs.nii
