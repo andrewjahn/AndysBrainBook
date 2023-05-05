@@ -113,6 +113,10 @@ Exercises
 
 2. AFNI includes many shortcuts and keyboard commands that allow you to manipulate the image viewer. Look at `this page <https://afni.nimh.nih.gov/pub/dist/src/html/afnigui.html>`__ and try some of the commands listed in the "Keyboard Shortcuts" section.
 
+3. Navigate to the directory ``sub-01/anat``, and open AFNI. The three orthogonal slices will be displayed automatically; if you click the ``Graph`` button, you will see a single value. Then click on ``Define Overlay`` in the AFNI GUI, and note the number in the lower right corner of the panel that says "ULay = ". This number should match the number shown in the Graph window, representing the signal intensity at that voxel. Now click on the button ``Read`` in the AFNI GUI next to ``DataDir``, and use the navigation panel to select the ``func`` directory and click ``Set`` (Hint: Remember that in Unix, two dots (``..``) mean to go up one directory.) Click on the Graph button, and notice how this time-series is different. Why do you think that is? Again, open the Define Overlay panel and note how it corresponds to the value listed in the Graph window. If you were to copy the anatomical image into the ``func`` directory and select one image as an underlay (usually the anatomical image) and one as an overlay (usually the functional image), how would you interpret the values in the ULay and OLay fields?
+
+4. Experiment with the ``Color`` and ``Gap`` options for the crosshair, located in the upper left of the AFNI GUI. Start to get a feel for what kind of defaults you like best to visualize the data.
+
 
 Video
 -----
