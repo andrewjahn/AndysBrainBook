@@ -167,9 +167,10 @@ Exercises
 *********
 
 1. Create an anatomical mask of a region of your choosing. For the copy dataset, select the "stats" dataset. Will you have to resample this mask in order to use it for an ROI analysis? Why or why not?
-  
 
 2. Use the code given in the section on spherical ROI analysis to create a sphere with a 7mm radius located at MNI coordinates 36, -2, 48.
+
+3. Run an ROI analysis with the original spherical ROI that we created in the tutorial above, using the beta weights from the REML dataset. How different are the results? Which statistical dataset would you prefer to use, and why?
 
 
 --------
