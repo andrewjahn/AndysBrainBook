@@ -95,6 +95,7 @@ Exercises
 
 2. Do the same thing as above, but with a map threshold at p<0.01. Does the effect get bigger? Smaller? Why?
 
+3. Threshold your statistical map until you have a single voxel remaining in a given area (such as the ACC), and then save that voxel as a mask. Do a biased analysis using this mask, and see whether the resulting t-statistic matches the statistical threshold you used to create the mask in the first place.
 
 ---------
 
