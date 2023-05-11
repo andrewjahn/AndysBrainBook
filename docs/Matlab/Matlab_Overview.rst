@@ -29,7 +29,7 @@ This tutorial also overlaps considerably with the :ref:`Unix tutorials <Unix_Int
 
 .. toctree::
    :maxdepth: 1
-   :caption: Start to Finish Analysis with CAT12
+   :caption: Introduction to Matlab for Neuroimagers
 
    Matlab_01_Navigation
    Matlab_02_VariablesStructures
