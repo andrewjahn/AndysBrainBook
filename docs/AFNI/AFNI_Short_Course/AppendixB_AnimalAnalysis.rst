@@ -115,7 +115,27 @@ This will apply a 3rd-order polynomial (recommended for runs of 300s or more, wh
 .. figure:: AppendixB_EFS_Result.png
 
   Single-rat results for a simple effect of electrical forepaw stimulation, thresholded at p=0.001, cluster threshold of k=40 voxels. Note that on these images, left is located on the left side of the panel, and the top of the brain is at the bottom of the image. We will later see how to reorient these images so that they match better with the figures reported in Sirmpilatze et al., 2019.
-  
+
+
+We can script this for all of the rats by navigating to the main directory containing the subjects and then typing:
+
+::
+
+  echo "60 150 240" > Timings.txt
+  for i in sub-01 sub-02 sub-03; do
+  cp Timings.txt ${i}/func;
+  cd ${i}/func;
+  3dTshift -tzero 0 -quintic -prefix ${i}_run-01_STC.nii ${i}_task-efs_run-01_bold.nii.gz;
+  3dmerge -1blur_fwhm 0.5 -doall -prefix ${i}_run-01_STC_Smoothed.nii ${i}_run-01_STC.nii;
+  3dDeconvolve -input ${i}_run-01_STC_Smoothed.nii \
+        -polort 3 \
+        -num_stimts 1 \
+        -stim_times 1 Timings.txt  'BLOCK(30,1)' \
+        -stim_label 1 EFS \
+        -gltsym 'SYM: EFS' \
+        -glt_label 1 EFS \
+        -tout -x1D X.xmat.1D -xjpeg X.jpg \
+        -bucket stats.${i}.nii
 
 Normalizing the Brains
 **********************
