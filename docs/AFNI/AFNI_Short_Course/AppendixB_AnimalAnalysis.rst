@@ -178,8 +178,8 @@ First, place all of the relevant anatomical and functional files in a new folder
 
   mkdir Registration
   for i in sub-01 sub-02 sub-03; do
-  cp $i/anat/*.nii.gz tmp; 
-  cp $i/func/${i}_task-efs_run-01_bold.nii.gz tmp; 
+  cp $i/anat/*.nii.gz Registration; 
+  cp $i/func/${i}_task-efs_run-01_bold.nii.gz Registration; 
   done
 
 We begin by taking the mean of the time-series for each subject:
