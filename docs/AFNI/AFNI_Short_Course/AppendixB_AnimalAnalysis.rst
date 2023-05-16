@@ -136,9 +136,9 @@ We can script this for all of the rats by navigating to the main directory conta
         -glt_label 1 EFS \
         -tout -x1D X.xmat.1D -xjpeg X.jpg \
         -bucket stats.${i}.nii
-        
+   cd ../..   
    done
-   cd ../..
+ 
 
 Normalizing the Brains
 **********************
