@@ -206,3 +206,27 @@ We now follow the template code provided `here <https://github.com/ANTsX/ANTs/wi
   antsRegistrationSyNQuick.sh -d 3 -f template_rs.nii -m ${i}_T2w.nii.gz -o ${i}_anat_ToTemplate_ -t sr;
   antsApplyTransforms -d 3 -e 5 -i stats.${i}.nii -o stats_${i}_DeformedToTemplate.nii.gz -r template_rs.nii -t ${i}_anat_ToTemplate_1Warp.nii.gz -t ${i}_anat_ToTemplate_0GenericAffine.mat -t t2ToT1_0GenericAffine.mat;
   done
+
+And then we can run a group analysis with the following code:
+
+::
+
+  #!/bin/tcsh -xef
+
+  # created by uber_ttest.py: version 2.0 (December 28, 2017)
+  # creation date: Wed Feb 19 11:33:21 2020
+
+  # ---------------------- set process variables ----------------------
+
+
+  # specify and possibly create results directory
+  set results_dir = test.results
+  if ( ! -d $results_dir ) mkdir $results_dir
+
+  # ------------------------- process the data -------------------------
+
+  3dttest++ -prefix $results_dir/ForePawStimulation                     \
+            -setA ForePawStimulation                                            \
+               01 "stats.sub-01.nii[1]" \
+               02 "stats_sub-02_DeformedToTemplate.nii.gz[1]" \
+               03 "stats_sub-03_DeformedToTemplate.nii.gz[1]"
