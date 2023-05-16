@@ -165,3 +165,44 @@ You can skull-strip the image using AFNI's ``3dSkullStrip`` command with the ``-
 ::
 
   3dSkullStrip -prefix anat_stripped.nii -rat -input anat_average_rs.nii
+  
+  
+Warping the Individual Subjects to Sub-01
+*****************************************
+
+Since we used ``sub-01``'s anatomical image as a template, and given that each subject's functional and anatomical images are already well aligned, we can normalize each subject's functional data to the ``sub-01`` template by using the command ``antsApplyTransforms``. In this case, we will need to warp the functional images in two stages: Once to coregister the functional data to its corresponding structural image, and then apply the structural-to-template normalization warps to the individual functional images.
+
+First, place all of the relevant anatomical and functional files in a new folder called ``Registration``:
+
+::
+
+  mkdir Registration
+  for i in sub-01 sub-02 sub-03; do
+  cp $i/anat/*.nii.gz tmp; 
+  cp $i/func/${i}_task-efs_run-01_bold.nii.gz tmp; 
+  done
+
+We begin by taking the mean of the time-series for each subject:
+
+::
+
+  cd Registration
+  for i in sub-01 sub-02 sub-03; do
+  3dTstat -prefix meanFunc_${i}.nii ${i}_task-efs_run-01_bold.nii.gz;
+  done
+
+We then resample the template image to the functional image's size and resolution (in this case, using the mean image for sub-02's functional data, but any mean image will do):
+
+::
+
+  3dresample -master meanFunc_sub-02.nii -input sub-01_T2w.nii.gz -prefix template_rs.nii
+  
+We now follow the template code provided `here <https://github.com/ANTsX/ANTs/wiki/Forward-and-inverse-warps-for-warping-images,-pointsets-and-Jacobians#warping-multiple-modalities-to-a-common-template>`__, from the ANTs website:
+
+::
+  
+  for i in sub-02 sub-03; do
+  antsRegistrationSyNQuick.sh  -d 3 -f ${i}_T2w.nii.gz -m meanFunc_${i}.nii -o t2ToT1_ -t r;
+  antsRegistrationSyNQuick.sh -d 3 -f template_rs.nii -m ${i}_T2w.nii.gz -o ${i}_anat_ToTemplate_ -t sr;
+  antsApplyTransforms -d 3 -e 5 -i stats.${i}.nii -o stats_${i}_DeformedToTemplate.nii.gz -r template_rs.nii -t ${i}_anat_ToTemplate_1Warp.nii.gz -t ${i}_anat_ToTemplate_0GenericAffine.mat -t t2ToT1_0GenericAffine.mat;
+  done
