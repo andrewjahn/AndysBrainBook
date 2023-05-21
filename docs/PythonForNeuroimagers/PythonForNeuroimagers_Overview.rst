@@ -26,5 +26,5 @@ This module closely follows Tal Yarkoni's and Ariel Rokum's excellent `Neuroimag
    :maxdepth: 1
    :caption: Python for Neuroimagers
 
-..   PythonForNeuroimagers/AFNI_fMRI_Intro
-..   PythonForNeuroimagers/AFNI_01_DataDownload
+   PythonForNeuroimagers/Python_01_Basics
+   PythonForNeuroimagers/Python_02_
