@@ -15,7 +15,7 @@ In the ``Writing Options`` section, you can change the voxel resolution of the i
 
 .. note::
 
-  You can also select the realigned anatomical image as an image to normalize, which may be useful if you want to visualize the individual subject's results on their own anatomy. For the purposes of this tutorial, we will only be visualizing the results on a template brain, so there is no need to normalize the anatomical image.
+  You can also select the coregistered anatomical image as an image to normalize, which may be useful if you want to visualize the individual subject's results on their own anatomy. For the purposes of this tutorial, we will only be visualizing the results on a template brain, so there is no need to normalize the anatomical image.
 
 
 Checking the Output
