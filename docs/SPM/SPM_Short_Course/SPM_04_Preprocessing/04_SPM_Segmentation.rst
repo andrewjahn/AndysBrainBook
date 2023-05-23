@@ -19,7 +19,7 @@ Why six priors, instead of the three we just listed? The anatomical image also c
 
   SPM's tissue priors, located in the file ``spm12/tpm/TPM.nii``. The tissue priors, from going from left to right on each row, are: Grey matter; white matter; CSF; soft tissue; bone; other.
   
-Setting up the Segmentation step only requires the realigned anatomical file as input. Click on the ``Segmentation`` button from the SPM GUI, and double-click the ``Volumes`` field. Select the file ``rsub-08_T1w.nii``, and then set the ``Save Bias Corrected`` field from ``Save Nothing`` to ``Save Bias Corrected``. Lastly, at the very bottom of the menu, change ``Deformation Fields`` to ``Forward``. Then click the green Go button.
+Setting up the Segmentation step only requires the coregistered anatomical file as input. Click on the ``Segmentation`` button from the SPM GUI, and double-click the ``Volumes`` field. Select the file ``rsub-08_T1w.nii``, and then set the ``Save Bias Corrected`` field from ``Save Nothing`` to ``Save Bias Corrected``. Lastly, at the very bottom of the menu, change ``Deformation Fields`` to ``Forward``. Then click the green Go button.
 
 .. figure:: 04_04_Segmentation_GUI.png
 
