@@ -118,7 +118,7 @@ Exercises
 
 3. If you are viewing one of the functional images using the ``Display`` button, right-clicking on any of the viewing panes will display a menu with the currently viewed file name at the top of it. Hover your mouse over the file name, and observe the values that are presented in a sub-menu on the right. How do these compare with the values that you see in the bottom half of the Display window?
 
-4. SPM reads **header information** when it loads a file. The command line version of this is called ``spm_vol``. From the Matlab terminal, navigate to the directory ``sub-01/func``, and type the following:
+4. SPM reads **header information** when it loads a file. The command line version of this is called ``spm_vol``. From the Matlab terminal, navigate to the directory ``sub-01/func``, make sure the data is unzipped, and type the following:
 
 ::
 
