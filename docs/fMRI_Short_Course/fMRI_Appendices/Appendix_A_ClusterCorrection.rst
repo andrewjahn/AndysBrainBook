@@ -1,7 +1,7 @@
 .. _Appendix_A_ClusterCorrection:
 
 Appendix A: Cluster Correction
-==============
+==============================
 
 -------------
 
@@ -23,7 +23,7 @@ Failing to correct for multiple comparisons can lead to results that are unrelia
 
 
 Bonferroni Correction
-************
+*********************
 
 If we want to carry out several tests - as is commonly done in many studies - then what can be done to protect ourselves from mistaking false positives for true effects? The most straightforward method is called **Bonferroni Correction**, named after the Italian mathematician Carlo Bonferroni. Simply take your alpha level - traditionally set at 5% - and divide it by the number of tests.
 
@@ -31,7 +31,7 @@ This works well enough for behavioral studies consisting of a handful of tests, 
 
 
 Problems with Bonferroni Correction
-*************
+***********************************
 
 One of the assumptions of Bonferroni correction is that each test is independent. To take our fMRI dataset as an example, that would mean that each voxel is completely independent of every other voxel in the brain; knowing the value of one voxel doesn't tell you anything about any other voxel.
 
@@ -45,7 +45,7 @@ Bonferroni correction, then, is too severe. Although you are virtually guarantee
   
   
 Cluster Correction
-***************
+******************
 
 Fortunately, there is an alternative known as **cluster correction**, which is the most popular correction method in fMRI analysis (`Woo et al., 2014 <https://www.sciencedirect.com/science/article/pii/S1053811914000020>`__). Cluster correction takes advantage of the fact that the voxels in a typical dataset are not completely independent: Instead of testing each voxel individually, *clusters* of voxels are tested for significance.
 
@@ -170,6 +170,6 @@ Then follow the steps above for running 3dClustSim on the resulting ACF values.
 ------------
 
 Video
-*************
+*****
 
 For an overview of cluster correction and how it works, watch `this video <https://www.youtube.com/watch?v=hM0dC4OTCvU>`__.
