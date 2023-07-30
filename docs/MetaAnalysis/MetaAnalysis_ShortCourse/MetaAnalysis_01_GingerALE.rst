@@ -23,7 +23,9 @@ The GingerALE Interface
 
 The GingerALE package can be downloaded by clicking on `this link <https://www.brainmap.org/ale/>`__ and choosing the version matching your operating system; downloading and installing the package is straightforward, and should only take a couple of minutes. Click on the file once you have downloaded it, and then click and drag the GingerALE icon into your Applications directory, which allows you to open the package by using your Finder to search for "GingerALE". Click on the software package result that appears, which will open the GingerALE interface.
 
+.. figure:: GingerALE_02_Interface.png
 
+The radio button by default is set to "Single Dataset", which is what we will start with; that is, we will test whether the results of several different studies have significant overlap. The 
 
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
