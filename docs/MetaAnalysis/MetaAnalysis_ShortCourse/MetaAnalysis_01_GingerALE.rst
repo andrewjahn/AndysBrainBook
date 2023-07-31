@@ -50,7 +50,7 @@ Similar to cluster-based thresholding for fMRI data, the last option, ``Cluster-
 Creating Foci Files
 *******************
 
-
+Once you have gathered a list of studies you want to include in your meta-analysis, you will also need to extract the **foci**, or peaks, for the contrasts that they reported in their paper. There are tools on the Brainmap website designed to automate this task for you, although you can extract the peaks manually if you wish. In any case, the foci
 
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
