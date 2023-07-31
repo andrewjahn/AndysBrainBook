@@ -41,6 +41,15 @@ All of the other options are mostly self-explanatory, and the defaults should be
 
 .. figure:: GingerALE_03_Preferences.png
 
+Once you have closed the Preferences window, you may see your changes reflected in the main GingerALE interface; for example, the coordinate system will change from Talairach to MNI152. Passing over the ``Foci`` field for now, you will see the ``Settings`` field, with a drop-down menu showing options for different correction methods. The first one in the list, ``P Value``, is an uncorrected value applied to all of the voxels, and unless you are exploring your meta-analysis data without the intent to publish, I would not recommend using it. 
+
+The second option, ``Voxel-level FWE``, is similar to Bonferroni correction for fMRI data; it ensures that no more than a specified fraction of ALE scores exceed a given value. Once you choose this option, you will see additional fields; the one next to ``Voxel-level FWE`` is your alpha level at each voxel, while ``Threshold Permutations`` specifies how many null datasets will be simulated to build up the null distribution. The last field, ``Min. Volume (mm3)`` will remove any remaining voxels that do not belong to a cluster as large or larger than the volume entered.
+
+Similar to cluster-based thresholding for fMRI data, the last option, ``Cluster-level FWE``, allows you to specify the cluster-forming threshold in the field next to ``P Value`` (which should be kept at ``0.001``), and the alpha level in the field next to ``Cluster-level FWE`` for the resulting clusters (which I recommend setting to the nominal ``0.05`` value). As with the previous option of ``Voxel-level FWE``, the number of threshold permutations determines the amount of null clusters that are created in order to create a null distribution. For the purposes of this tutorial, let's stick with ``Cluster-level FWE`` as our correction method.
+
+Creating Foci Files
+*******************
+
 
 
 Replicating the Meta-Analysis of Kumar et al., 2016
