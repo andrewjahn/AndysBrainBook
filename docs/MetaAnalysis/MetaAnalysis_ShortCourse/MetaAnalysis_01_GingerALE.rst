@@ -69,5 +69,19 @@ From this sample file, we can see that it requires the following fields:
 
 Note that the reference space field is listed only once at the beginning of the file, and that this field, along with the fields listing the study name and the number of subjects, are preceded by two forward slashes ("``//``"). Each triple of coordinates is listed on a separate line, while a carriage return separates each study.
 
+Let's use this example file to run a small GingerALE meta-analysis. Either transcribe or copy and paste the values into a text file, using a program such as Macintosh's ``TextEdit``. (Be sure to remove the Rich Text Formatting by selecting ``Format -> Make Plain Text``, or else GingerALE won't be able to read the file.) Save the file into your ``GingerALE_Demo`` folder as ``Acupuncture_Foci.txt``.
+
+.. note::
+
+  If you do copy and paste the values from the GingerALE manual, or from one paper's table into your text file, make sure that the negative signs are formatted correctly; e.g., copying the negative signs from another paper may be represented as dashes when they are pasted into the text file. If you run into an error with GingerALE unable to interpret these signs, using TextEdit, select ``Edit -> Find -> Find and Replace``. Copy one of the dashes in the ``Find`` field, and enter a hypen (i.e., negative sign) into the ``Replace`` field, and click the ``All`` button.
+
+Running the Analysis
+********************
+
+Now that you have the materials you need for the meta-analysis, open GingerALE and click ``File -> Open Foci``. Select the ``Acupuncture_Foci.txt`` file you created, and click ``Open``. When you see a window asking you to change the coordinate system, select ``Change to Talairach``; you may have noticed that the coordinate system specified in the foci file was Talairach, and you should use the corresponding template space for the analysis.
+
+You will notice that the field next to ``Foci`` now displays the file you loaded, and it has detected 12 foci across 3 experiments, which you can verify by reading the foci file; the field next to ``Output Name Prefix`` has also been changed to the same name as the foci file, although you can modify it if you wish. Click the ``Compute`` button, and wait a few minutes for GingerALE to calculate the meta-analysis maps.
+
+
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
