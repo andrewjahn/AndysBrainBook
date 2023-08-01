@@ -103,4 +103,6 @@ When the analysis has finished, you can navigate into the directory and examine 
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
 
+Having used GingerALE to perform a small meta-analysis, let's expand our scope by using the coordinates reported in a paper by `Kumar et al., 2016 <https://www.jneurosci.org/content/jneuro/36/15/4170.full.pdf>`__ which were drawn from several studies examining speech production. The tasks used in these studies, which are listed in Table 1 of the paper, range from saying nouns, vowels, pseudowords, and different kinds of vowel and consonant sequences.
 
+In fact, it is this table that we will draw all of our coordinates from, in order to replicate their meta-analysis. 
