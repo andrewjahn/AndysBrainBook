@@ -47,10 +47,27 @@ The second option, ``Voxel-level FWE``, is similar to Bonferroni correction for 
 
 Similar to cluster-based thresholding for fMRI data, the last option, ``Cluster-level FWE``, allows you to specify the cluster-forming threshold in the field next to ``P Value`` (which should be kept at ``0.001``), and the alpha level in the field next to ``Cluster-level FWE`` for the resulting clusters (which I recommend setting to the nominal ``0.05`` value). As with the previous option of ``Voxel-level FWE``, the number of threshold permutations determines the amount of null clusters that are created in order to create a null distribution. For the purposes of this tutorial, let's stick with ``Cluster-level FWE`` as our correction method.
 
+.. figure:: GingerALE_03_Correction.png
+
+.. note::
+
+  If you are testing GingerALE for the first time, you may decide to use fewer permutations, e.g., 100 or 200, to quickly create a meta-analysis map. For most published analyses, permutations of 1000 or more are commonly used (e.g., Papitto et al., 2020; Hardwick et al., 2018; Teghil et al., 2019).
+
 Creating Foci Files
 *******************
 
-Once you have gathered a list of studies you want to include in your meta-analysis, you will also need to extract the **foci**, or peaks, for the contrasts that they reported in their paper. There are tools on the Brainmap website designed to automate this task for you, although you can extract the peaks manually if you wish. In any case, the foci
+Once you have gathered a list of studies you want to include in your meta-analysis, you will also need to extract the **foci**, or peaks, for the contrasts that they reported in their paper. There are tools on the Brainmap website designed to automate this task for you, although you can extract the peaks manually if you wish. In any case, the foci need to be formatted in a particular way in order to be used with GingerALE, and a representative example can be found in the GingerALE manual:
+
+.. figure:: GingerALE_03_Foci_Example.png
+
+From this sample file, we can see that it requires the following fields:
+
+* Reference space, in which all of the coordinates have been reported. Note that if different studies report their coordinates in different spaces, you can convert them to the same space by clicking ``Tools -> Convert Foci``, selecting the file you would like to convert, and choosing the appropriate conversion - for example, Talairach to MNI.
+* Listing the study name, followed by the contrast reported in that study whose coordinate you are reporting.
+* Number of subjects in the study
+* List of coordinates in x-y-z format for each foci reported in the study.
+
+Note that the reference space field is listed only once at the beginning of the file, and that this field, along with the fields listing the study name and the number of subjects, are preceded by two forward slashes ("``//``"). Each triple of coordinates is listed on a separate line, while a carriage return separates each study.
 
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
