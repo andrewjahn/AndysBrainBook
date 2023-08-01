@@ -82,6 +82,8 @@ Now that you have the materials you need for the meta-analysis, open GingerALE a
 
 You will notice that the field next to ``Foci`` now displays the file you loaded, and it has detected 12 foci across 3 experiments, which you can verify by reading the foci file; the field next to ``Output Name Prefix`` has also been changed to the same name as the foci file, although you can modify it if you wish. Click the ``Compute`` button, and wait a few minutes for GingerALE to calculate the meta-analysis maps.
 
+When the analysis has finished, you can navigate into the directory and examine the output with any viewing software that you like; in this case, I will use AFNI. 
+
 
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
