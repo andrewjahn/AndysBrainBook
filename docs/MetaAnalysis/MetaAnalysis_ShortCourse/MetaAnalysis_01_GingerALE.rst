@@ -80,10 +80,27 @@ Running the Analysis
 
 Now that you have the materials you need for the meta-analysis, open GingerALE and click ``File -> Open Foci``. Select the ``Acupuncture_Foci.txt`` file you created, and click ``Open``. When you see a window asking you to change the coordinate system, select ``Change to Talairach``; you may have noticed that the coordinate system specified in the foci file was Talairach, and you should use the corresponding template space for the analysis.
 
-You will notice that the field next to ``Foci`` now displays the file you loaded, and it has detected 12 foci across 3 experiments, which you can verify by reading the foci file; the field next to ``Output Name Prefix`` has also been changed to the same name as the foci file, although you can modify it if you wish. Click the ``Compute`` button, and wait a few minutes for GingerALE to calculate the meta-analysis maps.
+You will notice that the field next to ``Foci`` now displays the file you loaded, and it has detected 12 foci across 3 experiments, which you can verify by reading the foci file; the field next to ``Output Name Prefix`` has also been changed to the same name as the foci file, although you can modify it if you wish. Click the ``Compute`` button, and wait a few minutes for GingerALE to calculate the meta-analysis maps; the output of the analysis is annoted below, which is copied from the GingerALE user manual:
 
-When the analysis has finished, you can navigate into the directory and examine the output with any viewing software that you like; in this case, I will use AFNI. 
+* ALE Image: contains the unthresholded ALE values, one computed at every voxel in the brain. The file name used to save this file will be your “Output Name Prefix” setting and the suffix “_ALE.nii”
+* P Value Image: contains each voxel’s unthresholded P value. File name suffix: “_P.nii”
+* Thresholded Image: ALE map threshold at a given alpha value. This is considered the final output image, and is used as the input for contrast analyses. It has a variable file name, depending on the thresholding method and value chosen. For example, when using FDR pN < 0.01, the suffix would be “_ALE_pN01.nii”. It could also be “_ALE_p001.nii” or “_ALE_FWE05.nii”, etc.
+* Cluster Image: The first step in cluster analysis is identifying the contiguous non‐zero regions in the thresholded image. Each voxel in each region is given an integer value, according to which cluster it is in. The clusters are sorted by size, with #1 assigned to the largest cluster. Suffix: “_clust.nii”
+* Cluster Spreadsheet: An excel document with 10 columns of information about the result’s clusters:
+(1) cluster number, with the largest at #1
+(2) volume of cluster in mm3
+(3‐5) x,y,z values of the weighted center of mass
+(6) maximum ALE value observed in the cluster
+(7‐9) x,y,z values of the location of the maximum ALE value
+(10) Talairach Daemon anatomical label associated with the peak coordinates
+If your preferences are for a cluster analysis to contain all extrema, then columns 6‐10 will be repeated in a new row with information on each local maximum. Output suffix: “_clust.xls”
+* Data History: A text file that contains all the parameters and output file names used in the analysis. It also includes any additional information about the different stages of analysis, such as the FWHM value range and the total non‐zero volume in the thresholded image. It also includes an expanded cluster analysis, with all of the information from the spreadsheet as well as cluster extent and a volumetric Talairach Label analysis. File name suffix: “_clust.txt”
 
+When the analysis has finished, you can navigate into the directory and examine the output with any viewing software that you like; in this case, I will use AFNI. Using the MNI152_2009_template as an Underlay image, you can view any of the output images as an Overlay. The most useful one for our purposes of meta-analysis would be the file ``Acupuncture_Foci_C05_500_clust.nii``, which is the cluster-corrected image that shows where there is significant overlap between the foci of the different studies. In this case we can see two distinct clusters, one in the occipital lobe and one in the inferior frontal gyrus. For exact coordinates of the peaks of each of these clusters, you can open the spreadsheet ``Acupuncture_Foci_C05_500_peaks.xls``, which was also created in the output directory as a result of the analysis.
+
+.. figure:: GingerALE_01_ViewingResults.png
 
 Replicating the Meta-Analysis of Kumar et al., 2016
 ***************************************************
+
+
