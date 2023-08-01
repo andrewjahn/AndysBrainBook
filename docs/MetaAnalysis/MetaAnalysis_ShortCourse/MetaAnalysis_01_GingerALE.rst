@@ -23,7 +23,7 @@ The GingerALE Interface
 
 The GingerALE package can be downloaded by clicking on `this link <https://www.brainmap.org/ale/>`__ and choosing the version matching your operating system; downloading and installing the package is straightforward, and should only take a couple of minutes. Click on the file once you have downloaded it, and then click and drag the GingerALE icon into your Applications directory, which allows you to open the package by using your Finder to search for "GingerALE". Click on the software package result that appears, which will open the GingerALE interface.
 
-.. figure:: GingerALE_02_Interface.png
+.. figure:: GingerALE_01_Interface.png
 
 The radio button by default is set to "Single Dataset", which is what we will start with; that is, we will test whether the results of several different studies examining the same contrast have significant overlap. Not all of the studies need to use the exact same contrast, it should be noted; there will be differences in experimental design, as well as number of subjects and number of trials. But each study that is included in the meta-analysis ought to tap into the same underlying cognitive phenomenon, whether it be working memory, cognitive control, and so forth. In the Turkeltaub et al. 2002 paper discussed above, for example, they included studies which measured where reading aloud elicited higher PET signals in the brain, relative to some control condition. Here is a partial list of those controls:
 
@@ -39,7 +39,7 @@ The next field, "Mask Size", specifies whether to make the mask bigger or smalle
 
 All of the other options are mostly self-explanatory, and the defaults should be left as they are. The only other option you may want to change is the "Output Directory" field, which by default points to the home directory. To better organize our results, create a new directory on your Desktop called ``GingerALE_Demo``, and then select this folder as your output directory. When you are finished, your GingerALE preferences should look like this:
 
-.. figure:: GingerALE_03_Preferences.png
+.. figure:: GingerALE_01_Preferences.png
 
 Once you have closed the Preferences window, you may see your changes reflected in the main GingerALE interface; for example, the coordinate system will change from Talairach to MNI152. Passing over the ``Foci`` field for now, you will see the ``Settings`` field, with a drop-down menu showing options for different correction methods. The first one in the list, ``P Value``, is an uncorrected value applied to all of the voxels, and unless you are exploring your meta-analysis data without the intent to publish, I would not recommend using it. 
 
@@ -47,7 +47,7 @@ The second option, ``Voxel-level FWE``, is similar to Bonferroni correction for 
 
 Similar to cluster-based thresholding for fMRI data, the last option, ``Cluster-level FWE``, allows you to specify the cluster-forming threshold in the field next to ``P Value`` (which should be kept at ``0.001``), and the alpha level in the field next to ``Cluster-level FWE`` for the resulting clusters (which I recommend setting to the nominal ``0.05`` value). As with the previous option of ``Voxel-level FWE``, the number of threshold permutations determines the amount of null clusters that are created in order to create a null distribution. For the purposes of this tutorial, let's stick with ``Cluster-level FWE`` as our correction method.
 
-.. figure:: GingerALE_03_Correction.png
+.. figure:: GingerALE_01_Correction.png
 
 .. note::
 
@@ -58,7 +58,7 @@ Creating Foci Files
 
 Once you have gathered a list of studies you want to include in your meta-analysis, you will also need to extract the **foci**, or peaks, for the contrasts that they reported in their paper. There are tools on the Brainmap website designed to automate this task for you, although you can extract the peaks manually if you wish. In any case, the foci need to be formatted in a particular way in order to be used with GingerALE, and a representative example can be found in the GingerALE manual:
 
-.. figure:: GingerALE_03_Foci_Example.png
+.. figure:: GingerALE_01_Foci_Example.png
 
 From this sample file, we can see that it requires the following fields:
 
