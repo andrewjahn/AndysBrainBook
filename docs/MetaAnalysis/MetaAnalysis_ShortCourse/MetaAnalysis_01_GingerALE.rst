@@ -105,4 +105,16 @@ Replicating the Meta-Analysis of Kumar et al., 2016
 
 Having used GingerALE to perform a small meta-analysis, let's expand our scope by using the coordinates reported in a paper by `Kumar et al., 2016 <https://www.jneurosci.org/content/jneuro/36/15/4170.full.pdf>`__ which were drawn from several studies examining speech production. The tasks used in these studies, which are listed in Table 1 of the paper, range from saying nouns, vowels, pseudowords, and different kinds of vowel and consonant sequences.
 
-In fact, it is this table that we will draw all of our coordinates from, in order to replicate their meta-analysis. 
+In fact, it is this table that we will draw all of our coordinates from, in order to replicate their meta-analysis. This may take some time to transcribe it by hand into a text file, but it is useful to do this a couple of times to get used to the feel of creating your own set of coordinates, which may not always be available in databases such as `Sleuth <https://brainmap.org/sleuth/>`__ which extract the coordinates automatically.
+
+As you create the foci file, it should look something like this, with the original paper and the text file displayed side by side:
+
+.. figure:: GingerALE_01_ExtractingCoordinates.png
+
+.. note::
+
+  The Kumar et al. paper lists the space in which each set of coordinates are reported, some of which are in Talairach-Tournoux (TT) space. These coordinates can be converted to MNI using any one of the converters found online, such as `this one <https://bioimagesuiteweb.github.io/webapp/mni2tal.html>`__. Once you are done converting all of the required coordinates, create a new folder called ``Kumar_Replication``, and within that folder save the coordinates file as ``Speech_Coordinates.txt``.
+
+From the Methods section of the paper, we learn that the authors performed their meta-analysis with GingerALE as well, using "a familywise error-corrected p = 0.01 with minimum cluster size [sic.] of 200mm^3". To replicate this we should therefore use the ``Voxel-level FWE`` correction method, setting the alpha level to ``0.01``. (The Min. Volume field should be set to ``200`` as the default, and so does not need to be changed in this case.) Then, load the foci file and click ``Compute``. This analysis should only take a few minutes.
+
+When it is done,
