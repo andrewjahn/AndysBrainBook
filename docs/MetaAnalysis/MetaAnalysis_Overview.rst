@@ -31,5 +31,5 @@ Over a century later, instead of a dozen or so inoculation sites, we are confron
 
    MetaAnalysis_ShortCourse/MetaAnalysis_01_GingerALE
    MetaAnalysis_ShortCourse/MetaAnalysis_02_SeedBasedDMapping
-   MetaAnalysis_ShortCourse/MetaAnalysis_03_NeuroSynth
-   MetaAnalysis_ShortCourse/MetaAnalysis_04_NeuroQuery
+   MetaAnalysis_ShortCourse/MetaAnalysis_03_NeuroSynth_NeuroQuery
+   MetaAnalysis_ShortCourse/MetaAnalysis_04_NiMARE
