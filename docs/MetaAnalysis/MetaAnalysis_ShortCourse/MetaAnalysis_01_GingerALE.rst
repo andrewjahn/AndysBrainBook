@@ -113,8 +113,19 @@ As you create the foci file, it should look something like this, with the origin
 
 .. note::
 
-  The Kumar et al. paper lists the space in which each set of coordinates are reported, some of which are in Talairach-Tournoux (TT) space. These coordinates can be converted to MNI using any one of the converters found online, such as `this one <https://bioimagesuiteweb.github.io/webapp/mni2tal.html>`__. Once you are done converting all of the required coordinates, create a new folder called ``Kumar_Replication``, and within that folder save the coordinates file as ``Speech_Coordinates.txt``.
+  The Kumar et al. paper lists the space in which each set of coordinates are reported, some of which are in Talairach-Tournoux (TT) space. These coordinates can be converted to MNI using any one of the converters found online, such as `this one <https://bioimagesuiteweb.github.io/webapp/mni2tal.html>`__. Once you are done converting all of the required coordinates, create a new folder called ``Kumar_Replication``, and within that folder save the coordinates file as ``Speech_Coordinates.txt``. Also make sure to change the GingerALE settings to write the output into the ``Kumar_Replciation`` folder.
 
 From the Methods section of the paper, we learn that the authors performed their meta-analysis with GingerALE as well, using "a familywise error-corrected p = 0.01 with minimum cluster size [sic.] of 200mm^3". To replicate this we should therefore use the ``Voxel-level FWE`` correction method, setting the alpha level to ``0.01``. (The Min. Volume field should be set to ``200`` as the default, and so does not need to be changed in this case.) Then, load the foci file and click ``Compute``. This analysis should only take a few minutes.
 
-When it is done,
+When the analysis is complete, overlay the cluster-corrected results (i.e., ``Speech_Coordinates_FWE05_500_ALE.nii``) on a template MNI brain; you shoul see significant ALE overlap in the bilateral laryngeal motor cortex (around area 4 of the motor cortex), similar to what they display in Figure 1 of the paper.
+
+.. figure:: GingerALE_01_Kumar_Replication.png
+
+  Comparison of the results from the current meta-analysis (left) with the results reported in the Kumar et al. 2016 paper (right).
+
+Contrasting ALE Maps
+********************
+
+While an activation likelihood map for a single contrast can be useful in itself, you may also want to compare these maps against another cognitive process. To demonstrate this, we will use another software package available on Brainmaps.org, called ``Sleuth``. Click on `this link <http://brainmap.org/sleuth/>`__, and download the version of Sleuth that is compatible with your operating system. Then, click `here <http://brainmap.org/sleuth/account.html>`__ to create an account, which should only take a minute or so. Once this is done, open Sleuth and log in with your new username and password; this will grant you access to the Brainmap database. 
+
+Within the panel labeled "Choose your search criteria", you are able to add as many criteria as you like. The number of options may seem overwhelming, but if you have a good idea of the parameters you would like to set on which foci are generated in the search - for example, filtering for studies that have at least twenty subjects, or which fall within one of the hemispheres - you can set them here. The focus of your search, however, probably will use the ``Condition`` option as the first filter, followed by either ``Stimulus Type`` or ``Stimulus Content``. You can then look at the resulting options in the dropdown menu at the right, and choose whichever one best suits your analysis.
