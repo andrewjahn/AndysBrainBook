@@ -241,6 +241,14 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     MetaAnalysis/MetaAnalysis_Overview
 
 
+.. toctree::
+
+    :maxdepth: 1
+    :caption: Functional Localizers
+
+    FunctionalLocalizers/FunctionalLocalizers_Overview
+
+
 .. Glossary
 .. ==================
 
