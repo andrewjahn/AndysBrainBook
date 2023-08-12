@@ -6,6 +6,10 @@ Statistics for Neuroimagers
 
 ---------------
 
+.. note::
+
+   This module has not been updated for some time, as of this note (08.12.2023). I may edit it sometime later.
+
 Overview
 ********
 
