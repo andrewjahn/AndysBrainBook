@@ -27,7 +27,7 @@ The voxels highlighted in red show where there is likely to be significant activ
 Uniformity vs. Association Maps
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Neurosynth creates two types of meta-analysis maps: **Uniformity** and **Association** maps. Uniformity is the more intuitive concept to understand: It is the likelihood of finding a significant result reported in that voxel, given the search term (e.g., "pain"). An Association map, on the other hand, computes at each voxel the likelihood of finding significant activation given the search term, relative to those studies that don't use the search term. The Association maps are consequently more restricted, on average, than the Uniformity maps
+Neurosynth creates two types of meta-analysis maps: **Uniformity** and **Association** maps. Uniformity is the more intuitive concept to understand: It is the likelihood of finding a significant result reported in that voxel, given the search term (e.g., "pain"); it is similar to calculating the overlap of the statistical maps for all studies that used "pain" in their experiment. An Association map, on the other hand, computes at each voxel the likelihood of finding significant activation given the search term, relative to those studies that don't use the search term. For example, the dorsal anterior cingulate cortex is active in response to many different types of stimuli and cognitive processes - conflict, pain, prediction error, emotion, and attention, to name a few. Controlling for this overall level of baseline activity using Association tests will generate a more condition-specific meta-analysis, at the expense of being more conservative than a Uniformity test.
 
 
 Using the Maps as ROIs
