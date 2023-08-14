@@ -21,3 +21,5 @@ Neurosynth is straightforward to use, and any further questions about the interf
 
 Neuroquery: Refinement of Search Terms
 **************************************
+
+For meta-analyses that test where there is probable overlap in activation across studies, both GingerALE and Neuroynth will generate interpretable Z-statistics at each voxel. 
