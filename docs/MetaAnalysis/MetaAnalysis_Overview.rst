@@ -6,6 +6,10 @@ Meta-Analysis for Neuroimagers
 
 ---------------
 
+.. figure:: Meta_Analysis_Wager_2007.png
+
+  Illustration of fMRI Meta-Analysis by Wager et al., 2007
+
 Overview
 ********
 
