@@ -123,8 +123,8 @@ When the analysis is complete, overlay the cluster-corrected results (i.e., ``Sp
 
   Comparison of the results from the current meta-analysis (left) with the results reported in the Kumar et al. 2016 paper (right).
 
-Using Sleuth and Contrasting ALE Maps for Sounds and Music
-**********************************************************
+Using Sleuth to Create Study Coordinates for Music and Sounds
+*************************************************************
 
 While an activation likelihood map for a single contrast can be useful in itself, you may also want to compare these maps against another cognitive process. To demonstrate this, we will use another software package available on Brainmaps.org, called ``Sleuth``. Click on `this link <http://brainmap.org/sleuth/>`__, and download the version of Sleuth that is compatible with your operating system. Then, click `here <http://brainmap.org/sleuth/account.html>`__ to create an account, which should only take a minute or so. Once this is done, open Sleuth and log in with your new username and password; this will grant you access to the Brainmap database. 
 
@@ -142,6 +142,10 @@ After you have reviewed the foci and determined whether they are suitable to use
 
   When creating a new foci file for the ``Music`` condition, you may need to close Sleuth and re-open it; this flushes the previous coordinates out of memory, so that the new coordinates will not be concatenated to the ones from the previous analysis.
 
+
+Performing a Meta-Analysis of Music and Sound Coordinates
+**********************************************************
+
 The analysis of these datasets are identical to the first; once you have opened the Foci file for the ``Sounds_Coordinates.txt`` file, click ``Compute``. (To keep the analyses as similar as possible, leave the correction parameters the same; viz., Voxel-level FWE of 0.05, 500 Permutations, and 200mm3 volume. Also make sure to reset the Output Directory through the GingerALE Preferences panel.) As with the previous analysis, load the cluster-corrected maps in a software viewer of your choice to make sure that the activations are where you expect them to be - such as the primary auditory cortex of the auditory lobes. Then, do the same analysis with the ``Music_Coordinates.txt`` file.
 
 Our next task is to create a pooled coordinates file, which is just a concantenation of the Speech and Sounds coordinate files we have already written. You are welcome to do this by hand, or, if you would like to have GingerALE do it for you, click on the ``Contrast Datasets`` radio button, load both of the thresholded ALE maps (in our case, click on ``File -> Open ALE Image 1`` and load the file ``Music_Coordinates_FWE05_500_ALE.nii``, and then click ``File -> Open ALE Image 2`` and load ``Sounds_Coordinates_FWE05_500_ALE.nii``), and then click on ``File -> Merge & Save Foci``. Save the file as ``pooled.txt`` in the ``Sounds_Music_Comparison`` directory.
@@ -150,4 +154,23 @@ The analysis of this pooled file is the same as analyzing the previous sets of f
 
 When it has finished, click on ``Contrast Datasets`` again. Click on ``File -> Open ALE Image 1``, and select ``Music_Coordinates_FWE05_500_ALE``; then, click on ``File -> Open ALE Image 2`` and select ``Sounds_Coordinates_FWE05_500_ALE``. The last file we need to load is the ``pooled_FWE05_500_ALE``, which you can select by clicking ``File -> Open Pooled ALE Image``. Click ``Compute``.
 
-The output 
+.. figure:: GingerALE_01_Contrast_Analysis.png
+
+  Loading the images for a Contrast meta-analysis.
+
+The ``Sounds_Music_Comparison`` directory should look like this when you have finished the analysis:
+
+.. figure:: GingerALE_01_Contrast_Output.png
+
+  Output from the Contrast meta-analysis. The contrasts of Music-Sounds and Sounds-Music are highlighted in orange, while the conjunction between the meta-analysis maps is highlighted in red.
+
+To view the results, load the output images in the MRI viewer of your choice, using an MNI template as an underlay. In this case, I will use AFNI to view the images, selecting the MNI152_2009_template.nii.gz template as an underlay and then loading the conjunction between the meta-analyses (i.e., ``Music_Coordinates_FWE05_500_ALE_conj_Sounds_Coordinates_FWE05_500_ALE_ALE.nii``), which will display cluster-corrected ALE results for significant overlap between the meta-analysis maps. (The map ``Music_Coordinates_FWE05_500_ALE_conj_Sounds_Coordinates_FWE05_500_ALE_clust.nii``, useful for visualizing how many clusters there are, displays the ALE results encoded with integers indicating which cluster a voxel belongs to, such as 1, 2, 3, etc.) You may find it useful to display the ALE results side-by-side with their accompanying text files; for example, the file ``Music_Coordinates_FWE05_500_ALE_conj_Sounds_Coordinates_FWE05_500_ALE_peaks.xls`` provides MNI coordinates for peaks within the cluster, the Activation Likelihood Estimate, and where the peaks are located according to an MNI atlas. For a more detailed, annotated summary, look in the file ``Music_Coordinates_FWE05_500_ALE_conj_Sounds_Coordinates_FWE05_500_ALE_clust.txt``, which lists the cluster volume, peak ALE coordinate, and probabilistic atlas classifications of each cluster.
+
+.. figure:: GingerALE_01_ViewingOutput.png
+
+  Example output from the Conjunction meta-analysis, displaying significant overlap between the meta-analysis maps for Music and Sounds. The panel on the left displays the cluster-thresholded conjunction map on an MNI template, and the panel on the right provides statistical and localization details for each cluster.
+
+Next Steps
+**********
+
+Now that you are familiar with one of the most popular meta-analysis packages, we will learn how to use another meta-analysis package called "Seed-Based D Mapping". To learn more about how to use this package, click the ``Next`` button.
