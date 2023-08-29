@@ -45,7 +45,7 @@ When you are done, click the green Go button. The model estimation should only t
 
 .. figure:: 05_06_Design_Review.png
 
-  The General Linear Model for a single subject. The first two columns shows the ideal time-series for the Incongruent and Congruent conditions for the first session, while the next two show the ideal time-series for the conditions of run 2. The last two columns are baseline regressors capturing the mean signal for each run. In this representation, time runs from top to bottom, and lighter colors represent more activity.
+  The General Linear Model for a single subject. The first two columns show the ideal time-series for the Incongruent and Congruent conditions for the first session, while the next two show the ideal time-series for the conditions of run 2. The last two columns are baseline regressors capturing the mean signal for each run. In this representation, time runs from top to bottom, and lighter colors represent more activity.
   
   
 Estimating the Model
@@ -58,7 +58,7 @@ The Contrast Manager
 
 When you have finished estimating the model, you are ready to create **contrasts**. If we estimate a beta weight for the Incongruent condition and a beta weight for the Congruent condition, for example, we can take the difference between them to calculate a **contrast estimate** at each voxel in the brain. Doing so for each voxel will create a **contrast map**.
 
-To create these contrasts, click on the ``Results`` button of the SPM GUI, and select the SPM.mat file that was generated after estimating the model. You will see the design matrix on the right side of the panel. Click on ``Define New Contrast``, and in the ``Name`` field type ``Inc-Con``. In the contrast vector window, type ``0.5 -0.5 0.5 -0.5``, and then click ``submit``. If the contrast is valid, you should see green text at the bottom of the window saying "name defined, contrast defined". Make sure that you contrast manager looks like the figure below, and then click ``OK`` to create the contrast.
+To create these contrasts, click on the ``Results`` button of the SPM GUI, and select the SPM.mat file that was generated after estimating the model. You will see the design matrix on the right side of the panel. Click on ``Define New Contrast``, and in the ``Name`` field type ``Inc-Con``. In the contrast vector window, type ``0.5 -0.5 0.5 -0.5``, and then click ``submit``. If the contrast is valid, you should see green text at the bottom of the window saying "name defined, contrast defined". Make sure that your contrast manager looks like the figure below, and then click ``OK`` to create the contrast.
 
 .. figure:: 05_06_Contrast_Inc-Con.png
 
