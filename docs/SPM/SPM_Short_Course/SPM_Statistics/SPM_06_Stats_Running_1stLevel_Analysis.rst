@@ -45,7 +45,7 @@ When you are done, click the green Go button. The model estimation should only t
 
 .. figure:: 05_06_Design_Review.png
 
-  The General Linear Model for a single subject. The first two columns shows the ideal time-series for the Incongruent and Congruent conditions for the first session, while the next two show the ideal time-series for the conditions of run 2. The last two columns are basline regressors capturing the mean signal for each run. In this representation, time runs from top to bottom, and lighter colors represent more activity.
+  The General Linear Model for a single subject. The first two columns shows the ideal time-series for the Incongruent and Congruent conditions for the first session, while the next two show the ideal time-series for the conditions of run 2. The last two columns are baseline regressors capturing the mean signal for each run. In this representation, time runs from top to bottom, and lighter colors represent more activity.
   
   
 Estimating the Model
