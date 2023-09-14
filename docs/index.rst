@@ -236,7 +236,7 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
 
 .. toctree::
     :maxdepth: 1
-    :caption: Meta-Analysis for Neuroimagers
+    :caption: Meta-Analysis for fMRI
     
     MetaAnalysis/MetaAnalysis_Overview
 
