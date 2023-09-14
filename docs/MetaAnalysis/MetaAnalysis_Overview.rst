@@ -18,7 +18,7 @@ When enough experiments have been carried out on a particular subject, one might
 While this concept may seem obvious, it took time to develop in the fields of clinical trials and the social sciences; and the first known use of this method was done by Karl Pearson to examine the effect of inoculation on enteric fever (also called typhoid fever). Pearson first looked at the correlation between immunity and inoculation across different sites, with a positive correlation indicating a higher likelihood of developing immunity against the disease. He then reported the correlation between inoculation and mortality (i.e., survival rate), and also reported the "probable error" for each site, a measure of the variability in the measurement reported in each study:
 
 .. figure:: Pearson_Table1.png
-  :scale: 45%
+  :scale: 50%
 
   Reproduction of the table from the original Pearson 1904 paper, comparing across studies the effect of inoculation on enteric fever.
 
