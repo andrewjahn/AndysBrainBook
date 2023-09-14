@@ -23,7 +23,7 @@ While this concept may seem obvious, it took time to develop in the fields of cl
   Reproduction of the table from the original Pearson 1904 paper, comparing across studies the effect of inoculation on enteric fever.
 
 .. figure:: Pearson_Table2.png
-  :scale: 50%
+  :scale: 45%
 
   Comparison table with smallpox data, considered at the time a more established and effective vaccine.
 
