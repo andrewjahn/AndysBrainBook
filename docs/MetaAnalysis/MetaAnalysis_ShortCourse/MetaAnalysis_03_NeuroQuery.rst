@@ -38,7 +38,7 @@ Although GingerALE and Neurosynth are very good at finding the overlap among stu
 
 These questions were addressed by a new online meta-analysis tool called `Neuroquery <https://neuroquery.org/>`__, which emphasizes *prediction* for a given search term or phrase, instead of calculating the overlap from studies that have already been published. Take the search term "prosopagnosia", for example, which was also the example used in the original `Dockès et al. 2020 paper  <https://elifesciences.org/articles/53385>`__. There are only a handful of studies which have studied prosopagnosia using neuroimaging, which means there are not enough to run an effective meta-analysis.
 
-With Neuroquery, however, this limitation can be overcome by analyzing the full text of each article (as opposed to just the abstract, as is done by Neurosynth), and then by using a technique called "semantic smoothing" to add weight to semantically related terms. This results in predictive maps of voxels that are expected to be associated with a certain cognitive process, such as prosopagnosia, which would be otherwise impossible with conventional meta-analysis.
+With Neuroquery, however, this limitation can be overcome by analyzing the full text of each article (as opposed to just the abstract, as is done by Neurosynth), and then by using a technique called "semantic smoothing" to add weight to semantically related terms. This generates predictive maps of voxels that are expected to be associated with a certain cognitive process, such as prosopagnosia, which would be otherwise impossible with conventional meta-analysis.
 
 .. figure:: Neuroquery_03_Prosopagnosia.png
 
