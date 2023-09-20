@@ -49,7 +49,7 @@ Functions in Matlab are similar in that they also take inputs and generate outpu
   y = 4;
   z = x * y;
   
-You can then save the script by clicking on the ``Save`` icon and giving a new name for the script. In this case, let's call it ``myScript``. It will automatically append a ``.m`` extension, indicating that has been created in Matlab, and is designed to be run in Matlab. You can then run the script by clicking on the green ``Run`` button, or by just typing the script's name (without the .m extension) from the command line. Note that you will need to either be in the directory that contains the script, or you will need to set a path to the script if you want to run it from another directory.
+You can then save the script by clicking on the ``Save`` icon and giving a new name for the script. In this case, let's call it ``myScript``. It will automatically append a ``.m`` extension, indicating that it has been created in Matlab, and is designed to be run in Matlab. You can then run the script by clicking on the green ``Run`` button, or by just typing the script's name (without the .m extension) from the command line. Note that you will need to either be in the directory that contains the script, or you will need to set a path to the script if you want to run it from another directory.
 
 .. figure:: 03_Matlab_Script.png
 
@@ -71,7 +71,7 @@ We will now move on to creating a function. Let's start by using a template: Cli
   
 Matlab functions can take some time to get used to, so let's begin with a simple example by editing the variables that are given to us here. The first line of code is called the **declaration**, in which you specify the name of the function, the input to the function, and the names for the variables that will be output by the function. Note that the first word in this line is called **function**, indicating that everything which follows should be formatted as a function. The output, counterintuitively, comes first; both ``outputArg1`` and ``outputArg2`` are contained within a vector (indicated by the brackets), and are separated by a comma. Then, on the other side of the equals sign, is the name of the function, which for now is called ``untitled6`` (your default name may differ, depending on how many scripts you've edited in your Matlab session so far). Then, in parentheses, we specify the names of the input arguments, which are labeled here as ``inputArg1`` and ``inputArg2``.
 
-Below the declaration line, we have two lines that begin with a percent sign (``%``). In Matlab scripts, this indicates a **comment**, or a line of code that is not run, but is there to tell the user what the following lines do. In a function, the commented lines just after the declaration serve as the **help manual** for the function - in other words, if someone types ``help`` followed by the name of your function, the text in the comments will be printed to the screen. The lines of code after the comments specify what operations will be performed on the input, the the last line, ``end``, is a keyword that needs to be written at the end of each function.
+Below the declaration line, we have two lines that begin with a percent sign (``%``). In Matlab scripts, this indicates a **comment**, or a line of code that is not run, but is there to tell the user what the following lines do. In a function, the commented lines just after the declaration serve as the **help manual** for the function - in other words, if someone types ``help`` followed by the name of your function, the text in the comments will be printed to the screen. The lines of code after the comments specify what operations will be performed on the input, the last line, ``end``, is a keyword that needs to be written at the end of each function.
 
 Imagine that we wanted to create a function that squares the values of two inputs that are provided to the function. Let's call this function ``squareXandY``. If we wanted to give it two inputs, x and y, and call the output xSquared and ySquared, we would modify the template so that it looks like this:
 
@@ -79,7 +79,7 @@ Imagine that we wanted to create a function that squares the values of two input
 
 Note that we have changed the name of the function in the declaration, and, importantly, we have also saved the function with the same name of ``squareXandY``. The inputs are called ``x`` and ``y``, and the outputs are ``xSquared`` and ``ySquared``. In the comments section of the function, we have given a brief summary in the first comment line, and a more detailed guide in the comment lines after that. The body of the function contains two lines of code, ``xSquared = x^2`` and ``ySquared = y^2``, which are the operations performed on the input; and finally, the function is closed with the ``end`` keyword.
 
-Make sure your function also looks like this, and then either click the green ``Go`` button, or type the name of the function in the terminal, ``squareXandY``, and press enter. You shoudl see two new variables in the Workspace window labeled xSquared and ySquared, with values of 4 and 16, respectively.
+Make sure your function also looks like this, and then either click the green ``Go`` button, or type the name of the function in the terminal, ``squareXandY``, and press enter. You should see two new variables in the Workspace window labeled xSquared and ySquared, with values of 4 and 16, respectively.
 
 Using the ttest Function
 &&&&&&&&&&&&&&&&&&&&&&&&
@@ -146,8 +146,8 @@ We will use the ttest function, and other functions like it, when extracting dat
 Exercises
 *********
 
-1. Using the same Cond1 and Cond2 vectors as defined above, change the t-test to a right-tailed test (i.e., testing whether then mean is greater than 0).
+1. Using the same Cond1 and Cond2 vectors as defined above, change the t-test to a right-tailed test (i.e., testing whether the mean is greater than 0).
 
 2. Create a new vector ``myBetas`` and populate it with whatever values you choose. Run a one-sample t-test on the vector ``myBetas``. Report the p-value, confidence level, t-statistic, degrees of freedom, and standard deviation of the estimate. Show the contents of the ``myBetas`` vector that you used.
 
-3. Copy the code from the function ``squareXandY`` into a new function called ``squareXYZ``. Edit the code in the new script by giving it a new input, ``z``, and a new output, ``zSquared``. Add a line of code to the body of the function to reflect this change, and update the comments to instruct the use how to use this new function. Run the function with any values for x, y, and z that you choose, and report the input and output. Show the script you used as well.
+3. Copy the code from the function ``squareXandY`` into a new function called ``squareXYZ``. Edit the code in the new script by giving it a new input, ``z``, and a new output, ``zSquared``. Add a line of code to the body of the function to reflect this change, and update the comments to instruct the user how to use this new function. Run the function with any values for x, y, and z that you choose, and report the input and output. Show the script you used as well.
