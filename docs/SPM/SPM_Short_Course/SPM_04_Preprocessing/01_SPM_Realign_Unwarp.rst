@@ -49,7 +49,7 @@ Now that you have filled in all of the fields that had a ``<-X`` next to them, t
 
 .. note::
 
-  **Regular expressions** can be used to create very specific filters. For example, if you type the string ``run-1.*`` in the Filter field, the file window will return only those files that contain the string "run-1" anywhere in their name. Typing the string ``^sub-08_task-flanker_run-1`` will return any files that *begin* with the string "run-1" (signalized by the carat symbol, ``^``).
+  **Regular expressions** can be used to create very specific filters. For example, if you type the string ``run-1.*`` in the Filter field, the file window will return only those files that contain the string "run-1" anywhere in their name. Typing the string ``^sub-08_task-flanker_run-1`` will return any files that *begin* with the string "run-1" (signalized by the caret symbol, ``^``).
   
   
 -----------
