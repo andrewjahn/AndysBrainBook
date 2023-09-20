@@ -24,7 +24,7 @@ This tutorial also overlaps considerably with the :ref:`Unix tutorials <Unix_Int
 
 .. note::
 
-    Matlab is proprietary software, and price quotes can be found on the `Mathworks website <https://www.mathworks.com/store/>`__. Most universities have a an education license that can be accessed for free by both students and staff. Ask your local IT department whether this is provided at your institution. 
+    Matlab is proprietary software, and price quotes can be found on the `Mathworks website <https://www.mathworks.com/store/>`__. Most universities have an education license that can be accessed for free by both students and staff. Ask your local IT department whether this is provided at your institution. 
 
 
 .. toctree::
