@@ -51,7 +51,7 @@ Or use a relative path:
 
     cd Desktop
     
-If you are using a Linux or Macintosh operating system, note that your home directory has a **keyword** reserved for it, which is just the tilde symbol (``~``). (Windows users will probably need to use an absolute path, such as ``C:/<Username>``, replacing ``<Username>`` with your username.) Since the home directory is often used as a reference point, I could replace my absolute path above with:
+If you are using a Linux or Macintosh operating system, note that your home directory has a **keyword** reserved for it, which is just the tilde symbol (``~``). (Windows users will probably need to use an absolute path, such as ``C:/Users/<Username>``, replacing ``<Username>`` with your username.) Since the home directory is often used as a reference point, I could replace my absolute path above with:
 
 ::
 
