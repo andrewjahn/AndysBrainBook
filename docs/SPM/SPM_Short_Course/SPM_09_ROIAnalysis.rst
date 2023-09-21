@@ -37,7 +37,7 @@ When you are satisfied with the mask you have generated, click the ``SAVE MASK``
   
 
 Extracting Data from the Anatomical Mask
-************
+****************************************
 
 Once you've created the mask, you can then extract each subject's contrast estimates from it. There are two ways that we could extract our contrast of interest Incongruent-Congurent:
 
@@ -85,7 +85,7 @@ This will return four variables, representing different parts of the hypothesis 
   	
   
 Extracting Data from a Sphere
-************
+*****************************
 
 You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the ACC mask covers a very large region; although the ACC is labeled as a single anatomical region, we may be extracting data from several distinct functional areas. Consequently, this may not be the best ROI approach to take.
 
@@ -158,7 +158,7 @@ It should return the same values as when you did the anatomical ROI analysis abo
 
 .. note::
 
-	The default voxel resolution is 2x2x2mm for masks created with either the wfupickatlas or marsbar toolbox. In order to use the script above, this voxel resolution needs to match the resolution of the data you are extracting from. For example, if you specfied a resampling resolution of 3x3x3 during the normalization preprocessing step, you will need to `resample <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#resampling>`__ the mask so that the voxel dimensions match. The following image shows how to use SPM's ``Coregister (Reslice)`` command to resample the BA_32 ROI. The resliced image will have an "r" prepended to it:
+	The default voxel resolution is 2x2x2mm for masks created with either the wfupickatlas or marsbar toolbox. In order to use the script above, this voxel resolution needs to match the resolution of the data you are extracting from. For example, if you specified a resampling resolution of 3x3x3 during the normalization preprocessing step, you will need to `resample <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#resampling>`__ the mask so that the voxel dimensions match. The following image shows how to use SPM's ``Coregister (Reslice)`` command to resample the BA_32 ROI. The resliced image will have an "r" prepended to it:
 	
 .. figure:: 09_ROI_Reslice.png
 	
@@ -181,7 +181,7 @@ Now use this file as a mask for an ROI analysis, following the steps you complet
 -------
 
 Exercises
-********
+*********
 
 1. Create an anatomical mask of a region of your choosing, and test whether the contrast of Inc-Con is significant within that ROI. Show a figure displaying the ROI, and show the results from the ttest command. (N.B.: When evaluating the p-value, take into account how many ROIs you are using to test the same contrast - as the number of tests goes up, your p-value should become proportionately more conservative. A good guideline to follow is to use Bonferroni correction based on the number of ROIs that you test; e.g, if you test two ROIs, then divide the p-value by 2, for a corrected alpha level of 0.025.)
   
@@ -193,6 +193,6 @@ Exercises
 --------
 
 Video
-*********
+*****
 
 For a video walkthrough of ROI analysis in SPM, click `here <https://www.youtube.com/watch?v=zVuSHTJLJj4>`__.
