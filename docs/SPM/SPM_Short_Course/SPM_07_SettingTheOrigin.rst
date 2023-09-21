@@ -1,8 +1,8 @@
 .. _SPM_07_SettingTheOrigin:
 
-===========================
+===================================
 SPM Tutorial #7: Setting the Origin
-===========================
+===================================
 
 ----------
 
@@ -34,7 +34,7 @@ To do this, click on the Display button and load the raw anatomical image for su
 
 .. figure:: 07_Anatomical_Origins_Before.png
 
-  Clicking the origin button reveals that the origin is far away from the center of the image. We will transform the image so that the origin lies at the anterior commisure instead.
+  Clicking the origin button reveals that the origin is far away from the center of the image. We will transform the image so that the origin lies at the anterior commissure instead.
   
 Now, click and drag the crosshairs until they are on the anterior commissure. This thin band of white matter fibers can be found at the base of the fornix, an arch-like band of white matter extending downward from the corpus callosum. The anterior commissure can be found most easily from the sagittal view; once you have placed your crosshairs in the vicinity of the anterior commissure, you should also see a thin band of white matter in the axial view and the coronal view. (In the coronal view, imagine that the ventricles are eyes; the anterior commissure then looks like a white mustache.)
 
