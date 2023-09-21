@@ -7,7 +7,7 @@ To understanding how model fitting works, first we need to review the structure 
 
 .. note::
 
-  In SPM, a run is called a **session**. Some terms have not been standardized across the analysis packages, but for the purporses of this course I will continue with the above definition of a run.
+  In SPM, a run is called a **session**. Some terms have not been standardized across the analysis packages, but for the purposes of this course I will continue with the above definition of a run.
 
 In SPM, unfortunately, there is no easy way to view the time-series of a volume. (Expand on this later, maybe talk about a workaround with spm_vol.)
 
