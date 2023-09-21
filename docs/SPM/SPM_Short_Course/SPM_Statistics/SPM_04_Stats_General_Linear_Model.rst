@@ -20,7 +20,7 @@ The symbols representing each of these terms are shown in the following equation
 
 .. figure:: 05_04_GLM_Equation.png
 
-Let's see how to apply this to a simple example. Imagine that we want to predict GPA based on height, IQ, and number of drinks per week. We may find that IQ has a positive association with GPA, number of drinks has a negative association, and height has no association at all; and we assign each of these regressors beta weights to best fit the data. For example, maybe each additional IQ point is associated with an additional 0.05 increase in GPA, while each additional drink per week is associated with a -0.07 decrease in GPA. In that case our model and its beta weights would look something like this (in which asterisks represent beta weights that are statistically significant, or are unlikely to be associated with the outome measure just by chance):
+Let's see how to apply this to a simple example. Imagine that we want to predict GPA based on height, IQ, and number of drinks per week. We may find that IQ has a positive association with GPA, number of drinks has a negative association, and height has no association at all; and we assign each of these regressors beta weights to best fit the data. For example, maybe each additional IQ point is associated with an additional 0.05 increase in GPA, while each additional drink per week is associated with a -0.07 decrease in GPA. In that case our model and its beta weights would look something like this (in which asterisks represent beta weights that are statistically significant, or are unlikely to be associated with the outcome measure just by chance):
 
 .. figure:: 05_04_GLM_Example.png
 
