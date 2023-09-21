@@ -23,7 +23,7 @@ First we will create a template that contains the code needed to analyze a singl
 
 .. note::
 
-  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chaper if you need to review the Unix terms for scripting.
+  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chapter if you need to review the Unix terms for scripting.
 
 Creating the Template
 *********************
@@ -171,9 +171,9 @@ The above code does the following:
 
 * Next, the variable ``user`` takes the value returned from the command ``getenv('USER')``. This should return the username of the current user of the computer - in the current example, "ajahn".
 
-* We then begin a for-loop that is initialized with the code ``for subject=subjects``. This means that a new variable, "subject", will assume the value of each consecutive entry in the array "subjects". In other words, the first instance of the loop will assign the value "01" to subject; on the second instance, it will assign the value "02", and so on, until the loop reaches the end of the array.
+* We then begin a for-loop that is initialized with the code ``for subject=subjects``. This means that a new variable, "subject", will assume the value of each consecutive entry in the array "subjects". In other words, the first instance of the loop will assign the value "01" to ``subject``; on the second instance, it will assign the value "02", and so on, until the loop reaches the end of the array.
 
-* Since an array will strip any leading zeros, and since we need to convert the numbers in our array to a string, the "subject" variable is converted using the ``num2str`` command. The text ``'%02d'`` is **string-formatting code** indicating that the current value being converted from a number to a string should be **zero-paddded** with as many zeros as needed until the number is two characters long. (Details about string formatting can be found `here <https://www.mathworks.com/help/matlab/matlab_prog/formatting-strings.html>`__.)
+* Since an array will strip any leading zeros, and since we need to convert the numbers in our array to a string, the "subject" variable is converted using the ``num2str`` command. The text ``'%02d'`` is **string-formatting code** indicating that the current value being converted from a number to a string should be **zero-padded** with as many zeros as needed until the number is two characters long. (Details about string formatting can be found `here <https://www.mathworks.com/help/matlab/matlab_prog/formatting-strings.html>`__.)
 
 * The :ref:`conditional statements <Unix_06_IfElse>` look for whether the unzipped functional and anatomical files exist, and if they don't, the files are unzipped using Matlab's ``gunzip`` command.
 
