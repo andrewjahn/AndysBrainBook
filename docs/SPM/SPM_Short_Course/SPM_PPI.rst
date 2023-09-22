@@ -9,7 +9,7 @@ Appendix B: Psychophysiological Interactions (PPI) in SPM
 
 .. note::
 
-  This page is currently where I am jotting down notes for how to do a group-level PPI in SPM.
+  This page is currently where I am jotting down notes for how to do a group-level PPI in SPM, and is still under construction.
   
 
 Download
