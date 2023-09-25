@@ -34,3 +34,4 @@ The following tutorials will show you how to analyze a sample dataset with SPM. 
    SPM_Short_Course/SummaryStatistics
    SPM_Short_Course/SPM_PPI
    SPM_Short_Course/AppendixC_ParametricModulation
+   SPM_Short_Course/AppendixD_DesignOptimization
