@@ -19,4 +19,6 @@ Most neuroimagers would think that the subject was making some kind of motion wi
 
 Now let's imagine that we see a BOLD contrast map that looks like this:
 
-.. figure:: AppendixG_
+.. figure:: AppendixG_PainActivity.png
+
+What you would assume now about what the subject was doing or experiencing? This becomes more difficult, since this is a pattern that could be elicited by many different scenarios: The coactivation of the dorsal anterior cingulate and the bilateral anterior insula are known to be active in response to cognitive control, pain, salience, surprise, and other common psychological phenomena that are studied using fMRI.
