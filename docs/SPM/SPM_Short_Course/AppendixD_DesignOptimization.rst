@@ -4,8 +4,6 @@
 Appendix D: DesignOptimization
 ==============================
 
-------------------
-
 Overview: Different Types of Designs
 ************************************
 
@@ -81,7 +79,7 @@ To get started, click on the link above and then click on ``Download ZIP`` from 
 
 ::
 
-  mkdir '~/OptimizeX/DemoFiles'
+  mkdir '~/OptimizeX/Demo'
   movefile('~/Downloads/spunt-easy-optimize-x-7c4d2f8/*', '~/OptimizeX')
   addpath '~/OptimizeX'
 
@@ -147,20 +145,27 @@ Once it finishes, you should see a figure pop up showing you the most efficient 
 
 .. figure:: AppendixD_DesignMatrix.png
 
-In addition, you should see a new folder starting with 'best_designs_' followed by the current date in the directory in which you ran the program (which should be C:\fMRI_Course\Data\SPM_Labs\myOutput\OptimizeX). Inside that directory are .csv files corresponding .txt files for each of the of the number of desings that you set to write out in the OptimizeX menu (under 'N Designs to Save'). You can load the .csv files into Matlab or Excel, which would look like this:
+In addition, you should see a new folder starting with 'best_designs_' followed by the current date in the directory in which you ran the program (which should be ``~/OptimizeX/Demo``. Inside that directory are .csv files corresponding .txt files for each of the of the number of desings that you set to write out in the OptimizeX menu (under 'N Designs to Save'). You can load the .csv files into Matlab or Excel, which would look like this:
 
 .. figure:: AppendixD_TimingSchedule.png
 
 You can read in the .txt files in Matlab and display their contents with:
+::
 
-load('design1.txt');
-design1
+    load('design1.txt');
+    design1
+
 Alternativerly, OptimizeX also writes out the file designinfo.mat, which includes a structure with all the designs that you requested OptimzeX to save. You can read it into Matlab with:
+::
 
-load('designinfo.mat');
+    load('designinfo.mat');
+
 ...and access for example the first design in the structure using:
 
-design{1}.combined
+::
+
+    design{1}.combined
+
 For most applications, this should be all of the information you need to implement your experiment, and to do so in a manner that is optimal given the contrasts you care about. Of course, you might want to think about running the software for more than a minute if you do decide to use this for a study! There is no hard-and-fast rule for how long you do need to run it, but it wouldn't hurt (presumably) to run it overnight.
 
 
@@ -169,52 +174,70 @@ Evaluating Design Efficiency
 
 In the previous two sections, you got a feel for design optimization. In this last section, we'll learn to more concretely assess design efficiency. This will allow you to evaluate and compare designs, and better understand how to optimize them.
 
-Let's begin by evaluating the optimized design that you just created. Within the OptimizeX folder, your design should have been saved in a directory called "best_designs_DATE_TIME." Locate that directory, which should be under C:\fMRI_Course\Data\SPM_Labs\myOutput\OptimizeX, and load the file "designinfo.mat".
+Let's begin by evaluating the optimized design that you just created. Within the OptimizeX folder, your design should have been saved in a directory called "best_designs_DATE_TIME." Locate that directory, which should be under ``~/OptimizeX/Demo``, and load the file "designinfo.mat".
 
 load designinfo % make sure you are in the right directory
-This will load a variable called "design" into your workspace that contains the design information for each of the designs you generated. In particular, the design matrix is stored in a field called "X"
+This will load a variable called "design" into your workspace that contains the design information for each of the designs you generated. In particular, the design matrix is stored in a field called "X":
 
-X = design{1}.X; % store the first design matrix into variable X
-figure
-imagesc(X)
-colormap('gray');
+::
+
+    X = design{1}.X; % store the first design matrix into variable X
+    figure
+    imagesc(X)
+    colormap('gray');
+
 This command will plot the design matrix you observed before, but without the intercept (the last column that was on the right).
 
 Now, let's evaluate the design. First, we'll examine the variance inflation factors (VIF). Variation inflation factors estimate how stable/unstable parameter estimates will be. You get one variance inflation factor per regressor. A variance inflation factor of 1 is perfect and indicates that the design will provide a stable estimate of the parameter. A variance inflation factor of 2 indicates that there will be a twofold increase in the variance of the parameter. In other words, if you were to repeat the experiment over and over assuming the same underlying true parameter, the estimate of that parameter would be variable to a factor of 2. Similarly, a variance inflation factor of 3 indicates a threefold increase, and so on. There is no hard rule on how much variance inflation one can tolerate, but the lower the better!
 
-vif = diag(inv(corrcoef(X)))';
-vif
-Are the VIFs near 1? Are they high (e.g. > 10)? VIFs are inflated due to multi-collinearity. Let's take a look at the correlation between regressors.
+::
 
-r = corrcoef(X);
-r
+    vif = diag(inv(corrcoef(X)))';
+    vif
+
+Are the VIFs near 1? Are they high (e.g. > 10)? VIFs are inflated due to multi-collinearity. Let's take a look at the correlation between regressors:
+
+::
+
+    r = corrcoef(X);
+    r
+
 This shows the correlation matrix. Are there strong correlations between any regressors? How might you decrease the correlation between regressors?
 
 Next, we will look at the efficiency of the design. While variance of parameter estimates (VIFs) are bad, variance of the regressors used to estimate those parameters is good. This is because variance in a regressor gives it a unique signature that can be observed in the signal (if it is there).
 
-More technically, efficient designs minimize the quantity (XTX)-1. Or in MATLAB inv(X'*X). In particular, we are interested in the diagonal elements of this matrix, each of which corresponds to a predictor in our design. So, we'll calculate this quantity and focus on the diagonals. Since we typically think of efficiency in positive terms (i.e. more efficiency is better), we'll take the reciprocal.
+More technically, efficient designs minimize the quantity (XTX)-1. Or in MATLAB inv(X'*X). In particular, we are interested in the diagonal elements of this matrix, each of which corresponds to a predictor in our design. So, we'll calculate this quantity and focus on the diagonals. Since we typically think of efficiency in positive terms (i.e. more efficiency is better), we'll take the reciprocal:
 
-eff = (1./diag(inv(X'*X)))';
-eff
-Unfortunately, this is a unit-less measure. It is affected by the scaling of the design matrix (and scaling of contrasts when we calculate contrast efficiency). As a result, it is a relative term and comparing grossly different designs is not meaningful. But, so long as we keep our scaling constant, we can compare different machinations of a design using this metric.
+::
 
-While the efficiency of regressors is a good thing, what we are typically interested in are contrasts. When you ran the optimizeX script previously, you gave it the contrasts that you wanted to be optimized. Let's see the metric it used to measure this. The contrasts you gave the script were saved in the variable "params.L."
+    eff = (1./diag(inv(X'*X)))';
+    eff
 
-C = params.L'; % extract the contrasts and transpose for matrix multiplication
-effCons = (1./diag(C'*inv(X'*X)*C))';
-effCons
-Again, this is unit-less and is good for relative comparisons. If you told the script to weight one contrast more than another, you might see that the more highly weighted contrast has greater efficiency. If you asked for equal weighting, then both contrast efficiencies should be about equivalent.
+Note that this is a unit-less measure. It is affected by the scaling of the design matrix (and scaling of contrasts when we calculate contrast efficiency). As a result, it is a relative term and comparing grossly different designs is not meaningful. But, so long as we keep our scaling constant, we can compare different simultations of a design (e.g., same number of conditions and trials) using this metric.
+
+While higher efficiency for each regressor is a good thing, what we are typically interested in are contrasts. When you ran the optimizeX script previously, you gave it the contrasts that you wanted to be optimized. Let's see the metric it used to measure this. The contrasts you gave the script were saved in the variable "params.L."
+
+::
+
+    C = params.L'; % extract the contrasts and transpose for matrix multiplication
+    effCons = (1./diag(C'*inv(X'*X)*C))';
+    effCons
+
+Again, this is unit-less and should be used for relative comparisons. If you told the script to weight one contrast more than another, you might see that the more highly weighted contrast has greater efficiency. If you asked for equal weighting, then both contrast efficiencies should be about equivalent.
 
 Next, re-run the Optimization script, but this time, increase the ISI. How does this change affect the VIFs? The efficiency?
 
 Finally, you may be interested in evaluating designs you have used in the past. Locate the SPM.mat file of the design that you have estimated, which contains the design matrix, which you can access with the following code:
 
-load SPM % make sure you are in the right directory
-X = SPM.xX.X(:,SPM.Sess(1).col); % pick out Session/Run 1
+::
 
-% Now let's get the contrast from our SPM file
-xCon=horzcat(SPM.xCon(:).c)';
-xCon=xCon(:,1:3);
+    load SPM % make sure you are in the right directory
+    X = SPM.xX.X(:,SPM.Sess(1).col); % pick out Session/Run 1
+    
+    % Now let's get the contrast from our SPM file
+    xCon=horzcat(SPM.xCon(:).c)';
+    xCon=xCon(:,1:3);
+
 This code extracts the regressors for the first session/run. If you had a multi-session/run design, you could change the column indexing to access different sessions/runs, or all of them. Now, you can repeat the steps above to examine the VIFs and efficiencies. Are there any VIFs that are particularly bad? Are there any regressors that are relatively inefficient? If so, what elements of the design do those correspond to? Will this be problematic for the design estimation? These are questions you will need to ask yourself as you decide on the best design to use.
 
 
