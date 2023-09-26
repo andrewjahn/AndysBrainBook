@@ -47,29 +47,35 @@ Estimation, on the other hand, is the accurate measurement of individual time po
 
 .. figure:: AppendixD_DesignTradeoffs.png
 
-  Illustration of the tradeoffs between detection and estimation. Block designs provide the best detection, while minizming estimation efficiency; a design with completely randomized intertrial intervals gives the best estimation, but the lowest detection power. Semi-random designs, which give more weight to shorter intertrial intervals than longer intervals (i.e., make the occurence of shorter interavls relatively more frequent), provide a balance between detection and estimation. Periodic designs, which are like slow event-related designs, yield both poor efficiency and low power.
+  Illustration of the tradeoffs between detection and estimation. Block designs provide the best detection, while minimizing estimation; a design with completely randomized intertrial intervals gives the best estimation, but the lowest detection power. Semi-random designs, which give more weight to shorter intertrial intervals than longer intervals (i.e., make the occurence of shorter interavls relatively more frequent), provide a balance between detection and estimation. Periodic designs, which are like slow event-related designs, yield both poor estimation and low power.
 
 .. note::
 
   To look at this from a different perspective, and to understand the trade-off between optimizing jitter and optimizing power for either detection or estimation, consider an experimental design in which just one instance of a trial is presented, and enough time is allowed for the BOLD response to return to baseline before the presentation of the second trial - say, twenty seconds. This would allow for both good estimation and detection, assuming that you had time for enough trials in order to obtain a good signal to noise ratio. However, you will probably run into the limitations of how long you can scan, depending on your budget, and participants usually don’t want to be in the scanner for more than sixty to ninety minutes. Furthermore, you should consider how this feels psychologically: One trial at a time every twenty seconds will likely bore the subject, and you will probably run into attention and fatigue-related confounds.
 
-To sum up, the best experimental design depends on not just optimizing jitter, but balancing this with the most trials you can reasonably obtain in a given amount of time, and also considering how the experimental feels psychologically. For example, if we had an experiment tapping into cognitive control measured with congruent and incongruent trials, you should be aware of a phenomenon called the Gratton Effect. This is a phenomenon in which the BOLD signal is larger for incongruent trials immediately following congruent trials than it is for congruent trials following congruent trials, or congruent trials following incongruent trials, which may reflect a measure of the preparedness of the brain to process an upcoming incongruent trial. If you generate a timing scheme using either optseq2 or OptimizeX - two popular software packages for creating timings for experimental designs - you may end up with a design that has a large number of incongruent trials preceding congruent trials, which you may or may not want. In any case, you should examine the timing scheme, test it behaviorally, and make sure that participants are able to perform the way you expect. We now turn to examining each of these design optimization packages.
+To sum up, the best experimental design depends on not just optimizing jitter, but balancing this with the most trials you can reasonably obtain in a given amount of time, and also considering how the experiment feels psychologically. For example, if we had an experiment tapping into cognitive control measured with congruent and incongruent trials, you should be aware of a phenomenon called the Gratton Effect. This is a phenomenon in which the BOLD signal is larger for incongruent trials immediately following congruent trials than it is for congruent trials following congruent trials, or congruent trials following incongruent trials, which may reflect a measure of the preparedness of the brain to process an upcoming incongruent trial. If you generate a timing scheme using either optseq2 or OptimizeX - two popular software packages for creating timings for experimental designs - you may end up with a design that has a large number of incongruent trials preceding congruent trials, which you may or may not want. In any case, you should examine the timing scheme, test it behaviorally, and make sure that participants are able to perform the way you expect. We now turn to examining each of these design optimization packages.
 
 Design Optimization with optseq2
 ********************************
 
 `Optseq2 <https://surfer.nmr.mgh.harvard.edu/optseq/>`__ is developed by Doug Greve of Massachusetts General Hospital. It is a straightforward package to use, and requires a Unix terminal or terminal emulator. Note, however, that optseq does not seem to be actively maintained, and that it is designed to optimize the estimation of your design - in other words, it will make your experiment better able to estimate points along the BOLD response, at the expense of detection.
 
-I have written a walkthrough for optseq2 which can be found `here <http://andysbrainblog.blogspot.com/2012/09/optseq-and-event-related-designs.html>`__, along with videos demonstrate how to use it.
+I have written a walkthrough for optseq2 which can be found `here <http://andysbrainblog.blogspot.com/2012/09/optseq-and-event-related-designs.html>`__, along with videos demonstrating how to use it.
 
 Design Optimization with OptimizeX
 **********************************
 
 .. note::
 
-  Most of the text and figures in this section are taken from the annual University of Michigan fMRI Training Course.
+  Most of the text and figures in this section and the following section are taken from the annual University of Michigan fMRI Training Course.
 
 Another optimization tool is `OptimizeX <http://www.bobspunt.com/easy-optimize-x/>`__, developed by Bob Spunt. This is a Matlab package that generates timing schedules to maximize detection of the BOLD response, and you can indicate which contrast you want to optimize out of all the possible combinations of your design matrix.
+
+This package will also help you to maximize your design **efficiency**, which can be thought of as the inverse of variance. If we have a timing scheme that optimizes the sampling along different curves of the BOLD response, we will reduce our uncertainty of the shape of the individual BOLD response for each condition, and therefore increase our power to detect an effect that is actually there. In other words, efficiency is a measure of how well the timing scheme allows SPM to deconvolve the amplitudes of the individual conditions, and, all things being equal, a higher efficiency is more desirable. Best of all, efficiency can be calculated before you begin scanning, which can save you time and money from having to later edit your design.
+
+.. figure:: AppendixD_Efficiency.png
+
+    Illustration of the difference in power yield for the most efficient and least efficient timing schedule for a given experiment, focusing on a sample size of N=30 subjects. Note that this assumes everything else is equal - number of conditions and number of trials - all that changes is the timing between the trials. Figure courtesy of Jeanette Mumford.
 
 To get started, click on the link above and then click on ``Download ZIP`` from the menu bar on the left. When it has finished downloading, unzip the package, and then (assuming that it is in your Downloads directory), move it to your home directory and add it to your Matlab path:
 
@@ -87,7 +93,6 @@ If you then type
 ::
 
     optimizeXGUI
-
 
 You should now see the main input dialogue:
 
@@ -207,7 +212,13 @@ Finally, you may be interested in evaluating designs you have used in the past. 
 load SPM % make sure you are in the right directory
 X = SPM.xX.X(:,SPM.Sess(1).col); % pick out Session/Run 1
 
-% Now let's grab the contrast from our SPM file
+% Now let's get the contrast from our SPM file
 xCon=horzcat(SPM.xCon(:).c)';
 xCon=xCon(:,1:3);
-This code grab the regressors for the first session/run. If you had a multi-session/run design, you could change the column indexing to access different sessions/runs, or all of them. Now, you can repeat the steps above to examine the VIFs and efficiencies. Are there any VIFs that are particular bad? Are there any regressors that are relatively inefficient? If so, what elements of the design do those correspond to? Will this be problematic for the design estimation?
+This code extracts the regressors for the first session/run. If you had a multi-session/run design, you could change the column indexing to access different sessions/runs, or all of them. Now, you can repeat the steps above to examine the VIFs and efficiencies. Are there any VIFs that are particularly bad? Are there any regressors that are relatively inefficient? If so, what elements of the design do those correspond to? Will this be problematic for the design estimation? These are questions you will need to ask yourself as you decide on the best design to use.
+
+
+Summary
+*******
+
+You now have the tools and concepts to optimize your design: First, by increasing the efficiency of your design matrix using OptimizeX, and also by thinking about any potential confounds that might arise with a given design. Remember that the most efficient design doesn't necessarily mean the best one; you will have to decide for yourself whether a given timing schedule "feels" right, and for this there is no substitute for experience.
