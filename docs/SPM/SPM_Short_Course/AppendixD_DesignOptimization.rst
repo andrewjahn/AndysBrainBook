@@ -13,7 +13,7 @@ The earliest task-based experiment was a block design used in the Kwong et al. 1
 
 .. figure:: AppendixD_Kwong_BlockDesign.png
 
-    Figure from Kwong et al., 1992. Each ``off`` and ``on`` rectangle encompasses sixty seconds of that condition, in which the particpant either saw a blank screen or a flashing checkerboard. During the ``on`` block, notice how the BOLD Signal Intensity tends to increase and then plateau after about a dozen seconds.
+    Figure from Kwong et al., 1992. Each ``off`` and ``on`` rectangle encompasses sixty seconds of that condition, in which the participant either saw a blank screen or a flashing checkerboard. During the ``on`` block, notice how the BOLD Signal Intensity tends to increase and then plateau after about a dozen seconds.
 
 If the condition we are modeling is straightforward for the participant to understand and if the condition elicits a robust BOLD signal, then a block design can generate the most statistical power, as it has the highest signal-to-noise ratio of all possible designs. However, as a researcher you need to consider the psychological effects as well. Although on paper block designs should yield the greatest statistical power, they can also become boring for the participant, due to the repetitive, predictable nature of identical or similar trials happening for long periods of time. This can lead to confounds such as habituation or prediction effects, and the participant’s behavioral responses may also become uniform, which you may not want.
 
@@ -33,7 +33,7 @@ In principle, deconvolution is easy to understand, and all fMRI analysis package
 
 .. figure:: AppendixD_Collinearity.png
 
-  Example of collinearity. If these three conditions (highlighed in green, red, and blue) always occur at the same time relative to each other, then it becomes impossible to determine how much each condition contributed to the overall convoluted signal, depicted here in magenta and pinned to a single value. Randomized intertrial intervals, or jitter, is needed to accurately disentangle the convoluted signal into its constituent parts.
+  Example of collinearity. If these three conditions (highlighted in green, red, and blue) always occur at the same time relative to each other, then it becomes impossible to determine how much each condition contributed to the overall convoluted signal, depicted here in magenta and pinned to a single value. Randomized intertrial intervals, or jitter, is needed to accurately disentangle the convoluted signal into its constituent parts.
 
 .. note::
 
@@ -45,7 +45,7 @@ Estimation, on the other hand, is the accurate measurement of individual time po
 
 .. figure:: AppendixD_DesignTradeoffs.png
 
-  Illustration of the tradeoffs between detection and estimation. Block designs provide the best detection, while minimizing estimation; a design with completely randomized intertrial intervals gives the best estimation, but the lowest detection power. Semi-random designs, which give more weight to shorter intertrial intervals than longer intervals (i.e., make the occurence of shorter interavls relatively more frequent), provide a balance between detection and estimation. Periodic designs, which are like slow event-related designs, yield both poor estimation and low power.
+  Illustration of the tradeoffs between detection and estimation. Block designs provide the best detection, while minimizing estimation; a design with completely randomized intertrial intervals gives the best estimation, but the lowest detection power. Semi-random designs, which give more weight to shorter intertrial intervals than longer intervals (i.e., make the occurrence of shorter intervals relatively more frequent), provide a balance between detection and estimation. Periodic designs, which are like slow event-related designs, yield both poor estimation and low power.
 
 .. note::
 
@@ -82,6 +82,7 @@ To get started, click on the link above and then click on ``Download ZIP`` from 
   mkdir '~/OptimizeX/Demo'
   movefile('~/Downloads/spunt-easy-optimize-x-7c4d2f8/*', '~/OptimizeX')
   addpath '~/OptimizeX'
+  cd ~/OptimizeX/Demo
 
 
 This will create the folders ``OptimizeX`` and the subfolder ``DemoFiles`` in your home directory; the scripts to run OptimizeX will be placed in the ``OptimizeX`` folder, and we have the subdirectory into which we can write out our example timing schedules.
@@ -108,7 +109,7 @@ The menu has the following options:
   
   N Conditions: number of conditions in your design
   N Trials Per Condition: number of trials per condition (unbalanced OK, e.g., 25 20 15 25)
-  Maximum Block Size: block = trials from same condition occuring in a row
+  Maximum Block Size: block = trials from same condition occurring in a row
   Timing (s)
   
   Time Duration: duration of your trials (0 purely event-related)
@@ -133,7 +134,7 @@ This is me telling the software that I am looking for a design that maximizes th
 
 .. figure:: AppendixD_ContrastSpecification.png
 
-This is telling me the software that although I do care about the comparison among predictors 1 and 3 (Contrast 1), I actually care more about the comparison of predictors 2 and 4 (Contrast 2).
+This indicates that although I do care about the comparison among predictors 1 and 3 (Contrast 1), I actually care more about the comparison of predictors 2 and 4 (Contrast 2).
 
 That's it! The software will do the rest of the work, some of which you can see in the MATLAB command window:
 
@@ -145,7 +146,7 @@ Once it finishes, you should see a figure pop up showing you the most efficient 
 
 .. figure:: AppendixD_DesignMatrix.png
 
-In addition, you should see a new folder starting with 'best_designs_' followed by the current date in the directory in which you ran the program (which should be ``~/OptimizeX/Demo``. Inside that directory are .csv files corresponding .txt files for each of the of the number of desings that you set to write out in the OptimizeX menu (under 'N Designs to Save'). You can load the .csv files into Matlab or Excel, which would look like this:
+In addition, you should see a new folder starting with 'best_designs_' followed by the current date in the directory in which you ran the program (which should be ``~/OptimizeX/Demo``. Inside that directory are .csv files and their corresponding .txt files for each of the of the number of designs that you set to write out in the OptimizeX menu (under 'N Designs to Save'). You can load the .csv files into Matlab or Excel, which would look like this:
 
 .. figure:: AppendixD_TimingSchedule.png
 
@@ -155,7 +156,7 @@ You can read in the .txt files in Matlab and display their contents with:
     load('design1.txt');
     design1
 
-Alternativerly, OptimizeX also writes out the file designinfo.mat, which includes a structure with all the designs that you requested OptimzeX to save. You can read it into Matlab with:
+Alternatively, OptimizeX also writes out the file designinfo.mat, which includes a structure with all the designs that you requested OptimzeX to save. You can read it into Matlab with:
 ::
 
     load('designinfo.mat');
@@ -206,14 +207,14 @@ This shows the correlation matrix. Are there strong correlations between any reg
 
 Next, we will look at the efficiency of the design. While variance of parameter estimates (VIFs) are bad, variance of the regressors used to estimate those parameters is good. This is because variance in a regressor gives it a unique signature that can be observed in the signal (if it is there).
 
-More technically, efficient designs minimize the quantity (XTX)-1. Or in MATLAB inv(X'*X). In particular, we are interested in the diagonal elements of this matrix, each of which corresponds to a predictor in our design. So, we'll calculate this quantity and focus on the diagonals. Since we typically think of efficiency in positive terms (i.e. more efficiency is better), we'll take the reciprocal:
+More technically, efficient designs minimize the quantity (X'X)-1. Or in MATLAB inv(X'*X). In particular, we are interested in the diagonal elements of this matrix, each of which corresponds to a predictor in our design. So, we'll calculate this quantity and focus on the diagonals. Since we typically think of efficiency in positive terms (i.e. more efficiency is better), we'll take the reciprocal:
 
 ::
 
     eff = (1./diag(inv(X'*X)))';
     eff
 
-Note that this is a unit-less measure. It is affected by the scaling of the design matrix (and scaling of contrasts when we calculate contrast efficiency). As a result, it is a relative term and comparing grossly different designs is not meaningful. But, so long as we keep our scaling constant, we can compare different simultations of a design (e.g., same number of conditions and trials) using this metric.
+Note that this is a unit-less measure. It is affected by the scaling of the design matrix (and scaling of contrasts when we calculate contrast efficiency). As a result, it is a relative term and comparing grossly different designs is not meaningful. But, so long as we keep our scaling constant, we can compare different simulations of a design (e.g., same number of conditions and trials) using this metric.
 
 While higher efficiency for each regressor is a good thing, what we are typically interested in are contrasts. When you ran the optimizeX script previously, you gave it the contrasts that you wanted to be optimized. Let's see the metric it used to measure this. The contrasts you gave the script were saved in the variable "params.L."
 
