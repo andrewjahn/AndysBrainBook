@@ -241,6 +241,11 @@ Finally, you may be interested in evaluating designs you have used in the past. 
 
 This code extracts the regressors for the first session/run. If you had a multi-session/run design, you could change the column indexing to access different sessions/runs, or all of them. Now, you can repeat the steps above to examine the VIFs and efficiencies. Are there any VIFs that are particularly bad? Are there any regressors that are relatively inefficient? If so, what elements of the design do those correspond to? Will this be problematic for the design estimation? These are questions you will need to ask yourself as you decide on the best design to use.
 
+Video
+*****
+
+You can see how to do this on your computer by watching `this video <https://www.youtube.com/watch?v=PZ7SPH9JfR0&ab_channel=AndrewJahn>`__.
+
 
 Summary
 *******
