@@ -27,4 +27,15 @@ By assuming that one of these stimuli led to the brain activation map we are see
 
 In general, forward inference is the stronger reasoning of the two forms of inference, because we have control over the conditions that the subject experiences and, if the experiment is well-designed, we will account for any potential confounds, allowing us to rule out alternative explanations. Reverse inference, on the other hand, is more susceptible to biased interpretations if we are not careful.
 
-For example, take a study by Nam et al., 2020, which correlated the grey matter volume of the amgydala with the likelihood of marching in a protest. Larger amygdala volume was associated with a lower likelihood of engaging in a political protest, and the reason for that is open to interpretation. If, however, you measured an individual's amygdala and found that it was exceptionally small, you would not have warrant for concluding that the person had participated in a poltiical protest; too many other potential variables are at play, and the explanatory power of just the amydala's grey matter, taken by itself, is quite small.
+For example, take a study by Nam et al., 2020, which correlated the grey matter volume of the amgydala with the likelihood of marching in a protest. Larger amygdala volume was associated with a lower likelihood of engaging in a political protest, and the reason for that is open to interpretation. If, however, you measured an individual's amygdala and found that it was exceptionally small, you would not have warrant for concluding that the person had participated in a poltiical protest; too many other potential variables are at play, and the explanatory power of just the amydala's grey matter, taken by itself, is quite low.
+
+So when is reverse inference warranted, and when is it suspect? We begin by tracing the history of reverse inference in neuroimaging, starting with a paper by Russ Poldrack
+
+History of Reverse Inference
+****************************
+
+The logic of reverese inference had been known for some time, as had its complement, forward inference. These are deductions made in everyday life: You see someone coughing and sneezing, and assume that they have a cold - although there are other possibilities, such as allergies. You wake up to find that the ground outside is wet, and you conclude that it must have rained last night.
+
+When applied to neuroimaging, this becomes a trickier problem, both because of the inherent noisiness of the data, and because many regions of the brain show significant BOLD activity to more than one condition. The stakes are also high, because neuroimaging is an expensive technology: Billing rates between $500-$1000 per hour are common for research institutions. Furthermore, there is increasing interest in using fMRI as a tool for "mind-reading", or decoding what a person was thinking or feeling from the patterns of activation in their brain. One topic that frequently comes up is whether this can be used as a tool for lie detection, and whether it should be admissible in court.
+
+Russ Poldrack outlined the issues with reverse inference in 2006. In his *Neuron* paper, he
