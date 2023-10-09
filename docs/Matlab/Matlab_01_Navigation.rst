@@ -13,7 +13,7 @@ Matlab Tutorial #1: Navigation & Matrices
 Overview of the Matlab Interface
 ********************************
 
-When you first open Matlab, you will notice that it has four distinct sections: Four windows, and a ribbon of buttons at the top, similar to the layout of Microsoft Word. The window on the left is the Navigation window, the central window is the Command Window, and the upper-right window is the Workspace. The Navigation window contains a list of all the folders located within the folder you are currently in; for example, if I am in my home directory, you may see sub-folders such as Documents, Desktop, Music, and so on.
+When you first open Matlab, you will notice that it has four distinct sections: Three windows, and a ribbon of buttons at the top, similar to the layout of Microsoft Word. The window on the left is the Navigation window, the central window is the Command Window, and the upper-right window is the Workspace. The Navigation window contains a list of all the folders located within the folder you are currently in; for example, if I am in my home directory, you may see sub-folders such as Documents, Desktop, Music, and so on.
 
 The Command Window is where you can directly type commands and see the output of those commands. As you will see below, these can be commands for navigating to different directories, listing the contents of the current directory, or creating variables that can be used in scripts. Most of what we will be doing in this tutorial requires you to use the Command Window. The Workspace window contains **variables** that you have created in your current session. The concept of variables is discussed below in the section on matrices.
 
