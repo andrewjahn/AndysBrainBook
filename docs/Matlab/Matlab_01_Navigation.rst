@@ -65,7 +65,7 @@ Two other keywords you should be familiar with are ``.`` and ``..``. They repres
 
     cd ..
     
-This keyword in particular will be frequently used in scripts and for-loops, when you need a shorthand for change directories using relative paths.
+This keyword in particular will be frequently used in scripts and for-loops, when you need a shorthand for changing directories using relative paths.
 
 
 .. figure:: Desktop_Folder.png
