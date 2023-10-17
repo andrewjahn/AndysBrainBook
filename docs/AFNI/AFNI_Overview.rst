@@ -33,3 +33,4 @@ The following tutorials will show you how to analyze a sample dataset with AFNI.
    AFNI_Short_Course/AppendixA_ParametricModulation
    AFNI_Short_Course/AppendixB_AnimalAnalysis
    AFNI_Short_Course/AppendixC_HighlightingResults
+   AFNI_Short_Course/AppendixD_EffectSizes
