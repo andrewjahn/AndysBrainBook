@@ -102,7 +102,7 @@ We can then run eddy with the following code:
 Video
 -----
 
-A demonstration of how to apply topup and eddy to your data can be found here.
+A demonstration of how to apply topup and eddy to your data can be found `here <https://www.youtube.com/watch?v=zp0EOuKO3O0>`__.
 
 
 Next Steps
