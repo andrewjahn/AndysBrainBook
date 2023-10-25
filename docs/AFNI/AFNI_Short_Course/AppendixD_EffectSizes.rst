@@ -22,8 +22,21 @@ This kind of binary significant/non-significant approach can lead to potentially
 
 It follows that p-values and t-statistics on their own are difficult to compare with each other; frequently, any comparisons are meaningless, since the values themselves are dimensionless. If you were to find that one effect gives you a p-value of 0.0001, for example, this doesn't tell you anything about the size of another researcher's effect which yielded a p-value of 0.049. If you are both using the nominal p=0.05 threshold, you will have both rejected the null hypothesis, and decided that an effect exists; yet, you may have found a consistent yet extremely small effect, while the other researcher may have found a gigantic effect, albeit with more variability.
 
-Instead, we can report a much richer scope of the data by also including the effect size. With fMRI data, the values we gather from the scanner are arbitrary, and can vary from subject to subject, as well as from scanner to scanner.
+Instead, we can expand the scope of the data we report by also including the effect size. With fMRI data, the values we gather from the scanner are arbitrary, and can vary from subject to subject, as well as from scanner to scanner; consequently, these values are meaningless when compared across studies. To make them more interpretable, the values are typically scaled - for example, by normalizing each voxel's time-series to its mean value, which is done in AFNI. Other approaches, such as grand mean scaling in FSL and SPM, normalize each voxel's time-series relative to the average of all the voxels within the brain (i.e., the grand mean). This also attempts to bring the values of all the voxels into a similar range, but does not account for spatial heterogeneity - although, this can be accounted for with Marsbar in SPM, and featquery in FSL.
 
 .. note::
 
   As mentioned in the Chen et al. (2017) paper, the average BOLD signal is typically within a similar range across scanners of the same field strength, which for most research institutions is 3-Tesla. However, higher field strengths, such as 7-Teslas, and different scan parameters, such as TE, can lead to much higher average BOLD signal, and therefore bias the effect size. It is good practice to report your field strength and all of your relevant scan parameters, which may permit a conversion of the BOLD effect size to comparable values across scanners.
+
+One should also be aware that differences in significance between conditions doesn't necessarily imply a significant difference in their effects. For example, condition A might be highly significant, and condition B might not be significantly different from zero. However, the paired t-test between the conditions reveals that there is not a significant difference between them. This may seem obvious, but fallacious claims of significant differences between conditions frequently show up in the scientific literature; for a concise overview of these types of fallacies, see `this paper <https://www.nature.com/articles/nn.2886).>`__ by Sander Nieuwenhuis et al. (2011).
+
+.. figure:: AppendixD_ContrastingBetas.png
+
+  Figure 2 from Chen et al. (2017). In this figure, note how B1 is significant, B2 is non-significant, but the difference between them is non-significant as well.
+
+Implications for Reproducibility
+--------------------------------
+
+Reporting both the statistic and the effect size together can aid reproducibility by giving the reader a sense of both the reliability of the effect and the magnitude of the effect itself. As the t-statistic is a mixture of both magnitude and variability, it is important to "unpack" the magnitude aspect of it in order to evaluate both its practical significance and whether it might be an artifact. In an example from the paper, imagine that a t-statistic of 3.35 is reported with 22 degrees of freedom - roughly corresponding to a p-value of 0.001. This might seem like a reasonable t-statistic, and it is; however, if the magnitude of the BOLD effect is around 10%, this is clearly different from what most experiments would expect, and is either an unbelievably large effect, or an artifact. Only reporting the t-statistic masks the effect size.
+
+
