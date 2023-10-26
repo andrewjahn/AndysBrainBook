@@ -48,3 +48,8 @@ Recommendations
 ---------------
 
 With these caveats about the t-statistic in mind, the authors recommend reporting both the t-statistic and its accompanying effect size. In addition, the authors recommend reporting the peak of the effect size instead of the t-statistic, or a weighted average effect estimate that incorporates information about the variability both within- and between-subjects, as well as the variability across voxels in the region that is being analyzed. Using the statistic for thresholding can be useful for focusing the reader's attention on the reliability or accuracy of the result, although there are also persuasive arguments `for highlighting all of the effects <https://www.sciencedirect.com/science/article/pii/S1053811923002896>`__ with varying shades of translucency corresponding to the strength of the effect. And finally, report the full set of parameters used in the study, including the threshold value, degrees of freedom, and any relevant scanner details that may lead to variations in the overall strength of the effects.
+
+Video
+-----
+
+For a video overview of t-statistics vs. effect sizes, click `here <https://youtu.be/pPJyRh7_1EE>`__.
