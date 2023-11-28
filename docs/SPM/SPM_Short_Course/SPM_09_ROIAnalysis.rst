@@ -141,7 +141,7 @@ If you already have a mask and a contrast that you are extracting from, you can 
 
 	    XYZ = [x y z]';
 
-	    ROI_data = nanmean(spm_get_data(Contrast, XYZ),2)
+	    ROI_data = nanmean(spm_get_data(Contrast, XYZ),2);
 
 	end
 	
