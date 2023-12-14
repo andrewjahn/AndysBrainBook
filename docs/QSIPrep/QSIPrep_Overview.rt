@@ -1,0 +1,14 @@
+.. _QSIPrep_Overview:
+
+================
+QSIPrep Overview
+================
+
+---------------
+
+What is QSIPrep?
+****************
+
+`QSIPrep <https://qsiprep.readthedocs.io/en/latest/>`_ is a preprocessing pipeline designed for diffusion imaging data. It is similar to fMRIPrep in that it takes the best tools from each diffusion analysis package and combines them into a single preprocessing stream, in order to make the data as clean as possible.
+
+Much of the documentation on the QSIPrep ReadTheDocs website lists all of the functions that are available with QSIPrep; the purpose of this tutorial is to demonstrate how to use QSIPrep with different datasets that you can download from online databases such as OpenNeuro and the Human Connectome Project (HCP).
