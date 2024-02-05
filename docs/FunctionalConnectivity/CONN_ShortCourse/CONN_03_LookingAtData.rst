@@ -9,7 +9,7 @@ Chapter #3: Downloading the CONN Toolbox
 Overview
 ********
 
-The CONN software package is what is known as a **toolbox**, a suite of commands that is designed to be used as an add-on to SPM. (An overview of some common toolboxes that are used with SPM can be found :ref:`here <SPM_Intermezzo_Toolboxes>`.) The CONN download page can be found `here <https://www.nitrc.org/projects/conn/>`__ on the NITRC website; simply click on the download button to begin downloading version 21.a.
+The CONN software package is what is known as a **toolbox**, a suite of commands that is designed to be used as an add-on to SPM. (An overview of some common toolboxes that are used with SPM can be found :ref:`here <SPM_Intermezzo_Toolboxes>`.) The CONN download page can be found `here <https://www.nitrc.org/projects/conn/>`__ on the NITRC website; simply click on the download button to begin downloading version 22.a.
 
 When it has finished downloading, unzip it. This will create a folder called ``conn``. Open a new Matlab terminal, and type:
 
