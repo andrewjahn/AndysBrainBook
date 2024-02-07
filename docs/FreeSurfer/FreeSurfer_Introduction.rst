@@ -38,6 +38,7 @@ This course will show you how to download and install FreeSurfer, and how to ana
    FS_ShortCourse/FS_14_ControlPoints
    FS_ShortCourse/AppendixA_LGI
    FS_ShortCourse/AppendixB_PETSurfer
+   FS_ShortCourse/AppendixC_Annotations
 
 .. note::
 
