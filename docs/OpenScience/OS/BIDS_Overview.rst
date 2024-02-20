@@ -8,17 +8,32 @@ BIDS Overview
 
 .. note::
 
-  This article was contributed by `Daniel Levitas <https://brainlife.io/team/>`__ of the brainlife.io team at the University of Texas at Austin. For transparency's sake, it should be noted that the author is the lead developer of one of the BIDS conversion tools highlighted below (ezBIDS).
+  This article was contributed by `Daniel Levitas <https://brainlife.io/team/>`__ of the brainlife.io team at the University of Texas at Austin. For transparency's sake, it should be noted that the author is the lead developer of one of the BIDS conversion tools highlighted below (`ezBIDS`).
 
 
 What is BIDS?
 *********************************
 
-BIDS is an acronym that stands for the **Brain Imaging Data Structure**, a standarized format for the organization and description of neuroimaging and behavioral data. The result of converting data to BIDS is an organized dataset that can be easily shared and understood by other researchers.
+BIDS is an acronym that stands for the **Brain Imaging Data Structure**, a standarized format for the organization and description of neuroimaging and behavioral data. The result of converting data to BIDS is an organized dataset that can be easily shared and understood by other researchers. The rules governing the structure and description of BIDS data are stipulated by the `BIDS specification <https://bids-specification.readthedocs.io/en/stable/>__`.
+
 
 .. figure:: BIDS.png
    
    `Gorgolewski et al., Scientific Data 2016`
+
+The picture above offers a visual explanation of how the BIDS conversion works. On the left side is a researcher's raw (e.g. DICOM) data, stored and labelled in some idiosyncratic manner. On the right, is the same data, but now in BIDS. There are several components of this BIDS structure to understand:
+
+1. The `my_dataset` folder is the root-level BIDS folder, where all BIDS data is contained. The name of this folder is irrelevant and can be anything the researcher wishes.
+
+2. Data for individual subjects are stored within subject folders (e.g. `sub-01`). This is an `entity label <https://bids-specification.readthedocs.io/en/stable/appendices/entities.html>`__ (key-value pair) that is used in folder and file names to describe their contents. Note that folders and files can have multiple entities, separated by the underscore (`_`) character.
+
+3. Within the subject folder are sub-folders that denote the datatype of the data. For example, anatomical data are labelled as `anat`, functional as `func`, field maps as `fmap`, etc.
+
+4. The data files themselves are stored within these datatype folders, labelled with the entity convention described in point 2. An important point to note is the inclusion of a suffix label before the file extension. Within the `anat` folder, the data file suffix is `T1w`, denoting that the data is a specific kind of anatomical acquisition.
+
+5. File extensions denote whether we're dealing with the imaging data itself (`.nii.gz`) or corresponding metadata sidecar (`.json`). These sidecar files provide parameter information regarding the acquisition data. For example, with functional BOLD data, its sidecar would need to have a `RepetitionTime` key and value to be BIDS-compliant.
+
+These general aspects of BIDS are necessary in order to properly convert raw imaging data to BIDS.
 
 Benefits of BIDS
 *********************************
@@ -33,9 +48,9 @@ Benefits of BIDS
 How do I convert my data to BIDS?
 *********************************
 
-The most common approach is to use a BIDS conversion software package on your imaging data. A non-exhaustive list of BIDS converters can be found `here <https://bids.neuroimaging.io/benefits>`__.
+The process of converting data to BIDS can be time-consuming. Fortunately, software tools known as BIDS converters have been developed to assist researchers in this process, rather than forcing them to do so manually. A non-exhaustive list of BIDS converters can be found `here <https://bids.neuroimaging.io/benefits>`__.
 
-For the sake of brevity, this overview will highlight four conversion tools, due to their popularity and features. These are:
+For the sake of brevity, this overview highlights four conversion tools, due to their popularity and range of features. These are:
 
 1. `HeuDiConv <https://github.com/nipy/heudiconv>`__
 
@@ -49,9 +64,9 @@ For the sake of brevity, this overview will highlight four conversion tools, due
 BIDS converters (`HeuDiConv` & `Dcm2Bids`)
 ********************************************
 
-HeuDiConv and Dcm2Bids represent two of the earliest and most popular BIDS conversion tools available. This is largely due to their flexibility in enabling users to specify the mapping between their imaging data and resulting BIDS output.
-For HeuDiConv, users are expected to create custom code in the Python language that specifies the mapping. HeuDiConv then takes this user-specified mapping and converts the input data to a BIDS-compliant dataset.
-Dcm2Bids performs a similiar process, except that in lieu of users generating custom Python code, the expectation is that users provide a JSON-formatted configuration file that specifies the mapping. 
+`HeuDiConv` and `Dcm2Bids` represent two of the earliest and most popular BIDS conversion tools available. This is largely due to their flexibility in enabling users to specify the mapping between their imaging data and resulting BIDS output.
+For `HeuDiConv`, users are expected to create custom code in the Python language that specifies the mapping. `HeuDiConv` then takes this user-specified mapping and converts the input data to a BIDS-compliant dataset.
+`Dcm2Bids` performs a similiar process, except that in lieu of users generating custom Python code, the expectation is that users provide a JSON-formatted configuration file that specifies the mapping. 
 These packages are well-suited for tech-savvy, BIDS-knowledgeable researchers, who may incorporate them into [semi]-automated conversion and processing/analysis pipelines.
 A potential limitation is that they require users to have a good understanding of the BIDS specification and decent coding skills.
 
@@ -61,7 +76,7 @@ BIDS converters (`BIDScoin` & `ezBIDS`)
 
 These packages are a bit newer to the game, representing attempts to lower the barrier of entry to BIDS. This is primarily done through the use of a GUI (`BIDScoin`) and a web-based approach (`ezBIDS`).
 Additionally, both limit the amount of coding needed (if any) by users, and make educated guesses regarding the identity of data to suggest the appropriate BIDS imformation and subsequent structure.
-These packages are more geared to researchers who are new to BIDS or do not wish to have to learn the syntax and structure of a new software tool.
+These packages are more geared to researchers who are less familiar with BIDS or do not wish to have to learn the syntax and structure of a new software tool.
 
 
 Resources
@@ -110,20 +125,17 @@ This section provides helpful links for each of the BIDS conversion tools discus
    - `Citation <https://www.nature.com/articles/s41597-024-02959-0>`__
 
 
-Final Thoughts
+Conclusion
 **************
 
 The purpose of this article was to provide an overview and the benefits of BIDS, as well as highlighting specific conversion tools that can aid researchers interested in describing their data according to BIDS. 
 As alluded to earlier, this piece merely focuses on a select few tools, there are many others, listed `here <https://bids.neuroimaging.io/benefits>`__.
-Lastly, the article perscribes no single tool as the be-all end-all for BIDS conversion. Each has their pros and cons, it is up to you the researcher to decide which tool best serves your needs.
+Lastly, the article perscribes no single tool as the be-all end-all for BIDS conversion. Each has their pros and cons, it is up to you the researcher to decide which tool best serves your interests.
 
-
-.. note::
-
-  The Stanford Center for Reproducible Neuroscience (which created BIDS) has a tutorial that you can view after reading this article `here <http://reproducibility.stanford.edu/bids-tutorial-series-part-1a/>`__.
 
 Next Steps
 **********
 
 1. Select a tool of your choosing to convert your data to BIDS. 
-2. Once you have arranged your data into BIDS, you are ready to begin using BIDS apps, such as MRIQC and fMRIPrep. To see how to use MRIQC, click the ``Next`` button.
+
+2. Once you have converted data BIDS, you are ready to begin using BIDS apps, such as MRIQC and fMRIPrep. To see how to use MRIQC, click the ``Next`` button.
