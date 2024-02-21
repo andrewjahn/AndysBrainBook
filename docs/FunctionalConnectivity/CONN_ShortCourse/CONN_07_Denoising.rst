@@ -81,7 +81,7 @@ For most datasets, the above figures should look similar - the distribution of c
 Exercises
 *********
 
-1. Enter a bandpass regressor of ``[0.008 Inf]``. In your own words, describe what this filter will do. Is this in general better or worse than a low-pass filter? Why? (Hint: Usually physiological noise is very problematic for resting-state data, since it can correlate easily with fluctuations in connectivity between different voxels.)
+1. Enter a bandpass regressor of ``[0.008 Inf]``. In your own words, describe what this filter will do. Is this in general better or worse than a low-pass filter? Why?
 
 2. Experiment with highlighting different regressors in the Confounds window and checking the ``Filtered`` box, and observe what happens in the Preview window. Does this filtering (equivalent to the ``Simultaneous`` option in the ``After regression`` dropdown menu) seem to worsen or improve the nuisance regression? How would you make that judgment?
 
