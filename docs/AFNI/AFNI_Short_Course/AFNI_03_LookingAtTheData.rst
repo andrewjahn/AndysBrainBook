@@ -69,7 +69,7 @@ Inspect the image by clicking around in one of the viewing windows. Notice how t
 
 As you continue to inspect the image, here are two things to watch out for:
 
-1. Lines that look like ripples in a pond. These are called **Gibbs Ringing Artifacts**, and they may indicate an error in the reconstruction of the MR signal from the scanner. These ripples may also be caused by the subject moving too much during the scan. In either case, if the ripples are large enough, they may cause preprocessing steps like brain extraction or normalization to fail.
+1. Lines that look like ripples in a pond. These ripples may be caused by the subject moving too much during the scan, and if the ripples are large enough, they may cause preprocessing steps like brain extraction or normalization to fail.
 
 .. figure:: 03_Gibbs.png
 
