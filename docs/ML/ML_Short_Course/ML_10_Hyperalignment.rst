@@ -110,3 +110,32 @@ If you then type ``jupyter notebook`` from the command line, it will open a new 
 
 Click on the ``New`` dropdown menu, and select ``naturalistic`` as the environment. This will load all of the packages you specified above, and allow you to begin a hyperalignment analysis of the data. All of the following lines of code can be copied and pasted into the Notebook, and then executed by holding ``Shift`` and pressing ``Enter``.
 
+Hyperalignment Using PyMVPA
+***************************
+
+Some quick notes about how I was able to install `PyMVPA <http://www.pymvpa.org/>`__ on my 2021 MacBook Pro, using an Apple M1 Pro chip and running Sonoma 14.4.1. PyMVPA is notoriously difficult to install, and I can't promise this will work for you, but take it for what it's worth.
+
+1. Create a virtual environment using Python version 2.7, since most computers these days use Python3.x by default. These virtual environments can be installed using ``conda``, which is part of the ``anaconda`` package, which can be downloaded `here <https://docs.anaconda.com/free/anaconda/install/mac-os/>`__. Once conda is installed, type:
+
+  ::
+
+    conda create -n py27 python=2.7
+
+This will create a new environment, "py27", which runs python2.7 by default; that is, if you type ``python`` while inside of the virtual environment, it will use version 2.7
+
+2. Use conda to install pymvpa2:
+
+  ::
+
+    sudo conda install -c conda-forge pymvpa2
+
+3. Install an older version of nibabel, which apparently allows you to successfully run the command ``h5load``. This was found `here <github.com/PyMVPA/PyMVPA/issues/624#issue-901162525`__, on the PyMVPA github forums:
+
+  ::
+
+    pip install nibabel==2.0.2
+
+4. Download the data by clicking on `this link <http://data.pymvpa.org/datasets/hyperalignment_tutorial_data/>`__, and selecting the file ``hyperalignment_tutorial_data.hdf5.gz``.
+
+At that point, type ``python`` to open a Python shell, and begin typing the instructions from the `PyMVPA hyperalignment tutorial <http://www.pymvpa.org/examples/hyperalignment.html>`__. 
+
