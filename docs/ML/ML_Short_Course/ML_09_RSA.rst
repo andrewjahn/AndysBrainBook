@@ -216,4 +216,4 @@ Exercises
 
 1. When you compute a dissimilarity matrix by subtracting the correlation values from 1, you may see that some values are greater than 1. Why is this? What does this mean about the similarity of that condition to another condition?
 
-2. Run the same RSA analysis, this time with ``v4_both.img``. (Remember that you can run multiple ROI analyses by using brace notation, e.g., cfg.files.mask = {[pwd '/sub01_ROI/m1_left.img'], [pwd '/sub01_ROI/v1.img'], [pwd '/sub01_ROI/v4_both.img']}.) How are the similarity matrices different? How are they similar? Why do you see these differences or similarities?
+2. Run the same RSA analysis, this time with ``v4_both.img``. (Remember that you can run multiple ROI analyses by using brace notation, e.g., cfg.files.mask = {[pwd '/sub01_ROI/m1_left.img'], [pwd '/sub01_ROI/v1.img'], [pwd '/sub01_ROI/v4_both.img']}.) How are the similarity matrices different? How are they similar? Why do you see these differences or similarities? Show the output from each dissimilarity matrix for each analysis.
