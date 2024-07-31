@@ -74,7 +74,7 @@ To install TemplateFlow, type the following into the terminal, line by line:
 
 ::
 
-  pip install templateflow -target $HOME/.cache
+  pip install templateflow --target $HOME/.cache
   unzip $HOME/.cache/templateflow/conf/templateflow-skel.zip -d $HOME/.cache/templateflow
   
 Once finished, you should see multiple template options in your $HOME/.cache/templateflow folder.
