@@ -23,7 +23,7 @@ In order to create our region of interest, click on ``File -> New Volume``. You 
 
 There will now be a small floating window called ``Voxel Edit`` that is open as long as you are annotating the ROI. The brush size refers to the size of the radius of the brush, in voxels, which for most anatomical images will be the same as millimeters. For smaller regions and thinner bands of cortex, you should probably use a smaller brush size. In our current example, we will change the brush size to ``3``. Also note that in this window there are other drawing options, such as ``Polyline``, ``Livewire``, and ``Fill``. We will cover these later; for now, leave it as the default of ``Freehand``. 
 
-.. figure:: AppendixC_ROIEdit.png
+.. figure:: AppendixC_VoxelEdit.png
 
 .. note::
 
