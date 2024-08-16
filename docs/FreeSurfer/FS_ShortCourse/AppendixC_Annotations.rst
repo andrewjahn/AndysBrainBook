@@ -19,15 +19,15 @@ First, open Freeview by either double-clicking on the icon in your FreeSurfer di
 
 .. figure:: AppendixC_FreeviewLayout.png
 
-In order to create our region of interest, click on ``File -> New ROI``. You will be prompted to type a label for the ROI; in this case, we are annotating the right putamen, so let's call it ``Right Putamen``. Make sure that the dropdown menu below it is the T1 image you are annotating; this will ensure that the ROI has the same resolution and dimensions as the image you are drawing on, also called the **Template Image**. Click OK.
+In order to create our region of interest, click on ``File -> New Volume``. You will be prompted to type a label for the ROI; in this case, we are annotating the right putamen, so let's call it ``Right Putamen``. Make sure that the dropdown menu below it is the T1 image you are annotating; this will ensure that the ROI has the same resolution and dimensions as the image you are drawing on, also called the **Template Image**. Click OK.
 
-There will now be a small floating window called ``ROI Edit`` that is open as long as you are annotating the ROI. The brush size refers to the size of the radius of the brush, in voxels, which for most anatomical images will be the same as millimeters. For smaller regions and thinner bands of cortex, you should probably use a smaller brush size. In our current example, we will change the brush size to ``3``. Also note that in this window there are other drawing options, such as ``Polyline``, ``Livewire``, and ``Fill``. We will cover these later; for now, leave it as the default of ``Freehand``. 
+There will now be a small floating window called ``Voxel Edit`` that is open as long as you are annotating the ROI. The brush size refers to the size of the radius of the brush, in voxels, which for most anatomical images will be the same as millimeters. For smaller regions and thinner bands of cortex, you should probably use a smaller brush size. In our current example, we will change the brush size to ``3``. Also note that in this window there are other drawing options, such as ``Polyline``, ``Livewire``, and ``Fill``. We will cover these later; for now, leave it as the default of ``Freehand``. 
 
 .. figure:: AppendixC_ROIEdit.png
 
 .. note::
 
-The icons on the top row of the Freeview GUI indicate which viewing or drawing mode is now active; right now you should see highlighted the icon with a pencil on a piece of paper.
+The icons on the top row of the Freeview GUI indicate which viewing or drawing mode is now active; right now you should see highlighted the icon with a blank brain and a pencil.
 
 
 Drawing the Region
@@ -43,9 +43,9 @@ Now, begin left-clicking and dragging to draw your annotation on the voxels that
 
 .. figure:: AppendixC_Annotation.png
 
-When you are finished drawing your ROI, you can save it by clicking ``File -> Save ROI As``. This will automatically save it as a ``.label`` file, which we can later convert into NIFTI format using the command ``mri_label2vol``.
+When you are finished drawing your ROI, you can save it by clicking ``File -> Save Volume As``. This will automatically save it as a ``.mgz`` file, which we can later convert into NIFTI format using the command ``mri_convert``.
 
-You can annotate many different ROIs simultaneously. For example, if you select ``File -> New ROI`` and name the new ROI ``Left Putamen``, make sure it is highlighted in the left panel of Freeview. Then, you can choose a different color for it, and annotate it as you like. Whichever ROI is highlighted will be written to disk when you select ``File -> Save ROI As``.
+You can annotate many different ROIs simultaneously. For example, if you select ``File -> New Volume`` and name the new ROI ``Left Putamen``, make sure it is highlighted in the left panel of Freeview. Then, you can choose a different color for it, and annotate it as you like. Whichever ROI is highlighted will be written to disk when you select ``File -> Save Volume As``.
 
 .. figure:: AppendixC_TwoROIs.png
 
@@ -56,7 +56,7 @@ You can annotate many different ROIs simultaneously. For example, if you select 
 Saving the ROIs as NIFTI
 ************************
 
-Label files are able to be read only by FreeSurfer, but you may wish to use or view the ROIs in other software as well. To make them as portable as possible between groups, you can convert the label file to a NIFTI file using ``mri_label2vol``. For example, this line of code, executed from the directory containing both the T1.mgz file and the RightPutamen.label file, will convert RightPutamen.label into RightPutamen.nii.gz:
+Some researchers may choose to create a **Label** instead of a volume. Labels has the advantage of being able to be drawn on either voxels or vertices, and FreeSurfer automatically generates a folder called ``label`` that contains these files. That said, label files are able to be read only by FreeSurfer, but you may wish to use or view the ROIs in other software as well. To make them as portable as possible between groups, you can convert the label file to a NIFTI file using ``mri_label2vol``. For example, this line of code, executed from the directory containing both the T1.mgz file and the RightPutamen.label file, will convert RightPutamen.label into RightPutamen.nii.gz:
 
 ::
 
@@ -70,8 +70,6 @@ Imagine that you are a trained anatomist who wants to annotate the brain regions
 .. figure:: AppendixC_DiceCoefficient_Equation.png
 
 In which **D** is the Dice Coefficient, **A** is the pattern of voxels for one of the segmentations, and **B** is the pattern of voxels for the other segmentation. Another way to look at it is to compare the Putamen mask that we just created with the Putamen generated by FreeSurfer:
-
-
 
 
 ::
