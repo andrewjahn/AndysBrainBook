@@ -88,4 +88,4 @@ Which gives Dice scores like the following:
 
 .. figure:: AppendixE_DiceScores
 
-In this case, I only annotated a few of the regions by hand; the ones that were not annotated have a Dice score of 0. 
+In this case, I only annotated a few of the regions by hand; the ones that were not annotated have a Dice score of ``0``. 
