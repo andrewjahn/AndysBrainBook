@@ -56,7 +56,7 @@ You can annotate many different ROIs simultaneously. For example, if you select 
 Saving the ROIs as NIFTI
 ************************
 
-Label files are able to be read only by FreeSurfer, but you may wish to use or view the ROIs in other software as well. To make them as portable as possible between groups, you can convert the label file to a NIFTI file using ``mri_label2vol``. For example, this line of code, executed from the directoy containing both the T1.mgz file and the RightPutamen.label file, will convert RightPutamen.label into RightPutamen.nii.gz:
+Label files are able to be read only by FreeSurfer, but you may wish to use or view the ROIs in other software as well. To make them as portable as possible between groups, you can convert the label file to a NIFTI file using ``mri_label2vol``. For example, this line of code, executed from the directory containing both the T1.mgz file and the RightPutamen.label file, will convert RightPutamen.label into RightPutamen.nii.gz:
 
 ::
 
