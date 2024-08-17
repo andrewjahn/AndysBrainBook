@@ -84,6 +84,12 @@ In which ``T1.mgz`` refers to the original T1 anatomical image you provided, and
 
 Which gives Dice scores like the following:
 
-.. figure:: AppendixC_DiceScores
+.. figure:: AppendixC_DiceScores.png
 
 In this case, I only annotated a few of the regions by hand; the ones that were not annotated have a Dice score of ``0``. 
+
+
+Video
+*****
+
+For a video overview of how to annotate brains in Freeview, click `here <https://youtu.be/aQMZZ3Jd8HI>`__.
