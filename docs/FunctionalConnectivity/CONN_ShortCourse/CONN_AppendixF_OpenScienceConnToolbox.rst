@@ -32,4 +32,13 @@ Now, click on ``Test profile`` to see whether a job can be submitted on this sys
 
 .. figure:: AppendixF_SeeLogs.png
 
-After a few moments, you should see the Testing bar change to a green color, and that is says "finished". This means that it successfully ran without any errors. Now, exit that window, click on ``Options``, and uncheck the boxes next to ``Voxel-to-Voxel`` and ``Dynamic Circuits``; this is just to save time. Now click on ``Preprocessing``, and select the first option, the default preprocessing pipeline. Click on the dropdown menu that says ``local processing``, and change it to ``distributed processing (run on Slurm computer cluster``.
+After a few moments, you should see the Testing bar change to a green color, and that is says "finished". This means that it successfully ran without any errors. Now, exit that window, click on ``Options``, and uncheck the boxes next to ``Voxel-to-Voxel`` and ``Dynamic Circuits``; this is just to save time. Now click on ``Preprocessing``, and select the first option, the default preprocessing pipeline. Click on the dropdown menu that says ``local processing``, and change it to ``distributed processing (run on Slurm computer cluster)``. Then click ``Start``. 
+
+.. figure:: AppendixF_DistributedProcessing.png
+
+You will see a new prompt asking you how many parallel jobs you would like to run. There are 23 subjects we have downloaded, and if we want to, we can use 23 cores, or one for each job - just like using a separate computer to process each job individually. After clicking ``OK``, you will be asked the usual questions about preprocessing, such as slice-timing correction and smoothing; for now I will skip slice-timing correction and keep the rest of the defaults the same. 
+
+After you finish choosing all of your options, another job manager window appears after a few moments. Click on ``Advanced options``, and note that in this case there are 23 jobs being run simultaneously; clicking on ``See logs`` will show you the progress of each one individually, and you can toggle between different jobs by clicking on the dropdown menu that says ``node.0001`` and selecting another node. The main benefit of parallelization is that the processing is done in parallel instead of serially; if it takes thirty minutes to preprocess a single subject, then it will take roughly thirty minutes to analyze however many subjects you have in your queue. The time savings can be enormous, and directly proportional to the number of jobs you are running. For now, we will let the preprocessing run in the background, and come back to it when it finishes in about half an hour.
+
+.. figure:: AppendixF_SubmittedJobs.png
+
