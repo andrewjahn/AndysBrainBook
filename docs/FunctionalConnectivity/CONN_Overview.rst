@@ -46,6 +46,7 @@ Note that SPM is a prerequisite for the CONN toolbox, meaning that you will need
    CONN_ShortCourse/CONN_AppendixC_ImportingROIs
    CONN_ShortCourse/CONN_AppendixD_SurfaceBasedConnectivity
    CONN_ShortCourse/CONN_AppendixE_DynamicConnectivity
+   CONN_ShortCourse/CONN_AppendixF_OpenScienceConnToolbox
 
 
 
