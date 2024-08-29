@@ -76,6 +76,8 @@ When you have finished setting up the GLM and contrasts and click ``Done``, you 
 
 As with the 1st-level analysis, we will ignore the ``Post-stats`` tab for now, since we are not performing a population inference.
 
+Now click the ``Go`` button at the bottom of the GUI, and wait a few minutes for the analysis to run. When it finishes, click the ``Next`` button to move on to third-level analysis.
+
 ---------
 
 Video
