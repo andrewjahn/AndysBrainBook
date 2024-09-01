@@ -27,3 +27,4 @@ Once you have finished analyzing the Flanker dataset in any of the software pack
    fMRI_Appendices/Appendix_F_ParametricModulation
    fMRI_Appendices/Appendix_G_ReverseInference
    fMRI_Appendices/Appendix_H_DoubleDissociations
+   fMRI_Appendices/Appendix_I_ICA_Denoising
