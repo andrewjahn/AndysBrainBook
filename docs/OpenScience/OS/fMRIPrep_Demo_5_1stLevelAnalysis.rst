@@ -90,7 +90,7 @@ Concatenating the two files using ``cat`` will generate a file that can now be r
 Creating the 3dDecon File
 *************************
 
-We now have all of the ingredients we need to run the 1st-level analysis: timing files, preprocessed functional data, and a mask. To run this through 3dDeconvolve, click on `this link <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/fmriprep_singleSubj.sh>`__, click on the ``Raw`` button, and then right-click and select "Save As". Save the file into the folder ``derivatives/fmriprep/sub-08/func``, and then navigate to that directory with a terminal and type the following:
+We now have all of the ingredients we need to run the 1st-level analysis: timing files, preprocessed functional data, and a mask. To run this through 3dDeconvolve, click on `this link <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/doDecon.sh>`__, click on the ``Raw`` button, and then right-click and select "Save As". Save the file into the folder ``derivatives/fmriprep/sub-08/func``, and then navigate to that directory with a terminal and type the following:
 
 ::
  
