@@ -168,7 +168,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
   OUTPUT_DIR=/tmp/workflow_${SUB}/derivatives
   WORK_DIR=/tmp/workflow_${SUB}/work
 
-  Bennet: "It's almost certainly not a good idea to make WORK_DIR the home on a cluster, as home is likely to have a small quota, be NFS, and be slow. There's almost always some kind of /scratch for that, or, as we do, /tmp.  If using /tmp, it's a good idea to have code to remove work directories after the job finishes, unless debugging.
+  Bennet: "It's almost certainly not a good idea to make WORK_DIR the home on a cluster, as home is likely to have a small quota, be NFS, and be slow. There's almost always some kind of /scratch for that, or, as we do, /tmp.  If using /tmp, it's a good idea to have code to remove work directories after the job finishes, unless debugging."
 
 To ensure that the information was added and saved to the script, you can type the following into the terminal:
 
