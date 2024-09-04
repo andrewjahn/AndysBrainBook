@@ -29,7 +29,18 @@ In the AFNI tutorial, we used a smoothing kernel of 4mm on the functional data, 
 
 .. note::
 
-  Smoothing in FSL can be done with the command ``fslmaths``; for example, fslmaths <input image> -s <smoothing sigma> <output image>. Note that the input for ``-s`` is sigma, not the full-width half-maximum; for a 5mm FWHM, for example, you would use a sigma of 2.12. An excellent tutorial about how to do this can be found `here <https://kathleenhupfeld.com/how-to-smooth-images-in-fsl-its-different-from-spm/>`__. 
+  Smoothing in FSL can be done with the command ``fslmaths``; for example, fslmaths <input image> -s <smoothing sigma> <output image>. Note that the input for ``-s`` is sigma, not the full-width half-maximum; for a 5mm FWHM, for example, you would use a sigma of 2.12. An excellent tutorial about how to do this can be found `here <https://kathleenhupfeld.com/how-to-smooth-images-in-fsl-its-different-from-spm/>`__.
+
+  Also in FSL, since registration was not run through FEAT and therefore there is not ``reg`` directory, you will need to create a dummy registration directory to trick FSL into thinking that registration has been performed. (For some reason, higher-level analyses will not run unless there is a ``reg`` directory in each subject's main directory.) To do this, run the following steps, which is taken from `this message board thread <https://www.jiscmail.ac.uk/cgi-bin/webadmin?A2=fsl;a779b3b8.1408>`__:
+
+  - run one subject through a normal FEAT analysis (first level)
+  - in the "reg" subdirectory that it produces:
+  - replace all the *.mat files with a copy of $FSLDIR/etc/flirtsch/ident.mat (do not delete these files or change their name)
+  - delete all the *warp* files
+  - run updatefeatreg in the feat directory
+  - The resulting "reg" subdirectory can then be copied into your first level analysis directories and this will allow you to use your data in MNI space (without it being changed/resampled).
+
+  In my case, I copied the ident.mat file to my reg directory, and then ran commands such as ``cat indent.mat > example_fun2highres.mat`` to overwrite the contents of each .mat file. When you run your second-level analysis, it may look as though the registration is off in the figures, but assuming that the original registration worked well through fMRIPREP, it should be fine. As always, check the output once it has finished.
 
 Scaling
 *******
