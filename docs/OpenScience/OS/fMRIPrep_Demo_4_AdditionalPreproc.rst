@@ -27,6 +27,9 @@ In the AFNI tutorial, we used a smoothing kernel of 4mm on the functional data, 
             sub-08_task-flanker_run-${run}_space-MNI152NLin2009cAsym_res-2_desc-preproc_bold.nii.gz
   done
 
+.. note::
+
+  Smoothing in FSL can be done with the command ``fslmaths``; for example, fslmaths <input image> -s <smoothing sigma> <output image>. Note that the input for ``-s`` is sigma, not the full-width half-maximum; for a 5mm FWHM, for example, you would use a sigma of 2.12. An excellent tutorial about how to do this can be found `here <https://kathleenhupfeld.com/how-to-smooth-images-in-fsl-its-different-from-spm/>`__. 
 
 Scaling
 *******
