@@ -6,7 +6,7 @@ Appendix I: Independent Components Analysis (ICA) with FSL and FIX
 
 ------------------
 
-  note::
+..  note::
 
     The methods in this tutorial are drawn from the FSL ICA website, which can be found `here <https://fsl.fmrib.ox.ac.uk/fslcourse/graduate/lectures/practicals/ica/>`__. I have also benefitted from the examples provided by Carline Nettekoven on `her blog <https://www.caroline-nettekoven.com/post/ica-cleaning/>`__.
 
