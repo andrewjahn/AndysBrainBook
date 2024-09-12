@@ -58,7 +58,7 @@ To view these components, navigate to the ``.ica`` directory that contains the f
 
 ::
 
-  fsl --scene melodic -ad filtered_func_data.ica
+  fsleyes --scene melodic -ad filtered_func_data.ica
 
 This will open a new fsleyes window with multiple axial slices and one of the components overlaid on it. The bottom left window displays a time-course for that component, and the bottom right window displays a power spectrum for different frequencies.
 
