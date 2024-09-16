@@ -5,6 +5,10 @@ fMRI Tutorial #9: ROI Analysis
 
 ---------
 
+.. note::
+
+  The examples in this chapter have recommended extracting the Z-statistics, but I have also heard that it may be more appropriate to extract the COPE values from each subject instead. These are located in a single image within each 3rd-level analysis directory, e.g.: ``Flanker/Flanker_3rdLevel_Inc-Con.gfeat/cope1.feat/filtered_func_data.nii.gz``. Consider using that as an input instead, both for ``fslmeants`` and for ``randomise``. Noted on 09.15.2024
+
 Overview
 ********
 
@@ -18,7 +22,7 @@ Whole-brain maps can hide important details about the effects that we’re study
 
 
 Using Atlases
-*******
+*************
 
 One way to create a region for our ROI analysis is to use an **atlas**, or a map that partitions the brain into anatomically distinct regions.
 
@@ -40,7 +44,7 @@ To save one of these regions as a file to extract data from, also known as a **m
   
 
 Extracting Data from an Anatomical Mask
-************
+***************************************
 
 Once you've created the mask, you can then extract each subject's contrast estimates from it. Although you may think that we would extract the results from the 3rd-level analysis, we actually want the ones from the 2nd-level analysis; the 3rd-level analysis is a single image with a single number at each voxel, whereas in an ROI analysis our goal is to extract the contrast estimate for each subject individually.
 
@@ -69,7 +73,7 @@ This will print 26 numbers, one per subject. Each number is the contrast estimat
   Each number output from this command corresponds to the contrast estimate that went into the analysis. For example, the first number corresponds to the average contrast estimate for Incongruent-Congruent for sub-01, the second number is the average contrast estimate for sub-02, and so on. These numbers can be copied and pasted into a statistical software package of your choice (such as R), and then you can run a t-test on them.
   
 Extracting Data from an Sphere
-************
+******************************
 
 You may have noticed that the results from the ROI analysis using the anatomical mask were not significant. This may be because the PCG mask covers a very large region; although the PCG is labeled as a single anatomical region, we may be extracting data from several distinct functional regions. Consequently, this may not be the best ROI approach to take.
 
@@ -128,7 +132,7 @@ The numbers you get from this analysis should look much different from the ones 
 -------
 
 Exercises
-********
+*********
 
 1. The mask used with fslmeants is **binarized**, meaning that any voxel containing a numerical value greater than zero will be converted to a "1", and then data will be extracted only from those voxels labeled with a "1". You will recall that the mask created with fsleyes is **probabilistic**. If you want to weight the extracted contrast estimates by the probability weight, you can do this by using the ``-w`` option with fslmeants. Try typing:
 
@@ -145,6 +149,6 @@ And observe how the numbers are different from the previous method that used a b
 --------
 
 Video
-*********
+*****
 
 Click `here <https://www.youtube.com/watch?v=p70utwa-NkU>`__ for a demonstration of how to use both anatomical and spherical masks for an ROI analysis.
