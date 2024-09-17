@@ -43,7 +43,7 @@ Skull-strip your images using any method you choose. Assuming the skull-stripped
 
 ::
 
-  ls $PWD/wub-*/anat/*_brain.nii.gz
+  ls $PWD/sub-*/anat/*_brain.nii.gz
 
 And then paste these into the ``Select main structural images`` field. Click OK, and change the registration settings if you want - for example, ``Full search`` and ``12 DOF``.
 
