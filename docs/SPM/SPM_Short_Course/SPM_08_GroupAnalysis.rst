@@ -90,9 +90,9 @@ When you have finished creating all of the second-level analyses, try the remain
 Exercises
 *********
 
-1. Display the results on one of the MNI template brains using the "sections" option. Make the table show only the cluster in the dorsal medial prefrontal cortex (roughly the coordinates 5, 20, 50).
+1. Display the results on one of the MNI template brains using the "sections" option. Make the table show only the cluster in the dorsal medial prefrontal cortex (roughly the coordinates 5, 20, 50) by navigating to those coordinates and clicking "current cluster." Take a snapshot of those results.
 
-2. Go back to the Results GUI, and create a contrast that tests for voxels showing significant activation for Congruent-Incongruent. Use the same thresholds as before.
+2. Go back to the Results GUI, and create a contrast that tests for voxels showing significant activation for Congruent-Incongruent. Use an uncorrected p-threshlold of 0.05 and a cluster extent threshold of 20, display the results on a template brain, go to coordinates 0 32 1, and take a snapshot of your results.
 
 
 
