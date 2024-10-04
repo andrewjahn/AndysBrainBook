@@ -15,7 +15,7 @@ You can segment these regions into their parts with the FreeSurfer command ``seg
 
 The benefit of the new command is that you can choose any of the subregions individually, or segment them in sequence. It also does not require Matlab runtime, which could be difficult to install on supercomputing clusters.
 
-Assuming that you have already run a subject through ``recon-all`` and that you are segmenting one scan (i.e., you are not doing a longitudinal analysis), you can type the following:
+Assuming that you have already run a subject through ``recon-all`` and that you are segmenting one scan (i.e., you are not doing a longitudinal analysis), you can type the following (making sure to also set ``SUBJECTS_DIR`` to the directory from which you are running ``segment_subregions``):
 
 ::
 
