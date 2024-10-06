@@ -108,3 +108,9 @@ Any further ROI analyses can be done by extracting the data in the relevant text
   Corticoamygdaloid-transitio 166.302591
   Paralaminar-nucleus 45.725635
   Whole_amygdala 1647.176577
+
+
+Video
+*****
+
+For a video tutorial of how to use ``segment_subregions``, click `here <https://youtu.be/5wHtE9iS4kA>`__.
