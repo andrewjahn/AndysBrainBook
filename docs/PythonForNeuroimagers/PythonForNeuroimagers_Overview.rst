@@ -12,6 +12,7 @@ What is Python?
 Python is a widely-used programming language, similar to Unix and Matlab. Although the principles of the programming language are nearly identical to the others, it has a different syntax and coding style.
 
 .. figure:: Python_Logo.png
+   :scale: 50%
 
 After learning so many other packages and programming languages in this e-book, you may wonder what the benefit is to learning yet another language. While you may have all the tools you need for most imaging analyses, certain advanced methods are most easily implemented in Python. This includes PyTorch, NiPype, and Hyperalignment, and will likely include many future neuroimaging methods as well. To put it another way, today's neuroimaging researcher needs to have at least some familiarity with Python in order to stay current with the latest developments in the field.
 
