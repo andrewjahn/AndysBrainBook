@@ -31,14 +31,14 @@ These problems have been known for some time, but no matter how much we complain
 
 The idea is the same as a container - and Neurodesk can in fact be downloaded as one. Containers such as Docker have been around for a while now, and one of its most popular uses in the neuroimaging community is to enable fMRIPREP, a preprocessing pipeline that draws upon libraries and commands from many different software packages; putting them all into a single container segregates them from the rest of your computer, and prevents any issues with paths or different software versions. The advantage of Neurodesk is to not only provide an extensive suite of packages covering every type of neuroimaging analysis, but to allow you to use them within a web browser:
 
+.. figure:: Neurodesk_Library.png
 
-Example screenshot of the Neurodesk environment, launched from a Google Chrome browser. The Functional Imaging section, for example, lists a dozen software packages, from the more popular AFNI, SPM, and FSL, to lesser known packages such as laynii and niistat. The most recent half dozen versions of the package are shown in the FSL menu. Loading any of these packages is quick, easy, and reliable.
+   Example screenshot of the Neurodesk environment, launched from a Google Chrome browser. The Functional Imaging section, for example, lists a dozen software packages, from the more popular AFNI, SPM, and FSL, to lesser known packages such as laynii and niistat. The most recent half dozen versions of the package are shown in the FSL menu. Loading any of these packages is quick, easy, and reliable.
 
-I have just begun working with Neurodesk, but I can already say that it passed the first test with flying colors: I was able to lead a small group of students through a diffusion imaging analysis from start to finish, and nobody had any accidents. They also didn’t have any problems with the software.
+The following tutorials will show you how to download and install Neurodesk, and how to use some of the examples on the website.
 
-There will be a more comprehensive report to come, once I get more experience with Neurodesk and can come up with a demonstration useful for newcomers. In the meantime, eat your fiber, stock up on plenty of Charmin, and let me know what you think about Neurodesk in the comments below.
 .. toctree::
    :maxdepth: 1
    :caption: How to Use Neurodesk
 
-   Neurodesk_ShortCourse/Neurodesk_00
+   Neurodesk_ShortCourse/Neurodesk_00_Install
