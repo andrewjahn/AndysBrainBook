@@ -9,6 +9,8 @@ Overview of Neurodesk
 Overview
 ********
 
+.. figure:: Neurodesk_Logo.png
+
 Teaching a neuroimaging workshop is tricky. If there is any boredom, any lull in the action, you are already at risk of losing your audience; but the one thing guaranteed to sink their attention is a student having problems with their software while you are giving a follow-along demonstration. Up goes a hand; then comes a voice, perplexed and slightly annoyed, while they squint at their screen with the same unprepossessing facial expression they would make while passing a log of feces the size of a foam roller: “It says there’s a problem with…” followed by any number of potential errors:
 
 There is a path conflict between that software package and another one installed on their machine;
