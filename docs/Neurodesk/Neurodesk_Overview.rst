@@ -31,7 +31,7 @@ These problems have been known for some time, but no matter how much we complain
 
 The idea is the same as a container - and Neurodesk can in fact be downloaded as one. Containers such as Docker have been around for a while now, and one of its most popular uses in the neuroimaging community is to enable fMRIPREP, a preprocessing pipeline that draws upon libraries and commands from many different software packages; putting them all into a single container segregates them from the rest of your computer, and prevents any issues with paths or different software versions. The advantage of Neurodesk is to not only provide an extensive suite of packages covering every type of neuroimaging analysis, but to allow you to use them within a web browser:
 
-.. figure:: Neurodesk_Library.png
+.. figure:: NeuroDesk_Library.png
 
    Example screenshot of the Neurodesk environment, launched from a Google Chrome browser. The Functional Imaging section, for example, lists a dozen software packages, from the more popular AFNI, SPM, and FSL, to lesser known packages such as laynii and niistat. The most recent half dozen versions of the package are shown in the FSL menu. Loading any of these packages is quick, easy, and reliable.
 
