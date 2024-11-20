@@ -6,9 +6,39 @@ Python Basics
 
 ---------------
 
-The Python Environment
-**********************
+The Python Environment: From Integrated Development Environments to Jupyter Notebooks
+*************************************************************************************
 
-My recommendation is to use Jupyter notebooks for learning Python, and to use them within Neurodesk. One of the major problems that newcomers run into is incorrect versions of Python; for example, you may want to use a certain version of Nilearn, but it is not supported by the version of Python that you are using. An environment like Neurodesk takes care of these version issues for you, and makes the experience much smoother.
+Python was invented in 1991, and for much of its history it was written and run from the command line - similar to how you would write a shell script in a Unix terminal. Over time, the developers realized that programming and debugging could be done more efficiently if the user was able to edit the code in an interface that allowed for greater customization, such as opening multiple files, highlighting certain parts of code with different colors, and setting break points that would stop the code when it ran into an error. These environments were called **Integrated Development Environment**, and Python created its own version called IDLE (Integrated Developmental and Learning Environment). For many years, this was the preferred way to learn Python and write code.
 
-Another option is to use **conda** to create what is called a virtual environment. The idea is similar to those of containers, which are environments that are segregated from your local machine; that is, any software installed on your local machine won't affect what is in your virtual environment, and vice versa.
+Although this was an important step, users were likely to run into version errors; for example, someone may have been using Python version 2.7 for a number of years since it was installed by default on his iMac, but found that a new software package he wanted to use was only available with Python 3.1. This could lead to conflicting paths, and often stall an entire project. One way around this was to build **virtual environments**, or self-contained terminals that loaded and used specific software versions that were sequestered from the rest of the computer. The idea is similar to those of containers, which are environments that are segregated from your local machine; the most popular command for creating a virtual Python environmnent is **conda**. 
+
+Later on, in 2014, this concept was combined with a more efficient Integrated Development Environment to create an interface called **Jupyter Notebooks**. The main advantage of Jupyter Notebooks is their portability, readability, and straightforward editing interface. They can also be used as web-based interactive application, meaning that you can easily embed images and videos from the Internet, as well as access online datasets - a feature that is particularly important for downloading and analyzing datasets from repositories such as OpenNeuro.org.
+
+My recommendation is to use Jupyter notebooks for learning Python, and to use them within `Neurodesk <https://www.neurodesk.org/>`__. (For a video tutorial of how to download and install Neurodesk, click `here <https://youtu.be/dz2RO9XuAuE>`__.) One of the major problems that newcomers run into is incorrect versions of Python; for example, you may want to use a certain version of Nilearn, but it is not supported by the version of Python that you are using. An environment like Neurodesk takes care of these version issues for you, and makes the experience much smoother.
+
+Getting Started with Jupyter Notebooks
+**************************************
+
+Once you have downloaded and installed Neurodesk, use the launcher to select a new Notebook (Python 3 kernel). This will open a blank Jupyter notebook, which looks like this:
+
+.. figure: 01_Notebook_Blank.png
+
+The panel on the right, which takes up the most space, is the editing pane. Here you can write and execute code by clicking in the grey box (also called a **cell**) and typing something such as ``x=3``. To run the code, you could either click ``Run -> Run Selected Cell`` from the menu bar, or you could simply highlight the cell by clicking in it and pressing ``Shift + Enter``.
+
+What we've done is assigned a variable, one of the basics of computer programming; in this case, we have assigned a value of ``3`` to the variable ``x``. Notice that once you have run the code it automatically creates a new blank cell immediately below the one you have just run. In our case, there wasn't any output from the cell we ran; if we wanted to see what value was contained in ``x``, we would just type ``x`` in the new cell and then run it:
+
+.. figure:: 01_Notebook_Variable.png
+
+Notice that after we run this cell, the number ``3`` is returned outside of the cells. This is output that cannot be directly manipulated, although it can be overwritten by editing the previous cells and re-running them. If you end up with a notebook that has many cells and you want to run all of them in one go, you can click ``Run -> Run All Cells``. The brackets next to each cell, which are assigned an index number once they are run, will change to an asterisk (``*``) when then are running - usually too fast to see if you are doing something simple like assigning a variable, but which can be present for quite a while if you are doing something more computationally intensive.
+
+Downloading and Editing a Jupter Notebook
+*****************************************
+
+Now that you have learned how to open and operate a Jupyter notebook, you may find it more efficient to edit a notebook that has already been written. This is not to say that you will run the exact same code, but rather that there is an abundance of Jupyter notebooks already available online, and one of them is probably close to what you want to do; with a few judicious edits, you can probably make it compatible with the dataset you are analyzing. This is the main advantage of using Jupyter notebooks, and one of the reasons why they are important for reproducibility.
+
+
+
+.. figure:: 01_Notebook_Variable.png
+
+
