@@ -32,13 +32,27 @@ What we've done is assigned a variable, one of the basics of computer programmin
 
 Notice that after we run this cell, the number ``3`` is returned outside of the cells. This is output that cannot be directly manipulated, although it can be overwritten by editing the previous cells and re-running them. If you end up with a notebook that has many cells and you want to run all of them in one go, you can click ``Run -> Run All Cells``. The brackets next to each cell, which are assigned an index number once they are run, will change to an asterisk (``*``) when then are running - usually too fast to see if you are doing something simple like assigning a variable, but which can be present for quite a while if you are doing something more computationally intensive.
 
-Downloading and Editing a Jupter Notebook
+Downloading and Editing a Jupyter Notebook
 *****************************************
 
 Now that you have learned how to open and operate a Jupyter notebook, you may find it more efficient to edit a notebook that has already been written. This is not to say that you will run the exact same code, but rather that there is an abundance of Jupyter notebooks already available online, and one of them is probably close to what you want to do; with a few judicious edits, you can probably make it compatible with the dataset you are analyzing. This is the main advantage of using Jupyter notebooks, and one of the reasons why they are important for reproducibility.
 
+To get started with Jupyter notebooks, I recommend a textbook by Tal Yarkoni and Ariel Rokem called *Neuroimaging and Data Science*, which is also available as an online e-book `here <https://neuroimaging-data-science.org/root.html>`__. This is an excellent introduction to Python for neuroimagers, as many of the examples are specific to neuroimaging and fMRI analysis. It also includes an introduction to the basics of Python.
+
+Let's begin with chapter 5 of their book, titled `A Brief Introduction to Python <https://neuroimaging-data-science.org/content/003-programming/001-python-language.html>`__. This is an example of a Jupyter notebook that has been embedded in a web page; the web page itself is static, but you can download the text as a Jupyter notebook and edit it on your own computer. For example, you could read the chapter as a text, or you could interact with it and test the examples yourself. Click on the download icon in the upper right of the web page and select ``Download as .ipynb``:
+
+.. figure:: 01_Download_Notebook.png
+
+If you already have ``Jupyter Lab <https://jupyter.org/install>`__ installed on your machine, you could open it in that application. For this tutorial, we will place the notebook in the folder ``neurodesktop-storage``, where it can be opened and analyzed in Neurodesk. For example, you could open a new Finder window and click and drag the file (001-python-language.ipynb) into the neurodesktop-storage folder, or you could open a terminal and type:
+
+::
+
+  mv ~/Downloads/001-python-language.ipynb ~/neurodesktop-storage
+
+Once the notebook is in that folder, you can open it by loading the NeurodeskApp, and navigating to the ``neurodesktop-storage`` folder, in which you should see the new Jupyter notebook. Double-click on it to open the notebook, which will now be displayed in your Neurodesk window:
+
+.. figure:: 01_Open_Notebook.png
 
 
-.. figure:: 01_Notebook_Variable.png
 
 
