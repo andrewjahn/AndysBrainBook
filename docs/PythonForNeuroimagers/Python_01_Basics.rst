@@ -22,7 +22,7 @@ Getting Started with Jupyter Notebooks
 
 Once you have downloaded and installed Neurodesk, use the launcher to select a new Notebook (Python 3 kernel). This will open a blank Jupyter notebook, which looks like this:
 
-.. figure: 01_Notebook_Blank.png
+.. figure:: 01_Notebook_Blank.png
 
 The panel on the left is the navigation panel, which shows the current directory and any files within that directory. The panel on the right, which takes up the most space, is the editing pane. Here you can write and execute code by clicking in the grey box (also called a **cell**) and typing something such as ``x=3``. To run the code, you could either click ``Run -> Run Selected Cell`` from the menu bar, or you could simply highlight the cell by clicking in it and pressing ``Shift + Enter``.
 
