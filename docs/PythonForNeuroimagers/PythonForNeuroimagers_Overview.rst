@@ -20,12 +20,8 @@ The following tutorials are designed to help the novice neuroimager learn the ba
 
 This module closely follows Tal Yarkoni's and Ariel Rokum's excellent `Neuroimaging and Data Science e-book <https://neuroimaging-data-science.org/root.html>`__, which is freely available online.
 
-
-
-
 .. toctree::
    :maxdepth: 1
    :caption: Python for Neuroimagers
 
    PythonForNeuroimagers/Python_01_Basics
-   PythonForNeuroimagers/Python_02_
