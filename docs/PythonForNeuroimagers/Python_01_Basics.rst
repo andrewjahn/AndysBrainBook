@@ -59,3 +59,8 @@ Going Further
 *************
 
 Now that you know the basics of Jupyter notebooks and how to edit and run them, we can move on to learning more about the basics of Python. Note that many of the concepts underlying Python are identical to those of other programming languages: for example, if you have already studied the :ref:`Unix tutorials <Unix_Intro>` of this book, you will already be familiar with variables, paths, and control statements. We will cover those in the next chapter, using the Yarkoni & Rokem textbook to illustrate how to implement them in Python.
+
+Video
+*****
+
+For a video overview of Jupyter notebooks, click `here <https://youtu.be/r1Z46bQZIqM>`__.
