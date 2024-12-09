@@ -24,4 +24,6 @@ This module closely follows Tal Yarkoni's and Ariel Rokum's excellent `Neuroimag
    :maxdepth: 1
    :caption: Python for Neuroimagers
 
-   PythonForNeuroimagers/Python_01_Basics
+   Python_01_Basics
+   Python_02_Types_Objects
+
