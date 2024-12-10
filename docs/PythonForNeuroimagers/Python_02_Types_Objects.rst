@@ -16,4 +16,23 @@ In the previous chapter, we learned the basics of Jupyter notebooks and began wi
 Built-in Types
 **************
 
-Let's being with integers. These are any whole numbers (i.e., not fractions or numbers that contain a decimal). 
+Let's being with integers. These are any whole numbers (i.e., not fractions or numbers that contain a decimal). For example, you can assign integers to a variable using the method in the last chapter:
+
+::
+
+  NumClasses = 3
+  StudentsPerClass = 20
+
+Integers can be manipulated using any kind of arithmetic operation, such as multipication:
+
+::
+
+  TotalStudents = NumClasses * StudentsPerClass
+
+And you can divide them as well:
+
+::
+
+  StudentsPerClass = TotalStudents / NumClasses
+
+Which in this case returns a number with a decimal, indicating that it is a different kind of type called a *float*. 
