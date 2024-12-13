@@ -72,3 +72,60 @@ And you can change the case of the string by using the ``.lower()``, ``.upper()`
   Job.lower()
   Job.capitalize()
 
+You can also count the number of instances of a given substring within a string, such as "r":
+
+::
+
+  Job.count("r")
+
+Booleans
+&&&&&&&&
+
+The last basic data type is the Boolean. Named after the logician George Boole, these data types can only contain one of two values: "True" or "False". They are useful for determining whether a condition is met, for example, or whether a directory already exists before anything else is performed. You often see them used in control statements (discussed in more detail below) to check whether to exit the current processing in case an error is encountered or if the code is unnecessary.
+
+One way we can check for the existence of something - a directory or a value, for example - is to use comparison operators such as greater than, less than, or equal to. For example, you could set a certain state to True or False:
+
+::
+
+  Studying_Python_Now = True
+
+Or you can use comparison operators to test a claim:
+
+::
+
+  is_less_than_10 = len("Andy") < 10
+  print(is_less_than_10)
+
+To test whether two variables are equivalent, we use the double equal sign operator:
+
+::
+
+  my_Name = "Andy"
+  your_Name = "Bill"
+  same_Name = myName == your_Name
+  print(same_Name)
+
+You can also test for whether several tests are simultaneously true; if only one of them is false, then the output will return "False":
+
+::
+
+  ("hello" in my_Name) and (2 * 5 > 8) and (Studying_Python_Now == "True")
+
+In this case the first comparison is False and the last two are True, so the output of this operation will be "False". 
+
+
+Collections
+***********
+
+So far we have declared a few variables, and they are easy enough to remember and to work with. When you begin working with larger datasets, you will probably need to juggle dozens of variables and make sure they are updated appropriately. We can organize our variables using **Collections**, which are data structures that contain variables and other objects. The most common type of Collection is called a List, but there are others which we will explore below.
+
+Lists
+&&&&&
+
+The **List** collection can contain any number of different types of objects: Strings, integers, and even other lists (a concept known as **Nested Lists**). For example, we could place the following variables within our list:
+
+::
+
+  my_List = ["Birthday", "Andy", "16", 20.5, 80]
+
+Note that the list is enclosed in brackets, and that this list contains strings, a float, and an integer. The number "16" is enclosed in quotes, and thus will be treated as a string instead of as an integer.
