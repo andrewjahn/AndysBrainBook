@@ -33,3 +33,9 @@ If you click on the Neurodesktop launcher icon, it will open a new window giving
 .. figure:: Neurodesk_Setup.png
 
 Now that you've seen how Neurodesk works, you probably want to sample the other options as well. There are many libraries available which almost exhaustively cover the range of imaging analysis software that is available; you can see the full suite by clicking on the icon at the extreme lower left of the virtual desktop, and then selecting ``Neurodesk -> All Applications``. Before leaving you to explore on your own, notice that if you open a new Terminal and type ``ls``, there is a folder called ``neurodesktop-storage``. This is the portal between your local machine and Neurodesk; assuming you used the defaults when installing NeurodeskApp, there should also be a folder on your local machine in your home directory with the same name. Anything that is placed in that folder on your local machine will be accessible in the virtual desktop, and vice versa; for example, you may choose to upload the data from your local machine to the virtual desktop through this portal, analyze it in Neurodesk, and then place the analyzed data in the same folder for use on your local machine. There are other options for transferring files to and from your virtual desktop, including clicking and dragging and using a service like Dropbox, and you can choose whichever one best suits your needs.
+
+
+Video
+*****
+
+For a video overview of how to download and install Neurodesk, click `here <https://www.youtube.com/watch?v=dz2RO9XuAuE>`__.
