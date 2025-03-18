@@ -60,19 +60,29 @@ If you wanted to redirect this output into a new text file, you would use this c
 As always, you can call the output file whatever you like.
 
 Editing Files In Place
-**********
+**********************
 
 If you want to edit the file and overwrite it instead of redirecting the output into a new file, you can use the -i and -e options:
 
 ::
 
-  sed -i -e "s|Andy|Bill|g" Hello.sh
+  sed -i'' -e "s|Andy|Bill|g" Hello.sh
 
-The -i option stands for "in-place", and signifies that the text file should be overwritten after the words have been swapped. The -e option is used to get the -i option to work with Macintosh operating systems; if it isn't included, sed throws an error.
+The -i option stands for "in-place", and signifies that the text file should be overwritten after the words have been swapped. The `''` after `-i` is a null argument that would otherwise be appended to the output of the changed file.
+
+If you would like to make a copy of the file that contains the change, then you could write something like:
+
+::
+
+  sed -i- -e "s|Andy|Bill|g" Hello.sh
+
+Which will create a file called "Hello.sh-".
+
+I am indebted to Charles Antonelli of the University of Michigan's Advanced Research Computing department for these examples.
 
 
 Using sed with for-loops
-***********
+************************
 
 As with other commands, sed can be combined with for-loops and conditional statements to write more sophisticated code. For example, let's say that we want to create several copies of a template file, and only change one word of it over a list of names. Let's start by creating a file called ``Names.sh`` which contains the following:
 
