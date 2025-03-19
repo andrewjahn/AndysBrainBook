@@ -68,15 +68,12 @@ If you want to edit the file and overwrite it instead of redirecting the output 
 
   sed -i'' -e "s|Andy|Bill|g" Hello.sh
 
-The -i option stands for "in-place", and signifies that the text file should be overwritten after the words have been swapped. The `''` after `-i` is a null argument that would otherwise be appended to the output of the changed file.
+The -i option stands for “in-place”, and signifies that the text file should be overwritten after the words have been swapped.  The ‘’ after -i is a null argument that prevents sed from creating a backup copy of the file before changing it.
 
-If you would like to make a copy of the file that contains the change, then you could write something like:
+If you do want to create a backup copy, then you could write something like:
 
-::
-
-  sed -i- -e "s|Andy|Bill|g" Hello.sh
-
-Which will create a file called "Hello.sh-".
+sed -i- -e "s|Andy|Bill|g" Hello.sh
+Which will create a file called “Hello.sh-“ with the original contents of Hello.sh.
 
 I am indebted to Charles Antonelli of the University of Michigan's Advanced Research Computing department for these examples.
 
