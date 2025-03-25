@@ -45,7 +45,7 @@ These can be verified in SPM by opening SPM12, clicking ``Review``, and selectin
 Creating the Script
 *******************
 
-The Decoding Toolbox has a template RSA script lcoated within ``tdt_3.999F/decoding_toolbox/templates``; if your path already points to this folder, you can navigate to the folder ``sub01_firstlevel``, and then type ``open decoding_template_similarity.m``. Save a copy of it to the ``sub01_firstlevel`` folder, and call it ``RSA_SampleScript.m``. Open this new file in your Matlab terminal by typing ``RSA_SampleScript.m``, and close the original template script.
+The Decoding Toolbox has a template RSA script located within ``tdt_3.999F/decoding_toolbox/templates``; if your path already points to this folder, you can navigate to the folder ``sub01_firstlevel``, and then type ``open decoding_template_similarity.m``. Save a copy of it to the ``sub01_firstlevel`` folder, and call it ``RSA_SampleScript.m``. Open this new file in your Matlab terminal by typing ``RSA_SampleScript.m``, and close the original template script.
 
 First, change the ``cfg.analysis`` on line 14 to from ``searchlight`` to ``ROI``, since we will be using ROIs for our similarity analysis. The code on lines 17 and 20 specify where to write the results and where the betas are located, respectively; change them to ``cfg.results.dir = ``[pwd '/sub01_Results'];`` and ``beta_loc = [pwd '/sub01_GLM'];``. Lastly, if we are interested in RSA in the left motor cortex, for example, we would change line 27 to be ``cfg.files.mask = [pwd '/sub01_ROI/m1_left.img'];``.
 
