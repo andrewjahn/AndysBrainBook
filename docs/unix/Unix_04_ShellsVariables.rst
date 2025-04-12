@@ -19,7 +19,7 @@ To understand what this means, you’ll need to understand shells, paths, and va
 
 There are two shells you will come across: the Bourne shell, with a widely-used version called **bash**, or Bourne-again shell; and the C-shells, of which one popular variation is the t-shell, or **tcsh**. The commands we’ve used so far - cd, ls, pwd, and so on - are called **built-in commands**, and they can be used the same way in both shells. But there are important differences when you do a more advanced operation, such as setting a variable.
 
-**Setting a variable** means assigning a value to a string. Variables are used as shorthand for a value, which can be either a number or a string. They are called variables because the value can vary, or be udpated as needed. 
+**Setting a variable** means assigning a value to a string. Variables are used as shorthand for a value, which can be either a number or a string. They are called variables because the value can vary, or be updated as needed. 
 
 For example, let’s assign the value 3 to the variable ``x``. If you are in the bash shell, which is the default on most computers, you can do this by typing ``x=3``. To check the value stored in the variable, type ``echo $x``. The dollar sign is a **reserved character** that has a special meaning and cannot be used as a variable. A dollar sign indicates that what comes immediately after it - in this case, x - is a variable. The command returns 3, the value stored in the variable x.
 
