@@ -16,7 +16,7 @@ This is a brief overview of how to use a supercomputing cluster, in particular t
 Benefits of Supercomputing
 **************************
 
-In previous tutorials about analyzing neuroimaging data, we discussed how you can save time by **scripting** your analyses; in other words, automating each analysis so that it can be run in the background of your computer. As long as the organzation of your data is standardized (e.g., in `BIDS format <https://bids.neuroimaging.io/>`__), with minor edits the scripts can also be used to analyze other datasets.
+In previous tutorials about analyzing neuroimaging data, we discussed how you can save time by **scripting** your analyses; in other words, automating each analysis so that it can be run in the background of your computer. As long as the organization of your data is standardized (e.g., in `BIDS format <https://bids.neuroimaging.io/>`__), with minor edits the scripts can also be used to analyze other datasets.
 
 In the previous tutorials, however, it was assumed that you were using a single computer to analyze the data. You may not have enough computing resources to both run the analyses in the background and do other work at the same time, or you may quickly run out of space to store the data, limiting how many subject you can analyze at a time. External hard drives may be a temporary solution, but even then, with large datasets you can run out of space quickly.
 
