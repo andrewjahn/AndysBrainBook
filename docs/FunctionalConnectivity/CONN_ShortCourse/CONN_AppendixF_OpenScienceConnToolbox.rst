@@ -13,11 +13,11 @@ The latest version of the CONN toolbox, 24.27, allows you to download any of the
 
 You can download and analyze one of these datasets by opening the CONN toolbox, and selecting ``Project -> New (download) -> from FCP/INDI public database``. You will be prompted to enter a name for the project; in this case, let's call it CONN_fCONN_Demo. You can then select the dataset that you want; let's choose the smallest one with only 8 subjects, the ``Taipei_b`` dataset.
 
-The next prompt will ask you whether you want to just download the data, or whether you want to download and process it. This includes everything, from preprocessing to denoising to creating correlation maps, and has the benefit of taking care of everything for you while you go do something else. The downside is that it uses defaults you may not want, and it only generates correlation maps for the networks ROIs, not the atlas ROIs (although you can change this later). For now, let's choose the "Download and process" option, and wait for about an hour while the data is analyzed.
+The next prompt will ask you whether you want to just download the data, or whether you want to download and process it. This includes everything, from preprocessing to denoising to creating correlation maps, and has the benefit of taking care of everything for you while you go do something else. The downside is that it uses defaults you may not want, and it only generates correlation maps for the network ROIs, not the atlas ROIs (although you can change this later). For now, let's choose the "Download and process" option, and wait for about an hour while the data is analyzed.
 
 Once it has finished, you will see that all of the tabs are enabled, since all of the preprocessing and analyses have been completed. We are going to take a quick look through all of them, although you should take the time to thoroughly quality check the data as discussed in the :ref:`previous chapters <CONN_06_QA_Checks>`.
 
-Notice that only the networks ROIs are analyzed in the 1st-level tab; you could add the other atlas ROIs here if you wanted. You can also run the group-level analyses for any region that is available. Also note that this dataset does not contain any other demographic information, such as age or sex, so we won't be able to control for them.
+Notice that only the network ROIs are analyzed in the 1st-level tab; you could add the other atlas ROIs here if you wanted. You can also run the group-level analyses for any region that is available. Also note that this dataset does not contain any other demographic information, such as age or sex, so we won't be able to control for them.
 
 Analyzing Data on the Supercomputing Cluster
 ********************************************
