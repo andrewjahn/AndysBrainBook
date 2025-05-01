@@ -128,4 +128,23 @@ The **List** collection can contain any number of different types of objects: St
 
   my_List = ["Birthday", "Andy", "16", 20.5, 80]
 
-Note that the list is enclosed in brackets, and that this list contains strings, a float, and an integer. The number "16" is enclosed in quotes, and thus will be treated as a string instead of as an integer.
+Note that the list is enclosed in brackets, and that this list contains strings, a float, and an integer. The number "16" is enclosed in quotes, and thus will be treated as a string instead of as an integer. If you want to retrieve any of the items (also known as **elements**) within the list, you can do so with brackets, e.g.:
+
+::
+
+  my_List[1]
+
+Which should return "Andy". Note that Python uses 0-based indexing, in which the first element in the list is indexed with 0, and all of the other elements are indexed consecutively. You can also use colons with the bracket notation in order to retrieve more than one element, e.g.:
+
+::
+
+  my_List[0:2]
+
+Which will return the first two elements in the list. Note that the third element in the list (indexed by [2]) is not returned, since that side of the colon represents the stopping point of items to return. You can adjust the range as needed.
+
+Dictionaries
+&&&&&&&&&&&&
+
+The **Dictionary** object is a data structure, similar to the kinds of structures found in Matlab. You can also think of a dictionary in Python as analogous to a book dictionary; each entry in the dictionary has a corresponding definition. Python dictionaries, however, are organized by pairings of **keys** and **values**, in which the keys have unique names (similar to each entry word in the book dictionary being different), but the values can be the same between keys.
+
+As an example, 
