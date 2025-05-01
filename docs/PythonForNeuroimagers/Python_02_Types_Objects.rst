@@ -19,14 +19,14 @@ Built-in Types
 Integers
 &&&&&&&&
 
-Let's being with integers. These are any whole numbers (i.e., not fractions or numbers that contain a decimal). For example, you can assign integers to a variable using the method in the last chapter:
+Let's begin with integers. These are any whole numbers (i.e., not fractions or numbers that contain a decimal). For example, you can assign integers to a variable using the method in the last chapter:
 
 ::
 
   NumClasses = 3
   StudentsPerClass = 20
 
-Integers can be manipulated using any kind of arithmetic operation, such as multipication:
+Integers can be manipulated using any kind of arithmetic operation, such as multiplication:
 
 ::
 
@@ -45,7 +45,7 @@ Which in this case returns a number with a decimal, indicating that it is a diff
   type(NumClasses)
   type(StudentsPerClass)
 
-Notice how the type changes depending on whether the variable contains a decimal point or not; if it does, it will be float, and if it does not, it will be an integer.
+Notice how the type changes depending on whether the variable contains a decimal point or not; if it does, it will be a float, and if it does not, it will be an integer.
 
 Strings
 &&&&&&&
@@ -81,7 +81,7 @@ You can also count the number of instances of a given substring within a string,
 Booleans
 &&&&&&&&
 
-The last basic data type is the Boolean. Named after the logician George Boole, these data types can only contain one of two values: "True" or "False". They are useful for determining whether a condition is met, for example, or whether a directory already exists before anything else is performed. You often see them used in control statements (discussed in more detail below) to check whether to exit the current processing in case an error is encountered or if the code is unnecessary.
+The last basic data type is the Boolean. Named after the logician George Boole, these data types can only contain one of two values: "True" or "False". They are useful for determining whether a condition is met, for example, or whether a directory already exists before anything else is performed. You often see them used in control statements to check whether to exit the current processing in case an error is encountered or if the code is unnecessary.
 
 One way we can check for the existence of something - a directory or a value, for example - is to use comparison operators such as greater than, less than, or equal to. For example, you could set a certain state to True or False:
 
@@ -214,6 +214,11 @@ Note that you can't overwrite any of these values, but you can convert a tuple t
 
   converted_Tuple = list(my_Tuple)
   converted_Tuple[2]
+
+Video
+*****
+
+For a video overview of Objects in Python, click `here <https://youtu.be/6Kz85Uy0fIo>`__.
 
 
 Summary
