@@ -1,8 +1,8 @@
 .. _Python_02_Types_Objects:
 
-==========================================================
-Python Tutorial #2: Types, Objects, and Control Statements
-==========================================================
+===================================================
+Python Tutorial #2: Types, Collections, and Objects
+===================================================
 
 ---------------
 
@@ -50,7 +50,7 @@ Notice how the type changes depending on whether the variable contains a decimal
 Strings
 &&&&&&&
 
-Another important built-in type is *strings*. These are sequences of characters, and they are usually the same thing as words; in computer programming, however, they can take the form of words such as "movie_theater", which joins two words together with an underscore.
+Another important built-in type is *strings*. These are sequences of characters, and they are usually the same thing as words; in computer programming, however, they can take the form of compound words such as "movie_theater", which joins two words together with an underscore.
 
 You can assign a string to a variable the same way we did with integers:
 
@@ -87,7 +87,7 @@ One way we can check for the existence of something - a directory or a value, fo
 
 ::
 
-  Studying_Python_Now = True
+  Studying_Python_Now = "True"
 
 Or you can use comparison operators to test a claim:
 
@@ -102,7 +102,7 @@ To test whether two variables are equivalent, we use the double equal sign opera
 
   my_Name = "Andy"
   your_Name = "Bill"
-  same_Name = myName == your_Name
+  same_Name = my_Name == your_Name
   print(same_Name)
 
 You can also test for whether several tests are simultaneously true; if only one of them is false, then the output will return "False":
@@ -142,9 +142,81 @@ Which should return "Andy". Note that Python uses 0-based indexing, in which the
 
 Which will return the first two elements in the list. Note that the third element in the list (indexed by [2]) is not returned, since that side of the colon represents the stopping point of items to return. You can adjust the range as needed.
 
+To create a nested list, let's create another list:
+
+::
+
+  another_List = ["penny", "cloud", 100]
+
+And then join this together with our previous list:
+
+::
+
+  nested_List = [my_List, another_List]
+
+We can now call upon any one of these lists, such as another_List, using index notation:
+
+::
+
+  nested_List[1]
+
+And if we want to retrieve one of the elements within that list, we use another set of brackets:
+
+::
+
+  nested_List[1][0]
+
 Dictionaries
 &&&&&&&&&&&&
 
 The **Dictionary** object is a data structure, similar to the kinds of structures found in Matlab. You can also think of a dictionary in Python as analogous to a book dictionary; each entry in the dictionary has a corresponding definition. Python dictionaries, however, are organized by pairings of **keys** and **values**, in which the keys have unique names (similar to each entry word in the book dictionary being different), but the values can be the same between keys.
 
-As an example, 
+As an example, let's say we create a dictionary representing the header information inside an fMRI dataset. This might contain parameters such as the TR, the voxel dimensions, and the number of volumes. We create this dictionary inside curly braces, with a colon separating each key/value pair:
+
+::
+
+  fMRI_Image = {
+    "TR": 2.5,
+    "voxel_dimensions": "3x3x3",
+    "volumes": 150
+}
+
+If you just type the dictionary name, it returns all of the key/value pairings. You can also retrieve a single value by typing its key:
+
+::
+
+  fMRI_Image['TR']
+
+And you can add to the dictionary by creating a new entry:
+
+::
+
+  fMRI_Image["orientation"] = "RPA"
+
+Or overwrite one of the entries in the dictionary:
+
+::
+
+  fMRI_Image["TR"] = 2.0
+
+Tuples
+&&&&&&
+
+The last type of collection is a *Tuple*, which is an immutable list; in other words, once you create the tuple, you can't change what's inside it. To create a tuple, use parentheses instead of brackets:
+
+::
+
+  my_Tuple = ("hello", 95, "A+")
+
+Note that you can't overwrite any of these values, but you can convert a tuple to a list by using the ``list`` command:
+
+::
+
+  converted_Tuple = list(my_Tuple)
+  converted_Tuple[2]
+
+
+Summary
+*******
+
+We have covered some of the basic data types of Python, which are used in virtually any code that you will come across. In the following chapters, we will review more advanced aspects of Python, including control statements, functions, and classes, which give you greater flexibility for what your code can do.
