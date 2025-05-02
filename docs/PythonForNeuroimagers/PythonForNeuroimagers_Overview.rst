@@ -7,7 +7,7 @@ Python for Neuroimagers
 ---------------
 
 What is Python?
-*************
+***************
 
 Python is a widely-used programming language, similar to Unix and Matlab. Although the principles of the programming language are nearly identical to the others, it has a different syntax and coding style.
 
