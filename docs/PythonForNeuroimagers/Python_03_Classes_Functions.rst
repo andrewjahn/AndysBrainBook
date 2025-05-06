@@ -90,4 +90,23 @@ Although this seems like a silly example, it illustrates the concept of a **cond
   else:
     print("Get the regular chicken burrito")
 
-Note how this will generate the appropriate response regardless of what value you assign to the variable ``money``.
+Note how this will generate the appropriate response regardless of what value you assign to the variable ``money``. The first line assigns a value of 8.0 to ``money``, and then the conditional statements evaluates the variable and executes the appropriate block of code. The first statement checks whether the value of ``money`` is greater than 10; if it is, then print "Get the extra guac". If the value is less than 10, it moves to the next statement, represented by ``elif``, short for ``else if``. Lastly, if none of the statements so far are true, then the last part of the code will be executed, represented by ``else``, which captures all other possibilites. For example, try setting the value of ``money`` to different numbers, such as 15 or 5, and run the block of code again to see what the output will be.
+
+Nested Control Flow
+&&&&&&&&&&&&&&&&&&&
+
+Conditionals can be nested inside for-loops, allowing you to create more sophisticated code that will only execute certain blocks of code within the for-loop. For example, let's say that we are running an fMRI experiment, and we have five subjects. We note that one of them is an outlier, and place that in a separate list. When we run the for-loop, we skip that outlier subject:
+
+::
+
+  subjects = ["sub-01", "sub-02", "sub-03", "sub-04", "sub-05"]
+  outlier_subject = ["sub-02"]
+  
+  
+  for sub in subjects:
+      if sub == outlier_subject[0]:
+           print(f"Subject {sub} is an outlier, skipping preprocessing")
+      else:
+          print(f"Processing subject {sub}")
+
+
