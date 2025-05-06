@@ -26,5 +26,6 @@ This module closely follows Tal Yarkoni's and Ariel Rokum's excellent `Neuroimag
 
    Python_01_Basics
    Python_02_Types_Objects
-   Python_03_Classes_Functions
+   Python_03_ControlStatements
+   Python_04_Functions_Classes
 
