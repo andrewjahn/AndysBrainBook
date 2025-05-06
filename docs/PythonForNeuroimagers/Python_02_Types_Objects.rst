@@ -179,7 +179,7 @@ As an example, let's say we create a dictionary representing the header informat
     "TR": 2.5,
     "voxel_dimensions": "3x3x3",
     "volumes": 150
-}
+  }
 
 If you just type the dictionary name, it returns all of the key/value pairings. You can also retrieve a single value by typing its key:
 
