@@ -1,8 +1,8 @@
-.. _Python_03_Classes_Functions:
+.. _Python_03_ControlStatements:
 
-============================================================
-Python Tutorial #3: Control Statements, Functions, & Classes
-============================================================
+======================================
+Python Tutorial #3: Control Statements
+======================================
 
 ---------------
 
@@ -110,3 +110,21 @@ Conditionals can be nested inside for-loops, allowing you to create more sophist
           print(f"Processing subject {sub}")
 
 
+For-loops can also be nested within other for-loops, e.g.:
+
+::
+
+  subjects = ["sub-01", "sub-02", "sub-03", "sub-04", "sub-05"]
+  pipelines = ["preprocessing", "denoising", "QA checks"]
+
+
+  for sub in subjects:
+    for pl in pipelines:
+      print(f"Running pipeline {pl} for subject {sub}")
+
+In a real experiment, you would replace the ``print`` command with the actual pipelines you are executing.
+
+Summary
+*******
+
+Having learned control statements, you have more flexibility in how to implement your code. Control statements are ubiquitous in Python, and you will need to understand the fundamentals in order to read other people's scripts. The statements can also be combined with functions and classes, which we turn to now.
