@@ -59,3 +59,23 @@ Now that you've seen how functions work, you probably want to create your own fu
   def my_power_function(base, exp):
     return base**exp
 
+This is similar to the ``pow`` function above, with the body of the function containing a ``return`` keyword, followed by a mathematical formula that raises the base to the exponent (symbolized by ``**``). ``Return`` in this case means to return some value after the function is run, which can then be used by other code later on in the script. Once you have defined this function, try running it with some parameters, e.g., ``my_power_function(10,2)``.
+
+When we used the ``help`` function earlier, you may have noticed that it output some text explaining how to use the function. We can include this explanatory text by using three sets of double quotes, which indicate that the text is not to be run as code, but simply to be read:
+
+::
+
+  def my_power_function(base, exp):
+    """This function requires a base number and an exponent. The base will be raised to the power of the exponent
+    Example: my_power_function(10,2)
+    """
+    return base**exp
+
+Now when you type ``help(my_power_function)``, it will return the documentation as well.
+
+Importing Other Functions
+&&&&&&&&&&&&&&&&&&&&&&&&&
+
+In addition to the built-in functions, Python also contains a library of other functions that can be accessed using the ``import`` command. The reason that all of these other functions aren't imported by default is that the user may not need all of them, and loading all of them when we open an instance of Python would take extra time.
+
+
