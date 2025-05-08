@@ -1,7 +1,7 @@
-.. _Python_04_Functions_Classes:
+.. _Python_04_Functions_Modules:
 
 =========================================
-Python Tutorial #4: Functions and Classes
+Python Tutorial #4: Functions and Modules
 =========================================
 
 ---------------
@@ -73,9 +73,50 @@ When we used the ``help`` function earlier, you may have noticed that it output 
 
 Now when you type ``help(my_power_function)``, it will return the documentation as well.
 
-Importing Other Functions
-&&&&&&&&&&&&&&&&&&&&&&&&&
+Importing Modules
+*****************
 
-In addition to the built-in functions, Python also contains a library of other functions that can be accessed using the ``import`` command. The reason that all of these other functions aren't imported by default is that the user may not need all of them, and loading all of them when we open an instance of Python would take extra time.
+In addition to the built-in functions, Python also contains a library of **modules** that can be accessed using the ``import`` command. Within Python, modules can contain other functions, along with the code and variables needed for the function to run. In order to see all of the modules that you can import, type ``help('modules')``, which will return a list of hundreds of modules within Python's library. The reason that all of these other modules aren't imported by default is that the user may not need all of them, and loading all of them when we open an instance of Python would take extra time.
+
+For example, you might see a module called ``random``, which, if we type ``help('random')``, we learn is a random number generator. There are several **methods** that are part of this module, which act like functions that are bound to a specific module. Reading through the help file, we see that there is a ``randint`` method that we can use to generate a random number between and including two numbers. In order to import the ``random`` module along with all of its methods and functions, we would type:
+
+::
+
+  import random
+
+And then we could run the ``randint`` method by using **dot notation**, which indicates that the method is being executed as part of a module:
+
+::
+
+  random.randint(1,10)
+
+Running this code will generate a random number between and including 1 and 10, and running the same line of code repeatedly can produce different results.
+
+If we want this method in particular from the ``random`` module, and nothing else, we could type:
+
+::
+
+  from random import randint
+
+Lastly, you my choose to create an **alias** for the modules or methods that you import, which is just a shorthand version for convenience. You often see this in code for Nilearn, for example, ``import nilearn as nl``. With our current example, we could substitute ``rand`` for the module name of ``random``:
+
+::
+
+  import random as rand
+
+And then execute the ``randint`` method, e.g., ``rand.randint(1,10)``. Alternatively, we could import the ``randint`` method itself with an alias:
+
+::
+
+  from random import randint as ri
+  ri(1,10)
+
+Note how the keywords ``from`` and ``as`` are used to specify which module or method will be imported under which alias. The name of the alias is arbitrary, but make sure it doesn't conflict with any other keywords in the Python library.
+
+
+Summary
+*******
+
+Functions and modules greatly expand the range of what you can do in Python. Although Python has many built-in functions and modules, the amount that you can import is essentially endless, as there are other ones you can download either using ``pip`` or downloading additional modules through Github, which programmers are always updating. This will be necessary for using the more advanced neuroimaging packages that we will learn about later.
 
 
