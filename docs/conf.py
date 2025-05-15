@@ -15,6 +15,8 @@
 import sys
 import os
 
+pip install sphinx-copybutton
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -28,7 +30,8 @@ import os
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_rtd_theme']
+extensions = ['sphinx_rtd_theme',
+             'sphinx_copybutton']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -44,7 +47,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Andy\'s Brain Book'
-copyright = u'2023, Andy Jahn\r'
+copyright = u'2025, Andy Jahn\r'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
