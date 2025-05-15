@@ -29,8 +29,6 @@ import os
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-conda install -c conda-forge sphinx-copybutton
-
 extensions = ['sphinx_rtd_theme']
 
 # 'sphinx_copybutton'
