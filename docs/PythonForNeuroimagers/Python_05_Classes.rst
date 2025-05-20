@@ -35,7 +35,7 @@ The first line of code is simply the name of the class, capitalized by conventio
 
 The arguments taken by the ``__init__`` method are ``self`` and ``name``. ``self`` is a convention used to refer to the class itself, indicating that all of the variables and attributes listed in the class should be used. The next argument, ``name``, will be supplied by the user when creating a new instance of the class.
 
-At first glance, there appears to be redunancy in the code above, since the word ``name`` is used three times. This is the syntax needed to assign the name provided by the user to the instance of that class, e.g.:
+At first glance, there appears to be redundancy in the code above, since the word ``name`` is used three times. This is the syntax needed to assign the name provided by the user to the instance of that class, e.g.:
 
 ::
 
@@ -48,7 +48,7 @@ Which will return ``andy``.
 Attributes
 &&&&&&&&&&
 
-Any variable or characteristic about a Python object is known as an **attribute**, which are divided into **class attributes** and **instance attributes**. Since we are working with a Brain class, let's give it a list of lobes, which any healthy brain should have. By declaring the ``lobes`` list above the ``__init__`` method, ``lobes`` functions as a class attributes which will be propagated to each new instance of the class. We can also expand upon our ``__init__`` method by providing a ``volume`` variable, with a default of 1400 cubic centimeters, which is an **instance variable** that can be changed when creating a new instance:
+Any variable or characteristic about a Python object is known as an **attribute**, which are divided into **class attributes** and **instance attributes**. Since we are working with a Brain class, let's give it a list of lobes, which any healthy brain should have. By declaring the ``lobes`` list above the ``__init__`` method, ``lobes`` functions as a class attribute which will be propagated to each new instance of the class. We can also expand upon our ``__init__`` method by providing a ``volume`` variable, with a default of 1400 cubic centimeters, which is an **instance variable** that can be changed when creating a new instance:
 
 ::
 
