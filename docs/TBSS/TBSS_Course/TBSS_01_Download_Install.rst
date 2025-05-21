@@ -32,7 +32,7 @@ a screencast can be found here to walk you through the installation and setup:
 Video
 -----
 
-A demonstration of how to install FSL can be found `here https://youtu.be/E9FwDCYAto8?t=16>`__.
+A demonstration of how to install FSL can be found `here <https://youtu.be/E9FwDCYAto8?t=16>`__.
 
 
 Next Steps
