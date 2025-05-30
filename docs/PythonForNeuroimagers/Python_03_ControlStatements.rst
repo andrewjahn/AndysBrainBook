@@ -47,7 +47,7 @@ The first line is the **declaration** of the for-loop, in which each element of 
 
 The body of the for-loop can contain as much code as you want, manipulating the variable in whichever way you need.
 
-You can also combine for-loops with the ``range`` command, which displays the index of the first and last element in the list, e.g.:
+You can also combine for-loops with the ``range`` command, which displays the index of the first element of the list and the total number of elements in the list, e.g.:
 
 ::
 
