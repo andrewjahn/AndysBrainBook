@@ -24,7 +24,7 @@ Let's begin by creating a class called ``Brain``, and all we want to do is give 
 
   class Brain:
 
-    def __init__(self, name)
+    def __init__(self, name):
       self.name = name
 
 The first line of code is simply the name of the class, capitalized by convention, followed by a ``def`` statement. We've seen this before with functions, and plays a similar role here too. What comes after, however, is something new: ``__init__``, which we will call a **method**. Methods are functions that are specific to a particular object, usually executed with dot notation. For example, in the previous tutorial, we used the ``randint`` method of the ``random`` object by typing ``random.randint(1,10)``. The ``__init__`` method in this case will be run anytime there is a new ``instance`` of the Class, which is like a copy.
