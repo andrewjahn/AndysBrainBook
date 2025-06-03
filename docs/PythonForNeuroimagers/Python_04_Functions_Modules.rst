@@ -117,6 +117,6 @@ Note how the keywords ``from`` and ``as`` are used to specify which module or me
 Summary
 *******
 
-Functions and modules greatly expand the range of what you can do in Python. Although Python has many built-in functions and modules, the amount that you can import is essentially endless, as there are other ones you can download either using ``pip`` or downloading additional modules through Github, which programmers are always updating. This will be necessary for using the more advanced neuroimaging packages that we will learn about later.
+Functions and modules greatly expand the range of what you can do in Python. Although Python has many built-in functions and modules, the amount that you can import is essentially endless, as there are other ones you can download either using ``pip`` or by downloading additional modules through Github, which programmers are always updating. This will be necessary for using the more advanced neuroimaging packages that we will learn about later.
 
 
