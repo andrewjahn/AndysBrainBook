@@ -98,7 +98,7 @@ If we want this method in particular from the ``random`` module, and nothing els
 
   from random import randint
 
-Lastly, you my choose to create an **alias** for the modules or methods that you import, which is just a shorthand version for convenience. You often see this in code for Nilearn, for example, ``import nilearn as nl``. With our current example, we could substitute ``rand`` for the module name of ``random``:
+Lastly, you may choose to create an **alias** for the modules or methods that you import, which is just a shorthand version for convenience. You often see this in code for Nilearn, for example, ``import nilearn as nl``. With our current example, we could substitute ``rand`` for the module name of ``random``:
 
 ::
 
