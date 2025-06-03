@@ -97,7 +97,7 @@ Lastly, we can declare functions, which are called **methods** when they are bou
           print("Congratulations, you are thinking!")
         elif thinking == 'no':
           print("You're not thinking right now; you are probably watching TV!")
-        else
+        else:
           print("I'm not sure what you're doing!")
 
 
