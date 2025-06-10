@@ -127,7 +127,7 @@ In a real experiment, you would replace the ``print`` command with the actual pi
 Video
 *****
 
-For a video overview of Control Statements, click `here <https://youtu.be/DtYrDaJYPZ4>`__.
+For a video overview of Control Statements, click `here <https://youtu.be/xc63gD5eoPU>`__.
 
 Summary
 *******
