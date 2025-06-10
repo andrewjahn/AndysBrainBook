@@ -124,6 +124,11 @@ For-loops can also be nested within other for-loops, e.g.:
 
 In a real experiment, you would replace the ``print`` command with the actual pipelines you are executing.
 
+Video
+*****
+
+For a video overview of Control Statements, click `here <https://youtu.be/DtYrDaJYPZ4>`__.
+
 Summary
 *******
 
