@@ -100,6 +100,10 @@ Lastly, we can declare functions, which are called **methods** when they are bou
         else:
           print("I'm not sure what you're doing!")
 
+Video
+*****
+
+For a video overview of classes, click `here <https://youtu.be/Jxdai-mghjI>`__.
 
 Summary
 *******
