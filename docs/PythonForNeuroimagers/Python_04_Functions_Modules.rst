@@ -113,6 +113,11 @@ And then execute the ``randint`` method, e.g., ``rand.randint(1,10)``. Alternati
 
 Note how the keywords ``from`` and ``as`` are used to specify which module or method will be imported under which alias. The name of the alias is arbitrary, but make sure it doesn't conflict with any other keywords in the Python library.
 
+Video
+*****
+
+For a video overview of functions and modules, click `here <https://youtu.be/GwJ8seuukpA>`__.
+
 
 Summary
 *******
