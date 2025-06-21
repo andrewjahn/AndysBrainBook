@@ -84,7 +84,7 @@ We will use conda to create a virtual environment for the rest of the analyses i
     
   Also, you may have to use the ``sudo`` command if you run into any errors regarding root privileges.
 
-Once you have created the environment, you will have to **activate** it by typing ``conda activate naturalistic``. Your shell will be updated with the word ``(naturalistic)`` preprended to it, indicating that you are now in the naturalistic Python environment that you created earlier.
+Once you have created the environment, you will have to **activate** it by typing ``conda activate naturalistic``. Your shell will be updated with the word ``(naturalistic)`` prepended to it, indicating that you are now in the naturalistic Python environment that you created earlier.
 
 Although the Python environment comes with several neuroimaging and statistical learning packages installed, we will have to install a few other ones manually. This is most easily done with ``pip``, Python's package manager. We will have to install the packages **nilearn**, **nltools**, and **datalad** to run the rest of the tutorial:
 

@@ -11,7 +11,7 @@ What is a Mask?
 
 As you saw in previous tutorials, a volume of fMRI data includes both the brain and the surrounding skull and neck - regions that we are not interested in analyzing with AFNI, even though they do contain voxels with time-series data just as the brain voxels do. And, although it may not be obvious at first glance, we have large numbers of voxels that comprise the air outside the head.
 
-To reduce the size of our datasets and consequently speed up our analyses, we can apply a **mask** to our data. A mask simply indicates which voxels are to be analyzed - any voxels within the mask retain their original values (or can be assigne a value of 1), whereas any voxels outside mask are assigned a value of zero. It is analogous to tracing an outline of a drawing with tracing paper, and then cutting along the lines and keeping whatever falls inside the lines, discarding the rest. Applied to fMRI data, anything outside the mask we assume to be noise or something of no interest.
+To reduce the size of our datasets and consequently speed up our analyses, we can apply a **mask** to our data. A mask simply indicates which voxels are to be analyzed - any voxels within the mask retain their original values (or can be assigned a value of 1), whereas any voxels outside mask are assigned a value of zero. It is analogous to tracing an outline of a drawing with tracing paper, and then cutting along the lines and keeping whatever falls inside the lines, discarding the rest. Applied to fMRI data, anything outside the mask we assume to be noise or something of no interest.
 
 Masks are created with AFNI's ``3dAutomask`` command, which only requires arguments for input and output datasets (lines 223-260 of the proc_Flanker script):
 
@@ -70,7 +70,7 @@ mask which traces the outline of the signal detected by the image:
 
 .. warning::
 
-  From the above image, you can see that there appears to be some parts of the orbitofrontal cortex excluded by the mask. Since the signal is relatively low in these regions to begin with (due to a phenomenon known as the **magnetic susceptibility artifact** which leads to signal droput), the mask assumes that this region does not contain any brain voxels. This can be remedied by using a technique called **field map unwarping**. It is beyond the scope of the current tutorial, but if you are interested, you can read about one such method `here <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#how-can-i-unwarp-my-data>`__.
+  From the above image, you can see that there appears to be some parts of the orbitofrontal cortex excluded by the mask. Since the signal is relatively low in these regions to begin with (due to a phenomenon known as the **magnetic susceptibility artifact** which leads to signal dropout), the mask assumes that this region does not contain any brain voxels. This can be remedied by using a technique called **field map unwarping**. It is beyond the scope of the current tutorial, but if you are interested, you can read about one such method `here <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#how-can-i-unwarp-my-data>`__.
 
 Scaling
 *******

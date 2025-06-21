@@ -24,7 +24,7 @@ Advanced Properties
 Duration and Input Masks
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-By default, the TextDisplay object will be presented on the screen for 1000 milliseconds; in other words, one of its properties is a **duration** of 1000 milliseconds. This is probably too short for most purposes, and in any case you will want more flexbility for your own experiment. Within the TextDisplay object's properties, the ``Duration/Input`` tab allows you control these details about the timing of the object. The **Duration** field, for example, specifies how long, in milliseconds, the object will be presented on the screen. You can enter any number you want - or, you can set it to ``Infinite``, which will leave the object on the screen until a button is pressed or some kind of input is received.
+By default, the TextDisplay object will be presented on the screen for 1000 milliseconds; in other words, one of its properties is a **duration** of 1000 milliseconds. This is probably too short for most purposes, and in any case you will want more flexibility for your own experiment. Within the TextDisplay object's properties, the ``Duration/Input`` tab allows you control these details about the timing of the object. The **Duration** field, for example, specifies how long, in milliseconds, the object will be presented on the screen. You can enter any number you want - or, you can set it to ``Infinite``, which will leave the object on the screen until a button is pressed or some kind of input is received.
 
 This requires you to add an **Input Mask**, which is a device that records a response. If you click on the ``Add`` button underneath the Devices box, you will see two default options: the Keyboard and the Mouse. Since the participant usually responds by pushing one of several different keys, the Keyboard is the best input to use. Selecting the Keyboard as in input mask enables you to fill in the **Response Options** fields, such as Allowable and Correct responses.
 
@@ -100,7 +100,7 @@ Exercises
 
 1. Add a new device to the TextDisplay Welcome object, and select "Mouse". Note the Allowable responses that are selected by default. Now run the experiment, and see if you can advance the slide by simply left-clicking on the screen.
 
-2. Note that the Data Logging for the Stroop slide will ask you whether it shoudl be set to default. When you select the default settings, what do you see in the "Logging" tab? We will revisit this in a later tutorial, but for now, look at some of the attributes that can be written, and think about which ones might be useful for your experiment.
+2. Note that the Data Logging for the Stroop slide will ask you whether it should be set to default. When you select the default settings, what do you see in the "Logging" tab? We will revisit this in a later tutorial, but for now, look at some of the attributes that can be written, and think about which ones might be useful for your experiment.
 
 3. Create two new Stroop objects, each one separated by a Fixation object. (Remember that you can copy and paste objects by right clicking on them, selecting Copy, and then right-clicking and selecting Paste.) Make each Stroop object a different combination of a word and color, either congruent or incongruent, and then run the experiment.
 

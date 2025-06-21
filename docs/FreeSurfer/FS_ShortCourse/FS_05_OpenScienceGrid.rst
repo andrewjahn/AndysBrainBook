@@ -3,7 +3,7 @@
 .. warning::
 
   fsurf has been deprecated and is no longer supported; to run Freesurfer jobs on the OSG, you can request an account on the 
-  `OSG Connnect <https://www.osgconnect.net/>`__ service (available to all researchers affiliated with a US-based institution or project) and then follow the instructions
+  `OSG Connect <https://www.osgconnect.net/>`__ service (available to all researchers affiliated with a US-based institution or project) and then follow the instructions
   on `this page <https://support.opensciencegrid.org/support/solutions/articles/12000008483-introduction-to-freesurfer-on-osg>`__ which shows 
   how to submit your own Freesurfer workload to the OSG. 
 
@@ -33,7 +33,7 @@ You will also need a command called ``fsurf`` to submit recon-all jobs to the Op
   curl -L -o fsurf 'http://stash.osgconnect.net/+fsurf/fsurf'
   chmod +x fsurf
   
-And then move the fsurf executible into a directory that your PATH points to. For example, most operating systems have a path that by default points to the ``/bin`` directory - the same directory that contains commands such as ``ls``, ``cd``, and ``pwd``. If you move ``fsurf`` to ``/bin``, then you can run the command from any directory:
+And then move the fsurf executable into a directory that your PATH points to. For example, most operating systems have a path that by default points to the ``/bin`` directory - the same directory that contains commands such as ``ls``, ``cd``, and ``pwd``. If you move ``fsurf`` to ``/bin``, then you can run the command from any directory:
 
 ::
 
@@ -103,7 +103,7 @@ Once recon-all has finished, you can download the output by typing this code:
 
   fsurf output --id <subjID>
   
-In which ``subjID`` is the identifcation code assigned by the supercomputer. It is the number in the second column of the output of the command ``fsurf list``. The downloaded data will have . ``.bz2`` extension; you can unpack it by typing ``tar xvjf <subjName>``, replacing ``subjName`` with the name of the downloaded dataset.
+In which ``subjID`` is the identification code assigned by the supercomputer. It is the number in the second column of the output of the command ``fsurf list``. The downloaded data will have . ``.bz2`` extension; you can unpack it by typing ``tar xvjf <subjName>``, replacing ``subjName`` with the name of the downloaded dataset.
 
 
 On the other hand, if you want to remove a job at any time for any reason, you can do so by typing:

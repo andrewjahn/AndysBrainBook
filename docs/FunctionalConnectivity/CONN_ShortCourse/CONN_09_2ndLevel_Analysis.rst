@@ -63,10 +63,10 @@ Now do the same procedure for the functional images. Click on the ``Functional``
 
 If you have already analyzed subject 1, you may notice that the data in the ``ROIs`` and ``Covariates`` tabs are the same, regardless of which subject you select. As we preprocess the subjects, these fields will be filled in with the ROIs and covariates for each subject.
   
-Preprocesing the Subjects
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Preprocessing the Subjects
+^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Click on the ``Preprocessing`` button to begin preprocessing all of the subjects in a single batch. This will take about 5-6 minutes per subject, or around 30-40 minutes total. When it has finished, check the ``ROIs`` and ``Covariates (1st-level)`` tabs, this time scrolling through each subject. Note any differences bewteen the subjects: Which masks (i.e., tissue types) look different? What do the covariates look like? Subject 2, for example, now has 10 volumes that have been marked as outliers. Each of these marked volumes will be inserted as a regressor in the 1st-level design matrix, which removes their variance from the rest of the time-series.
+Click on the ``Preprocessing`` button to begin preprocessing all of the subjects in a single batch. This will take about 5-6 minutes per subject, or around 30-40 minutes total. When it has finished, check the ``ROIs`` and ``Covariates (1st-level)`` tabs, this time scrolling through each subject. Note any differences between the subjects: Which masks (i.e., tissue types) look different? What do the covariates look like? Subject 2, for example, now has 10 volumes that have been marked as outliers. Each of these marked volumes will be inserted as a regressor in the 1st-level design matrix, which removes their variance from the rest of the time-series.
 
 .. figure:: 09_ScrubbedVolumes.png
 

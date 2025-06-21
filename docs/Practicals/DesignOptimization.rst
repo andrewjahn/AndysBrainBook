@@ -55,5 +55,5 @@ Amount of Time between trials
 
 The behavioral version of the experiment would include some time between each trial, usually a few seconds. The experimenter may choose to introduce random variation, or **jitter**, between trials in order to add some variety to the experiment and make it more engaging. This is not, however, strictly necessary.
 
-For an fMRI experiment, on the other hand, jitter is necessary in order to distinguish betwee the BOLD responses of multiple conditions. Recall that the BOLD response unfolds over a period of several seconds, typically peaking around 4-6 seconds and falling back to baseline around 12 seconds. (There is also an undershoot that occurs later, but we will ignore that for now.) Thus, for trials that occur within 10 seconds of each other, their BOLD responses will overlap and will convolve.
+For an fMRI experiment, on the other hand, jitter is necessary in order to distinguish between the BOLD responses of multiple conditions. Recall that the BOLD response unfolds over a period of several seconds, typically peaking around 4-6 seconds and falling back to baseline around 12 seconds. (There is also an undershoot that occurs later, but we will ignore that for now.) Thus, for trials that occur within 10 seconds of each other, their BOLD responses will overlap and will convolve.
 

@@ -69,7 +69,7 @@ When you are done, this section should look like this:
 
 .. figure:: 06_Extra_Regress_Options.png
 
-Now, click the top three icons in succcession (the sheet of paper, the magnifying glass, and the green "Go" button) to run both the preprocessing and the regression. In total, it should take about 5-10 minutes.
+Now, click the top three icons in succession (the sheet of paper, the magnifying glass, and the green "Go" button) to run both the preprocessing and the regression. In total, it should take about 5-10 minutes.
 
 
 The Ideal Time-Series and the GLM

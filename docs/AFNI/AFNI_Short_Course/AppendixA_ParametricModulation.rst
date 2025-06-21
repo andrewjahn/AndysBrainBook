@@ -130,7 +130,7 @@ Copy and paste this into your terminal, or download it `here <https://github.com
 
 .. note::
 
-  Because we have only 16 subjects, we won't be able to use AFNI's ETAC option, which is simliar to FSL's threshold-free cluster enhancement. If you did have more subjects, however, you could try using this option as well.
+  Because we have only 16 subjects, we won't be able to use AFNI's ETAC option, which is similar to FSL's threshold-free cluster enhancement. If you did have more subjects, however, you could try using this option as well.
 
 
 Video

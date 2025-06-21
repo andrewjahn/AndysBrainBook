@@ -86,7 +86,7 @@ Whenever you load data into the CONN toolbox, and whenever you have generated an
 
 .. figure:: 04_Anatomical_Display.png
 
-  Clicking on the structural slices in the CONN GUI will open another display window that allows you to view the slices in three dimensions. Checking multiple boxes will create cross-sections from multiple angles; for exmaple, check the boxes next to ``View yz plane`` and ``View xy plane`` will create a combination of coronal and sagittal slices.
+  Clicking on the structural slices in the CONN GUI will open another display window that allows you to view the slices in three dimensions. Checking multiple boxes will create cross-sections from multiple angles; for example, check the boxes next to ``View yz plane`` and ``View xy plane`` will create a combination of coronal and sagittal slices.
   
 
 The Functional Tab

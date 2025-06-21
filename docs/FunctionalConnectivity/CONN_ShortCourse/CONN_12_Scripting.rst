@@ -136,7 +136,7 @@ The Setup Field
 
 Each field after the ``batch`` structure will be one of the tabs listed in the CONN GUI: Setup, Denoising, and Analysis.
 
-The first block of code will populate the ``Setup`` field of the ``batch`` structure. If the files above were correctly loaded, this block of code should be useable for any experiment. You may want to change the batch name to something more descriptive of your study, and change the processing pipeline and slice order if needed.
+The first block of code will populate the ``Setup`` field of the ``batch`` structure. If the files above were correctly loaded, this block of code should be usable for any experiment. You may want to change the batch name to something more descriptive of your study, and change the processing pipeline and slice order if needed.
 
 
 ::
