@@ -2,5 +2,6 @@
 # Ref: https://github.com/codespell-project/codespell#using-a-config-file
 skip = .git*,.codespellrc
 check-hidden = true
-ignore-regex = (\b(Nam et|FWE|Ines)\b|https://\S+)
-ignore-words-list = indx,fixel,fixels,fuschia
+# Ignore some names, all https urls (codespell fails at times), and two letter acronyms etc
+ignore-regex = (\b(Nam et|FIRs|FWE|Ines|[A-Z][A-Z])\b|https://\S+)
+ignore-words-list = indx,fixel,fixels,fuschia,mater,whos
