@@ -37,7 +37,7 @@ We can compress the train map into a more compact figure using the numbers as in
 
 .. figure:: AppendixA_GraphTheoryDemo.png
 
-In this figure, we represent each city as a **node** (also called a **vertex**). Each node has connections to different nodes; in graph theory, these connections are called **edges**. On the right side of the figure, we can present the same network in a different way, as an **adjaceny matrix**. Connections between nodes are marked with a 1, whereas nodes that are not connected are marked with a 0. For example, Kalamazoo (3) is directly connected to Battle Creek (0), but not with wither Detroit (1) or Port Huron (2). The fact that Battle Creek has so many direct connections within this network makes it a **hub**, or node with more edges than average. We will return to this concept later.
+In this figure, we represent each city as a **node** (also called a **vertex**). Each node has connections to different nodes; in graph theory, these connections are called **edges**. On the right side of the figure, we can present the same network in a different way, as an **adjaceny matrix**. Connections between nodes are marked with a 1, whereas nodes that are not connected are marked with a 0. For example, Kalamazoo (3) is directly connected to Battle Creek (0), but not with either Detroit (1) or Port Huron (2). The fact that Battle Creek has so many direct connections within this network makes it a **hub**, or node with more edges than average. We will return to this concept later.
 
 .. note::
 

@@ -125,7 +125,7 @@ To ensure that the information was added and saved to the mriqc.sh file, you can
   bash
   source $HOME/BIDS_tutorial/code/mriqc.sh
 
-MRIQC will take a little awhile to run to completion (**approximately 40 min**), so you can leave the terminal window aside until then. It's worth noting that the example MRIQC command is rather bare-bones; if you're interested in applying additional or different options to your MRIQC command, refer to them `here <https://mriqc.readthedocs.io/en/stable/running.html>`__. The time it takes MRIQC to finish is contingent on the size of your data, the amount of processing power you're feeding MRIQC, and the feature options selected, so running MRIQC on a different dataset with different options may result in a longer (or shorter) completition time. 
+MRIQC will take a little awhile to run to completion (**approximately 40 min**), so you can leave the terminal window aside until then. It's worth noting that the example MRIQC command is rather bare-bones; if you're interested in applying additional or different options to your MRIQC command, refer to them `here <https://mriqc.readthedocs.io/en/stable/running.html>`__. The time it takes MRIQC to finish is contingent on the size of your data, the amount of processing power you're feeding MRIQC, and the feature options selected, so running MRIQC on a different dataset with different options may result in a longer (or shorter) completion time. 
 
 Assessing MRIQC QA Reports
 **************************

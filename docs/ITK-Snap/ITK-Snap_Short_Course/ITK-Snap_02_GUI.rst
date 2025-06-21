@@ -37,7 +37,7 @@ Another way to improve visualization of the images is to change the contrast bet
 Editing the Images
 ******************
 
-Once you have a good contast between the different tissue types, we can now edit the images. FreeSurfer assigns certain numbers to different segmentations and parcellations; for example, the grey matter in the left hemisphere has a value of 3, while the white matter in the left hemisphere has a value of 2. The grey and white matter of the right hemisphere have values of 42 and 41, respectively. You can see this for yourself by click on the tissue of any hemisphere with your mouse, and observing the number in the field ``Label under cursor``, which is on the left side of the GUI.
+Once you have a good contrast between the different tissue types, we can now edit the images. FreeSurfer assigns certain numbers to different segmentations and parcellations; for example, the grey matter in the left hemisphere has a value of 3, while the white matter in the left hemisphere has a value of 2. The grey and white matter of the right hemisphere have values of 42 and 41, respectively. You can see this for yourself by click on the tissue of any hemisphere with your mouse, and observing the number in the field ``Label under cursor``, which is on the left side of the GUI.
 
 .. note::
 

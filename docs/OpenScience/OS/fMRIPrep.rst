@@ -185,7 +185,7 @@ Once you're set, run the script by typing the following into the terminal, line 
   bash
   source $HOME/BIDS_tutorial/code/fmriprep.sh
   
-fMRIPrep make take up to several hours to run on this data, depending on how much processing power and memory you allocated. Do note that the fMRIPrep command we are running is relatively bare-bones; there are many additional flag options that can (and should) be used, so it's recommended that you read the documentation for them `here <https://fmriprep.readthedocs.io/en/stable/usage.html>`__. Be aware that if in the future you run fMRIPrep with additional options, it will likely increase the time needed to run to completition.
+fMRIPrep make take up to several hours to run on this data, depending on how much processing power and memory you allocated. Do note that the fMRIPrep command we are running is relatively bare-bones; there are many additional flag options that can (and should) be used, so it's recommended that you read the documentation for them `here <https://fmriprep.readthedocs.io/en/stable/usage.html>`__. Be aware that if in the future you run fMRIPrep with additional options, it will likely increase the time needed to run to completion.
 
 Understanding fMRIPrep output
 *****************************

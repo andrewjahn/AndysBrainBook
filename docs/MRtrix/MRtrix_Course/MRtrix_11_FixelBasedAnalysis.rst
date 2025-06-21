@@ -575,7 +575,7 @@ Which can be submitted by typing ``sbatch runDWIPreproc_Phase6.sbat``.
 
 .. note::
 
-  This last job may take a long time to finish, depending on how many streamlines you generate during ``tckgen`` and how many permutations are computed during each fo the ``fixelcfestats`` commands. You can decrease the amount of time by decreasing the number of streamlines, or by decreasing the number of permutations by using the ``-nshuffles`` option with each ``fixelcfestats`` command, and changing it from the default of 5000 to a lower number, such as 2000 or 3000. Changing these parameters can slightly decrease the accuracy of your final results, but for larger datasets the tradeoff might be worth it.
+  This last job may take a long time to finish, depending on how many streamlines you generate during ``tckgen`` and how many permutations are computed during each of the ``fixelcfestats`` commands. You can decrease the amount of time by decreasing the number of streamlines, or by decreasing the number of permutations by using the ``-nshuffles`` option with each ``fixelcfestats`` command, and changing it from the default of 5000 to a lower number, such as 2000 or 3000. Changing these parameters can slightly decrease the accuracy of your final results, but for larger datasets the tradeoff might be worth it.
 
 Viewing the Results
 *******************

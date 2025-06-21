@@ -166,7 +166,7 @@ Step 2: Apply fieldmap with FUGUE to unwarp functional images
 
 Unwarping the images requires a parameter called "echo spacing", the distance between echoes in echo planar images. If you have acquired two magnitude fieldmap images, echo spacing can be calculated by subtracting the echo time of the first magnitude image from the echo time of the second magnitude image.
 
-The ``--dwell`` option of the commend below specifies the dwell time, which is your echo spacing divided by your acceleration factor. For example, if your echo spacing time is 0.00072 seconds, and your acceleration factor is 4, you would calculate 0.00072 / 4 = 0.00018 to create your dwell time value:
+The ``--dwell`` option of the command below specifies the dwell time, which is your echo spacing divided by your acceleration factor. For example, if your echo spacing time is 0.00072 seconds, and your acceleration factor is 4, you would calculate 0.00072 / 4 = 0.00018 to create your dwell time value:
 
 ::
 
