@@ -138,7 +138,7 @@ Let's make our graph slightly different by changing the initial threshold from c
 
 .. figure:: AppendixA_NetworkTheory_ClusteringCoefficient.png
 
-If we look at individual ROIs, each node's clustering coefficient is located under the ``beta`` column in the results window. For example, if we highlight the ROI ``DefaultMode.LP r``, the clustering coefficient is 0.94, meaning that 94% of this node's neighbors have connections with each other. The beta next to the ``network`` ROI is the average clustering coefficient for all of the ROIs; you can see this yourself by adding up all fo the betas for the individual ROIs, and then dividing them by 11.
+If we look at individual ROIs, each node's clustering coefficient is located under the ``beta`` column in the results window. For example, if we highlight the ROI ``DefaultMode.LP r``, the clustering coefficient is 0.94, meaning that 94% of this node's neighbors have connections with each other. The beta next to the ``network`` ROI is the average clustering coefficient for all of the ROIs; you can see this yourself by adding up all of the betas for the individual ROIs, and then dividing them by 11.
 
 
 Global Efficiency

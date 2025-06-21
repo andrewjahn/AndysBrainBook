@@ -47,6 +47,6 @@ Exercises
 
 1.  Make a new directory in your home directory and either create a couple of new files in that directory, or copy files in to that directory from another directory.
 
-2.  Now copy the directory to the Desktop, but append a forward slash to the end of the directory tha tyou are copying. For example, if the directory is called myFileder, type cp -R myFolder/ Desktop. What happens?
+2.  Now copy the directory to the Desktop, but append a forward slash to the end of the directory that you are copying. For example, if the directory is called myFileder, type cp -R myFolder/ Desktop. What happens?
 
 3.  Type ``man cp`` and find the section about the -R option. Try using one of the other options with the cp command, and observe what happens.
