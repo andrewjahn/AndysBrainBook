@@ -13,7 +13,7 @@ BIDS App Tutorial #1: MRIQC
 What is MRIQC?
 *************
 
-MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform quality assessments (QA) on T1w, T2w, and/or functional MRI acqusitions. These assessments come in the form of handy HTML reports that can be used to examine the quality of the collected data, and determine whether the data quality is sufficient for subsequent pre-processing and analysis. For a more in-depth (and better) overview of MRIQC, check out their homepage `here <https://mriqc.readthedocs.io/en/stable/>`__.
+MRIQC is a BIDS App that leverages BIDS compliant datasets in order to perform quality assessments (QA) on T1w, T2w, and/or functional MRI acquisitions. These assessments come in the form of handy HTML reports that can be used to examine the quality of the collected data, and determine whether the data quality is sufficient for subsequent pre-processing and analysis. For a more in-depth (and better) overview of MRIQC, check out their homepage `here <https://mriqc.readthedocs.io/en/stable/>`__.
 
 MRIQC Tutorial
 **************
@@ -136,7 +136,7 @@ To access the reports, go to the output directory by typing the following into t
 
   cd $HOME/BIDS_tutorial/derivatives/mriqc/sub-01
   
-MRIQC performs two analysis stages: participant and group. In a nutshell, the participant level analysis stage computes the various diagnoistics and visualizations per subject, and the group level merges the diagnostics across all subjects, sessions, and runs. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acqusition has an associated HTML report; you will need to use a browser to view them. If you are on an HPC, you may already have a browser installed. For example, mine contains Firefox, so in order to open the T1w HTML report via the terminal I would type this:
+MRIQC performs two analysis stages: participant and group. In a nutshell, the participant level analysis stage computes the various diagnoistics and visualizations per subject, and the group level merges the diagnostics across all subjects, sessions, and runs. The group level reports can be easily identified by the "group" label in the file names. The participant reports are the other HTML files -- each T1w, T2w, and functional acquisition has an associated HTML report; you will need to use a browser to view them. If you are on an HPC, you may already have a browser installed. For example, mine contains Firefox, so in order to open the T1w HTML report via the terminal I would type this:
 
 ::
 
@@ -153,14 +153,14 @@ Regardless of which HTML report you open, you will quickly notice that there is 
 
 For the plots in the functional reports, I'd highly recommend examining the *fMRI summary plot* to assess the motion across the functional acquisition period. 
 
-The group HTML reports will take the values from the *Extracted Image Quality Metrics (IQMs)* in the participant HTML files and plot them together. This provides a wonderful visualization of your data, based on various diagnostics. Since we only have one participant, the group reports aren't particularily meaningful, but with a dataset set containing many subjects you can visually inspect for outliers. In addition to the HTML reports, there are also corresponding .tsv files that contain the diagnostics, which are tremendously useful for excluding data (e.g. specific subject runs) based on a-priori criteria. 
+The group HTML reports will take the values from the *Extracted Image Quality Metrics (IQMs)* in the participant HTML files and plot them together. This provides a wonderful visualization of your data, based on various diagnostics. Since we only have one participant, the group reports aren't particularly meaningful, but with a dataset set containing many subjects you can visually inspect for outliers. In addition to the HTML reports, there are also corresponding .tsv files that contain the diagnostics, which are tremendously useful for excluding data (e.g. specific subject runs) based on a-priori criteria. 
 
 For additional information on the many diagnostics MRIQC provides, check out their documentation `here <https://mriqc.readthedocs.io/en/stable/measures.html>`__. 
 
 Final Thoughts
 **************
 
-In this tutorial we went over how to set up and run MRIQC on a BIDS dataset containing one subject. The purpose was to become familiar with how to run the software and assess the QA reports. If you found this useful and would like to apply MRIQC to your own data, you may want to include additional features in the script, or make your own. Since this tutorial was an extrememly simplified implentation of MRIQC, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org/>`__ or MRIQC's `github page <https://github.com/poldracklab/mriqc/issues>`__
+In this tutorial we went over how to set up and run MRIQC on a BIDS dataset containing one subject. The purpose was to become familiar with how to run the software and assess the QA reports. If you found this useful and would like to apply MRIQC to your own data, you may want to include additional features in the script, or make your own. Since this tutorial was an extremely simplified implementation of MRIQC, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org/>`__ or MRIQC's `github page <https://github.com/poldracklab/mriqc/issues>`__
 
 Additional MRIQC links
 **********************

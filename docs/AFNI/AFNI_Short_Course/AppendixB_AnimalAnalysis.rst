@@ -147,7 +147,7 @@ Although there are rat templates available (such as the SIGMA template, availabl
 
 This was the approach used by the authors of the study, and they used a suite of normalization tools called Advanced Normalization Tools, or `ANTs <http://stnava.github.io/ANTs/>`__. Instructions for how to download and install the package can be found on the e-book :ref:`here <ANTs_Overview>`. 
 
-Once you have installed the package, let's use the first six rat brains in the dataset. Using the first rat as the template, or fixed image, we can register the others to it by using teh ``antsRegistrationSynQuick.sh`` command:
+Once you have installed the package, let's use the first six rat brains in the dataset. Using the first rat as the template, or fixed image, we can register the others to it by using the ``antsRegistrationSynQuick.sh`` command:
 
 ::
 

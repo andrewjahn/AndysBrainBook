@@ -60,7 +60,7 @@ Although from the beginning motion had been identified as an artifact and potent
 
 .. figure:: 00_AndrewsHanna_Fig1.png
 
-Although these studies either controlled for motion as a covariate or only included subjects with low levels of motion, Van Dijk and colleagues (2011) demonstrated that even miniscule levels of motion could lead to significant differences between groups. Grouping subjects according to how much they moved showed differences even between groups with mean motions of 0.044 and 0.048. Averaged across large groups of subjects, very subtle differences in motion can become the dominant source of variance.
+Although these studies either controlled for motion as a covariate or only included subjects with low levels of motion, Van Dijk and colleagues (2011) demonstrated that even minuscule levels of motion could lead to significant differences between groups. Grouping subjects according to how much they moved showed differences even between groups with mean motions of 0.044 and 0.048. Averaged across large groups of subjects, very subtle differences in motion can become the dominant source of variance.
 
 .. figure:: 00_VanDijk_Figure4.png
 

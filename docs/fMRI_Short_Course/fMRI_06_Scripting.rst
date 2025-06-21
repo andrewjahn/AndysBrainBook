@@ -22,7 +22,7 @@ First we will create a template that contains the code needed to analyze a singl
 
 .. note::
 
-  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chaper if you need to review the Unix terms for scripting.
+  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chapter if you need to review the Unix terms for scripting.
 
 Creating the Template
 *******

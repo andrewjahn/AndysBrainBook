@@ -1,7 +1,7 @@
 .. _SUMA_01_ReconSurface:
 
 ====================================================
-SUMA Tutoral #1: Reconstructing the Cortical Surface
+SUMA Tutorial #1: Reconstructing the Cortical Surface
 ====================================================
 
 -------------

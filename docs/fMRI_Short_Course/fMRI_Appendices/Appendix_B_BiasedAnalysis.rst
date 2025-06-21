@@ -51,7 +51,7 @@ There are two problems with those arguments. First, the magnitude of the effect 
 Demonstration
 =============
 
-Using the same data from the FSL chapter on ROI analysis, create a biased ROI around the peak of the contrast Inc-Con (which is at voxel coordiantes 47, 71, 59):
+Using the same data from the FSL chapter on ROI analysis, create a biased ROI around the peak of the contrast Inc-Con (which is at voxel coordinates 47, 71, 59):
 
 ::
 

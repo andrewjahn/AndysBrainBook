@@ -45,7 +45,7 @@ There are several approaches to ASL perfusion imaging:
 CASL
 ----
 
-CASL, or **continous ASL**, where the inversion of the arterial blood occurs continuously through the application of a continuous RF pulse. During the acquisition of the control image, an RF pulse is supplied above the image slice to account for magnetic distortions caused by the pulse itself, but the pulse itself will not label any blood. This method of inversion is also called flow-driven inversion.
+CASL, or **continuous ASL**, where the inversion of the arterial blood occurs continuously through the application of a continuous RF pulse. During the acquisition of the control image, an RF pulse is supplied above the image slice to account for magnetic distortions caused by the pulse itself, but the pulse itself will not label any blood. This method of inversion is also called flow-driven inversion.
 
 .. figure:: CASL.jpg
 

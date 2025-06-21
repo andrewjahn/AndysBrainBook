@@ -160,7 +160,7 @@ Press the “i” key, and paste the contents below into the file. To save and c
   
 .. warning::
 
-  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stoping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
+  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stopping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
   
   Furthermore, if you are using a supercomputer cluster, you may want to use the /tmp/scratch directory to store the output. Bennet Fauber of the University of Michigan recommends setting the following variables for the directories:
   
@@ -224,7 +224,7 @@ The Methods tab details the pre-processing steps taken in greater detail.
 Final Thoughts
 **************
 
-In this tutorial we went over how to set up and run fMRIPrep on a BIDS dataset containing one subject. The purpose was to become familiar with how to set up and run fMRIPrep and understand the output. If you found this useful and would like to use fMRIPrep on your own data, you will likely want to include additional features in the script or make your own. Since this tutorial was an extremely simplified implentation of fMRIPrep, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org>`__ or fMRIPrep’s `github page <https://github.com/poldracklab/fmriprep>`__.
+In this tutorial we went over how to set up and run fMRIPrep on a BIDS dataset containing one subject. The purpose was to become familiar with how to set up and run fMRIPrep and understand the output. If you found this useful and would like to use fMRIPrep on your own data, you will likely want to include additional features in the script or make your own. Since this tutorial was an extremely simplified implementation of fMRIPrep, you may encounter issues when running it on your own data. Fear not, you can post your questions/issues on `NeuroStars <https://neurostars.org>`__ or fMRIPrep’s `github page <https://github.com/poldracklab/fmriprep>`__.
 
 Additional fMRIPrep Resources
 *****************************

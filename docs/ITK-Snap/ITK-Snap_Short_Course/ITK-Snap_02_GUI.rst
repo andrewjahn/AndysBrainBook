@@ -29,7 +29,7 @@ This will overlay the segmentation on top of the brainmask image, which should n
 
 Before you start editing, you can change the contrast settings of the brain so that it’s easier to see through the segmentation. For example, you can turn by either pressing the ``S`` key, or moving the slider in the lower left corner of the GUI to make the segmentation either more or less transparent. Find a level that you are comfortable with; I prefer somewhere around the 30-40 range for the opacity slider, so that the segmentation is visible as well as the underlying structures of the anatomical image.
 
-Another way to improve visualization of the images is to change the contrast between the tissue types. Above the opacity bar and the segmentation labels, right-click on the brain you are currently editing (in our case, ``brainmask``), and then click ``Contrast Inspector``. This will open a new window with two dots above a historgram of intensity values. Click and drag the dots until the contrast of the underlying brainmask is to your liking:
+Another way to improve visualization of the images is to change the contrast between the tissue types. Above the opacity bar and the segmentation labels, right-click on the brain you are currently editing (in our case, ``brainmask``), and then click ``Contrast Inspector``. This will open a new window with two dots above a histogram of intensity values. Click and drag the dots until the contrast of the underlying brainmask is to your liking:
 
 .. figure:: 02_ContrastInspector.png
 
@@ -60,7 +60,7 @@ Now use your mouse to click on voxels that you believe have been mistakenly cate
 
 .. note::
 
-  To check your edits comapred to the underlying anatomy, change the opacity slider, or toggle the overlay on and off by pressing the ``S`` key. You can also undo a previous edit by pressing ``CMD+Z`` for Macintosh operating systems, or ``CTL+Z`` on Windows.
+  To check your edits compared to the underlying anatomy, change the opacity slider, or toggle the overlay on and off by pressing the ``S`` key. You can also undo a previous edit by pressing ``CMD+Z`` for Macintosh operating systems, or ``CTL+Z`` on Windows.
   
 Continue doing this for all of the slices that you believe have been mistakenly labeled. When you are finished, save the segmentation by clicking on ``Segmentation -> Save aseg.nii.gz as...`` and saving it into the ``mri`` folder as ``aseg_edits.nii.gz``.
 

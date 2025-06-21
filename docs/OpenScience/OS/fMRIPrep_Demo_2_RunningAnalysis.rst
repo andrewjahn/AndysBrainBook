@@ -95,7 +95,7 @@ Let's take a look at what the code does by typing ``cat code/fmriprep_singleSubj
   
 .. warning::
 
-  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stoping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
+  Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stopping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
   
   Furthermore, if you are using a supercomputer cluster, you may want to use the /tmp/scratch directory to store the output. Bennet Fauber of the University of Michigan recommends setting the following variables for the directories:
   

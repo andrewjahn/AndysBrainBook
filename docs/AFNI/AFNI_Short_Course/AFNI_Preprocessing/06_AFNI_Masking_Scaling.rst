@@ -70,7 +70,7 @@ mask which traces the outline of the signal detected by the image:
 
 .. warning::
 
-  From the above image, you can see that there appears to be some parts of the orbitofrontal cortex excluded by the mask. Since the signal is relatively low in these regions to begin with (due to a phenomenon known as the **magnetic susceptibility artifact** which leads to signal droput), the mask assumes that this region does not contain any brain voxels. This can be remedied by using a technique called **field map unwarping**. It is beyond the scope of the current tutorial, but if you are interested, you can read about one such method `here <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#how-can-i-unwarp-my-data>`__.
+  From the above image, you can see that there appears to be some parts of the orbitofrontal cortex excluded by the mask. Since the signal is relatively low in these regions to begin with (due to a phenomenon known as the **magnetic susceptibility artifact** which leads to signal dropout), the mask assumes that this region does not contain any brain voxels. This can be remedied by using a technique called **field map unwarping**. It is beyond the scope of the current tutorial, but if you are interested, you can read about one such method `here <https://andysbrainbook.readthedocs.io/en/latest/FrequentlyAskedQuestions/FrequentlyAskedQuestions.html#how-can-i-unwarp-my-data>`__.
 
 Scaling
 *******

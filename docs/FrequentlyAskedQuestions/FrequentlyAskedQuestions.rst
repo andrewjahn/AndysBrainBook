@@ -164,7 +164,7 @@ Check the fieldmap in an image viewer; it should be brighter in the orbitofronta
 Step 2: Apply fieldmap with FUGUE to unwarp functional images
 &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
-Unwarping the images requires a parameter called "echo spacing", the distance between echoes in echo planar images. If you have acquired two magnitude fieldmap images, echo spacing can be calculated by subracting the echo time of the first magnitude image from the echo time of the second magnitude image.
+Unwarping the images requires a parameter called "echo spacing", the distance between echoes in echo planar images. If you have acquired two magnitude fieldmap images, echo spacing can be calculated by subtracting the echo time of the first magnitude image from the echo time of the second magnitude image.
 
 The ``--dwell`` option of the commend below specifies the dwell time, which is your echo spacing divided by your acceleration factor. For example, if your echo spacing time is 0.00072 seconds, and your acceleration factor is 4, you would calculate 0.00072 / 4 = 0.00018 to create your dwell time value:
 
@@ -264,7 +264,7 @@ When an fMRI images is acquired, several pieces of information are stored in its
   data_type	INT16 #The decimal precision of the data; e.g., INT16 means that it is in Integer format (i.e., no decimals), and can store values between –32768 and 32768.
   dim1		64 # Number of voxels in the x-dimension (i.e., left-to-right)
   dim2		64 # Number of voxels in the y-dimension (i.e., front-to-back)
-  dim3		42 # Number of voxels in the z-dimension (i.e., bottom-to-top; in most acquistions, these are the **slices**)
+  dim3		42 # Number of voxels in the z-dimension (i.e., bottom-to-top; in most acquisitions, these are the **slices**)
   dim4		180 # Number of time-points; in other words, the number of volumes that have been concatenated together into a time-series
   datatype	4
   pixdim1		3.000000 # Size of each voxel in the x-dimension, in millimeters
