@@ -50,7 +50,7 @@ The timing files for each run will be condensed into a single timing file for ea
 
 .. note::
 
-  We will discuss parameteric modulation in a future module. For now, all you need to know is that it is a required column, and unless you have parametrically modulated trials (which we do not have in this dataset), set it to a value of "1" for each trial.
+  We will discuss parametric modulation in a future module. For now, all you need to know is that it is a required column, and unless you have parametrically modulated trials (which we do not have in this dataset), set it to a value of "1" for each trial.
   
 .. figure:: 05_05_TimingFiles_Example.png
   

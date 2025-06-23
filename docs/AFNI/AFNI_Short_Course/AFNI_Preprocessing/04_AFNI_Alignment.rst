@@ -89,4 +89,4 @@ These blocks of code may be difficult to understand at first, but always keep in
 Exercises
 =========
 
-1. In the ``3dvolreg`` command, change the ``-base`` to 0, and observe how the output is different from using the ``vr_base_min_outlier`` as the reference volume. Try this again, using ``3dTstat`` to create mean funcitonal image for that run, and use that mean functional image as the base; this is similar to what is done in the package SPM12. Which method would you prefer, and why? 
+1. In the ``3dvolreg`` command, change the ``-base`` to 0, and observe how the output is different from using the ``vr_base_min_outlier`` as the reference volume. Try this again, using ``3dTstat`` to create mean functional image for that run, and use that mean functional image as the base; this is similar to what is done in the package SPM12. Which method would you prefer, and why? 

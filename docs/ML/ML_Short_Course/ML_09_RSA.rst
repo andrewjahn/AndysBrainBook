@@ -61,7 +61,7 @@ For now, leave the rest of the defaults as they are, noting on line 45 that the 
 Running the Script and Viewing the Output
 *****************************************
 
-You can now run the script by typing ``RSA_SampleScript``. After a few seconds, you should see a new variable in your workspace called ``results``. Within this structure is a field called ``other``, which in turn has a sub-field called ``output``. You can display all of the data in this matrix - in other words, all of the correlation values calculated for each condition - by typing ``reuslts.other.output{1}``.
+You can now run the script by typing ``RSA_SampleScript``. After a few seconds, you should see a new variable in your workspace called ``results``. Within this structure is a field called ``other``, which in turn has a sub-field called ``output``. You can display all of the data in this matrix - in other words, all of the correlation values calculated for each condition - by typing ``results.other.output{1}``.
 
 However, the output is quite large, and it is probably easier to view and understand the output if we plot it as a correlation matrix. To do that, type:
 

@@ -49,7 +49,7 @@ Select ``ctx_lh_G_and_S_cingul_-Mid_Ant``, and then click on the button ``Load: 
 
   The default in AFNI is for the results dataset to have a different resolution than both the normalized anatomical image and the template used for normalization. The AFNI template we used was the MNI_avg152T1+tlrc file, which has a resolution of 2x2x2mm; our statistics dataset, on the other hand, has a resolution of 3x3x3mm. In order to use a mask for an ROI analysis, it needs to be the same resolution as the dataset you are extracting from.
 
-We can match the resolutions of our mask dataset and our statistics dataset by using AFNI's ``3dresample`` command. This command requires both a "master" dataset, which we will be resampling to, and an "input" dataset, which will have its dimensions and resolution changed to match the master datset:
+We can match the resolutions of our mask dataset and our statistics dataset by using AFNI's ``3dresample`` command. This command requires both a "master" dataset, which we will be resampling to, and an "input" dataset, which will have its dimensions and resolution changed to match the master dataset:
 
 ::
 

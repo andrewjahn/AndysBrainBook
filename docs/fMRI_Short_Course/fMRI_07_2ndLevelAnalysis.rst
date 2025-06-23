@@ -41,7 +41,7 @@ In the Data tab, you will see that there are now 3 lower-level copes that you ca
 
 1. The contrast estimate for the Incongruent condition;
 2. The contrast estimate for the Congruent condition;
-3. The contrast estimate for Incongruent minus Congruent (i.e., taking the difference of the paramter estimates)
+3. The contrast estimate for Incongruent minus Congruent (i.e., taking the difference of the parameter estimates)
 
 In the ``Output directory`` field, type ``Flanker_2ndLevel``. This is where the results of the 2nd level analysis will be saved.
 

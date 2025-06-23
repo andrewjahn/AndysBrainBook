@@ -76,7 +76,7 @@ Label each component as either ``Unknown Noise`` or ``Signal``. If you are unsur
   -Has a more jagged, discontinuous time-course
   -Has component loadings within the white matter, CSF, or regions such as the eyeballs or Circle of Willis. Loadings that ring the edge of the brain are also indicative of motion artifacts.
 
-Once you have labeled all of the components, save them into a file called "hand_labels_noise.txt", placing this file within the ``.ica`` directory that conatins the filtered_func_data.ica folder (*not* the filtered_func_data.ica folder itself).
+Once you have labeled all of the components, save them into a file called "hand_labels_noise.txt", placing this file within the ``.ica`` directory that contains the filtered_func_data.ica folder (*not* the filtered_func_data.ica folder itself).
 
 
 Training FIX on Your Data

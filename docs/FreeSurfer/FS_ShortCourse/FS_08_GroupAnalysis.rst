@@ -97,7 +97,7 @@ Now that all of the subjects are concatenated into a single dataset, we can fit 
 5. A mask to restrict our analysis only to the cortex (``--cortex``);
 6. An output label for the directory containing the results (``--glmdir``).
 
-As above, we will use nested for loops to analyze the hemispheres, smoothing kernels, and structural measurements of our choosing. In this example we will analyze both the left and right hemispheres at a smoothing kernel of 10mm, and we will analyze the strucutral maps of volume and thickness:
+As above, we will use nested for loops to analyze the hemispheres, smoothing kernels, and structural measurements of our choosing. In this example we will analyze both the left and right hemispheres at a smoothing kernel of 10mm, and we will analyze the structural maps of volume and thickness:
 
 ::
 

@@ -67,7 +67,7 @@ To keep our files organized, copy the participants.tsv file into the FSGD direct
 
 ::
 
-  cp ../particpants.tsv FSGD/CannabisStudy.tsv.
+  cp ../participants.tsv FSGD/CannabisStudy.tsv.
 
 
 Now, open the file ``CannabisStudy.tsv`` in Excel. We will reformat it into an FSGD file, which is organized in such a way that can be understood by the group analysis commands we will run later. In the first column, type the following four lines:

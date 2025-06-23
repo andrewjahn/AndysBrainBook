@@ -27,7 +27,7 @@ First we will create a template that contains the code needed to analyze a singl
 
 .. note::
 
-  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chaper if you need to review the Unix terms for scripting.
+  The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chapter if you need to review the Unix terms for scripting.
 
 Creating the Template
 *********************
@@ -112,7 +112,7 @@ Copy and paste this command into your terminal and press enter. While it is runn
 
   # Extracts the b0 images for diffusion data acquired in the PA direction
   # The term "fieldmap" is taken from the output from Michigan's fMRI Lab; it is not an actual fieldmap, but rather a collection of b0 images with both PA and AP phase encoding
-  # For the PA_BVEC and PA_BVAL files, they should be in the follwing format (assuming you extract only one volume):
+  # For the PA_BVEC and PA_BVAL files, they should be in the following format (assuming you extract only one volume):
   # PA_BVEC: 0 0 0
   # PA_BVAL: 0
   mrconvert $FIELDMAP PA.mif # If the PA map contains only 1 image, you will need to add the option "-coord 3 0"
@@ -152,7 +152,7 @@ Copy and paste this command into your terminal and press enter. While it is runn
   #            Create a GM/WM boundary for seed analysis               #
   ######################################################################
 
-  # Convert the anatomical image to .mif format, and then extract all five tissue catagories (1=GM; 2=Subcortical GM; 3=WM; 4=CSF; 5=Pathological tissue)
+  # Convert the anatomical image to .mif format, and then extract all five tissue categories (1=GM; 2=Subcortical GM; 3=WM; 4=CSF; 5=Pathological tissue)
   mrconvert $ANAT anat.mif
   5ttgen fsl anat.mif 5tt_nocoreg.mif
 

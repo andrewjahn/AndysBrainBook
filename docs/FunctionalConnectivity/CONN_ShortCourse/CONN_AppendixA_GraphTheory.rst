@@ -37,7 +37,7 @@ We can compress the train map into a more compact figure using the numbers as in
 
 .. figure:: AppendixA_GraphTheoryDemo.png
 
-In this figure, we represent each city as a **node** (also called a **vertex**). Each node has connections to different nodes; in graph theory, these connections are called **edges**. On the right side of the figure, we can present the same network in a different way, as an **adjaceny matrix**. Connections between nodes are marked with a 1, whereas nodes that are not connected are marked with a 0. For example, Kalamazoo (3) is directly connected to Battle Creek (0), but not with wither Detroit (1) or Port Huron (2). The fact that Battle Creek has so many direct connections within this network makes it a **hub**, or node with more edges than average. We will return to this concept later.
+In this figure, we represent each city as a **node** (also called a **vertex**). Each node has connections to different nodes; in graph theory, these connections are called **edges**. On the right side of the figure, we can present the same network in a different way, as an **adjaceny matrix**. Connections between nodes are marked with a 1, whereas nodes that are not connected are marked with a 0. For example, Kalamazoo (3) is directly connected to Battle Creek (0), but not with either Detroit (1) or Port Huron (2). The fact that Battle Creek has so many direct connections within this network makes it a **hub**, or node with more edges than average. We will return to this concept later.
 
 .. note::
 
@@ -126,19 +126,19 @@ To illustrate this, let's represent as a network friendship among individuals. I
 
 Tom, on the other hand, is friends with two people: Jenny and Dan. Consequently, there is only one possible friendship among his neighbors, and they do indeed happen to be friends. Tom's clustering coefficient is therefore 1/1, or 1.
 
-Lastly, let's focus on Dan. He is friends with four other people: Jenny, Tom, Kevin, and Nancy. There are six possible friendships among his friends, but only one pair are friends (Tom and Jenny). His clustering cofficient is 1/6, or 0.1667.
+Lastly, let's focus on Dan. He is friends with four other people: Jenny, Tom, Kevin, and Nancy. There are six possible friendships among his friends, but only one pair are friends (Tom and Jenny). His clustering coefficient is 1/6, or 0.1667.
 
 We can apply this to our current dataset by going to the 2nd-level tab for our group-level analysis, and highlighting ``AllSubjects`` under ``Subject Effects``. Select ``SBC_01 (ROI-to_ROI)`` from the drop-down menu (click on ``SBC_01 (Seed-to-Voxel)`` to show the options), and then click on ``graph-theory results`` in the right window pane. You should see something like this:
 
 .. figure:: AppendixA_NetworkTheory_Results.png
 
-The defaults will be to use all of the ROIs you selected in the 1st-level tab, and to use a cost threshold of 0.15 to intially threshold the edges between the nodes. The second row of options specify the graph theory metric, and will compute the significance relative to a randomly generated graph with an equal number of nodes.
+The defaults will be to use all of the ROIs you selected in the 1st-level tab, and to use a cost threshold of 0.15 to initially threshold the edges between the nodes. The second row of options specify the graph theory metric, and will compute the significance relative to a randomly generated graph with an equal number of nodes.
 
 Let's make our graph slightly different by changing the initial threshold from cost to correlation coefficient, and change the analysis measure from Global Efficiency to Clustering Coefficient:
 
 .. figure:: AppendixA_NetworkTheory_ClusteringCoefficient.png
 
-If we look at individual ROIs, each node's clustering coefficient is located under the ``beta`` column in the results window. For example, if we highlight the ROI ``DefaultMode.LP r``, the clustering coefficient is 0.94, meaning that 94% of this node's neighbors have connections with each other. The beta next to the ``network`` ROI is the average clustering coefficient for all of the ROIs; you can see this yourself by adding up all fo the betas for the individual ROIs, and then dividing them by 11.
+If we look at individual ROIs, each node's clustering coefficient is located under the ``beta`` column in the results window. For example, if we highlight the ROI ``DefaultMode.LP r``, the clustering coefficient is 0.94, meaning that 94% of this node's neighbors have connections with each other. The beta next to the ``network`` ROI is the average clustering coefficient for all of the ROIs; you can see this yourself by adding up all of the betas for the individual ROIs, and then dividing them by 11.
 
 
 Global Efficiency
