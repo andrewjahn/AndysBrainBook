@@ -1,7 +1,7 @@
 .. _fMRI_06_Scripting:
 
 fMRI Tutorial #6: Scripting
-===============
+===========================
   
 -----------
 
@@ -25,7 +25,7 @@ First we will create a template that contains the code needed to analyze a singl
   The following tutorial complements the Unix tutorial on :ref:`automating the analysis <Unix_09_AutomatingTheAnalysis>`. I recommend reading through that chapter if you need to review the Unix terms for scripting.
 
 Creating the Template
-*******
+*********************
 
 When you analyzed the first run of ``sub-08``, a directory called ``run1.feat`` was created. Within that directory, there are several files and sub-directories. One of these files, ``design.fsf``, contains all of the code transcribed from the FEAT GUI into a text file. This is the code that FSL runs to do each preprocessing and modeling step. If you open up the design.fsf file in a text editor and the FEAT GUI that you used to create the design.fsf file and you compare them side-by-side, you can see where the data entered into the FEAT GUI is written into the design.fsf file.
 
@@ -39,9 +39,9 @@ In the previous tutorials we ran FEAT separately for preprocessing and for model
 
 First, remove the current run1.feat directory by typing ``rm -r run1.feat``. Then open up the FEAT GUI by typing ``Feat_gui`` from the command line. Instead of doing this as two separate sessions, we will run it as a single analysis by leaving the "Full Analysis" option selected from the dropdown menu. Using the previous tutorials as a guide, fill in all of the required fields for both preprocessing and model fitting.
 
-Once you have filled in all of the fields, instead of clicking the ``Go`` button, click ``Save`` and label the file ``design_run1``. This will save out several files with extensions such as "con", "mat", and "png", but it is the file design_run1.fsf that we will be using for our script.
+Once you have filled in all of the fields, instead of clicking the ``Go`` button, click ``Save`` and label the file ``design_run1``. This will save out several files with extensions such as "con", "mat", and "png", as well as a file called ``design_run1.fsf``; it is this file that we will be using for our script.
 
-Now do the same procedure for run 2, loading the appropriate functional data and timing files. Save the file as design_run2.fsf.
+Now do the same procedure for run 2, loading the appropriate functional data and timing files. Save the file as design_run2.fsf. This procedure can be complicated, so if you need to see how to do it in real time, you can watch a screencast video by clicking on the link at the end of this page.
 
 .. note::
 
@@ -50,7 +50,7 @@ Now do the same procedure for run 2, loading the appropriate functional data and
 Open design_run1.fsf in a code editor such as `TextWrangler <https://www.barebones.com/products/textwrangler/>`__ and take a look at all of the options that have been filled in. (Note: If you do use TextWrangler, in order to open the .fsf file you need to click on the "Options" button and select "Show hidden items.") Our goal is to make this a template that can be run for any subject, with slight alterations that will be changed in a for-loop. In this case, the only thing we need to change is the subject name - the rest of the options will be the same for each subject.
 
 Running the Script
-**********
+******************
 
 Move the design_run1.fsf and design_run2.fsf files to the directory containing your subjects (i.e., ``mv design*.fsf ..``, and then ``cd ..``). Then download the script `run_1stLevel_Analysis.sh <https://github.com/andrewjahn/FSL_Scripts/blob/master/run_1stLevel_Analysis.sh>`__ and move it to the Flanker directory. The script is reprinted here:
 
@@ -114,6 +114,6 @@ You can run the script by simply typing ``bash run_1stLevel_Analysis.sh`` from t
 ---------
 
 Video
-*********
+*****
 
 Click `here <https://www.youtube.com/watch?v=oXSHbRlogaA>`__ for a video showing you how to download and run the above script. It is the same video that summarizes the :ref:`final Unix chapter <Unix_09_AutomatingTheAnalysis>`, to show the convergence between the two courses.
