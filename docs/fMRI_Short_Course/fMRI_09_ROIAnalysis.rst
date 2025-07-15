@@ -119,6 +119,22 @@ This will binarize the sphere, so that it can be read by the FSL commands.
 
   In the steps that were just listed, notice how the output from each command is used as input to the next command. You will change this for your own ROI, if you decide to create one.
 
+  Also note that if your mask and the functional data have different dimensions, you will need to resample the mask to match the data. For example, you can follow these steps:
+
+::
+
+  Step 1: Check image dimensions:
+  fslhd allZstats.nii.gz
+  fslhd PCG.nii.gz
+  Step 2: Align the mask to the input image:
+  flirt -in PCG.nii.gz \
+  -ref allZstats.nii.gz \
+  -out PCG_resampled.nii.gz \
+  -applyxfm -usesqform
+  Finally we can run fslmeants -i allZstats.nii.gz -m PCG_resampled.nii.gz
+
+  Thanks to Omar Horan for the code and suggestions.
+
 5. Lastly, we will extract data from this ROI by typing:
 
 ::
@@ -127,6 +143,7 @@ This will binarize the sphere, so that it can be read by the FSL commands.
   
 
 The numbers you get from this analysis should look much different from the ones you created using the anatomical mask. Copy and paste these commands into the statistical software package of your choice, and run a one-sample t-test on them. Are they significant? How would you describe them if you had to write up these results in a manuscript?
+
 
 
 -------
