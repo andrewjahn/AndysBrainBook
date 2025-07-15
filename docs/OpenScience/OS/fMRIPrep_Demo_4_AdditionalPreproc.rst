@@ -29,7 +29,7 @@ In the AFNI tutorial, we used a smoothing kernel of 4mm on the functional data, 
 
 .. note::
 
-  Smoothing in FSL can be done with the command ``fslmaths``; for example, fslmaths <input image> -s <smoothing sigma> <output image>. Note that the input for ``-s`` is sigma, not the full-width half-maximum; for a 5mm FWHM, for example, you would use a sigma of 2.12. An excellent tutorial about how to do this can be found `here <https://kathleenhupfeld.com/how-to-smooth-images-in-fsl-its-different-from-spm/>`__.
+  Smoothing in FSL can be done with the command ``fslmaths``; for example, fslmaths <input image> -s <smoothing sigma> <output image>. Note that the input for ``-s`` is sigma, not the full-width half-maximum; for a 5mm FWHM, for example, you would use a sigma of 2.12.
 
   Also in FSL, since registration was not run through FEAT and therefore there is not ``reg`` directory, you will need to create a dummy registration directory to trick FSL into thinking that registration has been performed. (For some reason, higher-level analyses will not run unless there is a ``reg`` directory in each subject's main directory.) To do this, run the following steps, which is taken from `this message board thread <https://www.jiscmail.ac.uk/cgi-bin/webadmin?A2=fsl;a779b3b8.1408>`__:
 
