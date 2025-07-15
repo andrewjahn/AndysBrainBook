@@ -35,6 +35,24 @@ Which will install all of the programs used by fMRIPrep - for example, tools fro
   
   python3 -m pip install --user --upgrade fmriprep-docker
 
+  You can also create a virtual environment to run fmriprep:
+
+::
+
+  python3 -m venv ~/fmriprep-env
+  source ~/fmriprep-env/bin/activate
+  pip install fmriprep-docker
+
+  to set the path automatically whenever you open a new terminal, ensure your virtual-env’s bin/ directory is on your PATH. For example:
+
+::
+
+  # Add your venv’s bin directory to your PATH in ~/.zshrc
+  echo 'export PATH="$HOME/fmriprep-env/bin:$PATH"' >> ~/.zshrc
+  source ~/.zshrc
+
+  I am indebted to Omar Horan for the this code.
+
 Contents of the fMRIPrep Script
 *******************************
 
