@@ -30,7 +30,7 @@ Instead, we will use `wildcards <https://andysbrainbook.readthedocs.io/en/latest
   
 This will print an absolute path to each FEAT directory. The ``-d`` option means to only list directories, and ``$PWD`` expands to an absolute path pointing to the current working directory. Within the current directory, any directory starting with ``sub-`` and ending with two digits (represented by the ``?`` wildcards) is added to the path. Finally, within each subject directory, any directory beginning with the string ``run`` will be appended to the path name (e.g., run1.feat and run2.feat).
 
-This will create a list with 52 entries, one corresponding to each run for each subject in the study. Highlight the entire list and copy it by pressing ``command+c``. This will copy the list to your clipboard. Then go back to the ``Select input data`` window, and click on the ``Paste`` button. Click in the ``Input data`` window, and then press ``ctrl+y`` and click ``OK``. This will paste the list of directories into the corresponding rows in the ``Select input data`` window.
+This will create a list with 52 entries, one corresponding to each run for each subject in the study. Highlight the entire list and copy it by pressing ``command+c``. This will copy the list to your clipboard. Then go back to the ``Select input data`` window, and click on the ``Paste`` button. Click in the ``Input data`` window, and then press ``ctrl+y`` and click ``OK``. (For some users, and for some recent versions of FSL, you can paste with ``cmd+v``.) This will paste the list of directories into the corresponding rows in the ``Select input data`` window.
 
 .. figure:: 2ndLevelAnalysis_SelectingFEATDirectories.png
 
