@@ -15,8 +15,8 @@ We are looking for graduate students, postdocs, and other members of the Open Sc
    :maxdepth: 1
    :caption: Open Science Topics
 
+   OS/fMRIPrep_Demo
    OS/BIDS_Overview
    OS/MRIQC
    OS/fMRIPrep
-   OS/fMRIPrep_Demo
    OS/Github_Overview
