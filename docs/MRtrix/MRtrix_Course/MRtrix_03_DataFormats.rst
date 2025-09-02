@@ -97,6 +97,15 @@ Now hover your mouse over the viewing window of mrview, and press the right arro
 
 .. figure:: 03_mrview_IntensityScaling.png
 
+.. note::
+
+  If you find that your reconstructed streamlines do not look correct (to be discussed in a later chapter), you can check the gradients by typing: 
+
+:: 
+
+  dwigradcheck dwi.mif -export_grad_mrtrix corrected_gradient.txt
+
+From Jordan Palms, Univerity of Michigan: "The output shows the mean length of streamlines based on different transformations of the bvec file. It will save the corrected bvecs into a separate file that can be used in place of the original bvec/bval files needed early on in the MRtrix preprocessing steps." I am indebted to Jordan for bringing this to my attention.
 
 Video
 *****
