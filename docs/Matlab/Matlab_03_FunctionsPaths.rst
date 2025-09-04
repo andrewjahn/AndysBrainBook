@@ -79,7 +79,13 @@ Imagine that we wanted to create a function that squares the values of two input
 
 Note that we have changed the name of the function in the declaration, and, importantly, we have also saved the function with the same name of ``squareXandY``. The inputs are called ``x`` and ``y``, and the outputs are ``xSquared`` and ``ySquared``. In the comments section of the function, we have given a brief summary in the first comment line, and a more detailed guide in the comment lines after that. The body of the function contains two lines of code, ``xSquared = x^2`` and ``ySquared = y^2``, which are the operations performed on the input; and finally, the function is closed with the ``end`` keyword.
 
-Make sure your function also looks like this, and then either click the green ``Go`` button, or type the name of the function in the terminal, ``squareXandY``, and press enter. You should see two new variables in the Workspace window labeled xSquared and ySquared, with values of 4 and 16, respectively.
+Make sure your function also looks like this, and then type the function name in the terminal with the required input and output variables, e.g.:
+
+::
+
+  [xSquared, ySquared] = squareXandY(x,y)
+
+And press enter. You should see two new variables in the Workspace window labeled xSquared and ySquared, with values of 4 and 16, respectively.
 
 Using the ttest Function
 &&&&&&&&&&&&&&&&&&&&&&&&
