@@ -115,13 +115,20 @@ Let's take a look at what the code does by typing ``cat code/fmriprep_singleSubj
 
   Thomas Ernst has made the following comment that is particularly important for Ubuntu users: "[In this script,] the temporary eval dir is set to be the $HOME dir. That is bad for two reasons: Firstly, at least on Ubunbtu, fmriprep will not clean up the temp dir, easily leading to a overfull home dir/main disk and stopping eval after a few subjects. Secondly, if you select the --clean-workdir option this will delete the entire content of the $HOME dir before crashing."
   
-  Furthermore, if you are using a supercomputer cluster, you may want to use the /tmp/scratch directory to store the output. Bennet Fauber of the University of Michigan recommends setting the following variables for the directories:
-  
-  BIDS_DIR=/tmp/workflow_${SUB}/BIDS
-  OUTPUT_DIR=/tmp/workflow_${SUB}/derivatives
-  WORK_DIR=/tmp/workflow_${SUB}/work
+  Furthermore, if you are using a supercomputer cluster, you may want to use the 'scratch' directory to store the output. Bennet Fauber, formerly of the University of Michigan, recommends setting the following variables for the directories:
 
-  Bennet: "It's almost certainly not a good idea to make WORK_DIR the home on a cluster, as home is likely to have a small quota, be NFS, and be slow. There's almost always some kind of /scratch for that, or, as we do, /tmp.  If using /tmp, it's a good idea to have code to remove work directories after the job finishes, unless debugging.
+  .. code-block:: bash
+
+     # Using /scratch as an example.  Check with your cluster admins for the
+     # proper location of the network scratch directory
+     SCRATCH=/scratch
+     BIDS_DIR=$SCRATCH/workflow_${SUB}/BIDS
+     OUTPUT_DIR=/$SCRATCH/workflow_${SUB}/derivatives
+     WORK_DIR=/$SCRATCH/workflow_${SUB}/work
+
+  Bennet: "It's almost certainly not a good idea to make WORK_DIR the home directory on a cluster, as home is likely to have a small quota, be NFS, and be slow. There's almost always some kind of network temporary space for that, e.g., `/scratch`.  Check with cluster administrators about using `/tmp`, which might be small and not recommended.  Using `/tmp` was fine when nodes might have 32 CPUs, but now that they regularly come with over 100, local disks are often not large enough.
+
+  It's always a good idea to have code to remove work directories after the job finishes, unless debugging.
 
 The first block of code, "User Inputs", sets the path to where the data is, as well as which subject to analyze. ``nthreads`` specifies the number of processors to use, and ``mem`` specifies the amount of memory to use, in gigabytes. The variable ``container`` can be set to either ``docker`` or ``singularity``; the latter, which refers to a container typically used on supercomputing clusters, will be covered in a later tutorial. For now, we will set it to ``docker``. The second block of code reformats the ``mem`` variable to remove the suffix ``gb``, so that it can be read by fMRIPrep.
 
