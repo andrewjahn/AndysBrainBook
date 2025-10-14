@@ -56,7 +56,7 @@ Which will install all of the programs used by fMRIPrep - for example, tools fro
 Contents of the fMRIPrep Script
 *******************************
 
-To run fMRIPrep, download the code from `this github page <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/fmriprep.sh>`__. Then, navigate to your ``Flanker`` directory and create a new sub-directory by typing ``mkdir code``. We will place the script in this folder to keep our files organized:
+To run fMRIPrep, download the code from `this github page <https://github.com/andrewjahn/OpenScience_Scripts/blob/master/fmriprep_Scripted.sh>`__. Then, navigate to your ``Flanker`` directory and create a new sub-directory by typing ``mkdir code``. We will place the script in this folder to keep our files organized:
 
 ::
 
