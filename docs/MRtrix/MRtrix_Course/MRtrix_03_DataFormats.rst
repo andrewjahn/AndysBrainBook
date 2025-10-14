@@ -7,7 +7,7 @@ MRtrix Tutorial #3: Looking at the Data
 ---------------
 
 Overview
-****************
+********
 
 MRtrix uses its own format for storing and displaying imaging data. If you've already gone through the tutorials on the major fMRI software packages, such as SPM, FSL, and AFNI, you may remember that all of them can read and write images in NIFTI format. (AFNI by default will write files in its own BRIK/HEAD format unless you specify that your output should have a .nii extension, but it is the sole exception.) MRtrix is also able to read raw data in NIFTI format, but will output its files in MRtrix format, labeled with a ``.mif`` extension.
 
@@ -105,7 +105,7 @@ Now hover your mouse over the viewing window of mrview, and press the right arro
 
   dwigradcheck dwi.mif -export_grad_mrtrix corrected_gradient.txt
 
-From Jordan Palms, Univerity of Michigan: "The output shows the mean length of streamlines based on different transformations of the bvec file. It will save the corrected bvecs into a separate file that can be used in place of the original bvec/bval files needed early on in the MRtrix preprocessing steps." I am indebted to Jordan for bringing this to my attention.
+From Jordan Palms, University of Michigan: "The output shows the mean length of streamlines based on different transformations of the bvec file. It will save the corrected bvecs into a separate file that can be used in place of the original bvec/bval files needed early on in the MRtrix preprocessing steps." I am indebted to Jordan for bringing this to my attention.
 
 Video
 *****
