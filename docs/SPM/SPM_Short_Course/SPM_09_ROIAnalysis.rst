@@ -34,6 +34,10 @@ You may think that the default voxels of that region are painted on too thin a s
 	You can add as many regions as you want to your ROI. For example, if you wanted to cover the entire anterior cingulate region, you could select both brodmann areas 32 and 24. Both sets of voxels would be highlighted in red, and both would belong to the same mask when you save it.
 
 When you are satisfied with the mask you have generated, click the ``SAVE MASK`` button near the bottom of the screen. Label the mask "BA_32", and save it to the Flanker directory that contains all of your subjects. (If you wanted to better organize your data, you could create another directory called "Masks", and save the mask into that folder.)
+
+.. note::
+
+	If you are unable to get WFU Pickatlas to work, you can use one of the built-in atlases that comes with SPM. For example, once you select your contrast, choose "apply masking -> atlas", which will show a few options. Select "labels_Neuromorphometrics.nii", and you can select whichever regions you want.
   
 
 Extracting Data from the Anatomical Mask
