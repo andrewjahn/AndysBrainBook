@@ -27,7 +27,7 @@ To warp the images to a template, we will use an **affine transformation**. This
 .. note:: As with rigid-body transformations, zooms and shears each have three degrees of freedom: You can zoom or shear an image along the x-, y-, or z-axis. In total, then, affine transformations have twelve degrees of freedom. These are also called linear transformations because a transformation applied in one direction along an axis is accompanied by a transformation of equal magnitude in the opposite direction. A translation of one millimeter *to* the left, for example, implies that the image has been moved one millimeter *from* the right. Likewise, if an image is enlarged by one millimeter along the z-axis, it is enlarged by one millimeter in both directions along that axis. Transformations without these constraints are called **nonlinear transformations**. For example, a nonlinear transformation can enlarge the image in one direction while shrinking it in the other direction, as when squeezing a sponge. These types of transformations will be discussed later.
 
 Registration and Normalization
-***************
+******************************
 
 Recall that we have both anatomical and functional images in our dataset. Our goal is to warp the functional images to the template so that we can do a group-level analysis across all of our subjects. Although it may seem reasonable to simply warp the functional images directly to the template, in practice that doesn't work very well - the images are low-resolution, and therefore less likely to match up with the anatomical details of the template. The anatomical image is a better candidate.
 
@@ -59,7 +59,7 @@ When it finishes, another window will be generated showing the coregistration re
 
 .. note::
 
-  Open the resliced anatomical image by itself using the Display Image button (i.e.,load the image ``rsub-08_T1w.nii``). What do you notice about the image as compared to the original anatomical image? (Hint: Compare the numbers in the "Dimension" and "Vox size" fields.)
+  (6.23.2026) Jules Erkens brought to my attention that the anatomical image shouldn't be resliced; it can still be coregistered while keeping its original dimensions by using the ``Coregister (Estimate)`` command instead of both "Estimate and Reslice". Then the coregistered anatomical image can be used for segmentation.
 
 .. figure:: 03_Coregistration_Check.png
 
