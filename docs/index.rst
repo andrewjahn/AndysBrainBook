@@ -94,10 +94,22 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     
     PM/PM_Overview
 
+.. toctree::
+   :maxdepth: 1
+   :caption: Finite Impulse Response (FIR) Models
+   
+   FIR/FIR_Overview
+
 .. note::
 
     The following modules are under construction. Check back soon for more updates!
-    
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Scanner Harmonization
+   
+   ScannerHarmonization/ScanHarm_Overview
+
 .. toctree::
    :maxdepth: 1
    :caption: Image Visualization with MRIcroGL
@@ -109,12 +121,6 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    :caption: Introduction to the Human Connectome Project (HCP)
    
    HCP/HCP_Overview
-    
-.. toctree::
-   :maxdepth: 1
-   :caption: Finite Impulse Response (FIR) Models
-   
-   FIR/FIR_Overview
 
 .. toctree::
    :maxdepth: 1
