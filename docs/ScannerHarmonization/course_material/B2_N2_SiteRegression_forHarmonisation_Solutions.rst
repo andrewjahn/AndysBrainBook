@@ -23,8 +23,10 @@ Regression-Based Harmonisation Workflow
 In this section, we will use a simple regression-based approach to
 reduce site-related variability in the simulated data.
 
-The goal is to demonstrate: - what regression-based harmonisation can
-correct, - and why more advanced methods such as ComBat-like approaches
+The goal is to demonstrate: 
+- what regression-based harmonisation can
+correct, 
+- and why more advanced methods such as ComBat-like approaches
 may still be needed.
 
 --------------
@@ -62,8 +64,10 @@ multiplicative effects → differences in spread/variance.
 3. Apply regression-based harmonisation
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-We fit regression models that include: - biological covariates, -
-timepoint information, - and site/scanner terms.
+We fit regression models that include: 
+- biological covariates, 
+- timepoint information, 
+- site/scanner terms.
 
 The estimated site effects are then removed from the data.
 
@@ -83,8 +87,11 @@ variability, - and any remaining variance differences.
 5. Evaluate remaining batch effects
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Finally, we re-run: - additive effect tests, - multiplicative effect
-tests, - and reliability metrics.
+Finally, we re-run: 
+- additive effect tests, 
+- multiplicative effect
+tests, 
+-  reliability metrics.
 
 This allows us to evaluate how much scanner/site variability remains
 after harmonisation.
@@ -101,8 +108,9 @@ However, if scanners also differ in variability or scale, regression
 alone may not be sufficient.
 
 This motivates the use of ComBat-like harmonisation methods, which aim
-to model and remove both: - additive effects, - and multiplicative
-effects.
+to model and remove both: 
+- additive effects, 
+- multiplicative effects.
 
 .. code:: ipython3
 
