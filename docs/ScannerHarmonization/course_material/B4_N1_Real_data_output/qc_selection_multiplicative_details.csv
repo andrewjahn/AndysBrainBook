@@ -1,0 +1,6 @@
+response,volume,qc,stage,p_preserve_age,p_batch,p_proxy,p_reverse_age,passed,fit_family,fit_method
+T1_SIENAX_WM_norm_vol,T1_SIENAX_WM_norm_vol,QC1,multiplicative,0.2571887630209274,8.6855329522926e-12,0.15268250332168848,,0,mixed,lbfgs
+T1_SIENAX_WM_norm_vol,T1_SIENAX_WM_norm_vol,QC2,multiplicative,0.6947350027307291,4.1608964550588226e-51,0.11757604375862808,,0,mixed,lbfgs
+T1_SIENAX_WM_norm_vol,T1_SIENAX_WM_norm_vol,QC3,multiplicative,0.016185365086281836,0.0072591968808210835,0.20964476141548202,,0,mixed,lbfgs
+T1_SIENAX_WM_norm_vol,T1_SIENAX_WM_norm_vol,QC4,multiplicative,0.10193818926878273,4.942731883898739e-23,0.45765583293538714,,0,mixed,lbfgs
+T1_SIENAX_WM_norm_vol,T1_SIENAX_WM_norm_vol,QC5,multiplicative,0.8510737459004458,7.86195681648593e-08,0.8639606345005363,,0,mixed,lbfgs
