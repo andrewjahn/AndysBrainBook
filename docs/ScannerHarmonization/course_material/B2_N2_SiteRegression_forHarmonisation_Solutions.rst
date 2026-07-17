@@ -1,5 +1,5 @@
 Regression-Based Harmonisation
-------------------------------
+===============================
 
 As a simple baseline, we can use regression to remove site-related mean
 shifts from the data.
@@ -384,8 +384,7 @@ effects that primarily influence feature variance.
         do_zscore=True,
         verbose=False,
     )
-    print(f"Before Regression Additive effect: 
-{before_additive_results}")
+    print(f"Before Regression Additive effect: \n{before_additive_results}")
 
     before_multiplicative_results = MultiplicativeEffect_long(
         data=df,
@@ -398,8 +397,7 @@ effects that primarily influence feature variance.
         do_zscore=True,
         verbose=False,
     )
-    print(f"Before Regression Multiplicative effect: 
-{before_multiplicative_results}")
+    print(f"Before Regression Multiplicative effect: \n{before_multiplicative_results}")
 
     # Let's regress the site effect
     feature_cols = [f"Feature_{i}" for i in range(1, n_features + 1)]
@@ -429,8 +427,7 @@ effects that primarily influence feature variance.
         do_zscore=True,
         verbose=False,
     )
-    print(f"After Regression Additive effect: 
-{after_additive_results}")
+    print(f"After Regression Additive effect: \n{after_additive_results}")
 
     after_multiplicative_results = MultiplicativeEffect_long(
         data=df_harm,
@@ -443,8 +440,7 @@ effects that primarily influence feature variance.
         do_zscore=True,
         verbose=False,
     )
-    print(f"After Regression Multiplicative effect: 
-{after_multiplicative_results}")
+    print(f"After Regression Multiplicative effect: \n{after_multiplicative_results}")
 
     # plot before and after regression
     feature_cols = [f"Feature_{i}" for i in range(1, n_features + 1)]
