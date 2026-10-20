@@ -282,3 +282,5 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
     12.08.2020: First part of MVPA tutorial complete, from preprocessing to group-level analysis. Later on, will add other statistical analyses, such as prevalence analysis.
     
     01.20.2022: There is now a DOI for Andy's Brain Book! If you would like to cite it, use the following template: "We followed the AFNI preprocessing pipeline as outlined in Andy's Brain Book (Jahn, 2022. doi:10.5281/zenodo.5879293)."
+
+    10.20.2026: Nicolás Nieto, Johanna Bayer, Gaurav Bhalerao, Emma Prevot, and Jacob Turnbull have created a Scanner Harmonization tutorial using ComBat. Check out the page for a very detailed tutorial, which will be useful for those who are scanning data from mutliple sites. Please let me know if there are any errors in the walkthrough (or make a pull request).
