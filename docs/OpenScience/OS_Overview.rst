@@ -20,3 +20,4 @@ We are looking for graduate students, postdocs, and other members of the Open Sc
    OS/MRIQC
    OS/fMRIPrep
    OS/Github_Overview
+   OS/datalad_Tutorial
