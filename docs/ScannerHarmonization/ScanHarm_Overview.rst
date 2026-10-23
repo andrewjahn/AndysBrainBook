@@ -11,7 +11,7 @@ Overview
 This course provides a comprehensive, hands-on journey from understanding the fundamental challenges of site effects in neuroimaging data to implementing state-of-the-art harmonization techniques.
 
 This course is based on the **OHBM 2026 Educational Course on "Data harmonization for neuroscientific research: Theory, challenges, and applications,"** originally presented at the OHBM 2026 annual meeting. 
-Developed by `Nicolás Nieto <https://github.com/N-Nieto>`_ [✉️](n.nieto@fz-juelich.de), `Johanna Bayer <https://github.com/likeajumprope>`_, `Gaurav Bhalerao <https://github.com/gvbhalerao591>`_, `Emma Prevot <https://github.com/emmaprevot>`_, and `Jacob Turnbull <https://github.com/Jake-Turnbull>`_, 
+Developed by `Nicolás Nieto <https://github.com/N-Nieto>`_ `[✉️] <mailto:n.nieto@fz-juelich.de>`__, `Johanna Bayer <https://github.com/likeajumprope>`_, `Gaurav Bhalerao <https://github.com/gvbhalerao591>`_, `Emma Prevot <https://github.com/emmaprevot>`_, and `Jacob Turnbull <https://github.com/Jake-Turnbull>`_, 
 this material provides comprehensive hands-on instruction for understanding and implementing harmonization techniques in neuroimaging. For the complete course materials and code, please visit the `original repository <https://github.com/N-Nieto/OHBM2026_Educational_course_harmonization/tree/main>`_.
 
 Learning Objectives
