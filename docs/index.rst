@@ -100,10 +100,6 @@ If you are completely new to fMRI analysis, I recommend starting with the :ref:`
    
    FIR/FIR_Overview
 
-.. note::
-
-    The following modules are under construction. Check back soon for more updates!
-
 .. toctree::
    :maxdepth: 1
    :caption: Scanner Harmonization
