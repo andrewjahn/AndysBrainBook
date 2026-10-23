@@ -4,4 +4,4 @@ skip = .git*,.codespellrc
 check-hidden = true
 # Ignore some names, all https urls (codespell fails at times), and two letter acronyms etc
 ignore-regex = (\b(Nam et|FIRs|FWE|Ines|[A-Z][A-Z])\b|https://\S+)
-ignore-words-list = indx,fixel,fixels,fuschia,mater,whos
+ignore-words-list = indx,fixel,fixels,fuschia,mater,whos,fpr,mape
