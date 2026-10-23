@@ -1,5 +1,8 @@
-Applying ComBat on simulated data:
-==================================
+.. _ScanHarm_B3_N0:
+
+===================
+ComBat Step by Step
+===================
 
 Combat assumes data is of the form:
 
@@ -9,14 +12,13 @@ Combat assumes data is of the form:
 
 Where:
 
-.. math:: 
-    y_{i,j} \text{ is the derived features (i.e. the volume of the hippocampus)}
-    \alpha_0 \text{ is the mean of the given feature}
-    X_i \text{ is a design matrix of covariates}
-    \beta_j \text{ are the estimated covariate effects (usually from taking the psuedoinverse of the design with the dataset)}
-    \gamma_{b(i)j} \text{ is the additive (location) effect}
-    \delta_{b(i)j} \text{ is the multiplicative (scaling) effect}
-    \epsilon_{ij} \text{ is the subject specific term, assumed to capture subject specific effects not described by covariates as well as measurement noise}
+- :math:`y_{i,j}` is the derived features (i.e. the volume of the hippocampus)
+- :math:`\alpha_0` is the mean of the given feature
+- :math:`X_i` is a design matrix of covariates
+- :math:`\beta_j` are the estimated covariate effects (usually from taking the pseudoinverse of the design with the dataset)
+- :math:`\gamma_{b(i)j}` is the additive (location) effect
+- :math:`\delta_{b(i)j}` is the multiplicative (scaling) effect
+- :math:`\epsilon_{ij}` is the subject specific term, assumed to capture subject specific effects not described by covariates as well as measurement noise
 
 Here, we will simulate some data as we did in section 1 and apply ComBat
 to it in order to see how it works and how well it does.
@@ -47,9 +49,9 @@ the batch labels in order to run. It is also advised to include any
 biologically relevant variables
 
 You might want to create two dataframes here with the same covariate
-effects but with and without a batch effect for easier comparisson
+effects but with and without a batch effect for easier comparison
 
-.. code:: ipython3
+.. code:: python
     
     df = simulate_batched_data(
         data=data,
@@ -65,7 +67,7 @@ effects but with and without a batch effect for easier comparisson
 .. image:: images/B3_N0_ComBat_applications_3_1.png
 
 
-.. code:: ipython3
+.. code:: python
 
     # Adding batch effects 
     
@@ -76,8 +78,8 @@ effects but with and without a batch effect for easier comparisson
     }
 
 
-Now we will apply ComBat to the data:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Applying ComBat to the data
+---------------------------
 
 Several versions of ComBat are available freely online in Python, R and
 MATLAB.
@@ -85,7 +87,7 @@ MATLAB.
 The original version can be found here
 [https://github.com/Jfortin1/ComBatHarmonization] and any publication of
 work using ComBat should always cite the original implementations for
-neuroscientific applications, but also the first implemntation which was
+neuroscientific applications, but also the first implementation which was
 introduced by Johnson et al., in the field of genomics.
 
 The version we will be using today is adapted directly from this
@@ -111,7 +113,8 @@ them with the true simulated values.
 
 This version has been installed locally in the block03_utils:
 
-.. code:: ipython3
+.. code:: python
+
     # ComBat needs more than one column in order to run so we will create some additional columns that are just random noise for the purpose of demonstrating ComBat. 
     # In a real dataset you would have multiple features that you want to harmonise, but for this example we will just create some random noise columns.
     
@@ -156,7 +159,7 @@ This version has been installed locally in the block03_utils:
     (900, 4)
 
 
-.. code:: ipython3
+.. code:: python
 
     # Run the ComBat harmonisation on the data, this version of ComBat takes numpy arrays as the the input so we need to convert the dataframes to numpy arrays first. We also need to specify the batch column and the covariates that we want to include in the model.
     
@@ -205,8 +208,8 @@ This version has been installed locally in the block03_utils:
     Original data shape: (900, 10)
 
 
-Compare the age nomograms and some other data characteristics before and after harmonisation:
----------------------------------------------------------------------------------------------
+Comparing the data before and after ComBat
+------------------------------------------
 
 We can compare the data before and after running ComBat.
 
@@ -217,7 +220,7 @@ We will do this three ways:
 -  Examining the mean difference between batches
 -  Examining the variance difference between batches
 
-.. code:: ipython3
+.. code:: python
 
     # Batch histograms:
     
@@ -235,8 +238,8 @@ We will do this three ways:
 .. image:: images/B3_N0_ComBat_applications_9_1.png
 
 
-Other visualisations:
----------------------
+Other visualisations
+--------------------
 
 We can look at other metrics to assess harmonisation accuracy, for
 example clustering when projecting the data using principal component
@@ -245,7 +248,8 @@ analysis:
 Here, distinct batch clusters by batch can be a sign of residual batch
 effects.
 
-.. code:: ipython3
+.. code:: python
+
     result = plot_pca_before_after(
         y_before=data,
         y_after=bayesdata,

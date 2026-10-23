@@ -1,5 +1,8 @@
-Positioning the IQM-Based Mixed-Effects Harmonisation Framework
-===============================================================
+.. _ScanHarm_B4_N1:
+
+======================================
+Harmonising with Image Quality Metrics
+======================================
 
 In this section, we will demonstrate an IQM-based harmonisation workflow
 for removing batch effects from imaging-derived phenotypes (IDPs).
@@ -98,7 +101,7 @@ folder contains:
 Arguments to the Harmonisation Function
 ---------------------------------------
 
-We will use the ``iqm_harmonise`` function from provided in [`iqm_harmonisation_light.py`](https://github.com/gvbhalerao591/Harmonisation-Paper/blob/main/harmonisation_methods/IQM_approach/flexible_implementation_python/iqm_harmonisation_light.py).We recommend reviewing both the
+We will use the ``iqm_harmonise`` function provided in `iqm_harmonisation_light.py <https://github.com/gvbhalerao591/Harmonisation-Paper/blob/main/harmonisation_methods/IQM_approach/flexible_implementation_python/iqm_harmonisation_light.py>`__. We recommend reviewing both the
 implementation and the inline documentation describing the function
 arguments before applying the workflow to your own datasets.
 
@@ -143,11 +146,11 @@ Outputs
 After running the IQM-based harmonisation workflow, several output files
 will be generated:
 
-- *iqm_harmonised.csv*: contains the original and harmonised IDPs
+- ``iqm_harmonised.csv``: contains the original and harmonised IDPs
   (``harmonised_<idp_name>``).
-- \*qc_selection\_\_details.csv\*: contains statistical significance
+- ``qc_selection_*_details.csv``: contain statistical significance
   measures and summary information for QC selection.
-- \*selected\_\_by_volume.csv\*: contains the QC variables selected for
+- ``selected_*_by_volume.csv``: contain the QC variables selected for
   each IDP.
 
 Visualisation
@@ -160,7 +163,7 @@ the outputs from *iqm_harmonised.csv*.
 IDPs, and how do the IDP distributions appear across sites/batches
 before and after harmonisation?*
 
-.. code:: ipython3
+.. code:: python
 
     # Import packages and load data
     import pandas as pd
@@ -306,8 +309,8 @@ before and after harmonisation?*
 .. image:: images/B4_N1_IQM-harmonisation_light_Solutions_3_5.png
 
 
-Real data examples:
--------------------
+Real data examples
+------------------
 
 DPUK PET-MR dataset
 ~~~~~~~~~~~~~~~~~~~
@@ -337,7 +340,7 @@ acquisition design and is therefore already relatively well harmonised.
 Consequently, visual differences between raw and harmonised
 distributions may appear modest, particularly in univariate summaries.
 
-.. code:: ipython3
+.. code:: python
 
     # IMPORTNAT: Running this code might take time so you can skip this and directly see the files and plots already generated 
     # See <repo_dir>/data/data_block4/iqm_light_data/Real_data/prebaked

@@ -1,5 +1,8 @@
-Impact of *Effects of Site* in Machine Learning Pipelines
-=========================================================
+.. _ScanHarm_B3_N2:
+
+================================
+Site Effects in Machine Learning
+================================
 
 The effects of site (EoS) can have two opposite effects on Machine
 Learning (ML) pipelines.
@@ -56,11 +59,10 @@ showcase the impact of these factors in the ML pipelines:
    # The stratification makes all classes (target) equally represented in all our folds.
    cv = StratifiedKFold(n_splits=10, shuffle=True, random_state=random_state)
 
-Section 1: Creating a Baseline
-------------------------------
+A baseline without site effects
+-------------------------------
 
 First, let's create an example without EoS and without class imbalance across sites.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We will use this performance as a baseline to compare the rest of the
 simulated scenarios.
@@ -130,13 +132,11 @@ Problem characteristic:
    output image 4-0
 
 As no EoS is presented, the sites are indistinguishable from each other.
-----------------------------------------------------------------------------
 
-Section 2: Adding EoS.
-----------------------
+Adding a site effect
+--------------------
 
 Now, let's add an EoS. For simplicity, let's add a simple location effect. Let's maintain our class balance across the site.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Problem characteristic: - Real signal: Yes - Effect of site: Yes - Class
 imbalance: No
@@ -209,14 +209,12 @@ What to expect?
    output image 9-0
 
 Now the sites (colors) are easier to distinguish. Each feature is affected differently in each site.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-Section 3. Add site-class imbalance.
-------------------------------------
+Adding site–class imbalance
+---------------------------
 
-Now, Let's change the class balance in our sites.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Now, let's change the class balance in our sites.
 
 Problem characteristic: - Real signal: Yes - Effect of site: Yes - Class
 imbalance: Yes
@@ -291,13 +289,11 @@ What to expect?
    output image 15-0
 
 Now, Site 0 (blue color) has more data from Class 0 (circles) (90%), as we set the amount of Class 1 to be 10%.
--------------------------------------------------------------------------------------------------------------------
 
-Section 3: Removing Real signal
--------------------------------
+Removing the real signal
+------------------------
 
 Let's remove the real signal.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Problem characteristic: - Real signal: No - Effect of site: Yes - Class
 imbalance: Yes
@@ -368,13 +364,11 @@ What to expect?
    output image 20-0
 
 Even without any real signal, our model is obtaining a performance comparable to the baseline performance only using the EoS and the class imbalance!
------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Section 4: Removing real and EoS signal.
----------------------------------------
+Removing both the real signal and the site effect
+-------------------------------------------------
 
 We now remove the real signal and the EoS signal. Even with class imbalance across sites, there is nothing to pick up.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Problem characteristic: - Real signal: No - Effect of site: No - Class
 imbalance: Yes
@@ -442,7 +436,7 @@ What to expect?
    output image 25-0
 
 EoS in ML: Noise or Signal?
-~~~~~~~~~~~~~~~~~~
+---------------------------
 
 Effect of Site (EoS) is typically dismissed as nuisance variation—batch effects, instrument drift, or demographic differences we'd rather ignore. But from a machine learning perspective, EoS isn't always noise. Sometimes it's signal.
 

@@ -1,5 +1,8 @@
-Data harmonization using Normative Modelling
-============================================
+.. _ScanHarm_B4_N3:
+
+===================================
+Harmonisation with Normative Models
+===================================
 
 Notebook by Augustein de Boer, adapted by Alice Chavanne, adapted by
 Johanna Bayer. This workbook is part of this publication:
@@ -13,7 +16,7 @@ paradigm for computational psychiatry. In bioRxiv
 https://doi.org/10.64898/2026.02.17.706268
 
 Introduction
-============
+------------
 
 Data from different batches may have different characteristics, and in
 order to make sense of the entirety of the data, those characteristics
@@ -29,8 +32,8 @@ choice for the set of parameters that is used for the inverse mapping is
 arbitrary, here we choose the batch effect that occurs first
 alphabetically.
 
-Overview: This notebook will achieve two different things:
-----------------------------------------------------------
+Overview
+--------
 
 A: Harmonize a data set with multiple sites within the data set (within
 study harmonisation), We use the fcon1000 data set for that.
@@ -38,20 +41,20 @@ study harmonisation), We use the fcon1000 data set for that.
 B: Harmonize a data set to a pre-fitted model/unseen data set. We load a
 pre-fitted model for that.
 
-1. Setup and Imports
---------------------
+Setup and imports
+-----------------
 
 You first need to install the PCNtoolkit. We recommend creating a
 virtual environment first.
 
-.. code:: ipython3
+.. code:: bash
 
-    ! pip install pcntoolkit
+    pip install pcntoolkit
 
 Load the core PCNtoolkit classes and plotting/data libraries used
 throughout this notebook.
 
-.. code:: ipython3
+.. code:: python
 
     # Load the model
     from pcntoolkit import NormativeModel
@@ -67,13 +70,13 @@ throughout this notebook.
     logger.setLevel(logging.ERROR)
 
 
-2. Load and Inspect FCON1000 Data
----------------------------------
+Load and inspect the FCON1000 data
+----------------------------------
 
 Read the dataset, harmonize sex coding to labels, and do a quick sanity
 check of site coverage.
 
-.. code:: ipython3
+.. code:: python
 
     # Load data
     
@@ -348,30 +351,30 @@ check of site coverage.
 
 
 
-3. Load Pre-Fitted Reference Model
-----------------------------------
+Load the pre-fitted reference model
+-----------------------------------
 
 This model is the pre-fitted model and will allow us to harmonize the
 focn1000 data set to unseen sites and data. It defines the reference
 distribution used later for harmonization across sites.
 
-.. code:: ipython3
+.. code:: python
 
     # Let's assume we have a pre-fitted model that we want to hamonize our model to: Change to your file path
     model = NormativeModel.load("/Users/johannabayer/Documents/Github/OHBM2026_Educational_course_harmonization/notebooks/block04/block4_utils/models/main_workflow_model_HBR")
 
-A: Within study harmonisation
-=============================
+Part A: Within-study harmonisation
+----------------------------------
 
-4. Define Model Inputs and Build NormData
------------------------------------------
+Define model inputs and build NormData
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We first need to build a normative model from the fcon1000 data set. We
 do that using the ``normdata`` object. Specify covariates, batch
 effects, and response variables, then convert the dataframe into a
 NormData object with basic cleaning.
 
-.. code:: ipython3
+.. code:: python
 
     subject_id = "sub_id"
     covariates = ["age"]
@@ -416,13 +419,13 @@ NormData object with basic cleaning.
         
 
 
-5. Configure the HBR Template
------------------------------
+Configure the HBR template
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We use the HBR normative model. Now we specify the template, and define
 priors and sampler settings for a within-study normative model.
 
-.. code:: ipython3
+.. code:: python
 
     from pcntoolkit import make_prior, BsplineBasisFunction, NormalLikelihood, HBR, NormativeModel
     
@@ -491,7 +494,7 @@ priors and sampler settings for a within-study normative model.
         progressbar=True,
     )
 
-.. code:: ipython3
+.. code:: python
 
     model_within = NormativeModel(
         template_regression_model=template_hbr,  # The HBR model we just configured
@@ -506,13 +509,13 @@ priors and sampler settings for a within-study normative model.
     )
 
 
-6. Fit Within-Study Model
--------------------------
+Fit the within-study model
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Instantiate and fit a model directly on the FCON1000-derived NormData
 object.
 
-.. code:: ipython3
+.. code:: python
 
     model_within.fit_predict(reference_norm_data, reference_norm_data)
 
@@ -2256,14 +2259,14 @@ object.
 
 
 
-7. Visualize Centiles Under a Chosen Reference Batch
-----------------------------------------------------
+Visualize centiles under a chosen reference batch
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Plot centiles after harmonizing to a chosen reference combination (for
 example, NewYork_a and F), while still showing selected comparison
 sites.
 
-.. code:: ipython3
+.. code:: python
 
     import os
     
@@ -2318,18 +2321,18 @@ sites.
     Process: 75540 - 2026-06-11 12:16:04 - Harmonizing data for lh_G_and_S_frontomargin.
 
 
-B: Harmonisation to unseen sites and data
-=========================================
+Part B: Harmonisation to unseen sites and data
+----------------------------------------------
 
-8. Harmonize to External Reference Model
-----------------------------------------
+Harmonize to an external reference model
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We use the pre-trained model that we have loaded at the beginning. This
 way. we apply harmonization using the pre-fitted main workflow model to
 map this dataset into the external reference space. Again, our data from
 the fcon1000 data set needs to be in the ``normdata`` format.
 
-.. code:: ipython3
+.. code:: python
 
     # Harmonize data
     model.harmonize(reference_norm_data)
@@ -3041,7 +3044,7 @@ the fcon1000 data set needs to be in the ``normdata`` format.
 
 
 
-.. code:: ipython3
+.. code:: python
 
     harmonized_y = reference_norm_data[("Y_harmonized")]
     harmonized_y = harmonized_y.to_dataframe().reset_index().pivot(index="observations",columns="response_vars", values="Y_harmonized")
@@ -3049,7 +3052,7 @@ the fcon1000 data set needs to be in the ``normdata`` format.
     df_with_obs = df.merge(reference_norm_data[("subject_ids")].to_dataframe().reset_index(), left_on="sub_id", right_on="subject_ids")
     df = pd.merge(left=df_with_obs, right=harmonized_y, on="observations")
 
-.. code:: ipython3
+.. code:: python
 
     fig, ax = plt.subplots(len(response_variables),2, figsize=(15,30), sharex=True)
     
@@ -3064,11 +3067,11 @@ the fcon1000 data set needs to be in the ``normdata`` format.
 
 
 
-.. image:: B4_N3_Normative_Modelling.png
+.. image:: images/B4_N3_Normative_Modelling.png
 
 
-9. Interpretation
------------------
+Interpretation
+--------------
 
 After harmonization, site-driven spread is reduced and observations are
 brought onto a more comparable scale. This makes downstream analyses

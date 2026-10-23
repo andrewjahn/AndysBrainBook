@@ -1,5 +1,8 @@
-Regression-Based Harmonisation
-===============================
+.. _ScanHarm_B2_N2:
+
+=====================================
+Removing Site Effects with Regression
+=====================================
 
 As a simple baseline, we can use regression to remove site-related mean
 shifts from the data.
@@ -16,8 +19,8 @@ Here:
 - age and timepoint are kept as biological covariates,
 - the residual part represents variation not explained by site.
 
-Regression-Based Harmonisation Workflow
-=======================================
+Regression-based harmonisation workflow
+---------------------------------------
 
 In this section, we will use a simple regression-based approach to
 reduce site-related variability in the simulated data.
@@ -29,11 +32,9 @@ The goal is to demonstrate:
 
 --------------
 
-Steps
------
 
-1. Simulate longitudinal multi-site data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 1: Simulate longitudinal multi-site data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We first generate synthetic imaging data containing:
 
@@ -48,8 +49,8 @@ effects are intentionally introduced.
 
 --------------
 
-2. Visualize site-related effects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 2: Visualize site-related effects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Before harmonisation, we inspect the distributions across sites using
 boxplots.
@@ -61,8 +62,8 @@ This helps identify:
 
 --------------
 
-3. Apply regression-based harmonisation
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 3: Apply regression-based harmonisation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We fit regression models that include:
 
@@ -76,8 +77,8 @@ This approach primarily targets additive batch effects.
 
 --------------
 
-4. Visualize the harmonized data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 4: Visualize the harmonized data
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 We compare the distributions before and after correction to assess:
 
@@ -87,8 +88,8 @@ We compare the distributions before and after correction to assess:
 
 --------------
 
-5. Evaluate remaining batch effects
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 5: Evaluate remaining batch effects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Finally, we re-run:
 
@@ -116,7 +117,7 @@ to model and remove both:
 - additive effects,
 - multiplicative effects.
 
-.. code:: ipython3
+.. code:: python
 
     # Simulate 100 subjects, 3 timepoints, 2 sites, 4 features
     n_subjects = 100
@@ -161,7 +162,7 @@ to model and remove both:
 .. image:: images/B2_N2_SiteRegression_forHarmonisation_Solutions_2_1.png
 
 
-.. code:: ipython3
+.. code:: python
 
     feature_cols = [f"Feature_{i}" for i in range(1, n_features + 1)]
 
@@ -263,7 +264,7 @@ Then:
 4. Re-run additive and multiplicative effect tests.
 
 
-.. code:: ipython3
+.. code:: python
 
     # Let's simulate some data: 100 subjects, 3 timepoints, 2 sites, features from 4 brain regions
     n_subjects = 100

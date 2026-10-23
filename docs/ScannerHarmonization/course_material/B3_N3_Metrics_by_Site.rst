@@ -1,5 +1,8 @@
-Discover biases in metrics by site
-==================================
+.. _ScanHarm_B3_N3:
+
+==============================
+Reporting Performance per Site
+==============================
 
 While dealing with multisite data, we need to be careful when reporting our metrics.
 
@@ -10,6 +13,7 @@ In these exercises, besides computing the overall metric, we will compute each o
 Importantly, we will *always* train our ML model on the whole dataset, but only desegregate the metric calculation by site.
 
 .. code:: python
+
     # Imports
     import matplotlib.pyplot as plt
     import numpy as np
@@ -38,10 +42,13 @@ Importantly, we will *always* train our ML model on the whole dataset, but only 
     metric_to_plot = str(metrics_to_use[0].__name__)
 
 
+Scenario 1: one bad site and three good sites
+---------------------------------------------
+
 Let's create Scenario 1, where we have 1 **bad** scenario (with no real signal), and 3 sites **good**, with real signal.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
+
     # Data generation
     n_bad_sites = 1
     X_bad, y_bad, sites_bad = make_multisite_classification(
@@ -82,21 +89,23 @@ Let's create Scenario 1, where we have 1 **bad** scenario (with no real signal),
     )
 
 
-Let's take a look at what is returned from the `report_metrics_by_site`.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Let's take a look at what is returned from the ``report_metrics_by_site``.
 The result is a dictionary containing the metrics as the first key, and then the overall performance followed by the performance obtained in each site.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 .. code:: python
+
     print(metric_s1)
     {'balanced_accuracy_score': {'overall': 0.6622004866336872, 0: 0.5362376847290641, 1: 0.7884429400386848, 2: 0.8444444444444444, 3: 0.7467296511627908}, 'roc_auc_score': {'overall': 0.6622004866336872, 0: 0.536237684729064, 1: 0.7884429400386848, 2: 0.8444444444444444, 3: 0.7467296511627908}}
 
 
+Scenario 2: three bad sites and one good site
+---------------------------------------------
+
 Now let's create a Scenario 2: a dataset with 3 bad sites, and 1 good site.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
+
     # Scenario 2
     n_bad_sites = 3
     X_bad, y_bad, sites_bad = make_multisite_classification(
@@ -129,8 +138,13 @@ Now let's create a Scenario 2: a dataset with 3 bad sites, and 1 good site.
     metric_s2 = report_metrics_by_site(y_test, y_pred_s2, sites_test, metrics_to_use)
 
 
-### Let's analyze the global performance obtained in each Scenario for the metric that we decided to plot.
+Comparing overall performance
+-----------------------------
+
+Let's analyze the global performance obtained in each Scenario for the metric that we decided to plot.
+
 .. code:: python
+
     # Extract global performance for both scenarios
     metric_global_s1 = metric_s1[metric_to_plot].pop("overall")
     metric_global_s2 = metric_s2[metric_to_plot].pop("overall")
@@ -138,25 +152,27 @@ Now let's create a Scenario 2: a dataset with 3 bad sites, and 1 good site.
     print(f" Overall performance for Scenario 1: {metric_global_s1:0.4f} \n Overall performance for Scenario 2: {metric_global_s2:0.4f}")
 
 
-Overall performance for Scenario 1: 0.6622 
-Overall performance for Scenario 2: 0.6354
+::
 
-Looking at the overall metric, the obtained performance is very similar. 
-------------------------------------------------------------------------
+    Overall performance for Scenario 1: 0.6622
+    Overall performance for Scenario 2: 0.6354
+
+Looking at the overall metric, the obtained performance is very similar.
+
+Performance per site
+--------------------
+
 Now, let's explore the performance obtained in each of the sites.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 We will plot the performance obtained in each site for both scenarios, and we will also include the overall performance as a dashed line.
 
 .. figure:: images/B3_N3_Metrics_by_Site_im1.png
 
 
 As expected, the performance of the **bad** sites is near to chance.
---------------------------------------------------------------------
 
+Questions
+---------
 
-Questions:
-
---------------------------------------------------------------------
 
 - How is it possible that they have an similar overall performance? Where is the catch?
 

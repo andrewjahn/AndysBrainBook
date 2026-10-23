@@ -1,5 +1,8 @@
-Location/Scale models on site-imbalance data.
-=============================================
+.. _ScanHarm_B3_N4:
+
+================================
+ComBat with Site–Class Imbalance
+================================
 
 Site-imbalance scenarios occur when the classes have different
 imbalances in each site. The extreme case of the scenario is when one site is
@@ -36,8 +39,10 @@ in a simple machine learning model.
    sns.set_theme(style="whitegrid")
    random_state = 23
 
+Simulating site–class imbalance
+--------------------------------
+
 Let's create an example where no EoS will be simulated, and only real signal will be presented.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To generate the site-target dependence, we will generate an imbalance
 problem by site, making 10% of the data in Site 0 to belong to Class 1.
@@ -63,8 +68,10 @@ problem by site, making 10% of the data in Site 0 to belong to Class 1.
    clf = LogisticRegression(random_state=random_state)
    combat = NeuroComBat()
 
+Harmonising with and without the target as a covariate
+------------------------------------------------------
+
 Now let's apply our the harmonization in these two Scenarios.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -91,8 +98,8 @@ Now let's apply our the harmonization in these two Scenarios.
 
    #############################################################################################
 
-Now plot the results
-^^^^^^^^^^^^^^^^^^^^
+Plotting the results
+~~~~~~~~~~~~~~~~~~~~
 
 .. code:: python
 
@@ -194,7 +201,7 @@ Now plot the results
 .. figure:: images/B3_N4_ComBat_in_imbalance_classes_im1.png
 
 Take-home message
-~~~~~~~~~~~~~~~~~
+-----------------
 
 Location/Scale methods, in this case, NeuroComBat, struggle to preserve
 the target variance in class imbalance scenarios unless we preserve it
@@ -205,7 +212,7 @@ may be suited for statistical analysis, but violates the assumptions of
 ML scenarios.
 
 Questions
-=========
+---------
 
 What do you think would happen if EoS were simulated?
 
