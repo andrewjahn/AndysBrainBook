@@ -3064,7 +3064,7 @@ the fcon1000 data set needs to be in the ``normdata`` format.
 
 
 
-.. image:: B4_N3_normative_modelling_files/B4_N3_normative_modelling_22_0.png
+.. image:: B4_N3_Normative_Modelling.png
 
 
 9. Interpretation
