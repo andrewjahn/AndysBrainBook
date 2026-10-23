@@ -202,7 +202,7 @@ as a desktop GUI launcher for cross-sectional analyses.
 
 You can install or explore the library via:
 
--  **PyPI** pip install DiagnoseHarmonise
+-  **PyPI** pip install DiagnoseHarmonisation
 -  **GitHub**
 
 Take-home message
