@@ -191,7 +191,7 @@ Now plot the results
 
    plt.tight_layout()
 
-.. figure:: images/B3_ComBat_in_imbalance_classes_N4_im1.png
+.. figure:: images/B3_N4_ComBat_in_imbalance_classes_im1.png
 
 Take-home message
 ~~~~~~~~~~~~~~~~~
