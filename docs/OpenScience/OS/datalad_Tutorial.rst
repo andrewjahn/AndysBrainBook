@@ -48,4 +48,22 @@ Running this code in Neurodesk will download the dataset structure from OpenNeur
 
 .. figure:: datalad_OpenNeuroDataset.png
 
-Note that you cannot view or manipulate any of the files using the usual commands, like fsleyes to view the images, or 3dcalc to take the average of two functional datasets.
+Note that you cannot view or manipulate any of the files using the usual commands, like fsleyes to view the images, or 3dcalc to take the average of two functional datasets. This is because the data has not been downloaded yet; all we have is a skeleton showing us where the data would be, and in what folder.
+
+To download the data, we will use datalad's ``get`` function. For example, if we navigate to the directory ``sub-10/func``, we can download all of the data in that folder by typing:
+
+::
+
+  datalad get *
+
+In which the wildcard ``*`` will download every available file in the directory. If anything else has been moved into the directoy in the meantime, such as a text file that you created, datalad will display an error for those unknown files, but will work for all of the others.
+
+Moving to a higher level of the directory tree, we can navigate to the ``ds000102`` directory and type something like:
+
+::
+
+  datalad get sub-10
+
+Which will download any remaining files in any of the sub-directories of ``sub-10``. Similar commands can be used to download one file at a time, multiple files at a time, an entire subject, or the entire directory in one go. This flexibility is what makes datalad so powerful, and which also makes it an effective teaching tool; we don't have to download an entire dataset, but can rather see the entire structure and then pick and choose what we want to analyze.
+
+
