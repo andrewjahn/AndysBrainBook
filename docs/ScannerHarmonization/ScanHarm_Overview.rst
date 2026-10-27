@@ -184,9 +184,9 @@ Run It Yourself
 
    Every page in this chapter comes from a Jupyter notebook in the `course repository <https://github.com/N-Nieto/OHBM2026_Educational_course_harmonization/tree/main>`__. You can:
 
-   - **Run online, no installation:** `launch the notebooks on Binder <https://mybinder.org/v2/gh/N-Nieto/OHBM2026_Educational_course_harmonization/HEAD>`__ (the first start can take a few minutes).
-   - **Run locally:** clone the repository and install the dependencies with ``pip install -r requirements.txt``.
-   - **Videos:** `recordings by Gaurav Bhalerao <https://drive.google.com/drive/folders/1O_Hf0MwO2VIfAz-8lEe5vk8t5LXRDX9x?usp=sharing>`__ cover Block 2 (pages 1 to 3) and Block 4 (pages 1 and 2).
+   - **Run online, no installation:** `launch the notebooks on Binder <https://mybinder.org/v2/gh/N-Nieto/OHBM2026_Educational_course_harmonization/HEAD>`__ (can take a few minutes to load).
+   - **Run locally:** clone the repository and follow the instruction to install the dependencies.
+   - **Videos:** `recordings by Gaurav Bhalerao <https://drive.google.com/drive/folders/1O_Hf0MwO2VIfAz-8lEe5vk8t5LXRDX9x?usp=sharing>`__ cover Block 2 (pages 1-3) and Block 4 (pages 1-2).
 
 
 Authors
