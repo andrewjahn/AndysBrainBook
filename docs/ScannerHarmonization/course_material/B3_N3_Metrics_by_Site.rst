@@ -4,184 +4,126 @@
 Reporting Performance per Site
 ==============================
 
-While dealing with multisite data, we need to be careful when reporting our metrics.
+.. include:: ../_wrap_tables.inc
 
-Performance metrics give us an overall idea of the model's performance across all samples (subjects). However, there might be hidden biases in our data that these metrics might overlook.
+.. admonition:: Run this page yourself
+   :class: note
 
-In these exercises, besides computing the overall metric, we will compute each of the metrics, but using the subjects present in each site.
+   Notebook: `B3_N3_Metrics_by_Site.ipynb <https://github.com/N-Nieto/OHBM2026_Educational_course_harmonization/blob/main/notebooks/block03/B3_N3_Metrics_by_Site.ipynb>`__ ·
+   Solution: `B3_N3_Metrics_by_Site_solutions.md <https://github.com/N-Nieto/OHBM2026_Educational_course_harmonization/blob/main/solutions/block03/B3_N3_Metrics_by_Site_solutions.md>`__
 
-Importantly, we will *always* train our ML model on the whole dataset, but only desegregate the metric calculation by site.
+With multi-site data, we need to be careful about how we report performance. An overall metric summarizes the model across all subjects, but it can hide sites where the model does not work at all.
 
-.. code:: python
+Reporting performance per subgroup is also a common exercise to assess **fairness** in ML: checking that particular groups of subjects (here, sites) are not systematically harmed by the model, and that the reported metrics reflect how the model performs for each of them.
 
-    # Imports
-    import matplotlib.pyplot as plt
-    import numpy as np
-    import seaborn as sns
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.metrics import balanced_accuracy_score, roc_auc_score
-    from sklearn.model_selection import train_test_split
-
-    from uniharmony import verbosity
-    from uniharmony.datasets import make_multisite_classification
-
-    sns.set_theme(style="whitegrid")
-    verbosity("error")
-
-    random_state = 42
-
-    clf = LogisticRegression(random_state=random_state)
-
-    #### This is the main function for this notebook.
-    from uniharmony.metrics import report_metrics_by_site
-
-    # One metric or a list of metrics to calculate.
-    metrics_to_use = [balanced_accuracy_score, roc_auc_score]
-
-    # While we compute two metrics, we will only plot one.
-    metric_to_plot = str(metrics_to_use[0].__name__)
+On this page, besides the overall metric, we compute each metric using only the subjects of each site. Importantly, the model is *always* trained on the whole dataset (all sites together); we only disaggregate the metric calculation by site.
 
 
-Scenario 1: one bad site and three good sites
----------------------------------------------
+The Set-up
+----------
 
-Let's create Scenario 1, where we have 1 **bad** scenario (with no real signal), and 3 sites **good**, with real signal.
+- We simulate **good** sites, where the features carry information about the class, and **bad** sites, where they do not. All sites come from the same simulated problem and there are **no effects of site**: the feature distributions are identical. In the bad sites we shuffle the class labels, so features and class are unrelated there (think of unreliable diagnoses or unusable scans).
+- Each dataset has 10 features and 1,200 subjects. A logistic regression is evaluated with stratified 10-fold cross-validation, so every subject gets an out-of-fold prediction.
+
+The main tool is ``report_metrics_by_site`` from `uniharmony <https://pypi.org/project/uniharmony/>`__. It computes one or several metrics on all subjects (``"overall"``) and inside each site:
 
 .. code:: python
 
-    # Data generation
-    n_bad_sites = 1
-    X_bad, y_bad, sites_bad = make_multisite_classification(
-        n_sites=n_bad_sites,
-        signal_strength=0.001,
-        site_effect_strength=0,  # No EoS
-        random_state=random_state,
-    )
+   from sklearn.metrics import balanced_accuracy_score, roc_auc_score
+   from sklearn.model_selection import cross_val_predict
+   from uniharmony.metrics import report_metrics_by_site
 
-    # Simulate "good" sites
-    n_good_sites = 3
-    signal_strength = 1
-    X_good, y_good, sites_good = make_multisite_classification(
-        n_sites=n_good_sites,
-        signal_strength=signal_strength,
-        site_effect_strength=0,  # No EoS
-    )
-    # Increase site labels for good sites to avoid overlap with bad sites
-    sites_good = sites_good + n_bad_sites
+   # out-of-fold probabilities of Class 1, not predicted classes
+   proba = cross_val_predict(clf, X, y, cv=cv, method="predict_proba")[:, 1]
+   metrics = report_metrics_by_site(
+       y, proba, sites, [balanced_accuracy_score, roc_auc_score]
+   )
 
-    # Concatenate both simulated sites
-    X = np.concatenate([X_bad, X_good], axis=0)
-    y = np.concatenate([y_bad, y_good], axis=0)
-    sites = np.concatenate([sites_bad, sites_good], axis=0)
-
-    # Split
-    X_train, X_test, y_train, y_test, sites_train, sites_test = train_test_split(
-        X, y, sites, random_state=random_state
-    )
-
-    clf.fit(X_train, y_train)
-    y_pred_s1 = clf.predict(X_test)
-    metric_s1 = report_metrics_by_site(
-        y_test,
-        y_pred_s1,
-        sites_test,
-        metrics_to_use,
-    )
+The result is a dictionary with the metric names as keys. For each metric it contains the overall value, followed by the value in each site.
 
 
-Let's take a look at what is returned from the ``report_metrics_by_site``.
-The result is a dictionary containing the metrics as the first key, and then the overall performance followed by the performance obtained in each site.
+Two Scenarios
+-------------
+
+Both scenarios have 1,200 subjects, and in both exactly half of them (600) come from bad sites:
+
+.. list-table::
+   :header-rows: 1
+
+   * - Scenario
+     - Bad sites (no signal)
+     - Good sites (with signal)
+   * - 1: one large site fails
+     - Site 0: 600 subjects
+     - Sites 1 to 3: 200 subjects each
+   * - 2: only one large site works
+     - Sites 0 to 2: 200 subjects each
+     - Site 3: 600 subjects
+
+For the example dataset, ``report_metrics_by_site`` returns:
+
+.. list-table:: AUC overall and per site (example dataset)
+   :header-rows: 1
+
+   * - Scenario
+     - Overall
+     - Site 0
+     - Site 1
+     - Site 2
+     - Site 3
+   * - 1: one large site fails
+     - 0.728
+     - 0.489
+     - 0.964
+     - 0.958
+     - 0.970
+   * - 2: only one large site works
+     - 0.741
+     - 0.503
+     - 0.534
+     - 0.504
+     - 0.957
+
+Looking only at the overall metric, the two scenarios look the same (AUC 0.728 vs 0.741; balanced accuracy 0.703 vs 0.722).
 
 
-.. code:: python
-
-    print(metric_s1)
-    {'balanced_accuracy_score': {'overall': 0.6622004866336872, 0: 0.5362376847290641, 1: 0.7884429400386848, 2: 0.8444444444444444, 3: 0.7467296511627908}, 'roc_auc_score': {'overall': 0.6622004866336872, 0: 0.536237684729064, 1: 0.7884429400386848, 2: 0.8444444444444444, 3: 0.7467296511627908}}
-
-
-Scenario 2: three bad sites and one good site
----------------------------------------------
-
-Now let's create a Scenario 2: a dataset with 3 bad sites, and 1 good site.
-
-.. code:: python
-
-    # Scenario 2
-    n_bad_sites = 3
-    X_bad, y_bad, sites_bad = make_multisite_classification(
-        n_sites=n_bad_sites,
-        signal_strength=0.001,
-        site_effect_strength=0,  # No EoS
-        random_state=random_state,
-    )
-
-    # Used to simulate "good" sites
-    signal_strength = 1
-    X_good, y_good, sites_good = make_multisite_classification(
-        n_sites=1,
-        signal_strength=signal_strength,
-        site_effect_strength=0,  # No EoS
-        random_state=random_state,
-    )
-    # Increase site labels for good sites to avoid overlap with bad sites
-    sites_good = sites_good + n_bad_sites
-
-    X = np.concatenate([X_bad, X_good], axis=0)
-    y = np.concatenate([y_bad, y_good], axis=0)
-    sites = np.concatenate([sites_bad, sites_good], axis=0)
-    X_train, X_test, y_train, y_test, sites_train, sites_test = train_test_split(
-        X, y, sites, random_state=random_state
-    )
-
-    clf.fit(X_train, y_train)
-    y_pred_s2 = clf.predict(X_test)
-    metric_s2 = report_metrics_by_site(y_test, y_pred_s2, sites_test, metrics_to_use)
-
-
-Comparing overall performance
------------------------------
-
-Let's analyze the global performance obtained in each Scenario for the metric that we decided to plot.
-
-.. code:: python
-
-    # Extract global performance for both scenarios
-    metric_global_s1 = metric_s1[metric_to_plot].pop("overall")
-    metric_global_s2 = metric_s2[metric_to_plot].pop("overall")
-    print("=="*40)
-    print(f" Overall performance for Scenario 1: {metric_global_s1:0.4f} \n Overall performance for Scenario 2: {metric_global_s2:0.4f}")
-
-
-::
-
-    Overall performance for Scenario 1: 0.6622
-    Overall performance for Scenario 2: 0.6354
-
-Looking at the overall metric, the obtained performance is very similar.
-
-Performance per site
+Performance per Site
 --------------------
 
-Now, let's explore the performance obtained in each of the sites.
-We will plot the performance obtained in each site for both scenarios, and we will also include the overall performance as a dashed line.
+.. figure:: images/B3_N3_Metrics_by_Site_per_site_auc.png
+   :alt: Two bar charts of AUC per site. Left, Scenario 1: Site 0 (600 subjects) at 0.49, Sites 1 to 3 at 0.96 to 0.97; overall AUC 0.728. Right, Scenario 2: Sites 0 to 2 at 0.50 to 0.53, Site 3 (600 subjects) at 0.96; overall AUC 0.741.
+   :width: 100%
 
-.. figure:: images/B3_N3_Metrics_by_Site_im1.png
+   AUC per site, with the number of subjects per site. Dashed black: overall AUC (all subjects). Dashed red: chance.
+
+As expected, the **bad** sites are at chance (AUC ≈ 0.5) and the **good** sites reach AUC ≈ 0.96. The overall AUC is almost the same in both scenarios, but the site-level picture is opposite: the model works in 3 of 4 sites in Scenario 1, and in only 1 of 4 sites in Scenario 2.
+
+The overall metric weights every *subject* equally, and both scenarios have half of their subjects in bad sites, so it cannot tell them apart. Only the per-site values can.
 
 
-As expected, the performance of the **bad** sites is near to chance.
+.. admonition:: Key takeaway
+   :class: tip
+
+   - An overall metric can hide sites where the model does not work, and it cannot tell "one large failing site" from "many small failing sites".
+   - Reporting metrics per site is a good first step (but not the only one) to uncover these hidden biases.
+   - Per-site values from small sites are unstable and less reliable. Still, it is better to know that a site's AUC is unreliable than to assume that the model works well there.
 
 Questions
 ---------
 
+**How is it possible that both scenarios have a similar overall performance?**
 
-- How is it possible that they have an similar overall performance? Where is the catch?
+The overall metric is computed over all subjects together, so every subject counts the same, wherever it comes from. In both scenarios exactly half of the subjects (600 of 1,200) come from sites without signal, so the model works for the same share of subjects and the overall AUC is similar (0.728 vs 0.741). The site-level picture is opposite, and only the per-site metrics reveal it. If we had only reported the overall performance, we could not have uncovered this. Report the per-site metrics together with the number of subjects of each class in each site, and read them site by site.
 
-The performance obtained in each site is not comparable because they have different number of samples!
+**The discrimination ability of the model is almost the same in both scenarios. Would you recommend using it in Site 0?**
 
-In the first scenario, the bad site is 3 times bigger than the good sites and vice versa for the second scenario.
+No. We should not use a model to make important decisions in a site where we know it does not work. Once a per-site analysis uncovers such a bias, the next step is to find out *why* the model fails there. In this simulation we removed the real signal from the bad sites on purpose; in real data, the biological signal can also be masked by a strong EoS, or the labels of that site can be unreliable.
 
-If we had only reported the overall performance, we would not be able to unravel the model's behavior.
+**No EoS was simulated here. What could happen if different EoS were present in different sites?**
 
-- In this example, no Eos was used simulated in any of our sites. What do you think it could happen if different EoS are presented in different sites?
+As we saw in :ref:`ScanHarm_B3_N2`, it depends not only on the EoS but also on the class imbalance across sites.
 
-As we saw before, it will depend not only on the EoS but also in the site class imbalance. If the EoS acts as noise, the presence of EoS will create noisier sites, which could act as "bad" sites. If we have a big site class imbalance, and for example combined with having one big site (for example with healthy control) and many small sites with patients, the model will only learn the particular EoS of that site. In the extreme case, classifying the site  will be the same as classify the target, from the model's perspective. 
+- If the classes are balanced in every site, the EoS acts as noise. Sites with a strong EoS become noisier and can behave like "bad" sites.
+- If the classes are imbalanced across sites, the EoS becomes informative about the class. For example, with one big site of healthy controls and many small sites of patients, the model can learn to recognize the control site instead of the disease, and the overall metric looks good. In the extreme case, from the model's perspective, classifying the site is the same as classifying the target.
+
+**Next:** :ref:`ScanHarm_B3_N4` asks what happens when we harmonize data in which site and class are confounded.
