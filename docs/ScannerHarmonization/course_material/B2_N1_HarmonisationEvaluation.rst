@@ -1,5 +1,8 @@
-Harmonisation Evaluation Metrics
-================================
+.. _ScanHarm_B2_N1:
+
+==========================================
+Measuring Site Effects: Evaluation Metrics
+==========================================
 
 In this section, we will explore several approaches for evaluating
 harmonisation performance in longitudinal and multi-site imaging data.
@@ -156,8 +159,8 @@ longitudinal differences may reflect both true biological change and
 systematic scanner/site effects, motivating the need for harmonisation
 methods.
 
-1. Within-Subject Variability
------------------------------
+Within-Subject Variability
+--------------------------
 
 This function quantifies variability across repeated measurements within
 the same subject.
@@ -181,7 +184,7 @@ the **coefficient of variation (CoV)**:
 
 Lower values indicate better agreement across scans/sites/scanners.
 
-.. code:: ipython3
+.. code:: python
     
     # Let's simulate 30 subjects, acquired at 2 timepoints and has 2 features
     
@@ -219,7 +222,7 @@ Lower values indicate better agreement across scans/sites/scanners.
     4        3       TP0  Site_A     1873.6     2923.9
 
 
-.. code:: ipython3
+.. code:: python
 
     # Run code for calculating within-subject variability
     
@@ -311,8 +314,8 @@ timepoints, features etc. and run the code again.
    - within-subject variability values per subject/datapoint,
    - differences across features.
 
-*Questions*
-^^^^^^^^^^^
+Questions
+^^^^^^^^^
 
 - Which features pairs show the highest variability?
 - Which subjects show the lowest consistency?
@@ -320,7 +323,7 @@ timepoints, features etc. and run the code again.
   become larger?
 
 
-.. code:: ipython3
+.. code:: python
     
     # Let's simulate 30 subjects, acquired at 4 timepoints and has 5 features
     n_subjects=30
@@ -448,8 +451,8 @@ other features.
 
 --------------
 
-2. Subject Order Consistency
-----------------------------
+Subject Order Consistency
+-------------------------
 
 This function evaluates how consistently subjects retain their relative
 ordering across timepoints/scanners.
@@ -472,7 +475,7 @@ For harmonisation evaluation, strong and significant subject order
 consistency suggests that biological differences between subjects are
 preserved across scanners/timepoints.
 
-.. code:: ipython3
+.. code:: python
     
     # Let's simulate 15 subjects, acquired at 2 timepoints and has 2 features
     n_subjects=15
@@ -560,7 +563,7 @@ Tasks
 --------------
 
 
-.. code:: ipython3
+.. code:: python
     
     # Let's simulate 30 subjects, acquired at 4 timepoints and has 5 features
     n_subjects=30
@@ -719,11 +722,8 @@ Overall Interpretation
 
 --------------
 
-
---------------
-
-3. Additive Batch Effect
-------------------------
+Additive Batch Effect
+---------------------
 
 This test asks whether the scanner/site (``batch``) adds a systematic
 shift to the measurements after accounting for covariates and
@@ -767,8 +767,8 @@ are designed to remove.
 
 --------------
 
-4. Multiplicative Batch Effect
-------------------------------
+Multiplicative Batch Effect
+---------------------------
 
 This test asks whether the variance differs across batches/sites after
 accounting for covariates and subject-level random effects.
@@ -863,7 +863,7 @@ This simulation is useful for studying how additive and multiplicative
 scanner/site effects influence longitudinal analyses and harmonisation
 methods.
 
-.. code:: ipython3
+.. code:: python
     
     # Let's simulate some data: 100 subjects, 3 timepoints, 2 sites, features from 4 brain regions
     n_subjects=100
@@ -910,7 +910,7 @@ methods.
 .. image:: images/B2_N1_HarmonisationEvaluation_Solutions_18_1.png
 
 
-.. code:: ipython3
+.. code:: python
     
     feature_cols = [f"Feature_{i}" for i in range(1, n_features + 1)]
     

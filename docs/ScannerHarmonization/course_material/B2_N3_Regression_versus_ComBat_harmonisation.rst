@@ -1,11 +1,13 @@
-Regression vs ComBat-Based Harmonisation
-========================================
+.. _ScanHarm_B2_N3:
+
+========================
+Regression versus ComBat
+========================
 
 In this section, we compare regression-based harmonisation with
 ComBat-based harmonisation using simulated cross-sectional multi-site
 imaging data.
 
---------------
 Objectives
 ----------
 
@@ -82,7 +84,7 @@ After ComBat/neuroHarmonize harmonisation
 
 --------------
 
-.. code:: ipython3
+.. code:: python
 
     # Generate simulated data
     
@@ -156,7 +158,7 @@ After ComBat/neuroHarmonize harmonisation
 .. image:: images/B2_N3_Regression_versus_ComBat_harmonisation_Solutions_3_1.png
 
 
-.. code:: ipython3
+.. code:: python
 
     # Harmonise "Site/Batch" using regression
     
@@ -211,7 +213,7 @@ The figures illustrate the feature distributions across sites before and after h
 .. image:: images/B2_N3_Regression_versus_ComBat_harmonisation_Solutions_4_4.png
 
 
-.. code:: ipython3
+.. code:: python
 
     # Harmonise "Site/Batch" using ComBat
     features = [f"Feature_{i}" for i in range(1, n_features + 1)]
@@ -277,7 +279,7 @@ The figures illustrate the feature distributions across sites before and after h
 
 
 
-.. code:: ipython3
+.. code:: python
     
     ######## Simulate new data ########
     n_subjects=100
@@ -453,7 +455,7 @@ The figures illustrate the feature distributions across sites before and after h
 
 
 Longitudinal ComBat Harmonisation
-=================================
+---------------------------------
 
 Standard ComBat methods were originally developed for cross-sectional
 data, where each subject contributes a single observation.
@@ -466,7 +468,7 @@ data, where each subject contributes a single observation.
 --------------
 
 What does longitudinal ComBat do?
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Longitudinal ComBat extends the ComBat framework by incorporating
 subject-level random effects within a mixed-effects modeling framework.
@@ -479,10 +481,10 @@ longitudinal data.
 --------------
 
 Conceptual difference from standard ComBat
-------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Standard ComBat
-~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^
 
 Primarily models:
 
@@ -499,7 +501,7 @@ This assumes observations are independent.
 --------------
 
 Longitudinal ComBat
-~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^
 
 Adds subject-level random effects:
 
@@ -521,7 +523,7 @@ harmonisation.
 --------------
 
 Current Implementation
-----------------------
+~~~~~~~~~~~~~~~~~~~~~~
 
 At present, longitudinal ComBat is primarily available through an R
 implementation.
@@ -538,7 +540,7 @@ mainly implement standard (cross-sectional) ComBat approaches.
 --------------
 
 Key Takeaway
-------------
+~~~~~~~~~~~~
 
 For longitudinal imaging studies, explicitly modeling repeated subject
 measurements is important for reliable harmonisation.

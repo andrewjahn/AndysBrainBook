@@ -1,5 +1,8 @@
-Introduction into the effect of site
-====================================
+.. _ScanHarm_B1_N1:
+
+==========================
+What Is an Effect of Site?
+==========================
 
 Magnetic Resonance Imaging (MRI) studies are increasingly conducted
 across multiple imaging sites and scanners in order to collect larger
@@ -30,7 +33,7 @@ into downstream analyses and how these effects can bias statistical
 interpretation if they are not properly considered.
 
 Tutorial contents
-~~~~~~~~~~~~~~~~~
+-----------------
 
 -  Identify visual differences between MRI scans acquired at different
    sites
@@ -49,8 +52,8 @@ Tutorial contents
 -  Reflect on why harmonisation methods are important in large
    neuroimaging studies
 
-Section 1.1: Exploring image level differences
-----------------------------------------------
+Exploring image-level differences
+---------------------------------
 
 We will begin by examining structural MRI data from the *ON-Harmony
 travelling-heads study* [1]. In this dataset, the same participant was
@@ -96,8 +99,8 @@ The viewer allows you to scroll through the images in three orthogonal planes (a
 
 .. image:: images/B1_N1_Intro_To_Eos_Coronal.png
 
-Section 1.2: Basic image level statistics
------------------------------------------
+Basic image-level statistics
+----------------------------
 
 As previously mentioned, the protocols in this study were designed to be
 as similar to each other as scanners were allowed to be. Despite this,
@@ -124,8 +127,8 @@ See if there is a difference when using the registered image vs the raw image.
 .. image:: images/B1_N1_Intro_To_Eos_4_1.png
 
 
-Section 1.3: ROI/IDP differences due to scanner effects:
---------------------------------------------------------
+ROI and IDP differences due to scanner effects
+----------------------------------------------
 
 Differences observed at the image level often propagate into downstream
 quantitative measurements.

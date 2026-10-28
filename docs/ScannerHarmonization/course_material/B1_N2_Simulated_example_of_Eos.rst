@@ -1,9 +1,15 @@
-Section 1.4: Sample differences between scanners and sites
-----------------------------------------------------------
+.. _ScanHarm_B1_N2:
+
+=======================================
+Simulating Site Effects in Tabular Data
+=======================================
+
+Sample differences between scanners and sites
+---------------------------------------------
 
 **Modelling a single IDP**
 
-Now we have established that image level differences will propogate into
+Now we have established that image level differences will propagate into
 even the most simple derived metrics, such as volume measurements, we
 will look at how this may affect pooled, using *simulated* tabular
 multi-site datasets.
@@ -59,8 +65,8 @@ the resulting histograms.
 .. image:: images/B1_N2_Simulated_example_of_Eos_3_1.png
 
 
-Section 1.5: Non-biological site differences
---------------------------------------------
+Non-biological site differences
+-------------------------------
 
 So far, we have simulated biological variation without major
 scanner-related distortions. We will now introduce explicit batch
@@ -102,7 +108,7 @@ As you explore the simulations, think carefully about:
 
 -  How difficult would it be to separate these effects in a real study?
 
-.. code:: ipython3
+.. code:: python
     
     # Add some batch effects to the data and see how they impact the distribution of the outcome variable. 
     # We will simulate data with 3 batches, each with different covariate distributions and batch effects.
@@ -153,8 +159,8 @@ spurious findings.
 .. image:: images/B1_N2_Simulated_example_of_Eos_7_1.png
 
 
-Summary:
---------
+Summary
+-------
 
 *In this tutorial, we explored how scanner and site effects can
 influence neuroimaging data at multiple levels, from raw image
@@ -170,10 +176,10 @@ will remain essential for ensuring reliable, reproducible, and
 biologically meaningful results.*
 
 Analysing batch effects in MRI data with DiagnoseHarmonise (DHARM)
-==================================================================
+------------------------------------------------------------------
 
 Why this matters
-----------------
+~~~~~~~~~~~~~~~~
 
 In multi-site MRI studies, scanner and site effects can influence
 neuroimaging data at several levels: raw image appearance, derived
@@ -190,7 +196,7 @@ while preserving meaningful biological signal. Comparing the data
 check that the method has worked as intended.
 
 DiagnoseHarmonise (DHARM)
--------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
 DiagnoseHarmonise (DHARM) is a Python library for the streamlined
 application and assessment of harmonisation algorithms at the
@@ -202,18 +208,18 @@ as a desktop GUI launcher for cross-sectional analyses.
 
 You can install or explore the library via:
 
--  **PyPI** pip install DiagnoseHarmonise
--  **GitHub**
+-  **PyPI** pip install DiagnoseHarmonisation
+-  **GitHub** https://github.com/Jake-Turnbull/HarmonisationDiagnostics
 
 Take-home message
------------------
+~~~~~~~~~~~~~~~~~
 
 As imaging datasets continue to grow in scale and complexity, robust
 harmonisation strategies and thoughtful study design remain essential
 for reliable, reproducible, and biologically meaningful results.
 
-Citations:
-==========
+References
+----------
 
 [1] Warrington, S., Torchi, A., Mougin, O. et al. A multi-site,
 multi-modal travelling-heads resource for brain MRI harmonisation. Sci

@@ -1,7 +1,10 @@
+.. _ScanHarm_B3_N1:
+
 .. _B3_N1_ComBat_limitations:
 
-Demonstrating the Limitations of ComBat and general location-scale models
-=========================================================================
+=================
+When ComBat Fails
+=================
 
 Overview
 --------
@@ -122,7 +125,7 @@ We then fit both linear and quadratic models to the data and evaluate their perf
 using R² (goodness of fit) and RMSE (error magnitude).  
 
 
-.. code:: ipython3
+.. code:: python
 
     # ---------------------------
     # Simulation parameters
@@ -203,7 +206,7 @@ as misspecification can lead to biased estimates and distorted results.
 .. image:: images/B3_N1_ComBat_limitations_4_0.png
 
 
-.. code:: ipython3
+.. code:: python
 
     # ---------------------------
     # Fit linear and quadratic models
@@ -239,7 +242,7 @@ bias + scaling errors
 
 RMSE is about accuracy, not just shape
 
-.. code:: ipython3
+.. code:: python
 
     results_linear = []
     results_nonlinear = []
@@ -300,7 +303,7 @@ reliable estimate of the false positive rate, we repeat the entire
 simulation multiple times with different random seeds.
 
 
-.. code:: ipython3
+.. code:: python
 
     # Run multiple simulations to assess FPR and correlations
     def run_fpr_simulation(seed, n=800, n_features=20):
@@ -471,7 +474,7 @@ variable representing scanner quality (e.g., SNR), and a continuous
 scanner effect that depends on this latent variable.
 
 
-.. code:: ipython3
+.. code:: python
 
     # Simulation parameters
     n = 800
@@ -520,7 +523,7 @@ scanner effect that depends on this latent variable.
 
 Apply ComBat
 
-.. code:: ipython3
+.. code:: python
 
     covars = pd.DataFrame({"batch": scanner, "age": age, "disease": disease, "sex": sex})
     
@@ -549,7 +552,7 @@ and whether any residual correlation remains after harmonization.
 
 
 
-.. code:: ipython3
+.. code:: python
 
     corr_residual = np.corrcoef(scanner_quality, Y_combat[j])[0, 1]
     corr_raw = np.corrcoef(scanner_quality, Y_obs[j])[0, 1]

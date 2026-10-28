@@ -1,5 +1,8 @@
-Image harmonisation using histogram matching
-============================================
+.. _ScanHarm_B4_N2:
+
+======================================
+Harmonising Images: Histogram Matching
+======================================
 
 In this example, we will:
 
@@ -67,7 +70,7 @@ Before matching, we first look at the intensity distributions of the
 reference and source images. We remove background voxels so the
 histograms focus on brain tissue rather than air.
 
-.. code:: ipython3
+.. code:: python
 
     # Imports packages
     
@@ -118,7 +121,7 @@ Histogram matching adjusts the source image so that its intensity
 distribution becomes more similar to the reference image. This is a
 simple example of harmonisation across scans or sessions.
 
-.. code:: ipython3
+.. code:: python
 
     # Apply histogram matching
     matched_img = ants.histogram_match_image(source_img, reference_img)
@@ -138,7 +141,7 @@ Now we plot the histogram of the matched image alongside the original
 reference and source images. If matching worked well, the matched
 histogram should look more similar to the reference histogram.
 
-.. code:: ipython3
+.. code:: python
 
     # Plot histogram after matching
     
@@ -192,7 +195,7 @@ These tools provide interactive control over intensity scaling,
 orientation, overlays, and anatomical navigation, which are important
 for accurate interpretation and quality assessment.
 
-.. code:: ipython3
+.. code:: python
 
     # Slice view: use each image's own middle slice
     ref_mid = ref_np.shape[2] // 2
@@ -242,7 +245,7 @@ obtain an approximate tissue volume.
 This comparison is intended as an illustrative example of how histogram
 matching can affect downstream quantitative measures.
 
-.. code:: ipython3
+.. code:: python
 
     # This function will calculate the volumes for FAST
     
@@ -276,7 +279,7 @@ matching can affect downstream quantitative measures.
     
         return volume_ml, voxel_volume_mm3, data.shape
 
-.. code:: ipython3
+.. code:: python
 
     repo_root    = Path.cwd().parent.parent
     ref_dir      = repo_root / "data" / "data_block4" / "histmatching_data" / "sub-03286" / "ses-OXF1PRI001" 
@@ -373,7 +376,7 @@ Solution
 ~~~~~~~~
 
 We downloaded data from one of the participants from this
-`link <(https://openneuro.org/datasets/ds004712/versions/2.0.1)>`__. You
+`link <https://openneuro.org/datasets/ds004712/versions/2.0.1>`__. You
 can check the solutions of this notebook
 `here <https://github.com/N-Nieto/OHBM2026_Educational_course_harmonization/tree/main/solutions/block04/B4_N2_histmatching_exercise>`__.
 
@@ -416,7 +419,7 @@ degrade when applied across different vendors or acquisition protocols.
 More advanced harmonisation approaches (see below) are typically more
 appropriate for multi-site and multi-vendor studies.
 
-.. code:: ipython3
+.. code:: python
 
     import ants
     import numpy as np
@@ -496,8 +499,8 @@ appropriate for multi-site and multi-vendor studies.
 .. image:: images/B4_N2_HarmoniseImages_Solutions_16_1.png
 
 
-## Advanced Image-Level Harmonisation Approaches
-------------------------------------------------
+Advanced Image-Level Harmonisation Approaches
+---------------------------------------------
 
 A growing number of methods aim to address scanner and acquisition
 variability directly at the image level, often using deep learning,
