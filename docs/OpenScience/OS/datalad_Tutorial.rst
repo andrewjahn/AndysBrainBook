@@ -13,7 +13,7 @@ Datalad Tutorial and Pre-Registration
 
 If you have ever downloaded a dataset from an open-access repository such as `OpenNeuro <https://openneuro.org/>`__, you have probably just clicked on the "Download" button next to whatever dataset you wanted to look at. This works in most cases, but it can be tedious to do for every single file, especially for dataset with dozens or hundreds of scans.
 
-Another approach is to use Amazon Web Servces (aws) by using their `Command Line Interface <https://aws.amazon.com/cli/>`__; this requires downloading their "aws" command and then using it to download the entire dataset. After installing the command, you can use it to download an entire dataset in one go, which is more efficient than downloading each subject or file manually.
+Another approach is to use Amazon Web Services (aws) by using their `Command Line Interface <https://aws.amazon.com/cli/>`__; this requires downloading their "aws" command and then using it to download the entire dataset. After installing the command, you can use it to download an entire dataset in one go, which is more efficient than downloading each subject or file manually.
 
 Yet another approach which combines the advantages of both of the above is called `datalad <https://handbook.datalad.org/en/latest/index.html>`__, a data management tool that allows you the flexibility to download specific files using the command line. Datalad is built on `git-annex <https://git-annex.branchable.com/>`__, a data synchronization tool that allows you to download the entire dataset structure without any of the actual data, and then decide which files to download individually, or whether to download all of the data. The following tutorial assumes that you are using a Macintosh operating system, although the same commands should work in Linux operating systems, or in Windows Powershell.
 
@@ -101,7 +101,7 @@ At that point, we would use the same steps as we did in the :ref:`AFNI tutorial 
 Summary
 *******
 
-You have now learned how to used datalad to both download a dataset from OpenNeuro, and how to download a code repository from Github to analyze the dataset. In the next tutorials, we will learn some other features of datalad, including how to populate a new dataset and how to use it for version control.
+You have now learned how to use datalad to both download a dataset from OpenNeuro, and how to download a code repository from Github to analyze the dataset. In the next tutorials, we will learn some other features of datalad, including how to populate a new dataset and how to use it for version control.
 
 Video 
 *****
