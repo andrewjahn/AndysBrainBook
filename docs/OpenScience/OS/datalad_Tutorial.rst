@@ -5,10 +5,6 @@ Datalad Tutorial and Pre-Registration
 =====================================
 
 
-.. note::
-
-  This page is under construction. Please check back soon! (i.e., one week)
-
 -----------
 
 If you have ever downloaded a dataset from an open-access repository such as `OpenNeuro <https://openneuro.org/>`__, you have probably just clicked on the "Download" button next to whatever dataset you wanted to look at. This works in most cases, but it can be tedious to do for every single file, especially for datasets with dozens or hundreds of scans.
