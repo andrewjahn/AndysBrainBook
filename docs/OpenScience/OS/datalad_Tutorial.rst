@@ -106,4 +106,4 @@ You have now learned how to use datalad to both download a dataset from OpenNeur
 Video 
 *****
 
-For a video demonstration of how to use datalad to download and analyze the Flanker dataset, click here.
+For a video demonstration of how to use datalad to download and analyze the Flanker dataset, click `here <https://youtu.be/WvGrUeJh9qA>`__.
