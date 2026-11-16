@@ -73,3 +73,32 @@ After creating the directory, we can populate it with subdirectories and files. 
   wget -q https://s3.amazonaws.com/openneuro.org/ds002422/sub-03/anat/sub-03_T1w.nii?versionId=CyedfK.R1wleGw1ghETHb_mQSnrvPFec -O myAnat.nii.gz
 
 This will create a directory, ``myData``, and a subdirectory, ``myAnat``. The ``wget`` command is then used with the pasted URL link to download the anatomical dataset, and the ``-O`` option saves it as a more readable filename; in this case, ``myAnat.nii.gz``.
+
+We can add another file - for example, an fMRI dataset from the same subject - into another directory called ``myFunc``:
+
+::
+
+  cd ..
+  mkdir myFunc
+  cd myFunc
+  wget -q https://s3.amazonaws.com/openneuro.org/ds000102/sub-01/func/sub-01_task-flanker_run-1_bold.nii.gz?versionId=P1v.VUaJtaGZw8dvicioNphrTyOV1E0N
+  cd ..
+
+To make a note of what we have done so far, we can use ``datalad save`` to record the history of our files so far, specifically what was done to them, and include any other information that might be useful:
+
+::
+  
+  datalad save -m "add anatomical and functional data for analysis"
+
+This can all be reviewed later with:
+
+::
+
+  git log -p -n 1
+
+This code will show the last commit (specified by the ``-n 1`` option), and the ``-p`` option tells git to provide more details:
+
+::
+
+  Show output here
+
