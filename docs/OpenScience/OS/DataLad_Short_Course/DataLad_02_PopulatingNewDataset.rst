@@ -102,3 +102,35 @@ This code will show the last commit (specified by the ``-n 1`` option), and the 
 
   Show output here
 
+DataLad can also be used to save commit messages to specific files. For example, if we download the subject's other functional run, we can save a commit with:
+
+::
+
+  cd myFunc
+  wget -q https://s3.amazonaws.com/openneuro.org/ds000102/sub-01/func/sub-01_task-flanker_run-2_bold.nii.gz?versionId=FwPb0ppkhnqG28mWO08A7.v9XpnMKZ9c
+  cd ..
+  datalad save -m "add second functional run for sub-01" func/sub-01_task-flanker_run-2_bold.nii.gz
+
+Instead of downloading and saving commits for each individual file, we can do both at the same time with ``datalad download-url``:
+
+::
+
+  datalad download-url \
+  https://openneuro.org/crn/datasets/ds000102/objects/8f16de88eebaf06fc7879429714f2f4363fdf5ef?filename=sub-01_task-flanker_run-2_events.tsv \
+  -m "add timing information file for run 2" \
+  -O func/sub-01_task-flanker_run-2_events.tsv
+
+You can check whether all of the files have commits by typing ``datalad status``, and then ``git log --oneline`` to see a summary of all the commits in this folder.
+
+
+Summary
+*******
+
+This tutorial showed how datalad can be used to download files and add commit messages about their provenance and history. Although there are commands that take care of many of the details for you - such as ``datalad download-url``, demonstrated here, or ``datalad install``, presented in the previous chapter - knowing the details of saving commits with datalad gives you more fleixibility with downloading and tracking any data that you use.
+
+
+Video
+*****
+
+For a video demonstration of how to populate a dataset using datalad, click here [supply link].
+
