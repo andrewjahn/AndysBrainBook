@@ -1,8 +1,8 @@
 .. _DataLad_02_PopulatingNewDataset:
 
-========================
-Populating a New Dataset
-========================
+=============================================
+DataLad Tutorial #2: Populating a New Dataset
+=============================================
 
 -----------
   
